@@ -20,6 +20,10 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Each new setting is a pair: (setting_name, default_value).
         # Prefix your setting names with 'OARS_'.
         ("OARS_VERSION", __version__),
+        ("SUPERSET_ADMIN_EMAIL", "admin@openedx.org"),
+        ("SUPERSET_CLICKHOUSE_XAPI_SCHEME", "xapi"),
+        ("SUPERSET_CLICKHOUSE_XAPI_TABLE", "xapi_events_all_parsed"),
+        ("SUPERSET_XAPI_DASHBOARD_SLUG", "openedx-xapi"),
     ]
 )
 
@@ -31,6 +35,8 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         # Prefix your setting names with 'OARS_'.
         # For example:
         ### ("OARS_SECRET_KEY", "{{ 24|random_string }}"),
+        ("SUPERSET_ADMIN_USERNAME", "{{ 12|random_string }}"),
+        ("SUPERSET_ADMIN_PASSWORD", "{{ 24|random_string }}"),
     ]
 )
 
@@ -53,10 +59,8 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 # and then add it to the MY_INIT_TASKS list. Each task is in the format:
 # ("<service>", ("<path>", "<to>", "<script>", "<template>"))
 MY_INIT_TASKS: list[tuple[str, tuple[str, ...]]] = [
-    # For example, to add LMS initialization steps, you could add the script template at:
-    # tutoroars/templates/oars/jobs/init/lms.sh
-    # And then add the line:
-    ### ("lms", ("oars", "jobs", "init", "lms.sh")),
+    ("superset", ("oars", "jobs", "init", "superset-add-admin.sh")),
+    ("oars", ("oars", "jobs", "init", "superset-api-dashboard.sh")),
 ]
 
 
@@ -148,6 +152,36 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
     ],
 )
 
+
+# Initialization jobs
+OARS_DOCKER_COMPOSE_PYTHON_JOB = """
+  user: root
+  image: python:3.8.10
+  volumes:
+    - ../../env/plugins/oars/apps:/app/oars
+  depends_on:
+    - superset-app
+"""
+
+hooks.Filters.ENV_PATCHES.add_item(
+    (
+        "local-docker-compose-jobs-services",
+        f"""
+oars-job:
+  {OARS_DOCKER_COMPOSE_PYTHON_JOB}
+        """
+    )
+)
+
+hooks.Filters.ENV_PATCHES.add_item(
+    (
+        "local-docker-compose-dev-jobs-services",
+        f"""
+oars-job:
+  {OARS_DOCKER_COMPOSE_PYTHON_JOB}
+        """
+    )
+)
 
 ########################################
 # PATCH LOADING
