@@ -58,22 +58,22 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 # tutoroars/templates/oars/jobs/init/
 # and then add it to the MY_INIT_TASKS list. Each task is in the format:
 # ("<service>", ("<path>", "<to>", "<script>", "<template>"))
-MY_INIT_TASKS: list[tuple[str, tuple[str, ...]]] = [
-    ("superset", ("oars", "jobs", "init", "superset-add-admin.sh")),
-    ("oars", ("oars", "jobs", "init", "superset-api-dashboard.sh")),
+MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
+    ("superset", ("oars", "jobs", "init", "superset-add-admin.sh"), 100),
+    ("oars", ("oars", "jobs", "init", "superset-api-dashboard.sh"), 100),
 ]
 
 
 # For each task added to MY_INIT_TASKS, we load the task template
 # and add it to the CLI_DO_INIT_TASKS filter, which tells Tutor to
 # run it as part of the `init` job.
-for service, template_path in MY_INIT_TASKS:
+for service, template_path, priority in MY_INIT_TASKS:
     full_path: str = pkg_resources.resource_filename(
         "tutoroars", os.path.join("templates", *template_path)
     )
     with open(full_path, encoding="utf-8") as init_task_file:
         init_task: str = init_task_file.read()
-    hooks.Filters.CLI_DO_INIT_TASKS.add_item((service, init_task))
+    hooks.Filters.CLI_DO_INIT_TASKS.add_item((service, init_task), priority=priority)
 
 
 ########################################
