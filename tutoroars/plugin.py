@@ -24,6 +24,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("SUPERSET_CLICKHOUSE_XAPI_SCHEME", "xapi"),
         ("SUPERSET_CLICKHOUSE_XAPI_TABLE", "xapi_events_all_parsed"),
         ("SUPERSET_XAPI_DASHBOARD_SLUG", "openedx-xapi"),
+        ("SUPERSET_XAPI_ROW_LEVEL_SECURITY_COURSE_ID_KEY", "xapi_course_id"),
     ]
 )
 
@@ -61,6 +62,7 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
     ("superset", ("oars", "jobs", "init", "superset-add-admin.sh"), 100),
     ("oars", ("oars", "jobs", "init", "superset-api-dashboard.sh"), 100),
+    ("superset", ("oars", "jobs", "init", "superset-init-security.sh"), 100),
 ]
 
 
