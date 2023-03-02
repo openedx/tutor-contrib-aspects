@@ -25,6 +25,11 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("SUPERSET_CLICKHOUSE_XAPI_TABLE", "xapi_events_all_parsed"),
         ("SUPERSET_XAPI_DASHBOARD_SLUG", "openedx-xapi"),
         ("SUPERSET_XAPI_ROW_LEVEL_SECURITY_COURSE_ID_KEY", "xapi_course_id"),
+
+        # Demo data (optional)
+        ("CLICKHOUSE_LOAD_DEMO_DATA", "no"), # set to "xapi" to load xapi demo data into clickhouse
+        ("CLICKHOUSE_LOAD_DEMO_XAPI_BATCHES", "100"),
+        ("CLICKHOUSE_LOAD_DEMO_XAPI_BATCH_SIZE", "100"),
     ]
 )
 
@@ -60,6 +65,7 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 # and then add it to the MY_INIT_TASKS list. Each task is in the format:
 # ("<service>", ("<path>", "<to>", "<script>", "<template>"))
 MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
+    ("oars", ("oars", "jobs", "init", "clickhouse-demo-xapi-data.sh"), 100),
     ("superset", ("oars", "jobs", "init", "superset-add-admin.sh"), 100),
     ("oars", ("oars", "jobs", "init", "superset-api-dashboard.sh"), 100),
     ("superset", ("oars", "jobs", "init", "superset-init-security.sh"), 100),
@@ -163,6 +169,7 @@ OARS_DOCKER_COMPOSE_PYTHON_JOB = """
     - ../../env/plugins/oars/apps:/app/oars
   depends_on:
     - superset
+    - clickhouse_service
 """
 
 hooks.Filters.ENV_PATCHES.add_item(
