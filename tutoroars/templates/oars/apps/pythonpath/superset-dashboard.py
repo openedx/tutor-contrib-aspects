@@ -8,7 +8,7 @@ import tempfile
 from supersetapiclient.client import SupersetClient
 
 SUPERSET_URL_SCHEME = "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}"
-SUPERSET_HOST_URL = f"{SUPERSET_URL_SCHEME}://superset-app:{{ SUPERSET_PORT }}"
+SUPERSET_HOST_URL = f"{SUPERSET_URL_SCHEME}://superset:{{ SUPERSET_PORT }}"
 SUPERSET_ADMIN_USERNAME = "{{ SUPERSET_ADMIN_USERNAME }}"
 SUPERSET_ADMIN_PASSWORD = "{{ SUPERSET_ADMIN_PASSWORD }}"
 SUPERSET_DATA_ASSETS_DIR = "/app/oars/data/assets/"

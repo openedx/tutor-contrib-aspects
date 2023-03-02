@@ -162,7 +162,7 @@ OARS_DOCKER_COMPOSE_PYTHON_JOB = """
   volumes:
     - ../../env/plugins/oars/apps:/app/oars
   depends_on:
-    - superset-app
+    - superset
 """
 
 hooks.Filters.ENV_PATCHES.add_item(
