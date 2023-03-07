@@ -1,0 +1,132 @@
+dashboard_title: xAPI events
+description: null
+css: ''
+slug: {{ SUPERSET_XAPI_DASHBOARD_SLUG }}
+uuid: 1d812df2-573b-4cdf-ae22-7123fef608e5
+position:
+  CHART-I3rHzTOAQD:
+    children: []
+    id: CHART-I3rHzTOAQD
+    meta:
+      chartId: 2
+      height: 50
+      sliceName: xAPI problem events by block
+      uuid: 742759ee-9765-4f23-abaa-9d87aa499c3a
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-wGxsERBpnN
+    type: CHART
+  CHART-UNJLNKIN:
+    children: []
+    id: CHART-UNJLNKIN
+    meta:
+      chartId: 3
+      height: 50
+      sliceName: xAPI events by course
+      uuid: 5e0bcb88-206f-494a-8501-bde923b39855
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-wGxsERBpnN
+    type: CHART
+  DASHBOARD_VERSION_KEY: v2
+  GRID_ID:
+    children:
+    - ROW-wGxsERBpnN
+    id: GRID_ID
+    parents:
+    - ROOT_ID
+    type: GRID
+  HEADER_ID:
+    id: HEADER_ID
+    meta:
+      text: xAPI events
+    type: HEADER
+  ROOT_ID:
+    children:
+    - GRID_ID
+    id: ROOT_ID
+    type: ROOT
+  ROW-wGxsERBpnN:
+    children:
+    - CHART-UNJLNKIN
+    - CHART-I3rHzTOAQD
+    id: ROW-wGxsERBpnN
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+metadata:
+  show_native_filters: true
+  color_scheme: ''
+  refresh_frequency: 0
+  expanded_slices: {}
+  label_colors: {}
+  timed_refresh_immune_slices: []
+  default_filters: '{}'
+  chart_configuration: {}
+  native_filter_configuration:
+  - id: NATIVE_FILTER-Vfmx42T9R
+    controlValues:
+      enableEmptyFilter: false
+      defaultToFirstItem: false
+      multiSelect: true
+      searchAllOptions: false
+      inverseSelection: false
+    name: course_key
+    filterType: filter_select
+    targets:
+    - column:
+        name: course_key
+      datasetUuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    cascadeParentIds: []
+    scope:
+      rootPath:
+      - ROOT_ID
+      excluded:
+      - 6
+    type: NATIVE_FILTER
+    description: ''
+    chartsInScope:
+    - 2
+    tabsInScope: []
+  - id: NATIVE_FILTER-IjRG0w8V2
+    controlValues:
+      enableEmptyFilter: false
+      defaultToFirstItem: false
+      multiSelect: true
+      searchAllOptions: false
+      inverseSelection: false
+    name: block_key
+    filterType: filter_select
+    targets:
+    - column:
+        name: block_key
+      datasetUuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    cascadeParentIds:
+    - NATIVE_FILTER-Vfmx42T9R
+    scope:
+      rootPath:
+      - ROOT_ID
+      excluded:
+      - 4
+    type: NATIVE_FILTER
+    description: ''
+    chartsInScope:
+    - 2
+    tabsInScope: []
+  shared_label_colors: {}
+version: 1.0.0
