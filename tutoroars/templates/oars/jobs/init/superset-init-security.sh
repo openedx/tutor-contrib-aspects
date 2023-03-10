@@ -12,7 +12,7 @@ set -e
 superset shell <<EOF
 import logging
 from superset.connectors.sqla.models import (
-    RowLevelSecurityFilter, 
+    RowLevelSecurityFilter,
     RLSFilterRoles,
     SqlaTable,
 )
@@ -29,11 +29,11 @@ assert openedx_role, "{{SUPERSET_OPENEDX_ROLE_NAME}} role doesn't exist yet?"
 
 # Fetch the xapi table we want to restrict access to
 xapi_table = session.query(SqlaTable).filter(
-    SqlaTable.schema == "{{SUPERSET_CLICKHOUSE_XAPI_SCHEME}}"
+    SqlaTable.schema == "{{OARS_XAPI_DATABASE}}"
 ).filter(
-    SqlaTable.table_name == "{{SUPERSET_CLICKHOUSE_XAPI_TABLE}}"
+    SqlaTable.table_name == "{{OARS_XAPI_TABLE}}"
 ).first()
-assert xapi_table, "{{SUPERSET_CLICKHOUSE_XAPI_SCHEME}}.{{SUPERSET_CLICKHOUSE_XAPI_TABLE}} table doesn't exist yet?"
+assert xapi_table, "{{OARS_XAPI_DATABASE}}.{{OARS_XAPI_TABLE}} table doesn't exist yet?"
 
 # See if the Row Level Security Filter already exists
 group_key = "{{SUPERSET_XAPI_ROW_LEVEL_SECURITY_COURSE_ID_KEY}}"
