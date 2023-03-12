@@ -76,7 +76,6 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
         # Each override is a pair: (setting_name, new_value). For example:
         ### ("PLATFORM_NAME", "My platform"),
         # Superset overrides
-        ("SUPERSET_ADMIN_EMAIL", "admin@openedx.org"),
         ("SUPERSET_XAPI_DASHBOARD_SLUG", "openedx-xapi"),
         ("SUPERSET_XAPI_ROW_LEVEL_SECURITY_COURSE_ID_KEY", "xapi_course_id"),
     ]
@@ -93,7 +92,6 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 # ("<service>", ("<path>", "<to>", "<script>", "<template>"))
 MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
     ("oars", ("oars", "jobs", "init", "oars_init_schemas_tables_users.sh"), 96),
-    ("superset", ("oars", "jobs", "init", "superset-add-admin.sh"), 97),
     ("oars", ("oars", "jobs", "init", "superset-api-dashboard.sh"), 98),
     ("superset", ("oars", "jobs", "init", "superset-init-security.sh"), 99),
     ("oars", ("oars", "jobs", "init", "clickhouse-demo-xapi-data.sh"), 100),
