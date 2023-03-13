@@ -15,7 +15,7 @@ SUPERSET_DATA_ASSETS_DIR = "/app/oars/data/assets/"
 SUPERSET_DB_PASSWORDS = {
     # Database names neet to match file names under SUPERSET_DATA_ASSETS_DIR/databases/
     "OpenedX_MySQL": "{{ OPENEDX_MYSQL_PASSWORD }}",
-    "OpenedX_Clickhouse": "{{ CLICKHOUSE_REPORT_PASSWORD }}",
+    "OpenedX_Clickhouse": "{{ OARS_CLICKHOUSE_REPORT_PASSWORD }}",
 }
 OPENEDX_DASHBOARD_SLUG = "{{ SUPERSET_XAPI_DASHBOARD_SLUG }}"
 

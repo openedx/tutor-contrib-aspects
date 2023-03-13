@@ -1,10 +1,10 @@
-table_name: {{ SUPERSET_CLICKHOUSE_XAPI_TABLE }}
+table_name: {{ OARS_XAPI_TABLE }}
 main_dttm_col: emission_time
 description: null
 default_endpoint: null
 offset: 0
 cache_timeout: null
-schema: {{ SUPERSET_CLICKHOUSE_XAPI_SCHEME }}
+schema: {{ OARS_XAPI_DATABASE }}
 sql: null
 params: null
 template_params: null

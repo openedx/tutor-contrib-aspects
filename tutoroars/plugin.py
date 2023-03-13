@@ -20,16 +20,27 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Each new setting is a pair: (setting_name, default_value).
         # Prefix your setting names with 'OARS_'.
         ("OARS_VERSION", __version__),
-        ("SUPERSET_ADMIN_EMAIL", "admin@openedx.org"),
-        ("SUPERSET_CLICKHOUSE_XAPI_SCHEME", "xapi"),
-        ("SUPERSET_CLICKHOUSE_XAPI_TABLE", "xapi_events_all_parsed"),
-        ("SUPERSET_XAPI_DASHBOARD_SLUG", "openedx-xapi"),
-        ("SUPERSET_XAPI_ROW_LEVEL_SECURITY_COURSE_ID_KEY", "xapi_course_id"),
+
+        # ClickHouse xAPI settings
+        ("OARS_XAPI_DATABASE", "xapi"),
+        ("OARS_RAW_XAPI_TABLE", "xapi_events_all"),
+        ("OARS_XAPI_TRANSFORM_MV", "xapi_events_all_parsed_mv"),
+        ("OARS_XAPI_TABLE", "xapi_events_all_parsed"),
+
+        # ClickHouse Coursegraph setting
+        ("OARS_COURSEGRAPH_DATABASE", "coursegraph"),
+        ("OARS_COURSEGRAPH_NODES_TABLE", "coursegraph_nodes"),
+        ("OARS_COURSEGRAPH_RELATIONSHIPS_TABLE", "coursegraph_relationships"),
+
+        # Make sure LMS / CMS have evnet-routing-backends installed
+        # TODO: Do a new release and pin this! Also add config!
+        ("OPENEDX_EXTRA_PIP_REQUIREMENTS", "event-routing-backends"),
 
         # Demo data (optional)
-        ("CLICKHOUSE_LOAD_DEMO_DATA", "no"), # set to "xapi" to load xapi demo data into clickhouse
-        ("CLICKHOUSE_LOAD_DEMO_XAPI_BATCHES", "100"),
-        ("CLICKHOUSE_LOAD_DEMO_XAPI_BATCH_SIZE", "100"),
+        # set to "xapi" to load xapi demo data into clickhouse
+        ("OARS_CLICKHOUSE_LOAD_DEMO_DATA", "no"),
+        ("OARS_CLICKHOUSE_LOAD_DEMO_XAPI_BATCHES", "100"),
+        ("OARS_CLICKHOUSE_LOAD_DEMO_XAPI_BATCH_SIZE", "100"),
     ]
 )
 
@@ -41,8 +52,20 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         # Prefix your setting names with 'OARS_'.
         # For example:
         ### ("OARS_SECRET_KEY", "{{ 24|random_string }}"),
-        ("SUPERSET_ADMIN_USERNAME", "{{ 12|random_string }}"),
-        ("SUPERSET_ADMIN_PASSWORD", "{{ 24|random_string }}"),
+
+        # Note! The CLICKHOUSE_ADMIN_USER is managed in the ClickHouse plugin.
+
+        # LRS user is used by Ralph to insert into ClickHouse aXPI tables
+        ("OARS_CLICKHOUSE_LRS_USER", "ch_lrs"),
+        ("OARS_CLICKHOUSE_LRS_PASSWORD", "{{ 24|random_string }}"),
+
+        # Report user is used by Superset to read from ClickHouse tables
+        ("OARS_CLICKHOUSE_REPORT_USER", "ch_report"),
+        ("OARS_CLICKHOUSE_REPORT_PASSWORD", "{{ 24|random_string }}"),
+
+        # CMS user is used by CMS to insert into Coursegraph tables
+        ("OARS_CLICKHOUSE_CMS_USER", "ch_cms"),
+        ("OARS_CLICKHOUSE_CMS_PASSWORD", "{{ 24|random_string }}"),
     ]
 )
 
@@ -52,6 +75,9 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
         # Add values to override settings from Tutor core or other plugins here.
         # Each override is a pair: (setting_name, new_value). For example:
         ### ("PLATFORM_NAME", "My platform"),
+        # Superset overrides
+        ("SUPERSET_XAPI_DASHBOARD_SLUG", "openedx-xapi"),
+        ("SUPERSET_XAPI_ROW_LEVEL_SECURITY_COURSE_ID_KEY", "xapi_course_id"),
     ]
 )
 
@@ -65,7 +91,7 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 # and then add it to the MY_INIT_TASKS list. Each task is in the format:
 # ("<service>", ("<path>", "<to>", "<script>", "<template>"))
 MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
-    ("superset", ("oars", "jobs", "init", "superset-add-admin.sh"), 97),
+    ("oars", ("oars", "jobs", "init", "oars_init_schemas_tables_users.sh"), 96),
     ("oars", ("oars", "jobs", "init", "superset-api-dashboard.sh"), 98),
     ("superset", ("oars", "jobs", "init", "superset-init-security.sh"), 99),
     ("oars", ("oars", "jobs", "init", "clickhouse-demo-xapi-data.sh"), 100),
@@ -169,7 +195,7 @@ OARS_DOCKER_COMPOSE_PYTHON_JOB = """
     - ../../env/plugins/oars/apps:/app/oars
   depends_on:
     - superset
-    - clickhouse_service
+    - clickhouse
 """
 
 hooks.Filters.ENV_PATCHES.add_item(
