@@ -1,5 +1,5 @@
 database_name: OpenedX MySQL
-sqlalchemy_uri: mysql+mysqldb://openedx:XXXXXXXXXX@mysql:3306/openedx
+sqlalchemy_uri: mysql+mysqldb://{{OPENEDX_MYSQL_USERNAME}}:XXXXXXXXXX@{{MYSQL_HOST}}:{{MYSQL_PORT}}/{{OPENEDX_MYSQL_DATABASE}}
 cache_timeout: null
 expose_in_sqllab: true
 allow_run_async: false
