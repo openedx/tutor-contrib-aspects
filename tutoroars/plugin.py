@@ -95,6 +95,7 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
     ("oars", ("oars", "jobs", "init", "superset-api-dashboard.sh"), 98),
     ("superset", ("oars", "jobs", "init", "superset-init-security.sh"), 99),
     ("oars", ("oars", "jobs", "init", "clickhouse-demo-xapi-data.sh"), 100),
+    ("lms", ("oars", "jobs", "init", "configure-oars-lms.sh"), 101),
 ]
 
 
