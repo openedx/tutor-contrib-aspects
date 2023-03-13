@@ -196,6 +196,7 @@ OARS_DOCKER_COMPOSE_PYTHON_JOB = """
   depends_on:
     - superset
     - clickhouse
+    - ralph
 """
 
 hooks.Filters.ENV_PATCHES.add_item(
