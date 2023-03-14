@@ -34,7 +34,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
 
         # Make sure LMS / CMS have evnet-routing-backends installed
         # TODO: Do a new release and pin this! Also add config!
-        ("OPENEDX_EXTRA_PIP_REQUIREMENTS", "event-routing-backends"),
+        ("OPENEDX_EXTRA_PIP_REQUIREMENTS", ["edx-event-routing-backends"]),
 
         # Demo data (optional)
         # set to "xapi" to load xapi demo data into clickhouse
