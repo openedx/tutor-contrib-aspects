@@ -14,7 +14,7 @@ xapi-db-load --backend ralph_clickhouse \
     --db_username "{{ CLICKHOUSE_ADMIN_USER }}" \
     --db_password "{{ CLICKHOUSE_ADMIN_PASSWORD }}" \
     --db_name "{{ OARS_XAPI_DATABASE }}" \
-    --lrs_url "http://ralph:{{ RALPH_PORT }}/xAPI/statements/" \
+    --lrs_url "{{RALPH_HTTP_PROTOCOL}}{{ RALPH_HOST }}:{{ RALPH_PORT }}/xAPI/statements/" \
     --lrs_username "{{RALPH_LMS_USERNAME}}" \
     --lrs_password "{{RALPH_LMS_PASSWORD}}"
 
