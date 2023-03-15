@@ -17,7 +17,7 @@ case "{{ OARS_CLICKHOUSE_LOAD_DEMO_DATA }}" in
             --db_username "{{ CLICKHOUSE_ADMIN_USER }}" \
             --db_password "{{ CLICKHOUSE_ADMIN_PASSWORD }}" \
             --db_name "{{ OARS_XAPI_DATABASE }}" \
-            --lrs_url "http://ralph:8100/xAPI/statements/" \
+            --lrs_url "http://ralph:{{ RALPH_PORT }}/xAPI/statements/" \
             --lrs_username "{{RALPH_LMS_USERNAME}}" \
             --lrs_password "{{RALPH_LMS_PASSWORD}}"
 
