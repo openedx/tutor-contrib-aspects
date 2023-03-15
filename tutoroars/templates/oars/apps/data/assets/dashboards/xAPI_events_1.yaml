@@ -18,20 +18,6 @@ position:
     - GRID_ID
     - ROW-wGxsERBpnN
     type: CHART
-  CHART-P4JSfq27v8:
-    children: []
-    id: CHART-P4JSfq27v8
-    meta:
-      chartId: 4
-      height: 50
-      sliceName: Course Graph
-      uuid: 95361e70-eec2-4aa9-92aa-142c44a26554
-      width: 4
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - ROW-wGxsERBpnN
-    type: CHART
   CHART-UNJLNKIN:
     children: []
     id: CHART-UNJLNKIN
@@ -68,7 +54,6 @@ position:
     children:
     - CHART-UNJLNKIN
     - CHART-I3rHzTOAQD
-    - CHART-P4JSfq27v8
     id: ROW-wGxsERBpnN
     meta:
       background: BACKGROUND_TRANSPARENT
@@ -107,7 +92,8 @@ metadata:
     scope:
       rootPath:
       - ROOT_ID
-    excluded: []
+      excluded:
+      - 6
     type: NATIVE_FILTER
     description: ''
     chartsInScope:
@@ -135,7 +121,8 @@ metadata:
     scope:
       rootPath:
       - ROOT_ID
-    excluded: []
+      excluded:
+      - 4
     type: NATIVE_FILTER
     description: ''
     chartsInScope:
