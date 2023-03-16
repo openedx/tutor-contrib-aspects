@@ -16,7 +16,7 @@ position:
     parents:
     - ROOT_ID
     - GRID_ID
-    - ROW-wGxsERBpnN
+    - ROW-9nvIv3Efqw
     type: CHART
   CHART-UNJLNKIN:
     children: []
@@ -31,6 +31,20 @@ position:
     - ROOT_ID
     - GRID_ID
     - ROW-wGxsERBpnN
+    type: CHART
+  CHART-f2w7wR8-ty:
+    children: []
+    id: CHART-f2w7wR8-ty
+    meta:
+      chartId: 9
+      height: 50
+      sliceName: Problem Difficulty
+      uuid: 3accd553-4838-4267-b12e-e0f951a841b4
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-9nvIv3Efqw
     type: CHART
   CHART-rR3q_1m4xG:
     children: []
@@ -50,6 +64,7 @@ position:
   GRID_ID:
     children:
     - ROW-wGxsERBpnN
+    - ROW-9nvIv3Efqw
     id: GRID_ID
     parents:
     - ROOT_ID
@@ -57,18 +72,28 @@ position:
   HEADER_ID:
     id: HEADER_ID
     meta:
-      text: xAPI events
+      text: Open edX Dashboard
     type: HEADER
   ROOT_ID:
     children:
     - GRID_ID
     id: ROOT_ID
     type: ROOT
+  ROW-9nvIv3Efqw:
+    children:
+    - CHART-I3rHzTOAQD
+    - CHART-f2w7wR8-ty
+    id: ROW-9nvIv3Efqw
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
   ROW-wGxsERBpnN:
     children:
     - CHART-rR3q_1m4xG
     - CHART-UNJLNKIN
-    - CHART-I3rHzTOAQD
     id: ROW-wGxsERBpnN
     meta:
       background: BACKGROUND_TRANSPARENT
