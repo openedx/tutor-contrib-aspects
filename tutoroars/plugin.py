@@ -34,13 +34,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
 
         # Make sure LMS / CMS have evnet-routing-backends installed
         # TODO: Do a new release and pin this! Also add config!
-        ("OPENEDX_EXTRA_PIP_REQUIREMENTS", "event-routing-backends"),
-
-        # Demo data (optional)
-        # set to "xapi" to load xapi demo data into clickhouse
-        ("OARS_CLICKHOUSE_LOAD_DEMO_DATA", "no"),
-        ("OARS_CLICKHOUSE_LOAD_DEMO_XAPI_BATCHES", "100"),
-        ("OARS_CLICKHOUSE_LOAD_DEMO_XAPI_BATCH_SIZE", "100"),
+        ("OPENEDX_EXTRA_PIP_REQUIREMENTS", ["edx-event-routing-backends"]),
     ]
 )
 
@@ -94,7 +88,7 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
     ("oars", ("oars", "jobs", "init", "oars_init_schemas_tables_users.sh"), 96),
     ("oars", ("oars", "jobs", "init", "superset-api-dashboard.sh"), 98),
     ("superset", ("oars", "jobs", "init", "superset-init-security.sh"), 99),
-    ("oars", ("oars", "jobs", "init", "clickhouse-demo-xapi-data.sh"), 100),
+    ("lms", ("oars", "jobs", "init", "configure-oars-lms.sh"), 100),
 ]
 
 
@@ -196,6 +190,7 @@ OARS_DOCKER_COMPOSE_PYTHON_JOB = """
   depends_on:
     - superset
     - clickhouse
+    - ralph
 """
 
 hooks.Filters.ENV_PATCHES.add_item(
@@ -239,32 +234,25 @@ for path in glob(
 ########################################
 # CUSTOM JOBS (a.k.a. "do-commands")
 ########################################
-
-# A job is a set of tasks, each of which run inside a certain container.
-# Jobs are invoked using the `do` command, for example: `tutor local do importdemocourse`.
-# A few jobs are built in to Tutor, such as `init` and `createuser`.
-# You can also add your own custom jobs:
-
-# To add a custom job, define a Click command that returns a list of tasks,
-# where each task is a pair in the form ("<service>", "<shell_command>").
-# For example:
-### @click.command()
-### @click.option("-n", "--name", default="plugin developer")
-### def say_hi(name: str) -> list[tuple[str, str]]:
-###     """
-###     An example job that just prints 'hello' from within both LMS and CMS.
-###     """
-###     return [
-###         ("lms", f"echo 'Hello from LMS, {name}!'"),
-###         ("cms", f"echo 'Hello from CMS, {name}!'"),
-###     ]
+# Ex: "tutor dev do load-xapi-test-data"
+@click.command()
+@click.option("-n", "--num_batches", default=100)
+@click.option("-s", "--batch_size", default=100)
+def load_xapi_test_data(num_batches: int, batch_size: int) -> list[tuple[str, str]]:
+    """
+    Job that loads bogus test xAPI data to ClickHouse via Ralph.
+    """
+    return [
+        ("oars", "echo 'Making demo xapi script executable...' && "
+                 "chmod +x /app/oars/scripts/clickhouse-demo-xapi-data.sh && "
+                 "echo 'Done. Running script...' && "
+                 f"bash /app/oars/scripts/clickhouse-demo-xapi-data.sh {num_batches} {batch_size} && "
+                 "echo 'Done!';"),
+    ]
 
 
-# Then, add the command function to CLI_DO_COMMANDS:
-## hooks.Filters.CLI_DO_COMMANDS.add_item(say_hi)
-
-# Now, you can run your job like this:
-#   $ tutor local do say-hi --name="Brian Mesick, Jillian Vogel"
+# Add the command function to CLI_DO_COMMANDS:
+hooks.Filters.CLI_DO_COMMANDS.add_item(load_xapi_test_data)
 
 
 #######################################
