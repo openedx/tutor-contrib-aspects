@@ -71,7 +71,8 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
         ### ("PLATFORM_NAME", "My platform"),
         # Superset overrides
         ("SUPERSET_XAPI_DASHBOARD_SLUG", "openedx-xapi"),
-        ("SUPERSET_XAPI_ROW_LEVEL_SECURITY_COURSE_ID_KEY", "xapi_course_id"),
+        ("SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY", "xapi_course_id"),
+        ("SUPERSET_ROW_LEVEL_SECURITY_ENROLLMENTS_GROUP_KEY", "enrollments_course_id"),
     ]
 )
 

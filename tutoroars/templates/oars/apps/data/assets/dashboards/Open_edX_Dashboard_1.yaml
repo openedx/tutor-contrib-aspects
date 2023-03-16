@@ -1,4 +1,4 @@
-dashboard_title: xAPI events
+dashboard_title: Open edX Dashboard
 description: null
 css: ''
 slug: {{ SUPERSET_XAPI_DASHBOARD_SLUG }}
@@ -32,6 +32,20 @@ position:
     - GRID_ID
     - ROW-wGxsERBpnN
     type: CHART
+  CHART-rR3q_1m4xG:
+    children: []
+    id: CHART-rR3q_1m4xG
+    meta:
+      chartId: 8
+      height: 50
+      sliceName: Course Enrollments
+      uuid: d526aaa3-2924-4bf4-a2c5-b5cc8a0c8121
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-wGxsERBpnN
+    type: CHART
   DASHBOARD_VERSION_KEY: v2
   GRID_ID:
     children:
@@ -52,6 +66,7 @@ position:
     type: ROOT
   ROW-wGxsERBpnN:
     children:
+    - CHART-rR3q_1m4xG
     - CHART-UNJLNKIN
     - CHART-I3rHzTOAQD
     id: ROW-wGxsERBpnN
@@ -92,8 +107,7 @@ metadata:
     scope:
       rootPath:
       - ROOT_ID
-      excluded:
-      - 6
+      excluded: []
     type: NATIVE_FILTER
     description: ''
     chartsInScope:
@@ -121,8 +135,7 @@ metadata:
     scope:
       rootPath:
       - ROOT_ID
-      excluded:
-      - 4
+      excluded: []
     type: NATIVE_FILTER
     description: ''
     chartsInScope:
