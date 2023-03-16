@@ -35,10 +35,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Make sure LMS / CMS have evnet-routing-backends installed
         # TODO: Do a new release and pin this! Also add config!
         ("OPENEDX_EXTRA_PIP_REQUIREMENTS", ["edx-event-routing-backends"]),
-
-        # Demo data, used in the "do load-xapi-test-data" command
-        ("OARS_CLICKHOUSE_LOAD_DEMO_XAPI_BATCHES", "100"),
-        ("OARS_CLICKHOUSE_LOAD_DEMO_XAPI_BATCH_SIZE", "100"),
     ]
 )
 
@@ -240,15 +236,17 @@ for path in glob(
 ########################################
 # Ex: "tutor dev do load-xapi-test-data"
 @click.command()
-def load_xapi_test_data() -> list[tuple[str, str]]:
+@click.option("-n", "--num_batches", default=100)
+@click.option("-s", "--batch_size", default=100)
+def load_xapi_test_data(num_batches: int, batch_size: int) -> list[tuple[str, str]]:
     """
     Job that loads bogus test xAPI data to ClickHouse via Ralph.
     """
     return [
-        ("oars", "echo 'Making demo xapi script writable...' && "
+        ("oars", "echo 'Making demo xapi script executable...' && "
                  "chmod +x /app/oars/scripts/clickhouse-demo-xapi-data.sh && "
                  "echo 'Done. Running script...' && "
-                 "bash /app/oars/scripts/clickhouse-demo-xapi-data.sh && "
+                 f"bash /app/oars/scripts/clickhouse-demo-xapi-data.sh {num_batches} {batch_size} && "
                  "echo 'Done!';"),
     ]
 
