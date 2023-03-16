@@ -5,6 +5,7 @@ Uses Superset's REST API to create the OARS datastores, charts, and dashboard.
 import os
 import zipfile
 import tempfile
+import datetime
 from supersetapiclient.client import SupersetClient
 
 SUPERSET_URL_SCHEME = "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}"
@@ -34,15 +35,35 @@ def update_assets():
         verify=verify,
     )
 
-    # Import the zipped asset files
-    zip_file = zip_dir(SUPERSET_DATA_ASSETS_DIR)
-    superset.dashboards.import_file(
-        zip_file.name,
-        overwrite=True,
-        passwords=SUPERSET_DB_PASSWORDS,
-    )
-    # Remove the temporary zipfile
-    os.unlink(zip_file.name)
+    # Import the assets as zip files.
+    # We do this for each individual asset type so we can overwrite them. We could just zip up the whole asset dir and
+    # import it using the Dashboards import, but this only overwrites the Dashboard, nothing else.
+    superset_assets = {
+        'databases': {
+            'metadata_type': 'Database',
+        },
+        'datasets': {
+            'metadata_type': 'SqlaTable',
+        },
+        'charts': {
+            'metadata_type': 'Slice',
+        },
+        'dashboards': {
+            'metadata_type': 'Dashboard',
+        },
+    }
+    for asset_type, kwargs in superset_assets.items():
+        zip_file = superset_asset_zip(
+            SUPERSET_DATA_ASSETS_DIR,
+            **kwargs,
+        )
+        getattr(superset, asset_type).import_file(
+            zip_file.name,
+            overwrite=True,
+            passwords=SUPERSET_DB_PASSWORDS,
+        )
+        # Remove the temporary zipfile
+        os.unlink(zip_file.name)
 
     # Mark the imported dashboard as Published
     dashboard = superset.dashboards.find(slug=OPENEDX_DASHBOARD_SLUG)[0]
@@ -52,15 +73,25 @@ def update_assets():
     dashboard.save()
 
 
-def zip_dir(zip_dir):
+def superset_asset_zip(zip_dir, metadata_type, metadata_version='1.0.0'):
     """
     Zips up the contents of the given dir to a temporary file,
-    and returns the temporary file pointer.
+    adding in the expected metadata.yaml file for the given asset type.
+
+    Returns the temporary file pointer to the zip file.
     """
     fp = tempfile.NamedTemporaryFile(delete=False, suffix=".zip")
     asset_dir = os.path.abspath(zip_dir)
     archive_base_dir = 'assets'
+    timestamp = datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc).isoformat()
     with zipfile.ZipFile(fp, "w") as ziph:  # ziph is zipfile handle
+        # Write a metadata.yaml file to the root dir
+        ziph.writestr(os.path.join(archive_base_dir, 'metadata.yaml'),
+            f"version: {metadata_version}\n"
+            f"type: {metadata_type}\n"
+            f"timestamp: '{timestamp}'\n"
+        )
+
         for root, dirs, files in os.walk(asset_dir):
             if root == asset_dir:
                 archive_dir = archive_base_dir
