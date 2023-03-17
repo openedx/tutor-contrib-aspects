@@ -5,7 +5,7 @@ params:
   - clause: WHERE
     comparator: '1'
     expressionType: SIMPLE
-    filterOptionName: filter_zq0o57bq31d_em0p3uoarlp
+    filterOptionName: filter_dzfrcdcivy9_hg2dyaz63b
     isExtra: false
     isNew: false
     operator: ==
@@ -13,7 +13,7 @@ params:
     sqlExpression: null
     subject: is_active
   color_scheme: supersetColors
-  datasource: 6__table
+  datasource: 4__table
   date_format: smart_date
   extra_form_data: {}
   granularity_sqla: enrollment_created
@@ -31,10 +31,11 @@ params:
   show_labels: true
   show_labels_threshold: 5
   show_legend: true
+  slice_id: 6
   sort_by_metric: true
   time_range: No filter
   viz_type: pie
 cache_timeout: null
-uuid: d526aaa3-2924-4bf4-a2c5-b5cc8a0c8121
+uuid: 7fe73214-de90-4867-883a-303275334fd1
 version: 1.0.0
-dataset_uuid: d04819d5-6525-4a34-9128-2f22ba0f5cdc
+dataset_uuid: 63225554-dee9-42c5-ad4f-dc591e18d63c

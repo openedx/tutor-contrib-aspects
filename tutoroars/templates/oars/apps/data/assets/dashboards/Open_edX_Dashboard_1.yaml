@@ -50,10 +50,10 @@ position:
     children: []
     id: CHART-rR3q_1m4xG
     meta:
-      chartId: 8
+      chartId: 6
       height: 50
       sliceName: Course Enrollments
-      uuid: d526aaa3-2924-4bf4-a2c5-b5cc8a0c8121
+      uuid: 7fe73214-de90-4867-883a-303275334fd1
       width: 4
     parents:
     - ROOT_ID

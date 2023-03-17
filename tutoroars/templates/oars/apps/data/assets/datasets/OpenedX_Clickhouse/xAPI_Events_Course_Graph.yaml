@@ -1,4 +1,4 @@
-table_name: xAPI Events + Course Graph
+table_name: xAPI Events Course Graph
 main_dttm_col: null
 description: null
 default_endpoint: null

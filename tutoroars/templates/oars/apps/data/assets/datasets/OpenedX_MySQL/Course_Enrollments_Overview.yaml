@@ -1,20 +1,20 @@
-table_name: Course Enrollments + Overview
+table_name: Course Enrollments Overview
 main_dttm_col: null
 description: null
 default_endpoint: null
 offset: 0
 cache_timeout: null
 schema: openedx
-sql: select enrollment.course_id as course_key, enrollment.created as enrollment_created,
-  enrollment.is_active, enrollment.mode, enrollment.user_id, course_overview.* from
-  student_courseenrollment enrollment, course_overviews_courseoverview course_overview
-  where enrollment.course_id=course_overview.id
+sql: "select enrollment.course_id as course_key, enrollment.created as enrollment_created,\n\
+  \  enrollment.is_active, enrollment.mode, enrollment.user_id, course_overview.*\
+  \ from\n  student_courseenrollment enrollment, course_overviews_courseoverview course_overview\n\
+  \  where enrollment.course_id=course_overview.id"
 params: null
 template_params: null
 filter_select_enabled: false
 fetch_values_predicate: null
 extra: null
-uuid: d04819d5-6525-4a34-9128-2f22ba0f5cdc
+uuid: 63225554-dee9-42c5-ad4f-dc591e18d63c
 metrics:
 - metric_name: count
   verbose_name: null
@@ -710,4 +710,4 @@ columns:
   python_date_format: null
   extra: null
 version: 1.0.0
-database_uuid: 1803dd72-0831-4316-86fd-cc4ffa6eef96
+database_uuid: dd1b9c88-5b74-4ac1-ad51-27c37ff40b8a
