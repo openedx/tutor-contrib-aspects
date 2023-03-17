@@ -8,6 +8,7 @@ import tempfile
 import datetime
 from supersetapiclient.client import SupersetClient
 
+
 SUPERSET_URL_SCHEME = "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}"
 SUPERSET_HOST_URL = f"{SUPERSET_URL_SCHEME}://superset:{{ SUPERSET_PORT }}"
 SUPERSET_ADMIN_USERNAME = "{{ SUPERSET_ADMIN_USERNAME }}"
@@ -39,23 +40,16 @@ def update_assets():
     # We do this for each individual asset type so we can overwrite them. We could just zip up the whole asset dir and
     # import it using the Dashboards import, but this only overwrites the Dashboard, nothing else.
     superset_assets = {
-        'databases': {
-            'metadata_type': 'Database',
-        },
-        'datasets': {
-            'metadata_type': 'SqlaTable',
-        },
-        'charts': {
-            'metadata_type': 'Slice',
-        },
-        'dashboards': {
-            'metadata_type': 'Dashboard',
-        },
+        'databases': 'Database',
+        'datasets': 'SqlaTable',
+        'charts': 'Slice',
+        'dashboards': 'Dashboard',
     }
-    for asset_type, kwargs in superset_assets.items():
+    for asset_type, metadata_type in superset_assets.items():
         zip_file = superset_asset_zip(
             SUPERSET_DATA_ASSETS_DIR,
-            **kwargs,
+            asset_type=asset_type,
+            metadata_type=metadata_type,
         )
         getattr(superset, asset_type).import_file(
             zip_file.name,
@@ -73,7 +67,7 @@ def update_assets():
     dashboard.save()
 
 
-def superset_asset_zip(zip_dir, metadata_type, metadata_version='1.0.0'):
+def superset_asset_zip(zip_dir, asset_type, metadata_type, metadata_version='1.0.0'):
     """
     Zips up the contents of the given dir to a temporary file,
     adding in the expected metadata.yaml file for the given asset type.
@@ -82,7 +76,7 @@ def superset_asset_zip(zip_dir, metadata_type, metadata_version='1.0.0'):
     """
     fp = tempfile.NamedTemporaryFile(delete=False, suffix=".zip")
     asset_dir = os.path.abspath(zip_dir)
-    archive_base_dir = 'assets'
+    archive_base_dir = asset_type
     timestamp = datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc).isoformat()
     with zipfile.ZipFile(fp, "w") as ziph:  # ziph is zipfile handle
         # Write a metadata.yaml file to the root dir
