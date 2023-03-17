@@ -42,7 +42,7 @@ Usage
 
 4. (Optional) Load test xAPI data into Ralph/Clickhouse/Superset (with ``--help`` for usage)::
 
-   tutor [dev|local] do load-xapi-test-data
+    tutor [dev|local] do load-xapi-test-data
 
 
 Superset Assets
