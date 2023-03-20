@@ -8,10 +8,10 @@ position:
     children: []
     id: CHART-I3rHzTOAQD
     meta:
-      chartId: 2
+      chartId: 7
       height: 50
-      sliceName: xAPI problem events by block
-      uuid: 742759ee-9765-4f23-abaa-9d87aa499c3a
+      sliceName: Video events
+      uuid: b3c9a04d-6cda-412d-a90b-aa85724ae9b1
       width: 4
     parents:
     - ROOT_ID
