@@ -4,7 +4,7 @@ description: null
 default_endpoint: null
 offset: 0
 cache_timeout: null
-schema: coursegraph
+schema: {{ OARS_COURSEGRAPH_DATABASE }}
 sql: 'SELECT node.course_key, node.location, node.display_name, relationship.parent_location,
   relationship.child_location, node.order, relationship.order
 

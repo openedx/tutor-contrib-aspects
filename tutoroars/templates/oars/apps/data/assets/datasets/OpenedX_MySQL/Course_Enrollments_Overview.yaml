@@ -1,10 +1,10 @@
-table_name: Course Enrollments Overview
+table_name: "{{ OARS_SUPERSET_ENROLLMENTS_TABLE }}"
 main_dttm_col: null
 description: null
 default_endpoint: null
 offset: 0
 cache_timeout: null
-schema: openedx
+schema: {{ OPENEDX_MYSQL_DATABASE }}
 sql: "select enrollment.course_id as course_key, enrollment.created as enrollment_created,\n\
   \  enrollment.is_active, enrollment.mode, enrollment.user_id, course_overview.*\
   \ from\n  student_courseenrollment enrollment, course_overviews_courseoverview course_overview\n\

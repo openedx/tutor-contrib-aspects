@@ -10,7 +10,6 @@ set -e
 # Note: there are no cli commands or REST API endpoints to help us with this,
 # so we have to pipe python code directly into the superset shell. Yuck!
 superset shell <<EOF
-import logging
 from superset.connectors.sqla.models import (
     RowLevelSecurityFilter,
     RLSFilterRoles,
@@ -39,7 +38,7 @@ for (schema, table_name, group_key, clause, filter_type) in (
     ),
     (
         "{{OPENEDX_MYSQL_DATABASE}}",
-        "Course Enrollments + Overview",
+        "{{OARS_SUPERSET_ENROLLMENTS_TABLE}}",
         "{{SUPERSET_ROW_LEVEL_SECURITY_ENROLLMENTS_GROUP_KEY}}",
         {% raw %}
         '{{can_view_courses(current_username(), "course_key")}}',
@@ -53,7 +52,7 @@ for (schema, table_name, group_key, clause, filter_type) in (
     ).filter(
         SqlaTable.table_name == table_name
     ).first()
-    assert table, f"{schema}.{table} table doesn't exist yet?"
+    assert table, f"{schema}.{table_name} table doesn't exist yet?"
     # See if the Row Level Security Filter already exists
     rlsf = (
         session.query(
@@ -98,6 +97,8 @@ for (schema, table_name, group_key, clause, filter_type) in (
             )
         ])
         session.commit()
+
+print("Successfully create row-level security filters.")
 
 EOF
 # The blank line above EOF is critical -- don't remove it.

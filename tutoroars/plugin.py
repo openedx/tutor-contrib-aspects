@@ -32,6 +32,9 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("OARS_COURSEGRAPH_NODES_TABLE", "coursegraph_nodes"),
         ("OARS_COURSEGRAPH_RELATIONSHIPS_TABLE", "coursegraph_relationships"),
 
+        # MySQL dataset settings
+        ("OARS_SUPERSET_ENROLLMENTS_TABLE", "Course Enrollments Overview"),
+
         # Make sure LMS / CMS have evnet-routing-backends installed
         # TODO: Do a new release and pin this! Also add config!
         ("OPENEDX_EXTRA_PIP_REQUIREMENTS", ["edx-event-routing-backends"]),
