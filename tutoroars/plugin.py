@@ -32,6 +32,9 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("OARS_COURSEGRAPH_NODES_TABLE", "coursegraph_nodes"),
         ("OARS_COURSEGRAPH_RELATIONSHIPS_TABLE", "coursegraph_relationships"),
 
+        # MySQL dataset settings
+        ("OARS_SUPERSET_ENROLLMENTS_TABLE", "Course Enrollments Overview"),
+
         # Make sure LMS / CMS have evnet-routing-backends installed
         # TODO: Do a new release and pin this! Also add config!
         ("OPENEDX_EXTRA_PIP_REQUIREMENTS", ["edx-event-routing-backends"]),
@@ -71,7 +74,8 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
         ### ("PLATFORM_NAME", "My platform"),
         # Superset overrides
         ("SUPERSET_XAPI_DASHBOARD_SLUG", "openedx-xapi"),
-        ("SUPERSET_XAPI_ROW_LEVEL_SECURITY_COURSE_ID_KEY", "xapi_course_id"),
+        ("SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY", "xapi_course_id"),
+        ("SUPERSET_ROW_LEVEL_SECURITY_ENROLLMENTS_GROUP_KEY", "enrollments_course_id"),
     ]
 )
 

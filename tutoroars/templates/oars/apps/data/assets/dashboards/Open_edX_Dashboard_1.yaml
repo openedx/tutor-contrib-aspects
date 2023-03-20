@@ -1,4 +1,4 @@
-dashboard_title: xAPI events
+dashboard_title: Open edX Dashboard
 description: null
 css: ''
 slug: {{ SUPERSET_XAPI_DASHBOARD_SLUG }}
@@ -16,21 +16,7 @@ position:
     parents:
     - ROOT_ID
     - GRID_ID
-    - ROW-wGxsERBpnN
-    type: CHART
-  CHART-P4JSfq27v8:
-    children: []
-    id: CHART-P4JSfq27v8
-    meta:
-      chartId: 4
-      height: 50
-      sliceName: Course Graph
-      uuid: 95361e70-eec2-4aa9-92aa-142c44a26554
-      width: 4
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - ROW-wGxsERBpnN
+    - ROW-9nvIv3Efqw
     type: CHART
   CHART-UNJLNKIN:
     children: []
@@ -46,10 +32,39 @@ position:
     - GRID_ID
     - ROW-wGxsERBpnN
     type: CHART
+  CHART-f2w7wR8-ty:
+    children: []
+    id: CHART-f2w7wR8-ty
+    meta:
+      chartId: 9
+      height: 50
+      sliceName: Problem Difficulty
+      uuid: 3accd553-4838-4267-b12e-e0f951a841b4
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-9nvIv3Efqw
+    type: CHART
+  CHART-rR3q_1m4xG:
+    children: []
+    id: CHART-rR3q_1m4xG
+    meta:
+      chartId: 6
+      height: 50
+      sliceName: Course Enrollments
+      uuid: 7fe73214-de90-4867-883a-303275334fd1
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-wGxsERBpnN
+    type: CHART
   DASHBOARD_VERSION_KEY: v2
   GRID_ID:
     children:
     - ROW-wGxsERBpnN
+    - ROW-9nvIv3Efqw
     id: GRID_ID
     parents:
     - ROOT_ID
@@ -57,18 +72,28 @@ position:
   HEADER_ID:
     id: HEADER_ID
     meta:
-      text: xAPI events
+      text: Open edX Dashboard
     type: HEADER
   ROOT_ID:
     children:
     - GRID_ID
     id: ROOT_ID
     type: ROOT
+  ROW-9nvIv3Efqw:
+    children:
+    - CHART-I3rHzTOAQD
+    - CHART-f2w7wR8-ty
+    id: ROW-9nvIv3Efqw
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
   ROW-wGxsERBpnN:
     children:
+    - CHART-rR3q_1m4xG
     - CHART-UNJLNKIN
-    - CHART-I3rHzTOAQD
-    - CHART-P4JSfq27v8
     id: ROW-wGxsERBpnN
     meta:
       background: BACKGROUND_TRANSPARENT
@@ -107,7 +132,7 @@ metadata:
     scope:
       rootPath:
       - ROOT_ID
-    excluded: []
+      excluded: []
     type: NATIVE_FILTER
     description: ''
     chartsInScope:
@@ -135,7 +160,7 @@ metadata:
     scope:
       rootPath:
       - ROOT_ID
-    excluded: []
+      excluded: []
     type: NATIVE_FILTER
     description: ''
     chartsInScope:

@@ -1,26 +1,21 @@
-table_name: Course Graph
+table_name: xAPI Events Course Graph
 main_dttm_col: null
 description: null
 default_endpoint: null
 offset: 0
 cache_timeout: null
-schema: {{ OARS_COURSEGRAPH_DATABASE }}
-sql: 'SELECT node.course_key, node.location, node.display_name, relationship.parent_location,
-  relationship.child_location, node.order, relationship.order
-
-  FROM coursegraph.coursegraph_nodes as node
-
-  LEFT OUTER JOIN coursegraph.coursegraph_relationships as relationship
-
-  ON node.location = relationship.child_location
-
-  order by node.order, relationship.order'
+schema: coursegraph
+sql: select cg.display_name, splitByChar('/', xapi_events.course_id)[-1] as course_key,
+  if(event.object.id like '%/xblock/%', splitByChar('/', event.object.id)[5], '')
+  as block_key, event.result.success as success, event.object.definition.extensions.'http://id.tincanapi.com/extension/attempt-id'
+  as attempts from xapi.xapi_events_all_parsed as xapi_events, coursegraph.coursegraph_nodes
+  as cg where cg.location = block_key
 params: null
 template_params: null
 filter_select_enabled: false
 fetch_values_predicate: null
 extra: null
-uuid: 55d9222a-0ce5-4e2a-92e2-f8fc9a647922
+uuid: bf967156-a723-4df1-8d6e-e7c5637531e2
 metrics:
 - metric_name: count
   verbose_name: null
@@ -31,11 +26,11 @@ metrics:
   extra: null
   warning_text: null
 columns:
-- column_name: relationship.order
+- column_name: success
   verbose_name: null
   is_dttm: false
   is_active: true
-  type: Int32
+  type: UInt8
   advanced_data_type: null
   groupby: true
   filterable: true
@@ -43,23 +38,11 @@ columns:
   description: null
   python_date_format: null
   extra: null
-- column_name: order
+- column_name: attempts
   verbose_name: null
   is_dttm: false
   is_active: true
-  type: Int32
-  advanced_data_type: null
-  groupby: true
-  filterable: true
-  expression: null
-  description: null
-  python_date_format: null
-  extra: null
-- column_name: parent_location
-  verbose_name: null
-  is_dttm: false
-  is_active: true
-  type: String
+  type: Int8
   advanced_data_type: null
   groupby: true
   filterable: true
@@ -79,7 +62,7 @@ columns:
   description: null
   python_date_format: null
   extra: null
-- column_name: child_location
+- column_name: block_key
   verbose_name: null
   is_dttm: false
   is_active: true
@@ -92,18 +75,6 @@ columns:
   python_date_format: null
   extra: null
 - column_name: course_key
-  verbose_name: null
-  is_dttm: false
-  is_active: true
-  type: String
-  advanced_data_type: null
-  groupby: true
-  filterable: true
-  expression: null
-  description: null
-  python_date_format: null
-  extra: null
-- column_name: location
   verbose_name: null
   is_dttm: false
   is_active: true
