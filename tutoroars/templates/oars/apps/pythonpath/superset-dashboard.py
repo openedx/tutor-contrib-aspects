@@ -13,7 +13,7 @@ SUPERSET_URL_SCHEME = "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}"
 SUPERSET_HOST_URL = f"{SUPERSET_URL_SCHEME}://superset:{{ SUPERSET_PORT }}"
 SUPERSET_ADMIN_USERNAME = "{{ SUPERSET_ADMIN_USERNAME }}"
 SUPERSET_ADMIN_PASSWORD = "{{ SUPERSET_ADMIN_PASSWORD }}"
-SUPERSET_DATA_ASSETS_DIR = "/app/oars/data/assets/"
+SUPERSET_DATA_ASSETS_DIR = "/app/oars/data/superset/"
 SUPERSET_DB_PASSWORDS = {
     # Database names neet to match file names under SUPERSET_DATA_ASSETS_DIR/databases/
     "OpenedX_MySQL": "{{ OPENEDX_MYSQL_PASSWORD }}",
