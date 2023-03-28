@@ -7,6 +7,8 @@ edX installs to collect and display learner data in a consistent way.
 
 See https://github.com/openedx/openedx-oars for more details.
 
+Note: OARS is in early development and not at all production ready! Please feel free to experiment with the system and offer feedback about what you'd like to see!
+
 Installation
 ------------
 
@@ -36,11 +38,15 @@ Usage
 
     tutor config save
 
-3. Run the initialization scripts in your chosen environment (dev or local)::
+3. Because we're installing a new app in LMS (event-routing-backends) you will need to rebuild your openedx image::
+
+    tutor images build openedx
+
+4. Run the initialization scripts in your chosen environment (dev or local)::
 
     tutor [dev|local] do init
 
-4. (Optional) Load test xAPI data into Ralph/Clickhouse/Superset (with ``--help`` for usage)::
+5. (Optional) Load test xAPI data into Ralph/Clickhouse/Superset (with ``--help`` for usage)::
 
     tutor [dev|local] do load-xapi-test-data
 
