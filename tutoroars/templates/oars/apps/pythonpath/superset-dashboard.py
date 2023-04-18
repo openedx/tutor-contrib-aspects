@@ -21,13 +21,14 @@ SUPERSET_DB_PASSWORDS = {
 }
 OPENEDX_DASHBOARD_SLUG = "{{ SUPERSET_XAPI_DASHBOARD_SLUG }}"
 
+
 def update_assets():
     # Need to override this setting to allow OAuth over http
-    if SUPERSET_URL_SCHEME == 'http':
-        os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
-        verify=False
+    if SUPERSET_URL_SCHEME == "http":
+        os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+        verify = False
     else:
-        verify=True
+        verify = True
 
     superset = SupersetClient(
         host=SUPERSET_HOST_URL,
@@ -40,10 +41,10 @@ def update_assets():
     # We do this for each individual asset type so we can overwrite them. We could just zip up the whole asset dir and
     # import it using the Dashboards import, but this only overwrites the Dashboard, nothing else.
     superset_assets = {
-        'databases': 'Database',
-        'datasets': 'SqlaTable',
-        'charts': 'Slice',
-        'dashboards': 'Dashboard',
+        "databases": "Database",
+        "datasets": "SqlaTable",
+        "charts": "Slice",
+        "dashboards": "Dashboard",
     }
     for asset_type, metadata_type in superset_assets.items():
         zip_file = superset_asset_zip(
@@ -67,7 +68,7 @@ def update_assets():
     dashboard.save()
 
 
-def superset_asset_zip(zip_dir, asset_type, metadata_type, metadata_version='1.0.0'):
+def superset_asset_zip(zip_dir, asset_type, metadata_type, metadata_version="1.0.0"):
     """
     Zips up the contents of the given dir to a temporary file,
     adding in the expected metadata.yaml file for the given asset type.
@@ -77,20 +78,25 @@ def superset_asset_zip(zip_dir, asset_type, metadata_type, metadata_version='1.0
     fp = tempfile.NamedTemporaryFile(delete=False, suffix=".zip")
     asset_dir = os.path.abspath(zip_dir)
     archive_base_dir = asset_type
-    timestamp = datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc).isoformat()
+    timestamp = (
+        datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc).isoformat()
+    )
     with zipfile.ZipFile(fp, "w") as ziph:  # ziph is zipfile handle
         # Write a metadata.yaml file to the root dir
-        ziph.writestr(os.path.join(archive_base_dir, 'metadata.yaml'),
+        ziph.writestr(
+            os.path.join(archive_base_dir, "metadata.yaml"),
             f"version: {metadata_version}\n"
             f"type: {metadata_type}\n"
-            f"timestamp: '{timestamp}'\n"
+            f"timestamp: '{timestamp}'\n",
         )
 
         for root, dirs, files in os.walk(asset_dir):
             if root == asset_dir:
                 archive_dir = archive_base_dir
             else:
-                archive_dir = os.path.join(archive_base_dir, os.path.relpath(root, asset_dir))
+                archive_dir = os.path.join(
+                    archive_base_dir, os.path.relpath(root, asset_dir)
+                )
                 # Add this subdir to the zip file
                 ziph.write(root, arcname=archive_dir)
 

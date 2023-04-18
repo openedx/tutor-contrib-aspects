@@ -1,3 +1,4 @@
+"""Package metadata for tutoroars."""
 import io
 import os
 from setuptools import setup, find_packages
@@ -6,18 +7,20 @@ HERE = os.path.abspath(os.path.dirname(__file__))
 
 
 def load_readme():
-    with io.open(os.path.join(HERE, "README.rst"), "rt", encoding="utf8") as f:
-        return f.read()
+    """Load README file which populates long_description field."""
+    with io.open(os.path.join(HERE, "README.rst"), "rt", encoding="utf8") as file:
+        return file.read()
 
 
 def load_about():
+    """Load about file which stores the package version."""
     about = {}
     with io.open(
         os.path.join(HERE, "tutoroars", "__about__.py"),
         "rt",
         encoding="utf-8",
-    ) as f:
-        exec(f.read(), about)  # pylint: disable=exec-used
+    ) as file:
+        exec(file.read(), about)  # pylint: disable=exec-used
     return about
 
 
@@ -40,11 +43,7 @@ setup(
     include_package_data=True,
     python_requires=">=3.7",
     install_requires=["tutor"],
-    entry_points={
-        "tutor.plugin.v1": [
-            "oars = tutoroars.plugin"
-        ]
-    },
+    entry_points={"tutor.plugin.v1": ["oars = tutoroars.plugin"]},
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",

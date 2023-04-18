@@ -1,0 +1,40 @@
+name: Run all tests & checks
+
+on:
+  push:
+    branches: [ master, nightly ]
+  pull_request:
+    branches: [ master, nightly ]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip setuptools==44.0.0
+
+      - name: Install development dependencies
+        run: make dev-requirements
+
+      - name: Static code analysis
+        run: make test-lint
+
+      - name: Static type checks
+        run: make test-types
+
+      - name: Code formatting
+        run: make test-format
+
+      - name: Package tests
+        run: make test-pythonpackage
+
+      - name: Plugin installation & rendering checks
+        run: make test-install
