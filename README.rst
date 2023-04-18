@@ -88,7 +88,7 @@ The Superset assets provided by OARS can be found in the templated `assets direc
 
 To contribute assets to OARS:
 
-#. Export the assets you want to contribute as described in :ref:`Sharing Charts and Dashboards`
+#. Export the assets you want to contribute as described in `Sharing Charts and Dashboards`
 #. Expand the ``.zip`` file.
 #. Update any database connection strings to use Tutor configuration template variables instead of hard-coded strings, e.g. replace ``mysql`` with ``{{MYSQL_HOST}}``.
    Passwords can be left as ``XXXXXXXX``, though be aware that if you are adding new databases, you'll need to update ``SUPERSET_DB_PASSWORDS`` in the init scripts.
