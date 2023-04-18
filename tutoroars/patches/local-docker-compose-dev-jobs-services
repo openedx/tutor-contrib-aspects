@@ -1,0 +1,9 @@
+oars-job:
+  user: root
+  image: python:3.8.10
+  volumes:
+    - ../../env/plugins/oars/apps:/app/oars
+  depends_on:
+    - superset
+    - clickhouse
+    - ralph

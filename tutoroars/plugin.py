@@ -185,38 +185,6 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
 )
 
 
-# Initialization jobs
-OARS_DOCKER_COMPOSE_PYTHON_JOB = """
-  user: root
-  image: python:3.8.10
-  volumes:
-    - ../../env/plugins/oars/apps:/app/oars
-  depends_on:
-    - superset
-    - clickhouse
-    - ralph
-"""
-
-hooks.Filters.ENV_PATCHES.add_item(
-    (
-        "local-docker-compose-jobs-services",
-        f"""
-oars-job:
-  {OARS_DOCKER_COMPOSE_PYTHON_JOB}
-        """
-    )
-)
-
-hooks.Filters.ENV_PATCHES.add_item(
-    (
-        "local-docker-compose-dev-jobs-services",
-        f"""
-oars-job:
-  {OARS_DOCKER_COMPOSE_PYTHON_JOB}
-        """
-    )
-)
-
 ########################################
 # PATCH LOADING
 # (It is safe & recommended to leave
