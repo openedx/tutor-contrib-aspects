@@ -36,5 +36,6 @@ jobs:
       - name: Package tests
         run: make test-pythonpackage
 
-      - name: Plugin installation & rendering checks
-        run: make test-install
+      # Enable step when test-install.sh is implemented
+      # - name: Plugin installation & rendering checks
+      #   run: make test-install
