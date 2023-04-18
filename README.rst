@@ -9,6 +9,11 @@ See https://github.com/openedx/openedx-oars for more details.
 
 Note: OARS is in early development and not at all production ready! Please feel free to experiment with the system and offer feedback about what you'd like to see!
 
+Compatibility
+-------------
+
+This plugin is compatible with Tutor 15.0.0 and later.
+
 Installation
 ------------
 
@@ -27,26 +32,26 @@ See these repos for more information.
 Usage
 -----
 
-1. Enable the plugins::
+#. Enable the plugins::
 
     tutor plugins enable oars
     tutor plugins enable ralph
     tutor plugins enable clickhouse
     tutor plugins enable superset
 
-2. Save the changes to the environment::
+#. Save the changes to the environment::
 
     tutor config save
 
-3. Because we're installing a new app in LMS (event-routing-backends) you will need to rebuild your openedx image::
+#. Because we're installing a new app in LMS (event-routing-backends) you will need to rebuild your openedx image::
 
     tutor images build openedx
 
-4. Run the initialization scripts in your chosen environment (dev or local)::
+#. Run the initialization scripts in your chosen environment (dev or local)::
 
     tutor [dev|local] do init
 
-5. (Optional) Load test xAPI data into Ralph/Clickhouse/Superset (with ``--help`` for usage)::
+#. (Optional) Load test xAPI data into Ralph/Clickhouse/Superset (with ``--help`` for usage)::
 
     tutor [dev|local] do load-xapi-test-data
 
@@ -70,11 +75,10 @@ To share your charts with others in the community, use Superset's "Export" butto
 
 To import charts or dashboards shared by someone in the community:
 
-1. Expand the zip file and look for any files added under ``databases``.
+#. Expand the zip file and look for any files added under ``databases``.
    Update the ``sqlalchemy_uri`` to match your database's connection details.
-1. Compress the files back into a ``.zip`` file.
-1. On the Charts or Dashboards page, use the "Import" button to upload
-   your ``.zip`` file.
+#. Compress the files back into a ``.zip`` file.
+#. On the Charts or Dashboards page, use the "Import" button to upload your ``.zip`` file.
 
 
 Contributing Charts and Dashboards to OARS
