@@ -1,0 +1,52 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: oars-job
+  labels:
+    app.kubernetes.io/component: job
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: oars
+        env:
+          - name: VENV_DIR
+            value: /opt/venv
+        image: python:3.8.10
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsUser: 0
+        volumeMounts:
+            - mountPath: /app/oars/pythonpath
+              name: pythonpath
+            - mountPath: /app/oars/data/superset/databases
+              name: databases
+            - mountPath: /app/oars/data/superset/dashboards
+              name: dashboards
+            - mountPath: /app/oars/data/superset/datasets/OpenedX_MySQL
+              name: openedx-mysql
+            - mountPath: /app/oars/data/superset/datasets/OpenedX_Clickhouse
+              name: openedx-clickhouse
+            - mountPath: /app/oars/data/superset/charts/
+              name: charts
+      volumes:
+        - name: pythonpath
+          configMap:
+            name: oars-pythonpath
+        - name: databases
+          configMap:
+            name: oars-databases
+        - name: dashboards
+          configMap:
+            name: oars-dashboards
+        - name: openedx-mysql
+          configMap:
+            name: oars-openedx-mysql
+        - name: openedx-clickhouse
+          configMap:
+            name: oars-openedx-clickhouse
+        - name: charts
+          configMap:
+            name: oars-charts

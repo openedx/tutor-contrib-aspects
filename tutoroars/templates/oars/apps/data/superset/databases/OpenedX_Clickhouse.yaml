@@ -1,5 +1,5 @@
 database_name: OpenedX Clickhouse
-sqlalchemy_uri: clickhousedb+connect://{{OARS_CLICKHOUSE_REPORT_USER}}:XXXXXXXXXX@{{CLICKHOUSE_HOST}}:{{CLICKHOUSE_HTTP_PORT}}/{{OARS_XAPI_DATABASE}}
+sqlalchemy_uri: clickhousedb+connect://{{OARS_CLICKHOUSE_REPORT_USER}}:{{OARS_CLICKHOUSE_REPORT_PASSWORD}}@{{CLICKHOUSE_HOST}}:{{CLICKHOUSE_HTTP_PORT}}/{{OARS_XAPI_DATABASE}}
 cache_timeout: null
 expose_in_sqllab: true
 allow_run_async: false
