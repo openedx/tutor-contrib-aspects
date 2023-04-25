@@ -32,8 +32,11 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("OARS_COURSEGRAPH_RELATIONSHIPS_TABLE", "coursegraph_relationships"),
         # MySQL dataset settings
         ("OARS_SUPERSET_ENROLLMENTS_TABLE", "Course Enrollments Overview"),
-        # Make sure LMS / CMS have event-routing-backends installed
-        ("OPENEDX_EXTRA_PIP_REQUIREMENTS", ["edx-event-routing-backends"]),
+        # Make sure LMS / CMS have evnet-routing-backends installed
+        ("OPENEDX_EXTRA_PIP_REQUIREMENTS", [
+            "edx-event-routing-backends",
+            "git+https://github.com/openedx/openedx-event-sink-clickhouse@bmtcril/add_event_listener"]
+         ),
     ]
 )
 
