@@ -33,7 +33,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # MySQL dataset settings
         ("OARS_SUPERSET_ENROLLMENTS_TABLE", "Course Enrollments Overview"),
         # Make sure LMS / CMS have event-routing-backends installed
-        # TODO: Do a new release and pin this! Also add config!
         ("OPENEDX_EXTRA_PIP_REQUIREMENTS", ["edx-event-routing-backends"]),
     ]
 )
