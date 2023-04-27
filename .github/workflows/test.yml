@@ -1,0 +1,39 @@
+name: Run all tests & checks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8
+
+      - name: Install development dependencies
+        run: make dev-requirements
+
+      - name: Static code analysis
+        run: make test-lint
+
+      # Enable when types annotations are fixed
+      # - name: Static type checks
+      #   run: make test-types
+
+      - name: Code formatting
+        run: make test-format
+
+      - name: Package tests
+        run: make test-pythonpackage
+
+      # Enable step when test-install.sh is implemented
+      # - name: Plugin installation & rendering checks
+      #   run: make test-install

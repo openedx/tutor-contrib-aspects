@@ -1,3 +1,4 @@
+"""Implements OARS plugin via Tutor Plugin API v1."""
 from __future__ import annotations
 
 import os
@@ -20,23 +21,18 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Each new setting is a pair: (setting_name, default_value).
         # Prefix your setting names with 'OARS_'.
         ("OARS_VERSION", __version__),
-
         # ClickHouse xAPI settings
         ("OARS_XAPI_DATABASE", "xapi"),
         ("OARS_RAW_XAPI_TABLE", "xapi_events_all"),
         ("OARS_XAPI_TRANSFORM_MV", "xapi_events_all_parsed_mv"),
         ("OARS_XAPI_TABLE", "xapi_events_all_parsed"),
-
         # ClickHouse Coursegraph setting
         ("OARS_COURSEGRAPH_DATABASE", "coursegraph"),
         ("OARS_COURSEGRAPH_NODES_TABLE", "coursegraph_nodes"),
         ("OARS_COURSEGRAPH_RELATIONSHIPS_TABLE", "coursegraph_relationships"),
-
         # MySQL dataset settings
         ("OARS_SUPERSET_ENROLLMENTS_TABLE", "Course Enrollments Overview"),
-
-        # Make sure LMS / CMS have evnet-routing-backends installed
-        # TODO: Do a new release and pin this! Also add config!
+        # Make sure LMS / CMS have event-routing-backends installed
         ("OPENEDX_EXTRA_PIP_REQUIREMENTS", ["edx-event-routing-backends"]),
     ]
 )
@@ -49,17 +45,13 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         # Prefix your setting names with 'OARS_'.
         # For example:
         ### ("OARS_SECRET_KEY", "{{ 24|random_string }}"),
-
         # Note! The CLICKHOUSE_ADMIN_USER is managed in the ClickHouse plugin.
-
         # LRS user is used by Ralph to insert into ClickHouse aXPI tables
         ("OARS_CLICKHOUSE_LRS_USER", "ch_lrs"),
         ("OARS_CLICKHOUSE_LRS_PASSWORD", "{{ 24|random_string }}"),
-
         # Report user is used by Superset to read from ClickHouse tables
         ("OARS_CLICKHOUSE_REPORT_USER", "ch_report"),
         ("OARS_CLICKHOUSE_REPORT_PASSWORD", "{{ 24|random_string }}"),
-
         # CMS user is used by CMS to insert into Coursegraph tables
         ("OARS_CLICKHOUSE_CMS_USER", "ch_cms"),
         ("OARS_CLICKHOUSE_CMS_PASSWORD", "{{ 24|random_string }}"),
@@ -215,11 +207,14 @@ def load_xapi_test_data(num_batches: int, batch_size: int) -> list[tuple[str, st
     Job that loads bogus test xAPI data to ClickHouse via Ralph.
     """
     return [
-        ("oars", "echo 'Making demo xapi script executable...' && "
-                 "chmod +x /app/oars/scripts/clickhouse-demo-xapi-data.sh && "
-                 "echo 'Done. Running script...' && "
-                 f"bash /app/oars/scripts/clickhouse-demo-xapi-data.sh {num_batches} {batch_size} && "
-                 "echo 'Done!';"),
+        (
+            "oars",
+            "echo 'Making demo xapi script executable...' && "
+            "chmod +x /app/oars/scripts/clickhouse-demo-xapi-data.sh && "
+            "echo 'Done. Running script...' && "
+            f"bash /app/oars/scripts/clickhouse-demo-xapi-data.sh {num_batches} {batch_size} && "
+            "echo 'Done!';",
+        ),
     ]
 
 
