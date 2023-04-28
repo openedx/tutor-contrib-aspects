@@ -81,7 +81,7 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 # and then add it to the MY_INIT_TASKS list. Each task is in the format:
 # ("<service>", ("<path>", "<to>", "<script>", "<template>"))
 MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
-    ("oars", ("oars", "jobs", "init", "oars_init_schemas_tables_users.sh"), 96),
+    ("clickhouse", ("oars", "jobs", "init", "oars_init_schemas_tables_users.sh"), 96),
     ("oars", ("oars", "jobs", "init", "superset-api-dashboard.sh"), 98),
     ("superset", ("oars", "jobs", "init", "superset-init-security.sh"), 99),
     ("lms", ("oars", "jobs", "init", "configure-oars-lms.sh"), 100),

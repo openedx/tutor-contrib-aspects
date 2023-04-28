@@ -1,13 +1,3 @@
-echo "Install clickhouse-client..."
-apt-get install -y apt-transport-https ca-certificates dirmngr
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754
-
-echo "deb https://packages.clickhouse.com/deb stable main" | tee \
-    /etc/apt/sources.list.d/clickhouse.list
-apt-get update
-
-apt-get install -y clickhouse-client
-
 echo "Running schema creation scripts..."
 clickhouse client --user "{{ CLICKHOUSE_ADMIN_USER }}" --password="{{ CLICKHOUSE_ADMIN_PASSWORD }}" --host "{{ CLICKHOUSE_HOST }}" --port {{ CLICKHOUSE_PORT }} --multiquery <<'EOF'
 -- Allow JSON fields
@@ -109,14 +99,3 @@ GRANT INSERT, SELECT ON {{ OARS_COURSEGRAPH_DATABASE }}.* TO '{{ OARS_CLICKHOUSE
 GRANT SELECT ON {{ OARS_COURSEGRAPH_DATABASE }}.* TO '{{ OARS_CLICKHOUSE_REPORT_USER }}';
 
 EOF
-
-echo "Replacing demo coursegrah data ..."
-clickhouse client --user "{{ CLICKHOUSE_ADMIN_USER }}" --password="{{ CLICKHOUSE_ADMIN_PASSWORD }}" --host "{{ CLICKHOUSE_HOST }}" --port {{ CLICKHOUSE_PORT }} --allow_experimental_lightweight_delete=1 -q "DELETE FROM {{ OARS_COURSEGRAPH_DATABASE }}.{{ OARS_COURSEGRAPH_NODES_TABLE }} WHERE course_key = 'course-v1:edX+DemoX+Demo_Course'";
-
-clickhouse client --user "{{ CLICKHOUSE_ADMIN_USER }}" --password="{{ CLICKHOUSE_ADMIN_PASSWORD }}" --host "{{ CLICKHOUSE_HOST }}" --port {{ CLICKHOUSE_PORT }} --allow_experimental_lightweight_delete=1 -q "DELETE FROM {{ OARS_COURSEGRAPH_DATABASE }}.{{ OARS_COURSEGRAPH_NODES_TABLE }} WHERE course_key = 'course-v1:edX+DemoX+Demo_Course'";
-
-clickhouse client --user "{{ CLICKHOUSE_ADMIN_USER }}" --password="{{ CLICKHOUSE_ADMIN_PASSWORD }}" --host "{{ CLICKHOUSE_HOST }}" --port {{ CLICKHOUSE_PORT }} --query "INSERT INTO {{ OARS_COURSEGRAPH_DATABASE }}.{{ OARS_COURSEGRAPH_NODES_TABLE }} FORMAT CSV" \
-  < /app/oars/data/clickhouse/coursegraph_nodes.csv;
-
-clickhouse client --user "{{ CLICKHOUSE_ADMIN_USER }}" --password="{{ CLICKHOUSE_ADMIN_PASSWORD }}" --host "{{ CLICKHOUSE_HOST }}" --port {{ CLICKHOUSE_PORT }} --query "INSERT INTO {{ OARS_COURSEGRAPH_DATABASE }}.{{ OARS_COURSEGRAPH_RELATIONSHIPS_TABLE }} FORMAT CSV" \
-  < /app/oars/data/clickhouse/coursegraph_relationships.csv;
