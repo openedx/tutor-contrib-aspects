@@ -17,7 +17,7 @@ jobs:
       branch: ${{ github.event.inputs.branch || 'main' }}
       # optional parameters below; fill in if you'd like github or email notifications
       # user_reviewers: ""
-      # team_reviewers: ""
+      team_reviewers: "@openedx/tutor-contrib-oars-maintainers "
       # email_address: ""
       # send_success_notification: false
     secrets:
