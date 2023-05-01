@@ -26,10 +26,10 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("OARS_RAW_XAPI_TABLE", "xapi_events_all"),
         ("OARS_XAPI_TRANSFORM_MV", "xapi_events_all_parsed_mv"),
         ("OARS_XAPI_TABLE", "xapi_events_all_parsed"),
-        # ClickHouse Coursegraph setting
-        ("OARS_COURSEGRAPH_DATABASE", "coursegraph"),
-        ("OARS_COURSEGRAPH_NODES_TABLE", "coursegraph_nodes"),
-        ("OARS_COURSEGRAPH_RELATIONSHIPS_TABLE", "coursegraph_relationships"),
+        # ClickHouse event sink settings
+        ("OARS_EVENT_SINK_DATABASE", "event_sink"),
+        ("OARS_EVENT_SINK_NODES_TABLE", "course_nodes"),
+        ("OARS_EVENT_SINK_RELATIONSHIPS_TABLE", "course_relationships"),
         # MySQL dataset settings
         ("OARS_SUPERSET_ENROLLMENTS_TABLE", "Course Enrollments Overview"),
         # Make sure LMS / CMS have evnet-routing-backends installed
@@ -55,7 +55,7 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         # Report user is used by Superset to read from ClickHouse tables
         ("OARS_CLICKHOUSE_REPORT_USER", "ch_report"),
         ("OARS_CLICKHOUSE_REPORT_PASSWORD", "{{ 24|random_string }}"),
-        # CMS user is used by CMS to insert into Coursegraph tables
+        # CMS user is used by CMS to insert into event sink tables
         ("OARS_CLICKHOUSE_CMS_USER", "ch_cms"),
         ("OARS_CLICKHOUSE_CMS_PASSWORD", "{{ 24|random_string }}"),
     ]
