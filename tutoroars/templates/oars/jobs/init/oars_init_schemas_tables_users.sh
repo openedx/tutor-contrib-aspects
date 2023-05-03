@@ -65,27 +65,30 @@ CREATE MATERIALIZED VIEW IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_XAPI_TRA
 CREATE DATABASE IF NOT EXISTS {{ OARS_EVENT_SINK_DATABASE }};
 CREATE TABLE IF NOT EXISTS {{ OARS_EVENT_SINK_DATABASE }}.{{ OARS_EVENT_SINK_NODES_TABLE }}
 (
-    org              String,
-    course_key       String,
-    course           String,
-    run              String,
-    location         String,
-    display_name     String,
-    block_type       String,
-    detached         Bool,
-    edited_on        String,
-    time_last_dumped String,
-    order            Int32 default 0
+    org              String NOT NULL,
+    course_key       String NOT NULL,
+    course           String NOT NULL,
+    run              String NOT NULL,
+    location         String NOT NULL,
+    display_name     String NOT NULL,
+    block_type       String NOT NULL,
+    detached         Bool NOT NULL,
+    order            Int32 default 0,
+    edited_on        String NOT NULL,
+    dump_id          UUID NOT NULL,
+    time_last_dumped String NOT NULL
 ) engine = MergeTree
-    PRIMARY KEY (course_key, location)
-    ORDER BY (course_key, location);
+    PRIMARY KEY (org, course_key, location)
+    ORDER BY (org, course_key, location);
 
 CREATE TABLE IF NOT EXISTS {{ OARS_EVENT_SINK_DATABASE }}.{{ OARS_EVENT_SINK_RELATIONSHIPS_TABLE }}
 (
-    course_key      String,
-    parent_location String,
-    child_location  String,
-    order           Int32
+    course_key       String,
+    parent_location  String,
+    child_location   String,
+    order            Int32,
+    dump_id          UUID NOT NULL,
+    time_last_dumped String NOT NULL
 ) engine = MergeTree
     PRIMARY KEY (course_key, parent_location, child_location, order)
     ORDER BY (course_key, parent_location, child_location, order);
