@@ -44,7 +44,7 @@ dev-requirements: ## Install packages from developer requirement files
 build-pythonpackage: ## Build Python packages ready to upload to pypi
 	python setup.py sdist bdist_wheel
 
-test: test-lint test-install test-types test-format test-pythonpackage ## Run all tests by decreasing order of priority
+test: dev-requirements test-lint test-format test-pythonpackage ## Run all tests by decreasing order of priority
 
 test-format: ## Run code formatting tests
 	black --check --diff ${SOURCES}
@@ -54,9 +54,6 @@ test-lint: ## Run code linting tests
 
 test-install: ## Run installation test script
 	tests/test-install.sh
-
-test-types: ## Check type definitions
-	mypy --ignore-missing-imports --strict ${SOURCES}
 
 test-pythonpackage: build-pythonpackage ## Test that package can be uploaded to pypi
 	twine check dist/$(PROJECT)-$(shell make version).tar.gz

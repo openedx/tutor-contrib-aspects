@@ -38,6 +38,7 @@ setup(
     license="AGPLv3",
     author="Brian Mesick, Jillian Vogel",
     description="oars plugin for Tutor",
+    long_description_content_type="text/x-rst",
     long_description=load_readme(),
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
