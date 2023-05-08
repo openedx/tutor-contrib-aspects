@@ -9,8 +9,13 @@ import datetime
 from supersetapiclient.client import SupersetClient
 
 
-SUPERSET_URL_SCHEME = "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}"
-SUPERSET_HOST_URL = f"{SUPERSET_URL_SCHEME}://{{SUPERSET_HOST}}{% if not ENABLE_HTTPS %}:{{ SUPERSET_PORT }}{% endif %}"
+SUPERSET_URL_SCHEME = (
+    "{% if ENABLE_HTTPS and not RUN_SUPERSET %}https{% else %}http{% endif %}"
+)
+SUPERSET_HOST_URL = (
+    SUPERSET_URL_SCHEME
+    + "://{% if RUN_SUPERSET %}superset:{{ SUPERSET_PORT }}{% else %}{{ SUPERSET_HOST }}{% endif %}"
+)
 SUPERSET_ADMIN_USERNAME = "{{ SUPERSET_ADMIN_USERNAME }}"
 SUPERSET_ADMIN_PASSWORD = "{{ SUPERSET_ADMIN_PASSWORD }}"
 SUPERSET_DATA_ASSETS_DIR = "/app/oars/data/superset/"

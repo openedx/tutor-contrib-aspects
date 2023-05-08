@@ -1,5 +1,5 @@
 echo "Running schema creation scripts..."
-clickhouse client --user "{{ CLICKHOUSE_ADMIN_USER }}" --password="{{ CLICKHOUSE_ADMIN_PASSWORD }}" --host "{{ CLICKHOUSE_HOST }}" --port {{ CLICKHOUSE_PORT }} --multiquery <<'EOF'
+clickhouse client --user "{{ CLICKHOUSE_ADMIN_USER }}" --password="{{ CLICKHOUSE_ADMIN_PASSWORD }}" --host "{{ CLICKHOUSE_HOST }}" {% if CLICKHOUSE_SECURE_CONNECTION %} --secure {% else %} --port {{ CLICKHOUSE_PORT }}{% endif %} --multiquery <<'EOF'
 -- Allow JSON fields
 SET allow_experimental_object_type=1;
 
