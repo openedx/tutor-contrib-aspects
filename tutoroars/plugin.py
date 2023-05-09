@@ -38,7 +38,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             [
                 "edx-event-routing-backends",
                 # pylint: disable=line-too-long
-                "git+https://github.com/openedx/openedx-event-sink-clickhouse@bmtcril/add_event_listener",
+                "git+https://github.com/openedx/openedx-event-sink-clickhouse@bmtcril/course_structure_management_command",
             ],
         ),
     ]
