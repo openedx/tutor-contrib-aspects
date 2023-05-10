@@ -4,6 +4,6 @@ oars-job:
   volumes:
     - ../../env/plugins/oars/apps:/app/oars
   depends_on:
-    - superset
-    - clickhouse
+    - superset {% if RUN_CLICKHOUSE%}
+    - clickhouse{% endif %}
     - ralph
