@@ -30,6 +30,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("OARS_EVENT_SINK_DATABASE", "event_sink"),
         ("OARS_EVENT_SINK_NODES_TABLE", "course_blocks"),
         ("OARS_EVENT_SINK_RELATIONSHIPS_TABLE", "course_relationships"),
+        ("OARS_EVENT_SINK_OVERVIEWS_TABLE", "course_overviews"),
         # MySQL dataset settings
         ("OARS_SUPERSET_ENROLLMENTS_TABLE", "Course Enrollments Overview"),
         # Make sure LMS / CMS have evnet-routing-backends installed

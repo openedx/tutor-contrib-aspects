@@ -63,30 +63,44 @@ CREATE MATERIALIZED VIEW IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_XAPI_TRA
 
 -- Create the event sink schema if it doesn't exist
 CREATE DATABASE IF NOT EXISTS {{ OARS_EVENT_SINK_DATABASE }};
+
+CREATE TABLE IF NOT EXISTS {{ OARS_EVENT_SINK_DATABASE }}.{{ OARS_EVENT_SINK_OVERVIEWS_TABLE }}
+(
+    org              String NOT NULL,
+    course_key       String NOT NULL,
+    location         String NOT NULL,
+    display_name     String NOT NULL,
+    xblock_data_json String NOT NULL,
+    order            Int32 default 0,
+    dump_id          UUID NOT NULL,
+    time_last_dumped String NOT NULL,
+    created          String NOT NULL,
+    modified         String NOT NULL
+) engine = MergeTree
+    PRIMARY KEY (org, course_key, location, modified)
+    ORDER BY (org, course_key, location, modified, order);
+
 CREATE TABLE IF NOT EXISTS {{ OARS_EVENT_SINK_DATABASE }}.{{ OARS_EVENT_SINK_NODES_TABLE }}
 (
     org              String NOT NULL,
     course_key       String NOT NULL,
-    course           String NOT NULL,
-    run              String NOT NULL,
     location         String NOT NULL,
     display_name     String NOT NULL,
-    block_type       String NOT NULL,
-    detached         Bool NOT NULL,
+    xblock_data_json String NOT NULL,
     order            Int32 default 0,
     edited_on        String NOT NULL,
     dump_id          UUID NOT NULL,
     time_last_dumped String NOT NULL
 ) engine = MergeTree
-    PRIMARY KEY (org, course_key, location)
-    ORDER BY (org, course_key, location);
+    PRIMARY KEY (org, course_key, location, edited_on)
+    ORDER BY (org, course_key, location, edited_on, order);
 
 CREATE TABLE IF NOT EXISTS {{ OARS_EVENT_SINK_DATABASE }}.{{ OARS_EVENT_SINK_RELATIONSHIPS_TABLE }}
 (
-    course_key       String,
-    parent_location  String,
-    child_location   String,
-    order            Int32,
+    course_key       String NOT NULL,
+    parent_location  String NOT NULL,
+    child_location   String NOT NULL,
+    order            Int32 NOT NULL,
     dump_id          UUID NOT NULL,
     time_last_dumped String NOT NULL
 ) engine = MergeTree
