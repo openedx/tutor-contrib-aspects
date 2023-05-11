@@ -66,11 +66,15 @@ def update_assets():
         os.unlink(zip_file.name)
 
     # Mark the imported dashboard as Published
-    dashboard = superset.dashboards.find(slug=OPENEDX_DASHBOARD_SLUG)[0]
-    dashboard.published = True
-    # TODO: Enable feature flag DASHBOARD_RBAC, and set dashboard.roles = ["Open edX"]
-    # Consider finishing https://github.com/opus-42/superset-api-client/pull/31
-    dashboard.save()
+    openedx_dashboards = superset.dashboards.find(slug=OPENEDX_DASHBOARD_SLUG)
+
+    if openedx_dashboards:
+        dashboard = openedx_dashboards[0]
+        dashboard.published = True
+        # TODO: Enable feature flag DASHBOARD_RBAC, and set
+        #  dashboard.roles = ["Open edX"]
+        # Consider finishing https://github.com/opus-42/superset-api-client/pull/31
+        dashboard.save()
 
 
 def superset_asset_zip(zip_dir, asset_type, metadata_type, metadata_version="1.0.0"):
