@@ -21,6 +21,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Each new setting is a pair: (setting_name, default_value).
         # Prefix your setting names with 'OARS_'.
         ("OARS_VERSION", __version__),
+        ("DOCKER_IMAGE_OARS", "python:3.8"),
         # ClickHouse xAPI settings
         ("OARS_XAPI_DATABASE", "xapi"),
         ("OARS_RAW_XAPI_TABLE", "xapi_events_all"),
