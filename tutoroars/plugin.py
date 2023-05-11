@@ -38,8 +38,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "OPENEDX_EXTRA_PIP_REQUIREMENTS",
             [
                 "edx-event-routing-backends",
-                # pylint: disable=line-too-long
-                "git+https://github.com/openedx/openedx-event-sink-clickhouse@bmtcril/course_structure_management_command",
+                "openedx-event-sink-clickhouse==0.1.0",
             ],
         ),
     ]
