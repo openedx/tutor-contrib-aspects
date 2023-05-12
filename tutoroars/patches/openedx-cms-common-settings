@@ -5,5 +5,5 @@ EVENT_SINK_CLICKHOUSE_BACKEND_CONFIG = {
         "username": "{{ OARS_CLICKHOUSE_CMS_USER }}",
         "password": "{{ OARS_CLICKHOUSE_CMS_PASSWORD }}",
         "database": "{{ OARS_EVENT_SINK_DATABASE }}",
-        "timeout_secs": 3
+        "timeout_secs": {{ OARS_EVENT_SINK_CLICKHOUSE_TIMEOUT_SECS }}
 }
