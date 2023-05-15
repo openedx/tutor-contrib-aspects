@@ -61,31 +61,51 @@ CREATE MATERIALIZED VIEW IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_XAPI_TRA
     FROM {{ OARS_XAPI_DATABASE }}.{{ OARS_RAW_XAPI_TABLE }};
 
 
--- Create the coursegraph schema if it doesn't exist
-CREATE DATABASE IF NOT EXISTS {{ OARS_COURSEGRAPH_DATABASE }};
-CREATE TABLE IF NOT EXISTS {{ OARS_COURSEGRAPH_DATABASE }}.{{ OARS_COURSEGRAPH_NODES_TABLE }}
-(
-    org              String,
-    course_key       String,
-    course           String,
-    run              String,
-    location         String,
-    display_name     String,
-    block_type       String,
-    detached         Bool,
-    edited_on        String,
-    time_last_dumped String,
-    order            Int32 default 0
-) engine = MergeTree
-    PRIMARY KEY (course_key, location)
-    ORDER BY (course_key, location);
+-- Create the event sink schema if it doesn't exist
+CREATE DATABASE IF NOT EXISTS {{ OARS_EVENT_SINK_DATABASE }};
 
-CREATE TABLE IF NOT EXISTS {{ OARS_COURSEGRAPH_DATABASE }}.{{ OARS_COURSEGRAPH_RELATIONSHIPS_TABLE }}
+CREATE TABLE IF NOT EXISTS {{ OARS_EVENT_SINK_DATABASE }}.{{ OARS_EVENT_SINK_OVERVIEWS_TABLE }}
 (
-    course_key      String,
-    parent_location String,
-    child_location  String,
-    order           Int32
+    org String NOT NULL,
+    course_key String NOT NULL,
+    display_name String NOT NULL,
+    course_start String NOT NULL,
+    course_end String NOT NULL,
+    enrollment_start String NOT NULL,
+    enrollment_end String NOT NULL,
+    self_paced BOOL NOT NULL,
+    course_data_json String NOT NULL,
+    created String NOT NULL,
+    modified String NOT NULL,
+    dump_id UUID NOT NULL,
+    time_last_dumped String NOT NULL
+) engine = MergeTree
+    PRIMARY KEY (org, course_key, modified, time_last_dumped)
+    ORDER BY (org, course_key, modified, time_last_dumped);
+
+CREATE TABLE IF NOT EXISTS {{ OARS_EVENT_SINK_DATABASE }}.{{ OARS_EVENT_SINK_NODES_TABLE }}
+(
+    org String NOT NULL,
+    course_key String NOT NULL,
+    location String NOT NULL,
+    display_name String NOT NULL,
+    xblock_data_json String NOT NULL,
+    order Int32 default 0,
+    edited_on String NOT NULL,
+    dump_id UUID NOT NULL,
+    time_last_dumped String NOT NULL
+) engine = MergeTree
+    PRIMARY KEY (org, course_key, location, edited_on)
+    ORDER BY (org, course_key, location, edited_on, order);
+
+CREATE TABLE IF NOT EXISTS {{ OARS_EVENT_SINK_DATABASE }}.{{ OARS_EVENT_SINK_RELATIONSHIPS_TABLE }}
+(
+    course_key String NOT NULL,
+    parent_location String NOT NULL,
+    child_location String NOT NULL,
+    order Int32 NOT NULL,
+    dump_id UUID NOT NULL,
+    time_last_dumped String NOT NULL
 ) engine = MergeTree
     PRIMARY KEY (course_key, parent_location, child_location, order)
     ORDER BY (course_key, parent_location, child_location, order);
@@ -95,7 +115,7 @@ CREATE TABLE IF NOT EXISTS {{ OARS_COURSEGRAPH_DATABASE }}.{{ OARS_COURSEGRAPH_R
 GRANT INSERT, SELECT ON {{ OARS_XAPI_DATABASE }}.* TO '{{ OARS_CLICKHOUSE_LRS_USER }}';
 GRANT SELECT ON {{ OARS_XAPI_DATABASE }}.* TO '{{ OARS_CLICKHOUSE_REPORT_USER }}';
 
-GRANT INSERT, SELECT ON {{ OARS_COURSEGRAPH_DATABASE }}.* TO '{{ OARS_CLICKHOUSE_CMS_USER }}';
-GRANT SELECT ON {{ OARS_COURSEGRAPH_DATABASE }}.* TO '{{ OARS_CLICKHOUSE_REPORT_USER }}';
+GRANT INSERT, SELECT ON {{ OARS_EVENT_SINK_DATABASE }}.* TO '{{ OARS_CLICKHOUSE_CMS_USER }}';
+GRANT SELECT ON {{ OARS_EVENT_SINK_DATABASE }}.* TO '{{ OARS_CLICKHOUSE_REPORT_USER }}';
 
 EOF
