@@ -21,19 +21,28 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Each new setting is a pair: (setting_name, default_value).
         # Prefix your setting names with 'OARS_'.
         ("OARS_VERSION", __version__),
+        ("DOCKER_IMAGE_OARS", "python:3.8"),
         # ClickHouse xAPI settings
         ("OARS_XAPI_DATABASE", "xapi"),
         ("OARS_RAW_XAPI_TABLE", "xapi_events_all"),
         ("OARS_XAPI_TRANSFORM_MV", "xapi_events_all_parsed_mv"),
         ("OARS_XAPI_TABLE", "xapi_events_all_parsed"),
-        # ClickHouse Coursegraph setting
-        ("OARS_COURSEGRAPH_DATABASE", "coursegraph"),
-        ("OARS_COURSEGRAPH_NODES_TABLE", "coursegraph_nodes"),
-        ("OARS_COURSEGRAPH_RELATIONSHIPS_TABLE", "coursegraph_relationships"),
+        # ClickHouse event sink settings
+        ("OARS_EVENT_SINK_DATABASE", "event_sink"),
+        ("OARS_EVENT_SINK_NODES_TABLE", "course_blocks"),
+        ("OARS_EVENT_SINK_RELATIONSHIPS_TABLE", "course_relationships"),
+        ("OARS_EVENT_SINK_OVERVIEWS_TABLE", "course_overviews"),
+        ("OARS_EVENT_SINK_CLICKHOUSE_TIMEOUT_SECS", "5"),
         # MySQL dataset settings
         ("OARS_SUPERSET_ENROLLMENTS_TABLE", "Course Enrollments Overview"),
         # Make sure LMS / CMS have event-routing-backends installed
-        ("OPENEDX_EXTRA_PIP_REQUIREMENTS", ["edx-event-routing-backends"]),
+        (
+            "OPENEDX_EXTRA_PIP_REQUIREMENTS",
+            [
+                "openedx-event-sink-clickhouse==0.1.0",
+                "edx-event-routing-backends==5.3.0",
+            ],
+        ),
     ]
 )
 
@@ -52,7 +61,7 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         # Report user is used by Superset to read from ClickHouse tables
         ("OARS_CLICKHOUSE_REPORT_USER", "ch_report"),
         ("OARS_CLICKHOUSE_REPORT_PASSWORD", "{{ 24|random_string }}"),
-        # CMS user is used by CMS to insert into Coursegraph tables
+        # CMS user is used by CMS to insert into event sink tables
         ("OARS_CLICKHOUSE_CMS_USER", "ch_cms"),
         ("OARS_CLICKHOUSE_CMS_PASSWORD", "{{ 24|random_string }}"),
     ]
@@ -82,9 +91,9 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 # ("<service>", ("<path>", "<to>", "<script>", "<template>"))
 MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
     ("clickhouse", ("oars", "jobs", "init", "oars_init_schemas_tables_users.sh"), 96),
-    ("oars", ("oars", "jobs", "init", "superset-api-dashboard.sh"), 98),
     ("superset", ("oars", "jobs", "init", "superset-init-security.sh"), 99),
     ("lms", ("oars", "jobs", "init", "configure-oars-lms.sh"), 100),
+    ("oars", ("oars", "jobs", "init", "superset-api-dashboard.sh"), 101),
 ]
 
 

@@ -9,8 +9,13 @@ import datetime
 from supersetapiclient.client import SupersetClient
 
 
-SUPERSET_URL_SCHEME = "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}"
-SUPERSET_HOST_URL = f"{SUPERSET_URL_SCHEME}://{{SUPERSET_HOST}}{% if not ENABLE_HTTPS %}:{{ SUPERSET_PORT }}{% endif %}"
+SUPERSET_URL_SCHEME = (
+    "{% if ENABLE_HTTPS and not RUN_SUPERSET %}https{% else %}http{% endif %}"
+)
+SUPERSET_HOST_URL = (
+    SUPERSET_URL_SCHEME
+    + "://{% if RUN_SUPERSET %}superset:{{ SUPERSET_PORT }}{% else %}{{ SUPERSET_HOST }}{% endif %}"
+)
 SUPERSET_ADMIN_USERNAME = "{{ SUPERSET_ADMIN_USERNAME }}"
 SUPERSET_ADMIN_PASSWORD = "{{ SUPERSET_ADMIN_PASSWORD }}"
 SUPERSET_DATA_ASSETS_DIR = "/app/oars/data/superset/"
@@ -61,11 +66,15 @@ def update_assets():
         os.unlink(zip_file.name)
 
     # Mark the imported dashboard as Published
-    dashboard = superset.dashboards.find(slug=OPENEDX_DASHBOARD_SLUG)[0]
-    dashboard.published = True
-    # TODO: Enable feature flag DASHBOARD_RBAC, and set dashboard.roles = ["Open edX"]
-    # Consider finishing https://github.com/opus-42/superset-api-client/pull/31
-    dashboard.save()
+    openedx_dashboards = superset.dashboards.find(slug=OPENEDX_DASHBOARD_SLUG)
+
+    if openedx_dashboards:
+        dashboard = openedx_dashboards[0]
+        dashboard.published = True
+        # TODO: Enable feature flag DASHBOARD_RBAC, and set
+        #  dashboard.roles = ["Open edX"]
+        # Consider finishing https://github.com/opus-42/superset-api-client/pull/31
+        dashboard.save()
 
 
 def superset_asset_zip(zip_dir, asset_type, metadata_type, metadata_version="1.0.0"):

@@ -14,7 +14,7 @@ spec:
         env:
           - name: VENV_DIR
             value: /opt/venv
-        image: python:3.8.10
+        image: {{ DOCKER_IMAGE_OARS }}
         securityContext:
           allowPrivilegeEscalation: false
           runAsUser: 0
