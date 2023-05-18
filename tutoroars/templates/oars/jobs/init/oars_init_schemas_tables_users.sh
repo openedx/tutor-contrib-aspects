@@ -4,15 +4,24 @@ clickhouse client --user "{{ CLICKHOUSE_ADMIN_USER }}" --password="{{ CLICKHOUSE
 SET allow_experimental_object_type=1;
 
 -- Create various non-admin users reporting users
-CREATE USER IF NOT EXISTS {{ OARS_CLICKHOUSE_LRS_USER}} IDENTIFIED WITH sha256_password BY '{{ OARS_CLICKHOUSE_LRS_PASSWORD }}';
-CREATE USER IF NOT EXISTS {{ OARS_CLICKHOUSE_REPORT_USER}} IDENTIFIED WITH sha256_password BY '{{ OARS_CLICKHOUSE_REPORT_PASSWORD }}';
-CREATE USER IF NOT EXISTS {{ OARS_CLICKHOUSE_CMS_USER}} IDENTIFIED WITH sha256_password BY '{{ OARS_CLICKHOUSE_CMS_PASSWORD }}';
+CREATE USER IF NOT EXISTS {{ OARS_CLICKHOUSE_LRS_USER }} IDENTIFIED WITH sha256_password BY '{{ OARS_CLICKHOUSE_LRS_PASSWORD }}';
+CREATE USER IF NOT EXISTS {{ OARS_CLICKHOUSE_REPORT_USER }} IDENTIFIED WITH sha256_password BY '{{ OARS_CLICKHOUSE_REPORT_PASSWORD }}';
+CREATE USER IF NOT EXISTS {{ OARS_CLICKHOUSE_CMS_USER }} IDENTIFIED WITH sha256_password BY '{{ OARS_CLICKHOUSE_CMS_PASSWORD }}';
 
 -- Update user passwords if they do exist
-ALTER USER {{ OARS_CLICKHOUSE_LRS_USER}} IDENTIFIED WITH sha256_password BY '{{ OARS_CLICKHOUSE_LRS_PASSWORD }}';
-ALTER USER {{ OARS_CLICKHOUSE_REPORT_USER}} IDENTIFIED WITH sha256_password BY '{{ OARS_CLICKHOUSE_REPORT_PASSWORD }}';
-ALTER USER {{ OARS_CLICKHOUSE_CMS_USER}} IDENTIFIED WITH sha256_password BY '{{ OARS_CLICKHOUSE_CMS_PASSWORD }}';
+ALTER USER {{ OARS_CLICKHOUSE_LRS_USER }} IDENTIFIED WITH sha256_password BY '{{ OARS_CLICKHOUSE_LRS_PASSWORD }}';
+ALTER USER {{ OARS_CLICKHOUSE_REPORT_USER }} IDENTIFIED WITH sha256_password BY '{{ OARS_CLICKHOUSE_REPORT_PASSWORD }}';
+ALTER USER {{ OARS_CLICKHOUSE_CMS_USER }} IDENTIFIED WITH sha256_password BY '{{ OARS_CLICKHOUSE_CMS_PASSWORD }}';
 
+-- Create the terrible user defined function to parse the org out of course URLs
+-- if we need to update this just add a COALESCE around the whole thing and put in
+-- additional cases wrapped in nullIf's until we get them all. Other things we may find in these URLs eventually:
+-- i4x://{org}/{rest of key}  Old Mongo usage keys
+-- c4x://{org}/{rest of key}  Old Mongo assets
+-- {org}/{rest of key} Old Mongo course keys
+CREATE OR REPLACE FUNCTION get_org_from_course_url AS (course_url) ->
+  nullIf(EXTRACT(course_url, 'course-v1:([a-zA-Z0-9]*)'), '')
+;
 
 -- Create the xapi schema if it doesn't exist
 CREATE DATABASE IF NOT EXISTS {{ OARS_XAPI_DATABASE }};
@@ -31,11 +40,12 @@ PRIMARY KEY (emission_time, event_id);
 CREATE TABLE IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_XAPI_TABLE }} (
     event_id UUID NOT NULL,
     verb_id String NOT NULL,
-    actor_id UUID NOT NULL,
+    actor_id String NOT NULL,
+    object_id String NOT NULL,
     org String NOT NULL,
     course_id String NOT NULL,
     emission_time DateTime64(6) NOT NULL,
-    event JSON NOT NULL
+    event_str String NOT NULL
 ) ENGINE MergeTree
 ORDER BY (org, course_id, verb_id, actor_id, emission_time, event_id)
 PRIMARY KEY (org, course_id, verb_id, actor_id, emission_time, event_id);
@@ -47,6 +57,7 @@ CREATE MATERIALIZED VIEW IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_XAPI_TRA
     event_id as event_id,
     JSON_VALUE(event_str, '$.verb.id') as verb_id,
     JSON_VALUE(event_str, '$.actor.account.name') as actor_id,
+    JSON_VALUE(event_str, '$.object.id') as object_id,
     -- If the contextActivities parent is a course, use that. Otherwise use the object id for the course id
     if(
         JSON_VALUE(
@@ -56,8 +67,9 @@ CREATE MATERIALIZED VIEW IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_XAPI_TRA
             JSON_VALUE(event_str, '$.context.contextActivities.parent[0].id'),
             JSON_VALUE(event_str, '$.object.id')
         ) as course_id,
+    get_org_from_course_url(course_id) as org,
     emission_time as emission_time,
-    event as event
+    event_str as event_str
     FROM {{ OARS_XAPI_DATABASE }}.{{ OARS_RAW_XAPI_TABLE }};
 
 
@@ -107,7 +119,7 @@ CREATE TABLE IF NOT EXISTS {{ OARS_EVENT_SINK_DATABASE }}.{{ OARS_EVENT_SINK_REL
     dump_id UUID NOT NULL,
     time_last_dumped String NOT NULL
 ) engine = MergeTree
-    PRIMARY KEY (course_key, parent_location, child_location, order)
+    PRIMARY KEY (course_key, parent_location, child_location, time_last_dumped)
     ORDER BY (course_key, parent_location, child_location, order);
 
 
