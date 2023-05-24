@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS {{ OARS_EVENT_SINK_DATABASE }}.{{ OARS_EVENT_SINK_REL
     time_last_dumped String NOT NULL
 ) engine = MergeTree
     PRIMARY KEY (course_key, parent_location, child_location, time_last_dumped)
-    ORDER BY (course_key, parent_location, child_location, order);
+    ORDER BY (course_key, parent_location, child_location, time_last_dumped, order);
 
 
 -- Grant permissions to the users
