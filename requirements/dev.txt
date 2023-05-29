@@ -16,7 +16,7 @@ black==23.3.0
     # via -r requirements/dev.in
 bleach==6.0.0
     # via readme-renderer
-cachetools==5.3.0
+cachetools==5.3.1
     # via
     #   -r requirements/base.txt
     #   google-auth
@@ -42,7 +42,7 @@ dill==0.3.6
     # via pylint
 docutils==0.20.1
     # via readme-renderer
-google-auth==2.18.1
+google-auth==2.19.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -147,7 +147,7 @@ pyyaml==6.0
     #   tutor
 readme-renderer==37.3
     # via twine
-requests==2.30.0
+requests==2.31.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -185,11 +185,11 @@ tomli==2.0.1
     #   pylint
 tomlkit==0.11.8
     # via pylint
-tutor==15.3.5
+tutor==15.3.6
     # via -r requirements/base.txt
 twine==4.0.2
     # via -r requirements/dev.in
-typing-extensions==4.5.0
+typing-extensions==4.6.2
     # via
     #   -r requirements/base.txt
     #   astroid
@@ -198,7 +198,7 @@ typing-extensions==4.5.0
     #   pylint
     #   rich
     #   tutor
-urllib3==1.26.15
+urllib3==1.26.16
     # via
     #   -r requirements/base.txt
     #   google-auth
