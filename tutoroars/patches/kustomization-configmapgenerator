@@ -1,40 +1,5 @@
-- name: oars-pythonpath
-  files:{% for file in "oars/apps/pythonpath"|walk_templates %}
-  - plugins/{{ file }}{% endfor %}
-  options:
-    labels:
-        app.kubernetes.io/name: oars
-
-- name: oars-databases
-  files:{% for file in "oars/apps/data/superset/databases"|walk_templates %}
-  - plugins/{{ file }}{% endfor %}
-  options:
-    labels:
-        app.kubernetes.io/name: oars
-
-- name: oars-dashboards
-  files:{% for file in "oars/apps/data/superset/dashboards"|walk_templates %}
-  - plugins/{{ file }}{% endfor %}
-  options:
-    labels:
-        app.kubernetes.io/name: oars
-
-- name: oars-openedx-mysql
-  files:{% for file in "oars/apps/data/superset/datasets/OpenedX_MySQL"|walk_templates %}
-  - plugins/{{ file }}{% endfor %}
-  options:
-    labels:
-        app.kubernetes.io/name: oars
-
-- name: oars-openedx-clickhouse
-  files:{% for file in "oars/apps/data/superset/datasets/OpenedX_Clickhouse"|walk_templates %}
-  - plugins/{{ file }}{% endfor %}
-  options:
-    labels:
-        app.kubernetes.io/name: oars
-
-- name: oars-charts
-  files:{% for file in "oars/apps/data/superset/charts"|walk_templates %}
+- name: oars-scripts
+  files:{% for file in "oars/apps/scripts"|walk_templates %}
   - plugins/{{ file }}{% endfor %}
   options:
     labels:
