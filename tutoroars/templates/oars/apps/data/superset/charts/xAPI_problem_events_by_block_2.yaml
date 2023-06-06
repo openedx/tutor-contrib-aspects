@@ -1,0 +1,64 @@
+slice_name: xAPI problem events by block
+viz_type: echarts_timeseries_bar
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator:
+    - http://adlnet.gov/expapi/verbs/evaluated
+    - http://adlnet.gov/expapi/verbs/attempted
+    - http://adlnet.gov/expapi/verbs/asked
+    expressionType: SIMPLE
+    filterOptionName: filter_0qzkqpapje2_6p5tpr4igwf
+    isExtra: false
+    isNew: false
+    operator: IN
+    operatorId: IN
+    sqlExpression: null
+    subject: verb_id
+  annotation_layers: []
+  color_scheme: supersetColors
+  comparison_type: values
+  contributionMode: null
+  datasource: 1__table
+  extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
+  granularity_sqla: emission_time
+  groupby:
+  - verb
+  - block_key
+  legendOrientation: top
+  legendType: scroll
+  metrics:
+  - aggregate: null
+    column: null
+    expressionType: SQL
+    hasCustomLabel: false
+    isNew: false
+    label: count(verb)
+    optionName: metric_wdmlkvulpn7_ll3d19812
+    sqlExpression: count(verb)
+  only_total: true
+  order_desc: true
+  orientation: vertical
+  rich_tooltip: true
+  row_limit: 10000
+  show_legend: true
+  slice_id: 2
+  time_grain_sqla: P1D
+  time_range: No filter
+  tooltipTimeFormat: smart_date
+  truncate_metric: false
+  viz_type: echarts_timeseries_bar
+  x_axis_time_format: smart_date
+  x_axis_title_margin: 15
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  y_axis_title_margin: 15
+  y_axis_title_position: Left
+cache_timeout: null
+uuid: 742759ee-9765-4f23-abaa-9d87aa499c3a
+version: 1.0.0
+dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
