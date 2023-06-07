@@ -1,0 +1,22 @@
+{% if RUN_CLICKHOUSE %}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clickhouse
+  labels:
+    app.kubernetes.io/name: clickhouse
+spec:
+  ports:
+    - port: 8123
+      protocol: TCP
+      name: http
+    - port: 9000
+      protocol: TCP
+      name: https
+    - port: 9009
+      protocol: TCP
+      name: interserver
+  selector:
+    app.kubernetes.io/name: clickhouse
+{% endif %}

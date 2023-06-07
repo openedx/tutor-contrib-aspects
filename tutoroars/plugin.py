@@ -43,19 +43,35 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "edx-event-routing-backends==5.3.1",
             ],
         ),
+
+        ######################
+        # ClickHouse Settings
+        ("CLICKHOUSE_VERSION", __version__),
+        ("CLICKHOUSE_HOST", "clickhouse"),
+        ("CLICKHOUSE_PORT", "9000"),
+        ("CLICKHOUSE_HTTP_PORT", "8123"),
+        ("CLICKHOUSE_HTTPS_PORT", "8443"),
+        ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:23.3"),
+        # This can be used to override some configuration values in
+        # via "docker_config.xml" file, which will be read from a
+        # mount on /etc/clickhouse-server/config.d/ on startup.
+        # See https://clickhouse.com/docs/en/operations/configuration-files
+        #
+        # This default allows connecting to Clickhouse when run as a
+        # standalone docker container, instead of through docker-compose.
+        (
+            "CLICKHOUSE_EXTRA_XML_CONFIG",
+            """
+    <listen_host>::</listen_host>
+    <listen_host>0.0.0.0</listen_host>
+    <listen_try>1</listen_try>
+        """,
+        ),
     ]
 )
 
 hooks.Filters.CONFIG_UNIQUE.add_items(
     [
-        # Add settings that don't have a reasonable default for all users here.
-        # For instance: passwords, secret keys, etc.
-        # Each new setting is a pair: (setting_name, unique_generated_value).
-        # Prefix your setting names with 'OARS_'.
-        # For example:
-        ### ("OARS_SECRET_KEY", "{{ 24|random_string }}"),
-        # Note! The CLICKHOUSE_ADMIN_USER is managed in the ClickHouse plugin.
-        # LRS user is used by Ralph to insert into ClickHouse aXPI tables
         ("OARS_CLICKHOUSE_LRS_USER", "ch_lrs"),
         ("OARS_CLICKHOUSE_LRS_PASSWORD", "{{ 24|random_string }}"),
         # Report user is used by Superset to read from ClickHouse tables
@@ -64,6 +80,12 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         # CMS user is used by CMS to insert into event sink tables
         ("OARS_CLICKHOUSE_CMS_USER", "ch_cms"),
         ("OARS_CLICKHOUSE_CMS_PASSWORD", "{{ 24|random_string }}"),
+        ######################
+        # ClickHouse Settings
+        ("CLICKHOUSE_ADMIN_USER", "ch_admin"),
+        ("CLICKHOUSE_ADMIN_PASSWORD", "{{ 24|random_string }}"),
+        ("CLICKHOUSE_SECURE_CONNECTION", False),
+        ("RUN_CLICKHOUSE", True),
     ]
 )
 
@@ -132,10 +154,11 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 # and then add it to the MY_INIT_TASKS list. Each task is in the format:
 # ("<service>", ("<path>", "<to>", "<script>", "<template>"))
 MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
-    ("clickhouse", ("oars", "jobs", "init", "oars_init_schemas_tables_users.sh"), 96),
-    ("superset", ("oars", "jobs", "init", "superset-init-security.sh"), 99),
-    ("lms", ("oars", "jobs", "init", "configure-oars-lms.sh"), 100),
-    ("superset", ("oars", "jobs", "init", "superset-api-dashboard.sh"), 101),
+    ("clickhouse", ("oars", "jobs", "init", "clickhouse", "init-clickhouse.sh"), 95),
+    ("clickhouse", ("oars", "jobs", "init", "clickhouse", "oars_init_schemas_tables_users.sh"), 96),
+    ("superset", ("oars", "jobs", "init", "superset", "superset-init-security.sh"), 99),
+    ("lms", ("oars", "jobs", "init", "lms", "configure-oars-lms.sh"), 100),
+    ("superset", ("oars", "jobs", "init", "superset", "superset-api-dashboard.sh"), 101),
 ]
 
 
@@ -263,7 +286,8 @@ def load_xapi_test_data(num_batches: int, batch_size: int) -> list[tuple[str, st
             "echo 'Making demo xapi script executable...' && "
             "chmod +x /app/oars/scripts/clickhouse-demo-xapi-data.sh && "
             "echo 'Done. Running script...' && "
-            f"bash /app/oars/scripts/clickhouse-demo-xapi-data.sh {num_batches} {batch_size} && "
+            f"bash /app/oars/scripts/oars/clickhouse-demo-xapi-data.sh {num_batches}"
+            f" {batch_size} && "
             "echo 'Done!';",
         ),
     ]
