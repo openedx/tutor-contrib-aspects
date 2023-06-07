@@ -196,6 +196,14 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DBT_PROFILE_SYNC_REQUEST_TIMEOUT", "5"),
         # Compression block size if compression is enabled, this is the default value
         ("DBT_PROFILE_COMPRESS_BLOCK_SIZE", "1048576"),
+        #########################
+        # Vector settings
+        ("VECTOR_DOCKER_IMAGE", "docker.io/timberio/vector:0.30.0-alpine"),
+        ("OARS_DOCKER_HOST_SOCK_PATH", "/var/run/docker.sock"),
+        ("OARS_VECTOR_DATABASE", "openedx"),
+        ("OARS_VECTOR_RAW_TRACKING_LOGS_TABLE", "_tracking"),
+        ("OARS_VECTOR_RAW_XAPI_TABLE", "xapi_events_all"),
+        ("RUN_VECTOR", True),
     ]
 )
 
