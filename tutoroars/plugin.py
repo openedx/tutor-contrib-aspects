@@ -43,7 +43,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "edx-event-routing-backends==5.3.1",
             ],
         ),
-
         ######################
         # ClickHouse Settings
         ("CLICKHOUSE_VERSION", __version__),
@@ -155,10 +154,18 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 # ("<service>", ("<path>", "<to>", "<script>", "<template>"))
 MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
     ("clickhouse", ("oars", "jobs", "init", "clickhouse", "init-clickhouse.sh"), 95),
-    ("clickhouse", ("oars", "jobs", "init", "clickhouse", "oars_init_schemas_tables_users.sh"), 96),
+    (
+        "clickhouse",
+        ("oars", "jobs", "init", "clickhouse", "oars_init_schemas_tables_users.sh"),
+        96,
+    ),
     ("superset", ("oars", "jobs", "init", "superset", "superset-init-security.sh"), 99),
     ("lms", ("oars", "jobs", "init", "lms", "configure-oars-lms.sh"), 100),
-    ("superset", ("oars", "jobs", "init", "superset", "superset-api-dashboard.sh"), 101),
+    (
+        "superset",
+        ("oars", "jobs", "init", "superset", "superset-api-dashboard.sh"),
+        101,
+    ),
 ]
 
 
