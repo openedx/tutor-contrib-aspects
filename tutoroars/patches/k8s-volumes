@@ -1,0 +1,16 @@
+{% if RUN_CLICKHOUSE %}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: clickhouse
+  labels:
+    app.kubernetes.io/component: volume
+    app.kubernetes.io/name: clickhouse
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+{% endif %}

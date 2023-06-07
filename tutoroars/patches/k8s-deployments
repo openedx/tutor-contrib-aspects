@@ -1,0 +1,49 @@
+{% if RUN_CLICKHOUSE %}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clickhouse
+  labels:
+    app.kubernetes.io/name: clickhouse
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: clickhouse
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: clickhouse
+    spec:
+      containers:
+        - env:
+            - name: CLICKHOUSE_DB
+              value: "xapi"
+            - name: CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT
+              value: "1"
+            - name: CLICKHOUSE_PASSWORD
+              value: "{{ CLICKHOUSE_ADMIN_PASSWORD }}"
+            - name: CLICKHOUSE_USER
+              value: "{{ CLICKHOUSE_ADMIN_USER }}"
+          image: {{ DOCKER_IMAGE_CLICKHOUSE }}
+          name: clickhouse
+          ports:
+            - containerPort: 8123
+            - containerPort: 9000
+            - containerPort: 9009
+          volumeMounts:
+            - mountPath: /var/lib/clickhouse/
+              name: data
+            - mountPath: /etc/clickhouse-server/config.d/
+              name: settings
+      restartPolicy: Always
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: clickhouse
+        - name: settings
+          configMap:
+            name: clickhouse-settings
+{% endif %}

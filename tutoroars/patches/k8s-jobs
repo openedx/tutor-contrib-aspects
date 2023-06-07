@@ -25,3 +25,26 @@ spec:
         - name: scripts
           configMap:
             name: oars-scripts
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: clickhouse-job
+  labels:
+    app.kubernetes.io/component: job
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: clickhouse
+        image: {{ DOCKER_IMAGE_CLICKHOUSE }}
+        env:
+          - name: CLICKHOUSE_DB
+            value: "xapi"
+          - name: CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT
+            value: "1"
+          - name: CLICKHOUSE_PASSWORD
+            value: "{{ CLICKHOUSE_ADMIN_PASSWORD }}"
+          - name: CLICKHOUSE_USER
+            value: "{{ CLICKHOUSE_ADMIN_USER }}"
