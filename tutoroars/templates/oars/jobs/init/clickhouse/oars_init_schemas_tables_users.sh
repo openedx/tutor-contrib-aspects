@@ -56,7 +56,11 @@ CREATE MATERIALIZED VIEW IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_XAPI_TRA
     SELECT
     event_id as event_id,
     JSON_VALUE(event_str, '$.verb.id') as verb_id,
-    JSON_VALUE(event_str, '$.actor.account.name') as actor_id,
+    COALESCE(
+        NULLIF(JSON_VALUE(event_str, '$.actor.account.name'), ''),
+        NULLIF(JSON_VALUE(event_str, '$.actor.mbox'), ''),
+        JSON_VALUE(event_str, '$.actor.mbox_sha1sum')
+    ) as actor_id,
     JSON_VALUE(event_str, '$.object.id') as object_id,
     -- If the contextActivities parent is a course, use that. Otherwise use the object id for the course id
     if(
