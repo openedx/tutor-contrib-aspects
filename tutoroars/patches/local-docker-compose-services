@@ -15,7 +15,7 @@ clickhouse:
             hard: 262144
     volumes:
         - ../../data/clickhouse:/var/lib/clickhouse/
-        - ../../env/plugins/clickhouse/apps/config:/etc/clickhouse-server/config.d/
+        - ../../env/plugins/oars/apps/clickhouse/config:/etc/clickhouse-server/config.d/
 {% endif %}
 
 {% if RUN_RALPH %}
@@ -38,4 +38,38 @@ ralph:
       - "clickhouse"
     volumes:
       - ../../env/plugins/oars/apps/ralph/config/ralph_auth/:/app/.ralph
+{% endif %}
+
+{% if RUN_SUPERSET %}
+superset:
+  {% include 'base-docker-compose-services' %}
+    OPENEDX_LMS_ROOT_URL: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}"
+  command: ["bash", "/app/docker/docker-bootstrap.sh", "app-gunicorn"]
+  ports:
+    - 8088:{{ SUPERSET_PORT }}
+  depends_on:
+    - mysql
+    - redis
+    - superset-worker
+    - superset-worker-beat
+
+superset-worker:
+  {% include 'base-docker-compose-services' %}
+    OPENEDX_LMS_ROOT_URL: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}"
+  command: ["bash", "/app/docker/docker-bootstrap.sh", "worker"]
+  healthcheck:
+    test: ["CMD-SHELL", "celery inspect ping -A superset.tasks.celery_app:app -d celery@$$HOSTNAME"]
+  depends_on:
+    - mysql
+    - redis
+
+superset-worker-beat:
+  {% include 'base-docker-compose-services' %}
+    OPENEDX_LMS_ROOT_URL: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}"
+  command: ["bash", "/app/docker/docker-bootstrap.sh", "worker"]
+  healthcheck:
+    disable: true
+  depends_on:
+    - mysql
+    - redis
 {% endif %}
