@@ -36,3 +36,20 @@ spec:
   selector:
     app.kubernetes.io/name: ralph
 {% endif %}
+
+{% if RUN_SUPERSET %}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: superset
+  labels:
+    app.kubernetes.io/name: superset
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ SUPERSET_PORT }}
+      protocol: TCP
+  selector:
+    app.kubernetes.io/name: superset
+{% endif %}

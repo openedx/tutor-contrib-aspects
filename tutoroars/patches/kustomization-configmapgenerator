@@ -21,3 +21,40 @@
     labels:
         app.kubernetes.io/name: ralph
 {% endif %}
+
+{% if RUN_SUPERSET %}
+- name: superset-docker
+  files:
+    - plugins/oars/apps/superset/docker/docker-bootstrap.sh
+    - plugins/oars/apps/superset/docker/requirements-local.txt
+  options:
+    labels:
+        app.kubernetes.io/name: superset
+
+- name: superset-pythonpath
+  files:
+    - plugins/oars/apps/superset/pythonpath/openedx_jinja_filters.py
+    - plugins/oars/apps/superset/pythonpath/openedx_sso_security_manager.py
+    - plugins/oars/apps/superset/pythonpath/superset_config_docker.py
+    - plugins/oars/apps/superset/pythonpath/superset_config.py
+  options:
+    labels:
+        app.kubernetes.io/name: superset
+
+- name: superset-data
+  files:
+    - plugins/oars/apps/superset/data/roles.json
+  options:
+    labels:
+        app.kubernetes.io/name: superset
+
+{% for volume in SUPERSET_EXTRA_VOLUMES %}
+- name: {{ volume.config_map_name }}
+  files: {% for file in volume.config_map_folder|walk_templates %}
+  - plugins/{{ file }}{% endfor %}
+  options:
+    labels:
+        app.kubernetes.io/name: oars
+{% endfor %}
+
+{% endif %}
