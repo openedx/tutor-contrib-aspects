@@ -291,7 +291,7 @@ def load_xapi_test_data(num_batches: int, batch_size: int) -> list[tuple[str, st
         (
             "oars",
             "echo 'Making demo xapi script executable...' && "
-            "chmod +x /app/oars/scripts/clickhouse-demo-xapi-data.sh && "
+            "chmod +x /app/oars/scripts/oars/clickhouse-demo-xapi-data.sh && "
             "echo 'Done. Running script...' && "
             f"bash /app/oars/scripts/oars/clickhouse-demo-xapi-data.sh {num_batches}"
             f" {batch_size} && "
