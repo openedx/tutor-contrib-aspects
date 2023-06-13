@@ -1,0 +1,6 @@
+{% if RUN_RALPH and RALPH_ENABLE_PUBLIC_URL %}
+# Ralph
+{{ RALPH_HOST }}{$default_site_port} {
+    import proxy "ralph:8100"
+}
+{% endif %}
