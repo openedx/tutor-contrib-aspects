@@ -17,3 +17,25 @@ clickhouse:
         - ../../data/clickhouse:/var/lib/clickhouse/
         - ../../env/plugins/clickhouse/apps/config:/etc/clickhouse-server/config.d/
 {% endif %}
+
+{% if RUN_RALPH %}
+ralph:
+    image: {{ DOCKER_IMAGE_RALPH }}
+    {% if RUN_CLICKHOUSE %}depends_on:
+      - clickhouse{% endif %}
+    env_file:
+      - ../../env/plugins/oars/apps/ralph/config/env
+    ports:
+      - "{{ RALPH_PORT }}:{{ RALPH_PORT }}"
+    command:
+      - python
+      - "-m"
+      - ralph
+      - "-v"
+      - DEBUG
+      - runserver
+      - "-b"
+      - "clickhouse"
+    volumes:
+      - ../../env/plugins/oars/apps/ralph/config/ralph_auth/:/app/.ralph
+{% endif %}

@@ -12,3 +12,12 @@
     labels:
         app.kubernetes.io/name: clickhouse
 {% endif %}
+
+{% if RUN_RALPH %}
+- name: ralph-settings
+  files:
+    - plugins/ralph/apps/config/ralph_auth/auth.json
+  options:
+    labels:
+        app.kubernetes.io/name: ralph
+{% endif %}

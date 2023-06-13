@@ -3,8 +3,11 @@ from __future__ import annotations
 
 import os
 import os.path
+import random
+import string
 from glob import glob
 
+import bcrypt
 import click
 import pkg_resources
 from tutor import hooks
@@ -66,8 +69,37 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
     <listen_try>1</listen_try>
         """,
         ),
+        ######################
+        # Ralph Settings
+        ("RALPH_VERSION", __version__),
+        ("DOCKER_IMAGE_RALPH", "docker.io/fundocker/ralph:3.6.0"),
+        # Change to https:// if the public interface to it is secure
+        ("RALPH_RUN_HTTPS", False),
+        ("RALPH_HOST", "ralph"),
+        ("RALPH_PORT", "8100"),
+        ("RALPH_ENABLE_PUBLIC_URL", False),
+        ("RALPH_SENTRY_DSN", ""),
+        ("RALPH_EXECUTION_ENVIRONMENT", "development"),
+        ("RALPH_SENTRY_CLI_TRACES_SAMPLE_RATE", 1.0),
+        ("RALPH_SENTRY_LRS_TRACES_SAMPLE_RATE", 0.1),
+        ("RALPH_SENTRY_IGNORE_HEALTH_CHECKS", True),
+        ("RUN_RALPH", True),
     ]
 )
+
+# Ralph requires us to write out a file with pre-encrypted values, so we encrypt
+# them here per: https://openfun.github.io/ralph/api/#creating_a_credentials_file
+#
+# They will remain unchanged between config saves as usual and the unencryted
+# passwords will still be able to be printed.
+RALPH_ADMIN_PASSWORD = "".join(random.choice(string.ascii_lowercase) for i in range(36))
+RALPH_LMS_PASSWORD = "".join(random.choice(string.ascii_lowercase) for i in range(36))
+RALPH_ADMIN_HASHED_PASSWORD = bcrypt.hashpw(
+    RALPH_ADMIN_PASSWORD.encode(), bcrypt.gensalt()
+).decode("ascii")
+RALPH_LMS_HASHED_PASSWORD = bcrypt.hashpw(
+    RALPH_LMS_PASSWORD.encode(), bcrypt.gensalt()
+).decode("ascii")
 
 hooks.Filters.CONFIG_UNIQUE.add_items(
     [
@@ -85,6 +117,14 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         ("CLICKHOUSE_ADMIN_PASSWORD", "{{ 24|random_string }}"),
         ("CLICKHOUSE_SECURE_CONNECTION", False),
         ("RUN_CLICKHOUSE", True),
+        ######################
+        # Ralph Settings
+        ("RALPH_ADMIN_USERNAME", "ralph"),
+        ("RALPH_ADMIN_PASSWORD", RALPH_ADMIN_PASSWORD),
+        ("RALPH_ADMIN_HASHED_PASSWORD", RALPH_ADMIN_HASHED_PASSWORD),
+        ("RALPH_LMS_USERNAME", "lms"),
+        ("RALPH_LMS_PASSWORD", RALPH_LMS_PASSWORD),
+        ("RALPH_LMS_HASHED_PASSWORD", RALPH_LMS_HASHED_PASSWORD),
     ]
 )
 
