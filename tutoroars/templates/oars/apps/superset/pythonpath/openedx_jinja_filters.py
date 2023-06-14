@@ -8,7 +8,8 @@ from superset.extensions import security_manager
 ALL_COURSES = "1 = 1"
 NO_COURSES = "1 = 0"
 
-def can_view_courses(username, field_name='course_id'):
+
+def can_view_courses(username, field_name="course_id"):
     """
     Returns SQL WHERE clause which restricts access to the courses the current user has staff access to.
     """
@@ -32,9 +33,7 @@ def can_view_courses(username, field_name='course_id'):
 
     # TODO: what happens when the list of courses grows beyond what the query will handle?
     if courses:
-        course_id_list = ", ".join(
-            f"'{course_id}'" for course_id in courses
-        )
+        course_id_list = ", ".join(f"'{course_id}'" for course_id in courses)
         return f"{field_name} in ({course_id_list})"
     else:
         # If you're not course staff on any courses, you don't get to see any.

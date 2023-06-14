@@ -16,28 +16,29 @@ def add_to_headers(token, headers=None):
     Authorization: Bearer h480djs93hd8
     """
     headers = headers or {}
-    headers['Authorization'] = 'JWT {}'.format(token)
+    headers["Authorization"] = "JWT {}".format(token)
     return headers
 
 
-def add_bearer_jwt_token(token, uri, headers, body, placement='header'):
+def add_bearer_jwt_token(token, uri, headers, body, placement="header"):
     """Add a Bearer Token to the request."""
-    if placement in ('uri', 'url', 'query'):
+    if placement in ("uri", "url", "query"):
         uri = add_params_to_uri(token, uri)
-    elif placement in ('header', 'headers'):
+    elif placement in ("header", "headers"):
         headers = add_to_headers(token, headers)
-    elif placement == 'body':
+    elif placement == "body":
         body = add_params_to_qs(token, body)
     return uri, headers, body
 
 
 class OpenEdxSsoSecurityManager(SupersetSecurityManager):
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.oauth.oauth2_client_cls.client_cls.token_auth_class.SIGN_METHODS.update({
-            "jwt": add_bearer_jwt_token,
-        })
+        self.oauth.oauth2_client_cls.client_cls.token_auth_class.SIGN_METHODS.update(
+            {
+                "jwt": add_bearer_jwt_token,
+            }
+        )
 
     def set_oauth_session(self, provider, oauth_response):
         """
@@ -48,24 +49,27 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         if provider == "openedxsso":
             session["oauth_token"] = oauth_response
         return res
-    
+
     def decoded_user_info(self):
-        return jwt.decode(self.access_token, algorithms=["HS256"], options={"verify_signature": False})
+        return jwt.decode(
+            self.access_token, algorithms=["HS256"], options={"verify_signature": False}
+        )
 
     def oauth_user_info(self, provider, response=None):
-        if provider == 'openedxsso':
+        if provider == "openedxsso":
             user_profile = self.decoded_user_info()
 
-            user_roles = self._get_user_roles(user_profile.get('preferred_username'))
+            user_roles = self._get_user_roles(user_profile.get("preferred_username"))
 
             return {
-                'name': user_profile['name'],
-                'email': user_profile['email'],
-                'id': user_profile['preferred_username'],
-                'username': user_profile['preferred_username'],
-                'first_name': user_profile.get('given_name') or user_profile.get('name', ''),
-                'last_name': user_profile.get('family_name'),
-                'role_keys': user_roles,
+                "name": user_profile["name"],
+                "email": user_profile["email"],
+                "id": user_profile["preferred_username"],
+                "username": user_profile["preferred_username"],
+                "first_name": user_profile.get("given_name")
+                or user_profile.get("name", ""),
+                "last_name": user_profile.get("family_name"),
+                "role_keys": user_roles,
             }
 
     def get_oauth_token(self, token=None):
@@ -82,14 +86,14 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         """
         Returns the string access_token portion of the current OAuth token.
         """
-        return self.get_oauth_token().get('access_token')
+        return self.get_oauth_token().get("access_token")
 
     def _get_user_roles(self, username):
         """
         Returns the Superset roles that should be associated with the given user.
         """
         decoded_access_token = self.decoded_user_info()
-        
+
         if decoded_access_token.get("superuser", False):
             return ["admin", "openedx"]
         elif decoded_access_token.get("administrator", False):
@@ -101,7 +105,7 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
                 return ["openedx"]
             return []
 
-    @memoized(watch=('access_token',))
+    @memoized(watch=("access_token",))
     def get_courses(self, username, permission="staff", next_url=None):
         """
         Returns the list of courses the current user has access to.
@@ -118,25 +122,27 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
             logging.error("No oauth token? expected one provided by openedx")
             return courses
 
-        openedx_apis = current_app.config['OPENEDX_API_URLS']
-        courses_url = openedx_apis['get_courses'].format(username=username, permission=permission)
+        openedx_apis = current_app.config["OPENEDX_API_URLS"]
+        courses_url = openedx_apis["get_courses"].format(
+            username=username, permission=permission
+        )
         url = next_url or courses_url
         response = oauth_remote.get(url, token=token).json()
 
-        for course in response.get('results', []):
-            course_id = course.get('course_id')
+        for course in response.get("results", []):
+            course_id = course.get("course_id")
             if course_id:
                 courses.append(course_id)
 
         # Recurse to iterate over all the pages of results
         if response.get("next"):
-            next_courses = self.get_courses(username, permission=permission, next_url=response['next'])
+            next_courses = self.get_courses(
+                username, permission=permission, next_url=response["next"]
+            )
             for course_id in next_courses:
                 courses.append(course_id)
 
         return courses
 
 
-UserAccess = namedtuple(
-    "UserAccess", ["username", "is_superuser", "is_staff"]
-)
+UserAccess = namedtuple("UserAccess", ["username", "is_superuser", "is_staff"])
