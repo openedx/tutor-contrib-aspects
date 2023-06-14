@@ -15,5 +15,5 @@ clickhouse:
             hard: 262144
     volumes:
         - ../../data/clickhouse:/var/lib/clickhouse/
-        - ../../env/plugins/clickhouse/apps/config:/etc/clickhouse-server/config.d/
+        - ../../env/plugins/oars/apps/clickhouse/config:/etc/clickhouse-server/config.d/
 {% endif %}
