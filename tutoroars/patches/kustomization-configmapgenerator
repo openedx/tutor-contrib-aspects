@@ -7,8 +7,17 @@
 {% if RUN_CLICKHOUSE %}
 - name: clickhouse-settings
   files:
-    - plugins/clickhouse/apps/config/docker_config.xml
+    - plugins/oars/apps/clickhouse/config/docker_config.xml
   options:
     labels:
         app.kubernetes.io/name: clickhouse
+{% endif %}
+
+{% if RUN_RALPH %}
+- name: ralph-settings
+  files:
+    - plugins/oars/apps/ralph/config/ralph_auth/auth.json
+  options:
+    labels:
+        app.kubernetes.io/name: ralph
 {% endif %}
