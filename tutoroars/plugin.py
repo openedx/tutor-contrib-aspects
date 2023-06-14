@@ -179,7 +179,10 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
                 },
             ],
         ),
-        ("SUPERSET_EXTRA_DEV_VOLUMES", ["../../env/plugins/oars/apps/data/superset/:/app/oars/data/superset/"]),
+        (
+            "SUPERSET_EXTRA_DEV_VOLUMES",
+            ["../../env/plugins/oars/apps/data/superset/:/app/oars/data/superset/"],
+        ),
     ]
 )
 
