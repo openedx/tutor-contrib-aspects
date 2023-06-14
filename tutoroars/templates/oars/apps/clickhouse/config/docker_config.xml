@@ -1,0 +1,3 @@
+<clickhouse>
+    {{ CLICKHOUSE_EXTRA_XML_CONFIG }}
+</clickhouse>

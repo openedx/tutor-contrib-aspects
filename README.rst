@@ -17,13 +17,12 @@ This plugin is compatible with Tutor 15.0.0 and later.
 Installation
 ------------
 
-The OARS system relies on several Tutor plugins:
+The OARS system relies on several Tutor plugins currently. They are in the process of being consolidated into tutor-contrib-oars, so these steps should be simplified shortly.
 
 ::
 
     pip install git+https://github.com/openedx/tutor-contrib-oars
     pip install git+https://github.com/openedx/tutor-contrib-ralph
-    pip install git+https://github.com/openedx/tutor-contrib-clickhouse
     pip install git+https://github.com/openedx/tutor-contrib-superset
 
 
@@ -36,7 +35,6 @@ Usage
 
     tutor plugins enable oars
     tutor plugins enable ralph
-    tutor plugins enable clickhouse
     tutor plugins enable superset
 
 #. Save the changes to the environment::

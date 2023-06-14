@@ -1,0 +1,19 @@
+{% if RUN_CLICKHOUSE %}
+clickhouse:
+    image: {{DOCKER_IMAGE_CLICKHOUSE}}
+    environment:
+        CLICKHOUSE_DB: xapi
+        CLICKHOUSE_USER: "{{ CLICKHOUSE_ADMIN_USER }}"
+        CLICKHOUSE_PASSWORD: "{{ CLICKHOUSE_ADMIN_PASSWORD }}"
+        CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: 1
+    ports:
+        - 8123:{{ CLICKHOUSE_HTTP_PORT }}
+        - 9000:{{ CLICKHOUSE_PORT }}
+    ulimits:
+        nofile:
+            soft: 262144
+            hard: 262144
+    volumes:
+        - ../../data/clickhouse:/var/lib/clickhouse/
+        - ../../env/plugins/oars/apps/clickhouse/config:/etc/clickhouse-server/config.d/
+{% endif %}

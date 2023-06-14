@@ -7,3 +7,8 @@ oars-job:
     - superset {% if RUN_CLICKHOUSE%}
     - clickhouse{% endif %}
     - ralph
+clickhouse-job:
+    image: {{DOCKER_IMAGE_CLICKHOUSE}}
+    {% if RUN_CLICKHOUSE%}depends_on:
+        - clickhouse
+    {% endif %}
