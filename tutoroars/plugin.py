@@ -179,14 +179,11 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
                 },
             ],
         ),
-<<<<<<< HEAD
         (
             "SUPERSET_EXTRA_DEV_VOLUMES",
             ["../../env/plugins/oars/apps/data/superset/:/app/oars/data/superset/"],
         ),
-=======
         ("SUPERSET_EXTRA_DEV_VOLUMES", ["../../env/plugins/oars/apps/data/superset/:/app/oars/data/superset/"]),
->>>>>>> 3ea9d2a (fix: correct oars init job)
     ]
 )
 
