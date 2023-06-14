@@ -84,6 +84,55 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("RALPH_SENTRY_LRS_TRACES_SAMPLE_RATE", 0.1),
         ("RALPH_SENTRY_IGNORE_HEALTH_CHECKS", True),
         ("RUN_RALPH", True),
+        ######################
+        # Superset Settings
+        ("SUPERSET_VERSION", __version__),
+        ("SUPERSET_TAG", "2.0.1"),
+        ("SUPERSET_HOST", "superset.{{ LMS_HOST }}"),
+        ("SUPERSET_PORT", "8088"),
+        ("SUPERSET_DB_DIALECT", "mysql"),
+        ("SUPERSET_DB_HOST", "{{ MYSQL_HOST }}"),
+        ("SUPERSET_DB_PORT", "{{ MYSQL_PORT }}"),
+        ("SUPERSET_DB_NAME", "superset"),
+        ("SUPERSET_DB_USERNAME", "superset"),
+        ("SUPERSET_OAUTH2_ACCESS_TOKEN_PATH", "/oauth2/access_token/"),
+        ("SUPERSET_OAUTH2_AUTHORIZE_PATH", "/oauth2/authorize/"),
+        (
+            "SUPERSET_OPENEDX_COURSES_LIST_PATH",
+            "/api/courses/v1/courses/?permissions={permission}&username={username}",
+        ),
+        ("SUPERSET_OPENEDX_ROLE_NAME", "Open edX"),
+        ("SUPERSET_ADMIN_EMAIL", "admin@openedx.org"),
+        # Set to 0 to have no row limit.
+        ("SUPERSET_ROW_LIMIT", 100_000),
+        ("SUPERSET_SENTRY_DSN", ""),
+        # List of dicts
+        # [{
+        #    "path": "path-in-the-superset-pod",
+        #    "name": "volume-name",
+        #    "config_map_name": "config-map-name",
+        #    "config_map_folder": "path-to-template-folder",
+        # }]
+        ("SUPERSET_EXTRA_VOLUMES", []),
+        ("SUPERSET_EXTRA_DEV_VOLUMES", []),
+        ("RUN_SUPERSET", True),
+        (
+            "SUPERSET_TALISMAN_CONFIG",
+            {
+                "content_security_policy": {
+                    "default-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+                    "img-src": ["'self'", "data:"],
+                    "worker-src": ["'self'", "blob:"],
+                    "connect-src": [
+                        "'self'",
+                        "https://api.mapbox.com",
+                        "https://events.mapbox.com",
+                    ],
+                    "object-src": "'none'",
+                }
+            },
+        ),
+        ("SUPERSET_TALISMAN_ENABLED", True),
     ]
 )
 
@@ -125,6 +174,14 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         ("RALPH_LMS_USERNAME", "lms"),
         ("RALPH_LMS_PASSWORD", RALPH_LMS_PASSWORD),
         ("RALPH_LMS_HASHED_PASSWORD", RALPH_LMS_HASHED_PASSWORD),
+        ######################
+        # Superset Settings
+        ("SUPERSET_SECRET_KEY", "{{ 24|random_string }}"),
+        ("SUPERSET_DB_PASSWORD", "{{ 24|random_string }}"),
+        ("SUPERSET_OAUTH2_CLIENT_ID", "{{ 16|random_string }}"),
+        ("SUPERSET_OAUTH2_CLIENT_SECRET", "{{ 16|random_string }}"),
+        ("SUPERSET_ADMIN_USERNAME", "{{ 12|random_string }}"),
+        ("SUPERSET_ADMIN_PASSWORD", "{{ 24|random_string }}"),
     ]
 )
 
@@ -196,6 +253,9 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 # and then add it to the MY_INIT_TASKS list. Each task is in the format:
 # ("<service>", ("<path>", "<to>", "<script>", "<template>"))
 MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
+    ("mysql", ("oars", "jobs", "init", "superset", "init-mysql.sh"), 92),
+    ("superset", ("oars", "jobs", "init", "superset", "init-superset.sh"), 93),
+    ("lms", ("oars", "jobs", "init", "superset", "init-openedx.sh"), 94),
     ("clickhouse", ("oars", "jobs", "init", "clickhouse", "init-clickhouse.sh"), 95),
     (
         "clickhouse",
