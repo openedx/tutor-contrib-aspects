@@ -76,6 +76,40 @@ CREATE MATERIALIZED VIEW IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_XAPI_TRA
     event_str as event_str
     FROM {{ OARS_XAPI_DATABASE }}.{{ OARS_RAW_XAPI_TABLE }};
 
+-- MV target table for enrollment xAPI events
+CREATE TABLE IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_ENROLLMENT_EVENTS_TABLE }} (
+    `event_id` UUID NOT NULL,
+    `emission_time` DateTime64(6) NOT NULL,
+    `actor_id` String NOT NULL,
+    `object_id` String NOT NULL,
+    `course_id` String NOT NULL,
+    `org` String NOT NULL,
+    `verb_id` String NOT NULL,
+    `event_type` String NOT NULL,
+    `enrollment_mode` String
+) ENGINE = MergeTree
+PRIMARY KEY (org, course_id, enrollment_mode)
+ORDER BY (org, course_id, enrollment_mode, emission_time);
+
+-- Materialized view that moves data from the processed xAPI table to
+-- the enrollment events table
+CREATE MATERIALIZED VIEW IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_ENROLLMENT_TRANSFORM_MV }}
+    TO {{ OARS_XAPI_DATABASE }}.{{ OARS_ENROLLMENT_EVENTS_TABLE }} AS
+SELECT
+    event_id,
+    emission_time,
+    actor_id,
+    object_id,
+    course_id,
+    org,
+    verb_id,
+    JSON_VALUE(event_str, '$.verb.display.en') AS event_type,
+    JSON_VALUE(event_str, '$.object.definition.extensions."https://w3id.org/xapi/acrossx/extensions/type"') AS enrollment_mode
+FROM {{ OARS_XAPI_DATABASE }}.{{ OARS_XAPI_TABLE }}
+WHERE verb_id IN (
+  'http://adlnet.gov/expapi/verbs/registered',
+  'http://id.tincanapi.com/verb/unregistered'
+);
 
 -- Create the event sink schema if it doesn't exist
 CREATE DATABASE IF NOT EXISTS {{ OARS_EVENT_SINK_DATABASE }};

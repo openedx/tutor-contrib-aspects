@@ -30,6 +30,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("OARS_RAW_XAPI_TABLE", "xapi_events_all"),
         ("OARS_XAPI_TRANSFORM_MV", "xapi_events_all_parsed_mv"),
         ("OARS_XAPI_TABLE", "xapi_events_all_parsed"),
+        ("OARS_ENROLLMENT_TRANSFORM_MV", "enrollment_events_mv"),
+        ("OARS_ENROLLMENT_EVENTS_TABLE", "enrollment_events"),
         # ClickHouse event sink settings
         ("OARS_EVENT_SINK_DATABASE", "event_sink"),
         ("OARS_EVENT_SINK_NODES_TABLE", "course_blocks"),
