@@ -1,0 +1,55 @@
+{% if RUN_CLICKHOUSE %}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clickhouse
+  labels:
+    app.kubernetes.io/name: clickhouse
+spec:
+  ports:
+    - port: 8123
+      protocol: TCP
+      name: http
+    - port: 9000
+      protocol: TCP
+      name: https
+    - port: 9009
+      protocol: TCP
+      name: interserver
+  selector:
+    app.kubernetes.io/name: clickhouse
+{% endif %}
+
+{% if RUN_RALPH %}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ralph
+  labels:
+    app.kubernetes.io/name: ralph
+spec:
+  ports:
+    - port: 8100
+      protocol: TCP
+  selector:
+    app.kubernetes.io/name: ralph
+{% endif %}
+
+{% if RUN_SUPERSET %}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: superset
+  labels:
+    app.kubernetes.io/name: superset
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ SUPERSET_PORT }}
+      protocol: TCP
+  selector:
+    app.kubernetes.io/name: superset
+{% endif %}

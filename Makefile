@@ -8,6 +8,7 @@ PACKAGE=tutoroars
 PROJECT=tutor-contrib-oars
 
 SOURCES=./setup.py ./$(PACKAGE)
+BLACK_OPTS = --exclude templates ${SOURCES}
 
 UPGRADE=CUSTOM_COMPILE_COMMAND='make upgrade' pip-compile --upgrade
 
@@ -47,7 +48,7 @@ build-pythonpackage: ## Build Python packages ready to upload to pypi
 test: dev-requirements test-lint test-format test-pythonpackage ## Run all tests by decreasing order of priority
 
 test-format: ## Run code formatting tests
-	black --check --diff ${SOURCES}
+	black --check --diff $(BLACK_OPTS)
 
 test-lint: ## Run code linting tests
 	pylint ${SOURCES}
@@ -59,7 +60,7 @@ test-pythonpackage: build-pythonpackage ## Test that package can be uploaded to 
 	twine check dist/$(PROJECT)-$(shell make version).tar.gz
 
 format: ## Format code automatically
-	black ${SOURCES}
+	black $(BLACK_OPTS)
 
 ###### Deployment
 

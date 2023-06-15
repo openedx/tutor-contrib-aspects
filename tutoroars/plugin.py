@@ -3,8 +3,11 @@ from __future__ import annotations
 
 import os
 import os.path
+import random
+import string
 from glob import glob
 
+import bcrypt
 import click
 import pkg_resources
 from tutor import hooks
@@ -45,19 +48,112 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "edx-event-routing-backends==5.3.1",
             ],
         ),
+        ######################
+        # ClickHouse Settings
+        ("CLICKHOUSE_VERSION", __version__),
+        ("CLICKHOUSE_HOST", "clickhouse"),
+        ("CLICKHOUSE_PORT", "9000"),
+        ("CLICKHOUSE_HTTP_PORT", "8123"),
+        ("CLICKHOUSE_HTTPS_PORT", "8443"),
+        ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:23.3"),
+        # This can be used to override some configuration values in
+        # via "docker_config.xml" file, which will be read from a
+        # mount on /etc/clickhouse-server/config.d/ on startup.
+        # See https://clickhouse.com/docs/en/operations/configuration-files
+        #
+        # This default allows connecting to Clickhouse when run as a
+        # standalone docker container, instead of through docker-compose.
+        (
+            "CLICKHOUSE_EXTRA_XML_CONFIG",
+            """
+    <listen_host>::</listen_host>
+    <listen_host>0.0.0.0</listen_host>
+    <listen_try>1</listen_try>
+        """,
+        ),
+        ######################
+        # Ralph Settings
+        ("RALPH_VERSION", __version__),
+        ("DOCKER_IMAGE_RALPH", "docker.io/fundocker/ralph:3.6.0"),
+        # Change to https:// if the public interface to it is secure
+        ("RALPH_RUN_HTTPS", False),
+        ("RALPH_HOST", "ralph"),
+        ("RALPH_PORT", "8100"),
+        ("RALPH_ENABLE_PUBLIC_URL", False),
+        ("RALPH_SENTRY_DSN", ""),
+        ("RALPH_EXECUTION_ENVIRONMENT", "development"),
+        ("RALPH_SENTRY_CLI_TRACES_SAMPLE_RATE", 1.0),
+        ("RALPH_SENTRY_LRS_TRACES_SAMPLE_RATE", 0.1),
+        ("RALPH_SENTRY_IGNORE_HEALTH_CHECKS", True),
+        ("RUN_RALPH", True),
+        ######################
+        # Superset Settings
+        ("SUPERSET_VERSION", __version__),
+        ("SUPERSET_TAG", "2.0.1"),
+        ("SUPERSET_HOST", "superset.{{ LMS_HOST }}"),
+        ("SUPERSET_PORT", "8088"),
+        ("SUPERSET_DB_DIALECT", "mysql"),
+        ("SUPERSET_DB_HOST", "{{ MYSQL_HOST }}"),
+        ("SUPERSET_DB_PORT", "{{ MYSQL_PORT }}"),
+        ("SUPERSET_DB_NAME", "superset"),
+        ("SUPERSET_DB_USERNAME", "superset"),
+        ("SUPERSET_OAUTH2_ACCESS_TOKEN_PATH", "/oauth2/access_token/"),
+        ("SUPERSET_OAUTH2_AUTHORIZE_PATH", "/oauth2/authorize/"),
+        (
+            "SUPERSET_OPENEDX_COURSES_LIST_PATH",
+            "/api/courses/v1/courses/?permissions={permission}&username={username}",
+        ),
+        ("SUPERSET_OPENEDX_ROLE_NAME", "Open edX"),
+        ("SUPERSET_ADMIN_EMAIL", "admin@openedx.org"),
+        # Set to 0 to have no row limit.
+        ("SUPERSET_ROW_LIMIT", 100_000),
+        ("SUPERSET_SENTRY_DSN", ""),
+        # List of dicts
+        # [{
+        #    "path": "path-in-the-superset-pod",
+        #    "name": "volume-name",
+        #    "config_map_name": "config-map-name",
+        #    "config_map_folder": "path-to-template-folder",
+        # }]
+        ("SUPERSET_EXTRA_VOLUMES", []),
+        ("SUPERSET_EXTRA_DEV_VOLUMES", []),
+        ("RUN_SUPERSET", True),
+        (
+            "SUPERSET_TALISMAN_CONFIG",
+            {
+                "content_security_policy": {
+                    "default-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+                    "img-src": ["'self'", "data:"],
+                    "worker-src": ["'self'", "blob:"],
+                    "connect-src": [
+                        "'self'",
+                        "https://api.mapbox.com",
+                        "https://events.mapbox.com",
+                    ],
+                    "object-src": "'none'",
+                }
+            },
+        ),
+        ("SUPERSET_TALISMAN_ENABLED", True),
     ]
 )
 
+# Ralph requires us to write out a file with pre-encrypted values, so we encrypt
+# them here per: https://openfun.github.io/ralph/api/#creating_a_credentials_file
+#
+# They will remain unchanged between config saves as usual and the unencryted
+# passwords will still be able to be printed.
+RALPH_ADMIN_PASSWORD = "".join(random.choice(string.ascii_lowercase) for i in range(36))
+RALPH_LMS_PASSWORD = "".join(random.choice(string.ascii_lowercase) for i in range(36))
+RALPH_ADMIN_HASHED_PASSWORD = bcrypt.hashpw(
+    RALPH_ADMIN_PASSWORD.encode(), bcrypt.gensalt()
+).decode("ascii")
+RALPH_LMS_HASHED_PASSWORD = bcrypt.hashpw(
+    RALPH_LMS_PASSWORD.encode(), bcrypt.gensalt()
+).decode("ascii")
+
 hooks.Filters.CONFIG_UNIQUE.add_items(
     [
-        # Add settings that don't have a reasonable default for all users here.
-        # For instance: passwords, secret keys, etc.
-        # Each new setting is a pair: (setting_name, unique_generated_value).
-        # Prefix your setting names with 'OARS_'.
-        # For example:
-        ### ("OARS_SECRET_KEY", "{{ 24|random_string }}"),
-        # Note! The CLICKHOUSE_ADMIN_USER is managed in the ClickHouse plugin.
-        # LRS user is used by Ralph to insert into ClickHouse aXPI tables
         ("OARS_CLICKHOUSE_LRS_USER", "ch_lrs"),
         ("OARS_CLICKHOUSE_LRS_PASSWORD", "{{ 24|random_string }}"),
         # Report user is used by Superset to read from ClickHouse tables
@@ -66,6 +162,28 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         # CMS user is used by CMS to insert into event sink tables
         ("OARS_CLICKHOUSE_CMS_USER", "ch_cms"),
         ("OARS_CLICKHOUSE_CMS_PASSWORD", "{{ 24|random_string }}"),
+        ######################
+        # ClickHouse Settings
+        ("CLICKHOUSE_ADMIN_USER", "ch_admin"),
+        ("CLICKHOUSE_ADMIN_PASSWORD", "{{ 24|random_string }}"),
+        ("CLICKHOUSE_SECURE_CONNECTION", False),
+        ("RUN_CLICKHOUSE", True),
+        ######################
+        # Ralph Settings
+        ("RALPH_ADMIN_USERNAME", "ralph"),
+        ("RALPH_ADMIN_PASSWORD", RALPH_ADMIN_PASSWORD),
+        ("RALPH_ADMIN_HASHED_PASSWORD", RALPH_ADMIN_HASHED_PASSWORD),
+        ("RALPH_LMS_USERNAME", "lms"),
+        ("RALPH_LMS_PASSWORD", RALPH_LMS_PASSWORD),
+        ("RALPH_LMS_HASHED_PASSWORD", RALPH_LMS_HASHED_PASSWORD),
+        ######################
+        # Superset Settings
+        ("SUPERSET_SECRET_KEY", "{{ 24|random_string }}"),
+        ("SUPERSET_DB_PASSWORD", "{{ 24|random_string }}"),
+        ("SUPERSET_OAUTH2_CLIENT_ID", "{{ 16|random_string }}"),
+        ("SUPERSET_OAUTH2_CLIENT_SECRET", "{{ 16|random_string }}"),
+        ("SUPERSET_ADMIN_USERNAME", "{{ 12|random_string }}"),
+        ("SUPERSET_ADMIN_PASSWORD", "{{ 24|random_string }}"),
     ]
 )
 
@@ -120,7 +238,10 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
                 },
             ],
         ),
-        ("SUPERSET_EXTRA_DEV_VOLUMES", ["../../env/plugins/oars/apps:/app/oars"]),
+        (
+            "SUPERSET_EXTRA_DEV_VOLUMES",
+            ["../../env/plugins/oars/apps/data/superset/:/app/oars/data/superset/"],
+        ),
     ]
 )
 
@@ -134,10 +255,22 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 # and then add it to the MY_INIT_TASKS list. Each task is in the format:
 # ("<service>", ("<path>", "<to>", "<script>", "<template>"))
 MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
-    ("clickhouse", ("oars", "jobs", "init", "oars_init_schemas_tables_users.sh"), 96),
-    ("superset", ("oars", "jobs", "init", "superset-init-security.sh"), 99),
-    ("lms", ("oars", "jobs", "init", "configure-oars-lms.sh"), 100),
-    ("superset", ("oars", "jobs", "init", "superset-api-dashboard.sh"), 101),
+    ("mysql", ("oars", "jobs", "init", "superset", "init-mysql.sh"), 92),
+    ("superset", ("oars", "jobs", "init", "superset", "init-superset.sh"), 93),
+    ("lms", ("oars", "jobs", "init", "superset", "init-openedx.sh"), 94),
+    ("clickhouse", ("oars", "jobs", "init", "clickhouse", "init-clickhouse.sh"), 95),
+    (
+        "clickhouse",
+        ("oars", "jobs", "init", "clickhouse", "oars_init_schemas_tables_users.sh"),
+        96,
+    ),
+    ("superset", ("oars", "jobs", "init", "superset", "superset-init-security.sh"), 99),
+    ("lms", ("oars", "jobs", "init", "lms", "configure-oars-lms.sh"), 100),
+    (
+        "superset",
+        ("oars", "jobs", "init", "superset", "superset-api-dashboard.sh"),
+        101,
+    ),
 ]
 
 
@@ -263,9 +396,10 @@ def load_xapi_test_data(num_batches: int, batch_size: int) -> list[tuple[str, st
         (
             "oars",
             "echo 'Making demo xapi script executable...' && "
-            "chmod +x /app/oars/scripts/clickhouse-demo-xapi-data.sh && "
+            "chmod +x /app/oars/scripts/oars/clickhouse-demo-xapi-data.sh && "
             "echo 'Done. Running script...' && "
-            f"bash /app/oars/scripts/clickhouse-demo-xapi-data.sh {num_batches} {batch_size} && "
+            f"bash /app/oars/scripts/oars/clickhouse-demo-xapi-data.sh {num_batches}"
+            f" {batch_size} && "
             "echo 'Done!';",
         ),
     ]

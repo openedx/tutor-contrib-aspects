@@ -7,3 +7,18 @@ oars-job:
     - superset {% if RUN_CLICKHOUSE%}
     - clickhouse{% endif %}
     - ralph
+clickhouse-job:
+    image: {{DOCKER_IMAGE_CLICKHOUSE}}
+    {% if RUN_CLICKHOUSE%}depends_on:
+        - clickhouse
+    {% endif %}
+
+{% if RUN_SUPERSET %}
+superset-job:
+  {% include 'base-docker-compose-services' %}
+    OPENEDX_LMS_ROOT_URL: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}"
+  depends_on:
+    - mysql
+    - redis
+    - superset
+{% endif %}

@@ -1,0 +1,33 @@
+{% if RUN_SUPERSET %}
+superset:
+  {% include 'base-docker-compose-services' %}
+    OPENEDX_LMS_ROOT_URL: "http://{{ LMS_HOST }}:8000"
+  command: ["bash", "/app/docker/docker-bootstrap.sh", "app-gunicorn"]
+  ports:
+    - 8088:{{ SUPERSET_PORT }}
+  depends_on:
+    - mysql
+    - redis
+    - superset-worker
+    - superset-worker-beat
+
+superset-worker:
+  {% include 'base-docker-compose-services' %}
+    OPENEDX_LMS_ROOT_URL: "http://{{ LMS_HOST }}:8000"
+  command: ["bash", "/app/docker/docker-bootstrap.sh", "worker"]
+  healthcheck:
+    test: ["CMD-SHELL", "celery inspect ping -A superset.tasks.celery_app:app -d celery@$$HOSTNAME"]
+  depends_on:
+    - mysql
+    - redis
+
+superset-worker-beat:
+  {% include 'base-docker-compose-services' %}
+    OPENEDX_LMS_ROOT_URL: "http://{{ LMS_HOST }}:8000"
+  command: ["bash", "/app/docker/docker-bootstrap.sh", "worker"]
+  healthcheck:
+    disable: true
+  depends_on:
+    - mysql
+    - redis
+{% endif %}
