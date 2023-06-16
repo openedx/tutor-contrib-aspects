@@ -111,6 +111,158 @@ WHERE verb_id IN (
   'http://id.tincanapi.com/verb/unregistered'
 );
 
+
+-- MV target table for video playback xAPI events
+CREATE TABLE IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_VIDEO_PLAYBACK_EVENTS_TABLE }} (
+    `event_id` UUID NOT NULL,
+    `emission_time` DateTime64(6) NOT NULL,
+    `actor_id` String NOT NULL,
+    `object_id` String NOT NULL,
+    `course_id` String NOT NULL,
+    `org` String NOT NULL,
+    `verb_id` String NOT NULL,
+    `event_type` String NOT NULL,
+    `video_position` Float32 NOT NULL
+) ENGINE = MergeTree
+PRIMARY KEY (org, course_id, event_type)
+ORDER BY (org, course_id, event_type, actor_id);
+
+-- Materialized view that moves data from the processed xAPI table to
+-- the video playback events table
+CREATE MATERIALIZED VIEW IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_VIDEO_PLAYBACK_TRANSFORM_MV }}
+    TO {{ OARS_XAPI_DATABASE }}.{{ OARS_VIDEO_PLAYBACK_EVENTS_TABLE }} AS
+SELECT
+    event_id,
+    emission_time,
+    actor_id,
+    object_id,
+    course_id,
+    org,
+    verb_id,
+    JSON_VALUE(event_str, '$.verb.display.en') AS event_type,
+    case
+      when verb_id in (
+        'https://w3id.org/xapi/video/verbs/played',
+        'https://w3id.org/xapi/video/verbs/paused',
+        'http://adlnet.gov/expapi/verbs/completed',
+        'http://adlnet.gov/expapi/verbs/terminated'
+      )
+        then cast(JSON_VALUE(event_str, '$.result.extensions."https://w3id.org/xapi/video/extensions/time"') as float)
+      when verb_id = 'https://w3id.org/xapi/video/verbs/seeked'
+        then cast(JSON_VALUE(event_str, '$.result.extensions."https://w3id.org/xapi/video/extensions/time-from"') as float)
+      else 0.0 -- initialized has no video position
+    end as video_position
+FROM {{ OARS_XAPI_DATABASE }}.{{ OARS_XAPI_TABLE }}
+WHERE verb_id IN (
+  'http://adlnet.gov/expapi/verbs/completed',
+  'http://adlnet.gov/expapi/verbs/initialized',
+  'http://adlnet.gov/expapi/verbs/terminated',
+  'https://w3id.org/xapi/video/verbs/paused',
+  'https://w3id.org/xapi/video/verbs/played',
+  'https://w3id.org/xapi/video/verbs/seeked'
+);
+
+
+-- MV target table for problem interaction xAPI events
+CREATE TABLE IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_PROBLEM_EVENTS_TABLE }} (
+    `event_id` UUID NOT NULL,
+    `emission_time` DateTime64(6) NOT NULL,
+    `actor_id` String NOT NULL,
+    `object_id` String NOT NULL,
+    `course_id` String NOT NULL,
+    `org` String NOT NULL,
+    `verb_id` String NOT NULL,
+    `event_type` String NOT NULL,
+    `responses` String,
+    `scaled_score` String,
+    `success` Bool DEFAULT false,
+    `interaction_type` String,
+    `attempts` Int16 DEFAULT 0
+) ENGINE = MergeTree
+PRIMARY KEY (org, course_id, event_type)
+ORDER BY (org, course_id, event_type, actor_id);
+
+
+-- Materialized view that moves data from the processed xAPI table to
+-- the problem events table
+-- n.b. this query omits browser problem_checked events, as they do not
+-- contain any information that the server events don't have and including
+-- them would heavily skew the distribution of values in the problem
+-- response fields (responses, scaled_score, etc)
+CREATE MATERIALIZED VIEW IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_VIDEO_PLAYBACK_TRANSFORM_MV }}
+    TO {{ OARS_XAPI_DATABASE }}.{{ OARS_VIDEO_PLAYBACK_EVENTS_TABLE }} AS
+SELECT
+    event_id,
+    emission_time,
+    actor_id,
+    object_id,
+    course_id,
+    org,
+    verb_id,
+    JSON_VALUE(event_str, '$.verb.display.en') AS event_type,
+    cast(coalesce(
+        nullif(JSON_VALUE(event_str, '$.result.extensions."https://w3id.org/xapi/video/extensions/time"'), ''),
+        nullif(JSON_VALUE(event_str, '$.result.extensions."https://w3id.org/xapi/video/extensions/time-from"'), ''),
+        '0.0'
+    ) as Float32) as video_position
+FROM {{ OARS_XAPI_DATABASE }}.{{ OARS_XAPI_TABLE }}
+WHERE verb_id IN (
+  'http://adlnet.gov/expapi/verbs/completed',
+  'http://adlnet.gov/expapi/verbs/initialized',
+  'http://adlnet.gov/expapi/verbs/terminated',
+  'https://w3id.org/xapi/video/verbs/paused',
+  'https://w3id.org/xapi/video/verbs/played',
+  'https://w3id.org/xapi/video/verbs/seeked'
+);
+
+
+
+-- MV target table for navigation xAPI events
+CREATE TABLE IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_NAVIGATION_EVENTS_TABLE }} (
+    `event_id` UUID NOT NULL,
+    `emission_time` DateTime64(6) NOT NULL,
+    `actor_id` String NOT NULL,
+    `object_id` String NOT NULL,
+    `course_id` String NOT NULL,
+    `org` String NOT NULL,
+    `verb_id` String NOT NULL,
+    `object_type` String NOT NULL,
+    `starting_position` Int16,
+    `ending_point` String
+) ENGINE = MergeTree
+PRIMARY KEY (org, course_id, object_type)
+ORDER BY (org, course_id, object_type, actor_id);
+
+
+-- Materialized view that moves data from the processed xAPI table to
+-- the enrollment events table
+CREATE MATERIALIZED VIEW IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_NAVIGATION_TRANSFORM_MV }}
+TO {{ OARS_XAPI_DATABASE }}.{{ OARS_NAVIGATION_EVENTS_TABLE }} AS
+SELECT
+    event_id,
+    emission_time,
+    actor_id,
+    object_id,
+    course_id,
+    org,
+    verb_id,
+    JSON_VALUE(event_str, '$.object.definition.type') AS object_type,
+    JSON_VALUE(
+        event_str,
+        '$.context.extensions."http://id.tincanapi.com/extension/starting-position"'
+    ) AS starting_position,
+    JSON_VALUE(
+        event_str,
+        '$.context.extensions."http://id.tincanapi.com/extension/ending-point"'
+    ) AS ending_point
+FROM
+    {{ OARS_XAPI_DATABASE }}.{{ OARS_XAPI_TABLE }}
+WHERE verb_id IN (
+    'https://w3id.org/xapi/dod-isd/verbs/navigated'
+);
+
+
+
 -- Create the event sink schema if it doesn't exist
 CREATE DATABASE IF NOT EXISTS {{ OARS_EVENT_SINK_DATABASE }};
 
