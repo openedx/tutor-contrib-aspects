@@ -140,18 +140,11 @@ SELECT
     org,
     verb_id,
     JSON_VALUE(event_str, '$.verb.display.en') AS event_type,
-    case
-      when verb_id in (
-        'https://w3id.org/xapi/video/verbs/played',
-        'https://w3id.org/xapi/video/verbs/paused',
-        'http://adlnet.gov/expapi/verbs/completed',
-        'http://adlnet.gov/expapi/verbs/terminated'
-      )
-        then cast(JSON_VALUE(event_str, '$.result.extensions."https://w3id.org/xapi/video/extensions/time"') as float)
-      when verb_id = 'https://w3id.org/xapi/video/verbs/seeked'
-        then cast(JSON_VALUE(event_str, '$.result.extensions."https://w3id.org/xapi/video/extensions/time-from"') as float)
-      else 0.0 -- initialized has no video position
-    end as video_position
+    cast(coalesce(
+        nullif(JSON_VALUE(event_str, '$.result.extensions."https://w3id.org/xapi/video/extensions/time"'), ''),
+        nullif(JSON_VALUE(event_str, '$.result.extensions."https://w3id.org/xapi/video/extensions/time-from"'), ''),
+        '0.0'
+    ) as Float32) as video_position
 FROM {{ OARS_XAPI_DATABASE }}.{{ OARS_XAPI_TABLE }}
 WHERE verb_id IN (
   'http://adlnet.gov/expapi/verbs/completed',
@@ -175,9 +168,9 @@ CREATE TABLE IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_PROBLEM_EVENTS_TABLE
     `event_type` String NOT NULL,
     `responses` String,
     `scaled_score` String,
-    `success` Bool DEFAULT false,
+    `success` Bool,
     `interaction_type` String,
-    `attempts` Int16 DEFAULT 0
+    `attempts` Int16
 ) ENGINE = MergeTree
 PRIMARY KEY (org, course_id, event_type)
 ORDER BY (org, course_id, event_type, actor_id);
@@ -189,9 +182,9 @@ ORDER BY (org, course_id, event_type, actor_id);
 -- contain any information that the server events don't have and including
 -- them would heavily skew the distribution of values in the problem
 -- response fields (responses, scaled_score, etc)
-CREATE MATERIALIZED VIEW IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_VIDEO_PLAYBACK_TRANSFORM_MV }}
-    TO {{ OARS_XAPI_DATABASE }}.{{ OARS_VIDEO_PLAYBACK_EVENTS_TABLE }} AS
-SELECT
+CREATE MATERIALIZED VIEW IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_PROBLEM_TRANSFORM_MV }}
+    TO {{ OARS_XAPI_DATABASE }}.{{ OARS_PROBLEM_EVENTS_TABLE }} AS
+select
     event_id,
     emission_time,
     actor_id,
@@ -200,20 +193,27 @@ SELECT
     org,
     verb_id,
     JSON_VALUE(event_str, '$.verb.display.en') AS event_type,
-    cast(coalesce(
-        nullif(JSON_VALUE(event_str, '$.result.extensions."https://w3id.org/xapi/video/extensions/time"'), ''),
-        nullif(JSON_VALUE(event_str, '$.result.extensions."https://w3id.org/xapi/video/extensions/time-from"'), ''),
-        '0.0'
-    ) as Float32) as video_position
-FROM {{ OARS_XAPI_DATABASE }}.{{ OARS_XAPI_TABLE }}
-WHERE verb_id IN (
-  'http://adlnet.gov/expapi/verbs/completed',
-  'http://adlnet.gov/expapi/verbs/initialized',
-  'http://adlnet.gov/expapi/verbs/terminated',
-  'https://w3id.org/xapi/video/verbs/paused',
-  'https://w3id.org/xapi/video/verbs/played',
-  'https://w3id.org/xapi/video/verbs/seeked'
-);
+    JSON_VALUE(event_str, '$.result.response') as responses,
+    JSON_VALUE(event_str, '$.result.score.scaled') as scaled_score,
+    if(
+        verb_id = 'https://w3id.org/xapi/acrossx/verbs/evaluated',
+        cast(JSON_VALUE(event_str, '$.result.success') as Bool),
+        false
+    ) as success,
+    JSON_VALUE(event_str, '$.object.definition.interactionType') as interaction_type,
+    if(
+        verb_id = 'https://w3id.org/xapi/acrossx/verbs/evaluated',
+        cast(JSON_VALUE(event_str, '$.object.definition.extensions."http://id.tincanapi.com/extension/attempt-id"') as Int16),
+        0
+    ) as attempts
+from
+    {{ OARS_XAPI_DATABASE }}.{{ OARS_XAPI_TABLE }}
+where
+    verb_id in (
+        'https://w3id.org/xapi/acrossx/verbs/evaluated',
+        'http://adlnet.gov/expapi/verbs/passed',
+        'http://adlnet.gov/expapi/verbs/asked'
+    );
 
 
 
