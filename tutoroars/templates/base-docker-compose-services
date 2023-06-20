@@ -3,13 +3,9 @@ image: apache/superset:{{ SUPERSET_TAG }}
   volumes:
     - ../../env/plugins/oars/apps/superset/docker:/app/docker
     - ../../env/plugins/oars/apps/superset/pythonpath:/app/pythonpath
-    - ../../env/plugins/oars/apps/superset/data:/app/data
+    - ../../env/plugins/oars/apps/superset/security:/app/security
     - ../../env/plugins/oars/apps/superset/superset_home:/app/superset_home
-  {% if SUPERSET_EXTRA_DEV_VOLUMES %}
-    {% for volume in SUPERSET_EXTRA_DEV_VOLUMES %}
-    - {{ volume }}
-    {% endfor %}
-  {% endif %}
+    - ../../env/plugins/oars/apps/superset/assets:/app/assets
   restart: unless-stopped
   environment:
     DATABASE_DIALECT: {{ SUPERSET_DB_DIALECT }}

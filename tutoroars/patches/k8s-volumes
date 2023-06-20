@@ -14,3 +14,19 @@ spec:
     requests:
       storage: 5Gi
 {% endif %}
+{% if RUN_SUPERSET %}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: superset-assets
+  labels:
+    app.kubernetes.io/component: volume
+    app.kubernetes.io/name: superset
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Mi
+{% endif %}

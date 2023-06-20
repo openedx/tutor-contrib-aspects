@@ -122,8 +122,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         #    "config_map_name": "config-map-name",
         #    "config_map_folder": "path-to-template-folder",
         # }]
-        ("SUPERSET_EXTRA_VOLUMES", []),
-        ("SUPERSET_EXTRA_DEV_VOLUMES", []),
         ("RUN_SUPERSET", True),
         (
             "SUPERSET_TALISMAN_CONFIG",
@@ -212,51 +210,6 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
         ("SUPERSET_XAPI_DASHBOARD_SLUG", "openedx-xapi"),
         ("SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY", "xapi_course_id"),
         ("SUPERSET_ROW_LEVEL_SECURITY_ENROLLMENTS_GROUP_KEY", "enrollments_course_id"),
-        (
-            "SUPERSET_EXTRA_VOLUMES",
-            [
-                {
-                    "path": "/app/oars/data/superset/databases",
-                    "name": "databases",
-                    "config_map_name": "databases-oars",
-                    "config_map_folder": "oars/apps/data/superset/databases",
-                },
-                {
-                    "path": "/app/oars/data/superset/dashboards",
-                    "name": "dashboards",
-                    "config_map_name": "dashboards-oars",
-                    "config_map_folder": "oars/apps/data/superset/dashboards",
-                },
-                {
-                    "path": "/app/oars/data/superset/datasets/OpenedX_MySQL",
-                    "name": "datasets-mysql",
-                    "config_map_name": "datasets-mysql-oars",
-                    "config_map_folder": "oars/apps/data/superset/datasets/OpenedX_MySQL",
-                },
-                {
-                    "path": "/app/oars/data/superset/datasets/OpenedX_Clickhouse",
-                    "name": "datasets-clickhouse",
-                    "config_map_name": "datasets-clickhouse-oars",
-                    "config_map_folder": "oars/apps/data/superset/datasets/OpenedX_Clickhouse",
-                },
-                {
-                    "path": "/app/oars/data/superset/charts",
-                    "name": "charts",
-                    "config_map_name": "charts-oars",
-                    "config_map_folder": "oars/apps/data/superset/charts",
-                },
-                {
-                    "path": "/app/oars/data/superset/",
-                    "name": "metadata",
-                    "config_map_name": "metadata-oars",
-                    "config_map_folder": "oars/apps/data/superset/",
-                },
-            ],
-        ),
-        (
-            "SUPERSET_EXTRA_DEV_VOLUMES",
-            ["../../env/plugins/oars/apps/data/superset/:/app/oars/data/superset/"],
-        ),
     ]
 )
 

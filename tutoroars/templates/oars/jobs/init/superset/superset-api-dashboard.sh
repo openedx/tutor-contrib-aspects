@@ -6,16 +6,23 @@ set -e
 #
 /usr/bin/env bash /app/docker/docker-bootstrap.sh
 
-echo "\n\nInstall zip\n\n"
 apt update
 apt install zip unzip
 
-cd /app/oars/data/
-echo "\n\nListing mounted files\n\n"
-ls -R superset/
+rm -rf /app/assets/superset
+
+cd /app/assets/
+
+python /app/pythonpath/create_assets.py
+
+date=$(date -u +"%Y-%m-%dT%H:%M:%S.%6N+00:00") 
+
+echo "version: 1.0.0
+type: Dashboard
+timestamp: '$date'" > superset/metadata.yaml
 
 echo "\n\nCompressing superset folder\n\n"
-zip -r superset.zip superset -i superset/metadata.yaml -i superset/dashboards/*.yaml -i superset/databases/*.yaml -i superset/datasets/OpenedX_MySQL/*.yaml -i superset/datasets/OpenedX_Clickhouse/*.yaml -i superset/charts/*.yaml
+zip -r superset.zip superset
 
 echo "\n\nListing files in zip\n\n"
 unzip -l superset.zip
