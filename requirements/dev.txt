@@ -52,7 +52,7 @@ idna==3.4
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==6.6.0
+importlib-metadata==6.7.0
     # via
     #   keyring
     #   twine
@@ -109,7 +109,7 @@ pathspec==0.11.1
     # via black
 pkginfo==1.9.6
     # via twine
-platformdirs==3.5.3
+platformdirs==3.6.0
     # via
     #   black
     #   pylint
@@ -187,7 +187,7 @@ tomli==2.0.1
     #   pylint
 tomlkit==0.11.8
     # via pylint
-tutor==15.3.7
+tutor==16.0.1
     # via -r requirements/base.txt
 twine==4.0.2
     # via -r requirements/dev.in
@@ -209,7 +209,7 @@ urllib3==1.26.16
     #   twine
 webencodings==0.5.1
     # via bleach
-websocket-client==1.5.3
+websocket-client==1.6.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
