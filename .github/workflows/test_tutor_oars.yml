@@ -3,6 +3,8 @@ name: Test Tutor OARS
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 env:
   TUTOR_ROOT: ./.ci/
