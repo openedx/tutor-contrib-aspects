@@ -1,71 +1,85 @@
 - file_name: Open_edX_Dashboard_1.yaml
-  dashboard_title: Open edX Dashboard
+  dashboard_title: Open edX Admin Dashboard
   description: null
   css: ''
-  slug: openedx-xapi
-  uuid: 1d812df2-573b-4cdf-ae22-7123fef608e5
+  slug: openedx-xapi-admin
+  uuid: 4bd1ace4-2327-4ff0-985b-ef014cb0503b
   position:
-    CHART-I3rHzTOAQD:
+    CHART-OxWNihq9pP:
       children: []
-      id: CHART-I3rHzTOAQD
+      id: CHART-OxWNihq9pP
       meta:
-        chartId: 7
+        chartId: 8
         height: 50
         sliceName: Video events
-        uuid: b3c9a04d-6cda-412d-a90b-aa85724ae9b1
+        uuid: 0cc08ea4-fe3f-45ef-89b9-21d9e2c4c5ff
         width: 4
       parents:
       - ROOT_ID
       - GRID_ID
-      - ROW-9nvIv3Efqw
+      - ROW-hGj6cJyMJ
       type: CHART
-    CHART-UNJLNKIN:
+    CHART-explore-10-1:
       children: []
-      id: CHART-UNJLNKIN
+      id: CHART-explore-10-1
       meta:
-        chartId: 3
+        chartId: 10
+        height: 50
+        sliceName: Events per day
+        uuid: 0eb95b3a-a61d-4fcf-b614-3bc3e78dbb4b
+        width: 4
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-hGj6cJyMJ
+      type: CHART
+    CHART-explore-11-1:
+      children: []
+      id: CHART-explore-11-1
+      meta:
+        chartId: 11
         height: 50
         sliceName: xAPI events by course
-        uuid: 5e0bcb88-206f-494a-8501-bde923b39855
+        uuid: c69ab610-f77a-4c54-a5ab-dc3a19a3003e
         width: 4
       parents:
       - ROOT_ID
       - GRID_ID
-      - ROW-wGxsERBpnN
+      - ROW-hGj6cJyMJ
       type: CHART
-    CHART-f2w7wR8-ty:
+    CHART-explore-9-1:
       children: []
-      id: CHART-f2w7wR8-ty
+      id: CHART-explore-9-1
       meta:
         chartId: 9
         height: 50
-        sliceName: Problem Difficulty
-        uuid: 3accd553-4838-4267-b12e-e0f951a841b4
-        width: 4
+        sliceName: xAPI events
+        uuid: eda31542-e23c-4a9e-b9d2-712c9536265d
+        width: 8
       parents:
       - ROOT_ID
       - GRID_ID
-      - ROW-9nvIv3Efqw
+      - ROW-EFh2InPgiC
       type: CHART
-    CHART-rR3q_1m4xG:
+    CHART-jmqhhYm-W8:
       children: []
-      id: CHART-rR3q_1m4xG
+      id: CHART-jmqhhYm-W8
       meta:
-        chartId: 6
+        chartId: 7
         height: 50
-        sliceName: Course Enrollments
-        uuid: 7fe73214-de90-4867-883a-303275334fd1
+        sliceName: xAPI problem events by block
+        uuid: 40b671ce-e987-4c19-bc9d-d07df1d944f8
         width: 4
       parents:
       - ROOT_ID
       - GRID_ID
-      - ROW-wGxsERBpnN
+      - ROW-EFh2InPgiC
       type: CHART
     DASHBOARD_VERSION_KEY: v2
     GRID_ID:
       children:
-      - ROW-wGxsERBpnN
-      - ROW-9nvIv3Efqw
+      - ROW-hGj6cJyMJ
+      - ROW-EFh2InPgiC
       id: GRID_ID
       parents:
       - ROOT_ID
@@ -73,29 +87,30 @@
     HEADER_ID:
       id: HEADER_ID
       meta:
-        text: Open edX Dashboard
+        text: Open edX Admin Dashboard
       type: HEADER
     ROOT_ID:
       children:
       - GRID_ID
       id: ROOT_ID
       type: ROOT
-    ROW-9nvIv3Efqw:
+    ROW-EFh2InPgiC:
       children:
-      - CHART-I3rHzTOAQD
-      - CHART-f2w7wR8-ty
-      id: ROW-9nvIv3Efqw
+      - CHART-jmqhhYm-W8
+      - CHART-explore-9-1
+      id: ROW-EFh2InPgiC
       meta:
         background: BACKGROUND_TRANSPARENT
       parents:
       - ROOT_ID
       - GRID_ID
       type: ROW
-    ROW-wGxsERBpnN:
+    ROW-hGj6cJyMJ:
       children:
-      - CHART-rR3q_1m4xG
-      - CHART-UNJLNKIN
-      id: ROW-wGxsERBpnN
+      - CHART-explore-10-1
+      - CHART-explore-11-1
+      - CHART-OxWNihq9pP
+      id: ROW-hGj6cJyMJ
       meta:
         background: BACKGROUND_TRANSPARENT
       parents:
@@ -106,20 +121,21 @@
     show_native_filters: true
     color_scheme: ''
     refresh_frequency: 0
+    shared_label_colors: {}
     expanded_slices: {}
     label_colors: {}
     timed_refresh_immune_slices: []
     default_filters: '{}'
     chart_configuration: {}
     native_filter_configuration:
-    - id: NATIVE_FILTER-Vfmx42T9R
+    - id: NATIVE_FILTER-yb49rspT2
       controlValues:
         enableEmptyFilter: false
         defaultToFirstItem: false
         multiSelect: true
-        searchAllOptions: false
+        searchAllOptions: true
         inverseSelection: false
-      name: course_key
+      name: Course ID
       filterType: filter_select
       targets:
       - column:
@@ -137,383 +153,43 @@
       type: NATIVE_FILTER
       description: ''
       chartsInScope:
-      - 2
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
       tabsInScope: []
-    - id: NATIVE_FILTER-IjRG0w8V2
+    - id: NATIVE_FILTER-mqUjL9BMI
       controlValues:
         enableEmptyFilter: false
-        defaultToFirstItem: false
-        multiSelect: true
-        searchAllOptions: false
-        inverseSelection: false
-      name: block_key
-      filterType: filter_select
+      name: Time range
+      filterType: filter_time
       targets:
-      - column:
-          name: block_key
-        datasetUuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+      - {}
       defaultDataMask:
         extraFormData: {}
         filterState: {}
         ownState: {}
-      cascadeParentIds:
-      - NATIVE_FILTER-Vfmx42T9R
+      cascadeParentIds: []
       scope:
         rootPath:
         - ROOT_ID
         excluded: []
       type: NATIVE_FILTER
       description: ''
-      chartsInScope:
-      - 2
-      tabsInScope: []
-    shared_label_colors: {}
   version: 1.0.0
 
 - file_name: Course_Enrollments_6.yaml
-  slice_name: Course Enrollments
-  viz_type: pie
-  params:
-    adhoc_filters:
-    - clause: WHERE
-      comparator: '1'
-      expressionType: SIMPLE
-      filterOptionName: filter_dzfrcdcivy9_hg2dyaz63b
-      isExtra: false
-      isNew: false
-      operator: ==
-      operatorId: EQUALS
-      sqlExpression: null
-      subject: is_active
-    color_scheme: supersetColors
-    datasource: 4__table
-    date_format: smart_date
-    extra_form_data: {}
-    granularity_sqla: enrollment_created
-    groupby:
-    - display_name
-    innerRadius: 30
-    label_type: key
-    labels_outside: true
-    legendOrientation: top
-    legendType: scroll
-    metric: count
-    number_format: SMART_NUMBER
-    outerRadius: 70
-    row_limit: 50000
-    show_labels: true
-    show_labels_threshold: 5
-    show_legend: true
-    slice_id: 6
-    sort_by_metric: true
-    time_range: No filter
-    viz_type: pie
-  cache_timeout: null
-  uuid: 7fe73214-de90-4867-883a-303275334fd1
-  version: 1.0.0
-  dataset_uuid: 63225554-dee9-42c5-ad4f-dc591e18d63c
+
 - file_name: Problem_Difficulty_9.yaml
-  slice_name: Problem Difficulty
-  viz_type: dist_bar
-  params:
-    adhoc_filters: []
-    bottom_margin: auto
-    color_scheme: supersetColors
-    columns: []
-    datasource: 7__table
-    extra_form_data: {}
-    groupby:
-    - display_name
-    metrics:
-    - aggregate: MIN
-      column:
-        advanced_data_type: null
-        certification_details: null
-        certified_by: null
-        column_name: attempts
-        description: null
-        expression: null
-        filterable: true
-        groupby: true
-        id: 316
-        is_certified: false
-        is_dttm: false
-        python_date_format: null
-        type: Int8
-        type_generic: 0
-        verbose_name: null
-        warning_markdown: null
-      expressionType: SIMPLE
-      hasCustomLabel: false
-      isNew: false
-      label: MIN(attempts)
-      optionName: metric_40tl7ix7ot_wqlh1t77qk9
-      sqlExpression: null
-    - aggregate: MAX
-      column:
-        advanced_data_type: null
-        certification_details: null
-        certified_by: null
-        column_name: attempts
-        description: null
-        expression: null
-        filterable: true
-        groupby: true
-        id: 316
-        is_certified: false
-        is_dttm: false
-        python_date_format: null
-        type: Int8
-        type_generic: 0
-        verbose_name: null
-        warning_markdown: null
-      expressionType: SIMPLE
-      hasCustomLabel: false
-      isNew: false
-      label: MAX(attempts)
-      optionName: metric_xld3pw367pp_mrqwstlp35
-      sqlExpression: null
-    - aggregate: AVG
-      column:
-        advanced_data_type: null
-        certification_details: null
-        certified_by: null
-        column_name: attempts
-        description: null
-        expression: null
-        filterable: true
-        groupby: true
-        id: 316
-        is_certified: false
-        is_dttm: false
-        python_date_format: null
-        type: Int8
-        type_generic: 0
-        verbose_name: null
-        warning_markdown: null
-      expressionType: SIMPLE
-      hasCustomLabel: false
-      isNew: false
-      label: AVG(attempts)
-      optionName: metric_r5cxa84yhyn_w2jnjsnpp0h
-      sqlExpression: null
-    order_desc: true
-    rich_tooltip: true
-    row_limit: 50000
-    show_legend: true
-    slice_id: 9
-    time_range: No filter
-    viz_type: dist_bar
-    x_ticks_layout: auto
-    y_axis_bounds:
-    - null
-    - null
-    y_axis_format: SMART_NUMBER
-  cache_timeout: null
-  uuid: 3accd553-4838-4267-b12e-e0f951a841b4
-  version: 1.0.0
-  dataset_uuid: bf967156-a723-4df1-8d6e-e7c5637531e2
+
 - file_name: Video_events_7.yaml
-  slice_name: Video events
-  viz_type: echarts_timeseries_bar
-  params:
-    adhoc_filters:
-    - clause: WHERE
-      comparator: '1'
-      expressionType: SIMPLE
-      filterOptionName: filter_2x4i6oetd7v_4ybshif8gk4
-      isExtra: false
-      isNew: false
-      operator: ==
-      operatorId: EQUALS
-      sqlExpression: null
-      subject: video_event
-    annotation_layers: []
-    color_scheme: supersetColors
-    comparison_type: values
-    contributionMode: null
-    datasource: 1__table
-    extra_form_data: {}
-    forecastInterval: 0.8
-    forecastPeriods: 10
-    granularity_sqla: emission_time
-    groupby:
-    - verb
-    - block_key
-    legendOrientation: top
-    legendType: scroll
-    metrics:
-    - aggregate: null
-      column: null
-      expressionType: SQL
-      hasCustomLabel: false
-      isNew: false
-      label: count(verb)
-      optionName: metric_wdmlkvulpn7_ll3d19812
-      sqlExpression: count(verb)
-    only_total: true
-    order_desc: true
-    orientation: vertical
-    rich_tooltip: true
-    row_limit: 10000
-    show_legend: true
-    time_grain_sqla: P1D
-    time_range: No filter
-    tooltipTimeFormat: smart_date
-    truncate_metric: false
-    viz_type: echarts_timeseries_bar
-    x_axis_time_format: smart_date
-    x_axis_title_margin: 15
-    y_axis_bounds:
-    - null
-    - null
-    y_axis_format: SMART_NUMBER
-    y_axis_title_margin: 15
-    y_axis_title_position: Left
-  cache_timeout: null
-  uuid: b3c9a04d-6cda-412d-a90b-aa85724ae9b1
-  version: 1.0.0
-  dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+
 - file_name:  xAPI_events_1.yaml
-  slice_name: xAPI events
-  viz_type: table
-  params:
-    adhoc_filters: []
-    all_columns:
-    - verb_id
-    - course_id
-    color_pn: true
-    datasource: 1__table
-    extra_form_data: {}
-    granularity_sqla: emission_time
-    groupby:
-    - verb_id
-    - course_id
-    order_by_cols: []
-    order_desc: true
-    percent_metrics: []
-    query_mode: raw
-    row_limit: 10000
-    server_page_length: 10
-    show_cell_bars: true
-    slice_id: 1
-    table_timestamp_format: smart_date
-    time_grain_sqla: P1D
-    time_range: No filter
-    viz_type: table
-  cache_timeout: null
-  uuid: e5533707-e411-402b-b2c9-38bd78e39473
-  version: 1.0.0
-  dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+
 - file_name: xAPI_events_by_course_3.yaml
-  slice_name: xAPI events by course
-  viz_type: echarts_timeseries_bar
-  params:
-    adhoc_filters: []
-    annotation_layers: []
-    color_scheme: supersetColors
-    comparison_type: values
-    datasource: 1__table
-    extra_form_data: {}
-    forecastInterval: 0.8
-    forecastPeriods: 10
-    granularity_sqla: emission_time
-    groupby:
-    - verb
-    - course_key
-    legendOrientation: top
-    legendType: scroll
-    metrics:
-    - count
-    only_total: true
-    order_desc: true
-    orientation: vertical
-    rich_tooltip: true
-    row_limit: 10000
-    show_legend: true
-    slice_id: 3
-    time_grain_sqla: P1D
-    time_range: No filter
-    tooltipTimeFormat: smart_date
-    truncate_metric: true
-    viz_type: echarts_timeseries_bar
-    x_axis_time_format: smart_date
-    x_axis_title_margin: 15
-    y_axis_bounds:
-    - null
-    - null
-    y_axis_format: SMART_NUMBER
-    y_axis_title_margin: 15
-    y_axis_title_position: Left
-  cache_timeout: null
-  uuid: 5e0bcb88-206f-494a-8501-bde923b39855
-  version: 1.0.0
-  dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+
 - file_name: xAPI_problem_events_by_block_2.yaml
-  slice_name: xAPI problem events by block
-  viz_type: echarts_timeseries_bar
-  params:
-    adhoc_filters:
-    - clause: WHERE
-      comparator:
-      - http://adlnet.gov/expapi/verbs/evaluated
-      - http://adlnet.gov/expapi/verbs/attempted
-      - http://adlnet.gov/expapi/verbs/asked
-      expressionType: SIMPLE
-      filterOptionName: filter_0qzkqpapje2_6p5tpr4igwf
-      isExtra: false
-      isNew: false
-      operator: IN
-      operatorId: IN
-      sqlExpression: null
-      subject: verb_id
-    annotation_layers: []
-    color_scheme: supersetColors
-    comparison_type: values
-    contributionMode: null
-    datasource: 1__table
-    extra_form_data: {}
-    forecastInterval: 0.8
-    forecastPeriods: 10
-    granularity_sqla: emission_time
-    groupby:
-    - verb
-    - block_key
-    legendOrientation: top
-    legendType: scroll
-    metrics:
-    - aggregate: null
-      column: null
-      expressionType: SQL
-      hasCustomLabel: false
-      isNew: false
-      label: count(verb)
-      optionName: metric_wdmlkvulpn7_ll3d19812
-      sqlExpression: count(verb)
-    only_total: true
-    order_desc: true
-    orientation: vertical
-    rich_tooltip: true
-    row_limit: 10000
-    show_legend: true
-    slice_id: 2
-    time_grain_sqla: P1D
-    time_range: No filter
-    tooltipTimeFormat: smart_date
-    truncate_metric: false
-    viz_type: echarts_timeseries_bar
-    x_axis_time_format: smart_date
-    x_axis_title_margin: 15
-    y_axis_bounds:
-    - null
-    - null
-    y_axis_format: SMART_NUMBER
-    y_axis_title_margin: 15
-    y_axis_title_position: Left
-  cache_timeout: null
-  uuid: 742759ee-9765-4f23-abaa-9d87aa499c3a
-  version: 1.0.0
-  dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
 
 - file_name: OpenedX_Clickhouse.yaml
   database_name: OpenedX Clickhouse
@@ -531,921 +207,7 @@
     schemas_allowed_for_csv_upload: []
   uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
   version: 1.0.0
-- file_name: OpenedX_MySQL.yaml
-  database_name: OpenedX MySQL
-  sqlalchemy_uri: mysql+mysqldb://{{OPENEDX_MYSQL_USERNAME}}:{{OPENEDX_MYSQL_PASSWORD}}@{{MYSQL_HOST}}:{{MYSQL_PORT}}/{{OPENEDX_MYSQL_DATABASE}}
-  cache_timeout: null
-  expose_in_sqllab: true
-  allow_run_async: false
-  allow_ctas: false
-  allow_cvas: false
-  allow_csv_upload: false
-  allow_file_upload: false
-  extra:
-    allows_virtual_table_explore: true
-    metadata_params: {}
-    engine_params: {}
-    schemas_allowed_for_file_upload: []
-  uuid: dd1b9c88-5b74-4ac1-ad51-27c37ff40b8a
-  version: 1.0.0
 
 - file_name: OpenedX_Clickhouse/xapi_events_all_parsed.yaml
-  table_name: {{ OARS_XAPI_TABLE }}
-  main_dttm_col: emission_time
-  description: null
-  default_endpoint: null
-  offset: 0
-  cache_timeout: null
-  schema: {{ OARS_XAPI_DATABASE }}
-  sql: null
-  params: null
-  template_params: null
-  filter_select_enabled: false
-  fetch_values_predicate: null
-  extra: null
-  uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
-  metrics:
-  - metric_name: count
-    verbose_name: COUNT(*)
-    metric_type: count
-    expression: COUNT(*)
-    description: null
-    d3format: null
-    extra: null
-    warning_text: null
-  columns:
-  - column_name: block_key
-    verbose_name: block_key
-    is_dttm: false
-    is_active: true
-    type: null
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: if(event.object.id like '%/xblock/%', splitByChar('/', event.object.id)[5],
-      '')
-    description: XBlock ID estracted from the JSON event.object.id URL string. Will
-      be empty string if object is not an XBlock.
-    python_date_format: null
-    extra: null
-  - column_name: verb
-    verbose_name: verb
-    is_dttm: false
-    is_active: true
-    type: null
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: splitByChar('/', verb_id)[-1]
-    description: Short name for the verb; the final word in the verb_id path.
-    python_date_format: null
-    extra: null
-  - column_name: video_event
-    verbose_name: video_event
-    is_dttm: false
-    is_active: true
-    type: null
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: verb_id LIKE '%video%'
-    description: Set to true when the event is a video event.
-    python_date_format: null
-    extra: null
-  - column_name: object_type
-    verbose_name: object_type
-    is_dttm: false
-    is_active: true
-    type: null
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: splitByChar('/', event.object.definition.type)[-1]
-    description: 'Parsed JSON: last word in the event.object.definition.type field'
-    python_date_format: null
-    extra: null
-  - column_name: course_key
-    verbose_name: course_key
-    is_dttm: false
-    is_active: true
-    type: null
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: splitByChar('/', course_id)[-1]
-    description: Course key part of the course_id URL
-    python_date_format: null
-    extra: null
-  - column_name: object_id
-    verbose_name: object_id
-    is_dttm: false
-    is_active: true
-    type: null
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: event.object.id
-    description: 'Parsed JSON: event.object.id field'
-    python_date_format: null
-    extra: null
-  - column_name: event
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: Object('json')
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: emission_time
-    verbose_name: null
-    is_dttm: true
-    is_active: true
-    type: DateTime64(6)
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: actor_id
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: UUID
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: event_id
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: UUID
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: verb_id
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: String
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: course_id
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: String
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: org
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: String
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  version: 1.0.0
-  database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
-- file_name: OpenedX_MySQL/Course_Enrollments_Overview.yaml
-  table_name: "{{ OARS_SUPERSET_ENROLLMENTS_TABLE }}"
-  main_dttm_col: null
-  description: null
-  default_endpoint: null
-  offset: 0
-  cache_timeout: null
-  schema: {{ OPENEDX_MYSQL_DATABASE }}
-  sql: "select enrollment.course_id as course_key, enrollment.created as enrollment_created,\n\
-    \  enrollment.is_active, enrollment.mode, enrollment.user_id, course_overview.*\
-    \ from\n  student_courseenrollment enrollment, course_overviews_courseoverview course_overview\n\
-    \  where enrollment.course_id=course_overview.id"
-  params: null
-  template_params: null
-  filter_select_enabled: false
-  fetch_values_predicate: null
-  extra: null
-  uuid: 63225554-dee9-42c5-ad4f-dc591e18d63c
-  metrics:
-  - metric_name: count
-    verbose_name: null
-    metric_type: null
-    expression: count(*)
-    description: null
-    d3format: null
-    extra: null
-    warning_text: null
-  columns:
-  - column_name: lowest_passing_grade
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: NEWDECIMAL
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: certificate_available_date
-    verbose_name: null
-    is_dttm: true
-    is_active: true
-    type: DATETIME
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: start_date
-    verbose_name: null
-    is_dttm: true
-    is_active: true
-    type: DATETIME
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: enrollment_created
-    verbose_name: null
-    is_dttm: true
-    is_active: true
-    type: DATETIME
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: end_date
-    verbose_name: null
-    is_dttm: true
-    is_active: true
-    type: DATETIME
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: enrollment_start
-    verbose_name: null
-    is_dttm: true
-    is_active: true
-    type: DATETIME
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: enrollment_end
-    verbose_name: null
-    is_dttm: true
-    is_active: true
-    type: DATETIME
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: created
-    verbose_name: null
-    is_dttm: true
-    is_active: true
-    type: DATETIME
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: announcement
-    verbose_name: null
-    is_dttm: true
-    is_active: true
-    type: DATETIME
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: start
-    verbose_name: null
-    is_dttm: true
-    is_active: true
-    type: DATETIME
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: modified
-    verbose_name: null
-    is_dttm: true
-    is_active: true
-    type: DATETIME
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: end
-    verbose_name: null
-    is_dttm: true
-    is_active: true
-    type: DATETIME
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: entrance_exam_id
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: VAR_STRING
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: _location
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: VAR_STRING
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: course_key
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: VAR_STRING
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: mode
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: VAR_STRING
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: id
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: VAR_STRING
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: end_of_course_survey_url
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: _pre_requisite_courses_json
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: display_number_with_default
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: display_org_with_default
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: certificates_display_behavior
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: proctoring_escalation_email
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: banner_image_url
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: social_sharing_url
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: course_image_url
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: cert_name_long
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: cert_name_short
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: course_video_url
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: catalog_visibility
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: advertised_start
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: display_name
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: enrollment_domain
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: marketing_url
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: proctoring_provider
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: short_description
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: language
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: effort
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: org
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: BLOB
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: entrance_exam_minimum_score_pct
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: DOUBLE
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: days_early_for_beta
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: DOUBLE
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: max_student_enrollments_allowed
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: LONG
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: user_id
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: LONG
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: version
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: LONG
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: has_any_active_web_certificate
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: TINY
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: eligible_for_financial_aid
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: TINY
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: certificates_show_before_end
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: TINY
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: cert_html_view_enabled
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: TINY
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: visible_to_staff_only
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: TINY
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: allow_proctoring_opt_out
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: TINY
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: entrance_exam_enabled
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: TINY
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: enable_proctored_exams
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: TINY
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: mobile_available
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: TINY
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: self_paced
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: TINY
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: is_active
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: TINY
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: has_highlights
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: TINY
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  - column_name: invitation_only
-    verbose_name: null
-    is_dttm: false
-    is_active: true
-    type: TINY
-    advanced_data_type: null
-    groupby: true
-    filterable: true
-    expression: null
-    description: null
-    python_date_format: null
-    extra: null
-  version: 1.0.0
-  database_uuid: dd1b9c88-5b74-4ac1-ad51-27c37ff40b8a
+
 {{ patch("superset-extra-assets") }}
