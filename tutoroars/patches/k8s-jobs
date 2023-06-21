@@ -110,6 +110,12 @@ spec:
               value: "{{RALPH_SENTRY_LRS_TRACES_SAMPLE_RATE}}"
             - name: RALPH_SENTRY_IGNORE_HEALTH_CHECKS
               value: "{{RALPH_SENTRY_IGNORE_HEALTH_CHECKS}}"
+            {% if RALPH_EXTRA_SETTINGS %}
+            {% for key, value in RALPH_EXTRA_SETTINGS.items() %}
+            - name: {{key}}
+              value: "{{value}}"
+            {% endfor %}
+            {% endif %}
 {% endif %}
 
 {% if RUN_SUPERSET %}

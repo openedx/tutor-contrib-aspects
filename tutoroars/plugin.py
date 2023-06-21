@@ -95,6 +95,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("RALPH_SENTRY_LRS_TRACES_SAMPLE_RATE", 0.1),
         ("RALPH_SENTRY_IGNORE_HEALTH_CHECKS", True),
         ("RUN_RALPH", True),
+        ("RALPH_EXTRA_SETTINGS", {}),
         ######################
         # Superset Settings
         ("SUPERSET_VERSION", __version__),
