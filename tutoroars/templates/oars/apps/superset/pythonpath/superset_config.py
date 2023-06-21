@@ -147,6 +147,10 @@ TALISMAN_ENABLED = {{SUPERSET_TALISMAN_ENABLED}}
 TALISMAN_CONFIG = {{SUPERSET_TALISMAN_CONFIG}}
 {% endif %}
 #
+
+BABEL_DEFAULT_LOCALE = "{{ SUPERSET_DEFAULT_LOCALE }}"
+LANGUAGES = {{ SUPERSET_SUPPORTED_LANGUAGES }}
+
 # Optionally import superset_config_docker.py (which will have been included on
 # the PYTHONPATH) in order to allow for local settings to be overridden
 #

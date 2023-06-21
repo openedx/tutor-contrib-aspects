@@ -142,6 +142,14 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             },
         ),
         ("SUPERSET_TALISMAN_ENABLED", True),
+        ("SUPERSET_DEFAULT_LOCALE", "en"),
+        (
+            "SUPERSET_SUPPORTED_LANGUAGES",
+            {
+                "en": {"flag": "us", "name": "English"},
+                "es": {"flag": "es", "name": "Spanish"},
+            },
+        ),
     ]
 )
 

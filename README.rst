@@ -97,6 +97,34 @@ To contribute assets to OARS:
 .. _assets directory: https://github.com/openedx/tutor-contrib-oars/tree/main/tutoroars/templates/oars/apps/data/assets
 
 
+Changing Superset Language Settings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Superset localization is a work in progress, but you can change the default language and set alternate languages from the currently supported list by changing the Tutor configuration variables:
+
+Default language: ``tutor config save --set SUPERSET_DEFAULT_LOCALE=en``
+
+Available languages are stored in a mapping, and so best edited directly in Tutor's config.yml file. You can find the path to the config file with ``tutor config printroot``. Once there, you can set the SUPERSET_SUPPORTED_LANGUAGES with a mapping of the following structure::
+
+    SUPERSET_SUPPORTED_LANGUAGES: {
+        "en": {"flag": "us", "name": "English"},
+        "es": {"flag": "es", "name": "Spanish"},
+        "it": {"flag": "it", "name": "Italian"},
+        "fr": {"flag": "fr", "name": "French"},
+        "zh": {"flag": "cn", "name": "Chinese"},
+        "ja": {"flag": "jp", "name": "Japanese"},
+        "de": {"flag": "de", "name": "German"},
+        "pt": {"flag": "pt", "name": "Portuguese"},
+        "pt_BR": {"flag": "br", "name": "Brazilian Portuguese"},
+        "ru": {"flag": "ru", "name": "Russian"},
+        "ko": {"flag": "kr", "name": "Korean"},
+        "sk": {"flag": "sk", "name": "Slovak"},
+        "sl": {"flag": "si", "name": "Slovenian"},
+        "nl": {"flag": "nl", "name": "Dutch"},
+    }
+
+Where the first key is the abbreviation of the language to use, "flag" is which flag icon is displayed in the user interface for choosing the language, and "name" is the displayed name for that language. The mapping above shows all of the current languages supported by Superset, but please note that different languages have different levels of completion and support at this time.
+
 License
 -------
 
