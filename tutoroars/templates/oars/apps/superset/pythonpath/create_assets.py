@@ -25,28 +25,25 @@ def main():
 def create_assets():
     """Create assets from a yaml file."""
     with open("/app/pythonpath/assets.yaml", "r") as file:
-        try:
-            extra_assets = yaml.safe_load(file)
-        except yaml.YAMLError as exc:
-            print(exc)
+        extra_assets = yaml.safe_load(file)
 
-    if not extra_assets:
-        print("No extra assets to create")
-        return
+        if not extra_assets:
+            print("No extra assets to create")
+            return
 
-    # For each asset, create a file in the right folder
-    for asset in extra_assets:
-        if "file_name" not in asset:
-            print(f"Asset {asset} has no file_name")
-            continue
-        file_name = asset.pop("file_name")
-        print(f"Creating asset {file_name}")
+        # For each asset, create a file in the right folder
+        for asset in extra_assets:
+            if "file_name" not in asset:
+                print(f"Asset {asset} has no file_name")
+                continue
+            file_name = asset.pop("file_name")
+            print(f"Creating asset {file_name}")
 
-        # Find the right folder to create the asset in
-        for asset_name, folder in ASSET_FOLDER_MAPPING.items():
-            if asset_name in asset:
-                create_asset(folder, file_name, asset)
-                break
+            # Find the right folder to create the asset in
+            for asset_name, folder in ASSET_FOLDER_MAPPING.items():
+                if asset_name in asset:
+                    create_asset(folder, file_name, asset)
+                    break
 
 
 def create_asset(folder, file_name, asset_definition):

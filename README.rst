@@ -62,7 +62,7 @@ when you update your deployment. To prevent your local changes from being overwr
 please create new assets and make your changes there instead. You can copy an existing
 asset by editing the asset in Superset and selecting "Save As" to save it to a new name.
 
-Define you own superset assets
+Define your own superset assets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To programatically define custom superset assets there is a patch you can use with an
@@ -79,21 +79,19 @@ An example of this patch is provided as reference:
     patches:
     superset-extra-assets: |
         - file_name: my-dashboard.yaml
-            dashboard_title: "..."
-            ...
+          dashboard_title: "..."
+          ...
         - file_name: my-chart.yaml
-            slice_name: "..."
-            ...
+          slice_name: "..."
+          ...
         - file_name: my-database.yaml
-            database_name: "..."
-            ...
+          database_name: "..."
+          ...
         - file_name: my-dataset.yaml
-            table_name: "..."
-            ...
+          table_name: "..."
+          ...
 
-The patch is expected to be a list of assets with an extra attribute called ``file_name`` ,
-so you can pass multiple assets separated as a **yaml** list item. Each asset is expected
-to be a valid yaml file with the attributes that superset expects for each asset type.
+The patch is expected to be a list of assets with an extra attribute called ``file_name`` , which uniquely identifies the asset entry. This file does not need to exist anywhere; it will be created with the rest of the yaml in that stanza as part of the init process. Each asset is expected to be a valid yaml file with the attributes that superset expects for each asset type. See `assets.yaml`_ for examples of asset yaml declarations.
 
 Override superset default assets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -103,7 +101,7 @@ patch defined above and make sure that the uuid of the asset you are overriding 
 the one in the default assets. You can find the uuid of the default assets in the
 default `assets.yaml`_ file.
 
-.. _assets.yaml: https://github.com/openedx/tutor-contrib-oars/tree/main/tutoroars/templates/oars/apps/superset/pythonpath/assets.yaml
+.. _assets.yaml: tutoroars/templates/oars/apps/superset/pythonpath/assets.yaml
 
 
 Sharing Charts and Dashboards

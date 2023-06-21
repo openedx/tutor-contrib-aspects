@@ -29,3 +29,6 @@ unzip -l superset.zip
 
 echo "\n\nImporting zip file\n\n"
 superset import-dashboards -p superset.zip
+
+rm -rf /app/assets/superset
+rm -rf /app/assets/superset.zip
