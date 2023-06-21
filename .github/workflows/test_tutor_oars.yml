@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 env:
-  TUTOR_ROOT:./.ci/
+  TUTOR_ROOT: ./.ci/
 
 jobs:
   push:
