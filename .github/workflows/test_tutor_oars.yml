@@ -3,8 +3,6 @@ name: Test Tutor OARS
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 env:
   TUTOR_ROOT: ./.ci/
@@ -22,13 +20,13 @@ jobs:
           python-version: 3.9
       - name: Install python reqs
         run: pip install -r requirements/dev.txt
-      - name: Install pars
+      - name: Install oars
         run: pip install -e .
-      - name: Tutor local launch
+      - name: Tutor config save
         run: tutor config save
       - name: Tutor build openedx
         run: tutor images build openedx
-      - name: Tutor local init
+      - name: Tutor init
         run: tutor local do init
-      - name: Tutor local start
+      - name: Tutor start
         run: tutor local start -d
