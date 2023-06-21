@@ -28,5 +28,7 @@ jobs:
         run: tutor config save
       - name: Tutor build openedx
         run: tutor images build openedx
+      - name: Tutor local init
+        run: tutor local do init
       - name: Tutor local start
         run: tutor local start -d
