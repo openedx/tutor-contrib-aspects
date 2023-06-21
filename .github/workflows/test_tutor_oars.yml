@@ -1,0 +1,29 @@
+name: Publish package to PyPI
+
+on:
+  - pull_request
+
+env:
+  TUTOR_ROOT:./.ci/
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: Install python reqs
+        run: pip install -r requirements/dev.txt
+      - name: Install pars
+        run: pip install -e .
+      - name: Tutor local launch
+        run: tutor config save
+      - name: Tutor build openedx
+        run: tutor images build openedx
+      - name: Tutor local start
+        run: tutor local start -d
