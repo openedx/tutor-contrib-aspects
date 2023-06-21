@@ -324,6 +324,7 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
         ("oars", "jobs", "init", "clickhouse", "oars_init_schemas_tables_users.sh"),
         96,
     ),
+    ("oars", ("oars", "jobs", "init", "dbt", "init-dbt.sh"), 97),
     ("superset", ("oars", "jobs", "init", "superset", "superset-init-security.sh"), 99),
     ("lms", ("oars", "jobs", "init", "lms", "configure-oars-lms.sh"), 100),
     (
