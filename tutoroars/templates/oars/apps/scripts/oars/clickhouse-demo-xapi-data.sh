@@ -4,7 +4,7 @@ python3 -m venv virtualenv
 . virtualenv/bin/activate
 
 echo "Loading demo xAPI data..."
-pip install git+https://github.com/openedx/xapi-db-load@0.1#egg=xapi-db-load==0.1
+pip install git+https://github.com/openedx/xapi-db-load@0.2#egg=xapi-db-load==0.2
 pip install pandas  # clickhouse_connect is missing this
 xapi-db-load --backend ralph_clickhouse \
     --num_batches $1 \
