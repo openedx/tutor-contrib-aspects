@@ -24,6 +24,8 @@ jobs:
         run: pip install -e .
       - name: Tutor config save
         run: tutor config save
+      - name: Populate Docker cache
+        run: tutor images pull openedx
       - name: Tutor build openedx
         run: tutor images build openedx
       - name: Tutor init
