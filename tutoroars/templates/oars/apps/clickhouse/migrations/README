@@ -1,0 +1,1 @@
+clickhouse-client --query 'DROP DATABASE IF EXISTS alembic' && clickhouse-client --allow_deprecated_database_ordinary 1 --query 'CREATE DATABASE alembic Engine = Ordinary' && alembic upgrade head

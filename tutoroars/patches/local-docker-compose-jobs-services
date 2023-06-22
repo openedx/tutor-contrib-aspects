@@ -8,10 +8,13 @@ oars-job:
     - clickhouse{% endif %}
     - ralph
 clickhouse-job:
-    image: {{DOCKER_IMAGE_CLICKHOUSE}}
-    {% if RUN_CLICKHOUSE%}depends_on:
-        - clickhouse
-    {% endif %}
+  image: {{DOCKER_IMAGE_CLICKHOUSE}}
+  {% if RUN_CLICKHOUSE%}depends_on:
+    - clickhouse
+  {% endif %}
+  volumes:
+      - ../../env/plugins/oars/apps/clickhouse/:/app/
+  
 
 {% if RUN_SUPERSET %}
 superset-job:

@@ -65,6 +65,9 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("CLICKHOUSE_HTTP_PORT", "8123"),
         ("CLICKHOUSE_HTTPS_PORT", "8443"),
         ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:23.3"),
+        ("CLICKHOUSE_URL", "{{CLICKHOUSE_HOST}}:{% if CLICKHOUSE_SECURE_CONNECTION %}{{CLICKHOUSE_HTTPS_PORT}}{% else %}{{CLICKHOUSE_HTTP_PORT}}{% endif %}"),
+        ("CLICKHOUSE_ADMIN_SQLALCHEMY_URI_ALEMBIC", "clickhouse+native://{{CLICKHOUSE_ADMIN_USER}}:{{CLICKHOUSE_ADMIN_PASSWORD}}@{{CLICKHOUSE_HOST}}"),
+        ("CLICKHOUSE_REPORT_SQLALCHEMY_URI", "clickhousedb+connect://{{OARS_CLICKHOUSE_REPORT_USER}}:{{OARS_CLICKHOUSE_REPORT_PASSWORD}}@{{CLICKHOUSE_URL}}/{{OARS_XAPI_DATABASE}}"),
         # This can be used to override some configuration values in
         # via "docker_config.xml" file, which will be read from a
         # mount on /etc/clickhouse-server/config.d/ on startup.
@@ -269,23 +272,23 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 # and then add it to the MY_INIT_TASKS list. Each task is in the format:
 # ("<service>", ("<path>", "<to>", "<script>", "<template>"))
 MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
-    ("mysql", ("oars", "jobs", "init", "superset", "init-mysql.sh"), 92),
-    ("superset", ("oars", "jobs", "init", "superset", "init-superset.sh"), 93),
-    ("lms", ("oars", "jobs", "init", "superset", "init-openedx.sh"), 94),
-    ("clickhouse", ("oars", "jobs", "init", "clickhouse", "init-clickhouse.sh"), 95),
-    (
-        "clickhouse",
-        ("oars", "jobs", "init", "clickhouse", "oars_init_schemas_tables_users.sh"),
-        96,
-    ),
-    ("oars", ("oars", "jobs", "init", "dbt", "init-dbt.sh"), 97),
-    ("superset", ("oars", "jobs", "init", "superset", "superset-init-security.sh"), 99),
-    ("lms", ("oars", "jobs", "init", "lms", "configure-oars-lms.sh"), 100),
-    (
-        "superset",
-        ("oars", "jobs", "init", "superset", "superset-api-dashboard.sh"),
-        101,
-    ),
+    #("mysql", ("oars", "jobs", "init", "superset", "init-mysql.sh"), 92),
+    #("superset", ("oars", "jobs", "init", "superset", "init-superset.sh"), 93),
+    #("lms", ("oars", "jobs", "init", "superset", "init-openedx.sh"), 94),
+    ("oars", ("oars", "jobs", "init", "clickhouse", "init-clickhouse.sh"), 95),
+    #(
+    #    "clickhouse",
+    #    ("oars", "jobs", "init", "clickhouse", "oars_init_schemas_tables_users.sh"),
+    #    96,
+    #),
+    #("oars", ("oars", "jobs", "init", "dbt", "init-dbt.sh"), 97),
+    #("superset", ("oars", "jobs", "init", "superset", "superset-init-security.sh"), 99),
+    #("lms", ("oars", "jobs", "init", "lms", "configure-oars-lms.sh"), 100),
+    #(
+    #    "superset",
+    #    ("oars", "jobs", "init", "superset", "superset-api-dashboard.sh"),
+    #    101,
+    #),
 ]
 
 # For each task added to MY_INIT_TASKS, we load the task template
@@ -448,9 +451,30 @@ def dbt(command: string) -> list[tuple[str, str]]:
     ]
 
 
+# Ex: "tutor local do dbt "
+@click.command(context_settings={"ignore_unknown_options": True})
+def drop() -> list[tuple[str, str]]:
+    """
+    Job to drop all tables in the ClickHouse database.
+    """
+    OARS_XAPI_DATABASE = os.environ.get("OARS_XAPI_DATABASE", "oars_xapi")
+    return [
+        (
+            "clickhouse",
+            """
+clickhouse-client --user "{{ CLICKHOUSE_ADMIN_USER }}" --password="{{ CLICKHOUSE_ADMIN_PASSWORD }}" --host "{{ CLICKHOUSE_HOST }}" --multiquery <<'EOF'
+DROP DATABASE IF EXISTS {{ OARS_XAPI_DATABASE }};
+DROP DATABASE IF EXISTS {{ OARS_EVENT_SINK_DATABASE}};
+EOF
+             """
+        ),
+    ]
+
+
 # Add the command function to CLI_DO_COMMANDS:
 hooks.Filters.CLI_DO_COMMANDS.add_item(load_xapi_test_data)
 hooks.Filters.CLI_DO_COMMANDS.add_item(dbt)
+hooks.Filters.CLI_DO_COMMANDS.add_item(drop)
 
 
 #######################################
