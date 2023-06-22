@@ -17,6 +17,8 @@ ASSET_FOLDER_MAPPING = {
     "table_name": "datasets",
 }
 
+FILE_NAME_ATTRIBUTE = "_file_name"
+
 
 def main():
     create_assets()
@@ -33,10 +35,10 @@ def create_assets():
 
         # For each asset, create a file in the right folder
         for asset in extra_assets:
-            if "file_name" not in asset:
-                print(f"Asset {asset} has no file_name")
+            if FILE_NAME_ATTRIBUTE not in asset:
+                print(f"Asset {asset} has no _file_name")
                 continue
-            file_name = asset.pop("file_name")
+            file_name = asset.pop(FILE_NAME_ATTRIBUTE)
             print(f"Creating asset {file_name}")
 
             # Find the right folder to create the asset in

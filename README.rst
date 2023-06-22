@@ -78,20 +78,26 @@ An example of this patch is provided as reference:
     version: 0.1.0
     patches:
     superset-extra-assets: |
-        - file_name: my-dashboard.yaml
+        - _file_name: my-dashboard.yaml
           dashboard_title: "..."
           ...
-        - file_name: my-chart.yaml
+        - _file_name: my-chart.yaml
           slice_name: "..."
           ...
-        - file_name: my-database.yaml
+        - _file_name: my-database.yaml
           database_name: "..."
           ...
-        - file_name: my-dataset.yaml
+        - _file_name: my-dataset.yaml
           table_name: "..."
           ...
 
 The patch is expected to be a list of assets with an extra attribute called ``file_name`` , which uniquely identifies the asset entry. This file does not need to exist anywhere; it will be created with the rest of the yaml in that stanza as part of the init process. Each asset is expected to be a valid yaml file with the attributes that superset expects for each asset type. See `assets.yaml`_ for examples of asset yaml declarations.
+
+The tutor command will generate a .yaml file with the content of an exported zip file. This is useful if you want to add a new asset to the default assets provided by OARS. You can then edit the generated file and add it to the patch above.
+
+..  code-block:: sh
+
+    tutor oars serialize file.zip
 
 Override superset default assets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

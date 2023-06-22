@@ -1,4 +1,4 @@
-- file_name: Open_edX_Admin_Dashboard_2.yaml
+- _file_name: Open_edX_Admin_Dashboard_2.yaml
   css: ''
   dashboard_title: Open edX Admin Dashboard
   description: null
@@ -179,7 +179,7 @@
   uuid: 4bd1ace4-2327-4ff0-985b-ef014cb0503b
   version: 1.0.0
 
-- file_name: xapi_events_all_parsed.yaml
+- _file_name: xapi_events_all_parsed.yaml
   cache_timeout: null
   columns:
   - advanced_data_type: null
@@ -352,7 +352,7 @@
   uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
   version: 1.0.0
 
-- file_name: xAPI_problem_events_by_block_7.yaml
+- _file_name: xAPI_problem_events_by_block_7.yaml
   cache_timeout: null
   dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
   
@@ -418,7 +418,7 @@
   version: 1.0.0
   viz_type: echarts_timeseries_bar
 
-- file_name: Video_events_8.yaml
+- _file_name: Video_events_8.yaml
   cache_timeout: null
   dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
   params:
@@ -480,7 +480,7 @@
   version: 1.0.0
   viz_type: echarts_timeseries_bar
 
-- file_name: xAPI_events_9.yaml
+- _file_name: xAPI_events_9.yaml
   cache_timeout: null
   dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
   
@@ -512,7 +512,7 @@
   version: 1.0.0
   viz_type: table
 
-- file_name: Events_per_day_10.yaml
+- _file_name: Events_per_day_10.yaml
   cache_timeout: null
   dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
   params:
@@ -541,7 +541,7 @@
   version: 1.0.0
   viz_type: big_number
 
-- file_name: xAPI_events_by_course_11.yaml
+- _file_name: xAPI_events_by_course_11.yaml
   cache_timeout: null
   dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
   params:
@@ -585,7 +585,7 @@
   version: 1.0.0
   viz_type: echarts_timeseries_bar
 
-- file_name: OpenedX_Clickhouse.yaml
+- _file_name: OpenedX_Clickhouse.yaml
   database_name: OpenedX Clickhouse
   sqlalchemy_uri: clickhousedb+connect://{{OARS_CLICKHOUSE_REPORT_USER}}:{{OARS_CLICKHOUSE_REPORT_PASSWORD}}@{{CLICKHOUSE_HOST}}:{% if CLICKHOUSE_SECURE_CONNECTION%}{{CLICKHOUSE_HTTPS_PORT}}{% else %}{{CLICKHOUSE_HTTP_PORT}}{% endif %}/{{OARS_XAPI_DATABASE}}
   cache_timeout: null
