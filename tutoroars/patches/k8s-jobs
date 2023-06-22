@@ -175,14 +175,10 @@ spec:
             name: docker
           - mountPath: /app/pythonpath
             name: pythonpath
-          - mountPath: /app/data
-            name: data
-        {% if SUPERSET_EXTRA_VOLUMES %}
-          {% for volume in SUPERSET_EXTRA_VOLUMES %}
-          - mountPath: {{ volume.path }}
-            name: {{ volume.name }}
-          {% endfor %}
-        {% endif %}
+          - mountPath: /app/security
+            name: security
+          - mountPath: /app/assets
+            name: assets
       volumes:
         - name: docker
           configMap:
@@ -190,22 +186,18 @@ spec:
         - name: pythonpath
           configMap:
             name: superset-pythonpath
-        - name: data
+        - name: security
           configMap:
-            name: superset-data
-      {% if SUPERSET_EXTRA_VOLUMES %}
-        {% for volume in SUPERSET_EXTRA_VOLUMES %}
-        - name: {{ volume.name }}
-          configMap:
-            name: {{ volume.config_map_name }}
-        {% endfor %}
-      {% endif %}
+            name: superset-security
+        - name: assets
+          persistentVolumeClaim:
+            claimName: superset-assets
 
 ---
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: superset-worker-jon
+  name: superset-worker-job
   labels:
     app.kubernetes.io/component: job
 spec:
@@ -213,7 +205,6 @@ spec:
     spec:
       restartPolicy: Never
       containers:
-      - name: superset-worker
         image: apache/superset:{{ SUPERSET_TAG }}
         env:
           - name: DATABASE_DIALECT
@@ -257,20 +248,16 @@ spec:
           - name: OPENEDX_COURSES_LIST_PATH
             value: "{{ SUPERSET_OPENEDX_COURSES_LIST_PATH }}"
           - name: OPENEDX_LMS_ROOT_URL
-            value: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}"
+            value: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}" 
         volumeMounts:
           - mountPath: /app/docker
             name: docker
           - mountPath: /app/pythonpath
             name: pythonpath
-          - mountPath: /app/data
-            name: data
-        {% if SUPERSET_EXTRA_VOLUMES %}
-          {% for volume in SUPERSET_EXTRA_VOLUMES %}
-          - mountPath: {{ volume.path }}
-            name: {{ volume.name }}
-          {% endfor %}
-        {% endif %}
+          - mountPath: /app/security
+            name: security
+          - mountPath: /app/assets
+            name: assets
       volumes:
         - name: docker
           configMap:
@@ -278,14 +265,10 @@ spec:
         - name: pythonpath
           configMap:
             name: superset-pythonpath
-        - name: data
+        - name: security
           configMap:
-            name: superset-data
-      {% if SUPERSET_EXTRA_VOLUMES %}
-        {% for volume in SUPERSET_EXTRA_VOLUMES %}
-        - name: {{ volume.name }}
-          configMap:
-            name: {{ volume.config_map_name }}
-        {% endfor %}
-      {% endif %}
+            name: superset-security
+        - name: assets
+          persistentVolumeClaim:
+            claimName: superset-assets
 {% endif %}

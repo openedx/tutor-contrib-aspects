@@ -7,7 +7,8 @@ edX installs to collect and display learner data in a consistent way.
 
 See https://github.com/openedx/openedx-oars for more details.
 
-Note: OARS is in early development and not at all production ready! Please feel free to experiment with the system and offer feedback about what you'd like to see!
+Note: OARS is in early development and not at all production ready! Please feel
+free to experiment with the system and offer feedback about what you'd like to see!
 
 Compatibility
 -------------
@@ -17,16 +18,12 @@ This plugin is compatible with Tutor 15.0.0 and later.
 Installation
 ------------
 
-The OARS system relies on several Tutor plugins currently. They are in the process of being consolidated into tutor-contrib-oars, so these steps should be simplified shortly.
+The OARS project can be installed in a Tutor environment with the following command
 
 ::
 
     pip install git+https://github.com/openedx/tutor-contrib-oars
-    pip install git+https://github.com/openedx/tutor-contrib-ralph
-    pip install git+https://github.com/openedx/tutor-contrib-superset
 
-
-See these repos for more information.
 
 Usage
 -----
@@ -34,14 +31,13 @@ Usage
 #. Enable the plugins::
 
     tutor plugins enable oars
-    tutor plugins enable ralph
-    tutor plugins enable superset
 
 #. Save the changes to the environment::
 
     tutor config save
 
-#. Because we're installing a new app in LMS (event-routing-backends) you will need to rebuild your openedx image::
+#. Because we're installing a new app in LMS (event-routing-backends) you will need to
+   rebuild your openedx image::
 
     tutor images build openedx
 
@@ -57,14 +53,68 @@ Usage
 Superset Assets
 ---------------
 
-OARS maintains the Superset assets in this repository, specifically the dashboards, charts, datasets, and databases. That means that any updates made here will be reflected on your Superset instance when you update your deployment.
+OARS maintains the Superset assets in this repository, specifically the dashboards,
+charts, datasets, and databases. That means that any updates made here will be reflected
+on your Superset instance when you update your deployment.
 
-But it also means that any local changes you make to these assets will be overwritten when you update your deployment. To prevent your local changes from being overwritten, please create new assets and make your changes there instead. You can copy an existing asset by editing the asset in Superset and selecting "Save As" to save it to a new name.
+But it also means that any local changes you make to these assets will be overwritten
+when you update your deployment. To prevent your local changes from being overwritten,
+please create new assets and make your changes there instead. You can copy an existing
+asset by editing the asset in Superset and selecting "Save As" to save it to a new name.
+
+Define your own superset assets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To programatically define custom superset assets there is a patch you can use with an
+inline plugin. The patch ``superset-extra-assets`` will allow you to define your
+own superset assets in a yaml file and have them automatically imported into superset
+when you run ``tutor [dev|local|k8s] init -l oars``.
+
+An example of this patch is provided as reference:
+
+..  code-block:: yaml
+
+    name: custom-inline-plugin
+    version: 0.1.0
+    patches:
+    superset-extra-assets: |
+        - _file_name: my-dashboard.yaml
+          dashboard_title: "..."
+          ...
+        - _file_name: my-chart.yaml
+          slice_name: "..."
+          ...
+        - _file_name: my-database.yaml
+          database_name: "..."
+          ...
+        - _file_name: my-dataset.yaml
+          table_name: "..."
+          ...
+
+The patch is expected to be a list of assets with an extra attribute called ``file_name`` , which uniquely identifies the asset entry. This file does not need to exist anywhere; it will be created with the rest of the yaml in that stanza as part of the init process. Each asset is expected to be a valid yaml file with the attributes that superset expects for each asset type. See `assets.yaml`_ for examples of asset yaml declarations.
+
+The tutor command will generate a .yaml file with the content of an exported zip file. This is useful if you want to add a new asset to the default assets provided by OARS. You can then edit the generated file and add it to the patch above.
+
+..  code-block:: sh
+
+    tutor oars serialize file.zip
+
+Override superset default assets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you want to override the default assets provided by OARS you can do so by using the
+patch defined above and make sure that the uuid of the asset you are overriding matches
+the one in the default assets. You can find the uuid of the default assets in the
+default `assets.yaml`_ file.
+
+.. _assets.yaml: tutoroars/templates/oars/apps/superset/pythonpath/assets.yaml
+
 
 Sharing Charts and Dashboards
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To share your charts with others in the community, use Superset's "Export" button to save a zip file of your charts and related datasets.
+To share your charts with others in the community, use Superset's "Export" button to
+save a zip file of your charts and related datasets.
 
 .. note::
     The exported datasets will contain hard-coded references to your particular
@@ -82,19 +132,25 @@ To import charts or dashboards shared by someone in the community:
 Contributing Charts and Dashboards to OARS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Superset assets provided by OARS can be found in the templated `assets directory`_. For the most part, these files what Superset exports, but with some crucial differences which make these assets usable across all Tutor deployments.
+The Superset assets provided by OARS can be found in the templated `assets.yaml`_ file.
+For the most part, these files what Superset exports, but with some crucial differences
+which make these assets usable across all Tutor deployments.
 
 To contribute assets to OARS:
 
 #. Export the assets you want to contribute as described in `Sharing Charts and Dashboards`
 #. Expand the ``.zip`` file.
-#. Update any database connection strings to use Tutor configuration template variables instead of hard-coded strings, e.g. replace ``mysql`` with ``{{MYSQL_HOST}}``.
-   Passwords can be left as ``XXXXXXXX``, though be aware that if you are adding new databases, you'll need to update ``SUPERSET_DB_PASSWORDS`` in the init scripts.
-#. Remove any ``metadata.yaml`` files from the export. We generate these as needed during import.
-#. Merge your exported files into the directories and files in the `assets directory`_.
-#. Submit a PR with screenshots of your new chart or dashboards, along with an explanation of what data question they answer.
+#. Update any database connection strings to use Tutor configuration template variables
+   instead of hard-coded strings, e.g. replace ``clickhouse`` with ``{{CLICKHOUSE_HOST}}``.
+   Passwords can be left as ``{{CLICKHOUSE_PASSWORD}}``, though be aware that if you are adding new 
+   databases, you'll need to update ``SUPERSET_DB_PASSWORDS`` in the init scripts.
+   Here is the default connection string for reference::
 
-.. _assets directory: https://github.com/openedx/tutor-contrib-oars/tree/main/tutoroars/templates/oars/apps/data/assets
+    ``clickhousedb+connect://{{OARS_CLICKHOUSE_REPORT_USER}}:{{OARS_CLICKHOUSE_REPORT_PASSWORD}}@{{CLICKHOUSE_HOST}}:{% if CLICKHOUSE_SECURE_CONNECTION%}{{CLICKHOUSE_HTTPS_PORT}}{% else %}{{CLICKHOUSE_HTTP_PORT}}{% endif %}/{{OARS_XAPI_DATABASE}}``
+#. Remove any ``metadata.yaml`` files from the export. We generate these as needed during import.
+#. Merge your exported files into the directories and files in the `assets.yaml`_.
+#. Submit a PR with screenshots of your new chart or dashboards, along with an explanation
+   of what data question they answer.
 
 
 Changing Superset Language Settings

@@ -6,10 +6,12 @@ import os.path
 import random
 import string
 from glob import glob
+from zipfile import ZipFile
 
 import bcrypt
 import click
 import pkg_resources
+import yaml
 from tutor import hooks
 
 from .__about__ import __version__
@@ -122,8 +124,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         #    "config_map_name": "config-map-name",
         #    "config_map_folder": "path-to-template-folder",
         # }]
-        ("SUPERSET_EXTRA_VOLUMES", []),
-        ("SUPERSET_EXTRA_DEV_VOLUMES", []),
         ("RUN_SUPERSET", True),
         (
             "SUPERSET_TALISMAN_CONFIG",
@@ -257,54 +257,8 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
         ("SUPERSET_XAPI_DASHBOARD_SLUG", "openedx-xapi"),
         ("SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY", "xapi_course_id"),
         ("SUPERSET_ROW_LEVEL_SECURITY_ENROLLMENTS_GROUP_KEY", "enrollments_course_id"),
-        (
-            "SUPERSET_EXTRA_VOLUMES",
-            [
-                {
-                    "path": "/app/oars/data/superset/databases",
-                    "name": "databases",
-                    "config_map_name": "databases-oars",
-                    "config_map_folder": "oars/apps/data/superset/databases",
-                },
-                {
-                    "path": "/app/oars/data/superset/dashboards",
-                    "name": "dashboards",
-                    "config_map_name": "dashboards-oars",
-                    "config_map_folder": "oars/apps/data/superset/dashboards",
-                },
-                {
-                    "path": "/app/oars/data/superset/datasets/OpenedX_MySQL",
-                    "name": "datasets-mysql",
-                    "config_map_name": "datasets-mysql-oars",
-                    "config_map_folder": "oars/apps/data/superset/datasets/OpenedX_MySQL",
-                },
-                {
-                    "path": "/app/oars/data/superset/datasets/OpenedX_Clickhouse",
-                    "name": "datasets-clickhouse",
-                    "config_map_name": "datasets-clickhouse-oars",
-                    "config_map_folder": "oars/apps/data/superset/datasets/OpenedX_Clickhouse",
-                },
-                {
-                    "path": "/app/oars/data/superset/charts",
-                    "name": "charts",
-                    "config_map_name": "charts-oars",
-                    "config_map_folder": "oars/apps/data/superset/charts",
-                },
-                {
-                    "path": "/app/oars/data/superset/",
-                    "name": "metadata",
-                    "config_map_name": "metadata-oars",
-                    "config_map_folder": "oars/apps/data/superset/",
-                },
-            ],
-        ),
-        (
-            "SUPERSET_EXTRA_DEV_VOLUMES",
-            ["../../env/plugins/oars/apps/data/superset/:/app/oars/data/superset/"],
-        ),
     ]
 )
-
 
 ########################################
 # INITIALIZATION TASKS
@@ -334,7 +288,6 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
     ),
 ]
 
-
 # For each task added to MY_INIT_TASKS, we load the task template
 # and add it to the CLI_DO_INIT_TASKS filter, which tells Tutor to
 # run it as part of the `init` job.
@@ -345,7 +298,6 @@ for service, template_path, priority in MY_INIT_TASKS:
     with open(full_path, encoding="utf-8") as init_task_file:
         init_task: str = init_task_file.read()
     hooks.Filters.CLI_DO_INIT_TASKS.add_item((service, init_task), priority=priority)
-
 
 ########################################
 # DOCKER IMAGE MANAGEMENT
@@ -369,7 +321,6 @@ hooks.Filters.IMAGES_BUILD.add_items(
     ]
 )
 
-
 # Images to be pulled as part of `tutor images pull`.
 # Each item is a pair in the form:
 #     ("<tutor_image_name>", "<docker_image_tag>")
@@ -383,7 +334,6 @@ hooks.Filters.IMAGES_PULL.add_items(
     ]
 )
 
-
 # Images to be pushed as part of `tutor images push`.
 # Each item is a pair in the form:
 #     ("<tutor_image_name>", "<docker_image_tag>")
@@ -396,7 +346,6 @@ hooks.Filters.IMAGES_PUSH.add_items(
         ### ),
     ]
 )
-
 
 ########################################
 # TEMPLATE RENDERING
@@ -422,7 +371,6 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
         ("oars/apps", "plugins"),
     ],
 )
-
 
 ########################################
 # PATCH LOADING
@@ -517,24 +465,37 @@ hooks.Filters.CLI_DO_COMMANDS.add_item(dbt)
 # group and then add it to CLI_COMMANDS:
 
 
-### @click.group()
-### def oars() -> None:
-###     pass
+@click.group()
+def oars() -> None:
+    """
+    Custom commands for the OARS plugin.
+    """
 
 
-### hooks.Filters.CLI_COMMANDS.add_item(oars)
+FILE_NAME_ATTRIBUTE = "_file_name"
 
 
-# Then, you would add subcommands directly to the Click group, for example:
+@oars.command("serialize")
+@click.argument("file", type=click.File("r"))
+def serialize_zip(file):
+    """
+    Script that serializes a zip file to the assets.yaml file.
+    """
+    new_content = []
+
+    with ZipFile(file.name) as zip_file:
+        for asset_path in zip_file.namelist():
+            if "metadata.yaml" in asset_path:
+                continue
+            with zip_file.open(asset_path) as asset_file:
+                asset_content = yaml.safe_load(asset_file)
+                asset_content[FILE_NAME_ATTRIBUTE] = os.path.basename(asset_path)
+                new_content.append(asset_content)
+
+    with open("assets.yaml", "w", encoding="utf-8") as plugin:
+        yaml.dump(new_content, plugin)
+
+    click.echo(f"Serialized {len(new_content)} assets to assets.yaml")
 
 
-### @oars.command()
-### def example_command() -> None:
-###     """
-###     This is helptext for an example command.
-###     """
-###     print("You've run an example command.")
-
-
-# This would allow you to run:
-#   $ tutor oars example-command
+hooks.Filters.CLI_COMMANDS.add_item(oars)
