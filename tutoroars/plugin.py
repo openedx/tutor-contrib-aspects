@@ -150,6 +150,51 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "es": {"flag": "es", "name": "Spanish"},
             },
         ),
+        ######################
+        # dbt Settings
+        # For the most part you shouldn't have to touch these
+        # DBT_PROFILE_* settings get passed into the dbt_profile.yml file.
+        # For now we are pulling this from github, which should allow maximum
+        # flexibility for forking, running branches, specific versions, etc.
+        ("DBT_REPOSITORY", "https://github.com/openedx/oars-dbt"),
+        # This is a pip compliant list of Python packages to install to run dbt
+        # make sure packages with versions are enclosed in double quotes
+        ("DBT_PACKAGES", '"dbt-core==1.4.0" "dbt-clickhouse==1.4.1"'),
+        # If set, DDL/table operations will be executed with the `ON CLUSTER` clause
+        # using this cluster. This has not been tested with OARS and is unlikely to
+        # work.
+        ("DBT_PROFILE_CLUSTER", ""),
+        # Validate TLS certificate if using TLS/SSL
+        ("DBT_PROFILE_VERIFY", "True"),
+        # Use TLS (native protocol) or HTTPS (http protocol)
+        ("DBT_PROFILE_SECURE", "False"),
+        # Number of times to retry a "retryable" database exception (such as a 503
+        # 'Service Unavailable' error)
+        ("DBT_PROFILE_RETRIES", "3"),
+        # Use gzip compression if truthy (http), or compression type for a native
+        # connection
+        ("DBT_PROFILE_COMPRESSION", "lz4"),
+        # Timeout in seconds to establish a connection to ClickHouse
+        ("DBT_PROFILE_CONNECT_TIMEOUT", "10"),
+        # Timeout in seconds to receive data from the ClickHouse server
+        ("DBT_PROFILE_SEND_RECEIVE_TIMEOUT", "300"),
+        # Use specific settings designed to improve operation on replicated databases
+        # (recommended for ClickHouse Cloud)
+        ("DBT_PROFILE_CLUSTER_MODE", "False"),
+        # Use the experimental `delete+insert` as the default incremental strategy.
+        ("DBT_PROFILE_USE_LW_DELETES", "False"),
+        # Validate that clickhouse support the atomic EXCHANGE TABLES command.  (Not
+        # needed for most ClickHouse versions)
+        ("DBT_PROFILE_CHECK_EXCHANGE", "False"),
+        # A dictionary/mapping of custom ClickHouse settings for the connection -
+        # default is empty.
+        ("DBT_PROFILE_CUSTOM_SETTINGS", ""),
+        # Allows the connection to understand the JSON type
+        ("DBT_PROFILE_ALLOW_EXPERIMENTAL_OBJECT_TYPE", "True"),
+        # Timeout for server ping
+        ("DBT_PROFILE_SYNC_REQUEST_TIMEOUT", "5"),
+        # Compression block size if compression is enabled, this is the default value
+        ("DBT_PROFILE_COMPRESS_BLOCK_SIZE", "1048576"),
     ]
 )
 
@@ -279,6 +324,7 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
         ("oars", "jobs", "init", "clickhouse", "oars_init_schemas_tables_users.sh"),
         96,
     ),
+    ("oars", ("oars", "jobs", "init", "dbt", "init-dbt.sh"), 97),
     ("superset", ("oars", "jobs", "init", "superset", "superset-init-security.sh"), 99),
     ("lms", ("oars", "jobs", "init", "lms", "configure-oars-lms.sh"), 100),
     (
@@ -399,7 +445,7 @@ for path in glob(
 ########################################
 # CUSTOM JOBS (a.k.a. "do-commands")
 ########################################
-# Ex: "tutor dev do load-xapi-test-data"
+# Ex: "tutor local do load-xapi-test-data"
 @click.command()
 @click.option("-n", "--num_batches", default=100)
 @click.option("-s", "--batch_size", default=100)
@@ -420,8 +466,43 @@ def load_xapi_test_data(num_batches: int, batch_size: int) -> list[tuple[str, st
     ]
 
 
+# Ex: "tutor local do dbt "
+@click.command(context_settings={"ignore_unknown_options": True})
+@click.option(
+    "-c",
+    "--command",
+    default="run",
+    type=click.UNPROCESSED,
+    help="""The full dbt command to run configured ClickHouse database, wrapped in
+         double quotes. The list of commands can be found in the CLI section here:
+         https://docs.getdbt.com/reference/dbt-commands
+         
+         Examples: 
+         
+         tutor local do dbt -c "test"
+         
+         tutor local do dbt -c "run -m enrollments_by_day --threads 4"
+         """,
+)
+def dbt(command: string) -> list[tuple[str, str]]:
+    """
+    Job that proxies dbt commands to a container which runs them against ClickHouse.
+    """
+    return [
+        (
+            "oars",
+            "echo 'Making dbt script executable...' && "
+            "chmod +x /app/oars/scripts/oars/dbt.sh && "
+            f"echo 'Running dbt {command}' && "
+            f"bash /app/oars/scripts/oars/dbt.sh {command} && "
+            "echo 'Done!';",
+        ),
+    ]
+
+
 # Add the command function to CLI_DO_COMMANDS:
 hooks.Filters.CLI_DO_COMMANDS.add_item(load_xapi_test_data)
+hooks.Filters.CLI_DO_COMMANDS.add_item(dbt)
 
 
 #######################################
