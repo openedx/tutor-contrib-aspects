@@ -87,8 +87,8 @@ CREATE TABLE IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_ENROLLMENT_EVENTS_TA
     `verb_id` LowCardinality(String) NOT NULL,
     `enrollment_mode` LowCardinality(String)
 ) ENGINE = MergeTree
-PRIMARY KEY (org, course_id, enrollment_mode)
-ORDER BY (org, course_id, enrollment_mode, emission_time);
+PRIMARY KEY (org, course_id)
+ORDER BY (org, course_id, actor_id, enrollment_mode, emission_time);
 
 -- Materialized view that moves data from the processed xAPI table to
 -- the enrollment events table
