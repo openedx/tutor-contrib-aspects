@@ -451,6 +451,39 @@ def dbt(command: string) -> list[tuple[str, str]]:
     ]
 
 
+# Ex: "tutor local do alembic "
+@click.command(context_settings={"ignore_unknown_options": True})
+@click.option(
+    "-c",
+    "--command",
+    default="run",
+    type=click.UNPROCESSED,
+    help="""The full alembic command to run configured ClickHouse database, wrapped in
+            double quotes. The list of commands can be found in the CLI section here:
+            https://alembic.sqlalchemy.org/en/latest/cli.html#command-reference
+
+            Examples:
+
+            tutor local do alembic -c "current"
+            tutor local do alembic -c "upgrade head"
+         """,
+)
+def alembic(command: string) -> list[tuple[str, str]]:
+    """
+    Job that proxies alembic commands to a container which runs them against ClickHouse.
+    """
+    return [
+        (
+            "oars",
+            "echo 'Making alembic script executable...' && "
+            "chmod +x /app/oars/scripts/oars/alembic.sh && "
+            f"echo 'Running alembic {command}' && "
+            f"bash /app/oars/scripts/oars/alembic.sh {command} && "
+            "echo 'Done!';",
+        ),
+    ]
+
+
 # Ex: "tutor local do dbt "
 @click.command(context_settings={"ignore_unknown_options": True})
 def drop() -> list[tuple[str, str]]:
@@ -465,6 +498,7 @@ def drop() -> list[tuple[str, str]]:
 clickhouse-client --user "{{ CLICKHOUSE_ADMIN_USER }}" --password="{{ CLICKHOUSE_ADMIN_PASSWORD }}" --host "{{ CLICKHOUSE_HOST }}" --multiquery <<'EOF'
 DROP DATABASE IF EXISTS {{ OARS_XAPI_DATABASE }};
 DROP DATABASE IF EXISTS {{ OARS_EVENT_SINK_DATABASE}};
+DROP DATABASE IF EXISTS default;
 EOF
              """
         ),
@@ -474,6 +508,7 @@ EOF
 # Add the command function to CLI_DO_COMMANDS:
 hooks.Filters.CLI_DO_COMMANDS.add_item(load_xapi_test_data)
 hooks.Filters.CLI_DO_COMMANDS.add_item(dbt)
+hooks.Filters.CLI_DO_COMMANDS.add_item(alembic)
 hooks.Filters.CLI_DO_COMMANDS.add_item(drop)
 
 
