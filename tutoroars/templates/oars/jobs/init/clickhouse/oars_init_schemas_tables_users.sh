@@ -84,9 +84,8 @@ CREATE TABLE IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_ENROLLMENT_EVENTS_TA
     `object_id` String NOT NULL,
     `course_id` String NOT NULL,
     `org` String NOT NULL,
-    `verb_id` String NOT NULL,
-    `event_type` String NOT NULL,
-    `enrollment_mode` String
+    `verb_id` LowCardinality(String) NOT NULL,
+    `enrollment_mode` LowCardinality(String)
 ) ENGINE = MergeTree
 PRIMARY KEY (org, course_id, enrollment_mode)
 ORDER BY (org, course_id, enrollment_mode, emission_time);
@@ -103,7 +102,6 @@ SELECT
     course_id,
     org,
     verb_id,
-    JSON_VALUE(event_str, '$.verb.display.en') AS event_type,
     JSON_VALUE(event_str, '$.object.definition.extensions."https://w3id.org/xapi/acrossx/extensions/type"') AS enrollment_mode
 FROM {{ OARS_XAPI_DATABASE }}.{{ OARS_XAPI_TABLE }}
 WHERE verb_id IN (
@@ -120,12 +118,11 @@ CREATE TABLE IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_VIDEO_PLAYBACK_EVENT
     `object_id` String NOT NULL,
     `course_id` String NOT NULL,
     `org` String NOT NULL,
-    `verb_id` String NOT NULL,
-    `event_type` String NOT NULL,
+    `verb_id` LowCardinality(String) NOT NULL,
     `video_position` Float32 NOT NULL
 ) ENGINE = MergeTree
-PRIMARY KEY (org, course_id, event_type)
-ORDER BY (org, course_id, event_type, actor_id);
+PRIMARY KEY (org, course_id, verb_id)
+ORDER BY (org, course_id, verb_id, actor_id);
 
 -- Materialized view that moves data from the processed xAPI table to
 -- the video playback events table
@@ -139,7 +136,6 @@ SELECT
     course_id,
     org,
     verb_id,
-    JSON_VALUE(event_str, '$.verb.display.en') AS event_type,
     cast(coalesce(
         nullif(JSON_VALUE(event_str, '$.result.extensions."https://w3id.org/xapi/video/extensions/time"'), ''),
         nullif(JSON_VALUE(event_str, '$.result.extensions."https://w3id.org/xapi/video/extensions/time-from"'), ''),
@@ -156,6 +152,7 @@ WHERE verb_id IN (
 );
 
 
+
 -- MV target table for problem interaction xAPI events
 CREATE TABLE IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_PROBLEM_EVENTS_TABLE }} (
     `event_id` UUID NOT NULL,
@@ -164,16 +161,15 @@ CREATE TABLE IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_PROBLEM_EVENTS_TABLE
     `object_id` String NOT NULL,
     `course_id` String NOT NULL,
     `org` String NOT NULL,
-    `verb_id` String NOT NULL,
-    `event_type` String NOT NULL,
+    `verb_id` LowCardinality(String) NOT NULL,
     `responses` String,
     `scaled_score` String,
     `success` Bool,
-    `interaction_type` String,
+    `interaction_type` LowCardinality(String),
     `attempts` Int16
 ) ENGINE = MergeTree
-PRIMARY KEY (org, course_id, event_type)
-ORDER BY (org, course_id, event_type, actor_id);
+PRIMARY KEY (org, course_id, verb_id)
+ORDER BY (org, course_id, verb_id, actor_id);
 
 
 -- Materialized view that moves data from the processed xAPI table to
@@ -192,7 +188,6 @@ select
     course_id,
     org,
     verb_id,
-    JSON_VALUE(event_str, '$.verb.display.en') AS event_type,
     JSON_VALUE(event_str, '$.result.response') as responses,
     JSON_VALUE(event_str, '$.result.score.scaled') as scaled_score,
     if(
@@ -225,8 +220,8 @@ CREATE TABLE IF NOT EXISTS {{ OARS_XAPI_DATABASE }}.{{ OARS_NAVIGATION_EVENTS_TA
     `object_id` String NOT NULL,
     `course_id` String NOT NULL,
     `org` String NOT NULL,
-    `verb_id` String NOT NULL,
-    `object_type` String NOT NULL,
+    `verb_id` LowCardinality(String) NOT NULL,
+    `object_type` LowCardinality(String) NOT NULL,
     `starting_position` Int16,
     `ending_point` String
 ) ENGINE = MergeTree
