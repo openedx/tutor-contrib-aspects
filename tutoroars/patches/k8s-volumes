@@ -30,3 +30,19 @@ spec:
     requests:
       storage: 5Mi
 {% endif %}
+{% if RUN_VECTOR %}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: vector
+  labels:
+    app.kubernetes.io/component: volume
+    app.kubernetes.io/name: vector
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+{% endif %}

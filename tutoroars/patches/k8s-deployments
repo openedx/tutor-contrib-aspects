@@ -166,7 +166,7 @@ spec:
           env:
             - name: DATABASE_DIALECT
               value: "{{ SUPERSET_DB_DIALECT }}"
-            - name: DATABASE_HOST 
+            - name: DATABASE_HOST
               value: "{{ SUPERSET_DB_HOST }}"
             - name: DATABASE_PORT
               value: "{{ SUPERSET_DB_PORT }}"
@@ -205,7 +205,7 @@ spec:
             - name: OPENEDX_COURSES_LIST_PATH
               value: "{{ SUPERSET_OPENEDX_COURSES_LIST_PATH }}"
             - name: OPENEDX_LMS_ROOT_URL
-              value: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}" 
+              value: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}"
           volumeMounts:
             - mountPath: /app/docker
               name: docker
@@ -260,7 +260,7 @@ spec:
           env:
             - name: DATABASE_DIALECT
               value: "{{ SUPERSET_DB_DIALECT }}"
-            - name: DATABASE_HOST 
+            - name: DATABASE_HOST
               value: "{{ SUPERSET_DB_HOST }}"
             - name: DATABASE_PORT
               value: "{{ SUPERSET_DB_PORT }}"
@@ -299,7 +299,7 @@ spec:
             - name: OPENEDX_COURSES_LIST_PATH
               value: "{{ SUPERSET_OPENEDX_COURSES_LIST_PATH }}"
             - name: OPENEDX_LMS_ROOT_URL
-              value: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}" 
+              value: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}"
           volumeMounts:
             - mountPath: /app/docker
               name: docker
@@ -323,4 +323,122 @@ spec:
           persistentVolumeClaim:
             claimName: superset-assets
       restartPolicy: Always
+{% endif %}
+
+{% if RUN_VECTOR %}
+---
+# log collection
+# https://vector.dev/docs/setup/installation/platforms/kubernetes/
+# https://github.com/timberio/vector/blob/master/distribution/kubernetes/vector-agent/resources.yaml
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: vector
+  labels:
+    app.kubernetes.io/name: vector
+automountServiceAccountToken: true
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: vector
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - pods
+    verbs:
+      - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: vector
+  labels:
+    app.kubernetes.io/name: vector
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: vector
+subjects:
+  - kind: ServiceAccount
+    name: vector
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: vector
+  labels:
+    app.kubernetes.io/name: vector
+spec:
+  selector:
+    matchLabels:
+      name: vector
+  template:
+    metadata:
+      labels:
+        name: vector
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: "OnRootMismatch"
+      serviceAccountName: vector
+      # Run vector next to LMS
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                - key: app.kubernetes.io/name
+                  operator: In
+                  values:
+                    - lms
+              topologyKey: kubernetes.io/hostname
+      containers:
+        - name: vector
+          image: {{ DOCKER_IMAGE_VECTOR }}
+          env:
+            - name: VECTOR_SELF_NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+            - name: VECTOR_SELF_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: VECTOR_SELF_POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: PROCFS_ROOT
+              value: /host/proc
+            - name: SYSFS_ROOT
+              value: /host/sys
+            - name: VECTOR_LOG
+              value: warn
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/vector
+            - name: var-log
+              mountPath: /var/log/
+              readOnly: true
+            - mountPath: /etc/vector/vector.toml
+              name: config
+              subPath: k8s.toml
+              readOnly: true
+          securityContext:
+            allowPrivilegeEscalation: false
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: vector
+        - name: var-log
+          hostPath:
+            path: /var/log/
+        - name: config
+          configMap:
+            name: vector-config
 {% endif %}

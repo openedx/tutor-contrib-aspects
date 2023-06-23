@@ -196,6 +196,14 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DBT_PROFILE_SYNC_REQUEST_TIMEOUT", "5"),
         # Compression block size if compression is enabled, this is the default value
         ("DBT_PROFILE_COMPRESS_BLOCK_SIZE", "1048576"),
+        #########################
+        # Vector settings
+        ("DOCKER_IMAGE_VECTOR", "docker.io/timberio/vector:0.30.0-alpine"),
+        ("OARS_DOCKER_HOST_SOCK_PATH", "/var/run/docker.sock"),
+        ("OARS_VECTOR_DATABASE", "openedx"),
+        ("OARS_VECTOR_RAW_TRACKING_LOGS_TABLE", "_tracking"),
+        ("OARS_VECTOR_RAW_XAPI_TABLE", "xapi_events_all"),
+        ("RUN_VECTOR", True),
     ]
 )
 
@@ -215,8 +223,13 @@ RALPH_LMS_HASHED_PASSWORD = bcrypt.hashpw(
 
 hooks.Filters.CONFIG_UNIQUE.add_items(
     [
+        # LRS user is used by Ralph to write to the ClickHouse xAPI tables
         ("OARS_CLICKHOUSE_LRS_USER", "ch_lrs"),
         ("OARS_CLICKHOUSE_LRS_PASSWORD", "{{ 24|random_string }}"),
+        # Vector user is used by Vector to write to the ClickHouse tracking log
+        # and xAPI tables
+        ("OARS_CLICKHOUSE_VECTOR_USER", "ch_vector"),
+        ("OARS_CLICKHOUSE_VECTOR_PASSWORD", "{{ 24|random_string }}"),
         # Report user is used by Superset to read from ClickHouse tables
         ("OARS_CLICKHOUSE_REPORT_USER", "ch_report"),
         ("OARS_CLICKHOUSE_REPORT_PASSWORD", "{{ 24|random_string }}"),

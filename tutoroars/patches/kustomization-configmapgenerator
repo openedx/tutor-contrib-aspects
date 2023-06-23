@@ -46,3 +46,8 @@
         app.kubernetes.io/name: superset
 
 {% endif %}
+{% if RUN_VECTOR %}
+- name: vector-config
+  files:
+    - plugins/oars/apps/vector/k8s.toml
+{% endif %}
