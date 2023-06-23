@@ -7,7 +7,7 @@ echo "Installing dbt packages..."
 pip install pip install {{ DBT_PACKAGES }}
 
 echo "Installing oars-dbt"
-git clone {{ DBT_REPOSITORY }}
+git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }}
 
 cd oars-dbt/oars || exit
 
