@@ -1,0 +1,114 @@
+### Transforms
+
+# Parse tracking logs: extract time
+[transforms.tracking]
+type = "remap"
+inputs = ["openedx_containers"]
+# Time formats: https://docs.rs/chrono/0.4.19/chrono/format/strftime/index.html#specifiers
+source = '''
+parsed, err_regex = parse_regex(.message, r'^.* \[tracking\] [^{}]* (?P<tracking_message>\{.*\})$')
+if err_regex != null {
+  abort
+}
+message = parsed.tracking_message
+parsed_json, err_json = parse_json(parsed.tracking_message)
+if err_json != null {
+  log("Unable to parse JSON from tracking log message: " + err_json, level: "error")
+  abort
+}
+time, err_timestamp = parse_timestamp(parsed_json.time, "%+")
+if err_timestamp != null {
+  log("Unable to parse timestamp from tracking log 'time' field: " + err_timestamp, level: "warn")
+  time, err_timestamp = parse_timestamp(parsed_json.timestamp, "%+")
+  if err_timestamp != null {
+    log("Unable to parse timestamp from tracking log 'timestamp' field: " + err_timestamp, level: "error")
+    abort
+  }
+}
+. = {"time": time, "message": message}
+'''
+drop_on_error = true
+drop_on_abort = true
+
+[transforms.tracking_debug]
+type = "remap"
+inputs = ["tracking"]
+# Time formats: https://docs.rs/chrono/0.4.19/chrono/format/strftime/index.html#specifiers
+source = '''
+.message = parse_json!(.message)
+'''
+
+[transforms.xapi]
+type = "remap"
+inputs = ["openedx_containers"]
+# Time formats: https://docs.rs/chrono/0.4.19/chrono/format/strftime/index.html#specifiers
+
+source = '''
+parsed, err_regex = parse_regex(.message, r'^.* \[xapi_tracking\] [^{}]* (?P<tracking_message>\{.*$)')
+if err_regex != null {
+  abort
+}
+message, err = strip_whitespace(parsed.tracking_message)
+
+parsed_json, err_json = parse_json(parsed.tracking_message)
+
+if err_json != null {
+  log("Unable to parse JSON from xapi tracking log message: " + err_json, level: "error")
+  abort
+}
+
+time, err_timestamp = parse_timestamp(parsed_json.timestamp, "%+")
+if err_timestamp != null {
+  log("Unable to parse timestamp from tracking log 'time' field: " + err_timestamp, level: "warn")
+  time, err_timestamp = parse_timestamp(parsed_json.timestamp, "%+")
+  if err_timestamp != null {
+    log("Unable to parse timestamp from tracking log 'timestamp' field: " + err_timestamp, level: "error")
+    abort
+  }
+}
+event_id = parsed_json.id
+. = {"event_id": event_id, "emission_time": format_timestamp!(time, format: "%+"), "event_str": encode_json(parsed_json)}
+'''
+drop_on_error = true
+drop_on_abort = true
+
+
+### Sinks
+
+# Log all events to stdout, for debugging
+[sinks.out]
+type = "console"
+inputs = ["tracking_debug"]
+encoding.codec = "json"
+encoding.only_fields = ["time", "message.context.course_id", "message.context.user_id", "message.name"]
+
+# # Send logs to clickhouse
+[sinks.clickhouse]
+type = "clickhouse"
+auth.strategy = "basic"
+auth.user = "{{ ASPECTS_CLICKHOUSE_VECTOR_USER }}"
+auth.password = "{{ ASPECTS_CLICKHOUSE_VECTOR_PASSWORD }}"
+# Required: https://github.com/timberio/vector/issues/5797
+encoding.timestamp_format = "unix"
+inputs = ["tracking"]
+endpoint = "{{ CLICKHOUSE_HOST }}:{{ CLICKHOUSE_HTTP_PORT }}"
+database = "{{ ASPECTS_VECTOR_DATABASE }}"
+table = "{{ ASPECTS_VECTOR_RAW_TRACKING_LOGS_TABLE }}"
+healthcheck = true
+
+[sinks.clickhouse_xapi]
+type = "clickhouse"
+auth.strategy = "basic"
+auth.user = "{{ ASPECTS_CLICKHOUSE_VECTOR_USER }}"
+auth.password = "{{ ASPECTS_CLICKHOUSE_VECTOR_PASSWORD }}"
+# Required: https://github.com/timberio/vector/issues/5797
+encoding.timestamp_format = "unix"
+# Allows better parsing of date times
+date_time_best_effort = true
+inputs = ["xapi"]
+endpoint = "{{ CLICKHOUSE_HOST }}:{{ CLICKHOUSE_HTTP_PORT }}"
+database = "{{ ASPECTS_VECTOR_DATABASE }}"
+table = "{{ ASPECTS_VECTOR_RAW_XAPI_TABLE }}"
+healthcheck = true
+
+{{ patch("vector-common-toml") }}

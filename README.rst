@@ -1,28 +1,36 @@
-OARS plugin for `Tutor <https://docs.tutor.overhang.io>`__
-===================================================================================
+The Aspects plugin for Tutor
+============================
 
-This plugin controls the configuration of several different other Tutor plugins
-to join them into the Open edx "Open Analytics Reference System", a way for Open
-edX installs to collect and display learner data in a consistent way.
+Aspects Learner Analytics combines several free, open source, tools to add analytics and reporting capabilities to the Open edX platform. This plugin offers easy installation, configuration, and deployment of these tools using `Tutor <https://docs.tutor.overhang.io>`__. The tools Aspects uses are:
 
-See https://github.com/openedx/openedx-oars for more details.
+- `ClickHouse <https://clickhouse.com>`__, a fast, scalable analytics database that can be run anywhere
+- `Apache Superset <https://superset.apache.org>`__, a data visualization platform and data API
+- `OpenFUN Ralph <https://https://openfun.github.io/ralph/>`__, a Learning Record store (and more) that can validate and store xAPI statements in ClickHouse
+- `Vector <https://vector.dev/>`__, a log forwarding tool that can be used to forward tracking log and xAPI data to ClickHouse
+- `event-routing-backends <https://https://event-routing-backends.readthedocs.io/en/latest/>`__, an Open edX plugin that transforms tracking logs into xAPI and optionally forwards them to one or more Learning Record Stores in near real time
+- `event-sink-clickhouse <https://github.com/openedx/openedx-event-sink-clickhouse>`__, an Open edX plugin that exports course structure and high level data to ClickHouse at publish time
 
-Note: OARS is in early development and not at all production ready! Please feel
-free to experiment with the system and offer feedback about what you'd like to see!
+See https://github.com/openedx/openedx-oars for more details about the Aspects architecture and high level documentation.
+
+Aspects is a community developed effort combining the Cairn project by Overhang.io and the OARS project by EduNEXT, OpenCraft, and Axim Collaborative.
+
+Note: Aspects is in heavy development and not yet production ready! Please feel
+free to experiment with the system and offer feedback about what you'd like to see
+by adding Issues in this repository.
 
 Compatibility
 -------------
 
-This plugin is compatible with Tutor 15.0.0 and later.
+This plugin is compatible with Tutor 15.0.0 and later and is expected to be compatible with Open edX releases from Nutmeg forward.
 
 Installation
 ------------
 
-The OARS project can be installed in a Tutor environment with the following command
+The Aspects project can be installed in a Tutor environment with the following command
 
 ::
 
-    pip install git+https://github.com/openedx/tutor-contrib-oars
+    pip install git+https://github.com/openedx/tutor-contrib-aspects
 
 
 Usage
@@ -30,7 +38,7 @@ Usage
 
 #. Enable the plugins::
 
-    tutor plugins enable oars
+    tutor plugins enable aspects
 
 #. Save the changes to the environment::
 
@@ -53,7 +61,7 @@ Usage
 Superset Assets
 ---------------
 
-OARS maintains the Superset assets in this repository, specifically the dashboards,
+Aspects maintains the Superset assets in this repository, specifically the dashboards,
 charts, datasets, and databases. That means that any updates made here will be reflected
 on your Superset instance when you update your deployment.
 
@@ -68,7 +76,7 @@ Define your own superset assets
 To programatically define custom superset assets there is a patch you can use with an
 inline plugin. The patch ``superset-extra-assets`` will allow you to define your
 own superset assets in a yaml file and have them automatically imported into superset
-when you run ``tutor [dev|local|k8s] init -l oars``.
+when you run ``tutor [dev|local|k8s] init -l aspects``.
 
 An example of this patch is provided as reference:
 
@@ -93,21 +101,21 @@ An example of this patch is provided as reference:
 
 The patch is expected to be a list of assets with an extra attribute called ``file_name`` , which uniquely identifies the asset entry. This file does not need to exist anywhere; it will be created with the rest of the yaml in that stanza as part of the init process. Each asset is expected to be a valid yaml file with the attributes that superset expects for each asset type. See `assets.yaml`_ for examples of asset yaml declarations.
 
-The tutor command will generate a .yaml file with the content of an exported zip file. This is useful if you want to add a new asset to the default assets provided by OARS. You can then edit the generated file and add it to the patch above.
+The tutor command will generate a .yaml file with the content of an exported zip file. This is useful if you want to add a new asset to the default assets provided by Aspects. You can then edit the generated file and add it to the patch above.
 
 ..  code-block:: sh
 
-    tutor oars serialize file.zip
+    tutor aspects serialize file.zip
 
 Override superset default assets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you want to override the default assets provided by OARS you can do so by using the
+If you want to override the default assets provided by Aspects you can do so by using the
 patch defined above and make sure that the uuid of the asset you are overriding matches
 the one in the default assets. You can find the uuid of the default assets in the
 default `assets.yaml`_ file.
 
-.. _assets.yaml: tutoroars/templates/oars/apps/superset/pythonpath/assets.yaml
+.. _assets.yaml: tutoraspects/templates/aspects/apps/superset/pythonpath/assets.yaml
 
 
 Sharing Charts and Dashboards
@@ -129,24 +137,24 @@ To import charts or dashboards shared by someone in the community:
 #. On the Charts or Dashboards page, use the "Import" button to upload your ``.zip`` file.
 
 
-Contributing Charts and Dashboards to OARS
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Contributing Charts and Dashboards to Aspects
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Superset assets provided by OARS can be found in the templated `assets.yaml`_ file.
+The Superset assets provided by Aspects can be found in the templated `assets.yaml`_ file.
 For the most part, these files what Superset exports, but with some crucial differences
 which make these assets usable across all Tutor deployments.
 
-To contribute assets to OARS:
+To contribute assets to Aspects:
 
 #. Export the assets you want to contribute as described in `Sharing Charts and Dashboards`
 #. Expand the ``.zip`` file.
 #. Update any database connection strings to use Tutor configuration template variables
    instead of hard-coded strings, e.g. replace ``clickhouse`` with ``{{CLICKHOUSE_HOST}}``.
-   Passwords can be left as ``{{CLICKHOUSE_PASSWORD}}``, though be aware that if you are adding new 
+   Passwords can be left as ``{{CLICKHOUSE_PASSWORD}}``, though be aware that if you are adding new
    databases, you'll need to update ``SUPERSET_DB_PASSWORDS`` in the init scripts.
    Here is the default connection string for reference::
 
-    ``clickhousedb+connect://{{OARS_CLICKHOUSE_REPORT_USER}}:{{OARS_CLICKHOUSE_REPORT_PASSWORD}}@{{CLICKHOUSE_HOST}}:{% if CLICKHOUSE_SECURE_CONNECTION%}{{CLICKHOUSE_HTTPS_PORT}}{% else %}{{CLICKHOUSE_HTTP_PORT}}{% endif %}/{{OARS_XAPI_DATABASE}}``
+    ``clickhousedb+connect://{{ASPECTS_CLICKHOUSE_REPORT_USER}}:{{ASPECTS_CLICKHOUSE_REPORT_PASSWORD}}@{{CLICKHOUSE_HOST}}:{% if CLICKHOUSE_SECURE_CONNECTION%}{{CLICKHOUSE_HTTPS_PORT}}{% else %}{{CLICKHOUSE_HTTP_PORT}}{% endif %}/{{ASPECTS_XAPI_DATABASE}}``
 #. Remove any ``metadata.yaml`` files from the export. We generate these as needed during import.
 #. Merge your exported files into the directories and files in the `assets.yaml`_.
 #. Submit a PR with screenshots of your new chart or dashboards, along with an explanation

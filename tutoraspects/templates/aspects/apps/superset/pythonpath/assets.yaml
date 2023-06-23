@@ -1,0 +1,605 @@
+- _file_name: Open_edX_Admin_Dashboard_2.yaml
+  css: ''
+  dashboard_title: Open edX Admin Dashboard
+  description: null
+  metadata:
+    chart_configuration: {}
+    color_scheme: ''
+    default_filters: '{}'
+    expanded_slices: {}
+    label_colors: {}
+    native_filter_configuration:
+    - cascadeParentIds: []
+      chartsInScope:
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      controlValues:
+        defaultToFirstItem: false
+        enableEmptyFilter: false
+        inverseSelection: false
+        multiSelect: true
+        searchAllOptions: true
+      defaultDataMask:
+        extraFormData: {}
+        filterState: {}
+        ownState: {}
+      description: ''
+      filterType: filter_select
+      id: NATIVE_FILTER-yb49rspT2
+      name: Course ID
+      scope:
+        excluded: []
+        rootPath:
+        - ROOT_ID
+      tabsInScope: []
+      targets:
+      - column:
+          name: course_key
+        datasetUuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+      type: NATIVE_FILTER
+    - cascadeParentIds: []
+      controlValues:
+        enableEmptyFilter: false
+      defaultDataMask:
+        extraFormData: {}
+        filterState: {}
+        ownState: {}
+      description: ''
+      filterType: filter_time
+      id: NATIVE_FILTER-mqUjL9BMI
+      name: Time range
+      scope:
+        excluded: []
+        rootPath:
+        - ROOT_ID
+      targets:
+      - {}
+      type: NATIVE_FILTER
+    refresh_frequency: 0
+    shared_label_colors: {}
+    show_native_filters: true
+    timed_refresh_immune_slices: []
+  position:
+    CHART-OxWNihq9pP:
+      children: []
+      id: CHART-OxWNihq9pP
+      meta:
+        chartId: 8
+        height: 50
+        sliceName: Video events
+        uuid: 0cc08ea4-fe3f-45ef-89b9-21d9e2c4c5ff
+        width: 4
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-hGj6cJyMJ
+      type: CHART
+    CHART-explore-10-1:
+      children: []
+      id: CHART-explore-10-1
+      meta:
+        chartId: 10
+        height: 50
+        sliceName: Events per day
+        uuid: 0eb95b3a-a61d-4fcf-b614-3bc3e78dbb4b
+        width: 4
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-hGj6cJyMJ
+      type: CHART
+    CHART-explore-11-1:
+      children: []
+      id: CHART-explore-11-1
+      meta:
+        chartId: 11
+        height: 50
+        sliceName: xAPI events by course
+        uuid: c69ab610-f77a-4c54-a5ab-dc3a19a3003e
+        width: 4
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-hGj6cJyMJ
+      type: CHART
+    CHART-explore-9-1:
+      children: []
+      id: CHART-explore-9-1
+      meta:
+        chartId: 9
+        height: 50
+        sliceName: xAPI events
+        uuid: eda31542-e23c-4a9e-b9d2-712c9536265d
+        width: 8
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-EFh2InPgiC
+      type: CHART
+    CHART-jmqhhYm-W8:
+      children: []
+      id: CHART-jmqhhYm-W8
+      meta:
+        chartId: 7
+        height: 50
+        sliceName: xAPI problem events by block
+        uuid: 40b671ce-e987-4c19-bc9d-d07df1d944f8
+        width: 4
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-EFh2InPgiC
+      type: CHART
+    DASHBOARD_VERSION_KEY: v2
+    GRID_ID:
+      children:
+      - ROW-hGj6cJyMJ
+      - ROW-EFh2InPgiC
+      id: GRID_ID
+      parents:
+      - ROOT_ID
+      type: GRID
+    HEADER_ID:
+      id: HEADER_ID
+      meta:
+        text: Open edX Admin Dashboard
+      type: HEADER
+    ROOT_ID:
+      children:
+      - GRID_ID
+      id: ROOT_ID
+      type: ROOT
+    ROW-EFh2InPgiC:
+      children:
+      - CHART-jmqhhYm-W8
+      - CHART-explore-9-1
+      id: ROW-EFh2InPgiC
+      meta:
+        background: BACKGROUND_TRANSPARENT
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      type: ROW
+    ROW-hGj6cJyMJ:
+      children:
+      - CHART-explore-10-1
+      - CHART-explore-11-1
+      - CHART-OxWNihq9pP
+      id: ROW-hGj6cJyMJ
+      meta:
+        background: BACKGROUND_TRANSPARENT
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      type: ROW
+  slug: openedx-xapi-admin
+  uuid: 4bd1ace4-2327-4ff0-985b-ef014cb0503b
+  version: 1.0.0
+
+- _file_name: xapi_events_all_parsed.yaml
+  cache_timeout: null
+  columns:
+  - advanced_data_type: null
+    column_name: verb
+    description: Short name for the verb; the final word in the verb_id path.
+    expression: splitByChar('/', verb_id)[-1]
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: null
+    verbose_name: verb
+  - advanced_data_type: null
+    column_name: video_event
+    description: Set to true when the event is a video event.
+    expression: verb_id LIKE '%video%'
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: null
+    verbose_name: video_event
+  - advanced_data_type: null
+    column_name: object_type
+    description: 'Parsed JSON: last word in the event.object.definition.type field'
+    expression: splitByChar('/', event.object.definition.type)[-1]
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: null
+    verbose_name: object_type
+  - advanced_data_type: null
+    column_name: course_key
+    description: Course key part of the course_id URL
+    expression: splitByChar('/', course_id)[-1]
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: null
+    verbose_name: course_key
+  - advanced_data_type: null
+    column_name: emission_time
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: true
+    python_date_format: null
+    type: DateTime64(6)
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: event_id
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: UUID
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: object_id
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: null
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: actor_id
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: verb_id
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: course_id
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: event_str
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: org
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+  default_endpoint: null
+  description: null
+  extra: null
+  fetch_values_predicate: null
+  filter_select_enabled: false
+  main_dttm_col: emission_time
+  metrics:
+  - d3format: null
+    description: null
+    expression: COUNT(*)
+    extra:
+      warning_markdown: ''
+    metric_name: count
+    metric_type: count
+    verbose_name: COUNT(*)
+    warning_text: null
+  offset: 0
+  params: null
+  schema: xapi
+  sql: ''
+  table_name: xapi_events_all_parsed
+  template_params: null
+  uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+  version: 1.0.0
+
+- _file_name: xAPI_problem_events_by_block_7.yaml
+  cache_timeout: null
+  dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+
+  params:
+    adhoc_filters:
+    - clause: WHERE
+      comparator:
+      - http://adlnet.gov/expapi/verbs/evaluated
+      - http://adlnet.gov/expapi/verbs/attempted
+      - http://adlnet.gov/expapi/verbs/asked
+      expressionType: SIMPLE
+      filterOptionName: filter_0qzkqpapje2_6p5tpr4igwf
+      isExtra: false
+      isNew: false
+      operator: IN
+      operatorId: IN
+      sqlExpression: null
+      subject: verb_id
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    contributionMode: null
+    datasource: 2__table
+    extra_form_data: {}
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    granularity_sqla: emission_time
+    groupby:
+    - verb
+    - object_id
+    legendOrientation: top
+    legendType: scroll
+    metrics:
+    - aggregate: null
+      column: null
+      expressionType: SQL
+      hasCustomLabel: false
+      isNew: false
+      label: count(verb)
+      optionName: metric_wdmlkvulpn7_ll3d19812
+      sqlExpression: count(verb)
+    only_total: true
+    order_desc: true
+    orientation: vertical
+    rich_tooltip: true
+    row_limit: 10000
+    show_legend: true
+    time_grain_sqla: P1D
+    time_range: No filter
+    tooltipTimeFormat: smart_date
+    truncate_metric: false
+    viz_type: echarts_timeseries_bar
+    x_axis_time_format: smart_date
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title_margin: 15
+    y_axis_title_position: Left
+  slice_name: xAPI problem events by block
+  uuid: 40b671ce-e987-4c19-bc9d-d07df1d944f8
+  version: 1.0.0
+  viz_type: echarts_timeseries_bar
+
+- _file_name: Video_events_8.yaml
+  cache_timeout: null
+  dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+  params:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: '1'
+      expressionType: SIMPLE
+      filterOptionName: filter_2x4i6oetd7v_4ybshif8gk4
+      isExtra: false
+      isNew: false
+      operator: ==
+      operatorId: EQUALS
+      sqlExpression: null
+      subject: video_event
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    contributionMode: null
+    datasource: 2__table
+    extra_form_data: {}
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    granularity_sqla: emission_time
+    groupby:
+    - verb
+    - object_id
+    legendOrientation: top
+    legendType: scroll
+    metrics:
+    - aggregate: null
+      column: null
+      expressionType: SQL
+      hasCustomLabel: false
+      isNew: false
+      label: count(verb)
+      optionName: metric_wdmlkvulpn7_ll3d19812
+      sqlExpression: count(verb)
+    only_total: true
+    order_desc: true
+    orientation: vertical
+    rich_tooltip: true
+    row_limit: 10000
+    show_legend: true
+    time_grain_sqla: P1D
+    time_range: No filter
+    tooltipTimeFormat: smart_date
+    truncate_metric: false
+    viz_type: echarts_timeseries_bar
+    x_axis_time_format: smart_date
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title_margin: 15
+    y_axis_title_position: Left
+  slice_name: Video events
+  uuid: 0cc08ea4-fe3f-45ef-89b9-21d9e2c4c5ff
+  version: 1.0.0
+  viz_type: echarts_timeseries_bar
+
+- _file_name: xAPI_events_9.yaml
+  cache_timeout: null
+  dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+
+  params:
+    adhoc_filters: []
+    all_columns:
+    - verb_id
+    - course_id
+    color_pn: true
+    datasource: 2__table
+    extra_form_data: {}
+    granularity_sqla: emission_time
+    groupby:
+    - verb_id
+    - course_id
+    order_by_cols: []
+    order_desc: true
+    percent_metrics: []
+    query_mode: raw
+    row_limit: 10000
+    server_page_length: 10
+    show_cell_bars: true
+    table_timestamp_format: smart_date
+    time_grain_sqla: P1D
+    time_range: No filter
+    viz_type: table
+  slice_name: xAPI events
+  uuid: eda31542-e23c-4a9e-b9d2-712c9536265d
+  version: 1.0.0
+  viz_type: table
+
+- _file_name: Events_per_day_10.yaml
+  cache_timeout: null
+  dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+  params:
+    adhoc_filters: []
+    color_picker:
+      a: 1
+      b: 135
+      g: 122
+      r: 0
+    datasource: 2__table
+    extra_form_data: {}
+    granularity_sqla: emission_time
+    header_font_size: 0.4
+    metric: count
+    rolling_type: None
+    show_trend_line: true
+    start_y_axis_at_zero: true
+    subheader_font_size: 0.15
+    time_format: smart_date
+    time_grain_sqla: P1D
+    time_range: No filter
+    viz_type: big_number
+    y_axis_format: SMART_NUMBER
+  slice_name: Events per day
+  uuid: 0eb95b3a-a61d-4fcf-b614-3bc3e78dbb4b
+  version: 1.0.0
+  viz_type: big_number
+
+- _file_name: xAPI_events_by_course_11.yaml
+  cache_timeout: null
+  dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+  params:
+    adhoc_filters: []
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    datasource: 2__table
+    extra_form_data: {}
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    granularity_sqla: emission_time
+    groupby:
+    - verb
+    - course_key
+    legendOrientation: top
+    legendType: scroll
+    metrics:
+    - count
+    only_total: true
+    order_desc: true
+    orientation: vertical
+    rich_tooltip: true
+    row_limit: 10000
+    show_legend: true
+    time_grain_sqla: P1D
+    time_range: No filter
+    tooltipTimeFormat: smart_date
+    truncate_metric: true
+    viz_type: echarts_timeseries_bar
+    x_axis_time_format: smart_date
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title_margin: 15
+    y_axis_title_position: Left
+  slice_name: xAPI events by course
+  uuid: c69ab610-f77a-4c54-a5ab-dc3a19a3003e
+  version: 1.0.0
+  viz_type: echarts_timeseries_bar
+
+- _file_name: OpenedX_Clickhouse.yaml
+  database_name: OpenedX Clickhouse
+  sqlalchemy_uri: clickhousedb+connect://{{ASPECTS_CLICKHOUSE_REPORT_USER}}:{{ASPECTS_CLICKHOUSE_REPORT_PASSWORD}}@{{CLICKHOUSE_HOST}}:{% if CLICKHOUSE_SECURE_CONNECTION%}{{CLICKHOUSE_HTTPS_PORT}}{% else %}{{CLICKHOUSE_HTTP_PORT}}{% endif %}/{{ASPECTS_XAPI_DATABASE}}
+  cache_timeout: null
+  expose_in_sqllab: true
+  allow_run_async: false
+  allow_ctas: false
+  allow_cvas: false
+  allow_csv_upload: false
+  extra:
+    allows_virtual_table_explore: true
+    metadata_params: {}
+    engine_params: {}
+    schemas_allowed_for_csv_upload: []
+  uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+  version: 1.0.0
+
+{{ patch("superset-extra-assets") }}

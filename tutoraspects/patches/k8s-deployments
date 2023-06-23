@@ -1,0 +1,444 @@
+{% if RUN_CLICKHOUSE %}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clickhouse
+  labels:
+    app.kubernetes.io/name: clickhouse
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: clickhouse
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: clickhouse
+    spec:
+      containers:
+        - env:
+            - name: CLICKHOUSE_DB
+              value: "xapi"
+            - name: CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT
+              value: "1"
+            - name: CLICKHOUSE_PASSWORD
+              value: "{{ CLICKHOUSE_ADMIN_PASSWORD }}"
+            - name: CLICKHOUSE_USER
+              value: "{{ CLICKHOUSE_ADMIN_USER }}"
+          image: {{ DOCKER_IMAGE_CLICKHOUSE }}
+          name: clickhouse
+          ports:
+            - containerPort: 8123
+            - containerPort: 9000
+            - containerPort: 9009
+          volumeMounts:
+            - mountPath: /var/lib/clickhouse/
+              name: data
+            - mountPath: /etc/clickhouse-server/config.d/
+              name: settings
+      restartPolicy: Always
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: clickhouse
+        - name: settings
+          configMap:
+            name: clickhouse-settings
+{% endif %}
+
+{% if RUN_RALPH %}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ralph
+  labels:
+    app.kubernetes.io/name: ralph
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: ralph
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: ralph
+    spec:
+      containers:
+        - args:
+            - python
+            - -m
+            - ralph
+            - -v
+            - DEBUG
+            - runserver
+            - -b
+            - clickhouse
+          env:
+            - name: RALPH_APP_DIR
+              value: "/app/.ralph"
+            - name: RALPH_BACKENDS__DATABASE__CLICKHOUSE__EVENT_TABLE_NAME
+              value: "{{ASPECTS_RAW_XAPI_TABLE}}"
+            - name: RALPH_BACKENDS__DATABASE__CLICKHOUSE__HOST
+              value: "{{CLICKHOUSE_HOST}}"
+            - name: RALPH_BACKENDS__DATABASE__CLICKHOUSE__PASSWORD
+              value: "{{CLICKHOUSE_ADMIN_PASSWORD}}"
+            - name: RALPH_BACKENDS__DATABASE__CLICKHOUSE__PORT
+              value: "{% if CLICKHOUSE_SECURE_CONNECTION%}{{CLICKHOUSE_HTTPS_PORT}}{% else %}{{CLICKHOUSE_HTTP_PORT}}{% endif %}"
+            - name: RALPH_BACKENDS__DATABASE__CLICKHOUSE__TEST_HOST
+              value: "clickhouse"
+            - name: RALPH_BACKENDS__DATABASE__CLICKHOUSE__USERNAME
+              value: "{{CLICKHOUSE_ADMIN_USER}}"
+            - name: RALPH_BACKENDS__DATABASE__CLICKHOUSE__XAPI_DATABASE
+              value: "{{ASPECTS_XAPI_DATABASE}}"
+            - name: RALPH_RUNSERVER_BACKEND
+              value: "clickhouse"
+            - name: RALPH_RUNSERVER_HOST
+              value: "0.0.0.0"
+            - name: RALPH_RUNSERVER_MAX_SEARCH_HITS_COUNT
+              value: "100"
+            - name: RALPH_RUNSERVER_POINT_IN_TIME_KEEP_ALIVE
+              value: "1m"
+            - name: RALPH_RUNSERVER_PORT
+              value: "{{RALPH_PORT}}"
+            - name: RALPH_SENTRY_DSN
+              value: "{{RALPH_SENTRY_DSN}}"
+            - name: RALPH_EXECUTION_ENVIRONMENT
+              value: "{{RALPH_EXECUTION_ENVIRONMENT}}"
+            - name: RALPH_SENTRY_CLI_TRACES_SAMPLE_RATE
+              value: "{{RALPH_SENTRY_CLI_TRACES_SAMPLE_RATE}}"
+            - name: RALPH_SENTRY_LRS_TRACES_SAMPLE_RATE
+              value: "{{RALPH_SENTRY_LRS_TRACES_SAMPLE_RATE}}"
+            - name: RALPH_SENTRY_IGNORE_HEALTH_CHECKS
+              value: "{{RALPH_SENTRY_IGNORE_HEALTH_CHECKS}}"
+            {% if RALPH_EXTRA_SETTINGS %}
+            {% for key, value in RALPH_EXTRA_SETTINGS.items() %}
+            - name: {{key}}
+              value: "{{value}}"
+            {% endfor %}
+            {% endif %}
+          image: {{DOCKER_IMAGE_RALPH}}
+          name: ralph
+          ports:
+            - containerPort: 8100
+          resources: {}
+          volumeMounts:
+            - mountPath: /app/.ralph
+              name: auth
+      restartPolicy: Always
+      volumes:
+        - name: auth
+          configMap:
+            name: ralph-settings
+{% endif %}
+
+{% if RUN_SUPERSET %}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: superset
+  labels:
+    app.kubernetes.io/name: superset
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: superset
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: superset
+    spec:
+      containers:
+        - args:
+            - bash
+            - /app/docker/docker-bootstrap.sh
+            - app-gunicorn
+          name: superset
+          ports:
+            - containerPort: {{ SUPERSET_PORT }}
+          image: apache/superset:{{ SUPERSET_TAG }}
+          env:
+            - name: DATABASE_DIALECT
+              value: "{{ SUPERSET_DB_DIALECT }}"
+            - name: DATABASE_HOST
+              value: "{{ SUPERSET_DB_HOST }}"
+            - name: DATABASE_PORT
+              value: "{{ SUPERSET_DB_PORT }}"
+            - name: DATABASE_DB
+              value: "{{ SUPERSET_DB_NAME }}"
+            - name: DATABASE_PASSWORD
+              value: "{{ SUPERSET_DB_PASSWORD }}"
+            - name: DATABASE_USER
+              value: "{{ SUPERSET_DB_USERNAME }}"
+            - name: OAUTH2_CLIENT_ID
+              value: "{{ SUPERSET_OAUTH2_CLIENT_ID }}"
+            - name: OAUTH2_CLIENT_SECRET
+              value: "{{ SUPERSET_OAUTH2_CLIENT_SECRET }}"
+            - name: SECRET_KEY
+              value: "{{ SUPERSET_SECRET_KEY }}"
+            - name: PYTHONPATH
+              value: "/app/pythonpath:/app/docker/pythonpath_dev"
+            - name: REDIS_HOST
+              value: "{{ REDIS_HOST }}"
+            - name: REDIS_PORT
+              value: "{{ REDIS_PORT }}"
+            - name: REDIS_PASSWORD
+              value: "{{ REDIS_PASSWORD }}"
+            - name: FLASK_ENV
+              value: "production"
+            - name: SUPERSET_ENV
+              value: "production"
+            - name: SUPERSET_HOST
+              value: "{{ SUPERSET_HOST }}"
+            - name: SUPERSET_PORT
+              value: "{{ SUPERSET_PORT }}"
+            - name: OAUTH2_ACCESS_TOKEN_PATH
+              value: "{{ SUPERSET_OAUTH2_ACCESS_TOKEN_PATH }}"
+            - name: OAUTH2_AUTHORIZE_PATH
+              value: "{{ SUPERSET_OAUTH2_AUTHORIZE_PATH }}"
+            - name: OPENEDX_COURSES_LIST_PATH
+              value: "{{ SUPERSET_OPENEDX_COURSES_LIST_PATH }}"
+            - name: OPENEDX_LMS_ROOT_URL
+              value: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}"
+          volumeMounts:
+            - mountPath: /app/docker
+              name: docker
+            - mountPath: /app/pythonpath
+              name: pythonpath
+            - mountPath: /app/security
+              name: security
+            - mountPath: /app/assets
+              name: assets
+      volumes:
+        - name: docker
+          configMap:
+            name: superset-docker
+        - name: pythonpath
+          configMap:
+            name: superset-pythonpath
+        - name: security
+          configMap:
+            name: superset-security
+        - name: assets
+          persistentVolumeClaim:
+            claimName: superset-assets
+      restartPolicy: Always
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: superset-worker
+  labels:
+    app.kubernetes.io/name: superset-worker
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: superset-worker
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: superset-worker
+    spec:
+      containers:
+        - args:
+            - bash
+            - /app/docker/docker-bootstrap.sh
+            - worker
+          name: superset-worker
+          ports:
+            - containerPort: {{ SUPERSET_PORT }}
+          image: apache/superset:{{ SUPERSET_TAG }}
+          env:
+            - name: DATABASE_DIALECT
+              value: "{{ SUPERSET_DB_DIALECT }}"
+            - name: DATABASE_HOST
+              value: "{{ SUPERSET_DB_HOST }}"
+            - name: DATABASE_PORT
+              value: "{{ SUPERSET_DB_PORT }}"
+            - name: DATABASE_DB
+              value: "{{ SUPERSET_DB_NAME }}"
+            - name: DATABASE_PASSWORD
+              value: "{{ SUPERSET_DB_PASSWORD }}"
+            - name: DATABASE_USER
+              value: "{{ SUPERSET_DB_USERNAME }}"
+            - name: OAUTH2_CLIENT_ID
+              value: "{{ SUPERSET_OAUTH2_CLIENT_ID }}"
+            - name: OAUTH2_CLIENT_SECRET
+              value: "{{ SUPERSET_OAUTH2_CLIENT_SECRET }}"
+            - name: SECRET_KEY
+              value: "{{ SUPERSET_SECRET_KEY }}"
+            - name: PYTHONPATH
+              value: "/app/pythonpath:/app/docker/pythonpath_dev"
+            - name: REDIS_HOST
+              value: "{{ REDIS_HOST }}"
+            - name: REDIS_PORT
+              value: "{{ REDIS_PORT }}"
+            - name: REDIS_PASSWORD
+              value: "{{ REDIS_PASSWORD }}"
+            - name: FLASK_ENV
+              value: "production"
+            - name: SUPERSET_ENV
+              value: "production"
+            - name: SUPERSET_HOST
+              value: "{{ SUPERSET_HOST }}"
+            - name: SUPERSET_PORT
+              value: "{{ SUPERSET_PORT }}"
+            - name: OAUTH2_ACCESS_TOKEN_PATH
+              value: "{{ SUPERSET_OAUTH2_ACCESS_TOKEN_PATH }}"
+            - name: OAUTH2_AUTHORIZE_PATH
+              value: "{{ SUPERSET_OAUTH2_AUTHORIZE_PATH }}"
+            - name: OPENEDX_COURSES_LIST_PATH
+              value: "{{ SUPERSET_OPENEDX_COURSES_LIST_PATH }}"
+            - name: OPENEDX_LMS_ROOT_URL
+              value: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}"
+          volumeMounts:
+            - mountPath: /app/docker
+              name: docker
+            - mountPath: /app/pythonpath
+              name: pythonpath
+            - mountPath: /app/security
+              name: security
+            - mountPath: /app/assets
+              name: assets
+      volumes:
+        - name: docker
+          configMap:
+            name: superset-docker
+        - name: pythonpath
+          configMap:
+            name: superset-pythonpath
+        - name: security
+          configMap:
+            name: superset-security
+        - name: assets
+          persistentVolumeClaim:
+            claimName: superset-assets
+      restartPolicy: Always
+{% endif %}
+
+{% if RUN_VECTOR %}
+---
+# log collection
+# https://vector.dev/docs/setup/installation/platforms/kubernetes/
+# https://github.com/timberio/vector/blob/master/distribution/kubernetes/vector-agent/resources.yaml
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: vector
+  labels:
+    app.kubernetes.io/name: vector
+automountServiceAccountToken: true
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: vector
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - pods
+    verbs:
+      - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: vector
+  labels:
+    app.kubernetes.io/name: vector
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: vector
+subjects:
+  - kind: ServiceAccount
+    name: vector
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: vector
+  labels:
+    app.kubernetes.io/name: vector
+spec:
+  selector:
+    matchLabels:
+      name: vector
+  template:
+    metadata:
+      labels:
+        name: vector
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: "OnRootMismatch"
+      serviceAccountName: vector
+      # Run vector next to LMS
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                - key: app.kubernetes.io/name
+                  operator: In
+                  values:
+                    - lms
+              topologyKey: kubernetes.io/hostname
+      containers:
+        - name: vector
+          image: {{ DOCKER_IMAGE_VECTOR }}
+          env:
+            - name: VECTOR_SELF_NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+            - name: VECTOR_SELF_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: VECTOR_SELF_POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: PROCFS_ROOT
+              value: /host/proc
+            - name: SYSFS_ROOT
+              value: /host/sys
+            - name: VECTOR_LOG
+              value: warn
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/vector
+            - name: var-log
+              mountPath: /var/log/
+              readOnly: true
+            - mountPath: /etc/vector/vector.toml
+              name: config
+              subPath: k8s.toml
+              readOnly: true
+          securityContext:
+            allowPrivilegeEscalation: false
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: vector
+        - name: var-log
+          hostPath:
+            path: /var/log/
+        - name: config
+          configMap:
+            name: vector-config
+{% endif %}

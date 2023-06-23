@@ -4,8 +4,8 @@
 
 .DEFAULT_GOAL := help
 
-PACKAGE=tutoroars
-PROJECT=tutor-contrib-oars
+PACKAGE=tutoraspects
+PROJECT=tutor-contrib-aspects
 
 SOURCES=./setup.py ./$(PACKAGE)
 BLACK_OPTS = --exclude templates ${SOURCES}
