@@ -86,8 +86,8 @@ encoding.only_fields = ["time", "message.context.course_id", "message.context.us
 [sinks.clickhouse]
 type = "clickhouse"
 auth.strategy = "basic"
-auth.user = "{{ OARS_CLICKHOUSE_LRS_USER }}"
-auth.password = "{{ OARS_CLICKHOUSE_LRS_PASSWORD }}"
+auth.user = "{{ OARS_CLICKHOUSE_VECTOR_USER }}"
+auth.password = "{{ OARS_CLICKHOUSE_VECTOR_PASSWORD }}"
 # Required: https://github.com/timberio/vector/issues/5797
 encoding.timestamp_format = "unix"
 inputs = ["tracking"]
@@ -99,8 +99,8 @@ healthcheck = true
 [sinks.clickhouse_xapi]
 type = "clickhouse"
 auth.strategy = "basic"
-auth.user = "{{ OARS_CLICKHOUSE_LRS_USER }}"
-auth.password = "{{ OARS_CLICKHOUSE_LRS_PASSWORD }}"
+auth.user = "{{ OARS_CLICKHOUSE_VECTOR_USER }}"
+auth.password = "{{ OARS_CLICKHOUSE_VECTOR_PASSWORD }}"
 # Required: https://github.com/timberio/vector/issues/5797
 encoding.timestamp_format = "unix"
 # Allows better parsing of date times

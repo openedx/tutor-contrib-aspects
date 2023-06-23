@@ -223,8 +223,13 @@ RALPH_LMS_HASHED_PASSWORD = bcrypt.hashpw(
 
 hooks.Filters.CONFIG_UNIQUE.add_items(
     [
+        # LRS user is used by Ralph to write to the ClickHouse xAPI tables
         ("OARS_CLICKHOUSE_LRS_USER", "ch_lrs"),
         ("OARS_CLICKHOUSE_LRS_PASSWORD", "{{ 24|random_string }}"),
+        # Vector user is used by Vector to write to the ClickHouse tracking log
+        # and xAPI tables
+        ("OARS_CLICKHOUSE_VECTOR_USER", "ch_vector"),
+        ("OARS_CLICKHOUSE_VECTOR_PASSWORD", "{{ 24|random_string }}"),
         # Report user is used by Superset to read from ClickHouse tables
         ("OARS_CLICKHOUSE_REPORT_USER", "ch_report"),
         ("OARS_CLICKHOUSE_REPORT_PASSWORD", "{{ 24|random_string }}"),
