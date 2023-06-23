@@ -44,6 +44,7 @@ ralph:
 superset:
   {% include 'base-docker-compose-services' %}
     OPENEDX_LMS_ROOT_URL: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}"
+    OAUTH2_CLIENT_ID: {{ SUPERSET_OAUTH2_CLIENT_ID }}
   command: ["bash", "/app/docker/docker-bootstrap.sh", "app-gunicorn"]
   ports:
     - 8088:{{ SUPERSET_PORT }}
@@ -56,6 +57,7 @@ superset:
 superset-worker:
   {% include 'base-docker-compose-services' %}
     OPENEDX_LMS_ROOT_URL: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}"
+    OAUTH2_CLIENT_ID: {{ SUPERSET_OAUTH2_CLIENT_ID }}
   command: ["bash", "/app/docker/docker-bootstrap.sh", "worker"]
   healthcheck:
     test: ["CMD-SHELL", "celery inspect ping -A superset.tasks.celery_app:app -d celery@$$HOSTNAME"]
@@ -66,7 +68,8 @@ superset-worker:
 superset-worker-beat:
   {% include 'base-docker-compose-services' %}
     OPENEDX_LMS_ROOT_URL: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}"
-  command: ["bash", "/app/docker/docker-bootstrap.sh", "worker"]
+    OAUTH2_CLIENT_ID: {{ SUPERSET_OAUTH2_CLIENT_ID }}
+  command: ["bash", "/app/docker/docker-bootstrap.sh", "beat"]
   healthcheck:
     disable: true
   depends_on:

@@ -256,6 +256,7 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         ("SUPERSET_SECRET_KEY", "{{ 24|random_string }}"),
         ("SUPERSET_DB_PASSWORD", "{{ 24|random_string }}"),
         ("SUPERSET_OAUTH2_CLIENT_ID", "{{ 16|random_string }}"),
+        ("SUPERSET_OAUTH2_CLIENT_ID_DEV", "{{ 16|random_string }}"),
         ("SUPERSET_OAUTH2_CLIENT_SECRET", "{{ 16|random_string }}"),
         ("SUPERSET_ADMIN_USERNAME", "{{ 12|random_string }}"),
         ("SUPERSET_ADMIN_PASSWORD", "{{ 24|random_string }}"),
