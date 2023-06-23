@@ -289,11 +289,21 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
     ("clickhouse", ("aspects", "jobs", "init", "clickhouse", "init-clickhouse.sh"), 95),
     (
         "clickhouse",
-        ("aspects", "jobs", "init", "clickhouse", "aspects_init_schemas_tables_users.sh"),
+        (
+            "aspects",
+            "jobs",
+            "init",
+            "clickhouse",
+            "aspects_init_schemas_tables_users.sh",
+        ),
         96,
     ),
     ("aspects", ("aspects", "jobs", "init", "dbt", "init-dbt.sh"), 97),
-    ("superset", ("aspects", "jobs", "init", "superset", "superset-init-security.sh"), 99),
+    (
+        "superset",
+        ("aspects", "jobs", "init", "superset", "superset-init-security.sh"),
+        99,
+    ),
     ("lms", ("aspects", "jobs", "init", "lms", "configure-aspects-lms.sh"), 100),
     (
         "superset",
