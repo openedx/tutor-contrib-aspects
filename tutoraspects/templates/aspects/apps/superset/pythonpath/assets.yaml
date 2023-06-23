@@ -175,7 +175,7 @@
       - ROOT_ID
       - GRID_ID
       type: ROW
-  slug: openedx-xapi-admin
+  slug: {{ SUPERSET_XAPI_DASHBOARD_SLUG }}
   uuid: 4bd1ace4-2327-4ff0-985b-ef014cb0503b
   version: 1.0.0
 

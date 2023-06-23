@@ -26,7 +26,23 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Each new setting is a pair: (setting_name, default_value).
         # Prefix your setting names with 'ASPECTS_'.
         ("ASPECTS_VERSION", __version__),
+        # General tutor specific settings
+        ("RUN_VECTOR", True),
+        ("RUN_CLICKHOUSE", True),
+        ("RUN_RALPH", True),
+        ("RUN_SUPERSET", True),
         ("DOCKER_IMAGE_ASPECTS", "python:3.8"),
+        ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:23.3"),
+        ("DOCKER_IMAGE_RALPH", "fundocker/ralph:3.6.0"),
+        ("DOCKER_IMAGE_SUPERSET", "apache/superset:2.0.1"),
+        ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.30.0-alpine"),
+        (
+            "OPENEDX_EXTRA_PIP_REQUIREMENTS",
+            [
+                "openedx-event-sink-clickhouse==0.1.0",
+                "edx-event-routing-backends==5.3.1",
+            ],
+        ),
         # ClickHouse xAPI settings
         ("ASPECTS_XAPI_DATABASE", "xapi"),
         ("ASPECTS_RAW_XAPI_TABLE", "xapi_events_all"),
@@ -47,24 +63,18 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_EVENT_SINK_RELATIONSHIPS_TABLE", "course_relationships"),
         ("ASPECTS_EVENT_SINK_OVERVIEWS_TABLE", "course_overviews"),
         ("ASPECTS_EVENT_SINK_CLICKHOUSE_TIMEOUT_SECS", "5"),
-        # MySQL dataset settings
-        ("ASPECTS_SUPERSET_ENROLLMENTS_TABLE", "Course Enrollments Overview"),
+        # Vector settings
+        ("ASPECTS_DOCKER_HOST_SOCK_PATH", "/var/run/docker.sock"),
+        ("ASPECTS_VECTOR_DATABASE", "openedx"),
+        ("ASPECTS_VECTOR_RAW_TRACKING_LOGS_TABLE", "_tracking"),
+        ("ASPECTS_VECTOR_RAW_XAPI_TABLE", "xapi_events_all"),
         # Make sure LMS / CMS have event-routing-backends installed
-        (
-            "OPENEDX_EXTRA_PIP_REQUIREMENTS",
-            [
-                "openedx-event-sink-clickhouse==0.1.0",
-                "edx-event-routing-backends==5.3.1",
-            ],
-        ),
         ######################
         # ClickHouse Settings
-        ("CLICKHOUSE_VERSION", __version__),
         ("CLICKHOUSE_HOST", "clickhouse"),
         ("CLICKHOUSE_PORT", "9000"),
         ("CLICKHOUSE_HTTP_PORT", "8123"),
         ("CLICKHOUSE_HTTPS_PORT", "8443"),
-        ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:23.3"),
         # This can be used to override some configuration values in
         # via "docker_config.xml" file, which will be read from a
         # mount on /etc/clickhouse-server/config.d/ on startup.
@@ -82,24 +92,19 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ),
         ######################
         # Ralph Settings
-        ("RALPH_VERSION", __version__),
-        ("DOCKER_IMAGE_RALPH", "docker.io/fundocker/ralph:3.6.0"),
         # Change to https:// if the public interface to it is secure
-        ("RALPH_RUN_HTTPS", False),
         ("RALPH_HOST", "ralph"),
         ("RALPH_PORT", "8100"),
         ("RALPH_ENABLE_PUBLIC_URL", False),
+        ("RALPH_RUN_HTTPS", False),
         ("RALPH_SENTRY_DSN", ""),
         ("RALPH_EXECUTION_ENVIRONMENT", "development"),
         ("RALPH_SENTRY_CLI_TRACES_SAMPLE_RATE", 1.0),
         ("RALPH_SENTRY_LRS_TRACES_SAMPLE_RATE", 0.1),
         ("RALPH_SENTRY_IGNORE_HEALTH_CHECKS", True),
-        ("RUN_RALPH", True),
         ("RALPH_EXTRA_SETTINGS", {}),
         ######################
         # Superset Settings
-        ("SUPERSET_VERSION", __version__),
-        ("SUPERSET_TAG", "2.0.1"),
         ("SUPERSET_HOST", "superset.{{ LMS_HOST }}"),
         ("SUPERSET_PORT", "8088"),
         ("SUPERSET_DB_DIALECT", "mysql"),
@@ -118,14 +123,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Set to 0 to have no row limit.
         ("SUPERSET_ROW_LIMIT", 100_000),
         ("SUPERSET_SENTRY_DSN", ""),
-        # List of dicts
-        # [{
-        #    "path": "path-in-the-superset-pod",
-        #    "name": "volume-name",
-        #    "config_map_name": "config-map-name",
-        #    "config_map_folder": "path-to-template-folder",
-        # }]
-        ("RUN_SUPERSET", True),
         (
             "SUPERSET_TALISMAN_CONFIG",
             {
@@ -197,14 +194,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DBT_PROFILE_SYNC_REQUEST_TIMEOUT", "5"),
         # Compression block size if compression is enabled, this is the default value
         ("DBT_PROFILE_COMPRESS_BLOCK_SIZE", "1048576"),
-        #########################
-        # Vector settings
-        ("DOCKER_IMAGE_VECTOR", "docker.io/timberio/vector:0.30.0-alpine"),
-        ("ASPECTS_DOCKER_HOST_SOCK_PATH", "/var/run/docker.sock"),
-        ("ASPECTS_VECTOR_DATABASE", "openedx"),
-        ("ASPECTS_VECTOR_RAW_TRACKING_LOGS_TABLE", "_tracking"),
-        ("ASPECTS_VECTOR_RAW_XAPI_TABLE", "xapi_events_all"),
-        ("RUN_VECTOR", True),
     ]
 )
 
@@ -242,7 +231,6 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         ("CLICKHOUSE_ADMIN_USER", "ch_admin"),
         ("CLICKHOUSE_ADMIN_PASSWORD", "{{ 24|random_string }}"),
         ("CLICKHOUSE_SECURE_CONNECTION", False),
-        ("RUN_CLICKHOUSE", True),
         ######################
         # Ralph Settings
         ("RALPH_ADMIN_USERNAME", "ralph"),
@@ -272,7 +260,6 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
         # Superset overrides
         ("SUPERSET_XAPI_DASHBOARD_SLUG", "openedx-xapi"),
         ("SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY", "xapi_course_id"),
-        ("SUPERSET_ROW_LEVEL_SECURITY_ENROLLMENTS_GROUP_KEY", "enrollments_course_id"),
     ]
 )
 
