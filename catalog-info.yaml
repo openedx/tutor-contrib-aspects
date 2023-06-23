@@ -6,7 +6,7 @@ apiVersion: backstage.io/v1alpha1
 # A repo will almost certainly be a Component.
 kind: Component
 metadata:
-  name: 'tutor-contrib-oars'
+  name: 'tutor-contrib-aspects'
   description: "Tutor plugin for the Open Analytics Reference System."
   annotations:
     # (Optional) Annotation keys and values can be whatever you want.
@@ -22,7 +22,7 @@ spec:
   #
   # If you need a new team created, create an issue with tCRIL engineering:
   # https://github.com/openedx/tcril-engineering/issues/new/choose
-  owner: group:tutor-contrib-oars-maintainers
+  owner: group:openedx/cc-analytics
 
   # (Required) Acceptable Type Values: service, website, library
   type: 'library'

@@ -1,0 +1,9 @@
+# Configuration needed for openedx-event-sink-clickhouse
+EVENT_SINK_CLICKHOUSE_BACKEND_CONFIG = {
+        {% if CLICKHOUSE_SECURE_CONNECTION %}"url": "https://{{ CLICKHOUSE_HOST }}:{{ CLICKHOUSE_HTTPS_PORT }}",
+        {% else %}"url": "http://{{ CLICKHOUSE_HOST }}:{{ CLICKHOUSE_HTTP_PORT }}",{% endif %}
+        "username": "{{ ASPECTS_CLICKHOUSE_CMS_USER }}",
+        "password": "{{ ASPECTS_CLICKHOUSE_CMS_PASSWORD }}",
+        "database": "{{ ASPECTS_EVENT_SINK_DATABASE }}",
+        "timeout_secs": {{ ASPECTS_EVENT_SINK_CLICKHOUSE_TIMEOUT_SECS }}
+}

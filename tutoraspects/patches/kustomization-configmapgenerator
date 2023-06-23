@@ -1,0 +1,53 @@
+- name: aspects-scripts
+  files:{% for file in "aspects/apps/scripts"|walk_templates %}
+  - plugins/{{ file }}{% endfor %}
+  options:
+    labels:
+        app.kubernetes.io/name: aspects
+{% if RUN_CLICKHOUSE %}
+- name: clickhouse-settings
+  files:
+    - plugins/aspects/apps/clickhouse/config/docker_config.xml
+  options:
+    labels:
+        app.kubernetes.io/name: clickhouse
+{% endif %}
+
+{% if RUN_RALPH %}
+- name: ralph-settings
+  files:
+    - plugins/aspects/apps/ralph/config/ralph_auth/auth.json
+  options:
+    labels:
+        app.kubernetes.io/name: ralph
+{% endif %}
+
+{% if RUN_SUPERSET %}
+- name: superset-docker
+  files:
+    - plugins/aspects/apps/superset/docker/docker-bootstrap.sh
+    - plugins/aspects/apps/superset/docker/requirements-local.txt
+  options:
+    labels:
+        app.kubernetes.io/name: superset
+
+- name: superset-pythonpath
+  files:{% for file in "aspects/apps/superset/pythonpath"|walk_templates %}
+  - plugins/{{ file }}{% endfor %}
+  options:
+    labels:
+        app.kubernetes.io/name: superset
+
+- name: superset-security
+  files:
+    - plugins/aspects/apps/superset/security/roles.json
+  options:
+    labels:
+        app.kubernetes.io/name: superset
+
+{% endif %}
+{% if RUN_VECTOR %}
+- name: vector-config
+  files:
+    - plugins/aspects/apps/vector/k8s.toml
+{% endif %}

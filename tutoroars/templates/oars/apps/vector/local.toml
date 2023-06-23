@@ -1,4 +1,4 @@
-{% include "oars/apps/vector/partials/common-pre.toml" %}
+{% include "aspects/apps/vector/partials/common-pre.toml" %}
 
 ### Sources
 # Capture logs from all docker containers
@@ -9,4 +9,4 @@ type = "filter"
 inputs = ["docker_logs"]
 condition = 'includes(["lms", "cms", "lms-worker"], .label."com.docker.compose.service")'
 
-{% include "oars/apps/vector/partials/common-post.toml" %}
+{% include "aspects/apps/vector/partials/common-post.toml" %}

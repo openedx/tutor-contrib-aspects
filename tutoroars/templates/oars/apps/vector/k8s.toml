@@ -1,4 +1,4 @@
-{% include "oars/apps/vector/partials/common-pre.toml" %}
+{% include "aspects/apps/vector/partials/common-pre.toml" %}
 
 ### Sources
 # Capture logs from kubernetes
@@ -9,4 +9,4 @@ type = "filter"
 inputs = ["kubernetes_logs"]
 condition = '.kubernetes.pod_namespace == "{{ K8S_NAMESPACE }}" && includes(["lms", "cms"], .kubernetes.container_name)'
 
-{% include "oars/apps/vector/partials/common-post.toml" %}
+{% include "aspects/apps/vector/partials/common-post.toml" %}

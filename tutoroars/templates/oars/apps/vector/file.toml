@@ -1,4 +1,4 @@
-{% include "oars/apps/vector/partials/common-pre.toml" %}
+{% include "aspects/apps/vector/partials/common-pre.toml" %}
 
 ### Sources
 # Capture logs from tracking.log
@@ -11,4 +11,4 @@ type = "filter"
 condition = "true"
 inputs = ["tracking_log_file"]
 
-{% include "oars/apps/vector/partials/common-post.toml" %}
+{% include "aspects/apps/vector/partials/common-post.toml" %}

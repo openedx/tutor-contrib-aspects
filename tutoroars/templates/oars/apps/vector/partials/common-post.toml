@@ -86,29 +86,29 @@ encoding.only_fields = ["time", "message.context.course_id", "message.context.us
 [sinks.clickhouse]
 type = "clickhouse"
 auth.strategy = "basic"
-auth.user = "{{ OARS_CLICKHOUSE_VECTOR_USER }}"
-auth.password = "{{ OARS_CLICKHOUSE_VECTOR_PASSWORD }}"
+auth.user = "{{ ASPECTS_CLICKHOUSE_VECTOR_USER }}"
+auth.password = "{{ ASPECTS_CLICKHOUSE_VECTOR_PASSWORD }}"
 # Required: https://github.com/timberio/vector/issues/5797
 encoding.timestamp_format = "unix"
 inputs = ["tracking"]
 endpoint = "{{ CLICKHOUSE_HOST }}:{{ CLICKHOUSE_HTTP_PORT }}"
-database = "{{ OARS_VECTOR_DATABASE }}"
-table = "{{ OARS_VECTOR_RAW_TRACKING_LOGS_TABLE }}"
+database = "{{ ASPECTS_VECTOR_DATABASE }}"
+table = "{{ ASPECTS_VECTOR_RAW_TRACKING_LOGS_TABLE }}"
 healthcheck = true
 
 [sinks.clickhouse_xapi]
 type = "clickhouse"
 auth.strategy = "basic"
-auth.user = "{{ OARS_CLICKHOUSE_VECTOR_USER }}"
-auth.password = "{{ OARS_CLICKHOUSE_VECTOR_PASSWORD }}"
+auth.user = "{{ ASPECTS_CLICKHOUSE_VECTOR_USER }}"
+auth.password = "{{ ASPECTS_CLICKHOUSE_VECTOR_PASSWORD }}"
 # Required: https://github.com/timberio/vector/issues/5797
 encoding.timestamp_format = "unix"
 # Allows better parsing of date times
 date_time_best_effort = true
 inputs = ["xapi"]
 endpoint = "{{ CLICKHOUSE_HOST }}:{{ CLICKHOUSE_HTTP_PORT }}"
-database = "{{ OARS_VECTOR_DATABASE }}"
-table = "{{ OARS_VECTOR_RAW_XAPI_TABLE }}"
+database = "{{ ASPECTS_VECTOR_DATABASE }}"
+table = "{{ ASPECTS_VECTOR_RAW_XAPI_TABLE }}"
 healthcheck = true
 
 {{ patch("vector-common-toml") }}

@@ -1,0 +1,26 @@
+oars: # this needs to match the profile in your dbt_project.yml file
+  target: dev
+  outputs:
+    dev:
+      type: clickhouse
+      schema: {{ ASPECTS_XAPI_DATABASE }}
+      host: {{ CLICKHOUSE_HOST }}
+      port: {{ CLICKHOUSE_HTTP_PORT }}
+      user: {{ CLICKHOUSE_ADMIN_USER }}
+      password: '{{ CLICKHOUSE_ADMIN_PASSWORD }}'
+
+      # These are ClickHouse provider values and map directly to ClickHouse connection settings.
+      cluster: {{ DBT_PROFILE_CLUSTER }}
+      verify: {{ DBT_PROFILE_VERIFY }}
+      secure: {{ DBT_PROFILE_SECURE }}
+      retries: {{ DBT_PROFILE_RETRIES }}
+      compression: {{ DBT_PROFILE_COMPRESSION }}
+      connect_timeout: {{ DBT_PROFILE_CONNECT_TIMEOUT }}
+      send_receive_timeout: {{ DBT_PROFILE_SEND_RECEIVE_TIMEOUT }}
+      cluster_mode: {{ DBT_PROFILE_CLUSTER_MODE }}
+      use_lw_deletes: {{ DBT_PROFILE_USE_LW_DELETES }}
+      check_exchange: {{ DBT_PROFILE_CHECK_EXCHANGE }}
+      custom_settings: {{ DBT_PROFILE_CUSTOM_SETTINGS }}
+      allow_experimental_object_type: {{ DBT_PROFILE_ALLOW_EXPERIMENTAL_OBJECT_TYPE }}
+      sync_request_timeout: {{ DBT_PROFILE_SYNC_REQUEST_TIMEOUT }}
+      compress_block_size: {{ DBT_PROFILE_COMPRESS_BLOCK_SIZE }}
