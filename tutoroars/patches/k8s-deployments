@@ -205,7 +205,7 @@ spec:
             - name: OPENEDX_COURSES_LIST_PATH
               value: "{{ SUPERSET_OPENEDX_COURSES_LIST_PATH }}"
             - name: OPENEDX_LMS_ROOT_URL
-              value: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}" 
+              value: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}"
           volumeMounts:
             - mountPath: /app/docker
               name: docker
@@ -299,7 +299,7 @@ spec:
             - name: OPENEDX_COURSES_LIST_PATH
               value: "{{ SUPERSET_OPENEDX_COURSES_LIST_PATH }}"
             - name: OPENEDX_LMS_ROOT_URL
-              value: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}" 
+              value: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}"
           volumeMounts:
             - mountPath: /app/docker
               name: docker
@@ -399,7 +399,7 @@ spec:
               topologyKey: kubernetes.io/hostname
       containers:
         - name: vector
-          image: {{ VECTOR_DOCKER_IMAGE }}
+          image: {{ DOCKER_IMAGE_VECTOR }}
           env:
             - name: VECTOR_SELF_NODE_NAME
               valueFrom:

@@ -198,7 +198,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DBT_PROFILE_COMPRESS_BLOCK_SIZE", "1048576"),
         #########################
         # Vector settings
-        ("VECTOR_DOCKER_IMAGE", "docker.io/timberio/vector:0.30.0-alpine"),
+        ("DOCKER_IMAGE_VECTOR", "docker.io/timberio/vector:0.30.0-alpine"),
         ("OARS_DOCKER_HOST_SOCK_PATH", "/var/run/docker.sock"),
         ("OARS_VECTOR_DATABASE", "openedx"),
         ("OARS_VECTOR_RAW_TRACKING_LOGS_TABLE", "_tracking"),
