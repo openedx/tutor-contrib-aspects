@@ -158,6 +158,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/oars-dbt"),
+        ("DBT_BRANCH", "main"),
         # This is a pip compliant list of Python packages to install to run dbt
         # make sure packages with versions are enclosed in double quotes
         ("DBT_PACKAGES", '"dbt-core==1.4.0" "dbt-clickhouse==1.4.1"'),
