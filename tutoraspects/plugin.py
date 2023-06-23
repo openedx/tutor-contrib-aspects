@@ -69,6 +69,10 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_VECTOR_RAW_TRACKING_LOGS_TABLE", "_tracking"),
         ("ASPECTS_VECTOR_RAW_XAPI_TABLE", "xapi_events_all"),
         # Make sure LMS / CMS have event-routing-backends installed
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 218d7df (fix: remove unused variables, do clean up work)
         ######################
         # ClickHouse Settings
         ("CLICKHOUSE_HOST", "clickhouse"),
