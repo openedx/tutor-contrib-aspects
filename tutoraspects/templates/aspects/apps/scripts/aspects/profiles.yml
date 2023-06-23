@@ -1,4 +1,4 @@
-oars: # this needs to match the profile in your dbt_project.yml file
+aspects: # this needs to match the profile in your dbt_project.yml file
   target: dev
   outputs:
     dev:

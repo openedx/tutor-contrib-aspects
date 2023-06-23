@@ -6,10 +6,10 @@ python3 -m venv virtualenv
 echo "Installing dbt packages..."
 pip install pip install {{ DBT_PACKAGES }}
 
-echo "Installing oars-dbt"
+echo "Installing aspects-dbt"
 git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }}
 
-cd oars-dbt/oars || exit
+cd aspects-dbt/aspects || exit
 
 echo "Installing dbt dependencies"
 dbt deps --profiles-dir /app/aspects/scripts/aspects/

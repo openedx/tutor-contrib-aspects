@@ -157,7 +157,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # DBT_PROFILE_* settings get passed into the dbt_profile.yml file.
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
-        ("DBT_REPOSITORY", "https://github.com/openedx/oars-dbt"),
+        ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
         ("DBT_BRANCH", "main"),
         # This is a pip compliant list of Python packages to install to run dbt
         # make sure packages with versions are enclosed in double quotes
