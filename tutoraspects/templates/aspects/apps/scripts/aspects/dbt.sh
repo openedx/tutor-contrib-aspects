@@ -9,7 +9,7 @@ pip install {{ DBT_PACKAGES }}
 echo "Installing aspects-dbt"
 git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }}
 
-cd aspects-dbt/aspects || exit
+cd {{ DBT_REPOSITORY_PATH }} || exit
 
 echo "Installing dbt dependencies"
 dbt deps --profiles-dir /app/aspects/scripts/aspects/
