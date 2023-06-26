@@ -36,15 +36,6 @@ for (schema, table_name, group_key, clause, filter_type) in (
         {% endraw %}
         RowLevelSecurityFilterType.REGULAR,
     ),
-    (
-        "{{OPENEDX_MYSQL_DATABASE}}",
-        "{{ASPECTS_SUPERSET_ENROLLMENTS_TABLE}}",
-        "{{SUPERSET_ROW_LEVEL_SECURITY_ENROLLMENTS_GROUP_KEY}}",
-        {% raw %}
-        '{{can_view_courses(current_username(), "course_key")}}',
-        {% endraw %}
-        RowLevelSecurityFilterType.REGULAR,
-    ),
 ):
     # Fetch the table we want to restrict access to
     table = session.query(SqlaTable).filter(

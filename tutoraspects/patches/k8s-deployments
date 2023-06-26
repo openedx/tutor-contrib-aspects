@@ -162,7 +162,7 @@ spec:
           name: superset
           ports:
             - containerPort: {{ SUPERSET_PORT }}
-          image: apache/superset:{{ SUPERSET_TAG }}
+          image: {{ DOCKER_IMAGE_SUPERSET }}
           env:
             - name: DATABASE_DIALECT
               value: "{{ SUPERSET_DB_DIALECT }}"
@@ -256,7 +256,7 @@ spec:
           name: superset-worker
           ports:
             - containerPort: {{ SUPERSET_PORT }}
-          image: apache/superset:{{ SUPERSET_TAG }}
+          image: {{ DOCKER_IMAGE_SUPERSET }}
           env:
             - name: DATABASE_DIALECT
               value: "{{ SUPERSET_DB_DIALECT }}"
@@ -350,7 +350,7 @@ spec:
           name: superset-worker-beat
           ports:
             - containerPort: {{ SUPERSET_PORT }}
-          image: apache/superset:{{ SUPERSET_TAG }}
+          image: {{ DOCKER_IMAGE_SUPERSET }}
           env:
             - name: DATABASE_DIALECT
               value: "{{ SUPERSET_DB_DIALECT }}"

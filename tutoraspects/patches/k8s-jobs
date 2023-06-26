@@ -132,7 +132,7 @@ spec:
       restartPolicy: Never
       containers:
       - name: superset
-        image: apache/superset:{{ SUPERSET_TAG }}
+        image: {{ DOCKER_IMAGE_SUPERSET }}
         env:
           - name: DATABASE_DIALECT
             value: "{{ SUPERSET_DB_DIALECT }}"
@@ -211,7 +211,7 @@ spec:
     spec:
       restartPolicy: Never
       containers:
-        image: apache/superset:{{ SUPERSET_TAG }}
+        image: {{ DOCKER_IMAGE_SUPERSET }}
         env:
           - name: DATABASE_DIALECT
             value: "{{ SUPERSET_DB_DIALECT }}"

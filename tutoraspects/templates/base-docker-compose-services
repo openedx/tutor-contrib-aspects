@@ -1,4 +1,4 @@
-image: apache/superset:{{ SUPERSET_TAG }}
+image: {{ DOCKER_IMAGE_SUPERSET }}
   user: root
   volumes:
     - ../../env/plugins/aspects/apps/superset/docker:/app/docker
