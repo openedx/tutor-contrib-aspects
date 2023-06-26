@@ -69,10 +69,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_VECTOR_RAW_TRACKING_LOGS_TABLE", "_tracking"),
         ("ASPECTS_VECTOR_RAW_XAPI_TABLE", "xapi_events_all"),
         # Make sure LMS / CMS have event-routing-backends installed
-<<<<<<< HEAD
-=======
-        
->>>>>>> 218d7df (fix: remove unused variables, do clean up work)
         ######################
         # ClickHouse Settings
         ("CLICKHOUSE_HOST", "clickhouse"),
@@ -282,17 +278,6 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
     ("superset", ("aspects", "jobs", "init", "superset", "init-superset.sh"), 93),
     ("lms", ("aspects", "jobs", "init", "superset", "init-openedx.sh"), 94),
     ("clickhouse", ("aspects", "jobs", "init", "clickhouse", "init-clickhouse.sh"), 95),
-    (
-        "clickhouse",
-        (
-            "aspects",
-            "jobs",
-            "init",
-            "clickhouse",
-            "aspects_init_schemas_tables_users.sh",
-        ),
-        96,
-    ),
     ("aspects", ("aspects", "jobs", "init", "dbt", "init-dbt.sh"), 97),
     (
         "superset",
@@ -358,11 +343,14 @@ hooks.Filters.IMAGES_PULL.add_items(
 #     ("<tutor_image_name>", "<docker_image_tag>")
 hooks.Filters.IMAGES_PUSH.add_items(
     [
-        # To push `myimage` with `tutor images push myimage`, you would write:
-        ### (
-        ###     "myimage",
-        ###     "docker.io/myimage:{{ ASPECTS_VERSION }}",
-        ### ),
+        (
+            "aspects-superset",
+            "{{DOCKER_IMAGE_SUPERSET}}",
+        ),
+        (
+            "aspects",
+            "{{DOCKER_IMAGE_ASPECTS}}",
+        ),
     ]
 )
 
