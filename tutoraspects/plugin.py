@@ -33,7 +33,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("RUN_SUPERSET", True),
         ("DOCKER_IMAGE_ASPECTS", "python:3.8"),
         ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:23.3"),
-        ("DOCKER_IMAGE_RALPH", "fundocker/ralph:3.6.0"),
+        ("DOCKER_IMAGE_RALPH", "fundocker/ralph:3.8.0"),
         ("DOCKER_IMAGE_SUPERSET", "apache/superset:2.0.1"),
         ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.30.0-alpine"),
         (
