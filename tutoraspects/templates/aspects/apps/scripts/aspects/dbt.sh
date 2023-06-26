@@ -4,7 +4,8 @@ python3 -m venv virtualenv
 . virtualenv/bin/activate
 
 echo "Installing dbt packages..."
-pip install {{ DBT_PACKAGES }}
+
+pip install -r requirements.txt
 
 echo "Installing aspects-dbt"
 git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }}

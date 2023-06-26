@@ -1,23 +1,13 @@
-#!/usr/bin/env bash
-set -e
+from superset.app import create_app
 
-#
-# Always install local overrides first
-#
-/usr/bin/env bash /app/docker/docker-bootstrap.sh
+app = create_app()
+app.app_context().push()
 
-# Set up a Row-Level Security filter to enforce course-based access restrictions.
-# Note: there are no cli commands or REST API endpoints to help us with this,
-# so we have to pipe python code directly into the superset shell. Yuck!
-superset shell <<EOF
-from superset.connectors.sqla.models import (
-    RowLevelSecurityFilter,
-    RLSFilterRoles,
-    SqlaTable,
-)
-from superset.utils.core import RowLevelSecurityFilterType
+from superset.connectors.sqla.models import (RLSFilterRoles,
+                                             RowLevelSecurityFilter, SqlaTable)
 from superset.extensions import security_manager
 from superset.migrations.shared.security_converge import Role
+from superset.utils.core import RowLevelSecurityFilterType
 
 session = security_manager.get_session()
 
@@ -43,6 +33,7 @@ for (schema, table_name, group_key, clause, filter_type) in (
     ).filter(
         SqlaTable.table_name == table_name
     ).first()
+    print(table)
     assert table, f"{schema}.{table_name} table doesn't exist yet?"
     # See if the Row Level Security Filter already exists
     rlsf = (
@@ -90,7 +81,3 @@ for (schema, table_name, group_key, clause, filter_type) in (
         session.commit()
 
 print("Successfully create row-level security filters.")
-
-EOF
-# The blank line above EOF is critical -- don't remove it.
-# And we can't have any indented blank lines for some reason, with code piped into the superset shell

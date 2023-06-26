@@ -31,10 +31,10 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("RUN_CLICKHOUSE", True),
         ("RUN_RALPH", True),
         ("RUN_SUPERSET", True),
-        ("DOCKER_IMAGE_ASPECTS", "python:3.8"),
+        ("DOCKER_IMAGE_ASPECTS", "edunext/aspects:{{ ASPECTS_VERSION }}"),
         ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:23.3"),
         ("DOCKER_IMAGE_RALPH", "fundocker/ralph:3.8.0"),
-        ("DOCKER_IMAGE_SUPERSET", "apache/superset:2.0.1"),
+        ("DOCKER_IMAGE_SUPERSET", "edunext/aspects-superset:{{ ASPECTS_VERSION }}"),
         ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.30.0-alpine"),
         (
             "OPENEDX_EXTRA_PIP_REQUIREMENTS",
@@ -112,6 +112,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("SUPERSET_DB_PORT", "{{ MYSQL_PORT }}"),
         ("SUPERSET_DB_NAME", "superset"),
         ("SUPERSET_DB_USERNAME", "superset"),
+        ("SUPERSET_EXTRA_REQUIREMENTS", []),
         ("SUPERSET_OAUTH2_ACCESS_TOKEN_PATH", "/oauth2/access_token/"),
         ("SUPERSET_OAUTH2_AUTHORIZE_PATH", "/oauth2/authorize/"),
         (
@@ -160,7 +161,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DBT_REPOSITORY_PATH", "aspects-dbt/aspects"),
         # This is a pip compliant list of Python packages to install to run dbt
         # make sure packages with versions are enclosed in double quotes
-        ("DBT_PACKAGES", '"dbt-core==1.4.0" "dbt-clickhouse==1.4.1"'),
+        ("EXTRA_DBT_PACKAGES", []),
         # If set, DDL/table operations will be executed with the `ON CLUSTER` clause
         # using this cluster. This has not been tested with Aspects and is unlikely to
         # work.
@@ -275,21 +276,10 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 # ("<service>", ("<path>", "<to>", "<script>", "<template>"))
 MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
     ("mysql", ("aspects", "jobs", "init", "superset", "init-mysql.sh"), 92),
-    ("superset", ("aspects", "jobs", "init", "superset", "init-superset.sh"), 93),
-    ("lms", ("aspects", "jobs", "init", "superset", "init-openedx.sh"), 94),
-    ("clickhouse", ("aspects", "jobs", "init", "clickhouse", "init-clickhouse.sh"), 95),
-    ("aspects", ("aspects", "jobs", "init", "dbt", "init-dbt.sh"), 97),
-    (
-        "superset",
-        ("aspects", "jobs", "init", "superset", "superset-init-security.sh"),
-        99,
-    ),
-    ("lms", ("aspects", "jobs", "init", "lms", "configure-aspects-lms.sh"), 100),
-    (
-        "superset",
-        ("aspects", "jobs", "init", "superset", "superset-api-dashboard.sh"),
-        101,
-    ),
+    ("clickhouse", ("aspects", "jobs", "init", "clickhouse", "init-clickhouse.sh"), 93),
+    ("superset", ("aspects", "jobs", "init", "superset", "init-superset.sh"), 94),
+    ("lms", ("aspects", "jobs", "init", "superset", "init-openedx.sh"), 95),
+    ("aspects", ("aspects", "jobs", "init", "dbt", "init-dbt.sh"), 96),
 ]
 
 # For each task added to MY_INIT_TASKS, we load the task template
@@ -313,15 +303,18 @@ for service, template_path, priority in MY_INIT_TASKS:
 #     ("<tutor_image_name>", ("path", "to", "build", "dir"), "<docker_image_tag>", "<build_args>")
 hooks.Filters.IMAGES_BUILD.add_items(
     [
-        # To build `myimage` with `tutor images build myimage`,
-        # you would add a Dockerfile to templates/aspects/build/myimage,
-        # and then write:
-        ### (
-        ###     "myimage",
-        ###     ("plugins", "aspects", "build", "myimage"),
-        ###     "docker.io/myimage:{{ ASPECTS_VERSION }}",
-        ###     (),
-        ### ),
+        (
+            "aspects-superset",
+            ("plugins", "aspects", "build", "aspects-superset"),
+            "{{DOCKER_IMAGE_SUPERSET}}",
+            (),
+        ),
+        (
+            "aspects",
+            ("plugins", "aspects", "build", "aspects"),
+            "{{DOCKER_IMAGE_ASPECTS}}",
+            (),
+        ),
     ]
 )
 
@@ -330,11 +323,14 @@ hooks.Filters.IMAGES_BUILD.add_items(
 #     ("<tutor_image_name>", "<docker_image_tag>")
 hooks.Filters.IMAGES_PULL.add_items(
     [
-        # To pull `myimage` with `tutor images pull myimage`, you would write:
-        ### (
-        ###     "myimage",
-        ###     "docker.io/myimage:{{ ASPECTS_VERSION }}",
-        ### ),
+        (
+            "aspects-superset",
+            "{{DOCKER_IMAGE_SUPERSET}}",
+        ),
+        (
+            "aspects",
+            "{{DOCKER_IMAGE_ASPECTS}}",
+        ),
     ]
 )
 
