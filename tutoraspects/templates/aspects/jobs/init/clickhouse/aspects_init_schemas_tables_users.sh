@@ -243,9 +243,17 @@ SELECT
     org,
     verb_id,
     JSON_VALUE(event_str, '$.object.definition.type') AS object_type,
-    JSON_VALUE(
-        event_str,
-        '$.context.extensions."http://id.tincanapi.com/extension/starting-position"'
+    -- clicking a link and selecting a module outline have no starting-position field
+    if (
+        object_type in (
+            'http://adlnet.gov/expapi/activities/link',
+            'http://adlnet.gov/expapi/activities/module'
+        ),
+        0,
+        cast(JSON_VALUE(
+            event_str,
+            '$.context.extensions."http://id.tincanapi.com/extension/starting-position"'
+        ) as Int16)
     ) AS starting_position,
     JSON_VALUE(
         event_str,
