@@ -156,6 +156,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
         ("DBT_BRANCH", "main"),
+        # Path to the dbt project inside the repository
+        ("DBT_REPOSITORY_PATH", "aspects-dbt/aspects"),
         # This is a pip compliant list of Python packages to install to run dbt
         # make sure packages with versions are enclosed in double quotes
         ("DBT_PACKAGES", '"dbt-core==1.4.0" "dbt-clickhouse==1.4.1"'),
