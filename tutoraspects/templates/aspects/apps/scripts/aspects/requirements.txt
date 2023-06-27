@@ -1,0 +1,1 @@
+{% for requirement in EXTRA_DBT_PACKAGES %}{{ requirement }}{% endfor %}

@@ -81,7 +81,7 @@ superset-worker-beat:
 vector:
     image: {{ DOCKER_IMAGE_VECTOR }}
     volumes:
-        - ../../aspects/data/vector:/var/lib/vector
+        - ../../data/vector:/var/lib/vector
         - ../plugins/aspects/apps/vector/local.toml:/etc/vector/vector.toml:ro
         {% if ASPECTS_DOCKER_HOST_SOCK_PATH %}- {{ ASPECTS_DOCKER_HOST_SOCK_PATH }}:/var/run/docker.sock:ro{% endif %}
     environment:

@@ -1,4 +1,1 @@
-authlib  # OAuth2
-mysqlclient
-clickhouse-connect>0.5,<0.6
-sentry-sdk[flask]
+{% for requirement in SUPERSET_EXTRA_REQUIREMENTS %}{{ requirement }}{% endfor %}
