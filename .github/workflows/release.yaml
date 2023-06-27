@@ -49,6 +49,7 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
             title: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
+            commit-message: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
             body: |
               Automated version bump for release ${{ steps.tag_version.outputs.new_version }}.
               This pull request was automatically generated.
@@ -57,9 +58,8 @@ jobs:
               No code changes are included in this pull request. The purpose of this PR is to trigger a version bump for the project.
               Once the pull request is merged, a new GitHub release will be created with the updated version.
             base: main
-            labels: automated-pr
             branch: "bot/${{steps.tag_version.outputs.new_version}}"
-            delete-branch: false
+
   release:
     needs: bumpversion
     if: needs.bumpversion.outputs.version
