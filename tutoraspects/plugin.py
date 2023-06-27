@@ -72,9 +72,20 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ######################
         # ClickHouse Settings
         ("CLICKHOUSE_HOST", "clickhouse"),
-        ("CLICKHOUSE_PORT", "9000"),
+        ("CLICKHOUSE_CLIENT_HTTP_PORT", "9000"),
+        ("CLICKHOUSE_CLIENT_HTTPS_PORT", "9440"),
+        (
+            "CLICKHOUSE_CLIENT_PORT",
+            "{% if CLICKHOUSE_SECURE_CONNECTION %}"
+            "{{CLICKHOUSE_CLIENT_HTTPS_PORT}}{% else %}{{CLICKHOUSE_CLIENT_HTTP_PORT}}{% endif %}",
+        ),
         ("CLICKHOUSE_HTTP_PORT", "8123"),
         ("CLICKHOUSE_HTTPS_PORT", "8443"),
+        (
+            "CLICKHOUSE_PORT",
+            "{% if CLICKHOUSE_SECURE_CONNECTION %}"
+            "{{CLICKHOUSE_HTTPS_PORT}}{% else %}{{CLICKHOUSE_HTTP_PORT}}{% endif %}",
+        ),
         # This can be used to override some configuration values in
         # via "docker_config.xml" file, which will be read from a
         # mount on /etc/clickhouse-server/config.d/ on startup.
@@ -89,6 +100,19 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
     <listen_host>0.0.0.0</listen_host>
     <listen_try>1</listen_try>
         """,
+        ),
+        (
+            "CLICKHOUSE_URL",
+            "{{CLICKHOUSE_HOST}}:{{CLICKHOUSE_PORT}}",
+        ),
+        (
+            "CLICKHOUSE_REPORT_URL",
+            "{{ASPECTS_CLICKHOUSE_REPORT_USER}}:{{ASPECTS_CLICKHOUSE_REPORT_PASSWORD}}"
+            "@{{CLICKHOUSE_URL}}/{{ASPECTS_XAPI_DATABASE}}",
+        ),
+        (
+            "CLICKHOUSE_REPORT_SQLALCHEMY_URI",
+            "clickhousedb+connect://{{CLICKHOUSE_REPORT_URL}}",
         ),
         ######################
         # Ralph Settings

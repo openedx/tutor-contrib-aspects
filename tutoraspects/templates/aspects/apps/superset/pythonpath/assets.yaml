@@ -587,7 +587,7 @@
 
 - _file_name: OpenedX_Clickhouse.yaml
   database_name: OpenedX Clickhouse
-  sqlalchemy_uri: clickhousedb+connect://{{ASPECTS_CLICKHOUSE_REPORT_USER}}:{{ASPECTS_CLICKHOUSE_REPORT_PASSWORD}}@{{CLICKHOUSE_HOST}}:{% if CLICKHOUSE_SECURE_CONNECTION%}{{CLICKHOUSE_HTTPS_PORT}}{% else %}{{CLICKHOUSE_HTTP_PORT}}{% endif %}/{{ASPECTS_XAPI_DATABASE}}
+  sqlalchemy_uri: {{CLICKHOUSE_REPORT_SQLALCHEMY_URI}}
   cache_timeout: null
   expose_in_sqllab: true
   allow_run_async: false

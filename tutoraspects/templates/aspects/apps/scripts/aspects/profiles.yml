@@ -5,7 +5,7 @@ aspects: # this needs to match the profile in your dbt_project.yml file
       type: clickhouse
       schema: {{ ASPECTS_XAPI_DATABASE }}
       host: {{ CLICKHOUSE_HOST }}
-      port: {{ CLICKHOUSE_HTTP_PORT }}
+      port: {{ CLICKHOUSE_PORT }}
       user: {{ CLICKHOUSE_ADMIN_USER }}
       password: '{{ CLICKHOUSE_ADMIN_PASSWORD }}'
 
