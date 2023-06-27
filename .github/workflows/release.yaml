@@ -25,6 +25,9 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: "3.8"
+      - name: Get current PR
+        uses: 8BitJonny/gh-get-current-pr@2.2.0
+        id: PR
       - name: Create bumpversion
         if: steps.tag_version.outputs.new_version
         run: |
@@ -45,6 +48,26 @@ jobs:
           create_branch: true
           commit_message: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
           file_pattern: CHANGELOG.md setup.cfg tutoraspects/*
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+            title: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
+            body: |
+              Automated version bump for release ${{ steps.tag_version.outputs.new_version }}.
+
+              This pull request was automatically generated. It includes the following changes:
+
+              - Next version: ${{ steps.tag_version.outputs.new_version }}
+              - Original pull request: ${{ steps.PR.outputs.number }}
+              - Changelog: ${{ steps.tag_version.outputs.changelog }}
+
+              No code changes are included in this pull request. The purpose of this PR is to trigger a version bump for the project.
+
+              Once the pull request is merged, a new GitHub release will be created with the updated version.
+            base: main
+            labels: automated-pr
+            branch: bot/${{steps.tag_version.outputs.new_version}}
+            delete-branch: true
   release:
     needs: bumpversion
     if: needs.bumpversion.outputs.version
