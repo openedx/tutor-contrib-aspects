@@ -602,4 +602,410 @@
   uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
   version: 1.0.0
 
+- _file_name: video_plays.yaml
+  cache_timeout: null
+  columns:
+  - advanced_data_type: null
+    column_name: emission_time
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: true
+    python_date_format: null
+    type: DateTime64(6)
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: actor_id
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: course_id
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: video_id
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: org
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+  default_endpoint: null
+  description: null
+  extra: null
+  fetch_values_predicate: null
+  filter_select_enabled: false
+  main_dttm_col: emission_time
+  metrics:
+  - d3format: null
+    description: null
+    expression: COUNT(distinct actor_id)
+    extra: {}
+    metric_name: distinct_plays
+    metric_type: null
+    verbose_name: Unique video watchers
+    warning_text: null
+  - d3format: null
+    description: null
+    expression: COUNT(*)
+    extra:
+      warning_markdown: ''
+    metric_name: count
+    metric_type: count
+    verbose_name: Total video watches
+    warning_text: null
+  offset: 0
+  params: null
+  schema: {{ ASPECTS_XAPI_DATABASE }}
+  sql: ''
+  table_name: video_plays
+  template_params: null
+  uuid: 14b6e4d0-7345-4477-9a11-85a7359bc3b1
+  version: 1.0.0
+
+- _file_name: transcript_usage.yaml
+  cache_timeout: null
+  columns:
+  - advanced_data_type: null
+    column_name: emission_time
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: true
+    python_date_format: null
+    type: DateTime64(6)
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: actor_id
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: course_id
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: video_id
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: org
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+  default_endpoint: null
+  description: null
+  extra: null
+  fetch_values_predicate: null
+  filter_select_enabled: false
+  main_dttm_col: emission_time
+  metrics:
+  - d3format: null
+    description: null
+    expression: COUNT(distinct actor_id)
+    extra: {}
+    metric_name: distinct_learners
+    metric_type: null
+    verbose_name: distinct actor_id
+    warning_text: null
+  - d3format: null
+    description: null
+    expression: COUNT(*)
+    extra:
+      warning_markdown: ''
+    metric_name: count
+    metric_type: count
+    verbose_name: COUNT(*)
+    warning_text: null
+  offset: 0
+  params: null
+  schema: {{ ASPECTS_XAPI_DATABASE }}
+  sql: ''
+  table_name: transcript_usage
+  template_params: null
+  uuid: bfbc2c72-4745-40ff-a7db-786711b90321
+  version: 1.0.0
+
+- _file_name: Instructor_dashboard_4.yaml
+  css: ''
+  dashboard_title: Instructor dashboard
+  description: null
+  metadata:
+    chart_configuration: {}
+    color_scheme: ''
+    default_filters: '{}'
+    expanded_slices: {}
+    label_colors: {}
+    native_filter_configuration:
+    - cascadeParentIds: []
+      chartsInScope:
+      - 12
+      controlValues:
+        defaultToFirstItem: true
+        enableEmptyFilter: true
+        inverseSelection: false
+        multiSelect: true
+        searchAllOptions: false
+      defaultDataMask:
+        extraFormData: {}
+        filterState: {}
+        ownState: {}
+      description: ''
+      filterType: filter_select
+      id: NATIVE_FILTER-Vx7HxG8_7
+      name: org
+      requiredFirst: true
+      scope:
+        excluded: []
+        rootPath:
+        - ROOT_ID
+      tabsInScope: []
+      targets:
+      - column:
+          name: org
+        datasetUuid: 14b6e4d0-7345-4477-9a11-85a7359bc3b1
+      type: NATIVE_FILTER
+    - cascadeParentIds:
+      - NATIVE_FILTER-Vx7HxG8_7
+      chartsInScope:
+      - 13
+      controlValues:
+        defaultToFirstItem: true
+        enableEmptyFilter: true
+        inverseSelection: false
+        multiSelect: true
+        searchAllOptions: false
+      defaultDataMask:
+        extraFormData: {}
+        filterState: {}
+        ownState: {}
+      description: ''
+      filterType: filter_select
+      id: NATIVE_FILTER-XPuiTOej4
+      name: course_id
+      requiredFirst: true
+      scope:
+        excluded: []
+        rootPath:
+        - ROOT_ID
+      tabsInScope: []
+      targets:
+      - column:
+          name: course_id
+        datasetUuid: 14b6e4d0-7345-4477-9a11-85a7359bc3b1
+      type: NATIVE_FILTER
+    refresh_frequency: 0
+    shared_label_colors: {}
+    show_native_filters: true
+    timed_refresh_immune_slices: []
+  position:
+    CHART-qKje4F2Q8q:
+      children: []
+      id: CHART-qKje4F2Q8q
+      meta:
+        chartId: 13
+        height: 51
+        sliceName: Watches per video
+        uuid: eaa6dad7-df51-4e51-b300-6baf30b8e330
+        width: 12
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-DxLgJisWQW
+      type: CHART
+    CHART-yJYiCvzxJX:
+      children: []
+      id: CHART-yJYiCvzxJX
+      meta:
+        chartId: 14
+        height: 50
+        sliceName: Transcript/closed captioning usage per video
+        uuid: 5593cd9b-81d4-4b9f-b4a7-cd377c92c5e6
+        width: 12
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-porCi0mdxp
+      type: CHART
+    DASHBOARD_VERSION_KEY: v2
+    GRID_ID:
+      children:
+      - ROW-DxLgJisWQW
+      - ROW-porCi0mdxp
+      id: GRID_ID
+      parents:
+      - ROOT_ID
+      type: GRID
+    HEADER_ID:
+      id: HEADER_ID
+      meta:
+        text: Instructor dashboard
+      type: HEADER
+    ROOT_ID:
+      children:
+      - GRID_ID
+      id: ROOT_ID
+      type: ROOT
+    ROW-DxLgJisWQW:
+      children:
+      - CHART-qKje4F2Q8q
+      id: ROW-DxLgJisWQW
+      meta:
+        background: BACKGROUND_TRANSPARENT
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      type: ROW
+    ROW-porCi0mdxp:
+      children:
+      - CHART-yJYiCvzxJX
+      id: ROW-porCi0mdxp
+      meta:
+        background: BACKGROUND_TRANSPARENT
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      type: ROW
+  slug: null
+  uuid: 1d6bf904-f53f-47fd-b1c9-6cd7e284d286
+  version: 1.0.0
+
+- _file_name: Watches_per_video_12.yaml
+  cache_timeout: null
+  dataset_uuid: 14b6e4d0-7345-4477-9a11-85a7359bc3b1
+  params:
+    adhoc_filters: []
+    bar_stacked: true
+    bottom_margin: auto
+    color_scheme: supersetColors
+    columns: []
+    datasource: 6__table
+    extra_form_data: {}
+    granularity_sqla: emission_time
+    groupby:
+    - video_id
+    metrics:
+    - distinct_plays
+    - count
+    order_desc: true
+    rich_tooltip: true
+    row_limit: 10000
+    show_legend: true
+    time_range: No filter
+    viz_type: dist_bar
+    x_ticks_layout: auto
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+  slice_name: Watches per video
+  uuid: eaa6dad7-df51-4e51-b300-6baf30b8e330
+  version: 1.0.0
+  viz_type: dist_bar
+
+- _file_name: Transcript_closed_captioning_usage_per_video_14.yaml
+  cache_timeout: null
+  dataset_uuid: bfbc2c72-4745-40ff-a7db-786711b90321
+  params:
+    adhoc_filters: []
+    bar_stacked: true
+    bottom_margin: auto
+    color_scheme: supersetColors
+    columns: []
+    datasource: 8__table
+    extra_form_data: {}
+    granularity_sqla: emission_time
+    groupby:
+    - video_id
+    metrics:
+    - distinct_learners
+    - count
+    order_desc: true
+    rich_tooltip: true
+    row_limit: 10000
+    show_legend: true
+    time_range: No filter
+    viz_type: dist_bar
+    x_ticks_layout: auto
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+  slice_name: Transcript/closed captioning usage per video
+  uuid: 5593cd9b-81d4-4b9f-b4a7-cd377c92c5e6
+  version: 1.0.0
+  viz_type: dist_bar
+
+
+
 {{ patch("superset-extra-assets") }}
