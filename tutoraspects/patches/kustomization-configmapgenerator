@@ -1,9 +1,16 @@
 - name: aspects-scripts
-  files:{% for file in "aspects/apps/scripts"|walk_templates %}
+  files:{% for file in "aspects/apps/aspects/scripts"|walk_templates %}
   - plugins/{{ file }}{% endfor %}
   options:
     labels:
         app.kubernetes.io/name: aspects
+- name: aspects-dbt
+  files:{% for file in "aspects/apps/aspects/dbt"|walk_templates %}
+  - plugins/{{ file }}{% endfor %}
+  options:
+    labels:
+        app.kubernetes.io/name: aspects
+
 {% if RUN_CLICKHOUSE %}
 - name: clickhouse-settings
   files:

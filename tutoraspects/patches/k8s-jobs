@@ -19,12 +19,17 @@ spec:
           allowPrivilegeEscalation: false
           runAsUser: 0
         volumeMounts:
-            - mountPath: /app/aspects/scripts
-              name: scripts
+          - mountPath: /app/aspects/dbt
+            name: dbt
+          - mountPath: /app/aspects/scripts
+            name: scripts
       volumes:
         - name: scripts
           configMap:
             name: aspects-scripts
+        - name: dbt
+          configMap:
+            name: aspects-dbt
 ---
 apiVersion: batch/v1
 kind: Job
