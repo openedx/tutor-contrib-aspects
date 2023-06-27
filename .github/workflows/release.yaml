@@ -41,7 +41,8 @@ jobs:
         if: steps.tag_version.outputs.new_version
         uses: stefanzweifel/git-auto-commit-action@v4.14.1
         with:
-          branch: ${{ github.ref }}
+          branch: bot/${{steps.tag_version.outputs.new_version}}
+          create_branch: true
           commit_message: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
           file_pattern: CHANGELOG.md setup.cfg tutoraspects/*
   release:
