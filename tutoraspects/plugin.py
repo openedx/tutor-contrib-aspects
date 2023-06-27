@@ -114,6 +114,11 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "CLICKHOUSE_REPORT_SQLALCHEMY_URI",
             "clickhousedb+connect://{{CLICKHOUSE_REPORT_URL}}",
         ),
+        (
+            "CLICKHOUSE_ADMIN_SQLALCHEMY_URI",
+            "clickhouse+native://{{CLICKHOUSE_ADMIN_USER}}:{{CLICKHOUSE_ADMIN_PASSWORD}}"
+            "@{{CLICKHOUSE_HOST}}/{{ASPECTS_XAPI_DATABASE}}",
+        ),
         ######################
         # Ralph Settings
         # Change to https:// if the public interface to it is secure
@@ -305,9 +310,9 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
     ("mysql", ("aspects", "jobs", "init", "superset", "init-mysql.sh"), 92),
     ("clickhouse", ("aspects", "jobs", "init", "clickhouse", "init-clickhouse.sh"), 93),
-    ("superset", ("aspects", "jobs", "init", "superset", "init-superset.sh"), 94),
-    ("lms", ("aspects", "jobs", "init", "superset", "init-openedx.sh"), 95),
-    ("aspects", ("aspects", "jobs", "init", "dbt", "init-dbt.sh"), 96),
+    ("aspects", ("aspects", "jobs", "init", "aspects", "init-aspects.sh"), 94),
+    ("superset", ("aspects", "jobs", "init", "superset", "init-superset.sh"), 95),
+    ("lms", ("aspects", "jobs", "init", "superset", "init-openedx.sh"), 96),
 ]
 
 # For each task added to MY_INIT_TASKS, we load the task template
@@ -434,7 +439,6 @@ def load_xapi_test_data(num_batches: int, batch_size: int) -> list[tuple[str, st
     """
     return [
         (
-            "aspects",
             "echo 'Making demo xapi script executable...' && "
             "chmod +x /app/aspects/scripts/clickhouse-demo-xapi-data.sh && "
             "echo 'Done. Running script...' && "
@@ -479,9 +483,44 @@ def dbt(command: string) -> list[tuple[str, str]]:
     ]
 
 
+# Ex: "tutor local do alembic "
+@click.command(context_settings={"ignore_unknown_options": True})
+@click.option(
+    "-c",
+    "--command",
+    default="run",
+    type=click.UNPROCESSED,
+    help="""The full alembic command to run configured ClickHouse database, wrapped in
+            double quotes. The list of commands can be found in the CLI section here:
+            https://alembic.sqlalchemy.org/en/latest/cli.html#command-reference
+            Examples:
+            
+            tutor local do alembic -c "current" # Show current revision
+            tutor local do alembic -c "history" # Show revision history
+            tutor local do alembic -c "revision --autogenerate -m 'Add new table'" # Create new revision
+            tutor local do alembic -c "upgrade head" # Upgrade to latest migrations
+            tutor local do alembic -c "downgrade base" # Downgrade to base migration
+         """,
+)
+def alembic(command: string) -> list[tuple[str, str]]:
+    """
+    Job that proxies alembic commands to a container which runs them against ClickHouse.
+    """
+    return [
+        (
+            "aspects",
+            "echo 'Making dbt script executable...' && "
+            "chmod +x /app/aspects/scripts/dbt.sh && "
+            f"bash /app/aspects/scripts/alembic.sh {command} && "
+            "echo 'Done!';",
+        ),
+    ]
+
+
 # Add the command function to CLI_DO_COMMANDS:
 hooks.Filters.CLI_DO_COMMANDS.add_item(load_xapi_test_data)
 hooks.Filters.CLI_DO_COMMANDS.add_item(dbt)
+hooks.Filters.CLI_DO_COMMANDS.add_item(alembic)
 
 
 #######################################
