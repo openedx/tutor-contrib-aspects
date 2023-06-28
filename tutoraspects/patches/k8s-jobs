@@ -14,6 +14,10 @@ spec:
         env:
           - name: VENV_DIR
             value: /opt/venv
+          - name: XAPI_SCHEMA
+            value: {{ ASPECTS_XAPI_DATABASE }}
+          - name: ASPECTS_ENROLLMENT_EVENTS_TABLE
+            value: {{ ASPECTS_ENROLLMENT_EVENTS_TABLE }}
         image: {{ DOCKER_IMAGE_ASPECTS }}
         securityContext:
           allowPrivilegeEscalation: false
