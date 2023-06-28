@@ -154,7 +154,7 @@ To contribute assets to Aspects:
    databases, you'll need to update ``SUPERSET_DB_PASSWORDS`` in the init scripts.
    Here is the default connection string for reference::
 
-    ``clickhousedb+connect://{{ASPECTS_CLICKHOUSE_REPORT_USER}}:{{ASPECTS_CLICKHOUSE_REPORT_PASSWORD}}@{{CLICKHOUSE_HOST}}:{% if CLICKHOUSE_SECURE_CONNECTION%}{{CLICKHOUSE_HTTPS_PORT}}{% else %}{{CLICKHOUSE_HTTP_PORT}}{% endif %}/{{ASPECTS_XAPI_DATABASE}}``
+    ``clickhousedb+connect://{{CLICKHOUSE_REPORT_URL}}``
 #. Remove any ``metadata.yaml`` files from the export. We generate these as needed during import.
 #. Merge your exported files into the directories and files in the `assets.yaml`_.
 #. Submit a PR with screenshots of your new chart or dashboards, along with an explanation
