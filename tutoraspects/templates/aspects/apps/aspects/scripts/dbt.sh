@@ -16,4 +16,4 @@ echo "Installing dbt dependencies"
 dbt deps --profiles-dir /app/aspects/dbt/
 
 echo "Running dbt $*"
-dbt "$@" --profiles-dir /app/aspects/dbt/
+XAPI_SCHEMA={{ ASPECTS_XAPI_DATABASE }} ASPECTS_ENROLLMENT_EVENTS_TABLE={{ ASPECTS_ENROLLMENT_EVENTS_TABLE }} dbt "$@" --profiles-dir /app/aspects/dbt/

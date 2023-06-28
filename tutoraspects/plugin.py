@@ -193,7 +193,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Validate TLS certificate if using TLS/SSL
         ("DBT_PROFILE_VERIFY", "True"),
         # Use TLS (native protocol) or HTTPS (http protocol)
-        ("DBT_PROFILE_SECURE", "False"),
+        ("DBT_PROFILE_SECURE", "{{ CLICKHOUSE_SECURE_CONNECTION }}"),
         # Number of times to retry a "retryable" database exception (such as a 503
         # 'Service Unavailable' error)
         ("DBT_PROFILE_RETRIES", "3"),
