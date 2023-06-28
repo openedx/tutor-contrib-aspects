@@ -2,7 +2,7 @@ aspects-job:
   user: root
   image: {{ DOCKER_IMAGE_ASPECTS }}
   volumes:
-    - ../../env/plugins/aspects/apps:/app/aspects
+    - ../../env/plugins/aspects/apps/aspects:/app/aspects
   depends_on:
     - superset {% if RUN_CLICKHOUSE%}
     - clickhouse{% endif %}
