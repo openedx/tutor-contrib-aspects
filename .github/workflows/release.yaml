@@ -7,6 +7,8 @@ on:
 jobs:
   bumpversion:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     outputs:
       version: ${{ steps.tag_version.outputs.new_version }}
       previous_tag: ${{ steps.tag_version.outputs.previous_tag }}
@@ -36,35 +38,14 @@ jobs:
         with:
           latest-version: ${{ steps.tag_version.outputs.new_tag }}
           release-notes: ${{ steps.tag_version.outputs.changelog }}
-      - name: Commit bumpversion
-        id: bumpversion
-        if: steps.tag_version.outputs.new_version
-        uses: stefanzweifel/git-auto-commit-action@v4.14.1
+      - name: Push branch
+        run: |
+          git checkout -b bot/v${{ steps.tag_version.outputs.new_version }}
+          git push origin bot/v${{ steps.tag_version.outputs.new_version }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
         with:
-          branch: ${{ github.ref }}
-          commit_message: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
-          file_pattern: CHANGELOG.md setup.cfg tutoraspects/*
-  release:
-    needs: bumpversion
-    if: needs.bumpversion.outputs.version
-    runs-on: ubuntu-latest
-    outputs:
-      tag: ${{ steps.tag_version.outputs.new_tag }}
-      changelog: ${{ steps.tag_version.outputs.changelog }}
-    steps:
-      - uses: actions/checkout@v3
-      - name: Create tag
-        id: tag_version
-        uses: mathieudutour/github-tag-action@v6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          commit_sha: ${{ needs.bumpversion.outputs.bump_commit_sha }}
-          default_bump: false
-          default_prerelease_bump: false
-      - name: Create a GitHub release
-        if: steps.tag_version.outputs.new_tag
-        uses: ncipollo/release-action@v1
-        with:
-          tag: ${{ steps.tag_version.outputs.new_tag }}
-          name: Release ${{ steps.tag_version.outputs.new_tag }}
-          body: ${{ steps.tag_version.outputs.changelog }}
+          token: ${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}
+          commit-message: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
+          branch: "bot/v${{steps.tag_version.outputs.new_version}}"
+          base: main
