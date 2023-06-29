@@ -31,7 +31,7 @@ jobs:
         if: steps.tag_version.outputs.new_version
         run: |
           pip install bump2version
-          bump2version --new-version ${{ steps.tag_version.outputs.new_version }} setup.cfg
+          bump2version --new-version ${{ steps.tag_version.outputs.new_version }} setup.cfg tutoraspects/__about__.py
       - name: Update Changelog
         if: steps.tag_version.outputs.new_version
         uses: stefanzweifel/changelog-updater-action@v1.6.2
@@ -49,3 +49,40 @@ jobs:
           commit-message: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
           branch: "bot/v${{steps.tag_version.outputs.new_version}}"
           base: main
+          body: |
+            Automated version bump for release ${{ steps.tag_version.outputs.new_version }}.
+          
+            This pull request was automatically generated. It includes the following changes:
+          
+            - Version: ${{ steps.tag_version.outputs.new_version }}
+            - Previous version: ${{ steps.tag_version.outputs.previous_tag }}
+            
+            ${{ steps.tag_version.outputs.changelog }}
+          
+            No code changes are included in this pull request. The purpose of this PR is to trigger a version bump for the project.
+          
+            Once the pull request is merged, a new GitHub release will be created with the updated version.
+  release:
+    needs: bumpversion
+    if: needs.bumpversion.outputs.version
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.tag_version.outputs.new_tag }}
+      changelog: ${{ steps.tag_version.outputs.changelog }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit_sha: ${{ needs.bumpversion.outputs.bump_commit_sha }}
+          default_bump: false
+          default_prerelease_bump: false
+      - name: Create a GitHub release
+        if: steps.tag_version.outputs.new_tag
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
