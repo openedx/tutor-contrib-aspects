@@ -4,11 +4,11 @@ on:
     types:
       - closed
     branches:
-      - bot/v*
+      - main
 
 jobs:
   release:
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'bot/v')
     runs-on: ubuntu-latest
     permissions:
       contents: write
