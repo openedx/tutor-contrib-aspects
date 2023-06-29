@@ -186,6 +186,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # This is a pip compliant list of Python packages to install to run dbt
         # make sure packages with versions are enclosed in double quotes
         ("EXTRA_DBT_PACKAGES", []),
+        # This is the name of the database dbt will write to
+        ("DBT_PROFILE_TARGET_DATABASE", "reporting"),
         # If set, DDL/table operations will be executed with the `ON CLUSTER` clause
         # using this cluster. This has not been tested with Aspects and is unlikely to
         # work.
