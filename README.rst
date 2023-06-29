@@ -209,6 +209,86 @@ Available languages are stored in a mapping, and so best edited directly in Tuto
 
 Where the first key is the abbreviation of the language to use, "flag" is which flag icon is displayed in the user interface for choosing the language, and "name" is the displayed name for that language. The mapping above shows all of the current languages supported by Superset, but please note that different languages have different levels of completion and support at this time.
 
+Adding custom Row Level Security Filters to Superset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you add new datasources, tables, or fields to Superset, you may want to add new `row level security filters`_ 
+to restrict access to that data based on things like course roles, or organization. To apply custom row level
+security filters to Superset, you can do so by using the patch `superset-row-level-security`. This patch expects
+a list of python dictionaries with the following structure:
+
+..  code-block:: yaml
+    
+    superset-row-level-security: |
+        {
+            "schema": "{{ASPECTS_XAPI_DATABASE}}",
+            "table_name": "{{ASPECTS_XAPI_TABLE}}",
+            "role_name": "{{SUPERSET_OPENEDX_ROLE_NAME}}",
+            "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
+            "clause": {% raw %}'{{can_view_courses(current_username(), "splitByChar(\'/\', course_id)[-1]")}}',{% endraw %}
+            "filter_type": "Regular",
+        },
+
+
+.. _row level security filters: https://superset.apache.org/docs/security#row-level-security
+
+.. note::
+    Make sure that your table already exists before trying to apply a security filter.
+    If you see an error `AssertionError: {schema.table} table doesn't exist yet?`, then
+    you need to create the dataset in Superset first.
+
+You can also add extra SQL `jinja filters`_ to the Superset environment by using the patch
+`superset-jinja-filters`, which you can use to define new filters like the ``can_view_courses``
+clause used above. This patch expects valid python code, and the function should return
+an SQL fragment as a string, e.g:
+
+.. _jinja filters: https://superset.apache.org/docs/installation/sql-templating/
+
+..  code-block:: yaml
+
+    superset-jinja-filters: |
+        ALL_COURSES = "1 = 1"
+        NO_COURSES = "1 = 0"
+        def can_view_courses(username, field_name="course_id"):
+            """
+            Returns SQL WHERE clause which restricts access to the courses the current user has staff access to.
+            """
+            from superset.extensions import security_manager
+            user = security_manager.get_user_by_username(username)
+            if user:
+                user_roles = security_manager.get_user_roles(user)
+            else:
+                user_roles = []
+
+            # Users with no roles don't get to see any courses
+            if not user_roles:
+                return NO_COURSES
+
+            # Superusers and global staff have access to all courses
+            for role in user_roles:
+                if str(role) == "Admin" or str(role) == "Alpha":
+                    return ALL_COURSES
+
+            # Everyone else only has access if they're staff on a course.
+            courses = security_manager.get_courses(username)
+
+            # TODO: what happens when the list of courses grows beyond what the query will handle?
+            if courses:
+                course_id_list = ", ".join(f"'{course_id}'" for course_id in courses)
+                return f"{field_name} in ({course_id_list})"
+            else:
+                # If you're not course staff on any courses, you don't get to see any.
+                return NO_COURSES
+
+Once the custom jinja filter is necessary to register it using `SUPERSET_EXTRA_JINJA_FILTERS` in the config.yaml
+file. It's a dictionary that expects a key for the name of the filter and the name of underlying function:
+
+.. code-block:: yaml
+
+    SUPERSET_EXTRA_JINJA_FILTERS:
+        can_view_courses: 'can_view_courses'
+
+
 
 Extending the DBT project
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
