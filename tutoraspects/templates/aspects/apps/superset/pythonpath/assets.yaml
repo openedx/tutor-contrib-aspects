@@ -692,7 +692,7 @@
     warning_text: null
   offset: 0
   params: null
-  schema: {{ ASPECTS_XAPI_DATABASE }}
+  schema: {{ DBT_PROFILE_TARGET_DATABASE }}
   sql: ''
   table_name: video_plays
   template_params: null
@@ -789,7 +789,7 @@
     warning_text: null
   offset: 0
   params: null
-  schema: {{ ASPECTS_XAPI_DATABASE }}
+  schema: {{ DBT_PROFILE_TARGET_DATABASE }}
   sql: ''
   table_name: transcript_usage
   template_params: null
