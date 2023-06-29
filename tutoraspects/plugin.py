@@ -40,7 +40,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "OPENEDX_EXTRA_PIP_REQUIREMENTS",
             [
                 "openedx-event-sink-clickhouse==0.1.0",
-                "edx-event-routing-backends==5.3.1",
+                "edx-event-routing-backends==5.5.0",
             ],
         ),
         # ClickHouse xAPI settings
