@@ -173,6 +173,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "es": {"flag": "es", "name": "Spanish"},
             },
         ),
+        ("SUPERSET_EXTRA_JINJA_FILTERS", {}),
         ######################
         # dbt Settings
         # For the most part you shouldn't have to touch these

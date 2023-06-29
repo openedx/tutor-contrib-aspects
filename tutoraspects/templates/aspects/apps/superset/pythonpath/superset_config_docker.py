@@ -76,10 +76,11 @@ FEATURE_FLAGS = {
 }
 
 # Add this custom template processor which returns the list of courses the current user can access
-from openedx_jinja_filters import can_view_courses
+from openedx_jinja_filters import *
 
 JINJA_CONTEXT_ADDONS = {
     'can_view_courses': can_view_courses,
+    {% for filter in SUPERSET_EXTRA_JINJA_FILTERS %}'{{ filter }}': {{filter}},{% endfor %}
 }
 
 {% if not ENABLE_WEB_PROXY %}
