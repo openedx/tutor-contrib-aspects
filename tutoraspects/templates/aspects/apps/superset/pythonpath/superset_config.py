@@ -151,6 +151,19 @@ TALISMAN_CONFIG = {{SUPERSET_TALISMAN_CONFIG}}
 BABEL_DEFAULT_LOCALE = "{{ SUPERSET_DEFAULT_LOCALE }}"
 LANGUAGES = {{ SUPERSET_SUPPORTED_LANGUAGES }}
 
+def DB_CONNECTION_MUTATOR(uri, params, username, security_manager, source):
+    # TODO: Do we need this hack for SQL_LAB?
+    #if username and source is QuerySource.SQL_LAB:
+    #    user = security_manager.find_user(username=username)
+    #else:
+    user = security_manager.current_user
+    if user:
+        # TODO: This code is in two places, could use a refactor
+        uri.username = f"openedx-{username}"
+        # TODO: When we fix up the password in the SSO, update this.
+        uri.password = "password"
+    return uri, params
+
 # Optionally import superset_config_docker.py (which will have been included on
 # the PYTHONPATH) in order to allow for local settings to be overridden
 #

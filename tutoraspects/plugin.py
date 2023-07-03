@@ -48,6 +48,9 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_RAW_XAPI_TABLE", "xapi_events_all"),
         ("ASPECTS_XAPI_TRANSFORM_MV", "xapi_events_all_parsed_mv"),
         ("ASPECTS_XAPI_TABLE", "xapi_events_all_parsed"),
+        # ClickHouse permissions settings, used in RBAC
+        ("ASPECTS_PERMISSIONS_DATABASE", "superset_permissions"),
+        ("ASPECTS_PERMISSIONS_COURSE_MAPPING_TABLE", "superset_user_course_mapping"),
         # ClickHouse top-level materialized views
         ("ASPECTS_ENROLLMENT_TRANSFORM_MV", "enrollment_events_mv"),
         ("ASPECTS_ENROLLMENT_EVENTS_TABLE", "enrollment_events"),
