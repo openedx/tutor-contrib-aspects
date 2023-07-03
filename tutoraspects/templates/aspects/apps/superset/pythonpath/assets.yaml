@@ -604,26 +604,38 @@
   uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
   version: 1.0.0
 
-- _file_name: video_plays.yaml
+- _file_name: course_overviews.yaml
   cache_timeout: null
   columns:
   - advanced_data_type: null
-    column_name: emission_time
+    column_name: self_paced
     description: null
     expression: null
-    extra: {}
+    extra: null
     filterable: true
     groupby: true
     is_active: true
-    is_dttm: true
+    is_dttm: false
     python_date_format: null
-    type: DateTime64(6)
+    type: Bool
     verbose_name: null
   - advanced_data_type: null
-    column_name: actor_id
+    column_name: dump_id
     description: null
     expression: null
-    extra: {}
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: UUID
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: course_data_json
+    description: null
+    expression: null
+    extra: null
     filterable: true
     groupby: true
     is_active: true
@@ -632,10 +644,10 @@
     type: String
     verbose_name: null
   - advanced_data_type: null
-    column_name: course_id
+    column_name: time_last_dumped
     description: null
     expression: null
-    extra: {}
+    extra: null
     filterable: true
     groupby: true
     is_active: true
@@ -644,10 +656,94 @@
     type: String
     verbose_name: null
   - advanced_data_type: null
-    column_name: video_id
+    column_name: display_name
     description: null
     expression: null
-    extra: {}
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: course_start
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: enrollment_start
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: course_end
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: course_key
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: enrollment_end
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: created
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: modified
+    description: null
+    expression: null
+    extra: null
     filterable: true
     groupby: true
     is_active: true
@@ -659,7 +755,7 @@
     column_name: org
     description: null
     expression: null
-    extra: {}
+    extra: null
     filterable: true
     groupby: true
     is_active: true
@@ -673,134 +769,26 @@
   extra: null
   fetch_values_predicate: null
   filter_select_enabled: false
-  main_dttm_col: emission_time
+  main_dttm_col: null
   metrics:
   - d3format: null
     description: null
-    expression: COUNT(distinct actor_id)
-    extra: {}
-    metric_name: distinct_plays
-    metric_type: null
-    verbose_name: Unique video watchers
-    warning_text: null
-  - d3format: null
-    description: null
     expression: COUNT(*)
-    extra:
-      warning_markdown: ''
-    metric_name: count
-    metric_type: count
-    verbose_name: Total video watches
-    warning_text: null
-  offset: 0
-  params: null
-  schema: {{ DBT_PROFILE_TARGET_DATABASE }}
-  sql: ''
-  table_name: video_plays
-  template_params: null
-  uuid: 14b6e4d0-7345-4477-9a11-85a7359bc3b1
-  version: 1.0.0
-
-- _file_name: transcript_usage.yaml
-  cache_timeout: null
-  columns:
-  - advanced_data_type: null
-    column_name: emission_time
-    description: null
-    expression: null
-    extra: {}
-    filterable: true
-    groupby: true
-    is_active: true
-    is_dttm: true
-    python_date_format: null
-    type: DateTime64(6)
-    verbose_name: null
-  - advanced_data_type: null
-    column_name: actor_id
-    description: null
-    expression: null
-    extra: {}
-    filterable: true
-    groupby: true
-    is_active: true
-    is_dttm: false
-    python_date_format: null
-    type: String
-    verbose_name: null
-  - advanced_data_type: null
-    column_name: course_id
-    description: null
-    expression: null
-    extra: {}
-    filterable: true
-    groupby: true
-    is_active: true
-    is_dttm: false
-    python_date_format: null
-    type: String
-    verbose_name: null
-  - advanced_data_type: null
-    column_name: video_id
-    description: null
-    expression: null
-    extra: {}
-    filterable: true
-    groupby: true
-    is_active: true
-    is_dttm: false
-    python_date_format: null
-    type: String
-    verbose_name: null
-  - advanced_data_type: null
-    column_name: org
-    description: null
-    expression: null
-    extra: {}
-    filterable: true
-    groupby: true
-    is_active: true
-    is_dttm: false
-    python_date_format: null
-    type: String
-    verbose_name: null
-  database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
-  default_endpoint: null
-  description: null
-  extra: null
-  fetch_values_predicate: null
-  filter_select_enabled: false
-  main_dttm_col: emission_time
-  metrics:
-  - d3format: null
-    description: null
-    expression: COUNT(distinct actor_id)
-    extra: {}
-    metric_name: distinct_learners
-    metric_type: null
-    verbose_name: distinct actor_id
-    warning_text: null
-  - d3format: null
-    description: null
-    expression: COUNT(*)
-    extra:
-      warning_markdown: ''
+    extra: null
     metric_name: count
     metric_type: count
     verbose_name: COUNT(*)
     warning_text: null
   offset: 0
   params: null
-  schema: {{ DBT_PROFILE_TARGET_DATABASE }}
-  sql: ''
-  table_name: transcript_usage
+  schema: {{ ASPECTS_EVENT_SINK_DATABASE }}
+  sql: null
+  table_name: {{ ASPECTS_EVENT_SINK_OVERVIEWS_TABLE }}
   template_params: null
-  uuid: bfbc2c72-4745-40ff-a7db-786711b90321
+  uuid: 46183302-6fa6-41a3-b6a7-79ff6c1c8402
   version: 1.0.0
 
-- _file_name: Instructor_dashboard_4.yaml
-  _roles:
-  - {{ SUPERSET_OPENEDX_ROLE_NAME }}
+- _file_name: Instructor_dashboard_3.yaml
   css: ''
   dashboard_title: Instructor dashboard
   description: null
@@ -813,7 +801,9 @@
     native_filter_configuration:
     - cascadeParentIds: []
       chartsInScope:
-      - 12
+      - 9
+      - 10
+      - 11
       controlValues:
         defaultToFirstItem: true
         enableEmptyFilter: true
@@ -837,12 +827,14 @@
       targets:
       - column:
           name: org
-        datasetUuid: 14b6e4d0-7345-4477-9a11-85a7359bc3b1
+        datasetUuid: 46183302-6fa6-41a3-b6a7-79ff6c1c8402
       type: NATIVE_FILTER
     - cascadeParentIds:
       - NATIVE_FILTER-Vx7HxG8_7
       chartsInScope:
-      - 13
+      - 9
+      - 10
+      - 11
       controlValues:
         defaultToFirstItem: true
         enableEmptyFilter: true
@@ -856,7 +848,7 @@
       description: ''
       filterType: filter_select
       id: NATIVE_FILTER-XPuiTOej4
-      name: course_id
+      name: Course name
       requiredFirst: true
       scope:
         excluded: []
@@ -865,47 +857,75 @@
       tabsInScope: []
       targets:
       - column:
-          name: course_id
-        datasetUuid: 14b6e4d0-7345-4477-9a11-85a7359bc3b1
+          name: display_name
+        datasetUuid: 46183302-6fa6-41a3-b6a7-79ff6c1c8402
       type: NATIVE_FILTER
     refresh_frequency: 0
     shared_label_colors: {}
     show_native_filters: true
     timed_refresh_immune_slices: []
   position:
-    CHART-qKje4F2Q8q:
+    CHART-Jr-gNVms2Q:
       children: []
-      id: CHART-qKje4F2Q8q
+      id: CHART-Jr-gNVms2Q
+      meta:
+        chartId: 16
+        height: 50
+        sliceName: Enrollment events per day
+        uuid: bb1147cc-b7bc-44b7-b06a-79b0db6626aa
+        width: 8
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-je_Wqya3Ga
+      type: CHART
+    CHART-evjVO-ZSSd:
+      children: []
+      id: CHART-evjVO-ZSSd
+      meta:
+        chartId: 15
+        height: 50
+        sliceName: Cumulative enrollments by mode
+        uuid: 05ed7102-5464-4e2f-86ae-31700b787cc3
+        width: 4
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-je_Wqya3Ga
+      type: CHART
+    CHART-hCz27s2NEX:
+      children: []
+      id: CHART-hCz27s2NEX
       meta:
         chartId: 13
-        height: 51
+        height: 50
         sliceName: Watches per video
-        uuid: eaa6dad7-df51-4e51-b300-6baf30b8e330
-        width: 12
+        uuid: 829c1d5b-2844-4115-876a-34ad3b3cad64
+        width: 6
       parents:
       - ROOT_ID
       - GRID_ID
-      - ROW-DxLgJisWQW
+      - ROW-7OLwuieb8j
       type: CHART
-    CHART-yJYiCvzxJX:
+    CHART-p5SkjOwu0w:
       children: []
-      id: CHART-yJYiCvzxJX
+      id: CHART-p5SkjOwu0w
       meta:
-        chartId: 14
+        chartId: 12
         height: 50
         sliceName: Transcript/closed captioning usage per video
-        uuid: 5593cd9b-81d4-4b9f-b4a7-cd377c92c5e6
-        width: 12
+        uuid: 6b830def-f3ca-4b4c-9455-7a7b7354bce8
+        width: 6
       parents:
       - ROOT_ID
       - GRID_ID
-      - ROW-porCi0mdxp
+      - ROW-7OLwuieb8j
       type: CHART
     DASHBOARD_VERSION_KEY: v2
     GRID_ID:
       children:
-      - ROW-DxLgJisWQW
-      - ROW-porCi0mdxp
+      - ROW-je_Wqya3Ga
+      - ROW-7OLwuieb8j
       id: GRID_ID
       parents:
       - ROOT_ID
@@ -920,20 +940,22 @@
       - GRID_ID
       id: ROOT_ID
       type: ROOT
-    ROW-DxLgJisWQW:
+    ROW-7OLwuieb8j:
       children:
-      - CHART-qKje4F2Q8q
-      id: ROW-DxLgJisWQW
+      - CHART-hCz27s2NEX
+      - CHART-p5SkjOwu0w
+      id: ROW-7OLwuieb8j
       meta:
         background: BACKGROUND_TRANSPARENT
       parents:
       - ROOT_ID
       - GRID_ID
       type: ROW
-    ROW-porCi0mdxp:
+    ROW-je_Wqya3Ga:
       children:
-      - CHART-yJYiCvzxJX
-      id: ROW-porCi0mdxp
+      - CHART-evjVO-ZSSd
+      - CHART-Jr-gNVms2Q
+      id: ROW-je_Wqya3Ga
       meta:
         background: BACKGROUND_TRANSPARENT
       parents:
@@ -944,23 +966,45 @@
   uuid: 1d6bf904-f53f-47fd-b1c9-6cd7e284d286
   version: 1.0.0
 
-- _file_name: Watches_per_video_12.yaml
+- _file_name: Watches_per_video_10.yaml
   cache_timeout: null
-  dataset_uuid: 14b6e4d0-7345-4477-9a11-85a7359bc3b1
+  dataset_uuid: 6ec360a5-e247-42e7-b301-fa8275fc93f9
   params:
     adhoc_filters: []
-    bar_stacked: true
     bottom_margin: auto
     color_scheme: supersetColors
     columns: []
-    datasource: 6__table
+    datasource: 7__table
     extra_form_data: {}
     granularity_sqla: emission_time
     groupby:
-    - video_id
+    - video_name
     metrics:
-    - distinct_plays
     - count
+    - aggregate: COUNT_DISTINCT
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: actor_id
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 49
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: String
+        type_generic: 1
+        verbose_name: null
+        warning_markdown: null
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      isNew: false
+      label: Unique watchers
+      optionName: metric_3z6naa425sb_lub9ds43x0a
+      sqlExpression: null
     order_desc: true
     rich_tooltip: true
     row_limit: 10000
@@ -973,16 +1017,110 @@
     - null
     y_axis_format: SMART_NUMBER
   slice_name: Watches per video
-  uuid: eaa6dad7-df51-4e51-b300-6baf30b8e330
+  uuid: 829c1d5b-2844-4115-876a-34ad3b3cad64
   version: 1.0.0
   viz_type: dist_bar
 
-- _file_name: Transcript_closed_captioning_usage_per_video_14.yaml
+- _file_name: fact_video_plays.yaml
   cache_timeout: null
-  dataset_uuid: bfbc2c72-4745-40ff-a7db-786711b90321
+  columns:
+  - advanced_data_type: null
+    column_name: emission_time
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: true
+    python_date_format: null
+    type: DateTime64(6)
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: videos.org
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: actor_id
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: video_name
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+  default_endpoint: null
+  description: null
+  extra: null
+  fetch_values_predicate: null
+  filter_select_enabled: false
+  main_dttm_col: null
+  metrics:
+  - d3format: null
+    description: null
+    expression: count(*)
+    extra:
+      warning_markdown: ''
+    metric_name: count
+    metric_type: null
+    verbose_name: Total plays
+    warning_text: null
+  offset: 0
+  params: null
+  schema: null
+  {% raw %}
+  sql: "with courses as (\n    select distinct\n        org,\n        course_key\n\
+    \    from\n        event_sink.course_overviews\n    {% if filter_values('org')\
+    \ != [] %}\n    where\n        org in {{ filter_values('org') | where_in }}\n\
+    \        {% if filter_values('display_name') != [] %}\n        and display_name\
+    \ in {{ filter_values('display_name') | where_in }}\n        {% endif %}\n    {%\
+    \ endif %}\n), video_blocks as (\n    select\n        org,\n        course_key,\n\
+    \        location as video_id,\n        display_name as video_name\n    from\n\
+    \        event_sink.course_blocks\n    where\n        JSON_VALUE(xblock_data_json,\
+    \ '$.block_type') = 'video'\n        {% if filter_values('org') != [] %}\n   \
+    \     and org in {{ filter_values('org') | where_in }}\n        {% endif %}\n\
+    ), videos as (\n    select distinct\n        courses.org,\n        courses.course_key,\n\
+    \        video_blocks.video_id,\n        video_blocks.video_name\n    from\n \
+    \       courses\n        join video_blocks\n            using (course_key)\n)\n\
+    \nselect\n    plays.emission_time,\n    videos.org,\n    videos.video_name,\n\
+    \    plays.actor_id\nfrom\n    reporting.video_plays plays\n    join videos\n\
+    \        on (plays.org = videos.org\n            and splitByString('/course/',\
+    \ plays.course_id)[-1] = videos.course_key\n            and plays.video_id = videos.video_id)"
+  {% endraw %}
+  table_name: fact_video_plays
+  template_params: {}
+  uuid: 6ec360a5-e247-42e7-b301-fa8275fc93f9
+  version: 1.0.0
+
+- _file_name: Transcript_closed_captioning_usage_per_video_11.yaml
+  cache_timeout: null
+  dataset_uuid: a96a4b13-a429-442d-83ca-5d6f94010909
   params:
     adhoc_filters: []
-    bar_stacked: true
     bottom_margin: auto
     color_scheme: supersetColors
     columns: []
@@ -990,10 +1128,33 @@
     extra_form_data: {}
     granularity_sqla: emission_time
     groupby:
-    - video_id
+    - video_name
     metrics:
-    - distinct_learners
     - count
+    - aggregate: COUNT_DISTINCT
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: actor_id
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 53
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: String
+        type_generic: 1
+        verbose_name: null
+        warning_markdown: null
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      isNew: false
+      label: Unique transcript users
+      optionName: metric_w1zxo19fl_4jlrzti9ec6
+      sqlExpression: null
     order_desc: true
     rich_tooltip: true
     row_limit: 10000
@@ -1006,8 +1167,310 @@
     - null
     y_axis_format: SMART_NUMBER
   slice_name: Transcript/closed captioning usage per video
-  uuid: 5593cd9b-81d4-4b9f-b4a7-cd377c92c5e6
+  uuid: 6b830def-f3ca-4b4c-9455-7a7b7354bce8
   version: 1.0.0
   viz_type: dist_bar
+
+- _file_name: fact_transcript_usage.yaml
+  cache_timeout: null
+  columns:
+  - advanced_data_type: null
+    column_name: emission_time
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: true
+    python_date_format: null
+    type: DateTime64(6)
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: videos.org
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: actor_id
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: video_name
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+  default_endpoint: null
+  description: null
+  extra: null
+  fetch_values_predicate: null
+  filter_select_enabled: false
+  main_dttm_col: null
+  metrics:
+  - d3format: null
+    description: null
+    expression: count(*)
+    extra:
+      warning_markdown: ''
+    metric_name: count
+    metric_type: null
+    verbose_name: Total transcript usage
+    warning_text: null
+  offset: 0
+  params: null
+  schema: null
+  {% raw %}
+  sql: "with courses as (\n    select\n        org,\n        course_key\n    from\n\
+    \        event_sink.course_overviews\n    {% if filter_values('org') != [] %}\n\
+    \    where\n        org in {{ filter_values('org') | where_in }}\n        {% if\
+    \ filter_values('display_name') != [] %}\n        and display_name in {{ filter_values('display_name')\
+    \ | where_in }}\n        {% endif %}\n    {% endif %}\n), video_blocks as (\n\
+    \    select\n        org,\n        course_key,\n        location as video_id,\n\
+    \        display_name as video_name\n    from\n        event_sink.course_blocks\n\
+    \    where\n        JSON_VALUE(xblock_data_json, '$.block_type') = 'video'\n \
+    \       {% if filter_values('org') != [] %}\n        and org in {{ filter_values('org')\
+    \ | where_in }}\n        {% endif %}\n), videos as (\n    select\n        courses.org,\n\
+    \        courses.course_key,\n        video_blocks.video_id,\n        video_blocks.video_name\n\
+    \    from\n        courses\n        join video_blocks\n            using (course_key)\n\
+    ), transcripts as (\n    select\n        emission_time,\n        org,\n      \
+    \  splitByString('/', course_id)[-1] as course_key,\n        splitByString('/xblock/',\
+    \ object_id)[2] as video_id,\n        actor_id\n    from\n        xapi.xapi_events_all_parsed\n\
+    \    where\n        verb_id = 'http://adlnet.gov/expapi/verbs/interacted'\n  \
+    \      and JSON_VALUE(event_str, '$.result.extensions.\"https://w3id.org/xapi/video/extensions/cc-enabled\"\
+    ') = 'true'\n        {% if filter_values('org') != [] %}\n        and org in {{\
+    \ filter_values('org') | where_in }}\n        {% endif %}\n)\n\nselect\n    transcripts.emission_time,\n\
+    \    videos.org,\n    videos.video_name,\n    transcripts.actor_id\nfrom\n   \
+    \ transcripts\n    join videos\n        using (org, course_key, video_id)"
+  {% endraw %}
+  table_name: fact_transcript_usage
+  template_params: {}
+  uuid: a96a4b13-a429-442d-83ca-5d6f94010909
+  version: 1.0.0
+
+- _file_name: Cumulative_enrollments_by_mode_15.yaml
+  cache_timeout: null
+  dataset_uuid: a234545d-08ff-480d-8361-961c3d15f14f
+  params:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: registered
+      expressionType: SIMPLE
+      filterOptionName: filter_itrvc9c0jxb_g4qd4b18na4
+      isExtra: false
+      isNew: false
+      operator: ==
+      operatorId: EQUALS
+      sqlExpression: null
+      subject: enrollment_status
+    color_scheme: supersetColors
+    datasource: 14__table
+    date_format: smart_date
+    extra_form_data: {}
+    granularity_sqla: emission_time
+    groupby:
+    - enrollment_mode
+    innerRadius: 30
+    label_type: key
+    labels_outside: true
+    legendOrientation: top
+    legendType: scroll
+    metric: count
+    number_format: SMART_NUMBER
+    outerRadius: 70
+    row_limit: 100
+    show_labels: true
+    show_labels_threshold: 5
+    show_legend: true
+    sort_by_metric: true
+    time_range: No filter
+    viz_type: pie
+  slice_name: Cumulative enrollments by mode
+  uuid: 05ed7102-5464-4e2f-86ae-31700b787cc3
+  version: 1.0.0
+  viz_type: pie
+
+- _file_name: fact_enrollments.yaml
+  cache_timeout: null
+  columns:
+  - advanced_data_type: null
+    column_name: emission_time
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: true
+    python_date_format: null
+    type: DateTime64(6)
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: enrollment_mode
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: LowCardinality(String)
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: actor_id
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: course_name
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: enrollment_status
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: org
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+  default_endpoint: null
+  description: null
+  extra: null
+  fetch_values_predicate: null
+  filter_select_enabled: false
+  main_dttm_col: null
+  metrics:
+  - d3format: null
+    description: null
+    expression: count(*)
+    extra: null
+    metric_name: count
+    metric_type: null
+    verbose_name: null
+    warning_text: null
+  offset: 0
+  params: null
+  schema: null
+  {% raw %}
+  sql: "with courses as (\n    select\n        org,\n        course_key,\n       \
+    \ display_name as course_name\n    from\n        event_sink.course_overviews\n\
+    \    {% if filter_values('org') != [] %}\n    where\n        org in {{ filter_values('org')\
+    \ | where_in }}\n        {% if filter_values('display_name') != [] %}\n      \
+    \  and course_name in {{ filter_values('display_name') | where_in }}\n       \
+    \ {% endif %}\n    {% endif %}\n), enrollments as (\n    select\n        emission_time,\n\
+    \        org,\n        splitByString('/', course_id)[-1] as course_key,\n    \
+    \    actor_id,\n        enrollment_mode,\n        splitByString('/', verb_id)[-1]\
+    \ as enrollment_status\n    from\n        xapi.enrollment_events\n    {% if filter_values('org')\
+    \ != [] %}\n    where org in {{ filter_values('org') | where_in }}\n    {% endif\
+    \ %}\n)\n\nselect\n    enrollments.emission_time,\n    enrollments.org,\n    courses.course_name,\n\
+    \    enrollments.actor_id,\n    enrollments.enrollment_mode,\n    enrollments.enrollment_status\n\
+    from\n    enrollments\n    join courses\n        using (org, course_key)"
+  {% endraw %}
+  table_name: fact_enrollments
+  template_params: {}
+  uuid: a234545d-08ff-480d-8361-961c3d15f14f
+  version: 1.0.0
+
+- _file_name: Enrollment_events_per_day_16.yaml
+  cache_timeout: null
+  dataset_uuid: a234545d-08ff-480d-8361-961c3d15f14f
+  params:
+    adhoc_filters: []
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    datasource: 14__table
+    extra_form_data: {}
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    granularity_sqla: emission_time
+    groupby:
+    - enrollment_status
+    legendOrientation: top
+    legendType: scroll
+    metrics:
+    - count
+    only_total: true
+    order_desc: true
+    orientation: vertical
+    rich_tooltip: true
+    row_limit: 10000
+    show_legend: true
+    stack: true
+    time_grain_sqla: P1D
+    time_range: No filter
+    tooltipTimeFormat: smart_date
+    truncate_metric: true
+    viz_type: echarts_timeseries_bar
+    xAxisLabelRotation: 45
+    x_axis_time_format: '%Y-%m-%d'
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title_margin: 15
+    y_axis_title_position: Left
+  slice_name: Enrollment events per day
+  uuid: bb1147cc-b7bc-44b7-b06a-79b0db6626aa
+  version: 1.0.0
+  viz_type: echarts_timeseries_bar
+
+
 
 {{ patch("superset-extra-assets") }}
