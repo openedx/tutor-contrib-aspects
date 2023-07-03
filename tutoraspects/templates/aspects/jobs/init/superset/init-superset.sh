@@ -68,18 +68,16 @@ echo_step "4" "Starting" "Importing assets"
 
 cd /app/assets/
 rm -rf /app/assets/superset
-python /app/pythonpath/create_assets.py
+
+mkdir /app/assets/superset -p
 
 date=$(date -u +"%Y-%m-%dT%H:%M:%S.%6N+00:00") 
-
 echo "version: 1.0.0
-type: Dashboard
+type: assets
 timestamp: '$date'" > superset/metadata.yaml
 
-zip -r superset.zip superset
+python /app/pythonpath/create_assets.py
 
-echo "\n\nImporting zip file\n\n"
-superset import-dashboards -p superset.zip
 
 rm -rf /app/assets/superset
 rm -rf /app/assets/superset.zip
