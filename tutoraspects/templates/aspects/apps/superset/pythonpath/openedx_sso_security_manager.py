@@ -3,7 +3,7 @@ from collections import namedtuple
 
 import jwt
 from authlib.common.urls import add_params_to_qs, add_params_to_uri
-from flask import current_app, session
+from flask import current_app, session, request
 from superset.security import SupersetSecurityManager
 from superset.utils.memoized import memoized
 
@@ -63,7 +63,11 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         if provider == "openedxsso":
             user_profile = self.decoded_user_info()
 
-            user_roles = self._get_user_roles(user_profile.get("preferred_username"))
+            language_preference = request.cookies.get('openedx-language-preference', 'es')
+
+            print(f"\n\nUser {user_profile['preferred_username']} is using language {language_preference}\n\n")
+
+            user_roles = self._get_user_roles(user_profile.get("preferred_username"), language_preference)
 
             return {
                 "name": user_profile["name"],
@@ -140,21 +144,21 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         """
         return self.get_oauth_token().get("access_token")
 
-    def _get_user_roles(self, username):
+    def _get_user_roles(self, username, language):
         """
         Returns the Superset roles that should be associated with the given user.
         """
         decoded_access_token = self.decoded_user_info()
 
         if decoded_access_token.get("superuser", False):
-            return ["admin", "openedx"]
+            return ["admin"]
         elif decoded_access_token.get("administrator", False):
-            return ["alpha", "openedx"]
+            return ["alpha", "operator", "operator-{language}"]
         else:
             # User has to have staff access to one or more courses to view any content here.
             courses = self.get_courses(username)
             if courses:
-                return ["openedx"]
+                return ["openedx", f"openedx-{language}"]
             else:
                 roles = self.extra_get_user_roles(username, decoded_access_token)
                 if bool("{{SUPERSET_BLOCK_STUDENT_ACCESS}}") and not roles:

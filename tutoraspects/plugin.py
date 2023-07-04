@@ -323,11 +323,11 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 # and then add it to the MY_INIT_TASKS list. Each task is in the format:
 # ("<service>", ("<path>", "<to>", "<script>", "<template>"))
 MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
-    ("mysql", ("aspects", "jobs", "init", "init-mysql.sh"), 92),
-    ("clickhouse", ("aspects", "jobs", "init", "clickhouse", "init-clickhouse.sh"), 93),
-    ("aspects", ("aspects", "jobs", "init", "aspects", "init-aspects.sh"), 94),
+    #("mysql", ("aspects", "jobs", "init", "init-mysql.sh"), 92),
+    #("clickhouse", ("aspects", "jobs", "init", "clickhouse", "init-clickhouse.sh"), 93),
+    #("aspects", ("aspects", "jobs", "init", "aspects", "init-aspects.sh"), 94),
     ("superset", ("aspects", "jobs", "init", "superset", "init-superset.sh"), 95),
-    ("lms", ("aspects", "jobs", "init", "init-lms.sh"), 96),
+    #("lms", ("aspects", "jobs", "init", "init-lms.sh"), 96),
 ]
 
 # For each task added to MY_INIT_TASKS, we load the task template

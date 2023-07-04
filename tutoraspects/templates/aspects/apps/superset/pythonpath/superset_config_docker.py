@@ -53,6 +53,8 @@ AUTH_USER_REGISTRATION_ROLE = "{{SUPERSET_ROLES_MAPPING.instructor}}"
 # Should we replace ALL the user's roles each login, or only on registration?
 AUTH_ROLES_SYNC_AT_LOGIN = True
 
+
+LANGUAGES = {{ SUPERSET_SUPPORTED_LANGUAGES }}
 # map from the values of `userinfo["role_keys"]` to a list of Superset roles
 # cf https://superset.apache.org/docs/security/#roles
 AUTH_ROLES_MAPPING = {
@@ -63,6 +65,11 @@ AUTH_ROLES_MAPPING = {
     "operator": ["{{SUPERSET_ROLES_MAPPING.operator}}"], # Installation operators
     "public": ["Public"],    # AKA anonymous users
 }
+
+for language in LANGUAGES.keys():
+    AUTH_ROLES_MAPPING[f"openedx-{language}"] = [f"{{SUPERSET_ROLES_MAPPING.instructor}} - {language}"]
+
+print(AUTH_ROLES_MAPPING)
 
 from openedx_sso_security_manager import OpenEdxSsoSecurityManager
 
