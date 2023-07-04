@@ -1,0 +1,130 @@
+## Open edX Admin Dashboard
+4bd1ace4-2327-4ff0-985b-ef014cb0503b:
+  en: "Open edX Admin Dashboard"
+  es: "Panel de administración de Open edX"
+NATIVE_FILTER-yb49rspT2:
+  en: "Course ID"
+  es: "ID del curso"
+NATIVE_FILTER-mqUjL9BMI:
+  en: "Time range"
+  es: "Rango de tiempo"
+
+## Operator Dashboard
+02c0121c-40e9-4d8a-b86a-6b996a1cc6fe:
+  en: "Operator Dashboard"
+  es: "Panel de Operador"
+NATIVE_FILTER-4ZdrGPx6i:
+  en: "Time range"
+  es: "Período de tiempo"
+NATIVE_FILTER-bY7GqOt6b:
+  en: "Time grain"
+  es: "Granularidad de tiempo"
+
+## Instructor Dashboard
+1d6bf904-f53f-47fd-b1c9-6cd7e284d286:
+  en: "Instructor Dashboard"
+  es: "Panel de Instructor"
+NATIVE_FILTER-zxfszG4xH:
+  en: "Time range"
+  es: "Período de tiempo"
+NATIVE_FILTER-Vx7HxG8_7:
+  en: "Organization"
+  es: "Organización"
+NATIVE_FILTER-XPuiTOej4:
+  en: "Course name"
+  es: "Nombre del curso"
+NATIVE_FILTER-E6-vOpjZv:
+  en: "Course run"
+  es: "Versión del curso"
+NATIVE_FILTER-6xfFY5VGz:
+  en: "Problem name"
+  es: "Nombre del problema"
+NATIVE_FILTER-V77Ybaw2w:
+  en: "Video name"
+  es: "Nombre del video"
+TAB-8BxDuJd9Jb:
+  en: "Enrollment"
+  es: "Inscripción"
+TAB-NR4UTAs9K:
+  en: "Problem engagement"
+  es: "Participación en problemas"
+TAB-7PGDduCA7:
+  en: "Video engagement"
+  es: "Participación en videos"
+
+## Charts
+6a8ded91-f9a6-45c2-9f9f-f85dc1ff7ed6:
+  en: "Actor IDs over time"
+  es: "IDs de actores a lo largo del tiempo"
+db90930f-f16e-4c32-8050-0e4abae28f4c:
+  en: "Attempts to first success"
+  es: "Intentos hasta el primer éxito"
+63f86926-3325-43cf-b075-ef37f5f60413:
+  en: "Courses"
+  es: "Cursos"
+05ed7102-5464-4e2f-86ae-31700b787cc3:
+  en: "Cumulative enrollments by mode"
+  es: "Inscripciones acumuladas por modo"
+ed2fe731-6544-422f-bc55-42f399f48b2c:
+  en: "Enrolled learners per day"
+  es: "Estudiantes inscritos por día"
+bb1147cc-b7bc-44b7-b06a-79b0db6626aa:
+  en: "Enrollment events per day"
+  es: "Eventos de inscripción por día"
+b4a9a10d-0e82-43e7-a619-3ef3f6bf57a5:
+  en: "Event type"
+  es: "Tipo de evento"
+a445d9e5-ac98-411e-9a47-eda10081bd5b:
+  en: "Events per course"
+  es: "Eventos por curso"
+ee94be4c-6fdd-4295-b43c-40890d6c549d:
+  en: "Hints and answers displayed per correct answer"
+  es: "Pistas y respuestas mostradas por respuesta correcta"
+ca93f427-d021-476e-9a36-6ea0d99d30ea:
+  en: "Last course syncronized"
+  es: "Último curso sincronizado"
+ffdaabc5-8d01-47d7-8f29-66efa643befb:
+  en: "Last received xAPI events"
+  es: "Últimos eventos xAPI recibidos"
+e66b1cdb-6974-4fa2-a769-4908665118f6:
+  en: "Organizations"
+  es: "Organizaciones"
+3dc6a642-a71d-4c8c-ab98-14f54852b40f:
+  en: "Problem submission counts"
+  es: "Conteos de envío de problemas"
+f1651c44-a8f4-4b44-ad49-962823009319:
+  en: "Response distribution"
+  es: "Distribución de respuestas"
+023f9546-6565-4e59-b298-4f0c384724f8:
+  en: "Synchronized Courses"
+  es: "Cursos sincronizados"
+6b830def-f3ca-4b4c-9455-7a7b7354bce8:
+  en: "Transcript/closed captioning usage per video"
+  es: "Uso de transcripción/subtítulos por video"
+071bf3d5-8b9d-4e26-83fb-7836db5a7ab6:
+  en: "Unique actors"
+  es: "Actores únicos"
+2985a9db-c338-4008-af52-2930b81ee2e5:
+  en: "Watched video segments"
+  es: "Segmentos de video vistos"
+829c1d5b-2844-4115-876a-34ad3b3cad64:
+  en: "Watches per video"
+  es: "Vistas por video"
+e6a30923-6382-413e-a1c7-2ac223fa5c5c:
+  en: "xAPI events"
+  es: "Eventos xAPI"
+c69ab610-f77a-4c54-a5ab-dc3a19a3003e:
+  en: "xAPI events by course"
+  es: "Eventos xAPI por curso"
+40b671ce-e987-4c19-bc9d-d07df1d944f8:
+  en: "xAPI problem events by block"
+  es: "Eventos xAPI de problemas por bloque"
+eda31542-e23c-4a9e-b9d2-712c9536265d:
+  en: "xAPI events"
+  es: "Eventos xAPI"
+0eb95b3a-a61d-4fcf-b614-3bc3e78dbb4b:
+  en: "Events per day"
+  es: "Eventos por día"
+0cc08ea4-fe3f-45ef-89b9-21d9e2c4c5ff:
+  en: "Video events"
+  es: "Eventos de video"
