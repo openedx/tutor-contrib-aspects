@@ -788,7 +788,7 @@
   uuid: 46183302-6fa6-41a3-b6a7-79ff6c1c8402
   version: 1.0.0
 
-- _file_name: Instructor_dashboard_3.yaml
+- _file_name: Instructor_dashboard_5.yaml
   css: ''
   dashboard_title: Instructor dashboard
   description: null
@@ -801,9 +801,10 @@
     native_filter_configuration:
     - cascadeParentIds: []
       chartsInScope:
-      - 9
-      - 10
-      - 11
+      - 12
+      - 13
+      - 17
+      - 18
       controlValues:
         defaultToFirstItem: true
         enableEmptyFilter: true
@@ -827,17 +828,18 @@
       targets:
       - column:
           name: org
-        datasetUuid: 46183302-6fa6-41a3-b6a7-79ff6c1c8402
+        datasetUuid: 4b274428-d781-41be-b362-ed6917443678
       type: NATIVE_FILTER
     - cascadeParentIds:
       - NATIVE_FILTER-Vx7HxG8_7
       chartsInScope:
-      - 9
-      - 10
-      - 11
+      - 12
+      - 13
+      - 17
+      - 18
       controlValues:
-        defaultToFirstItem: true
-        enableEmptyFilter: true
+        defaultToFirstItem: false
+        enableEmptyFilter: false
         inverseSelection: false
         multiSelect: true
         searchAllOptions: false
@@ -849,7 +851,6 @@
       filterType: filter_select
       id: NATIVE_FILTER-XPuiTOej4
       name: Course name
-      requiredFirst: true
       scope:
         excluded: []
         rootPath:
@@ -857,8 +858,36 @@
       tabsInScope: []
       targets:
       - column:
-          name: display_name
-        datasetUuid: 46183302-6fa6-41a3-b6a7-79ff6c1c8402
+          name: course_name
+        datasetUuid: 4b274428-d781-41be-b362-ed6917443678
+      type: NATIVE_FILTER
+    - cascadeParentIds:
+      - NATIVE_FILTER-Vx7HxG8_7
+      - NATIVE_FILTER-XPuiTOej4
+      chartsInScope: []
+      controlValues:
+        defaultToFirstItem: false
+        enableEmptyFilter: false
+        inverseSelection: false
+        multiSelect: true
+        searchAllOptions: false
+      defaultDataMask:
+        extraFormData: {}
+        filterState: {}
+        ownState: {}
+      description: ''
+      filterType: filter_select
+      id: NATIVE_FILTER-E6-vOpjZv
+      name: Run name
+      scope:
+        excluded: []
+        rootPath:
+        - ROOT_ID
+      tabsInScope: []
+      targets:
+      - column:
+          name: run_name
+        datasetUuid: 4b274428-d781-41be-b362-ed6917443678
       type: NATIVE_FILTER
     refresh_frequency: 0
     shared_label_colors: {}
@@ -869,7 +898,7 @@
       children: []
       id: CHART-Jr-gNVms2Q
       meta:
-        chartId: 16
+        chartId: 18
         height: 50
         sliceName: Enrollment events per day
         uuid: bb1147cc-b7bc-44b7-b06a-79b0db6626aa
@@ -883,7 +912,7 @@
       children: []
       id: CHART-evjVO-ZSSd
       meta:
-        chartId: 15
+        chartId: 17
         height: 50
         sliceName: Cumulative enrollments by mode
         uuid: 05ed7102-5464-4e2f-86ae-31700b787cc3
@@ -924,12 +953,36 @@
     DASHBOARD_VERSION_KEY: v2
     GRID_ID:
       children:
+      - HEADER-9oReNB0nyf
       - ROW-je_Wqya3Ga
+      - HEADER-Jevm46xhwX
       - ROW-7OLwuieb8j
       id: GRID_ID
       parents:
       - ROOT_ID
       type: GRID
+    HEADER-9oReNB0nyf:
+      children: []
+      id: HEADER-9oReNB0nyf
+      meta:
+        background: BACKGROUND_TRANSPARENT
+        headerSize: MEDIUM_HEADER
+        text: Enrollment Overview
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      type: HEADER
+    HEADER-Jevm46xhwX:
+      children: []
+      id: HEADER-Jevm46xhwX
+      meta:
+        background: BACKGROUND_TRANSPARENT
+        headerSize: MEDIUM_HEADER
+        text: Video Engagement
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      type: HEADER
     HEADER_ID:
       id: HEADER_ID
       meta:
@@ -1037,7 +1090,7 @@
     type: DateTime64(6)
     verbose_name: null
   - advanced_data_type: null
-    column_name: videos.org
+    column_name: org
     description: null
     expression: null
     extra: {}
@@ -1072,6 +1125,30 @@
     python_date_format: null
     type: String
     verbose_name: null
+  - advanced_data_type: null
+    column_name: course_name
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: run_name
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
   database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
   default_endpoint: null
   description: null
@@ -1092,25 +1169,7 @@
   offset: 0
   params: null
   schema: null
-  {% raw %}
-  sql: "with courses as (\n    select distinct\n        org,\n        course_key\n\
-    \    from\n        event_sink.course_overviews\n    {% if filter_values('org')\
-    \ != [] %}\n    where\n        org in {{ filter_values('org') | where_in }}\n\
-    \        {% if filter_values('display_name') != [] %}\n        and display_name\
-    \ in {{ filter_values('display_name') | where_in }}\n        {% endif %}\n    {%\
-    \ endif %}\n), video_blocks as (\n    select\n        org,\n        course_key,\n\
-    \        location as video_id,\n        display_name as video_name\n    from\n\
-    \        event_sink.course_blocks\n    where\n        JSON_VALUE(xblock_data_json,\
-    \ '$.block_type') = 'video'\n        {% if filter_values('org') != [] %}\n   \
-    \     and org in {{ filter_values('org') | where_in }}\n        {% endif %}\n\
-    ), videos as (\n    select distinct\n        courses.org,\n        courses.course_key,\n\
-    \        video_blocks.video_id,\n        video_blocks.video_name\n    from\n \
-    \       courses\n        join video_blocks\n            using (course_key)\n)\n\
-    \nselect\n    plays.emission_time,\n    videos.org,\n    videos.video_name,\n\
-    \    plays.actor_id\nfrom\n    reporting.video_plays plays\n    join videos\n\
-    \        on (plays.org = videos.org\n            and splitByString('/course/',\
-    \ plays.course_id)[-1] = videos.course_key\n            and plays.video_id = videos.video_id)"
-  {% endraw %}
+  sql: "{% include 'aspects/apps/superset/pythonpath/queries/fact_video_plays.sql' %}"
   table_name: fact_video_plays
   template_params: {}
   uuid: 6ec360a5-e247-42e7-b301-fa8275fc93f9
@@ -1187,7 +1246,7 @@
     type: DateTime64(6)
     verbose_name: null
   - advanced_data_type: null
-    column_name: videos.org
+    column_name: org
     description: null
     expression: null
     extra: {}
@@ -1222,6 +1281,30 @@
     python_date_format: null
     type: String
     verbose_name: null
+  - advanced_data_type: null
+    column_name: course_name
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: run_name
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
   database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
   default_endpoint: null
   description: null
@@ -1242,29 +1325,7 @@
   offset: 0
   params: null
   schema: null
-  {% raw %}
-  sql: "with courses as (\n    select\n        org,\n        course_key\n    from\n\
-    \        event_sink.course_overviews\n    {% if filter_values('org') != [] %}\n\
-    \    where\n        org in {{ filter_values('org') | where_in }}\n        {% if\
-    \ filter_values('display_name') != [] %}\n        and display_name in {{ filter_values('display_name')\
-    \ | where_in }}\n        {% endif %}\n    {% endif %}\n), video_blocks as (\n\
-    \    select\n        org,\n        course_key,\n        location as video_id,\n\
-    \        display_name as video_name\n    from\n        event_sink.course_blocks\n\
-    \    where\n        JSON_VALUE(xblock_data_json, '$.block_type') = 'video'\n \
-    \       {% if filter_values('org') != [] %}\n        and org in {{ filter_values('org')\
-    \ | where_in }}\n        {% endif %}\n), videos as (\n    select\n        courses.org,\n\
-    \        courses.course_key,\n        video_blocks.video_id,\n        video_blocks.video_name\n\
-    \    from\n        courses\n        join video_blocks\n            using (course_key)\n\
-    ), transcripts as (\n    select\n        emission_time,\n        org,\n      \
-    \  splitByString('/', course_id)[-1] as course_key,\n        splitByString('/xblock/',\
-    \ object_id)[2] as video_id,\n        actor_id\n    from\n        xapi.xapi_events_all_parsed\n\
-    \    where\n        verb_id = 'http://adlnet.gov/expapi/verbs/interacted'\n  \
-    \      and JSON_VALUE(event_str, '$.result.extensions.\"https://w3id.org/xapi/video/extensions/cc-enabled\"\
-    ') = 'true'\n        {% if filter_values('org') != [] %}\n        and org in {{\
-    \ filter_values('org') | where_in }}\n        {% endif %}\n)\n\nselect\n    transcripts.emission_time,\n\
-    \    videos.org,\n    videos.video_name,\n    transcripts.actor_id\nfrom\n   \
-    \ transcripts\n    join videos\n        using (org, course_key, video_id)"
-  {% endraw %}
+  sql: "{% include 'aspects/apps/superset/pythonpath/queries/fact_transcript_usage.sql' %}"
   table_name: fact_transcript_usage
   template_params: {}
   uuid: a96a4b13-a429-442d-83ca-5d6f94010909
@@ -1387,6 +1448,18 @@
     python_date_format: null
     type: String
     verbose_name: null
+  - advanced_data_type: null
+    column_name: run_name
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
   database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
   default_endpoint: null
   description: null
@@ -1406,21 +1479,7 @@
   offset: 0
   params: null
   schema: null
-  {% raw %}
-  sql: "with courses as (\n    select\n        org,\n        course_key,\n       \
-    \ display_name as course_name\n    from\n        event_sink.course_overviews\n\
-    \    {% if filter_values('org') != [] %}\n    where\n        org in {{ filter_values('org')\
-    \ | where_in }}\n        {% if filter_values('display_name') != [] %}\n      \
-    \  and course_name in {{ filter_values('display_name') | where_in }}\n       \
-    \ {% endif %}\n    {% endif %}\n), enrollments as (\n    select\n        emission_time,\n\
-    \        org,\n        splitByString('/', course_id)[-1] as course_key,\n    \
-    \    actor_id,\n        enrollment_mode,\n        splitByString('/', verb_id)[-1]\
-    \ as enrollment_status\n    from\n        xapi.enrollment_events\n    {% if filter_values('org')\
-    \ != [] %}\n    where org in {{ filter_values('org') | where_in }}\n    {% endif\
-    \ %}\n)\n\nselect\n    enrollments.emission_time,\n    enrollments.org,\n    courses.course_name,\n\
-    \    enrollments.actor_id,\n    enrollments.enrollment_mode,\n    enrollments.enrollment_status\n\
-    from\n    enrollments\n    join courses\n        using (org, course_key)"
-  {% endraw %}
+  sql: "{% include 'aspects/apps/superset/pythonpath/queries/fact_enrollments.sql' %}"
   table_name: fact_enrollments
   template_params: {}
   uuid: a234545d-08ff-480d-8361-961c3d15f14f
@@ -1471,6 +1530,230 @@
   version: 1.0.0
   viz_type: echarts_timeseries_bar
 
+- _file_name: course_blocks.yaml
+  cache_timeout: null
+  columns:
+  - advanced_data_type: null
+    column_name: order
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: Int32
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: dump_id
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: UUID
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: xblock_data_json
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: time_last_dumped
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: display_name
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: course_key
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: edited_on
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: location
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: org
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+  default_endpoint: null
+  description: null
+  extra: null
+  fetch_values_predicate: null
+  filter_select_enabled: false
+  main_dttm_col: null
+  metrics:
+  - d3format: null
+    description: null
+    expression: COUNT(*)
+    extra: null
+    metric_name: count
+    metric_type: count
+    verbose_name: COUNT(*)
+    warning_text: null
+  offset: 0
+  params: null
+  schema: {{ ASPECTS_EVENT_SINK_DATABASE }}
+  sql: null
+  table_name: {{ ASPECTS_EVENT_SINK_NODES_TABLE }}
+  template_params: null
+  uuid: 1b73d066-fd6c-411d-a99d-fc585f9474b1
+  version: 1.0.0
 
+
+
+- _file_name: dim_courses.yaml
+  cache_timeout: null
+  columns:
+  - advanced_data_type: null
+    column_name: course_key
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: org
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: course_name
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: run_name
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: run_id
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+  default_endpoint: null
+  description: null
+  extra: null
+  fetch_values_predicate: null
+  filter_select_enabled: false
+  main_dttm_col: null
+  metrics:
+  - d3format: null
+    description: null
+    expression: count(*)
+    extra: null
+    metric_name: count
+    metric_type: null
+    verbose_name: null
+    warning_text: null
+  offset: 0
+  params: null
+  schema: null
+  sql: "{% include 'aspects/apps/superset/pythonpath/queries/dim_courses.sql' %}"
+  table_name: dim_courses
+  template_params: {}
+  uuid: 4b274428-d781-41be-b362-ed6917443678
+  version: 1.0.0
 
 {{ patch("superset-extra-assets") }}
