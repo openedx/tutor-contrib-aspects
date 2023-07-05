@@ -1,37 +1,5 @@
-{%- raw -%}
-with courses as (
-    select distinct
-        org,
-        course_key,
-        course_name,
-        run_name
-    from
-        {{ dataset(24) }}
-), video_blocks as (
-    select
-        org,
-        course_key,
-        location as video_id,
-        display_name as video_name
-    from
-        event_sink.course_blocks
-    where
-        JSON_VALUE(xblock_data_json, '$.block_type') = 'video'
-        {% if filter_values('org') != [] %}
-        and org in {{ filter_values('org') | where_in }}
-        {% endif %}
-), videos as (
-    select distinct
-        courses.org as org,
-        courses.course_key as course_key,
-        courses.course_name as course_name,
-        courses.run_name as run_name,
-        video_blocks.video_id as video_id,
-        video_blocks.video_name as video_name
-    from
-        courses
-        join video_blocks
-            using (course_key)
+with videos as (
+    {% include 'aspects/apps/superset/pythonpath/queries/dim_course_videos.sql' %}
 ), plays as (
     select
         emission_time,
@@ -40,7 +8,7 @@ with courses as (
         actor_id,
         video_id
     from
-        reporting.video_plays
+        {{ DBT_PROFILE_TARGET_DATABASE }}.video_plays
 )
 
 select
@@ -54,4 +22,3 @@ from
     plays
     join videos
         using (org, course_key, video_id)
-{%- endraw -%}

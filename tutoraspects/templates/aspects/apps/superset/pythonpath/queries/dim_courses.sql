@@ -1,5 +1,3 @@
-{%- raw -%}
-
 select distinct
     org,
     course_key,
@@ -7,9 +5,10 @@ select distinct
     location as run_id,
     JSON_VALUE(xblock_data_json, '$.run') as run_name
 from
-    {{ dataset(18) }}
+    {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_NODES_TABLE }}
 where
     JSON_VALUE(xblock_data_json, '$.block_type') = 'course'
+{% raw -%}
     {% if filter_values('org') != [] %}
     and org in {{ filter_values('org') | where_in }}
     {% endif %}
@@ -19,5 +18,4 @@ where
     {% if filter_values('run') != [] %}
     and run_name in {{ filter_values('run') | where_in }}
     {% endif %}
-
-{%- endraw -%}
+{%- endraw %}

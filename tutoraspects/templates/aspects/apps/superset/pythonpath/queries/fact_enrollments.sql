@@ -1,12 +1,5 @@
-{%- raw -%}
 with courses as (
-    select
-        org,
-        course_key,
-        course_name,
-        run_name
-    from
-        {{ dataset(24) }}
+    {% include 'aspects/apps/superset/pythonpath/queries/dim_courses.sql' %}
 ), enrollments as (
     select
         emission_time,
@@ -17,9 +10,6 @@ with courses as (
         splitByString('/', verb_id)[-1] as enrollment_status
     from
         xapi.enrollment_events
-    {% if filter_values('org') != [] %}
-    where org in {{ filter_values('org') | where_in }}
-    {% endif %}
 )
 
 select
@@ -34,4 +24,3 @@ from
     enrollments
     join courses
         using (org, course_key)
-{%- endraw -%}
