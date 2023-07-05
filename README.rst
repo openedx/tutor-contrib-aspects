@@ -190,6 +190,22 @@ Available languages are stored in a mapping, and so best edited directly in Tuto
 
 Where the first key is the abbreviation of the language to use, "flag" is which flag icon is displayed in the user interface for choosing the language, and "name" is the displayed name for that language. The mapping above shows all of the current languages supported by Superset, but please note that different languages have different levels of completion and support at this time.
 
+
+Extending the DBT project
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To extend the DBT project there are multiple options:
+
+    #. DBT_REPOSITORY: A git repository URL to the DBT project
+    #. DBT_BRANCH: A git branch to use for the DBT project
+    #. DBT_REPOSITORY_PATH: A path to the DBT project in the git repository
+    #. EXTRA_DBT_PACKAGES: A list of python packages necessary for the DBT project
+    #. DBT_ENABLE_OVERRIDE: A boolean to enable/disable the DBT project override, those overrides
+       allows you to extend the DBT project without having to fork it. For this to work you need
+       to create a patch with the name ``dbt-packages`` and ``dbt-project``. We recommend to copy
+       the default DBT files (``dbt_project.yml`` and ``packages.yml``) and add your changes from
+       there.
+
 License
 -------
 

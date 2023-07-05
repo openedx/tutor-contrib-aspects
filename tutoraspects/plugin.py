@@ -224,6 +224,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DBT_PROFILE_SYNC_REQUEST_TIMEOUT", "5"),
         # Compression block size if compression is enabled, this is the default value
         ("DBT_PROFILE_COMPRESS_BLOCK_SIZE", "1048576"),
+        ("DBT_ENABLE_OVERRIDE", False),
     ]
 )
 
