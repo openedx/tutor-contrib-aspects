@@ -15,6 +15,8 @@ import yaml
 from tutor import hooks
 
 from .__about__ import __version__
+from .commands_v0 import COMMANDS as TUTOR_V0_COMMANDS
+from .commands_v1 import COMMANDS as TUTOR_V1_COMMANDS
 
 ########################################
 # CONFIGURATION
@@ -318,13 +320,21 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
 # For each task added to MY_INIT_TASKS, we load the task template
 # and add it to the CLI_DO_INIT_TASKS filter, which tells Tutor to
 # run it as part of the `init` job.
-for service, template_path, priority in MY_INIT_TASKS:
-    full_path: str = pkg_resources.resource_filename(
-        "tutoraspects", os.path.join("templates", *template_path)
-    )
-    with open(full_path, encoding="utf-8") as init_task_file:
-        init_task: str = init_task_file.read()
-    hooks.Filters.CLI_DO_INIT_TASKS.add_item((service, init_task), priority=priority)
+try:
+    for service, template_path, priority in MY_INIT_TASKS:
+        hooks.Filters.COMMANDS_INIT.add_item(
+            (service, template_path)
+        )  # pylint: disable=no-member
+except AttributeError as e:
+    for service, template_path, priority in MY_INIT_TASKS:
+        full_path: str = pkg_resources.resource_filename(
+            "tutoraspects", os.path.join("templates", *template_path)
+        )
+        with open(full_path, encoding="utf-8") as init_task_file:
+            init_task: str = init_task_file.read()
+        hooks.Filters.CLI_DO_INIT_TASKS.add_item(
+            (service, init_task), priority=priority
+        )
 
 ########################################
 # DOCKER IMAGE MANAGEMENT
@@ -425,104 +435,22 @@ for path in glob(
     with open(path, encoding="utf-8") as patch_file:
         hooks.Filters.ENV_PATCHES.add_item((os.path.basename(path), patch_file.read()))
 
-
 ########################################
 # CUSTOM JOBS (a.k.a. "do-commands")
 ########################################
-# Ex: "tutor local do load-xapi-test-data"
-@click.command()
-@click.option("-n", "--num_batches", default=100)
-@click.option("-s", "--batch_size", default=100)
-def load_xapi_test_data(num_batches: int, batch_size: int) -> list[tuple[str, str]]:
-    """
-    Job that loads bogus test xAPI data to ClickHouse via Ralph.
-    """
-    return [
-        (
-            "echo 'Making demo xapi script executable...' && "
-            "chmod +x /app/aspects/scripts/clickhouse-demo-xapi-data.sh && "
-            "echo 'Done. Running script...' && "
-            f"bash /app/aspects/scripts/clickhouse-demo-xapi-data.sh {num_batches}"
-            f" {batch_size} && "
-            "echo 'Done!';",
-        ),
-    ]
+# To keep compatibility with tutor14 we need to add the commands
+# directly to the dev|k8s|local command groups.
+try:
+    CLI_DO_COMMANDS = hooks.Filters.CLI_DO_COMMANDS
+except AttributeError:
+    from tutor.commands import dev, k8s, local
 
-
-# Ex: "tutor local do dbt "
-@click.command(context_settings={"ignore_unknown_options": True})
-@click.option(
-    "-c",
-    "--command",
-    default="run",
-    type=click.UNPROCESSED,
-    help="""The full dbt command to run configured ClickHouse database, wrapped in
-         double quotes. The list of commands can be found in the CLI section here:
-         https://docs.getdbt.com/reference/dbt-commands
-         
-         Examples: 
-         
-         tutor local do dbt -c "test"
-         
-         tutor local do dbt -c "run -m enrollments_by_day --threads 4"
-         """,
-)
-def dbt(command: string) -> list[tuple[str, str]]:
-    """
-    Job that proxies dbt commands to a container which runs them against ClickHouse.
-    """
-    return [
-        (
-            "aspects",
-            "echo 'Making dbt script executable...' && "
-            "chmod +x /app/aspects/scripts/dbt.sh && "
-            f"echo 'Running dbt {command}' && "
-            f"bash /app/aspects/scripts/dbt.sh {command} && "
-            "echo 'Done!';",
-        ),
-    ]
-
-
-# Ex: "tutor local do alembic "
-@click.command(context_settings={"ignore_unknown_options": True})
-@click.option(
-    "-c",
-    "--command",
-    default="run",
-    type=click.UNPROCESSED,
-    help="""The full alembic command to run configured ClickHouse database, wrapped in
-            double quotes. The list of commands can be found in the CLI section here:
-            https://alembic.sqlalchemy.org/en/latest/cli.html#command-reference
-            Examples:
-            
-            tutor local do alembic -c "current" # Show current revision
-            tutor local do alembic -c "history" # Show revision history
-            tutor local do alembic -c "revision --autogenerate -m 'Add new table'" # Create new revision
-            tutor local do alembic -c "upgrade head" # Upgrade to latest migrations
-            tutor local do alembic -c "downgrade base" # Downgrade to base migration
-         """,
-)
-def alembic(command: string) -> list[tuple[str, str]]:
-    """
-    Job that proxies alembic commands to a container which runs them against ClickHouse.
-    """
-    return [
-        (
-            "aspects",
-            "echo 'Making dbt script executable...' && "
-            "chmod +x /app/aspects/scripts/dbt.sh && "
-            f"bash /app/aspects/scripts/alembic.sh {command} && "
-            "echo 'Done!';",
-        ),
-    ]
-
-
-# Add the command function to CLI_DO_COMMANDS:
-hooks.Filters.CLI_DO_COMMANDS.add_item(load_xapi_test_data)
-hooks.Filters.CLI_DO_COMMANDS.add_item(dbt)
-hooks.Filters.CLI_DO_COMMANDS.add_item(alembic)
-
-
+    for f in TUTOR_V0_COMMANDS:
+        for mode in [dev.dev, local.local, k8s.k8s]:
+            mode.add_command(f)
+else:
+    for f in TUTOR_V1_COMMANDS:
+        CLI_DO_COMMANDS.add_item(f)
 #######################################
 # CUSTOM CLI COMMANDS
 #######################################

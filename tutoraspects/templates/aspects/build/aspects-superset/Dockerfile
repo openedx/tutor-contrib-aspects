@@ -9,10 +9,4 @@ USER root
 
 COPY ./requirements.txt /app/requirements.txt
 
-RUN \
-    {% if is_buildkit_enabled() %}--mount=type=cache,target=/var/cache/apt \{% endif %}
-    apt-get update && apt-get install -y zip
-
-RUN \
-    {% if is_buildkit_enabled() %}--mount=type=cache,target=/root/.cache/pip,sharing=shared \{% endif %}
-    pip install -r /app/requirements.txt
+RUN pip install -r /app/requirements.txt
