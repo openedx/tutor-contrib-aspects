@@ -788,7 +788,7 @@
   uuid: 46183302-6fa6-41a3-b6a7-79ff6c1c8402
   version: 1.0.0
 
-- _file_name: Instructor_dashboard_5.yaml
+- _file_name: Instructor_dashboard_8.yaml
   css: ''
   dashboard_title: Instructor dashboard
   description: null
@@ -898,7 +898,7 @@
       children: []
       id: CHART-Jr-gNVms2Q
       meta:
-        chartId: 18
+        chartId: 27
         height: 50
         sliceName: Enrollment events per day
         uuid: bb1147cc-b7bc-44b7-b06a-79b0db6626aa
@@ -912,7 +912,7 @@
       children: []
       id: CHART-evjVO-ZSSd
       meta:
-        chartId: 17
+        chartId: 26
         height: 50
         sliceName: Cumulative enrollments by mode
         uuid: 05ed7102-5464-4e2f-86ae-31700b787cc3
@@ -926,7 +926,7 @@
       children: []
       id: CHART-hCz27s2NEX
       meta:
-        chartId: 13
+        chartId: 25
         height: 50
         sliceName: Watches per video
         uuid: 829c1d5b-2844-4115-876a-34ad3b3cad64
@@ -940,7 +940,7 @@
       children: []
       id: CHART-p5SkjOwu0w
       meta:
-        chartId: 12
+        chartId: 24
         height: 50
         sliceName: Transcript/closed captioning usage per video
         uuid: 6b830def-f3ca-4b4c-9455-7a7b7354bce8
@@ -950,10 +950,25 @@
       - GRID_ID
       - ROW-7OLwuieb8j
       type: CHART
+    CHART-yqceXpI-fP:
+      children: []
+      id: CHART-yqceXpI-fP
+      meta:
+        chartId: 28
+        height: 50
+        sliceName: Enrolled learners per day
+        uuid: 1e936880-74b0-4084-8c73-e3d9685271ec
+        width: 12
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-8i6Wwe2MXi
+      type: CHART
     DASHBOARD_VERSION_KEY: v2
     GRID_ID:
       children:
       - HEADER-9oReNB0nyf
+      - ROW-8i6Wwe2MXi
       - ROW-je_Wqya3Ga
       - HEADER-Jevm46xhwX
       - ROW-7OLwuieb8j
@@ -998,6 +1013,16 @@
       - CHART-hCz27s2NEX
       - CHART-p5SkjOwu0w
       id: ROW-7OLwuieb8j
+      meta:
+        background: BACKGROUND_TRANSPARENT
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      type: ROW
+    ROW-8i6Wwe2MXi:
+      children:
+      - CHART-yqceXpI-fP
+      id: ROW-8i6Wwe2MXi
       meta:
         background: BACKGROUND_TRANSPARENT
       parents:
@@ -1755,5 +1780,174 @@
   template_params: {}
   uuid: 4b274428-d781-41be-b362-ed6917443678
   version: 1.0.0
+
+
+- _file_name: Enrolled_learners_per_day_28.yaml
+  cache_timeout: null
+  dataset_uuid: 352311fe-12f0-470c-8b8c-d4f6a3936b3d
+  params:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: registered
+      expressionType: SIMPLE
+      filterOptionName: filter_hcnm4t7piq6_hfbtt65nqqs
+      isExtra: false
+      isNew: false
+      operator: ==
+      operatorId: EQUALS
+      sqlExpression: null
+      subject: enrollment_status
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    datasource: 37__table
+    extra_form_data: {}
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    granularity_sqla: enrollment_status_date
+    groupby:
+    - enrollment_mode
+    legendOrientation: top
+    legendType: scroll
+    metrics:
+    - count
+    only_total: true
+    order_desc: true
+    orientation: vertical
+    rich_tooltip: true
+    row_limit: 10000
+    show_legend: true
+    stack: true
+    time_grain_sqla: P1D
+    time_range: No filter
+    tooltipTimeFormat: smart_date
+    truncate_metric: true
+    viz_type: echarts_timeseries_bar
+    xAxisLabelRotation: 45
+    x_axis_time_format: '%Y-%m-%d'
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title_margin: 15
+    y_axis_title_position: Left
+  slice_name: Enrolled learners per day
+  uuid: 1e936880-74b0-4084-8c73-e3d9685271ec
+  version: 1.0.0
+  viz_type: echarts_timeseries_bar
+
+- _file_name: fact_enrollments_by_day.yaml
+  cache_timeout: null
+  columns:
+  - advanced_data_type: null
+    column_name: enrollment_mode
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: LowCardinality(String)
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: enrollment_status_date
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: true
+    python_date_format: null
+    type: Date
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: actor_id
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: course_name
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: enrollment_status
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: run_name
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: org
+    description: null
+    expression: null
+    extra: null
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+  default_endpoint: null
+  description: null
+  extra: null
+  fetch_values_predicate: null
+  filter_select_enabled: false
+  main_dttm_col: null
+  metrics:
+  - d3format: null
+    description: null
+    expression: count(*)
+    extra: null
+    metric_name: count
+    metric_type: null
+    verbose_name: null
+    warning_text: null
+  offset: 0
+  params: null
+  schema: null
+  sql: "{% include 'aspects/apps/superset/pythonpath/queries/fact_enrollments_by_day.sql' %}"
+  table_name: fact_enrollments_by_day
+  template_params: {}
+  uuid: 352311fe-12f0-470c-8b8c-d4f6a3936b3d
+  version: 1.0.0
+
 
 {{ patch("superset-extra-assets") }}
