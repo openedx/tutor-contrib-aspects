@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
-
-python3 -m venv virtualenv
-. virtualenv/bin/activate
-
 echo "Loading demo xAPI data..."
 xapi-db-load --backend ralph_clickhouse \
     --num_batches $1 \

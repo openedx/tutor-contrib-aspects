@@ -347,7 +347,7 @@
     warning_text: null
   offset: 0
   params: null
-  schema: xapi
+  schema: {{ASPECTS_XAPI_DATABASE}}
   sql: ''
   table_name: xapi_events_all_parsed
   template_params: null
