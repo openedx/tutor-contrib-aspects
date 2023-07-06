@@ -1,0 +1,100 @@
+- _file_name: fact_video_plays.yaml
+  cache_timeout: null
+  columns:
+  - advanced_data_type: null
+    column_name: emission_time
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: true
+    python_date_format: null
+    type: DateTime64(6)
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: org
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: actor_id
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: video_name
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: course_name
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  - advanced_data_type: null
+    column_name: run_name
+    description: null
+    expression: null
+    extra: {}
+    filterable: true
+    groupby: true
+    is_active: true
+    is_dttm: false
+    python_date_format: null
+    type: String
+    verbose_name: null
+  database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+  default_endpoint: null
+  description: null
+  extra: null
+  fetch_values_predicate: null
+  filter_select_enabled: false
+  main_dttm_col: null
+  metrics:
+  - d3format: null
+    description: null
+    expression: count(*)
+    extra:
+      warning_markdown: ''
+    metric_name: count
+    metric_type: null
+    verbose_name: Total plays
+    warning_text: null
+  offset: 0
+  params: null
+  schema: null
+  sql: "{% include 'openedx-assets/queries/fact_video_plays.sql' %}"
+  table_name: fact_video_plays
+  template_params: {}
+  uuid: 6ec360a5-e247-42e7-b301-fa8275fc93f9
+  version: 1.0.0
