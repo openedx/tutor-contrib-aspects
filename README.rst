@@ -162,6 +162,25 @@ To contribute assets to Aspects:
    of what data question they answer.
 
 
+Virtual datasets in Superset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Superset supports creating virtual datasets, which are datasets defined using a SQL query instead of mapping directly to an underlying database object. Aspects leverages virtual datasets, along with `SQL templating <https://superset.apache.org/docs/installation/sql-templating/>`_, to make better use of table indexes.
+
+To make it easier for developers to manage virtual datasets, there is an extra step that can be done on the output of ``tutor aspects serialize``. The ``sql`` section of the dataset yaml can be moved to its own file in the `queries`_ directory and included in the yaml like so:
+
+.. code-block:: yaml
+
+   sql: "{% include 'tutoraspects/templates/aspects/apps/superset/pythonpath/queries/query.sql' %}"
+
+
+However, please keep in mind that the assets declaration is itself a jinja template. That means that any jinja used in the dataset definition should be escaped. There are examples of how to handle this in the existing queries, such as `dim_courses.sql`_.
+
+.. _queries: tutoraspects/templates/aspects/apps/superset/pythonpath/queries
+
+.. _dim_courses.sql: tutoraspects/templates/aspects/apps/superset/pythonpath/queries/dim_courses.sql
+
+
 Changing Superset Language Settings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
