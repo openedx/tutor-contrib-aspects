@@ -27,4 +27,6 @@ select
 from
     transcripts
     join videos
-        using (org, course_key, video_id)
+        on (transcripts.org = videos.org
+            and transcripts.course_key = videos.course_key
+            and transcripts.video_id = videos.video_id)

@@ -21,4 +21,6 @@ select
 from
     plays
     join videos
-        using (org, course_key, video_id)
+        on (plays.org = videos.org
+            and plays.course_key = videos.course_key
+            and plays.video_id = videos.video_id)

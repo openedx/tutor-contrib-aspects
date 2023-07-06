@@ -788,7 +788,7 @@
   uuid: 46183302-6fa6-41a3-b6a7-79ff6c1c8402
   version: 1.0.0
 
-- _file_name: Instructor_dashboard_9.yaml
+- _file_name: Instructor_dashboard_11.yaml
   css: ''
   dashboard_title: Instructor dashboard
   description: null
@@ -804,8 +804,38 @@
       - 24
       - 25
       - 32
-      - 33
       - 34
+      - 37
+      - 38
+      - 39
+      controlValues:
+        enableEmptyFilter: false
+      defaultDataMask:
+        extraFormData:
+          time_range: Last month
+        filterState:
+          value: Last month
+      description: ''
+      filterType: filter_time
+      id: NATIVE_FILTER-zxfszG4xH
+      name: Time range
+      scope:
+        excluded: []
+        rootPath:
+        - ROOT_ID
+      tabsInScope: []
+      targets:
+      - {}
+      type: NATIVE_FILTER
+    - cascadeParentIds: []
+      chartsInScope:
+      - 24
+      - 25
+      - 32
+      - 34
+      - 37
+      - 38
+      - 39
       controlValues:
         defaultToFirstItem: true
         enableEmptyFilter: true
@@ -837,8 +867,10 @@
       - 24
       - 25
       - 32
-      - 33
       - 34
+      - 37
+      - 38
+      - 39
       controlValues:
         defaultToFirstItem: false
         enableEmptyFilter: false
@@ -870,8 +902,10 @@
       - 24
       - 25
       - 32
-      - 33
       - 34
+      - 37
+      - 38
+      - 39
       controlValues:
         defaultToFirstItem: false
         enableEmptyFilter: false
@@ -896,34 +930,77 @@
           name: run_name
         datasetUuid: 4b274428-d781-41be-b362-ed6917443678
       type: NATIVE_FILTER
-    - cascadeParentIds: []
+    - cascadeParentIds:
+      - NATIVE_FILTER-Vx7HxG8_7
+      - NATIVE_FILTER-XPuiTOej4
+      - NATIVE_FILTER-E6-vOpjZv
       chartsInScope:
-      - 32
-      - 34
+      - 40
       controlValues:
+        defaultToFirstItem: false
         enableEmptyFilter: false
+        inverseSelection: false
+        multiSelect: true
+        searchAllOptions: false
       defaultDataMask:
-        extraFormData:
-          time_range: Last month
-        filterState:
-          value: Last month
+        extraFormData: {}
+        filterState: {}
+        ownState: {}
       description: ''
-      filterType: filter_time
-      id: NATIVE_FILTER-zxfszG4xH
-      name: Time range
+      filterType: filter_select
+      id: NATIVE_FILTER-6xfFY5VGz
+      name: Problem name
       scope:
-        excluded: []
+        excluded:
+        - 34
+        - 32
+        - 25
+        - 24
+        - 37
+        - 41
         rootPath:
         - ROOT_ID
       tabsInScope: []
       targets:
-      - {}
+      - column:
+          name: problem_name
+        datasetUuid: 008e2907-fc6b-45ef-bf85-73a04c5791ff
       type: NATIVE_FILTER
     refresh_frequency: 0
     shared_label_colors: {}
     show_native_filters: true
     timed_refresh_immune_slices: []
   position:
+    CHART-6ShUwMXI4Q:
+      children: []
+      id: CHART-6ShUwMXI4Q
+      meta:
+        chartId: 42
+        height: 50
+        sliceName: Attempts to first success
+        uuid: db90930f-f16e-4c32-8050-0e4abae28f4c
+        width: 6
+      parents:
+      - ROOT_ID
+      - TABS-SNeKAJcjhd
+      - TAB-NR4UTAs9K
+      - ROW-F0Kodzjt8
+      type: CHART
+    CHART-AZZnl_lpMv:
+      children: []
+      id: CHART-AZZnl_lpMv
+      meta:
+        chartId: 25
+        height: 50
+        sliceName: Watches per video
+        uuid: 829c1d5b-2844-4115-876a-34ad3b3cad64
+        width: 6
+      parents:
+      - ROOT_ID
+      - TABS-SNeKAJcjhd
+      - TAB-7PGDduCA7
+      - ROW-BO2IHCiYF8
+      type: CHART
     CHART-Jr-gNVms2Q:
       children: []
       id: CHART-Jr-gNVms2Q
@@ -935,8 +1012,39 @@
         width: 8
       parents:
       - ROOT_ID
-      - GRID_ID
+      - TABS-SNeKAJcjhd
+      - TAB-8BxDuJd9Jb
       - ROW-je_Wqya3Ga
+      type: CHART
+    CHART-Tej2oLPBAl:
+      children: []
+      id: CHART-Tej2oLPBAl
+      meta:
+        chartId: 24
+        height: 50
+        sliceName: Transcript/closed captioning usage per video
+        uuid: 6b830def-f3ca-4b4c-9455-7a7b7354bce8
+        width: 6
+      parents:
+      - ROOT_ID
+      - TABS-SNeKAJcjhd
+      - TAB-7PGDduCA7
+      - ROW-BO2IHCiYF8
+      type: CHART
+    CHART-VBeaYzSdd6:
+      children: []
+      id: CHART-VBeaYzSdd6
+      meta:
+        chartId: 43
+        height: 50
+        sliceName: Hints and answers displayed per correct answer
+        uuid: ee94be4c-6fdd-4295-b43c-40890d6c549d
+        width: 6
+      parents:
+      - ROOT_ID
+      - TABS-SNeKAJcjhd
+      - TAB-NR4UTAs9K
+      - ROW-F0Kodzjt8
       type: CHART
     CHART-evjVO-ZSSd:
       children: []
@@ -949,84 +1057,94 @@
         width: 4
       parents:
       - ROOT_ID
-      - GRID_ID
+      - TABS-SNeKAJcjhd
+      - TAB-8BxDuJd9Jb
       - ROW-je_Wqya3Ga
       type: CHART
-    CHART-hCz27s2NEX:
+    CHART-hrPFXl_7_X:
       children: []
-      id: CHART-hCz27s2NEX
+      id: CHART-hrPFXl_7_X
       meta:
-        chartId: 25
+        chartId: 40
         height: 50
-        sliceName: Watches per video
-        uuid: 829c1d5b-2844-4115-876a-34ad3b3cad64
-        width: 6
+        sliceName: Response distribution
+        uuid: f1651c44-a8f4-4b44-ad49-962823009319
+        width: 12
       parents:
       - ROOT_ID
-      - GRID_ID
-      - ROW-7OLwuieb8j
-      type: CHART
-    CHART-p5SkjOwu0w:
-      children: []
-      id: CHART-p5SkjOwu0w
-      meta:
-        chartId: 24
-        height: 50
-        sliceName: Transcript/closed captioning usage per video
-        uuid: 6b830def-f3ca-4b4c-9455-7a7b7354bce8
-        width: 6
-      parents:
-      - ROOT_ID
-      - GRID_ID
-      - ROW-7OLwuieb8j
+      - TABS-SNeKAJcjhd
+      - TAB-NR4UTAs9K
+      - ROW-hl5VZP3L0
       type: CHART
     CHART-rnb6PSwCOS:
       children: []
       id: CHART-rnb6PSwCOS
       meta:
-        chartId: 36
+        chartId: 37
         height: 50
         sliceName: Enrolled learners per day
         uuid: ed2fe731-6544-422f-bc55-42f399f48b2c
         width: 12
       parents:
       - ROOT_ID
-      - GRID_ID
+      - TABS-SNeKAJcjhd
+      - TAB-8BxDuJd9Jb
       - ROW-K8s_8uq9IP
       type: CHART
+    CHART-s8sC81tP9u:
+      children: []
+      id: CHART-s8sC81tP9u
+      meta:
+        chartId: 41
+        height: 48
+        sliceName: Problem submission counts
+        uuid: 3dc6a642-a71d-4c8c-ab98-14f54852b40f
+        width: 12
+      parents:
+      - ROOT_ID
+      - TABS-SNeKAJcjhd
+      - TAB-NR4UTAs9K
+      - ROW-_qzhG9fM3z
+      type: CHART
     DASHBOARD_VERSION_KEY: v2
+    DIVIDER-G6rO0La8YT:
+      children: []
+      id: DIVIDER-G6rO0La8YT
+      meta: {}
+      parents:
+      - ROOT_ID
+      - TABS-SNeKAJcjhd
+      - TAB-NR4UTAs9K
+      type: DIVIDER
     GRID_ID:
-      children:
-      - HEADER-9oReNB0nyf
-      - ROW-K8s_8uq9IP
-      - ROW-je_Wqya3Ga
-      - HEADER-Jevm46xhwX
-      - ROW-7OLwuieb8j
+      children: []
       id: GRID_ID
       parents:
       - ROOT_ID
       type: GRID
-    HEADER-9oReNB0nyf:
+    HEADER-ugSaqn0qxx:
       children: []
-      id: HEADER-9oReNB0nyf
+      id: HEADER-ugSaqn0qxx
       meta:
         background: BACKGROUND_TRANSPARENT
         headerSize: MEDIUM_HEADER
-        text: Enrollment Overview
+        text: Problem performance
       parents:
       - ROOT_ID
-      - GRID_ID
+      - TABS-SNeKAJcjhd
+      - TAB-NR4UTAs9K
       type: HEADER
-    HEADER-Jevm46xhwX:
+    HEADER-v9QDHi2Dxm:
       children: []
-      id: HEADER-Jevm46xhwX
+      id: HEADER-v9QDHi2Dxm
       meta:
         background: BACKGROUND_TRANSPARENT
         headerSize: MEDIUM_HEADER
-        text: Video Engagement
+        text: Problem engagement overview
       parents:
       - ROOT_ID
-      - GRID_ID
+      - TABS-SNeKAJcjhd
+      - TAB-NR4UTAs9K
       type: HEADER
     HEADER_ID:
       id: HEADER_ID
@@ -1035,19 +1153,32 @@
       type: HEADER
     ROOT_ID:
       children:
-      - GRID_ID
+      - TABS-SNeKAJcjhd
       id: ROOT_ID
       type: ROOT
-    ROW-7OLwuieb8j:
+    ROW-BO2IHCiYF8:
       children:
-      - CHART-hCz27s2NEX
-      - CHART-p5SkjOwu0w
-      id: ROW-7OLwuieb8j
+      - CHART-AZZnl_lpMv
+      - CHART-Tej2oLPBAl
+      id: ROW-BO2IHCiYF8
       meta:
         background: BACKGROUND_TRANSPARENT
       parents:
       - ROOT_ID
-      - GRID_ID
+      - TABS-SNeKAJcjhd
+      - TAB-7PGDduCA7
+      type: ROW
+    ROW-F0Kodzjt8:
+      children:
+      - CHART-6ShUwMXI4Q
+      - CHART-VBeaYzSdd6
+      id: ROW-F0Kodzjt8
+      meta:
+        background: BACKGROUND_TRANSPARENT
+      parents:
+      - ROOT_ID
+      - TABS-SNeKAJcjhd
+      - TAB-NR4UTAs9K
       type: ROW
     ROW-K8s_8uq9IP:
       children:
@@ -1057,7 +1188,30 @@
         background: BACKGROUND_TRANSPARENT
       parents:
       - ROOT_ID
-      - GRID_ID
+      - TABS-SNeKAJcjhd
+      - TAB-8BxDuJd9Jb
+      type: ROW
+    ROW-_qzhG9fM3z:
+      children:
+      - CHART-s8sC81tP9u
+      id: ROW-_qzhG9fM3z
+      meta:
+        background: BACKGROUND_TRANSPARENT
+      parents:
+      - ROOT_ID
+      - TABS-SNeKAJcjhd
+      - TAB-NR4UTAs9K
+      type: ROW
+    ROW-hl5VZP3L0:
+      children:
+      - CHART-hrPFXl_7_X
+      id: ROW-hl5VZP3L0
+      meta:
+        background: BACKGROUND_TRANSPARENT
+      parents:
+      - ROOT_ID
+      - TABS-SNeKAJcjhd
+      - TAB-NR4UTAs9K
       type: ROW
     ROW-je_Wqya3Ga:
       children:
@@ -1068,8 +1222,61 @@
         background: BACKGROUND_TRANSPARENT
       parents:
       - ROOT_ID
-      - GRID_ID
+      - TABS-SNeKAJcjhd
+      - TAB-8BxDuJd9Jb
       type: ROW
+    TAB-7PGDduCA7:
+      children:
+      - ROW-BO2IHCiYF8
+      id: TAB-7PGDduCA7
+      meta:
+        defaultText: Tab title
+        placeholder: Tab title
+        text: Video engagement
+      parents:
+      - ROOT_ID
+      - TABS-SNeKAJcjhd
+      type: TAB
+    TAB-8BxDuJd9Jb:
+      children:
+      - ROW-K8s_8uq9IP
+      - ROW-je_Wqya3Ga
+      id: TAB-8BxDuJd9Jb
+      meta:
+        defaultText: Tab title
+        placeholder: Tab title
+        text: Enrollment
+      parents:
+      - ROOT_ID
+      - TABS-SNeKAJcjhd
+      type: TAB
+    TAB-NR4UTAs9K:
+      children:
+      - HEADER-v9QDHi2Dxm
+      - ROW-_qzhG9fM3z
+      - DIVIDER-G6rO0La8YT
+      - HEADER-ugSaqn0qxx
+      - ROW-hl5VZP3L0
+      - ROW-F0Kodzjt8
+      id: TAB-NR4UTAs9K
+      meta:
+        defaultText: Tab title
+        placeholder: Tab title
+        text: Problem engagement
+      parents:
+      - ROOT_ID
+      - TABS-SNeKAJcjhd
+      type: TAB
+    TABS-SNeKAJcjhd:
+      children:
+      - TAB-8BxDuJd9Jb
+      - TAB-NR4UTAs9K
+      - TAB-7PGDduCA7
+      id: TABS-SNeKAJcjhd
+      meta: {}
+      parents:
+      - ROOT_ID
+      type: TABS
   slug: null
   uuid: 1d6bf904-f53f-47fd-b1c9-6cd7e284d286
   version: 1.0.0
@@ -1963,5 +2170,623 @@
   uuid: 352311fe-12f0-470c-8b8c-d4f6a3936b3d
   version: 1.0.0
 
+- _file_name: fact_problem_responses.yaml
+  cache_timeout: null
+  columns:
+    - advanced_data_type: null
+      column_name: emission_time
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: true
+      python_date_format: null
+      type: DateTime64(6)
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: org
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: attempts
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: Int16
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: success
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: Bool
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: problem_name
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: actor_id
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: responses
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: course_name
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: run_name
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+  database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+  default_endpoint: null
+  description: null
+  extra: null
+  fetch_values_predicate: null
+  filter_select_enabled: false
+  main_dttm_col: null
+  metrics:
+    - d3format: null
+      description: null
+      expression: count(*)
+      extra: null
+      metric_name: count
+      metric_type: null
+      verbose_name: null
+      warning_text: null
+  offset: 0
+  params: null
+  schema: null
+  sql: "{% include 'aspects/apps/superset/pythonpath/queries/fact_problem_responses.sql' %}"
+  table_name: fact_problem_responses
+  template_params: null
+  uuid: 511dd5f1-3925-4e9e-ad8a-a227b5680047
+  version: 1.0.0
+
+- _file_name: dim_course_problems.yaml
+  cache_timeout: null
+  columns:
+    - advanced_data_type: null
+      column_name: course_key
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: org
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: problem_name
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: course_name
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: problem_id
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: run_name
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+  database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+  default_endpoint: null
+  description: null
+  extra: null
+  fetch_values_predicate: null
+  filter_select_enabled: false
+  main_dttm_col: null
+  metrics:
+    - d3format: null
+      description: null
+      expression: count(*)
+      extra: null
+      metric_name: count
+      metric_type: null
+      verbose_name: null
+      warning_text: null
+  offset: 0
+  params: null
+  schema: null
+  sql: "{% include 'aspects/apps/superset/pythonpath/queries/dim_course_problems.sql' %}"
+  table_name: dim_course_problems
+  template_params: {}
+  uuid: 008e2907-fc6b-45ef-bf85-73a04c5791ff
+  version: 1.0.0
+
+- _file_name: fact_learner_problem_summary.yaml
+  cache_timeout: null
+  columns:
+    - advanced_data_type: null
+      column_name: org
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: attempts
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: Int16
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: success
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: Bool
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: problem_name
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: actor_id
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: num_hints_displayed
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: UInt64
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: num_answers_displayed
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: UInt64
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: course_name
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: run_name
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+  database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+  default_endpoint: null
+  description: null
+  extra: null
+  fetch_values_predicate: null
+  filter_select_enabled: false
+  main_dttm_col: null
+  metrics:
+    - d3format: null
+      description: null
+      expression: count(*)
+      extra: null
+      metric_name: count
+      metric_type: null
+      verbose_name: null
+      warning_text: null
+  offset: 0
+  params: null
+  schema: null
+  sql: "{% include 'aspects/apps/superset/pythonpath/queries/fact_learner_problem_summary.sql' %}"
+  table_name: fact_learner_problem_summary
+  template_params: null
+  uuid: 9362354c-1541-43c2-b769-da9818236298
+  version: 1.0.0
+
+- _file_name: Problem_submission_counts_38.yaml
+  cache_timeout: null
+  dataset_uuid: 9362354c-1541-43c2-b769-da9818236298
+  params:
+    adhoc_filters: []
+    bar_stacked: true
+    bottom_margin: auto
+    color_scheme: supersetColors
+    columns:
+    - success
+    datasource: 43__table
+    extra_form_data: {}
+    groupby:
+    - problem_name
+    metrics:
+    - aggregate: COUNT_DISTINCT
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: actor_id
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 301
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: String
+        type_generic: 1
+        verbose_name: null
+        warning_markdown: null
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      isNew: false
+      label: Learners
+      optionName: metric_g889221mh0r_lf203igqxgg
+      sqlExpression: null
+    order_desc: true
+    rich_tooltip: true
+    row_limit: 10000
+    show_legend: true
+    slice_id: '38'
+    time_range: No filter
+    viz_type: dist_bar
+    x_ticks_layout: auto
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+  slice_name: Problem submission counts
+  uuid: 3dc6a642-a71d-4c8c-ab98-14f54852b40f
+  version: 1.0.0
+  viz_type: dist_bar
+
+- _file_name: Response_distribution_39.yaml
+  cache_timeout: null
+  dataset_uuid: 511dd5f1-3925-4e9e-ad8a-a227b5680047
+  params:
+    adhoc_filters: []
+    bottom_margin: auto
+    color_scheme: supersetColors
+    columns: []
+    datasource: 42__table
+    extra_form_data: {}
+    granularity_sqla: emission_time
+    groupby:
+    - responses
+    metrics:
+    - count
+    order_desc: true
+    rich_tooltip: true
+    row_limit: 10000
+    show_legend: true
+    time_range: No filter
+    viz_type: dist_bar
+    x_ticks_layout: auto
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+  slice_name: Response distribution
+  uuid: f1651c44-a8f4-4b44-ad49-962823009319
+  version: 1.0.0
+  viz_type: dist_bar
+
+- _file_name: hints_per_success.yaml
+  cache_timeout: null
+  columns:
+    - advanced_data_type: null
+      column_name: total_hints
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: UInt64
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: org
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: problem_name
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: actor_id
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: course_name
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: run_name
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+  database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+  default_endpoint: null
+  description: null
+  extra: null
+  fetch_values_predicate: null
+  filter_select_enabled: false
+  main_dttm_col: null
+  metrics:
+    - d3format: null
+      description: null
+      expression: count(*)
+      extra: null
+      metric_name: count
+      metric_type: null
+      verbose_name: null
+      warning_text: null
+  offset: 0
+  params: null
+  schema: null
+  sql: "{% include 'aspects/apps/superset/pythonpath/queries/hints_per_success.sql' %}"
+  table_name: hints_per_success
+  template_params: null
+  uuid: a5db584d-c8dd-4acc-889e-074288c38433
+  version: 1.0.0
+
+- _file_name: Attempts_to_first_success_42.yaml
+  cache_timeout: null
+  dataset_uuid: 9362354c-1541-43c2-b769-da9818236298
+  params:
+    adhoc_filters: []
+    bottom_margin: auto
+    color_scheme: supersetColors
+    columns: []
+    datasource: 43__table
+    extra_form_data: {}
+    groupby:
+    - attempts
+    metrics:
+    - count
+    order_desc: true
+    rich_tooltip: true
+    row_limit: 10000
+    show_legend: true
+    time_range: No filter
+    viz_type: dist_bar
+    x_ticks_layout: auto
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+  slice_name: Attempts to first success
+  uuid: db90930f-f16e-4c32-8050-0e4abae28f4c
+  version: 1.0.0
+  viz_type: dist_bar
+
+- _file_name: Hints_and_answers_displayed_per_correct_answer_43.yaml
+  cache_timeout: null
+  dataset_uuid: a5db584d-c8dd-4acc-889e-074288c38433
+  params:
+    adhoc_filters: []
+    bottom_margin: auto
+    color_scheme: supersetColors
+    columns: []
+    datasource: 44__table
+    extra_form_data: {}
+    groupby:
+    - total_hints
+    metrics:
+    - count
+    order_desc: true
+    rich_tooltip: true
+    row_limit: 10000
+    show_legend: true
+    time_range: No filter
+    viz_type: dist_bar
+    x_ticks_layout: auto
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+  slice_name: Hints and answers displayed per correct answer
+  uuid: ee94be4c-6fdd-4295-b43c-40890d6c549d
+  version: 1.0.0
+  viz_type: dist_bar
 
 {{ patch("superset-extra-assets") }}
