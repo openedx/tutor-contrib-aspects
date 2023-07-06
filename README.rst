@@ -171,7 +171,7 @@ To make it easier for developers to manage virtual datasets, there is an extra s
 
 .. code-block:: yaml
 
-   sql: "{% include 'tutoraspects/templates/aspects/apps/superset/pythonpath/queries/query.sql' %}"
+   sql: "{% include 'aspects/apps/superset/pythonpath/queries/query.sql' %}"
 
 
 However, please keep in mind that the assets declaration is itself a jinja template. That means that any jinja used in the dataset definition should be escaped. There are examples of how to handle this in the existing queries, such as `dim_courses.sql`_.

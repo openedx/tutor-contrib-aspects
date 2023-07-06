@@ -788,7 +788,7 @@
   uuid: 46183302-6fa6-41a3-b6a7-79ff6c1c8402
   version: 1.0.0
 
-- _file_name: Instructor_dashboard_8.yaml
+- _file_name: Instructor_dashboard_9.yaml
   css: ''
   dashboard_title: Instructor dashboard
   description: null
@@ -801,10 +801,11 @@
     native_filter_configuration:
     - cascadeParentIds: []
       chartsInScope:
-      - 12
-      - 13
-      - 17
-      - 18
+      - 24
+      - 25
+      - 32
+      - 33
+      - 34
       controlValues:
         defaultToFirstItem: true
         enableEmptyFilter: true
@@ -833,10 +834,11 @@
     - cascadeParentIds:
       - NATIVE_FILTER-Vx7HxG8_7
       chartsInScope:
-      - 12
-      - 13
-      - 17
-      - 18
+      - 24
+      - 25
+      - 32
+      - 33
+      - 34
       controlValues:
         defaultToFirstItem: false
         enableEmptyFilter: false
@@ -864,7 +866,12 @@
     - cascadeParentIds:
       - NATIVE_FILTER-Vx7HxG8_7
       - NATIVE_FILTER-XPuiTOej4
-      chartsInScope: []
+      chartsInScope:
+      - 24
+      - 25
+      - 32
+      - 33
+      - 34
       controlValues:
         defaultToFirstItem: false
         enableEmptyFilter: false
@@ -889,6 +896,29 @@
           name: run_name
         datasetUuid: 4b274428-d781-41be-b362-ed6917443678
       type: NATIVE_FILTER
+    - cascadeParentIds: []
+      chartsInScope:
+      - 32
+      - 34
+      controlValues:
+        enableEmptyFilter: false
+      defaultDataMask:
+        extraFormData:
+          time_range: Last month
+        filterState:
+          value: Last month
+      description: ''
+      filterType: filter_time
+      id: NATIVE_FILTER-zxfszG4xH
+      name: Time range
+      scope:
+        excluded: []
+        rootPath:
+        - ROOT_ID
+      tabsInScope: []
+      targets:
+      - {}
+      type: NATIVE_FILTER
     refresh_frequency: 0
     shared_label_colors: {}
     show_native_filters: true
@@ -898,7 +928,7 @@
       children: []
       id: CHART-Jr-gNVms2Q
       meta:
-        chartId: 27
+        chartId: 34
         height: 50
         sliceName: Enrollment events per day
         uuid: bb1147cc-b7bc-44b7-b06a-79b0db6626aa
@@ -912,7 +942,7 @@
       children: []
       id: CHART-evjVO-ZSSd
       meta:
-        chartId: 26
+        chartId: 32
         height: 50
         sliceName: Cumulative enrollments by mode
         uuid: 05ed7102-5464-4e2f-86ae-31700b787cc3
@@ -950,25 +980,25 @@
       - GRID_ID
       - ROW-7OLwuieb8j
       type: CHART
-    CHART-yqceXpI-fP:
+    CHART-rnb6PSwCOS:
       children: []
-      id: CHART-yqceXpI-fP
+      id: CHART-rnb6PSwCOS
       meta:
-        chartId: 28
+        chartId: 36
         height: 50
         sliceName: Enrolled learners per day
-        uuid: 1e936880-74b0-4084-8c73-e3d9685271ec
+        uuid: ed2fe731-6544-422f-bc55-42f399f48b2c
         width: 12
       parents:
       - ROOT_ID
       - GRID_ID
-      - ROW-8i6Wwe2MXi
+      - ROW-K8s_8uq9IP
       type: CHART
     DASHBOARD_VERSION_KEY: v2
     GRID_ID:
       children:
       - HEADER-9oReNB0nyf
-      - ROW-8i6Wwe2MXi
+      - ROW-K8s_8uq9IP
       - ROW-je_Wqya3Ga
       - HEADER-Jevm46xhwX
       - ROW-7OLwuieb8j
@@ -1019,10 +1049,10 @@
       - ROOT_ID
       - GRID_ID
       type: ROW
-    ROW-8i6Wwe2MXi:
+    ROW-K8s_8uq9IP:
       children:
-      - CHART-yqceXpI-fP
-      id: ROW-8i6Wwe2MXi
+      - CHART-rnb6PSwCOS
+      id: ROW-K8s_8uq9IP
       meta:
         background: BACKGROUND_TRANSPARENT
       parents:
@@ -1781,8 +1811,7 @@
   uuid: 4b274428-d781-41be-b362-ed6917443678
   version: 1.0.0
 
-
-- _file_name: Enrolled_learners_per_day_28.yaml
+- _file_name: Enrolled_learners_per_day_36.yaml
   cache_timeout: null
   dataset_uuid: 352311fe-12f0-470c-8b8c-d4f6a3936b3d
   params:
@@ -1797,45 +1826,30 @@
       operatorId: EQUALS
       sqlExpression: null
       subject: enrollment_status
-    annotation_layers: []
-    color_scheme: supersetColors
-    comparison_type: values
-    datasource: 37__table
+    color_picker:
+      a: 1
+      b: 135
+      g: 122
+      r: 0
+    datasource: 40__table
     extra_form_data: {}
-    forecastInterval: 0.8
-    forecastPeriods: 10
     granularity_sqla: enrollment_status_date
-    groupby:
-    - enrollment_mode
-    legendOrientation: top
-    legendType: scroll
-    metrics:
-    - count
-    only_total: true
-    order_desc: true
-    orientation: vertical
-    rich_tooltip: true
-    row_limit: 10000
-    show_legend: true
-    stack: true
+    header_font_size: 0.4
+    metric: count
+    rolling_type: None
+    show_trend_line: true
+    start_y_axis_at_zero: true
+    subheader_font_size: 0.15
+    time_format: smart_date
     time_grain_sqla: P1D
     time_range: No filter
-    tooltipTimeFormat: smart_date
-    truncate_metric: true
-    viz_type: echarts_timeseries_bar
-    xAxisLabelRotation: 45
-    x_axis_time_format: '%Y-%m-%d'
-    x_axis_title_margin: 15
-    y_axis_bounds:
-    - null
-    - null
+    viz_type: big_number
     y_axis_format: SMART_NUMBER
-    y_axis_title_margin: 15
-    y_axis_title_position: Left
   slice_name: Enrolled learners per day
-  uuid: 1e936880-74b0-4084-8c73-e3d9685271ec
+  uuid: ed2fe731-6544-422f-bc55-42f399f48b2c
   version: 1.0.0
-  viz_type: echarts_timeseries_bar
+  viz_type: big_number
+
 
 - _file_name: fact_enrollments_by_day.yaml
   cache_timeout: null
