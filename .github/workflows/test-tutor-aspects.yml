@@ -1,0 +1,73 @@
+name: Test Tutor Aspects
+
+on:
+  push:
+    branches: [ main ]
+  issue_comment:                                     
+    types: [created, edited, deleted]
+
+env:
+  TUTOR_ROOT: ./.ci/
+
+jobs:
+  local:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.issue.pull_request }} && contains(github.event.comment.body, 'test tutor aspects local')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: Install python reqs
+        run: pip install -r requirements/dev.txt
+      - name: Install aspects
+        run: pip install -e .
+      - name: Tutor config save
+        run: tutor config save
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Populate Docker cache
+        run: time tutor images pull openedx
+      - name: Tutor build openedx
+        run: time tutor images build openedx aspects aspects-superset
+      - name: Tutor init
+        run: time tutor local do init
+      - name: Tutor start
+        run: time tutor local start -d
+      - name: Load test
+        run: time tutor local do load-xapi-test-data --num_batches=5 --batch_size=5
+      - name: Tutor stop
+        run: time tutor local stop
+
+  dev:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.issue.pull_request }} && contains(github.event.comment.body, 'test tutor aspects dev')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: Install python reqs
+        run: pip install -r requirements/dev.txt
+      - name: Install aspects
+        run: pip install -e .
+      - name: Tutor config save
+        run: tutor config save
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Populate Docker cache
+        run: time tutor images pull openedx
+      - name: Tutor build openedx
+        run: time tutor images build openedx-dev aspects aspects-superset
+      - name: Tutor init
+        run: time tutor dev do init
+      - name: Tutor start
+        run: time tutor dev start -d
+      - name: Load test
+        run: time tutor dev do load-xapi-test-data --num_batches=5 --batch_size=5
+      - name: Tutor stop
+        run: time tutor dev stop
