@@ -9,7 +9,13 @@ with courses as (
         enrollment_mode,
         splitByString('/', verb_id)[-1] as enrollment_status
     from
-        xapi.enrollment_events
+        {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_EVENTS_TABLE }}
+    {% raw -%}
+    {% if filter_values('org') != [] %}
+    where
+        org in {{ filter_values('org') | where_in }}
+    {% endif %}
+    {%- endraw %}
 )
 
 select
