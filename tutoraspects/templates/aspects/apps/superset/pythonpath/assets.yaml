@@ -24,6 +24,9 @@
 {% include 'openedx-assets/fact_learner_problem_summary.yaml' %}
 {% include 'openedx-assets/fact_problem_responses.yaml' %}
 {% include 'openedx-assets/hints_per_success.yaml' %}
+{% include 'openedx-assets/dim_course_videos.yaml' %}
+{% include 'openedx-assets/fact_watched_video_segments.yaml' %}
+{% include 'openedx-assets/Watched_video_segments_51.yaml' %}
 
 
 {{ patch("superset-extra-assets") }}
