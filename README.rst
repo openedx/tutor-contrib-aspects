@@ -225,6 +225,17 @@ To extend the DBT project there are multiple options:
        the default DBT files (``dbt_project.yml`` and ``packages.yml``) and add your changes from
        there.
 
+
+Running Clickhouse queries at startup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To run extra SQL queries at startup you can use the tutor patch ``clickhouse-extra-sql``.:
+
+..  code-block:: yaml
+
+    clickhouse-extra-sql: |
+        SELECT * from {{ASPECTS_XAPI_DATABASE}}.{{ASPECTS_XAPI_TABLE}} LIMIT 1;
+
 License
 -------
 
