@@ -142,7 +142,7 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
             for course_id in next_courses:
                 courses.append(course_id)
 
-        return courses
+        raise Exception(f"User {username} is not an instructor")
 
 
 UserAccess = namedtuple("UserAccess", ["username", "is_superuser", "is_staff"])
