@@ -186,6 +186,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             },
         ),
         ("SUPERSET_EXTRA_JINJA_FILTERS", {}),
+        ("SUPERSET_BLOCK_STUDENT_ACCESS", True),
         ######################
         # dbt Settings
         # For the most part you shouldn't have to touch these
