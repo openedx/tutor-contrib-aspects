@@ -1,10 +1,10 @@
 name: Test Tutor Aspects
 
 on:
-  push:
-    branches: [ main ]
   issue_comment:                                     
     types: [created, edited, deleted]
+  pull_request:
+    branches: [ main ]
 
 env:
   TUTOR_ROOT: ./.ci/

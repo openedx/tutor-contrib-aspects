@@ -40,6 +40,10 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.30.0-alpine"),
         ("DOCKER_IMAGE_OPENEDX", "edunext/openedx-aspects:{{ ASPECTS_VERSION }}"),
         (
+            "DOCKER_IMAGE_OPENEDX_DEV",
+            "edunext/openedx-aspects-dev:{{ ASPECTS_VERSION }}",
+        ),
+        (
             "OPENEDX_EXTRA_PIP_REQUIREMENTS",
             [
                 "openedx-event-sink-clickhouse==0.1.0",
