@@ -90,6 +90,7 @@ def create_assets():
     for dashboard_uuid, role_ids in roles.items():
         dashboard = db.session.query(Dashboard).filter_by(uuid=dashboard_uuid).one()
         dashboard.roles = role_ids
+        dashboard.published = True
         db.session.commit()
 
 

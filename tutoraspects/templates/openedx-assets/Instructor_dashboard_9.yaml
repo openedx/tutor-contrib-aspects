@@ -1,4 +1,6 @@
 - _file_name: Instructor_dashboard_9.yaml
+  _roles: 
+  - {{ SUPERSET_OPENEDX_ROLE_NAME }}
   css: ""
   dashboard_title: Instructor dashboard
   description: null
