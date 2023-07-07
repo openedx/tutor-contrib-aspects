@@ -38,6 +38,11 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DOCKER_IMAGE_RALPH", "fundocker/ralph:3.8.0"),
         ("DOCKER_IMAGE_SUPERSET", "edunext/aspects-superset:{{ ASPECTS_VERSION }}"),
         ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.30.0-alpine"),
+        ("DOCKER_IMAGE_OPENEDX", "edunext/openedx-aspects:{{ ASPECTS_VERSION }}"),
+        (
+            "DOCKER_IMAGE_OPENEDX_DEV",
+            "edunext/openedx-aspects-dev:{{ ASPECTS_VERSION }}",
+        ),
         (
             "OPENEDX_EXTRA_PIP_REQUIREMENTS",
             [

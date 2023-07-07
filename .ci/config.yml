@@ -1,0 +1,11 @@
+CMS_HOST: studio.local.overhang.io
+CONTACT_EMAIL: oscm@axim.org
+ENABLE_HTTPS: false
+ID: QHbF6pRUqoRIPS6HAULDtfiJ
+LANGUAGE_CODE: en
+LMS_HOST: local.overhang.io
+PLATFORM_NAME: Aspects Local CI Test
+PLUGINS:
+- aspects
+PLUGIN_INDEXES:
+- https://overhang.io/tutor/main
