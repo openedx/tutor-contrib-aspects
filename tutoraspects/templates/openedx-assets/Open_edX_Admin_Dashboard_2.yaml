@@ -1,0 +1,182 @@
+- _file_name: Open_edX_Admin_Dashboard_2.yaml
+  _roles:
+  - {{ SUPERSET_OPENEDX_ROLE_NAME }}
+  css: ''
+  dashboard_title: Open edX Admin Dashboard
+  description: null
+  metadata:
+    chart_configuration: {}
+    color_scheme: ''
+    default_filters: '{}'
+    expanded_slices: {}
+    label_colors: {}
+    native_filter_configuration:
+    - cascadeParentIds: []
+      chartsInScope:
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      controlValues:
+        defaultToFirstItem: false
+        enableEmptyFilter: false
+        inverseSelection: false
+        multiSelect: true
+        searchAllOptions: true
+      defaultDataMask:
+        extraFormData: {}
+        filterState: {}
+        ownState: {}
+      description: ''
+      filterType: filter_select
+      id: NATIVE_FILTER-yb49rspT2
+      name: Course ID
+      scope:
+        excluded: []
+        rootPath:
+        - ROOT_ID
+      tabsInScope: []
+      targets:
+      - column:
+          name: course_key
+        datasetUuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+      type: NATIVE_FILTER
+    - cascadeParentIds: []
+      controlValues:
+        enableEmptyFilter: false
+      defaultDataMask:
+        extraFormData: {}
+        filterState: {}
+        ownState: {}
+      description: ''
+      filterType: filter_time
+      id: NATIVE_FILTER-mqUjL9BMI
+      name: Time range
+      scope:
+        excluded: []
+        rootPath:
+        - ROOT_ID
+      targets:
+      - {}
+      type: NATIVE_FILTER
+    refresh_frequency: 0
+    shared_label_colors: {}
+    show_native_filters: true
+    timed_refresh_immune_slices: []
+  position:
+    CHART-OxWNihq9pP:
+      children: []
+      id: CHART-OxWNihq9pP
+      meta:
+        chartId: 8
+        height: 50
+        sliceName: Video events
+        uuid: 0cc08ea4-fe3f-45ef-89b9-21d9e2c4c5ff
+        width: 4
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-hGj6cJyMJ
+      type: CHART
+    CHART-explore-10-1:
+      children: []
+      id: CHART-explore-10-1
+      meta:
+        chartId: 10
+        height: 50
+        sliceName: Events per day
+        uuid: 0eb95b3a-a61d-4fcf-b614-3bc3e78dbb4b
+        width: 4
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-hGj6cJyMJ
+      type: CHART
+    CHART-explore-11-1:
+      children: []
+      id: CHART-explore-11-1
+      meta:
+        chartId: 11
+        height: 50
+        sliceName: xAPI events by course
+        uuid: c69ab610-f77a-4c54-a5ab-dc3a19a3003e
+        width: 4
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-hGj6cJyMJ
+      type: CHART
+    CHART-explore-9-1:
+      children: []
+      id: CHART-explore-9-1
+      meta:
+        chartId: 9
+        height: 50
+        sliceName: xAPI events
+        uuid: eda31542-e23c-4a9e-b9d2-712c9536265d
+        width: 8
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-EFh2InPgiC
+      type: CHART
+    CHART-jmqhhYm-W8:
+      children: []
+      id: CHART-jmqhhYm-W8
+      meta:
+        chartId: 7
+        height: 50
+        sliceName: xAPI problem events by block
+        uuid: 40b671ce-e987-4c19-bc9d-d07df1d944f8
+        width: 4
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-EFh2InPgiC
+      type: CHART
+    DASHBOARD_VERSION_KEY: v2
+    GRID_ID:
+      children:
+      - ROW-hGj6cJyMJ
+      - ROW-EFh2InPgiC
+      id: GRID_ID
+      parents:
+      - ROOT_ID
+      type: GRID
+    HEADER_ID:
+      id: HEADER_ID
+      meta:
+        text: Open edX Admin Dashboard
+      type: HEADER
+    ROOT_ID:
+      children:
+      - GRID_ID
+      id: ROOT_ID
+      type: ROOT
+    ROW-EFh2InPgiC:
+      children:
+      - CHART-jmqhhYm-W8
+      - CHART-explore-9-1
+      id: ROW-EFh2InPgiC
+      meta:
+        background: BACKGROUND_TRANSPARENT
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      type: ROW
+    ROW-hGj6cJyMJ:
+      children:
+      - CHART-explore-10-1
+      - CHART-explore-11-1
+      - CHART-OxWNihq9pP
+      id: ROW-hGj6cJyMJ
+      meta:
+        background: BACKGROUND_TRANSPARENT
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      type: ROW
+  slug: {{ SUPERSET_XAPI_DASHBOARD_SLUG }}
+  uuid: 4bd1ace4-2327-4ff0-985b-ef014cb0503b
+  version: 1.0.0

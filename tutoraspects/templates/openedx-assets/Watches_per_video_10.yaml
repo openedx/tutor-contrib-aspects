@@ -1,0 +1,54 @@
+- _file_name: Watches_per_video_10.yaml
+  cache_timeout: null
+  dataset_uuid: 6ec360a5-e247-42e7-b301-fa8275fc93f9
+  params:
+    adhoc_filters: []
+    bottom_margin: auto
+    color_scheme: supersetColors
+    columns: []
+    datasource: 7__table
+    extra_form_data: {}
+    granularity_sqla: emission_time
+    groupby:
+    - video_name
+    metrics:
+    - count
+    - aggregate: COUNT_DISTINCT
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: actor_id
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 49
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: String
+        type_generic: 1
+        verbose_name: null
+        warning_markdown: null
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      isNew: false
+      label: Unique watchers
+      optionName: metric_3z6naa425sb_lub9ds43x0a
+      sqlExpression: null
+    order_desc: true
+    rich_tooltip: true
+    row_limit: 10000
+    show_legend: true
+    time_range: No filter
+    viz_type: dist_bar
+    x_ticks_layout: auto
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+  slice_name: Watches per video
+  uuid: 829c1d5b-2844-4115-876a-34ad3b3cad64
+  version: 1.0.0
+  viz_type: dist_bar

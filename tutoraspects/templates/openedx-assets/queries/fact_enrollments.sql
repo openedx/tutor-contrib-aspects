@@ -1,5 +1,5 @@
 with courses as (
-    {% include 'aspects/apps/superset/pythonpath/queries/dim_courses.sql' %}
+    {% include 'openedx-assets/queries/dim_courses.sql' %}
 ), enrollments as (
     select
         emission_time,

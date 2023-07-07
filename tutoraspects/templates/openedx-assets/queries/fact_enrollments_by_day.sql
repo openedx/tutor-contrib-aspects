@@ -1,5 +1,5 @@
 with enrollments as (
-    {% include 'aspects/apps/superset/pythonpath/queries/fact_enrollments.sql' %}
+    {% include 'openedx-assets/queries/fact_enrollments.sql' %}
 ), enrollments_ranked as (
   select
     emission_time,

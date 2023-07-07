@@ -1,0 +1,16 @@
+- _file_name: OpenedX_Clickhouse.yaml
+  database_name: OpenedX Clickhouse
+  sqlalchemy_uri: {{CLICKHOUSE_REPORT_SQLALCHEMY_URI}}
+  cache_timeout: null
+  expose_in_sqllab: true
+  allow_run_async: false
+  allow_ctas: false
+  allow_cvas: false
+  allow_csv_upload: false
+  extra:
+    allows_virtual_table_explore: true
+    metadata_params: {}
+    engine_params: {}
+    schemas_allowed_for_csv_upload: []
+  uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+  version: 1.0.0
