@@ -9,7 +9,7 @@ with courses as (
         actor_id,
         verb_id,
         video_position
-    from xapi.video_playback_events
+    from {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK_EVENTS_TABLE }}
     where
         verb_id = 'https://w3id.org/xapi/video/verbs/played'
         {% raw -%}
@@ -26,7 +26,7 @@ with courses as (
         actor_id,
         verb_id,
         video_position
-    from xapi.video_playback_events
+    from from {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK_EVENTS_TABLE }}
     where
         verb_id in (
             'http://adlnet.gov/expapi/verbs/completed',
