@@ -1,0 +1,29 @@
+- _file_name: Hints_and_answers_displayed_per_correct_answer_43.yaml
+  cache_timeout: null
+  dataset_uuid: a5db584d-c8dd-4acc-889e-074288c38433
+  params:
+    adhoc_filters: []
+    bottom_margin: auto
+    color_scheme: supersetColors
+    columns: []
+    datasource: 44__table
+    extra_form_data: {}
+    groupby:
+      - total_hints
+    metrics:
+      - count
+    order_desc: true
+    rich_tooltip: true
+    row_limit: 10000
+    show_legend: true
+    time_range: No filter
+    viz_type: dist_bar
+    x_ticks_layout: auto
+    y_axis_bounds:
+      - null
+      - null
+    y_axis_format: SMART_NUMBER
+  slice_name: Hints and answers displayed per correct answer
+  uuid: ee94be4c-6fdd-4295-b43c-40890d6c549d
+  version: 1.0.0
+  viz_type: dist_bar

@@ -1,5 +1,5 @@
 with course_problems as (
-     {% include 'aspects/apps/superset/pythonpath/queries/dim_course_problems.sql' %}
+     {% include 'openedx-assets/queries/dim_course_problems.sql' %}
 ), responses as (
     select
         emission_time,

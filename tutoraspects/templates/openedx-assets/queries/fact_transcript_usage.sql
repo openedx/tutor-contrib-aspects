@@ -1,5 +1,5 @@
 with videos as (
-    {% include 'aspects/apps/superset/pythonpath/queries/dim_course_videos.sql' %}
+    {% include 'openedx-assets/queries/dim_course_videos.sql' %}
 ), transcripts as (
     select
         emission_time,

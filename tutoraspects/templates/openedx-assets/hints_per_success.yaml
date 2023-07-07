@@ -1,0 +1,99 @@
+- _file_name: hints_per_success.yaml
+  cache_timeout: null
+  columns:
+    - advanced_data_type: null
+      column_name: total_hints
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: UInt64
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: org
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: problem_name
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: actor_id
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: course_name
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+    - advanced_data_type: null
+      column_name: run_name
+      description: null
+      expression: null
+      extra: null
+      filterable: true
+      groupby: true
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      verbose_name: null
+  database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+  default_endpoint: null
+  description: null
+  extra: null
+  fetch_values_predicate: null
+  filter_select_enabled: false
+  main_dttm_col: null
+  metrics:
+    - d3format: null
+      description: null
+      expression: count(*)
+      extra: null
+      metric_name: count
+      metric_type: null
+      verbose_name: null
+      warning_text: null
+  offset: 0
+  params: null
+  schema: null
+  sql: "{% include 'openedx-assets/queries/hints_per_success.sql' %}"
+  table_name: hints_per_success
+  template_params: null
+  uuid: a5db584d-c8dd-4acc-889e-074288c38433
+  version: 1.0.0

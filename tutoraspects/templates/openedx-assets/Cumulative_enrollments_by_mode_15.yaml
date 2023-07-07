@@ -1,0 +1,41 @@
+- _file_name: Cumulative_enrollments_by_mode_15.yaml
+  cache_timeout: null
+  dataset_uuid: a234545d-08ff-480d-8361-961c3d15f14f
+  params:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: registered
+      expressionType: SIMPLE
+      filterOptionName: filter_itrvc9c0jxb_g4qd4b18na4
+      isExtra: false
+      isNew: false
+      operator: ==
+      operatorId: EQUALS
+      sqlExpression: null
+      subject: enrollment_status
+    color_scheme: supersetColors
+    datasource: 14__table
+    date_format: smart_date
+    extra_form_data: {}
+    granularity_sqla: emission_time
+    groupby:
+    - enrollment_mode
+    innerRadius: 30
+    label_type: key
+    labels_outside: true
+    legendOrientation: top
+    legendType: scroll
+    metric: count
+    number_format: SMART_NUMBER
+    outerRadius: 70
+    row_limit: 100
+    show_labels: true
+    show_labels_threshold: 5
+    show_legend: true
+    sort_by_metric: true
+    time_range: No filter
+    viz_type: pie
+  slice_name: Cumulative enrollments by mode
+  uuid: 05ed7102-5464-4e2f-86ae-31700b787cc3
+  version: 1.0.0
+  viz_type: pie

@@ -1,0 +1,188 @@
+- _file_name: xAPI_problem_events_by_block_7.yaml
+  cache_timeout: null
+  dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+
+  params:
+    adhoc_filters:
+    - clause: WHERE
+      comparator:
+      - http://adlnet.gov/expapi/verbs/evaluated
+      - http://adlnet.gov/expapi/verbs/attempted
+      - http://adlnet.gov/expapi/verbs/asked
+      expressionType: SIMPLE
+      filterOptionName: filter_0qzkqpapje2_6p5tpr4igwf
+      isExtra: false
+      isNew: false
+      operator: IN
+      operatorId: IN
+      sqlExpression: null
+      subject: verb_id
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    contributionMode: null
+    datasource: 2__table
+    extra_form_data: {}
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    granularity_sqla: emission_time
+    groupby:
+    - verb
+    - object_id
+    legendOrientation: top
+    legendType: scroll
+    metrics:
+    - aggregate: null
+      column: null
+      expressionType: SQL
+      hasCustomLabel: false
+      isNew: false
+      label: count(verb)
+      optionName: metric_wdmlkvulpn7_ll3d19812
+      sqlExpression: count(verb)
+    only_total: true
+    order_desc: true
+    orientation: vertical
+    rich_tooltip: true
+    row_limit: 10000
+    show_legend: true
+    time_grain_sqla: P1D
+    time_range: No filter
+    tooltipTimeFormat: smart_date
+    truncate_metric: false
+    viz_type: echarts_timeseries_bar
+    x_axis_time_format: smart_date
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title_margin: 15
+    y_axis_title_position: Left
+  slice_name: xAPI problem events by block
+  uuid: 40b671ce-e987-4c19-bc9d-d07df1d944f8
+  version: 1.0.0
+  viz_type: echarts_timeseries_bar
+
+- _file_name: Video_events_8.yaml
+  cache_timeout: null
+  dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+  params:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: '1'
+      expressionType: SIMPLE
+      filterOptionName: filter_2x4i6oetd7v_4ybshif8gk4
+      isExtra: false
+      isNew: false
+      operator: ==
+      operatorId: EQUALS
+      sqlExpression: null
+      subject: video_event
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    contributionMode: null
+    datasource: 2__table
+    extra_form_data: {}
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    granularity_sqla: emission_time
+    groupby:
+    - verb
+    - object_id
+    legendOrientation: top
+    legendType: scroll
+    metrics:
+    - aggregate: null
+      column: null
+      expressionType: SQL
+      hasCustomLabel: false
+      isNew: false
+      label: count(verb)
+      optionName: metric_wdmlkvulpn7_ll3d19812
+      sqlExpression: count(verb)
+    only_total: true
+    order_desc: true
+    orientation: vertical
+    rich_tooltip: true
+    row_limit: 10000
+    show_legend: true
+    time_grain_sqla: P1D
+    time_range: No filter
+    tooltipTimeFormat: smart_date
+    truncate_metric: false
+    viz_type: echarts_timeseries_bar
+    x_axis_time_format: smart_date
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title_margin: 15
+    y_axis_title_position: Left
+  slice_name: Video events
+  uuid: 0cc08ea4-fe3f-45ef-89b9-21d9e2c4c5ff
+  version: 1.0.0
+  viz_type: echarts_timeseries_bar
+
+- _file_name: xAPI_events_9.yaml
+  cache_timeout: null
+  dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+
+  params:
+    adhoc_filters: []
+    all_columns:
+    - verb_id
+    - course_id
+    color_pn: true
+    datasource: 2__table
+    extra_form_data: {}
+    granularity_sqla: emission_time
+    groupby:
+    - verb_id
+    - course_id
+    order_by_cols: []
+    order_desc: true
+    percent_metrics: []
+    query_mode: raw
+    row_limit: 10000
+    server_page_length: 10
+    show_cell_bars: true
+    table_timestamp_format: smart_date
+    time_grain_sqla: P1D
+    time_range: No filter
+    viz_type: table
+  slice_name: xAPI events
+  uuid: eda31542-e23c-4a9e-b9d2-712c9536265d
+  version: 1.0.0
+  viz_type: table
+
+- _file_name: Events_per_day_10.yaml
+  cache_timeout: null
+  dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+  params:
+    adhoc_filters: []
+    color_picker:
+      a: 1
+      b: 135
+      g: 122
+      r: 0
+    datasource: 2__table
+    extra_form_data: {}
+    granularity_sqla: emission_time
+    header_font_size: 0.4
+    metric: count
+    rolling_type: None
+    show_trend_line: true
+    start_y_axis_at_zero: true
+    subheader_font_size: 0.15
+    time_format: smart_date
+    time_grain_sqla: P1D
+    time_range: No filter
+    viz_type: big_number
+    y_axis_format: SMART_NUMBER
+  slice_name: Events per day
+  uuid: 0eb95b3a-a61d-4fcf-b614-3bc3e78dbb4b
+  version: 1.0.0
+  viz_type: big_number

@@ -1,5 +1,5 @@
 with summary as (
-    {% include 'aspects/apps/superset/pythonpath/queries/fact_learner_problem_summary.sql' %}
+    {% include 'openedx-assets/queries/fact_learner_problem_summary.sql' %}
 )
 
 select
