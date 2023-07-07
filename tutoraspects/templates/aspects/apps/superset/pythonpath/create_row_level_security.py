@@ -7,42 +7,39 @@ from superset.connectors.sqla.models import (RLSFilterRoles,
                                              RowLevelSecurityFilter, SqlaTable)
 from superset.extensions import security_manager
 from superset.migrations.shared.security_converge import Role
-from superset.utils.core import RowLevelSecurityFilterType
 
 session = security_manager.get_session()
 
-# Fetch the Open edX role
-role_name = "{{SUPERSET_OPENEDX_ROLE_NAME}}"
-openedx_role = session.query(Role).filter(Role.name == role_name).first()
-assert openedx_role, "{{SUPERSET_OPENEDX_ROLE_NAME}} role doesn't exist yet?"
+## https://docs.preset.io/docs/row-level-security-rls
 
-for (schema, table_name, group_key, clause, filter_type) in (
-    (
-        "{{ASPECTS_XAPI_DATABASE}}",
-        "{{ASPECTS_XAPI_TABLE}}",
-        "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
-        {% raw %}
-        '{{can_view_courses(current_username(), "splitByChar(\'/\', course_id)[-1]")}}',
-        {% endraw %}
-        RowLevelSecurityFilterType.REGULAR,
-    ),
-):
+SECURITY_FILTERS = [
+    {{ patch('superset-row-level-security')|indent(4) }}
+]
+
+
+for security_filter in SECURITY_FILTERS:
     # Fetch the table we want to restrict access to
+    schema, table_name, role_name, group_key, clause, filter_type = security_filter.values()
     table = session.query(SqlaTable).filter(
         SqlaTable.schema == schema
     ).filter(
         SqlaTable.table_name == table_name
     ).first()
-    print(table)
+
     assert table, f"{schema}.{table_name} table doesn't exist yet?"
+
+    role = session.query(Role).filter(Role.name == role_name).first()
+    assert role, f"{role_name} role doesn't exist yet?"
     # See if the Row Level Security Filter already exists
     rlsf = (
         session.query(
             RowLevelSecurityFilter
         ).filter(
-            RLSFilterRoles.c.role_id.in_((openedx_role.id,))
+            RLSFilterRoles.c.role_id.in_((role.id,))
         ).filter(
             RowLevelSecurityFilter.group_key == group_key
+        ).filter(
+            RowLevelSecurityFilter.tables.any(id=table.id)
         )
     ).first()
     # If it doesn't already exist, create one
@@ -66,15 +63,16 @@ for (schema, table_name, group_key, clause, filter_type) in (
         session.query(
             RLSFilterRoles
         ).filter(
-            RLSFilterRoles.c.role_id == openedx_role.id
+            RLSFilterRoles.c.role_id == role.id
         ).filter(
             RLSFilterRoles.c.rls_filter_id == rlsf.id
         )
     )
+
     if not rls_filter_roles.count():
         session.execute(RLSFilterRoles.insert(), [
             dict(
-                role_id=openedx_role.id,
+                role_id=role.id,
                 rls_filter_id=rlsf.id
             )
         ])

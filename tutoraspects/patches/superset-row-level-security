@@ -1,0 +1,8 @@
+{
+    "schema": "{{ASPECTS_XAPI_DATABASE}}",
+    "table_name": "{{ASPECTS_XAPI_TABLE}}",
+    "role_name": "{{SUPERSET_OPENEDX_ROLE_NAME}}",
+    "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
+    "clause": {% raw %}'{{can_view_courses(current_username(), "splitByChar(\'/\', course_id)[-1]")}}',{% endraw %}
+    "filter_type": "Regular",
+},
