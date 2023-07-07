@@ -1,0 +1,30 @@
+- _file_name: Response_distribution_39.yaml
+  cache_timeout: null
+  dataset_uuid: 511dd5f1-3925-4e9e-ad8a-a227b5680047
+  params:
+    adhoc_filters: []
+    bottom_margin: auto
+    color_scheme: supersetColors
+    columns: []
+    datasource: 42__table
+    extra_form_data: {}
+    granularity_sqla: emission_time
+    groupby:
+      - responses
+    metrics:
+      - count
+    order_desc: true
+    rich_tooltip: true
+    row_limit: 10000
+    show_legend: true
+    time_range: No filter
+    viz_type: dist_bar
+    x_ticks_layout: auto
+    y_axis_bounds:
+      - null
+      - null
+    y_axis_format: SMART_NUMBER
+  slice_name: Response distribution
+  uuid: f1651c44-a8f4-4b44-ad49-962823009319
+  version: 1.0.0
+  viz_type: dist_bar

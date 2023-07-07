@@ -16,5 +16,14 @@
 {% include 'openedx-assets/dim_courses.yaml' %}
 {% include 'openedx-assets/Enrolled_learners_per_day_36.yaml' %}
 {% include 'openedx-assets/fact_enrollments_by_day.yaml' %}
+{% include 'openedx-assets/Attempts_to_first_success_42.yaml' %}
+{% include 'openedx-assets/Hints_and_answers_displayed_per_correct_answer_43.yaml' %}
+{% include 'openedx-assets/Problem_submission_counts_38.yaml' %}
+{% include 'openedx-assets/Response_distribution_39.yaml' %}
+{% include 'openedx-assets/dim_course_problems.yaml' %}
+{% include 'openedx-assets/fact_learner_problem_summary.yaml' %}
+{% include 'openedx-assets/fact_problem_responses.yaml' %}
+{% include 'openedx-assets/hints_per_success.yaml' %}
+
 
 {{ patch("superset-extra-assets") }}

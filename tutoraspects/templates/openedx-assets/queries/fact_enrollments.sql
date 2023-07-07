@@ -29,4 +29,5 @@ select
 from
     enrollments
     join courses
-        using (org, course_key)
+        on (enrollments.org = courses.org
+            and enrollments.course_key = courses.course_key)
