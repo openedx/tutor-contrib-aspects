@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.12.0 - 2023-07-07
+
+### [0.12.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.11.0...v0.12.0) (2023-07-07)
+
+#### Features
+
+- add video timeline chart ([1c2f2ac](https://github.com/openedx/tutor-contrib-aspects/commit/1c2f2ac9891e033665415f19199d2bec0beed0e3))
+
+#### Code Refactoring
+
+- use jinja variables for video segment table name ([13726ea](https://github.com/openedx/tutor-contrib-aspects/commit/13726eab2ab97c94868c17fb63abe08365a0f57d))
+
 ## v0.11.0 - 2023-07-07
 
 ### [0.11.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.10.0...v0.11.0) (2023-07-07)
