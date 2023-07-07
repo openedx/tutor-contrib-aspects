@@ -16,8 +16,11 @@
           - 32
           - 34
           - 37
-          - 38
-          - 39
+          - 45
+          - 46
+          - 47
+          - 48
+          - 52
         controlValues:
           enableEmptyFilter: false
         defaultDataMask:
@@ -33,7 +36,10 @@
           excluded: []
           rootPath:
             - ROOT_ID
-        tabsInScope: []
+        tabsInScope:
+          - TAB-8BxDuJd9Jb
+          - TAB-NR4UTAs9K
+          - TAB-7PGDduCA7
         targets:
           - {}
         type: NATIVE_FILTER
@@ -44,8 +50,11 @@
           - 32
           - 34
           - 37
-          - 38
-          - 39
+          - 45
+          - 46
+          - 47
+          - 48
+          - 52
         controlValues:
           defaultToFirstItem: true
           enableEmptyFilter: true
@@ -65,7 +74,10 @@
           excluded: []
           rootPath:
             - ROOT_ID
-        tabsInScope: []
+        tabsInScope:
+          - TAB-8BxDuJd9Jb
+          - TAB-NR4UTAs9K
+          - TAB-7PGDduCA7
         targets:
           - column:
               name: org
@@ -79,8 +91,11 @@
           - 32
           - 34
           - 37
-          - 38
-          - 39
+          - 45
+          - 46
+          - 47
+          - 48
+          - 52
         controlValues:
           defaultToFirstItem: false
           enableEmptyFilter: false
@@ -99,7 +114,10 @@
           excluded: []
           rootPath:
             - ROOT_ID
-        tabsInScope: []
+        tabsInScope:
+          - TAB-8BxDuJd9Jb
+          - TAB-NR4UTAs9K
+          - TAB-7PGDduCA7
         targets:
           - column:
               name: course_name
@@ -114,8 +132,11 @@
           - 32
           - 34
           - 37
-          - 38
-          - 39
+          - 45
+          - 46
+          - 47
+          - 48
+          - 52
         controlValues:
           defaultToFirstItem: false
           enableEmptyFilter: false
@@ -134,7 +155,10 @@
           excluded: []
           rootPath:
             - ROOT_ID
-        tabsInScope: []
+        tabsInScope:
+          - TAB-8BxDuJd9Jb
+          - TAB-NR4UTAs9K
+          - TAB-7PGDduCA7
         targets:
           - column:
               name: run_name
@@ -145,7 +169,10 @@
           - NATIVE_FILTER-XPuiTOej4
           - NATIVE_FILTER-E6-vOpjZv
         chartsInScope:
-          - 40
+          - 45
+          - 46
+          - 47
+          - 52
         controlValues:
           defaultToFirstItem: false
           enableEmptyFilter: false
@@ -162,30 +189,75 @@
         name: Problem name
         scope:
           excluded:
-            - 34
-            - 32
-            - 25
-            - 24
-            - 37
-            - 41
+            - 48
           rootPath:
-            - ROOT_ID
-        tabsInScope: []
+            - TAB-NR4UTAs9K
+        tabsInScope:
+          - TAB-NR4UTAs9K
+          - TAB-7PGDduCA7
         targets:
           - column:
               name: problem_name
             datasetUuid: 008e2907-fc6b-45ef-bf85-73a04c5791ff
+        type: NATIVE_FILTER
+      - cascadeParentIds:
+          - NATIVE_FILTER-Vx7HxG8_7
+          - NATIVE_FILTER-XPuiTOej4
+          - NATIVE_FILTER-E6-vOpjZv
+        chartsInScope:
+          - 52
+        controlValues:
+          defaultToFirstItem: false
+          enableEmptyFilter: false
+          inverseSelection: false
+          multiSelect: true
+          searchAllOptions: false
+        defaultDataMask:
+          extraFormData: {}
+          filterState: {}
+          ownState: {}
+        description: ""
+        filterType: filter_select
+        id: NATIVE_FILTER-V77Ybaw2w
+        name: Video name
+        scope:
+          excluded:
+            - 25
+            - 24
+          rootPath:
+            - TAB-7PGDduCA7
+        tabsInScope:
+          - TAB-7PGDduCA7
+        targets:
+          - column:
+              name: video_name
+            datasetUuid: 417b2035-8fa1-4c60-a405-4b1947c3c966
         type: NATIVE_FILTER
     refresh_frequency: 0
     shared_label_colors: {}
     show_native_filters: true
     timed_refresh_immune_slices: []
   position:
+    CHART-1nuLZrBxuC:
+      children: []
+      id: CHART-1nuLZrBxuC
+      meta:
+        chartId: 52
+        height: 50
+        sliceName: Watched video segments
+        uuid: 2985a9db-c338-4008-af52-2930b81ee2e5
+        width: 12
+      parents:
+        - ROOT_ID
+        - TABS-SNeKAJcjhd
+        - TAB-7PGDduCA7
+        - ROW-zM_Vvq_Wo4
+      type: CHART
     CHART-6ShUwMXI4Q:
       children: []
       id: CHART-6ShUwMXI4Q
       meta:
-        chartId: 42
+        chartId: 47
         height: 50
         sliceName: Attempts to first success
         uuid: db90930f-f16e-4c32-8050-0e4abae28f4c
@@ -245,7 +317,7 @@
       children: []
       id: CHART-VBeaYzSdd6
       meta:
-        chartId: 43
+        chartId: 46
         height: 50
         sliceName: Hints and answers displayed per correct answer
         uuid: ee94be4c-6fdd-4295-b43c-40890d6c549d
@@ -275,7 +347,7 @@
       children: []
       id: CHART-hrPFXl_7_X
       meta:
-        chartId: 40
+        chartId: 45
         height: 50
         sliceName: Response distribution
         uuid: f1651c44-a8f4-4b44-ad49-962823009319
@@ -305,7 +377,7 @@
       children: []
       id: CHART-s8sC81tP9u
       meta:
-        chartId: 41
+        chartId: 48
         height: 48
         sliceName: Problem submission counts
         uuid: 3dc6a642-a71d-4c8c-ab98-14f54852b40f
@@ -435,9 +507,21 @@
         - TABS-SNeKAJcjhd
         - TAB-8BxDuJd9Jb
       type: ROW
+    ROW-zM_Vvq_Wo4:
+      children:
+        - CHART-1nuLZrBxuC
+      id: ROW-zM_Vvq_Wo4
+      meta:
+        background: BACKGROUND_TRANSPARENT
+      parents:
+        - ROOT_ID
+        - TABS-SNeKAJcjhd
+        - TAB-7PGDduCA7
+      type: ROW
     TAB-7PGDduCA7:
       children:
         - ROW-BO2IHCiYF8
+        - ROW-zM_Vvq_Wo4
       id: TAB-7PGDduCA7
       meta:
         defaultText: Tab title

@@ -1,0 +1,33 @@
+- _file_name: Watched_video_segments_51.yaml
+  cache_timeout: null
+  dataset_uuid: c2c391b3-3403-4f05-bc0b-3de53bd366ec
+  params:
+    adhoc_filters: []
+    bar_stacked: true
+    bottom_margin: auto
+    color_scheme: supersetColors
+    columns: []
+    datasource: 49__table
+    extra_form_data: {}
+    granularity_sqla: started_at
+    groupby:
+      - segment_start
+    metrics:
+      - unique_viewers
+      - repeat_views
+    order_bars: true
+    order_desc: true
+    rich_tooltip: true
+    row_limit: 10000
+    show_legend: true
+    time_range: No filter
+    viz_type: dist_bar
+    x_ticks_layout: auto
+    y_axis_bounds:
+      - null
+      - null
+    y_axis_format: SMART_NUMBER
+  slice_name: Watched video segments
+  uuid: 2985a9db-c338-4008-af52-2930b81ee2e5
+  version: 1.0.0
+  viz_type: dist_bar
