@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.13.0 - 2023-07-07
+
+### [0.13.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.12.0...v0.13.0) (2023-07-07)
+
+#### Features
+
+- add support for extra rlsf ([892cba8](https://github.com/openedx/tutor-contrib-aspects/commit/892cba8366f3a6b66675a361633450b07449a67c))
+
 ## v0.12.0 - 2023-07-07
 
 ### [0.12.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.11.0...v0.12.0) (2023-07-07)
