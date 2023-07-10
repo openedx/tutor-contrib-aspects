@@ -155,7 +155,14 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "SUPERSET_OPENEDX_COURSES_LIST_PATH",
             "/api/courses/v1/courses/?permissions={permission}&username={username}",
         ),
-        ("SUPERSET_OPENEDX_ROLE_NAME", "Open edX"),
+        (
+            "SUPERSET_ROLES_MAPPING",
+            {
+                "instructor": "Instructor",
+                "operator": "Operator",
+                "admin": "Admin",
+            },
+        ),
         ("SUPERSET_ADMIN_EMAIL", "admin@openedx.org"),
         # Set to 0 to have no row limit.
         ("SUPERSET_ROW_LIMIT", 100_000),

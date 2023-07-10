@@ -1,6 +1,6 @@
 - _file_name: Open_edX_Admin_Dashboard_2.yaml
   _roles:
-  - Admin
+  - {{ SUPERSET_ROLES_MAPPING.admin }}
   css: ''
   dashboard_title: Open edX Admin Dashboard
   description: null

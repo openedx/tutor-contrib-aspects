@@ -48,7 +48,7 @@ OAUTH_PROVIDERS = [
 AUTH_USER_REGISTRATION = True
 
 # The default user self registration role
-AUTH_USER_REGISTRATION_ROLE = "{{SUPERSET_OPENEDX_ROLE_NAME}}"
+AUTH_USER_REGISTRATION_ROLE = "{{SUPERSET_ROLES_MAPPING.instructor}}"
 
 # Should we replace ALL the user's roles each login, or only on registration?
 AUTH_ROLES_SYNC_AT_LOGIN = True
@@ -59,7 +59,8 @@ AUTH_ROLES_MAPPING = {
     "admin": ["Admin"],      # Superusers
     "alpha": ["Alpha"],      # Global staff
     "gamma": ["Gamma"],      # Course staff
-    "openedx": ["{{SUPERSET_OPENEDX_ROLE_NAME}}"], # All Open edX users
+    "instructor": ["{{SUPERSET_ROLES_MAPPING.instructor}}"], # Course instructors
+    "operator": ["{{SUPERSET_ROLES_MAPPING.operator}}"], # Installation operators
     "public": ["Public"],    # AKA anonymous users
 }
 

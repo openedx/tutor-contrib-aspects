@@ -1,6 +1,6 @@
 [
   {
-    "name":"Admin",
+    "name":"{{SUPERSET_ROLES_MAPPING.admin}}",
     "permissions":[
       {
         "permission":{
@@ -3972,7 +3972,110 @@
     ]
   },
   {
-    "name":"{{SUPERSET_OPENEDX_ROLE_NAME}}",
+    "name":"Public",
+    "permissions":[
+      
+    ]
+  },
+  {
+    "name":"sql_lab",
+    "permissions":[
+      {
+        "permission":{
+          "name":"can_read"
+        },
+        "view_menu":{
+          "name":"SavedQuery"
+        }
+      },
+      {
+        "permission":{
+          "name":"can_read"
+        },
+        "view_menu":{
+          "name":"Database"
+        }
+      },
+      {
+        "permission":{
+          "name":"can_sqllab_viz"
+        },
+        "view_menu":{
+          "name":"Superset"
+        }
+      },
+      {
+        "permission":{
+          "name":"can_csv"
+        },
+        "view_menu":{
+          "name":"Superset"
+        }
+      },
+      {
+        "permission":{
+          "name":"can_sql_json"
+        },
+        "view_menu":{
+          "name":"Superset"
+        }
+      },
+      {
+        "permission":{
+          "name":"can_sqllab_table_viz"
+        },
+        "view_menu":{
+          "name":"Superset"
+        }
+      },
+      {
+        "permission":{
+          "name":"can_sqllab"
+        },
+        "view_menu":{
+          "name":"Superset"
+        }
+      },
+      {
+        "permission":{
+          "name":"menu_access"
+        },
+        "view_menu":{
+          "name":"SQL Lab"
+        }
+      },
+      {
+        "permission":{
+          "name":"menu_access"
+        },
+        "view_menu":{
+          "name":"SQL Editor"
+        }
+      },
+      {
+        "permission":{
+          "name":"menu_access"
+        },
+        "view_menu":{
+          "name":"Saved Queries"
+        }
+      },
+      {
+        "permission":{
+          "name":"menu_access"
+        },
+        "view_menu":{
+          "name":"Query Search"
+        }
+      }
+    ]
+  },
+  {
+    "name":"{{SUPERSET_ROLES_MAPPING.operator}}",
+    "permissions": []
+  },
+  {
+    "name":"{{SUPERSET_ROLES_MAPPING.instructor}}",
     "permissions":[
       {
         "permission":{
@@ -5127,108 +5230,5 @@
         }
       }
     ]
-  },
-  {
-    "name":"Public",
-    "permissions":[
-      
-    ]
-  },
-  {
-    "name":"sql_lab",
-    "permissions":[
-      {
-        "permission":{
-          "name":"can_read"
-        },
-        "view_menu":{
-          "name":"SavedQuery"
-        }
-      },
-      {
-        "permission":{
-          "name":"can_read"
-        },
-        "view_menu":{
-          "name":"Database"
-        }
-      },
-      {
-        "permission":{
-          "name":"can_sqllab_viz"
-        },
-        "view_menu":{
-          "name":"Superset"
-        }
-      },
-      {
-        "permission":{
-          "name":"can_csv"
-        },
-        "view_menu":{
-          "name":"Superset"
-        }
-      },
-      {
-        "permission":{
-          "name":"can_sql_json"
-        },
-        "view_menu":{
-          "name":"Superset"
-        }
-      },
-      {
-        "permission":{
-          "name":"can_sqllab_table_viz"
-        },
-        "view_menu":{
-          "name":"Superset"
-        }
-      },
-      {
-        "permission":{
-          "name":"can_sqllab"
-        },
-        "view_menu":{
-          "name":"Superset"
-        }
-      },
-      {
-        "permission":{
-          "name":"menu_access"
-        },
-        "view_menu":{
-          "name":"SQL Lab"
-        }
-      },
-      {
-        "permission":{
-          "name":"menu_access"
-        },
-        "view_menu":{
-          "name":"SQL Editor"
-        }
-      },
-      {
-        "permission":{
-          "name":"menu_access"
-        },
-        "view_menu":{
-          "name":"Saved Queries"
-        }
-      },
-      {
-        "permission":{
-          "name":"menu_access"
-        },
-        "view_menu":{
-          "name":"Query Search"
-        }
-      }
-    ]
-  },
-  {
-    "name": "Operator",
-    "permissions": []
   }
 ]
