@@ -1,10 +1,13 @@
 name: Test Tutor Aspects
 
 on:
-  issue_comment:                                     
-    types: [created, edited, deleted]
   pull_request:
     branches: [ main ]
+    paths-ignore:
+      - .github/**
+      - .ci/**
+      - .gitignore
+
 
 env:
   TUTOR_ROOT: ./.ci/
@@ -12,7 +15,6 @@ env:
 jobs:
   local:
     runs-on: ubuntu-latest
-    if: ${{ github.event.issue.pull_request }} && contains(github.event.comment.body, 'test tutor aspects local')
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -41,7 +43,6 @@ jobs:
 
   dev:
     runs-on: ubuntu-latest
-    if: ${{ github.event.issue.pull_request }} && contains(github.event.comment.body, 'test tutor aspects dev')
     steps:
       - name: Checkout
         uses: actions/checkout@v3
