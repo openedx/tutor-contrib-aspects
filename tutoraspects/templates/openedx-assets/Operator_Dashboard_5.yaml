@@ -1,0 +1,316 @@
+- _file_name: Operator_Dashboard_5.yaml
+  _roles:
+  - - {{ SUPERSET_ROLES_MAPPING.operator }}
+  css: ''
+  dashboard_title: Operator Dashboard
+  description: null
+  metadata:
+    chart_configuration: {}
+    color_scheme: ''
+    default_filters: '{}'
+    expanded_slices: {}
+    label_colors: {}
+    native_filter_configuration:
+    - cascadeParentIds: []
+      chartsInScope:
+      - 38
+      - 39
+      - 40
+      - 41
+      - 42
+      - 43
+      - 44
+      - 45
+      - 46
+      - 47
+      controlValues:
+        enableEmptyFilter: false
+      defaultDataMask:
+        extraFormData: {}
+        filterState: {}
+        ownState: {}
+      description: ''
+      filterType: filter_time
+      id: NATIVE_FILTER-4ZdrGPx6i
+      name: Time range
+      scope:
+        excluded: []
+        rootPath:
+        - ROOT_ID
+      tabsInScope: []
+      targets:
+      - {}
+      type: NATIVE_FILTER
+    - cascadeParentIds: []
+      chartsInScope:
+      - 38
+      - 39
+      - 40
+      - 41
+      - 42
+      - 43
+      - 44
+      - 45
+      - 46
+      - 47
+      controlValues:
+        enableEmptyFilter: false
+      defaultDataMask:
+        extraFormData: {}
+        filterState: {}
+        ownState: {}
+      description: ''
+      filterType: filter_timegrain
+      id: NATIVE_FILTER-bY7GqOt6b
+      name: Time grain
+      scope:
+        excluded: []
+        rootPath:
+        - ROOT_ID
+      tabsInScope: []
+      targets:
+      - datasetUuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+      type: NATIVE_FILTER
+    refresh_frequency: 0
+    shared_label_colors: {}
+    show_native_filters: true
+    timed_refresh_immune_slices: []
+  position:
+    CHART-explore-15-1:
+      children: []
+      id: CHART-explore-15-1
+      meta:
+        chartId: 38
+        height: 50
+        sliceName: xAPI events
+        uuid: e6a30923-6382-413e-a1c7-2ac223fa5c5c
+        width: 4
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-EqvR6WC4LZ
+      type: CHART
+    CHART-explore-16-1:
+      children: []
+      id: CHART-explore-16-1
+      meta:
+        chartId: 39
+        height: 50
+        sliceName: Synchronized Courses
+        uuid: 023f9546-6565-4e59-b298-4f0c384724f8
+        width: 4
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-BVRSxLZW_
+      type: CHART
+    CHART-explore-17-1:
+      children: []
+      id: CHART-explore-17-1
+      meta:
+        chartId: 40
+        height: 16
+        sliceName: Last received xAPI events
+        uuid: ffdaabc5-8d01-47d7-8f29-66efa643befb
+        width: 3
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-c-ymDz1ON
+      type: CHART
+    CHART-explore-19-1:
+      children: []
+      id: CHART-explore-19-1
+      meta:
+        chartId: 41
+        height: 16
+        sliceName: Last course syncronized
+        uuid: ca93f427-d021-476e-9a36-6ea0d99d30ea
+        width: 3
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-c-ymDz1ON
+      - COLUMN-ltXyp5vQzb
+      type: CHART
+    CHART-explore-20-1:
+      children: []
+      id: CHART-explore-20-1
+      meta:
+        chartId: 42
+        height: 14
+        sliceName: Organizations
+        uuid: e66b1cdb-6974-4fa2-a769-4908665118f6
+        width: 2
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-BVRSxLZW_
+      - COLUMN-h92vRuvqhE
+      type: CHART
+    CHART-explore-21-1:
+      children: []
+      id: CHART-explore-21-1
+      meta:
+        chartId: 43
+        height: 16
+        sliceName: Unique actors
+        uuid: 071bf3d5-8b9d-4e26-83fb-7836db5a7ab6
+        width: 2
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-BVRSxLZW_
+      - COLUMN-h92vRuvqhE
+      type: CHART
+    CHART-explore-22-1:
+      children: []
+      id: CHART-explore-22-1
+      meta:
+        chartId: 44
+        height: 15
+        sliceName: Courses
+        uuid: 63f86926-3325-43cf-b075-ef37f5f60413
+        width: 2
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-BVRSxLZW_
+      - COLUMN-h92vRuvqhE
+      type: CHART
+    CHART-explore-25-1:
+      children: []
+      id: CHART-explore-25-1
+      meta:
+        chartId: 45
+        height: 50
+        sliceName: Event type
+        uuid: b4a9a10d-0e82-43e7-a619-3ef3f6bf57a5
+        width: 4
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-BVRSxLZW_
+      type: CHART
+    CHART-explore-26-1:
+      children: []
+      id: CHART-explore-26-1
+      meta:
+        chartId: 46
+        height: 50
+        sliceName: Events per course
+        uuid: a445d9e5-ac98-411e-9a47-eda10081bd5b
+        width: 4
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-EqvR6WC4LZ
+      type: CHART
+    CHART-explore-27-1:
+      children: []
+      id: CHART-explore-27-1
+      meta:
+        chartId: 47
+        height: 50
+        sliceName: Actor IDs over time
+        uuid: 6a8ded91-f9a6-45c2-9f9f-f85dc1ff7ed6
+        width: 4
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-EqvR6WC4LZ
+      type: CHART
+    COLUMN-h92vRuvqhE:
+      children:
+      - CHART-explore-22-1
+      - CHART-explore-21-1
+      - CHART-explore-20-1
+      id: COLUMN-h92vRuvqhE
+      meta:
+        background: BACKGROUND_TRANSPARENT
+        width: 2
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-BVRSxLZW_
+      type: COLUMN
+    COLUMN-ltXyp5vQzb:
+      children:
+      - CHART-explore-19-1
+      id: COLUMN-ltXyp5vQzb
+      meta:
+        background: BACKGROUND_TRANSPARENT
+        width: 3
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      - ROW-c-ymDz1ON
+      type: COLUMN
+    DASHBOARD_VERSION_KEY: v2
+    DIVIDER-erPdret3HB:
+      children: []
+      id: DIVIDER-erPdret3HB
+      meta: {}
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      type: DIVIDER
+    GRID_ID:
+      children:
+      - ROW-EqvR6WC4LZ
+      - ROW-BVRSxLZW_
+      - ROW-c-ymDz1ON
+      - DIVIDER-erPdret3HB
+      id: GRID_ID
+      parents:
+      - ROOT_ID
+      type: GRID
+    HEADER_ID:
+      id: HEADER_ID
+      meta:
+        text: Operator Dashboard
+      type: HEADER
+    ROOT_ID:
+      children:
+      - GRID_ID
+      id: ROOT_ID
+      type: ROOT
+    ROW-BVRSxLZW_:
+      children:
+      - CHART-explore-16-1
+      - CHART-explore-25-1
+      - COLUMN-h92vRuvqhE
+      id: ROW-BVRSxLZW_
+      meta:
+        background: BACKGROUND_TRANSPARENT
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      type: ROW
+    ROW-EqvR6WC4LZ:
+      children:
+      - CHART-explore-15-1
+      - CHART-explore-27-1
+      - CHART-explore-26-1
+      id: ROW-EqvR6WC4LZ
+      meta:
+        '0': ROOT_ID
+        background: BACKGROUND_TRANSPARENT
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      type: ROW
+    ROW-c-ymDz1ON:
+      children:
+      - COLUMN-ltXyp5vQzb
+      - CHART-explore-17-1
+      id: ROW-c-ymDz1ON
+      meta:
+        background: BACKGROUND_TRANSPARENT
+      parents:
+      - ROOT_ID
+      - GRID_ID
+      type: ROW
+  slug: null
+  uuid: 02c0121c-40e9-4d8a-b86a-6b996a1cc6fe
+  version: 1.0.0

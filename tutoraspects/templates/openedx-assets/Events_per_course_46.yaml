@@ -1,0 +1,32 @@
+- _file_name: Events_per_course_46.yaml
+  cache_timeout: null
+  dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+  params:
+    adhoc_filters: []
+    color_scheme: supersetColors
+    datasource: 4__table
+    date_format: smart_date
+    extra_form_data: {}
+    granularity_sqla: emission_time
+    groupby:
+    - course_key
+    innerRadius: 30
+    label_type: key
+    labels_outside: true
+    legendOrientation: top
+    legendType: scroll
+    metric: count
+    number_format: SMART_NUMBER
+    outerRadius: 70
+    row_limit: 100
+    show_labels: true
+    show_labels_threshold: 5
+    show_legend: true
+    slice_id: 26
+    sort_by_metric: true
+    time_range: No filter
+    viz_type: pie
+  slice_name: Events per course
+  uuid: a445d9e5-ac98-411e-9a47-eda10081bd5b
+  version: 1.0.0
+  viz_type: pie

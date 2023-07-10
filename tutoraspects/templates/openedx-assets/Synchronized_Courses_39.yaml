@@ -1,0 +1,19 @@
+- _file_name: Synchronized_Courses_39.yaml
+  cache_timeout: null
+  dataset_uuid: 46183302-6fa6-41a3-b6a7-79ff6c1c8402
+  params:
+    adhoc_filters: []
+    datasource: 2__table
+    extra_form_data: {}
+    header_font_size: 0.4
+    metric: count
+    subheader_font_size: 0.15
+    time_format: smart_date
+    time_grain_sqla: P1D
+    time_range: No filter
+    viz_type: big_number_total
+    y_axis_format: SMART_NUMBER
+  slice_name: Synchronized Courses
+  uuid: 023f9546-6565-4e59-b298-4f0c384724f8
+  version: 1.0.0
+  viz_type: big_number_total

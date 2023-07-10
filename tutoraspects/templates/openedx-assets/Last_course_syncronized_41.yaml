@@ -1,0 +1,43 @@
+- _file_name: Last_course_syncronized_41.yaml
+  cache_timeout: null
+  dataset_uuid: 46183302-6fa6-41a3-b6a7-79ff6c1c8402
+  params:
+    adhoc_filters: []
+    datasource: 2__table
+    extra_form_data: {}
+    header_font_size: 0.4
+    metric:
+      aggregate: MAX
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: time_last_dumped
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 11
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: String
+        type_generic: 1
+        verbose_name: null
+        warning_markdown: null
+      expressionType: SIMPLE
+      hasCustomLabel: false
+      isNew: false
+      label: MAX(time_last_dumped)
+      optionName: metric_hjqc6fgxiy8_9wjcb6h864f
+      sqlExpression: null
+    subheader_font_size: 0.15
+    time_format: '%Y-%m-%d %H:%M:%S'
+    time_grain_sqla: P1D
+    time_range: No filter
+    viz_type: big_number_total
+    y_axis_format: SMART_NUMBER
+  slice_name: Last course syncronized
+  uuid: ca93f427-d021-476e-9a36-6ea0d99d30ea
+  version: 1.0.0
+  viz_type: big_number_total

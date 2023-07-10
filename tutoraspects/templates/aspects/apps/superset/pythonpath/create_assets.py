@@ -70,7 +70,8 @@ def create_assets():
                     break
 
     # Create the zip file and import the assets
-    with ZipFile("/app/pythonpath/assets.zip", "w") as zip:
+    zip_path = "/app/pythonpath/assets.zip"
+    with ZipFile(zip_path, "w") as zip:
         for folder in ASSET_FOLDER_MAPPING.values():
             for file_name in os.listdir(f"{BASE_DIR}/{folder}"):
                 zip.write(f"{BASE_DIR}/{folder}/{file_name}", f"import/{folder}/{file_name}")
@@ -82,11 +83,14 @@ def create_assets():
         )
 
         command.run()
+
+    os.remove(zip_path)
     
     # Create the roles
     for dashboard_uuid, role_ids in roles.items():
         dashboard = db.session.query(Dashboard).filter_by(uuid=dashboard_uuid).one()
         dashboard.roles = role_ids
+        dashboard.published = True
         db.session.commit()
 
 
