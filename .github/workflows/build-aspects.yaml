@@ -2,7 +2,7 @@ name: Build Aspects Docker Images
 
 on:
   release:
-    types: [published]
+    types: [created]
 
 env:
   TUTOR_ROOT: ./.ci/
