@@ -10,7 +10,7 @@ appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   tutor
-astroid==2.15.5
+astroid==2.15.6
     # via pylint
 bcrypt==4.0.1
     # via -r requirements/base.txt
@@ -29,11 +29,11 @@ certifi==2023.5.7
     #   requests
 cffi==1.15.1
     # via cryptography
-charset-normalizer==3.1.0
+charset-normalizer==3.2.0
     # via
     #   -r requirements/base.txt
     #   requests
-click==8.1.3
+click==8.1.4
     # via
     #   -r requirements/base.txt
     #   black
@@ -52,15 +52,15 @@ idna==3.4
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==6.7.0
+importlib-metadata==6.8.0
     # via
     #   keyring
     #   twine
-importlib-resources==5.12.0
+importlib-resources==6.0.0
     # via keyring
 isort==5.12.0
     # via pylint
-jaraco-classes==3.2.3
+jaraco-classes==3.3.0
     # via keyring
 jeepney==0.8.0
     # via
@@ -109,7 +109,7 @@ pathspec==0.11.1
     # via black
 pkginfo==1.9.6
     # via twine
-platformdirs==3.8.0
+platformdirs==3.8.1
     # via
     #   black
     #   pylint
@@ -134,7 +134,7 @@ pygments==2.15.1
     #   rich
 pyinstaller==5.13.0
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2023.4
+pyinstaller-hooks-contrib==2023.5
     # via pyinstaller
 pylint==2.17.4
     # via -r requirements/dev.in
@@ -215,7 +215,7 @@ websocket-client==1.6.1
     #   kubernetes
 wrapt==1.15.0
     # via astroid
-zipp==3.15.0
+zipp==3.16.0
     # via
     #   importlib-metadata
     #   importlib-resources
