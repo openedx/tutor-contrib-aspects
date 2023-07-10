@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.14.0 - 2023-07-10
+
+### [0.14.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.13.0...v0.14.0) (2023-07-10)
+
+#### Features
+
+- add operator dashboard ([0b8796d](https://github.com/openedx/tutor-contrib-aspects/commit/0b8796dc8b8aca4565d392db15d92b929b40f590))
+
+#### Bug Fixes
+
+- allow to configure when to block students ([f14c6ee](https://github.com/openedx/tutor-contrib-aspects/commit/f14c6ee968d3d1a4093db27e785f15a5f79d0f39))
+- block non-instructor access to superset ([3b83efd](https://github.com/openedx/tutor-contrib-aspects/commit/3b83efd7b4cd1e15563c0b5cbdbde5e05f3ba8d7))
+- publish dashboards at import time ([0910419](https://github.com/openedx/tutor-contrib-aspects/commit/0910419aea5f2c6d2828c8bef408401fc621bac9))
+
+#### Build Systems
+
+- add ci workflow to build and push docker images ([b8b2b35](https://github.com/openedx/tutor-contrib-aspects/commit/b8b2b35dd2f4ae6e8f410d45ca67dbdea64e60e6))
+
+#### Code Refactoring
+
+- create superset role mapping ([a3352be](https://github.com/openedx/tutor-contrib-aspects/commit/a3352be757386dfe2425b9c60f7c128a12ab6c30))
+- remove assets zip ([339ed92](https://github.com/openedx/tutor-contrib-aspects/commit/339ed92ba99648cff6696ab9d66d4c58d5d60468))
+
 ## v0.13.0 - 2023-07-07
 
 ### [0.13.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.12.0...v0.13.0) (2023-07-07)
