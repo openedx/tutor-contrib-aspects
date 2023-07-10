@@ -1,0 +1,28 @@
+- _file_name: Last_received_xAPI_events_40.yaml
+  cache_timeout: null
+  dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+  params:
+    adhoc_filters: []
+    datasource: 4__table
+    extra_form_data: {}
+    granularity_sqla: emission_time
+    header_font_size: 0.4
+    metric:
+      aggregate: null
+      column: null
+      expressionType: SQL
+      hasCustomLabel: false
+      isNew: false
+      label: max(emission_time)
+      optionName: metric_ebqdez8q0pv_rg57ow9gti
+      sqlExpression: max(emission_time)
+    subheader_font_size: 0.15
+    time_format: '%Y-%m-%d %H:%M:%S'
+    time_grain_sqla: null
+    time_range: No filter
+    viz_type: big_number_total
+    y_axis_format: ~g
+  slice_name: Last received xAPI events
+  uuid: ffdaabc5-8d01-47d7-8f29-66efa643befb
+  version: 1.0.0
+  viz_type: big_number_total

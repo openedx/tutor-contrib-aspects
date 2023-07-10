@@ -27,6 +27,17 @@
 {% include 'openedx-assets/dim_course_videos.yaml' %}
 {% include 'openedx-assets/fact_watched_video_segments.yaml' %}
 {% include 'openedx-assets/Watched_video_segments_51.yaml' %}
+{% include 'openedx-assets/Actor_IDs_over_time_47.yaml' %}
+{% include 'openedx-assets/Courses_44.yaml' %}
+{% include 'openedx-assets/Event_type_45.yaml' %}
+{% include 'openedx-assets/Events_per_course_46.yaml' %}
+{% include 'openedx-assets/Last_course_syncronized_41.yaml' %}
+{% include 'openedx-assets/Last_received_xAPI_events_40.yaml' %}
+{% include 'openedx-assets/Operator_Dashboard_5.yaml' %}
+{% include 'openedx-assets/Organizations_42.yaml' %}
+{% include 'openedx-assets/Synchronized_Courses_39.yaml' %}
+{% include 'openedx-assets/Unique_actors_43.yaml' %}
+{% include 'openedx-assets/xAPI_events_38.yaml' %}
 
 
 {{ patch("superset-extra-assets") }}
