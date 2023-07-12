@@ -26,7 +26,7 @@ with courses as (
         actor_id,
         verb_id,
         video_position
-    from from {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK_EVENTS_TABLE }}
+    from {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK_EVENTS_TABLE }}
     where
         verb_id in (
             'http://adlnet.gov/expapi/verbs/completed',
