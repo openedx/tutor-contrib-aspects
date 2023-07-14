@@ -11,6 +11,28 @@
     labels:
         app.kubernetes.io/name: aspects
 
+- name: aspects-migrations
+  files:
+  - plugins/aspects/apps/aspects/migrations/alembic.ini
+  options:
+    labels:
+        app.kubernetes.io/name: aspects
+
+- name: aspects-migrations-alembic
+  files:
+  - plugins/aspects/apps/aspects/migrations/alembic/env.py
+  - plugins/aspects/apps/aspects/migrations/alembic/script.py.mako
+  options:
+    labels:
+        app.kubernetes.io/name: aspects
+
+- name: aspects-migrations-alembic-versions
+  files:{% for file in "aspects/apps/aspects/migrations/alembic/versions"|walk_templates %}
+  - plugins/{{ file }}{% endfor %}
+  options:
+    labels:
+        app.kubernetes.io/name: aspects
+
 {% if RUN_CLICKHOUSE %}
 - name: clickhouse-settings
   files:

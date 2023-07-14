@@ -1,4 +1,4 @@
-data_dir = "/var/lib/vector/"
+data_dir = "/vector-data-dir"
 
 # Vector's API for introspection
 [api]

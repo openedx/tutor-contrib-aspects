@@ -29,7 +29,6 @@ def dbt(context, command) -> None:
     runner = context.job_runner(config)
 
     command = f"""echo 'Making dbt script executable...'
-    chmod +x /app/aspects/scripts/dbt.sh 
     echo 'Running dbt {command}' 
     bash /app/aspects/scripts/dbt.sh {command}
     echo 'Done!';
@@ -49,7 +48,6 @@ def load_xapi_test_data(context, num_batches, batch_size) -> None:
     runner = context.job_runner(config)
 
     command = f"""echo 'Making demo xapi script executable...'
-    chmod +x /app/aspects/scripts/clickhouse-demo-xapi-data.sh
     echo 'Done. Running script...'
     bash /app/aspects/scripts/clickhouse-demo-xapi-data.sh {num_batches} {batch_size}
     echo 'Done!';
@@ -87,7 +85,6 @@ def alembic(context, command) -> None:
     runner = context.job_runner(config)
 
     command = f"""echo 'Making demo xapi script executable...'
-    chmod +x /app/aspects/scripts/alembic.sh
     echo 'Done. Running script...'
     bash /app/aspects/scripts/alembic.sh {command}
     echo 'Done!';

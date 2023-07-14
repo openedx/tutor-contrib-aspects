@@ -4,6 +4,8 @@
 # Capture logs from kubernetes
 [sources.kubernetes_logs]
 type = "kubernetes_logs"
+extra_label_selector = "app.kubernetes.io/name=lms"
+extra_namespace_label_selector = "kubernetes.io/metadata.name={{ K8S_NAMESPACE }}"
 [transforms.openedx_containers]
 type = "filter"
 inputs = ["kubernetes_logs"]

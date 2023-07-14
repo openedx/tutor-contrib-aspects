@@ -17,7 +17,6 @@ def load_xapi_test_data(num_batches: int, batch_size: int) -> list[tuple[str, st
         (
             "aspects",
             "echo 'Making demo xapi script executable...' && "
-            "chmod +x /app/aspects/scripts/clickhouse-demo-xapi-data.sh && "
             "echo 'Done. Running script...' && "
             f"bash /app/aspects/scripts/clickhouse-demo-xapi-data.sh {num_batches}"
             f" {batch_size} && "
@@ -52,7 +51,6 @@ def dbt(command: string) -> list[tuple[str, str]]:
         (
             "aspects",
             "echo 'Making dbt script executable...' && "
-            "chmod +x /app/aspects/scripts/dbt.sh && "
             f"echo 'Running dbt {command}' && "
             f"bash /app/aspects/scripts/dbt.sh {command} && "
             "echo 'Done!';",
@@ -87,7 +85,6 @@ def alembic(command: string) -> list[tuple[str, str]]:
         (
             "aspects",
             "echo 'Making dbt script executable...' && "
-            "chmod +x /app/aspects/scripts/dbt.sh && "
             f"bash /app/aspects/scripts/alembic.sh {command} && "
             "echo 'Done!';",
         ),
