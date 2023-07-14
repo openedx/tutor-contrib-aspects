@@ -46,3 +46,17 @@ spec:
     requests:
       storage: 2Gi
 {% endif %}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: aspects-app
+  labels:
+    app.kubernetes.io/component: volume
+    app.kubernetes.io/name: aspects-app
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
