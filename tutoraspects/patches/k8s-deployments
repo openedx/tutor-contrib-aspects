@@ -460,7 +460,7 @@ subjects:
     name: vector
 ---
 apiVersion: apps/v1
-kind: DaemonSet
+kind: Deployment
 metadata:
   name: vector
   labels:
