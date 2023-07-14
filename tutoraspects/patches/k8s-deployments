@@ -213,8 +213,6 @@ spec:
               name: pythonpath
             - mountPath: /app/security
               name: security
-            - mountPath: /app/assets
-              name: assets
       volumes:
         - name: docker
           configMap:
@@ -225,9 +223,6 @@ spec:
         - name: security
           configMap:
             name: superset-security
-        - name: assets
-          persistentVolumeClaim:
-            claimName: superset-assets
       restartPolicy: Always
 
 ---
@@ -307,8 +302,6 @@ spec:
               name: pythonpath
             - mountPath: /app/security
               name: security
-            - mountPath: /app/assets
-              name: assets
       volumes:
         - name: docker
           configMap:
@@ -319,9 +312,6 @@ spec:
         - name: security
           configMap:
             name: superset-security
-        - name: assets
-          persistentVolumeClaim:
-            claimName: superset-assets
       restartPolicy: Always
 
 ---
@@ -401,8 +391,6 @@ spec:
               name: pythonpath
             - mountPath: /app/security
               name: security
-            - mountPath: /app/assets
-              name: assets
       volumes:
         - name: docker
           configMap:
@@ -413,9 +401,6 @@ spec:
         - name: security
           configMap:
             name: superset-security
-        - name: assets
-          persistentVolumeClaim:
-            claimName: superset-assets
       restartPolicy: Always
 {% endif %}
 
@@ -460,7 +445,7 @@ subjects:
     name: vector
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: DaemonSet
 metadata:
   name: vector
   labels:
