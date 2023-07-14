@@ -27,13 +27,29 @@ spec:
             name: dbt
           - mountPath: /app/aspects/scripts
             name: scripts
+          - mountPath: /app/aspects/migrations/
+            name: migrations
+          - mountPath: /app/aspects/migrations/alembic
+            name: alembic
+          - mountPath: /app/aspects/migrations/alembic/versions
+            name: versions
       volumes:
         - name: scripts
           configMap:
             name: aspects-scripts
+            defaultMode: 0777
         - name: dbt
           configMap:
             name: aspects-dbt
+        - name: migrations
+          configMap:
+            name: aspects-migrations
+        - name: alembic
+          configMap:
+            name: aspects-migrations-alembic
+        - name: versions
+          configMap:
+            name: aspects-migrations-alembic-versions
 ---
 apiVersion: batch/v1
 kind: Job
