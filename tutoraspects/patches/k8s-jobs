@@ -220,59 +220,60 @@ spec:
     spec:
       restartPolicy: Never
       containers:
-        image: {{ DOCKER_IMAGE_SUPERSET }}
-        env:
-          - name: DATABASE_DIALECT
-            value: "{{ SUPERSET_DB_DIALECT }}"
-          - name: DATABASE_HOST
-            value: "{{ SUPERSET_DB_HOST }}"
-          - name: DATABASE_PORT
-            value: "{{ SUPERSET_DB_PORT }}"
-          - name: DATABASE_DB
-            value: "{{ SUPERSET_DB_NAME }}"
-          - name: DATABASE_PASSWORD
-            value: "{{ SUPERSET_DB_PASSWORD }}"
-          - name: DATABASE_USER
-            value: "{{ SUPERSET_DB_USERNAME }}"
-          - name: OAUTH2_CLIENT_ID
-            value: "{{ SUPERSET_OAUTH2_CLIENT_ID }}"
-          - name: OAUTH2_CLIENT_SECRET
-            value: "{{ SUPERSET_OAUTH2_CLIENT_SECRET }}"
-          - name: SECRET_KEY
-            value: "{{ SUPERSET_SECRET_KEY }}"
-          - name: PYTHONPATH
-            value: "/app/pythonpath:/app/docker/pythonpath_dev"
-          - name: REDIS_HOST
-            value: "{{ REDIS_HOST }}"
-          - name: REDIS_PORT
-            value: "{{ REDIS_PORT }}"
-          - name: REDIS_PASSWORD
-            value: "{{ REDIS_PASSWORD }}"
-          - name: FLASK_ENV
-            value: "production"
-          - name: SUPERSET_ENV
-            value: "production"
-          - name: SUPERSET_HOST
-            value: "{{ SUPERSET_HOST }}"
-          - name: SUPERSET_PORT
-            value: "{{ SUPERSET_PORT }}"
-          - name: OAUTH2_ACCESS_TOKEN_PATH
-            value: "{{ SUPERSET_OAUTH2_ACCESS_TOKEN_PATH }}"
-          - name: OAUTH2_AUTHORIZE_PATH
-            value: "{{ SUPERSET_OAUTH2_AUTHORIZE_PATH }}"
-          - name: OPENEDX_COURSES_LIST_PATH
-            value: "{{ SUPERSET_OPENEDX_COURSES_LIST_PATH }}"
-          - name: OPENEDX_LMS_ROOT_URL
-            value: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}"
-        volumeMounts:
-          - mountPath: /app/docker
-            name: docker
-          - mountPath: /app/pythonpath
-            name: pythonpath
-          - mountPath: /app/security
-            name: security
-          - mountPath: /app/assets
-            name: assets
+        - name: superset-worker-job
+          image: {{ DOCKER_IMAGE_SUPERSET }}
+          env:
+            - name: DATABASE_DIALECT
+              value: "{{ SUPERSET_DB_DIALECT }}"
+            - name: DATABASE_HOST
+              value: "{{ SUPERSET_DB_HOST }}"
+            - name: DATABASE_PORT
+              value: "{{ SUPERSET_DB_PORT }}"
+            - name: DATABASE_DB
+              value: "{{ SUPERSET_DB_NAME }}"
+            - name: DATABASE_PASSWORD
+              value: "{{ SUPERSET_DB_PASSWORD }}"
+            - name: DATABASE_USER
+              value: "{{ SUPERSET_DB_USERNAME }}"
+            - name: OAUTH2_CLIENT_ID
+              value: "{{ SUPERSET_OAUTH2_CLIENT_ID }}"
+            - name: OAUTH2_CLIENT_SECRET
+              value: "{{ SUPERSET_OAUTH2_CLIENT_SECRET }}"
+            - name: SECRET_KEY
+              value: "{{ SUPERSET_SECRET_KEY }}"
+            - name: PYTHONPATH
+              value: "/app/pythonpath:/app/docker/pythonpath_dev"
+            - name: REDIS_HOST
+              value: "{{ REDIS_HOST }}"
+            - name: REDIS_PORT
+              value: "{{ REDIS_PORT }}"
+            - name: REDIS_PASSWORD
+              value: "{{ REDIS_PASSWORD }}"
+            - name: FLASK_ENV
+              value: "production"
+            - name: SUPERSET_ENV
+              value: "production"
+            - name: SUPERSET_HOST
+              value: "{{ SUPERSET_HOST }}"
+            - name: SUPERSET_PORT
+              value: "{{ SUPERSET_PORT }}"
+            - name: OAUTH2_ACCESS_TOKEN_PATH
+              value: "{{ SUPERSET_OAUTH2_ACCESS_TOKEN_PATH }}"
+            - name: OAUTH2_AUTHORIZE_PATH
+              value: "{{ SUPERSET_OAUTH2_AUTHORIZE_PATH }}"
+            - name: OPENEDX_COURSES_LIST_PATH
+              value: "{{ SUPERSET_OPENEDX_COURSES_LIST_PATH }}"
+            - name: OPENEDX_LMS_ROOT_URL
+              value: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}"
+          volumeMounts:
+            - mountPath: /app/docker
+              name: docker
+            - mountPath: /app/pythonpath
+              name: pythonpath
+            - mountPath: /app/security
+              name: security
+            - mountPath: /app/assets
+              name: assets
       volumes:
         - name: docker
           configMap:
