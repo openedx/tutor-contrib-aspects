@@ -50,6 +50,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}
+          title: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
           commit-message: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
           branch: "bot/v${{steps.tag_version.outputs.new_version}}"
           base: main
