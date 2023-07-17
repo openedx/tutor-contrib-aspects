@@ -119,5 +119,5 @@ jobs:
         uses: docker/setup-buildx-action@v2
       - name: Build Open edX Docker Images
         run: |
-          tutor images build openedx --cache-to-registry
+          tutor images build openedx openedx-dev --cache-to-registry
           tutor images push openedx
