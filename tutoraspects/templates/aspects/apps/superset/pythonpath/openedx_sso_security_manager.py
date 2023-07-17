@@ -103,7 +103,18 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
             courses = self.get_courses(username)
             if courses:
                 return ["openedx"]
-            return []
+            else:
+                roles = self.extra_get_user_roles(username, decoded_access_token)
+                if bool("{{SUPERSET_BLOCK_STUDENT_ACCESS}}") and not roles:
+                    raise Exception(f"Student {username} tried to access Superset")
+            return roles if roles else []
+    
+    def extra_get_user_roles(self, username, decoded_access_token):
+        """
+        Returns the Superset roles that should be associated with the given user.
+        """
+        {{ patch("superset-sso-assignment-rules")|indent(8) }}
+        return None
 
     @memoized(watch=("access_token",))
     def get_courses(self, username, permission="staff", next_url=None):
@@ -146,7 +157,3 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
             raise Exception(f"User {username} is not an instructor")
         else:
             return courses
-
-
-
-UserAccess = namedtuple("UserAccess", ["username", "is_superuser", "is_staff"])
