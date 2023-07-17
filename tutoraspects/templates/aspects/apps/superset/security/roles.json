@@ -5231,4 +5231,5 @@
       }
     ]
   }
+  {{ patch("superset-extra-roles"|indent(2))}}
 ]

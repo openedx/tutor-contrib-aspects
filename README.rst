@@ -292,7 +292,54 @@ file. It's a dictionary that expects a key for the name of the filter and the na
     SUPERSET_EXTRA_JINJA_FILTERS:
         can_view_courses: 'can_view_courses'
 
+Adding custom roles to Superset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Roles are a way to control access to Superset resources. You can add custom roles to Superset by using the patch
+`superset-extra-roles`. This patch expects JSON objects with the following structure:
+
+.. code-block:: yaml
+
+    ## Add a comma before the new role
+    superset-extra-roles: |
+        ,
+        {
+            "name": "my_custom_role",
+            "permissions": [
+                {
+                    "name": "can_read",
+                    "view_menu": {
+                        "name": "Superset",
+                        "category": "Security",
+                        "category_label": "Security",
+                        "category_icon": "fa-bar-chart",
+                    },
+                }
+            ],
+        }
+
+.. note::
+    The patch expects a list of roles, so make sure to add a comma before the new role.
+
+
+Once you have defined your custom roles you probably want to assign them to users automatically at login time.
+You can do so by using the patch `superset-sso-assignment-rules`. This patch expects valid python code:
+
+.. code-block:: yaml
+
+    superset-sso-assignment-rules: |
+        if "edunext" in username:
+            return ["admin"]
+        else:
+            return []
+
+.. note::
+    You need to return a list of roles. In the context you have the following variables available:
+    - `self`: The OpenEdxSsoSecurityManager instance
+    - `username`: The username of the user
+    - `decoded_access_token`: The decoded JWT token of the user
+
+    You can use this information to perform any logic you want to assign roles to users.
 
 Extending the DBT project
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
