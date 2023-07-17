@@ -92,4 +92,24 @@ def alembic(context, command) -> None:
     runner.run_job("aspects", command)
 
 
-COMMANDS = (load_xapi_test_data, dbt, alembic)
+@click.option("--options", default="")
+@click.pass_obj
+def dump_courses_to_clickhouse(context, options) -> None:
+    """
+    Job that proxies the dump_courses_to_clickhouse commands.
+    """
+    config = tutor_config.load(context.root)
+    runner = context.job_runner(config)
+
+    command = f"""
+    ./manage.py cms dump_courses_to_clickhouse {options}
+    """
+    runner.run_job("cms", command)
+
+
+COMMANDS = (
+    load_xapi_test_data,
+    dbt,
+    alembic,
+    dump_courses_to_clickhouse,
+)
