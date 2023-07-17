@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.15.0 - 2023-07-17
+
+### [0.15.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.14.1...v0.15.0) (2023-07-17)
+
+#### Features
+
+- backfill course data at start up ([9f75ac4](https://github.com/openedx/tutor-contrib-aspects/commit/9f75ac4c855de1c47dd4adffbe30946a4b24be31))
+
+#### Build Systems
+
+- trigger build jobs after release ([3ffadf3](https://github.com/openedx/tutor-contrib-aspects/commit/3ffadf3ebf7fd9b2a7c9ab3c6acdc3d82e151308))
+- **deps:** bump docker/login-action from 2.1.0 to 2.2.0 ([766dbae](https://github.com/openedx/tutor-contrib-aspects/commit/766dbae9a93c3f48385253d4f8fbf163c2e3508a))
+
 ## v0.14.1 - 2023-07-12
 
 ### [0.14.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.14.0...v0.14.1) (2023-07-12)
