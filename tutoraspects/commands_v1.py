@@ -94,8 +94,19 @@ def alembic(command: string) -> list[tuple[str, str]]:
     ]
 
 
+# Ex: "tutor local do dump_courses_to_clickhouse "
+@click.command(context_settings={"ignore_unknown_options": True})
+@click.option("--options", default="", type=click.UNPROCESSED)
+def dump_courses_to_clickhouse(options) -> list[tuple[str, str]]:
+    """
+    Job that proxies the dump_courses_to_clickhouse commands.
+    """
+    return [("cms", f"./manage.py cms dump_courses_to_clickhouse {options}")]
+
+
 COMMANDS = (
     load_xapi_test_data,
     dbt,
     alembic,
+    dump_courses_to_clickhouse,
 )

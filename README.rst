@@ -58,6 +58,10 @@ Usage
 
     tutor [dev|local] do load-xapi-test-data
 
+#. (Optional) Sink course data from the LMS to clickhouse (see  `https://github.com/openedx/openedx-event-sink-clickhouse` for more information)::
+
+    tutor [dev|local] do dump-courses-to-clickhouse --options "--force"
+
 
 Superset Assets
 ---------------
