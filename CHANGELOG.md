@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.16.0 - 2023-07-17
+
+### [0.16.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.15.0...v0.16.0) (2023-07-17)
+
+#### Features
+
+- import superset extra roles ([825af56](https://github.com/openedx/tutor-contrib-aspects/commit/825af56bb7ba4884e69e325082793687ff7e296e))
+
+#### Build Systems
+
+- change default title for release PR ([e319e67](https://github.com/openedx/tutor-contrib-aspects/commit/e319e679cb61b339601fa00f836a49c594f00da1))
+- push openedx-dev cache to registry ([accbca8](https://github.com/openedx/tutor-contrib-aspects/commit/accbca812476031e1229ec2a9ec41fc9d0bbe628))
+
 ## v0.15.0 - 2023-07-17
 
 ### [0.15.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.14.1...v0.15.0) (2023-07-17)
