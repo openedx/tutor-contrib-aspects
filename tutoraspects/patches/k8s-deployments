@@ -451,7 +451,7 @@ apiVersion: scheduling.k8s.io/v1
 kind: PriorityClass
 metadata:
   name: vector-priority
-value: 1000
+value: 10000000
 globalDefault: false
 description: "This priority class should be used for Vector service pods only."
 ---
@@ -476,17 +476,6 @@ spec:
         fsGroup: 1000
         fsGroupChangePolicy: "OnRootMismatch"
       serviceAccountName: vector
-      # Run vector next to LMS
-      affinity:
-        podAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
-                matchExpressions:
-                - key: app.kubernetes.io/name
-                  operator: In
-                  values:
-                    - lms
-              topologyKey: kubernetes.io/hostname
       containers:
         - name: vector
           image: {{ DOCKER_IMAGE_VECTOR }}
