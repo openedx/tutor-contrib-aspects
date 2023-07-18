@@ -444,6 +444,14 @@ subjects:
   - kind: ServiceAccount
     name: vector
 ---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: vector-priority
+value: 1000
+globalDefault: false
+description: "This priority class should be used for Vector service pods only."
+---
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -510,6 +518,7 @@ spec:
               readOnly: true
           securityContext:
             allowPrivilegeEscalation: false
+      priorityClassName: vector-priority
       volumes:
         - name: data
           persistentVolumeClaim:
