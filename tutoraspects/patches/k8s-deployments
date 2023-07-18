@@ -426,8 +426,11 @@ rules:
   - apiGroups:
       - ""
     resources:
+      - namespaces
+      - nodes
       - pods
     verbs:
+      - list
       - watch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
