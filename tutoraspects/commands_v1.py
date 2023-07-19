@@ -104,9 +104,22 @@ def dump_courses_to_clickhouse(options) -> list[tuple[str, str]]:
     return [("cms", f"./manage.py cms dump_courses_to_clickhouse {options}")]
 
 
+# pylint: disable=line-too-long
+# Ex: tutor local do transform-tracking-logs --options "--source_provider LOCAL --source_config '{\"key\": \"/openedx/data/\", \"prefix\": \"tracking.log\", \"container\": \"logs\"}' --destination_provider LRS --transformer_type xapi"
+# Ex: tutor local do transform-tracking-logs --options "--source_provider MINIO --source_config '{\"key\": \"openedx\", \"secret\": \"h3SIhXAqDDxJAP6TcXklNxro\", \"container\": \"openedx\", \"prefix\": \"/tracking_logs\", \"host\": \"files.local.overhang.io\", \"secure\": false}' --destination_provider LRS --transformer_type xapi"
+@click.command(context_settings={"ignore_unknown_options": True})
+@click.option("--options", default="", type=click.UNPROCESSED)
+def transform_tracking_logs(options) -> list[tuple[str, str]]:
+    """
+    Job that proxies the dump_courses_to_clickhouse commands.
+    """
+    return [("lms", f"./manage.py lms transform_tracking_logs {options}")]
+
+
 COMMANDS = (
     load_xapi_test_data,
     dbt,
     alembic,
     dump_courses_to_clickhouse,
+    transform_tracking_logs,
 )

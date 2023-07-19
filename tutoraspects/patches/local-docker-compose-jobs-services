@@ -6,10 +6,11 @@ aspects-job:
     - ASPECTS_ENROLLMENT_EVENTS_TABLE={{ ASPECTS_ENROLLMENT_EVENTS_TABLE }}
   volumes:
     - ../../env/plugins/aspects/apps/aspects:/app/aspects
-  depends_on:
-    - superset {% if RUN_CLICKHOUSE%}
+  {% if RUN_SUPERSET or RUN_CLICKHOUSE or RUN_RALPH %}depends_on:{% if RUN_SUPERSET %}
+    - superset{% endif %}{% if RUN_CLICKHOUSE%}
     - clickhouse{% endif %}{% if RUN_RALPH %}
     - ralph{% endif %}
+  {% endif %}
 clickhouse-job:
     image: {{DOCKER_IMAGE_CLICKHOUSE}}
     {% if RUN_CLICKHOUSE%}depends_on:
