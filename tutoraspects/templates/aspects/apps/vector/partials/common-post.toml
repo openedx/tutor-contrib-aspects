@@ -72,6 +72,13 @@ event_id = parsed_json.id
 drop_on_error = true
 drop_on_abort = true
 
+[transforms.xapi_debug]
+type = "remap"
+inputs = ["xapi"]
+# Time formats: https://docs.rs/chrono/0.4.19/chrono/format/strftime/index.html#specifiers
+source = '''
+.message = parse_json!(.event_str)
+'''
 
 ### Sinks
 
@@ -81,6 +88,12 @@ type = "console"
 inputs = ["tracking_debug"]
 encoding.codec = "json"
 encoding.only_fields = ["time", "message.context.course_id", "message.context.user_id", "message.name"]
+
+[sinks.out_xapi]
+type = "console"
+inputs = ["xapi_debug"]
+encoding.codec = "json"
+encoding.only_fields = ["event_id", "emission_time", "message.verb.id"]
 
 # # Send logs to clickhouse
 [sinks.clickhouse]
