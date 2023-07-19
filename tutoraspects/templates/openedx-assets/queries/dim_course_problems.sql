@@ -12,10 +12,10 @@ with courses as (
         JSON_VALUE(xblock_data_json, '$.block_type') = 'problem'
     {% raw -%}
         {% if filter_values('org') != [] %}
-        and org in {{ filter_values('org') | where_in }}
+        and org in ({{ filter_values('org') | where_in }})
         {% endif %}
         {% if filter_values('problem_name') != [] %}
-        and problem_name in {{ filter_values('problem_name') | where_in }}
+        and problem_name in ({{ filter_values('problem_name') | where_in }})
         {% endif %}
     {%- endraw %}
 )
