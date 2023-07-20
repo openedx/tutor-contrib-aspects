@@ -42,7 +42,7 @@ with courses as (
 ), segments as(
     select
         starts.org as org,
-        splitByString('/', starts.course_id)[-1] as course_key,
+        starts.course_id as course_key,
         starts.video_id as video_id,
         starts.actor_id,
         cast(starts.video_position as Int32) as start_position,
