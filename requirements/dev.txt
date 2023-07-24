@@ -22,7 +22,7 @@ cachetools==5.3.1
     # via
     #   -r requirements/base.txt
     #   google-auth
-certifi==2023.5.7
+certifi==2023.7.22
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -33,14 +33,14 @@ charset-normalizer==3.2.0
     # via
     #   -r requirements/base.txt
     #   requests
-click==8.1.5
+click==8.1.6
     # via
     #   -r requirements/base.txt
     #   black
     #   tutor
 cryptography==41.0.2
     # via secretstorage
-dill==0.3.6
+dill==0.3.7
     # via pylint
 docutils==0.20.1
     # via readme-renderer
@@ -72,7 +72,7 @@ jinja2==3.1.2
     #   tutor
 keyring==24.2.0
     # via twine
-kubernetes==26.1.0
+kubernetes==27.2.0
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -102,6 +102,7 @@ mypy-extensions==1.0.0
 oauthlib==3.2.2
     # via
     #   -r requirements/base.txt
+    #   kubernetes
     #   requests-oauthlib
 packaging==23.1
     # via black
@@ -134,7 +135,7 @@ pygments==2.15.1
     #   rich
 pyinstaller==5.13.0
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2023.5
+pyinstaller-hooks-contrib==2023.6
     # via pyinstaller
 pylint==2.17.4
     # via -r requirements/dev.in
@@ -142,7 +143,7 @@ python-dateutil==2.8.2
     # via
     #   -r requirements/base.txt
     #   kubernetes
-pyyaml==6.0
+pyyaml==6.0.1
     # via
     #   -r requirements/base.txt
     #   kubernetes
