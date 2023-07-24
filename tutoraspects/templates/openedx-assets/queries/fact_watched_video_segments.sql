@@ -4,7 +4,7 @@ with courses as (
     select
         emission_time,
         org,
-        course_id,
+        course_key,
         splitByString('/xblock/', object_id)[-1] as video_id,
         actor_id,
         verb_id,
@@ -21,7 +21,7 @@ with courses as (
     select
         emission_time,
         org,
-        course_id,
+        course_key,
         splitByString('/xblock/', object_id)[-1] as video_id,
         actor_id,
         verb_id,
@@ -42,7 +42,7 @@ with courses as (
 ), segments as(
     select
         starts.org as org,
-        starts.course_id as course_key,
+        starts.course_key as course_key,
         starts.video_id as video_id,
         starts.actor_id,
         cast(starts.video_position as Int32) as start_position,
@@ -54,7 +54,7 @@ with courses as (
         starts
         left asof join ends
             on (starts.org = ends.org
-                and starts.course_id = ends.course_id
+                and starts.course_key = ends.course_key
                 and starts.video_id = ends.video_id
                 and starts.actor_id = ends.actor_id
                 and starts.emission_time < ends.emission_time)

@@ -4,7 +4,7 @@ with videos as (
     select
         emission_time,
         org,
-        course_id as course_key,
+        course_key,
         actor_id,
         video_id
     from

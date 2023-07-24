@@ -4,7 +4,7 @@ with courses as (
     select
         emission_time,
         org,
-        course_id as course_key,
+        course_key,
         actor_id,
         enrollment_mode,
         splitByString('/', verb_id)[-1] as enrollment_status

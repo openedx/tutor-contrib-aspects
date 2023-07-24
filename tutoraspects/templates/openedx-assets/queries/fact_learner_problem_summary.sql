@@ -3,7 +3,7 @@ with course_problems as (
 ), summary as (
     select
         org,
-        course_id as course_key,
+        course_key,
         problem_id,
         actor_id,
         success,
