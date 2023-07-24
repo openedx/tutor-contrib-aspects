@@ -500,7 +500,7 @@ spec:
               value: warn
           volumeMounts:
             - name: data
-              mountPath: /var/lib/vector
+              mountPath: /vector-data-dir
             - name: var-log
               mountPath: /var/log/
               readOnly: true
@@ -513,8 +513,7 @@ spec:
       priorityClassName: vector-priority
       volumes:
         - name: data
-          persistentVolumeClaim:
-            claimName: vector
+          emptyDir: {}
         - name: var-log
           hostPath:
             path: /var/log/
