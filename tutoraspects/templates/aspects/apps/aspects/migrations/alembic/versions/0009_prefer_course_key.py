@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_EVE
     `org` String NOT NULL,
     `verb_id` LowCardinality(String) NOT NULL,
     `enrollment_mode` LowCardinality(String)
-) ENGINE = MergeTree
+) ENGINE = ReplacingMergeTree
 PRIMARY KEY (org, course_id)
 ORDER BY (org, course_id, actor_id, enrollment_mode, emission_time);
 """
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_EVE
     `org` String NOT NULL,
     `verb_id` LowCardinality(String) NOT NULL,
     `enrollment_mode` LowCardinality(String)
-) ENGINE = MergeTree
+) ENGINE = ReplacingMergeTree
 PRIMARY KEY (org, course_key)
 ORDER BY (org, course_key, actor_id, enrollment_mode, emission_time);
 """
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK
     `org` String NOT NULL,
     `verb_id` LowCardinality(String) NOT NULL,
     `video_position` Float32 NOT NULL
-) ENGINE = MergeTree
+) ENGINE = ReplacingMergeTree
 PRIMARY KEY (org, course_id, verb_id)
 ORDER BY (org, course_id, verb_id, actor_id);
 """
@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK
     `org` String NOT NULL,
     `verb_id` LowCardinality(String) NOT NULL,
     `video_position` Float32 NOT NULL
-) ENGINE = MergeTree
+) ENGINE = ReplacingMergeTree
 PRIMARY KEY (org, course_key, verb_id)
 ORDER BY (org, course_key, verb_id, actor_id);
 """
@@ -176,7 +176,7 @@ CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_PROBLEM_EVENTS
     `success` Bool,
     `interaction_type` LowCardinality(String),
     `attempts` Int16
-) ENGINE = MergeTree
+) ENGINE = ReplacingMergeTree
 PRIMARY KEY (org, course_id, verb_id)
 ORDER BY (org, course_id, verb_id, actor_id);
 """
@@ -195,7 +195,7 @@ CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_PROBLEM_EVENTS
     `success` Bool,
     `interaction_type` LowCardinality(String),
     `attempts` Int16
-) ENGINE = MergeTree
+) ENGINE = ReplacingMergeTree
 PRIMARY KEY (org, course_key, verb_id)
 ORDER BY (org, course_key, verb_id, actor_id);
 """
@@ -276,7 +276,7 @@ CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_EVE
     `object_type` LowCardinality(String) NOT NULL,
     `starting_position` Int16,
     `ending_point` String
-) ENGINE = MergeTree
+) ENGINE = ReplacingMergeTree
 PRIMARY KEY (org, course_id, object_type)
 ORDER BY (org, course_id, object_type, actor_id);
 """
@@ -293,7 +293,7 @@ CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_EVE
     `object_type` LowCardinality(String) NOT NULL,
     `starting_position` Int16,
     `ending_point` String
-) ENGINE = MergeTree
+) ENGINE = ReplacingMergeTree
 PRIMARY KEY (org, course_key, object_type)
 ORDER BY (org, course_key, object_type, actor_id);
 """
@@ -407,7 +407,7 @@ def migrate(table_name, mv_name, table_ddl, mv_query):
     # - load data into the new table using the new MV query
     # - create the materialized view using the new query
     op.execute(f"DROP TABLE IF EXISTS {table_name}")
-    op.execute(f"DROP TABLE IF EXISTS {mv_name}")
+    op.execute(f"DROP VIEW IF EXISTS {mv_name}")
     op.execute(table_ddl)
     op.execute(f"INSERT INTO {table_name} {mv_query}")
     mv_ddl = (
