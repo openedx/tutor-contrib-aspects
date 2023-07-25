@@ -4,7 +4,7 @@ with videos as (
     select
         emission_time,
         org,
-        splitByString('/', course_id)[-1] as course_key,
+        course_key,
         video_id,
         actor_id
     from
