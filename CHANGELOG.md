@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.16.1 - 2023-07-25
+
+### [0.16.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.16.0...v0.16.1) (2023-07-25)
+
+### ⚠ BREAKING CHANGES
+
+- parse course key in MV queries (FC-0024) (#193)
+
+### Bug Fixes
+
+- Make migration replace the old table ([79076ed](https://github.com/openedx/tutor-contrib-aspects/commit/79076edae05666c330e156dce3487fc4dfd3ae7c))
+
+### Code Refactoring
+
+- parse course key in MV queries (FC-0024) ([#193](https://github.com/openedx/tutor-contrib-aspects/issues/193)) ([ab066a5](https://github.com/openedx/tutor-contrib-aspects/commit/ab066a53b2c4f6d34a9c841ac0bb2907af9d42dc))
+
 ## v0.16.0 - 2023-07-17
 
 ### [0.16.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.15.0...v0.16.0) (2023-07-17)
