@@ -20,7 +20,7 @@ spec:
       containers:
         - env:
             - name: CLICKHOUSE_DB
-              value: "xapi"
+              value: "{{ ASPECTS_XAPI_DATABASE }}"
             - name: CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT
               value: "1"
             - name: CLICKHOUSE_PASSWORD
