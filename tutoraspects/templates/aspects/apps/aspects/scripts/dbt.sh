@@ -6,6 +6,7 @@ pip install -r /app/aspects/dbt/requirements.txt
 rm -rf {{ DBT_REPOSITORY_PATH }}
 
 echo "Installing aspects-dbt"
+echo "git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }}"
 git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }}
 
 cd {{ DBT_REPOSITORY_PATH }} || exit
