@@ -11,7 +11,7 @@ Aspects Learner Analytics combines several free, open source, tools to add analy
 - `event-sink-clickhouse <https://github.com/openedx/openedx-event-sink-clickhouse>`__, an Open edX plugin that exports course structure and high level data to ClickHouse at publish time
 - `dbt <https://www.getdbt.com/>`__, a tool to build data pipelines from SQL queries. The dbt project used by this plugin is `aspects-dbt <https://github.com/openedx/aspects-dbt>`__.
 
-See https://github.com/openedx/openedx-oars for more details about the Aspects architecture and high level documentation.
+See https://github.com/openedx/openedx-aspects for more details about the Aspects architecture and high level documentation.
 
 Aspects is a community developed effort combining the Cairn project by Overhang.io and the OARS project by EduNEXT, OpenCraft, and Axim Collaborative.
 
@@ -31,6 +31,11 @@ The Aspects project can be installed in a Tutor environment with the following c
 
 ::
 
+    pip install tutor-contrib-aspects
+
+Or to install the main branch you can:
+
+::
     pip install git+https://github.com/openedx/tutor-contrib-aspects
 
 
@@ -74,53 +79,6 @@ But it also means that any local changes you make to these assets will be overwr
 when you update your deployment. To prevent your local changes from being overwritten,
 please create new assets and make your changes there instead. You can copy an existing
 asset by editing the asset in Superset and selecting "Save As" to save it to a new name.
-
-Define your own superset assets
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To programatically define custom superset assets there is a patch you can use with an
-inline plugin. The patch ``superset-extra-assets`` will allow you to define your
-own superset assets in a yaml file and have them automatically imported into superset
-when you run ``tutor [dev|local|k8s] init -l aspects``.
-
-An example of this patch is provided as reference:
-
-..  code-block:: yaml
-
-    name: custom-inline-plugin
-    version: 0.1.0
-    patches:
-    superset-extra-assets: |
-        - _file_name: my-dashboard.yaml
-          dashboard_title: "..."
-          ...
-        - _file_name: my-chart.yaml
-          slice_name: "..."
-          ...
-        - _file_name: my-database.yaml
-          database_name: "..."
-          ...
-        - _file_name: my-dataset.yaml
-          table_name: "..."
-          ...
-
-The patch is expected to be a list of assets with an extra attribute called ``file_name`` , which uniquely identifies the asset entry. This file does not need to exist anywhere; it will be created with the rest of the yaml in that stanza as part of the init process. Each asset is expected to be a valid yaml file with the attributes that superset expects for each asset type. See `assets.yaml`_ for examples of asset yaml declarations.
-
-The tutor command will generate a .yaml file with the content of an exported zip file. This is useful if you want to add a new asset to the default assets provided by Aspects. You can then edit the generated file and add it to the patch above.
-
-..  code-block:: sh
-
-    tutor aspects serialize file.zip
-
-Override superset default assets
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you want to override the default assets provided by Aspects you can do so by using the
-patch defined above and make sure that the uuid of the asset you are overriding matches
-the one in the default assets. You can find the uuid of the default assets in the
-default `assets.yaml`_ file.
-
-.. _assets.yaml: tutoraspects/templates/aspects/apps/superset/pythonpath/assets.yaml
 
 
 Sharing Charts and Dashboards
@@ -166,6 +124,8 @@ To contribute assets to Aspects:
    of what data question they answer.
 
 
+.. _assets.yaml: tutoraspects/templates/aspects/apps/superset/pythonpath/assets.yaml
+
 Virtual datasets in Superset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -183,189 +143,6 @@ However, please keep in mind that the assets declaration is itself a jinja templ
 .. _queries: tutoraspects/templates/aspects/apps/superset/pythonpath/queries
 
 .. _dim_courses.sql: tutoraspects/templates/aspects/apps/superset/pythonpath/queries/dim_courses.sql
-
-
-Changing Superset Language Settings
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Superset localization is a work in progress, but you can change the default language and set alternate languages from the currently supported list by changing the Tutor configuration variables:
-
-Default language: ``tutor config save --set SUPERSET_DEFAULT_LOCALE=en``
-
-Available languages are stored in a mapping, and so best edited directly in Tutor's config.yml file. You can find the path to the config file with ``tutor config printroot``. Once there, you can set the SUPERSET_SUPPORTED_LANGUAGES with a mapping of the following structure::
-
-    SUPERSET_SUPPORTED_LANGUAGES: {
-        "en": {"flag": "us", "name": "English"},
-        "es": {"flag": "es", "name": "Spanish"},
-        "it": {"flag": "it", "name": "Italian"},
-        "fr": {"flag": "fr", "name": "French"},
-        "zh": {"flag": "cn", "name": "Chinese"},
-        "ja": {"flag": "jp", "name": "Japanese"},
-        "de": {"flag": "de", "name": "German"},
-        "pt": {"flag": "pt", "name": "Portuguese"},
-        "pt_BR": {"flag": "br", "name": "Brazilian Portuguese"},
-        "ru": {"flag": "ru", "name": "Russian"},
-        "ko": {"flag": "kr", "name": "Korean"},
-        "sk": {"flag": "sk", "name": "Slovak"},
-        "sl": {"flag": "si", "name": "Slovenian"},
-        "nl": {"flag": "nl", "name": "Dutch"},
-    }
-
-Where the first key is the abbreviation of the language to use, "flag" is which flag icon is displayed in the user interface for choosing the language, and "name" is the displayed name for that language. The mapping above shows all of the current languages supported by Superset, but please note that different languages have different levels of completion and support at this time.
-
-Adding custom Row Level Security Filters to Superset
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you add new datasources, tables, or fields to Superset, you may want to add new `row level security filters`_ 
-to restrict access to that data based on things like course roles, or organization. To apply custom row level
-security filters to Superset, you can do so by using the patch `superset-row-level-security`. This patch expects
-a list of python dictionaries with the following structure:
-
-..  code-block:: yaml
-    
-    superset-row-level-security: |
-        {
-            "schema": "{{ASPECTS_XAPI_DATABASE}}",
-            "table_name": "{{ASPECTS_XAPI_TABLE}}",
-            "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
-            "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
-            "clause": {% raw %}'{{can_view_courses(current_username(), "splitByChar(\'/\', course_id)[-1]")}}',{% endraw %}
-            "filter_type": "Regular",
-        },
-
-
-.. _row level security filters: https://superset.apache.org/docs/security#row-level-security
-
-.. note::
-    Make sure that your table already exists before trying to apply a security filter.
-    If you see an error `AssertionError: {schema.table} table doesn't exist yet?`, then
-    you need to create the dataset in Superset first.
-
-You can also add extra SQL `jinja filters`_ to the Superset environment by using the patch
-`superset-jinja-filters`, which you can use to define new filters like the ``can_view_courses``
-clause used above. This patch expects valid python code, and the function should return
-an SQL fragment as a string, e.g:
-
-.. _jinja filters: https://superset.apache.org/docs/installation/sql-templating/
-
-..  code-block:: yaml
-
-    superset-jinja-filters: |
-        ALL_COURSES = "1 = 1"
-        NO_COURSES = "1 = 0"
-        def can_view_courses(username, field_name="course_id"):
-            """
-            Returns SQL WHERE clause which restricts access to the courses the current user has staff access to.
-            """
-            from superset.extensions import security_manager
-            user = security_manager.get_user_by_username(username)
-            if user:
-                user_roles = security_manager.get_user_roles(user)
-            else:
-                user_roles = []
-
-            # Users with no roles don't get to see any courses
-            if not user_roles:
-                return NO_COURSES
-
-            # Superusers and global staff have access to all courses
-            for role in user_roles:
-                if str(role) == "Admin" or str(role) == "Alpha":
-                    return ALL_COURSES
-
-            # Everyone else only has access if they're staff on a course.
-            courses = security_manager.get_courses(username)
-
-            # TODO: what happens when the list of courses grows beyond what the query will handle?
-            if courses:
-                course_id_list = ", ".join(f"'{course_id}'" for course_id in courses)
-                return f"{field_name} in ({course_id_list})"
-            else:
-                # If you're not course staff on any courses, you don't get to see any.
-                return NO_COURSES
-
-Once the custom jinja filter is necessary to register it using `SUPERSET_EXTRA_JINJA_FILTERS` in the config.yaml
-file. It's a dictionary that expects a key for the name of the filter and the name of underlying function:
-
-.. code-block:: yaml
-
-    SUPERSET_EXTRA_JINJA_FILTERS:
-        can_view_courses: 'can_view_courses'
-
-Adding custom roles to Superset
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Roles are a way to control access to Superset resources. You can add custom roles to Superset by using the patch
-`superset-extra-roles`. This patch expects JSON objects with the following structure:
-
-.. code-block:: yaml
-
-    ## Add a comma before the new role
-    superset-extra-roles: |
-        ,
-        {
-            "name": "my_custom_role",
-            "permissions": [
-                {
-                    "name": "can_read",
-                    "view_menu": {
-                        "name": "Superset",
-                        "category": "Security",
-                        "category_label": "Security",
-                        "category_icon": "fa-bar-chart",
-                    },
-                }
-            ],
-        }
-
-.. note::
-    The patch expects a list of roles, so make sure to add a comma before the new role.
-
-
-Once you have defined your custom roles you probably want to assign them to users automatically at login time.
-You can do so by using the patch `superset-sso-assignment-rules`. This patch expects valid python code:
-
-.. code-block:: yaml
-
-    superset-sso-assignment-rules: |
-        if "edunext" in username:
-            return ["admin"]
-        else:
-            return []
-
-.. note::
-    You need to return a list of roles. In the context you have the following variables available:
-    - `self`: The OpenEdxSsoSecurityManager instance
-    - `username`: The username of the user
-    - `decoded_access_token`: The decoded JWT token of the user
-
-    You can use this information to perform any logic you want to assign roles to users.
-
-Extending the DBT project
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To extend the DBT project there are multiple options:
-
-    #. DBT_REPOSITORY: A git repository URL to the DBT project
-    #. DBT_BRANCH: A git branch to use for the DBT project
-    #. DBT_REPOSITORY_PATH: A path to the DBT project in the git repository
-    #. EXTRA_DBT_PACKAGES: A list of python packages necessary for the DBT project
-    #. DBT_ENABLE_OVERRIDE: A boolean to enable/disable the DBT project override, those overrides
-       allows you to extend the DBT project without having to fork it. For this to work you need
-       to create a patch with the name ``dbt-packages`` and ``dbt-project``. We recommend to copy
-       the default DBT files (``dbt_project.yml`` and ``packages.yml``) and add your changes from
-       there.
-
-
-Running Clickhouse queries at startup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To run extra SQL queries at startup you can use the tutor patch ``clickhouse-extra-sql``.:
-
-..  code-block:: yaml
-
-    clickhouse-extra-sql: |
-        SELECT * from {{ASPECTS_XAPI_DATABASE}}.{{ASPECTS_XAPI_TABLE}} LIMIT 1;
 
 License
 -------
