@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+## WARNING: If you modify this block, make sure to also update the
+##          corresponding block in the init-aspects.sh file.
+
 echo "Installing dbt packages..."
 
 pip install -r /app/aspects/dbt/requirements.txt
