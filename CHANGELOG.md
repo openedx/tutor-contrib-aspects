@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.17.0 - 2023-07-26
+
+### [0.17.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.16.3...v0.17.0) (2023-07-26)
+
+#### Features
+
+- Add course and block names to in memory dictionaries ([8b6cc28](https://github.com/openedx/tutor-contrib-aspects/commit/8b6cc28637eb4b775f7d0b6150c3cef50bd3eb8b))
+
 ## v0.16.3 - 2023-07-26
 
 ### [0.16.3](https://github.com/openedx/tutor-contrib-aspects/compare/v0.16.2...v0.16.3) (2023-07-26)
