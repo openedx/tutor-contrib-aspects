@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
 
+## WARNING: If you modify this block, make sure to also update the
+##          corresponding block in the alembic.sh file.
+
 cd /app/aspects/migrations
 
 alembic upgrade head
 
 cd -
+
+## WARNING: If you modify this block, make sure to also update the
+##          corresponding block in the dbt.sh file.
 
 echo "Installing dbt packages..."
 
