@@ -61,7 +61,11 @@ Usage
 #. (Optional) Sink course data from the LMS to clickhouse (see  `https://github.com/openedx/openedx-event-sink-clickhouse` for more information)::
 
     tutor [dev|local] do dump-courses-to-clickhouse --options "--force"
+    # If you already have some courses in your clickhouse sink, its better to drop --options "--force" as it will create duplicates of the pre-existing courses.
 
+#. (Optional) Sink Historical event data to ClickHouse::
+
+    tutor [dev|local] run lms ./manage.py lms transform_tracking_logs --source_provider LOCAL --source_config '{"key": "/openedx/data", "container": "logs", "prefix": "tracking.log"}' --transformer_type xapi
 
 Superset Assets
 ---------------
