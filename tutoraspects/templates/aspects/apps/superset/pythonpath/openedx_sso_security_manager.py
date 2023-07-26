@@ -7,6 +7,10 @@ from flask import current_app, session
 from superset.security import SupersetSecurityManager
 from superset.utils.memoized import memoized
 
+from authlib.integrations.flask_client import OAuthError
+import time
+import requests
+
 log = logging.getLogger(__name__)
 
 
@@ -72,14 +76,62 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
                 "role_keys": user_roles,
             }
 
-    def get_oauth_token(self, token=None):
+    def get_oauth_token(self):
         """
         Retrieves the oauth token from the session.
-
-        Returns an empty hash if there is no session.
+        If the access token is expired, it will try to refresh it using the refresh token.
         """
-        # TODO: handle refreshing expired tokens?
-        return session.get("oauth_token", {})
+        token = session.get("oauth_token", {})
+
+        if not token:
+            raise Exception("No OAuth token found.")
+
+        if not self.is_token_expired(token):
+            return token
+            
+        try:
+            new_token = self.refresh_token(token)
+        except OAuthError as e:
+            raise OAuthError(f"Failed to refresh the token: {e}")
+
+        session["oauth_token"] = new_token
+
+        refreshed_token = session.get("oauth_token", {})
+        return refreshed_token
+
+    def is_token_expired(self, token):
+        """
+        Checks if the given token is expired.
+        """
+        is_expired = time.time() > token.get('expires_at', 0)
+        return is_expired
+
+    def refresh_token(self, token):
+        """
+        Uses the refresh token to obtain a new access token.
+        """
+        provider = session.get("oauth_provider")
+        oauth_remote = self.oauth_remotes.get(provider)
+        
+        if not oauth_remote:
+            raise Exception("No OAuth remote object found")
+
+        refresh_token = token.get('refresh_token')
+        lms_root_url = current_app.config["OPENEDX_LMS_ROOT_URL"]
+        refresh_url = f'{lms_root_url}/oauth2/access_token/'
+
+        data = {
+            'client_id': oauth_remote.client_id,
+            'client_secret': oauth_remote.client_secret,
+            'grant_type': 'refresh_token',
+            'refresh_token': refresh_token,
+            'token_type': 'JWT'
+        }
+        response = requests.post(refresh_url, data=data)
+        if response.status_code == 200:
+            new_token = response.json()
+            return new_token
+        return token
 
     @property
     def access_token(self):
