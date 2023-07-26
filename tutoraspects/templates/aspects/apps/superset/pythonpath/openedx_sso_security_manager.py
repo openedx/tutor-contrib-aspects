@@ -153,7 +153,8 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
             for course_id in next_courses:
                 courses.append(course_id)
 
-        if bool("{{SUPERSET_BLOCK_STUDENT_ACCESS}}"):
+        # If the user has no staff access to any courses, they are a student
+        if not courses and bool("{{SUPERSET_BLOCK_STUDENT_ACCESS}}"):
             raise Exception(f"User {username} is not an instructor")
         else:
             return courses

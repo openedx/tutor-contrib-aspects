@@ -4226,22 +4226,6 @@
           "name":"can_write"
         },
         "view_menu":{
-          "name":"SavedQuery"
-        }
-      },
-      {
-        "permission":{
-          "name":"can_write"
-        },
-        "view_menu":{
-          "name":"CssTemplate"
-        }
-      },
-      {
-        "permission":{
-          "name":"can_write"
-        },
-        "view_menu":{
           "name":"ReportSchedule"
         }
       },
@@ -4250,23 +4234,7 @@
           "name":"can_write"
         },
         "view_menu":{
-          "name":"Chart"
-        }
-      },
-      {
-        "permission":{
-          "name":"can_write"
-        },
-        "view_menu":{
           "name":"Annotation"
-        }
-      },
-      {
-        "permission":{
-          "name":"can_write"
-        },
-        "view_menu":{
-          "name":"Dashboard"
         }
       },
       {
@@ -4283,14 +4251,6 @@
         },
         "view_menu":{
           "name":"DashboardPermalinkRestApi"
-        }
-      },
-      {
-        "permission":{
-          "name":"can_write"
-        },
-        "view_menu":{
-          "name":"ExploreFormDataRestApi"
         }
       },
       {
@@ -4578,23 +4538,7 @@
           "name":"can_export"
         },
         "view_menu":{
-          "name":"Dashboard"
-        }
-      },
-      {
-        "permission":{
-          "name":"can_export"
-        },
-        "view_menu":{
           "name":"ImportExportRestApi"
-        }
-      },
-      {
-        "permission":{
-          "name":"can_delete_embedded"
-        },
-        "view_menu":{
-          "name":"Dashboard"
         }
       },
       {
@@ -4895,14 +4839,6 @@
       },
       {
         "permission":{
-          "name":"can_import_dashboards"
-        },
-        "view_menu":{
-          "name":"Superset"
-        }
-      },
-      {
-        "permission":{
           "name":"can_recent_activity"
         },
         "view_menu":{
@@ -4943,30 +4879,6 @@
       },
       {
         "permission":{
-          "name":"can_dashboard"
-        },
-        "view_menu":{
-          "name":"Superset"
-        }
-      },
-      {
-        "permission":{
-          "name":"can_sqllab"
-        },
-        "view_menu":{
-          "name":"Superset"
-        }
-      },
-      {
-        "permission":{
-          "name":"can_explore"
-        },
-        "view_menu":{
-          "name":"Superset"
-        }
-      },
-      {
-        "permission":{
           "name":"can_slice_json"
         },
         "view_menu":{
@@ -4992,14 +4904,6 @@
       {
         "permission":{
           "name":"can_dashboard_permalink"
-        },
-        "view_menu":{
-          "name":"Superset"
-        }
-      },
-      {
-        "permission":{
-          "name":"can_tables"
         },
         "view_menu":{
           "name":"Superset"
@@ -5162,14 +5066,6 @@
           "name":"menu_access"
         },
         "view_menu":{
-          "name":"Import Dashboards"
-        }
-      },
-      {
-        "permission":{
-          "name":"menu_access"
-        },
-        "view_menu":{
           "name":"Alerts & Report"
         }
       },
@@ -5179,38 +5075,6 @@
         },
         "view_menu":{
           "name":"Dashboards"
-        }
-      },
-      {
-        "permission":{
-          "name":"menu_access"
-        },
-        "view_menu":{
-          "name":"Charts"
-        }
-      },
-      {
-        "permission":{
-          "name":"menu_access"
-        },
-        "view_menu":{
-          "name":"SQL Editor"
-        }
-      },
-      {
-        "permission":{
-          "name":"menu_access"
-        },
-        "view_menu":{
-          "name":"Saved Queries"
-        }
-      },
-      {
-        "permission":{
-          "name":"menu_access"
-        },
-        "view_menu":{
-          "name":"Query Search"
         }
       },
       {
