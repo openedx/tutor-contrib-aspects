@@ -91,8 +91,7 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
                 try:
                     new_token = self.refresh_token(token)
                 except OAuthError as e:
-                    logging.error("Failed to refresh the token: {}".format(e))
-                    new_token = {}
+                    raise OAuthError(f"Failed to refresh the token: {e}")
 
                 # Update the session with the new token
                 session["oauth_token"] = new_token
@@ -104,7 +103,6 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         """
         Checks if the given token is expired.
         """
-        # The token is expired if the current time is greater than the expiry time
         is_expired = time.time() > token.get('expires_at', 0)
         return is_expired
 
@@ -119,7 +117,7 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
             refresh_token = token.get('refresh_token')
             lms_root_url = current_app.config["OPENEDX_LMS_ROOT_URL"]
             refresh_url = f'{lms_root_url}/oauth2/access_token/'
-            # Sets up the data to be sent with the POST request.
+
             data = {
                 'client_id': oauth_remote.client_id,
                 'client_secret': oauth_remote.client_secret,
