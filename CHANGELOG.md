@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.16.2 - 2023-07-26
+
+### [0.16.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.16.1...v0.16.2) (2023-07-26)
+
+### Bug Fixes
+
+- remove hardcoded xapi ([7ce4b4a](https://github.com/openedx/tutor-contrib-aspects/commit/7ce4b4a60279bded6331c11eb7854843efae9871))
+
+### Documentation
+
+- Instructions to Sink Historical event data to ClickHouse ([7493d95](https://github.com/openedx/tutor-contrib-aspects/commit/7493d957e7c214f5a3a9e3e310970b41b56ca9f4))
+- Sink Historical event data to ClickHouse instructions for non-default settings ([cff61fe](https://github.com/openedx/tutor-contrib-aspects/commit/cff61fe5b998e4c0aed78e1c672ca81b6c2cd199))
+
 ## v0.16.1 - 2023-07-25
 
 ### [0.16.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.16.0...v0.16.1) (2023-07-25)
