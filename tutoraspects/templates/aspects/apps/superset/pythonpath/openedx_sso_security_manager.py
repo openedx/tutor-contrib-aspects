@@ -83,13 +83,10 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         Returns an empty dict if there is no session or the token couldn't be refreshed.
         """
         token = session.get("oauth_token", {})
-        print('\n\n')
-        print(f'Original token: {token}')  # Debug line
 
         if token:
             # Check if the token is expired
             if self.is_token_expired(token):
-                print('Token is expired, refreshing...')  # Debug line
                 # Try to refresh the token
                 try:
                     new_token = self.refresh_token(token)
@@ -101,7 +98,6 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
                 session["oauth_token"] = new_token
 
         refreshed_token = session.get("oauth_token", {})
-        print(f'Refreshed token: {refreshed_token}')  # Debug line
         return refreshed_token
 
     def is_token_expired(self, token):
@@ -110,8 +106,6 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         """
         # The token is expired if the current time is greater than the expiry time
         is_expired = time.time() > token.get('expires_at', 0)
-        is_expired = True # Debug Line
-        print(f'Is token expired? {is_expired}')  # Debug line
         return is_expired
 
     def refresh_token(self, token):
@@ -134,12 +128,9 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
                 'token_type': 'JWT'
             }
             response = requests.post(refresh_url, data=data)
-            print(response.content)  # Debug line
             if response.status_code == 200:
                 new_token = response.json()
-                print('New token obtained:', new_token)  # Debug line
                 return new_token
-            print('status_code: ', response.status_code)  # Debug line
         return token
 
     @property
