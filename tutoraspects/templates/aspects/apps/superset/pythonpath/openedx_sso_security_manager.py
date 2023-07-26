@@ -112,23 +112,26 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         """
         provider = session.get("oauth_provider")
         oauth_remote = self.oauth_remotes.get(provider)
+        
         # Checks if the OAuth remote object exists.
-        if oauth_remote:
-            refresh_token = token.get('refresh_token')
-            lms_root_url = current_app.config["OPENEDX_LMS_ROOT_URL"]
-            refresh_url = f'{lms_root_url}/oauth2/access_token/'
+        if not oauth_remote:
+            raise Exception("No OAuth remote object found")
 
-            data = {
-                'client_id': oauth_remote.client_id,
-                'client_secret': oauth_remote.client_secret,
-                'grant_type': 'refresh_token',
-                'refresh_token': refresh_token,
-                'token_type': 'JWT'
-            }
-            response = requests.post(refresh_url, data=data)
-            if response.status_code == 200:
-                new_token = response.json()
-                return new_token
+        refresh_token = token.get('refresh_token')
+        lms_root_url = current_app.config["OPENEDX_LMS_ROOT_URL"]
+        refresh_url = f'{lms_root_url}/oauth2/access_token/'
+
+        data = {
+            'client_id': oauth_remote.client_id,
+            'client_secret': oauth_remote.client_secret,
+            'grant_type': 'refresh_token',
+            'refresh_token': refresh_token,
+            'token_type': 'JWT'
+        }
+        response = requests.post(refresh_url, data=data)
+        if response.status_code == 200:
+            new_token = response.json()
+            return new_token
         return token
 
     @property
