@@ -17,6 +17,7 @@
     --update \
     superset-sso-dev superset
 
+{% if RUN_RALPH %}
 cat > /tmp/erb_config.json <<EOF
 {
   "model": "event_routing_backends.RouterConfiguration",
@@ -36,3 +37,4 @@ EOF
 
 ./manage.py lms manage_user tutor-contrib-aspects aspects@axim --unusable-password
 ./manage.py lms populate_model -f /tmp/erb_config.json -u tutor-contrib-aspects
+{% endif %}

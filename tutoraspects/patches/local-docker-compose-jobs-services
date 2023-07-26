@@ -8,8 +8,8 @@ aspects-job:
     - ../../env/plugins/aspects/apps/aspects:/app/aspects
   depends_on:
     - superset {% if RUN_CLICKHOUSE%}
-    - clickhouse{% endif %}
-    - ralph
+    - clickhouse{% endif %}{% if RUN_RALPH %}
+    - ralph{% endif %}
 clickhouse-job:
     image: {{DOCKER_IMAGE_CLICKHOUSE}}
     {% if RUN_CLICKHOUSE%}depends_on:
