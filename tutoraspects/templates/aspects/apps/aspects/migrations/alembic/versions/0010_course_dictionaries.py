@@ -1,8 +1,8 @@
 from alembic import op
 import sqlalchemy as sa
 
-revision = "0009"
-down_revision = "0008"
+revision = "0010"
+down_revision = "0009"
 branch_labels = None
 depends_on = None
 
@@ -12,17 +12,17 @@ def upgrade():
     # table referring to it.
     op.execute("""
         DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names;
-    """);
+    """)
     op.execute("""
         DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict;
-    """);
+    """)
     op.execute("""
         DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names;
-    """);
+    """)
     op.execute("""
         DROP DICTIONARY IF EXISTS
         {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict;
-    """);
+    """)
     op.execute(
         """
         CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict (
