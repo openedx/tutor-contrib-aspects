@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.18.0 - 2023-07-27
+
+### [0.18.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.17.1...v0.18.0) (2023-07-27)
+
+#### Features
+
+- Add a "tutor do" command to transform tracking logs ([5e0f970](https://github.com/openedx/tutor-contrib-aspects/commit/5e0f970d4fef3c33739426fb8e7ee22a84fb8d78))
+- Change engine type of materialized view tables to ReplacingMergeTree ([1eaa9a5](https://github.com/openedx/tutor-contrib-aspects/commit/1eaa9a5e72d36d08aa0ae5d70bc6b6bb9763bd07))
+
+#### Bug Fixes
+
+- Wrap SQL "in" lists in parens ([a064287](https://github.com/openedx/tutor-contrib-aspects/commit/a064287bc15f12ed950bf2bd03e6ad3e89517ad1))
+
+#### Documentation
+
+- Small fix and cleanup ([8b932ff](https://github.com/openedx/tutor-contrib-aspects/commit/8b932ffc41fb51ef24c14d42b2c43033dea1b300))
+
 ## v0.17.1 - 2023-07-27
 
 ### [0.17.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.17.0...v0.17.1) (2023-07-27)
