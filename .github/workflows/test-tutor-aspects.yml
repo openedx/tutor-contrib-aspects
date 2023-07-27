@@ -72,28 +72,12 @@ jobs:
   k8s:
     runs-on: ubuntu-latest
     steps:
-      - name: Free Disk Space (Ubuntu)
-        uses: jlumbroso/free-disk-space@main
-        with:
-          # this might remove tools that are actually needed,
-          # if set to "true" but frees about 6 GB
-          tool-cache: false
-          
-          # all of these default to true, but feel free to set to
-          # "false" if necessary for your workflow
-          android: true
-          dotnet: true
-          haskell: true
-          large-packages: true
-          swap-storage: true
       - name: Checkout
         uses: actions/checkout@v3
       - name: setup python
         uses: actions/setup-python@v4
         with:
           python-version: 3.9
-      - name: Create k8s Kind Cluster
-        uses: helm/kind-action@v1.5.0
       - name: Generate env
         run: |
           pip install -r requirements/dev.txt
@@ -112,6 +96,22 @@ jobs:
         uses: docker/setup-buildx-action@v2
       - name: Tutor build openedx
         run: tutor images build openedx-dev aspects aspects-superset
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          # this might remove tools that are actually needed,
+          # if set to "true" but frees about 6 GB
+          tool-cache: false
+          
+          # all of these default to true, but feel free to set to
+          # "false" if necessary for your workflow
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          swap-storage: true
+      - name: Create k8s Kind Cluster
+        uses: helm/kind-action@v1.5.0
       - name: Init k8s environment
         run: |
           tutor k8s start
