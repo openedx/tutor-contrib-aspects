@@ -44,7 +44,7 @@ inputs = ["openedx_containers"]
 # Time formats: https://docs.rs/chrono/0.4.19/chrono/format/strftime/index.html#specifiers
 
 source = '''
-parsed, err_regex = parse_regex(.message, r'^.* \[xapi_tracking\] [^{}]* (?P<tracking_message>\{.*$)')
+parsed, err_regex = parse_regex(.message, r'^.* \[xapi_tracking\] [^{}]* (?P<tracking_message>\{.*\})$')
 if err_regex != null {
   abort
 }

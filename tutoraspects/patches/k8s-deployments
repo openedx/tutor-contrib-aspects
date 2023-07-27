@@ -470,11 +470,6 @@ spec:
       labels:
         name: vector
     spec:
-      securityContext:
-        runAsUser: 1000
-        runAsGroup: 1000
-        fsGroup: 1000
-        fsGroupChangePolicy: "OnRootMismatch"
       serviceAccountName: vector
       containers:
         - name: vector

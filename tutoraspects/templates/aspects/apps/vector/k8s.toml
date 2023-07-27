@@ -4,11 +4,10 @@
 # Capture logs from kubernetes
 [sources.kubernetes_logs]
 type = "kubernetes_logs"
-extra_label_selector = "app.kubernetes.io/name=lms"
 extra_namespace_label_selector = "kubernetes.io/metadata.name={{ K8S_NAMESPACE }}"
 [transforms.openedx_containers]
 type = "filter"
 inputs = ["kubernetes_logs"]
-condition = '.kubernetes.pod_namespace == "{{ K8S_NAMESPACE }}" && includes(["lms", "cms", "lms-job", "cms-job"], .kubernetes.container_name)'
+condition = '.kubernetes.pod_namespace == "{{ K8S_NAMESPACE }}" && includes(["lms", "cms", "lms-job", "cms-job", "lms-worker", "cms-worker"], .kubernetes.container_name)'
 
 {% include "aspects/apps/vector/partials/common-post.toml" %}
