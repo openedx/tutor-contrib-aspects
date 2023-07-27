@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.18.1 - 2023-07-27
+
+### [0.18.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.18.0...v0.18.1) (2023-07-27)
+
+### Bug Fixes
+
+- correct regex for xapi_tracking parser ([86b1a5b](https://github.com/openedx/tutor-contrib-aspects/commit/86b1a5b6746091941795cda37c2cdc974dd1974a))
+- include lms and cms workers for kubernetes logs ([7c1c63c](https://github.com/openedx/tutor-contrib-aspects/commit/7c1c63cfe18a4ddfb52b7178f3c39877f6d45128))
+- remove security context for vector daemonset ([25761ac](https://github.com/openedx/tutor-contrib-aspects/commit/25761ac54291d2a09b8fb6481585e9d2c6d2f795))
+
 ## v0.18.0 - 2023-07-27
 
 ### [0.18.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.17.1...v0.18.0) (2023-07-27)
