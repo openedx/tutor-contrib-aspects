@@ -80,20 +80,16 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         """
         Retrieves the oauth token from the session.
         If the access token is expired, it will try to refresh it using the refresh token.
-        Returns an empty dict if there is no session or the token couldn't be refreshed.
         """
         token = session.get("oauth_token", {})
 
         if token:
-            # Check if the token is expired
             if self.is_token_expired(token):
-                # Try to refresh the token
                 try:
                     new_token = self.refresh_token(token)
                 except OAuthError as e:
                     raise OAuthError(f"Failed to refresh the token: {e}")
 
-                # Update the session with the new token
                 session["oauth_token"] = new_token
 
         refreshed_token = session.get("oauth_token", {})
@@ -113,7 +109,6 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         provider = session.get("oauth_provider")
         oauth_remote = self.oauth_remotes.get(provider)
         
-        # Checks if the OAuth remote object exists.
         if not oauth_remote:
             raise Exception("No OAuth remote object found")
 
