@@ -83,14 +83,18 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         """
         token = session.get("oauth_token", {})
 
-        if token:
-            if self.is_token_expired(token):
-                try:
-                    new_token = self.refresh_token(token)
-                except OAuthError as e:
-                    raise OAuthError(f"Failed to refresh the token: {e}")
+        if not token:
+            raise Exception("No OAuth token found.")
 
-                session["oauth_token"] = new_token
+        if not self.is_token_expired(token):
+            return token
+            
+        try:
+            new_token = self.refresh_token(token)
+        except OAuthError as e:
+            raise OAuthError(f"Failed to refresh the token: {e}")
+
+        session["oauth_token"] = new_token
 
         refreshed_token = session.get("oauth_token", {})
         return refreshed_token
