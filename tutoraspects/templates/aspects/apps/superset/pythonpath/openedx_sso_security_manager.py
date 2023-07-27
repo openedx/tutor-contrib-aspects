@@ -63,9 +63,8 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         if provider == "openedxsso":
             user_profile = self.decoded_user_info()
 
+            # TODO: Call the account or profile api to get this information
             language_preference = request.cookies.get('openedx-language-preference', 'es')
-
-            print(f"\n\nUser {user_profile['preferred_username']} is using language {language_preference}\n\n")
 
             user_roles = self._get_user_roles(user_profile.get("preferred_username"), language_preference)
 

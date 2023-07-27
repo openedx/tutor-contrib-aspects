@@ -15,6 +15,8 @@ from superset.extensions import db
 from superset.models.dashboard import Dashboard
 from superset.utils.database import get_or_create_db
 
+from copy import deepcopy
+
 BASE_DIR = "/app/assets/superset"
 
 ASSET_FOLDER_MAPPING = {
@@ -24,6 +26,9 @@ ASSET_FOLDER_MAPPING = {
     "table_name": "datasets",
 }
 
+for folder in ASSET_FOLDER_MAPPING.values():
+    os.makedirs(f"{BASE_DIR}/{folder}", exist_ok=True)
+
 FILE_NAME_ATTRIBUTE = "_file_name"
 
 TRANSLATIONS_FILE_PATH = "/app/pythonpath/locale.yaml"
@@ -32,6 +37,7 @@ ZIP_PATH = "/app/assets/assets.zip"
 
 TRANSLATIONS = yaml.load(open(TRANSLATIONS_FILE_PATH, "r"), Loader=yaml.FullLoader)
 
+print("\n\n TRANSLATIONS \n\n")
 
 def main():
     create_assets()
@@ -76,49 +82,67 @@ def write_asset_to_file(asset, folder, file_name, roles):
     if folder == "databases":
         # This will fix the URI connection string by setting the right password.
         create_superset_db(asset["database_name"], asset["sqlalchemy_uri"])
-    elif folder == "dashboards":
-        dashboard_roles = asset.pop("_roles", None)
-        if dashboard_roles:
-            roles[asset["uuid"]] = [
-                security_manager.find_role(role) for role in dashboard_roles
-            ]
+
+    asset_translation = TRANSLATIONS.get(asset.get("uuid"), {})
+
+    for language, title in asset_translation.items():
+        updated_asset = generate_asset(asset, folder, language, title, roles)
+
+        path = f"{BASE_DIR}/{folder}/{file_name}-{language}.yaml"
+        with open(path, "w") as file:
+            yaml.dump(updated_asset, file)
+
+    dashboard_roles = asset.pop("_roles", None)
+    if dashboard_roles:
+        roles[asset["uuid"]] = [
+            security_manager.find_role(role) for role in dashboard_roles
+        ]
 
     path = f"{BASE_DIR}/{folder}/{file_name}.yaml"
-    os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as file:
         yaml.dump(asset, file)
 
-    asset_translation = TRANSLATIONS.get(asset.get("uuid"))
-    
-    if not asset_translation:
-        return
 
-    for language, title in asset_translation.items():
-        copy = asset.copy()
-        copy["uuid"] = str(get_uuid5(copy["uuid"], language))
+def generate_asset(asset, folder, language, title, roles):
+    copy = deepcopy(asset)
+    copy["uuid"] = str(get_uuid5(copy["uuid"], language))
+    if folder == "dashboards":
+        copy["dashboard_title"] = title
+        copy["slug"] = f"{copy['slug']}-{language}"
 
-        print(f"\n\nCreating translation for {asset.get('uuid')}, {copy.get('uuid')} in {language}: {title}\n\n")
+        dashboard_roles = copy.pop("_roles", None)
+        translated_dashboard_roles = []
 
-        if folder == "dashboards":
-            copy["dashboard_title"] = title
-            copy["slug"] = f"{copy['slug']}-{language}"
-            translated_dashboard_roles = []
-            for role in dashboard_roles:
-                translated_dashboard_roles.append(f"{role} - {language}")
-            roles[copy["uuid"]] = [
-                security_manager.find_role(role) for role in translated_dashboard_roles
-            ]
-        elif folder == "charts":
-            copy["slice_name"] = title
-        elif folder == "datasets":
-            copy["table_name"] = title
-        elif folder == "databases":
-            copy["database_name"] = title
+        for role in dashboard_roles:
+            translated_dashboard_roles.append(f"{role} - {language}")
 
-        path = f"{BASE_DIR}/{folder}/{file_name}-{language}.yaml"
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, "w") as file:
-            yaml.dump(copy, file)
+        roles[copy["uuid"]] = [
+            security_manager.find_role(role) for role in translated_dashboard_roles
+        ]
+        position = copy.get("position", {})
+
+        for chart_body in position.values():
+            if not type(chart_body) == dict:
+                continue
+            if chart_body.get("meta") and chart_body["meta"].get("uuid"):
+                if not chart_body["meta"].get("uuid") in TRANSLATIONS:
+                    print(
+                        f"Chart {chart_body['meta']['uuid']} not found in translations"
+                    )
+                    continue
+                original_uuid = chart_body["meta"]["uuid"]
+                chart_body["meta"]["uuid"] = str(get_uuid5(original_uuid, language))
+                chart_body["meta"]["sliceName"] = TRANSLATIONS[original_uuid][language]
+                print(
+                    f"Generating chart {chart_body['meta']['uuid']} for {language} {chart_body['meta']['sliceName']}"
+                )
+    elif folder == "charts":
+        copy["slice_name"] = title
+    elif folder == "datasets":
+        copy["table_name"] = title
+    elif folder == "databases":
+        copy["database_name"] = title
+    return copy
 
 
 def create_superset_db(database_name, uri) -> None:

@@ -69,7 +69,6 @@ AUTH_ROLES_MAPPING = {
 for language in LANGUAGES.keys():
     AUTH_ROLES_MAPPING[f"openedx-{language}"] = [f"{{SUPERSET_ROLES_MAPPING.instructor}} - {language}"]
 
-print(AUTH_ROLES_MAPPING)
 
 from openedx_sso_security_manager import OpenEdxSsoSecurityManager
 
