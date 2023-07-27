@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.18.1 - 2023-07-27
+
+### [0.18.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.18.0...v0.18.1) (2023-07-27)
+
+### Bug Fixes
+
+- oauth token refresh error [#152](https://github.com/openedx/tutor-contrib-aspects/issues/152) ([e1ceb45](https://github.com/openedx/tutor-contrib-aspects/commit/e1ceb453cc10116d5eda4189035d953b3637dbbf))
+- oauth token refresh error [#152](https://github.com/openedx/tutor-contrib-aspects/issues/152) --with debug lines ([b8f68bc](https://github.com/openedx/tutor-contrib-aspects/commit/b8f68bc977e446582d65d3c197c8c38939c85b95))
+- oauth token refresh error openedx[#152](https://github.com/openedx/tutor-contrib-aspects/issues/152) corrections applied ([8ecf28f](https://github.com/openedx/tutor-contrib-aspects/commit/8ecf28f3fea88ed2daa1437d8c37ac23b1a77314))
+- oauth token refresh error openedx[#152](https://github.com/openedx/tutor-contrib-aspects/issues/152) corrections applied ([abc14ae](https://github.com/openedx/tutor-contrib-aspects/commit/abc14ae3a3d02d7051d2227448274cdfa28a05ce))
+- oauth token refresh error openedx[#152](https://github.com/openedx/tutor-contrib-aspects/issues/152) corrections applied ([72f309d](https://github.com/openedx/tutor-contrib-aspects/commit/72f309d2542a57c89e524576281fa61bbfc207aa))
+- oauth token refresh error openedx[#152](https://github.com/openedx/tutor-contrib-aspects/issues/152) corrections applied -- some nested code blocks removed. ([d2be93e](https://github.com/openedx/tutor-contrib-aspects/commit/d2be93e30520dab16931a0d65e7c1423906ec762))
+
 ## v0.18.0 - 2023-07-27
 
 ### [0.18.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.17.1...v0.18.0) (2023-07-27)
