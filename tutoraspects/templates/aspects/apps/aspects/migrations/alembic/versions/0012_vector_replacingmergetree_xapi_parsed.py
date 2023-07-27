@@ -50,6 +50,7 @@ def upgrade():
     op.execute(
         f"""
         INSERT INTO {DESTINATION_TABLE}
+        (event_id, verb_id, actor_id, object_id, course_id, org, emission_time, event_str)
         SELECT
         event_id as event_id,
         JSON_VALUE(event_str, '$.verb.id') as verb_id,
@@ -127,6 +128,7 @@ def downgrade():
     op.execute(
         f"""
         INSERT INTO {DESTINATION_TABLE}
+        (event_id, verb_id, actor_id, object_id, course_id, org, emission_time, event_str)
         SELECT
         event_id as event_id,
         JSON_VALUE(event_str, '$.verb.id') as verb_id,
