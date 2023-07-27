@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.17.1 - 2023-07-27
+
+### [0.17.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.17.0...v0.17.1) (2023-07-27)
+
+### Bug Fixes
+
+- add compatibility with k8s for aspects and vector ([b4b5682](https://github.com/openedx/tutor-contrib-aspects/commit/b4b5682c10962b81c2a80103e854aeec1f16b604))
+
+### Build Systems
+
+- add ci job to test a k8s env ([f44c9ee](https://github.com/openedx/tutor-contrib-aspects/commit/f44c9eef2ccfe560f56c14f211a0544bbb94c64c))
+
 ## v0.17.0 - 2023-07-26
 
 ### [0.17.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.16.3...v0.17.0) (2023-07-26)
