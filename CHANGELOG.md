@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.18.4 - 2023-07-27
+
+### [0.18.4](https://github.com/openedx/tutor-contrib-aspects/compare/v0.18.3...v0.18.4) (2023-07-27)
+
+### Bug Fixes
+
+- specify insertion order in migration 0012 ([9c779c0](https://github.com/openedx/tutor-contrib-aspects/commit/9c779c053b10a802cc7ee265d97ccb130bbff212))
+
 ## v0.18.3 - 2023-07-27
 
 ### [0.18.3](https://github.com/openedx/tutor-contrib-aspects/compare/v0.18.2...v0.18.3) (2023-07-27)
