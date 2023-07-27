@@ -11,7 +11,7 @@
       is_active: true
       is_dttm: true
       python_date_format: null
-      type: DateTime64(6)
+      type: DateTime
       verbose_name: null
     - advanced_data_type: null
       column_name: org
