@@ -1,9 +1,18 @@
+"""
+Updates:
+1. The ORDER BY clauses for each top-level materialized view include more relevant
+   fields. Since these tables now use the ReplacingMergeTree engine, the ORDER BY
+   fields are used to determine whether a row needs to be updated.
+2. The video playback events MV now uses an integer for the video position
+3. The emission_time fields now use the DateTime type, as we do not need sub-second
+   granularity and so can save space by using a smaller data type.
+"""
 from dataclasses import dataclass
 
 from alembic import op
 
-revision = "0011"
-down_revision = "0010"
+revision = "0013"
+down_revision = "0012"
 branch_labels = None
 depends_on = None
 
@@ -46,7 +55,7 @@ CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_EVENTS
     `enrollment_mode` LowCardinality(String)
 ) ENGINE = ReplacingMergeTree
 PRIMARY KEY (org, course_key)
-ORDER BY (org, course_key, actor_id, emission_time, enrollment_mode, event_id);
+ORDER BY (org, course_key, emission_time, actor_id, enrollment_mode, event_id);
 """
 
 
@@ -114,7 +123,7 @@ CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK_EV
     `video_position` UInt32 NOT NULL
 ) ENGINE = ReplacingMergeTree
 PRIMARY KEY (org, course_key, verb_id)
-ORDER BY (org, course_key, verb_id, actor_id, emission_time, video_position, event_id);
+ORDER BY (org, course_key, verb_id, emission_time, actor_id, video_position, event_id);
 """
 
 
@@ -205,7 +214,7 @@ CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_PROBLEM_EVENTS_TA
     `attempts` Int16
 ) ENGINE = ReplacingMergeTree
 PRIMARY KEY (org, course_key, verb_id)
-ORDER BY (org, course_key, verb_id, actor_id, emission_time, object_id, responses, success, event_id);
+ORDER BY (org, course_key, verb_id, emission_time, actor_id, object_id, responses, success, event_id);
 """
 
 
@@ -307,7 +316,7 @@ CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_EVENTS
     `ending_point` String
 ) ENGINE = ReplacingMergeTree
 PRIMARY KEY (org, course_key, object_type)
-ORDER BY (org, course_key, object_type, actor_id, emission_time, starting_position, event_id);
+ORDER BY (org, course_key, object_type, emission_time, actor_id, starting_position, event_id);
 """
 
 
