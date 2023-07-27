@@ -1,9 +1,8 @@
 """Import a list of assets from a yaml file and create them in the superset assets folder."""
 import os
 import uuid
-from zipfile import ZipFile
-
 import yaml
+from zipfile import ZipFile
 from superset.app import create_app
 
 app = create_app()
@@ -27,9 +26,11 @@ ASSET_FOLDER_MAPPING = {
 
 FILE_NAME_ATTRIBUTE = "_file_name"
 
-translations = yaml.load(
-    open("/app/pythonpath/locale.yaml", "r"), Loader=yaml.FullLoader
-)
+TRANSLATIONS_FILE_PATH = "/app/pythonpath/locale.yaml"
+ASSETS_FILE_PATH = "/app/pythonpath/assets.yaml"
+ZIP_PATH = "/app/assets/assets.zip"
+
+TRANSLATIONS = yaml.load(open(TRANSLATIONS_FILE_PATH, "r"), Loader=yaml.FullLoader)
 
 
 def main():
@@ -39,7 +40,7 @@ def main():
 def create_assets():
     """Create assets from a yaml file."""
     roles = {}
-    with open("/app/pythonpath/assets.yaml", "r") as file:
+    with open(ASSETS_FILE_PATH, "r") as file:
         extra_assets = yaml.safe_load(file)
 
         if not extra_assets:
@@ -49,54 +50,19 @@ def create_assets():
         # For each asset, create a file in the right folder
         for asset in extra_assets:
             if FILE_NAME_ATTRIBUTE not in asset:
-                print(f"Asset {asset} has no _file_name")
-                continue
+                raise Exception(f"Asset {asset} has no {FILE_NAME_ATTRIBUTE}")
             file_name = asset.pop(FILE_NAME_ATTRIBUTE)
 
             # Find the right folder to create the asset in
             for asset_name, folder in ASSET_FOLDER_MAPPING.items():
-                if asset_name in asset:
-                    if folder == "databases":
-                        # This will fix the URI connection string by setting the right password.
-                        create_superset_db(
-                            asset["database_name"], asset["sqlalchemy_uri"]
-                        )
-                    elif folder == "dashboards":
-                        dashboard_roles = asset.pop("_roles", None)
-                        if dashboard_roles:
-                            roles[asset["uuid"]] = [
-                                security_manager.find_role(role)
-                                for role in dashboard_roles
-                            ]
+                if not asset_name in asset:
+                    continue
 
-                    write_asset_to_file(asset, folder, file_name, roles)
-                    break
+                write_asset_to_file(asset, folder, file_name, roles)
+                break
 
-    # Create the zip file and import the assets
-    zip_path = "/app/assets/assets.zip"
-    with ZipFile(zip_path, "w") as zip:
-        for folder in ASSET_FOLDER_MAPPING.values():
-            for file_name in os.listdir(f"{BASE_DIR}/{folder}"):
-                zip.write(
-                    f"{BASE_DIR}/{folder}/{file_name}", f"import/{folder}/{file_name}"
-                )
-        zip.write(f"{BASE_DIR}/metadata.yaml", "import/metadata.yaml")
-
-        contents = get_contents_from_bundle(zip)
-        command = ImportAssetsCommand(
-            contents,
-        )
-
-        command.run()
-
-    os.remove(zip_path)
-    
-    # Create the roles
-    for dashboard_uuid, role_ids in roles.items():
-        dashboard = db.session.query(Dashboard).filter_by(uuid=dashboard_uuid).one()
-        dashboard.roles = role_ids
-        dashboard.published = True
-        db.session.commit()
+    create_zip_and_import_assets()
+    update_dashboard_roles(roles)
 
 
 def get_uuid5(base_uuid, name):
@@ -107,14 +73,22 @@ def get_uuid5(base_uuid, name):
 
 
 def write_asset_to_file(asset, folder, file_name, roles):
-    """Write an asset to a file."""
+    if folder == "databases":
+        # This will fix the URI connection string by setting the right password.
+        create_superset_db(asset["database_name"], asset["sqlalchemy_uri"])
+    elif folder == "dashboards":
+        dashboard_roles = asset.pop("_roles", None)
+        if dashboard_roles:
+            roles[asset["uuid"]] = [
+                security_manager.find_role(role) for role in dashboard_roles
+            ]
+
     path = f"{BASE_DIR}/{folder}/{file_name}.yaml"
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    file = open(path, "w")
     with open(path, "w") as file:
         yaml.dump(asset, file)
 
-    asset_translation = translations.get(asset.get("uuid"))
+    asset_translation = TRANSLATIONS.get(asset.get("uuid"))
     
     if not asset_translation:
         return
@@ -128,12 +102,12 @@ def write_asset_to_file(asset, folder, file_name, roles):
         if folder == "dashboards":
             copy["dashboard_title"] = title
             copy["slug"] = f"{copy['slug']}-{language}"
-            dashboard_roles = copy.pop("_roles", None)
-            if dashboard_roles:
-                dashboard_roles.append(f"{{SUPERSET_ROLES_MAPPING.instructor}} - {language}")
-                roles[copy["uuid"]] = [
-                    security_manager.find_role(role) for role in dashboard_roles
-                ]
+            translated_dashboard_roles = []
+            for role in dashboard_roles:
+                translated_dashboard_roles.append(f"{role} - {language}")
+            roles[copy["uuid"]] = [
+                security_manager.find_role(role) for role in translated_dashboard_roles
+            ]
         elif folder == "charts":
             copy["slice_name"] = title
         elif folder == "datasets":
@@ -143,8 +117,6 @@ def write_asset_to_file(asset, folder, file_name, roles):
 
         path = f"{BASE_DIR}/{folder}/{file_name}-{language}.yaml"
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        file = open(path, "w")
-
         with open(path, "w") as file:
             yaml.dump(copy, file)
 
@@ -154,6 +126,29 @@ def create_superset_db(database_name, uri) -> None:
     superset_db = get_or_create_db(database_name, uri, always_create=True)
     db.session.add(superset_db)
     db.session.commit()
+
+
+def create_zip_and_import_assets():
+    with ZipFile(ZIP_PATH, "w") as zip:
+        for folder in ASSET_FOLDER_MAPPING.values():
+            for file_name in os.listdir(f"{BASE_DIR}/{folder}"):
+                zip.write(
+                    f"{BASE_DIR}/{folder}/{file_name}", f"import/{folder}/{file_name}"
+                )
+        zip.write(f"{BASE_DIR}/metadata.yaml", "import/metadata.yaml")
+        contents = get_contents_from_bundle(zip)
+        command = ImportAssetsCommand(contents)
+        command.run()
+
+    os.remove(ZIP_PATH)
+
+
+def update_dashboard_roles(roles):
+    for dashboard_uuid, role_ids in roles.items():
+        dashboard = db.session.query(Dashboard).filter_by(uuid=dashboard_uuid).one()
+        dashboard.roles = role_ids
+        dashboard.published = True
+        db.session.commit()
 
 
 if __name__ == "__main__":
