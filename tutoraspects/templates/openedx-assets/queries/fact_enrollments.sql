@@ -13,7 +13,7 @@ with courses as (
     {% raw -%}
     {% if filter_values('org') != [] %}
     where
-        org in {{ filter_values('org') | where_in }}
+        org in ({{ filter_values('org') | where_in }})
     {% endif %}
     {%- endraw %}
 )

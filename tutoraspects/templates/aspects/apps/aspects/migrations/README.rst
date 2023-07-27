@@ -10,7 +10,7 @@ Aspects interface for Alembic
 -----------------------------
 
 The Aspects project provides a custom interface for Alembic. This interface is
-available in the command line with the subcommand ``tutor local|dev alembic do -c "custom command"``.
+available in the command line with the subcommand ``tutor local|dev do alembic -c "custom command"``.
 
 For example, to run the command ``alembic upgrade head`` in the dev environment, you would run::
 
@@ -26,9 +26,10 @@ Create a new migration::
     tutor dev do alembic -c "revision -m 'migration message'"
 
 Run migrations::
-    
+
     tutor dev do alembic -c "upgrade head"
 
 Rollback migrations::
 
     tutor dev do alembic -c "downgrade -1"
+

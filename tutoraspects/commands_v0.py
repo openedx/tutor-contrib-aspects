@@ -3,7 +3,7 @@ import click
 from tutor import config as tutor_config
 
 
-@click.command(help="Create an Open edX user and interactively set their password")
+@click.command(help="Run dbt with the provided command and options.")
 @click.option(
     "-c",
     "--command",
@@ -36,7 +36,7 @@ def dbt(context, command) -> None:
     runner.run_job("aspects", command)
 
 
-@click.command()
+@click.command(help="Load generated fake xAPI test data to ClickHouse.")
 @click.option("-n", "--num_batches", default=100)
 @click.option("-s", "--batch_size", default=100)
 @click.pass_obj
@@ -55,7 +55,10 @@ def load_xapi_test_data(context, num_batches, batch_size) -> None:
     runner.run_job("aspects", command)
 
 
-@click.command(context_settings={"ignore_unknown_options": True})
+@click.command(
+    help="Run Alembic migrations with the given options.",
+    context_settings={"ignore_unknown_options": True},
+)
 @click.option(
     "-c",
     "--command",
@@ -104,9 +107,28 @@ def dump_courses_to_clickhouse(context, options) -> None:
     runner.run_job("cms", command)
 
 
+# pylint: disable=line-too-long
+# Ex: tutor local do transform-tracking-logs --options "--source_provider MINIO --source_config '{\"key\": \"openedx\", \"secret\": \"h3SIhXAqDDxJAP6TcXklNxro\", \"container\": \"openedx\", \"prefix\": \"/tracking_logs\", \"host\": \"files.local.overhang.io\", \"secure\": false}' --destination_provider LRS --transformer_type xapi"
+@click.command(help="Uses event-routing-backends to replay tracking logs.")
+@click.option("--options", default="")
+@click.pass_obj
+def transform_tracking_logs(context, options) -> None:
+    """
+    Job that proxies the dump_courses_to_clickhouse commands.
+    """
+    config = tutor_config.load(context.root)
+    runner = context.job_runner(config)
+
+    command = f"""
+    ./manage.py lms transform_tracking_logs {options}
+    """
+    runner.run_job("lms", command)
+
+
 COMMANDS = (
     load_xapi_test_data,
     dbt,
     alembic,
     dump_courses_to_clickhouse,
+    transform_tracking_logs,
 )
