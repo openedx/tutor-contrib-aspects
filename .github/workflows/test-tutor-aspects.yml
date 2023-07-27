@@ -31,15 +31,15 @@ jobs:
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Tutor build openedx
-        run: time tutor images build openedx aspects aspects-superset
+        run: tutor images build openedx aspects aspects-superset
       - name: Tutor init
-        run: time tutor local do init
+        run: tutor local do init
       - name: Tutor start
-        run: time tutor local start -d
+        run: tutor local start -d
       - name: Load test
-        run: time tutor local do load-xapi-test-data --num_batches=5 --batch_size=5
+        run: tutor local do load-xapi-test-data --num_batches=5 --batch_size=5
       - name: Tutor stop
-        run: time tutor local stop
+        run: tutor local stop
 
   dev:
     runs-on: ubuntu-latest
@@ -59,12 +59,115 @@ jobs:
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Tutor build openedx
-        run: time tutor images build openedx-dev aspects aspects-superset
+        run: tutor images build openedx-dev aspects aspects-superset
       - name: Tutor init
-        run: time tutor dev do init
+        run: tutor dev do init
       - name: Tutor start
-        run: time tutor dev start -d
+        run: tutor dev start -d
       - name: Load test
-        run: time tutor dev do load-xapi-test-data --num_batches=5 --batch_size=5
+        run: tutor dev do load-xapi-test-data --num_batches=5 --batch_size=5
       - name: Tutor stop
-        run: time tutor dev stop
+        run: tutor dev stop
+
+  k8s:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          # this might remove tools that are actually needed,
+          # if set to "true" but frees about 6 GB
+          tool-cache: false
+          
+          # all of these default to true, but feel free to set to
+          # "false" if necessary for your workflow
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          swap-storage: true
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: Create k8s Kind Cluster
+        uses: helm/kind-action@v1.5.0
+      - name: Generate env
+        run: |
+          pip install -r requirements/dev.txt
+          pip install -e .
+          tutor config save
+      - name: Run Kubernetes tools
+        uses: stefanprodan/kube-tools@v1
+        with:
+          kubectl: 1.23.0
+          kustomize: 4.4.1
+          helmv3: 3.7.2
+          kubeconform: 0.4.13
+          command: |
+            kustomize build $TUTOR_ROOT/env | kubeconform -strict -ignore-missing-schemas -kubernetes-version 1.22.0
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Tutor build openedx
+        run: tutor images build openedx-dev aspects aspects-superset
+      - name: Init k8s environment
+        run: |
+          tutor k8s start
+          tutor k8s do init
+      - name: Setup namespace
+        run: |
+          kubectl config set-context --current --namespace=openedx
+          kubectl get pods
+      - name: Load test
+        run: tutor k8s do load-xapi-test-data --num_batches=5 --batch_size=5
+      - name: Check failure logs
+        if: failure()
+        run: |
+          # Use an array to store pod names
+          pod_list=($(kubectl get pods -o jsonpath='{.items[*].metadata.name}'))
+
+          failed_jobs=""
+
+          # Loop through each pod and check for failure
+          for pod_name in "${pod_list[@]}"; do
+            # Get the pod phase/status
+            pod_phase=$(kubectl get pod "$pod_name" -o jsonpath='{.status.phase}')
+
+            if [[ "$pod_phase" != "Running" && "$pod_phase" != "Succeeded" ]]; then
+              # Job is not in Running or Succeeded state, consider it as failed
+              failed_jobs="$failed_jobs $pod_name"
+              # Print the logs for the failing pod
+              echo "hi $pod_name"
+            fi
+          done
+
+          # Check if any jobs failed
+          if [ -n "$failed_jobs" ]; then
+            echo "The following jobs failed: $failed_jobs"
+          else
+            echo "All jobs succeeded."
+          fi
+      - name: Check all the logs
+        if: '!cancelled()'
+        run: |
+          job_list=($(kubectl get jobs | grep job | awk '{print $1}'))
+
+          # Function to print logs for a pod
+          print_pod_logs() {
+            local pod_name="$1"
+            echo "Logs for pod: $pod_name"
+            kubectl logs "$pod_name"
+            echo "------------------------"
+          }
+          
+          # Loop through each job-related pod and print logs
+          for job_name in "${job_list[@]}"; do
+            # Get the pods related to the current job
+            job_pod_list=($(kubectl get pods | grep -E "${job_name}-.*" | awk '{print $1}'))
+          
+            for pod_name in "${job_pod_list[@]}"; do
+              print_pod_logs "$pod_name"
+            done
+          done

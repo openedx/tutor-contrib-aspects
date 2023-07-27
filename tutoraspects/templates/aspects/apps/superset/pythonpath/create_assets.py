@@ -70,7 +70,7 @@ def create_assets():
                     break
 
     # Create the zip file and import the assets
-    zip_path = "/app/pythonpath/assets.zip"
+    zip_path = "/app/assets/assets.zip"
     with ZipFile(zip_path, "w") as zip:
         for folder in ASSET_FOLDER_MAPPING.values():
             for file_name in os.listdir(f"{BASE_DIR}/{folder}"):
