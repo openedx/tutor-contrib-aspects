@@ -7,3 +7,21 @@ bb1147cc-b7bc-44b7-b06a-79b0db6626aa:
 0cc08ea4-fe3f-45ef-89b9-21d9e2c4c5ff:
   en: "Video events"
   es: "Eventos de video"
+0eb95b3a-a61d-4fcf-b614-3bc3e78dbb4b:
+  en: "Events per day"
+  es: "Eventos por día"
+c69ab610-f77a-4c54-a5ab-dc3a19a3003e:
+  en: "xAPI events by course"
+  es: "Eventos xAPI por curso"
+eda31542-e23c-4a9e-b9d2-712c9536265d:
+  en: "xAPI events"
+  es: "Eventos xAPI"
+40b671ce-e987-4c19-bc9d-d07df1d944f8:
+  en: "xAPI problem events by block"
+  es: "Eventos xAPI de problemas por bloque"
+NATIVE_FILTER-yb49rspT2:
+  en: "Course ID"
+  es: "ID del curso"
+NATIVE_FILTER-mqUjL9BMI:
+  en: "Time range"
+  es: "Rango de tiempo"

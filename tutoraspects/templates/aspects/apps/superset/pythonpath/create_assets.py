@@ -64,7 +64,7 @@ def create_assets():
                 if not asset_name in asset:
                     continue
 
-                write_asset_to_file(asset, folder, file_name, roles)
+                write_asset_to_file(asset, asset_name, folder, file_name, roles)
                 break
 
     create_zip_and_import_assets()
@@ -78,7 +78,7 @@ def get_uuid5(base_uuid, name):
     return uuid.uuid5(base_namespace, name)
 
 
-def write_asset_to_file(asset, folder, file_name, roles):
+def write_asset_to_file(asset, asset_name, folder, file_name, roles):
     if folder == "databases":
         # This will fix the URI connection string by setting the right password.
         create_superset_db(asset["database_name"], asset["sqlalchemy_uri"])
@@ -86,7 +86,7 @@ def write_asset_to_file(asset, folder, file_name, roles):
     asset_translation = TRANSLATIONS.get(asset.get("uuid"), {})
 
     for language, title in asset_translation.items():
-        updated_asset = generate_asset(asset, folder, language, title, roles)
+        updated_asset = generate_asset(asset, asset_name, folder, language, title, roles)
 
         path = f"{BASE_DIR}/{folder}/{file_name}-{language}.yaml"
         with open(path, "w") as file:
@@ -103,11 +103,12 @@ def write_asset_to_file(asset, folder, file_name, roles):
         yaml.dump(asset, file)
 
 
-def generate_asset(asset, folder, language, title, roles):
+def generate_asset(asset, asset_name, folder, language, title, roles):
     copy = deepcopy(asset)
     copy["uuid"] = str(get_uuid5(copy["uuid"], language))
+    copy[asset_name] = title
+
     if folder == "dashboards":
-        copy["dashboard_title"] = title
         copy["slug"] = f"{copy['slug']}-{language}"
 
         dashboard_roles = copy.pop("_roles", None)
@@ -119,30 +120,35 @@ def generate_asset(asset, folder, language, title, roles):
         roles[copy["uuid"]] = [
             security_manager.find_role(role) for role in translated_dashboard_roles
         ]
-        position = copy.get("position", {})
 
-        for chart_body in position.values():
-            if not type(chart_body) == dict:
-                continue
-            if chart_body.get("meta") and chart_body["meta"].get("uuid"):
-                if not chart_body["meta"].get("uuid") in TRANSLATIONS:
-                    print(
-                        f"Chart {chart_body['meta']['uuid']} not found in translations"
-                    )
-                    continue
-                original_uuid = chart_body["meta"]["uuid"]
-                chart_body["meta"]["uuid"] = str(get_uuid5(original_uuid, language))
-                chart_body["meta"]["sliceName"] = TRANSLATIONS[original_uuid][language]
-                print(
-                    f"Generating chart {chart_body['meta']['uuid']} for {language} {chart_body['meta']['sliceName']}"
-                )
-    elif folder == "charts":
-        copy["slice_name"] = title
-    elif folder == "datasets":
-        copy["table_name"] = title
-    elif folder == "databases":
-        copy["database_name"] = title
+        generate_translated_dashboard_charts(copy, language)
+        generate_translated_dashboard_filters(copy, language)
     return copy
+
+def generate_translated_dashboard_charts(copy, language):
+    position = copy.get("position", {})
+
+    for chart_body in position.values():
+        if not type(chart_body) == dict:
+            continue
+        if chart_body.get("meta") and chart_body["meta"].get("uuid"):
+            if not chart_body["meta"].get("uuid") in TRANSLATIONS:
+                print(
+                    f"Chart {chart_body['meta']['uuid']} not found in translations"
+                )
+                continue
+            original_uuid = chart_body["meta"]["uuid"]
+            chart_body["meta"]["uuid"] = str(get_uuid5(original_uuid, language))
+            chart_body["meta"]["sliceName"] = TRANSLATIONS[original_uuid][language]
+            print(
+                f"Generating chart {chart_body['meta']['uuid']} for {language} {chart_body['meta']['sliceName']}"
+            )
+
+def generate_translated_dashboard_filters(copy, language):
+    metadata = copy.get("metadata", {})
+
+    for filter in metadata.get("native_filter_configuration", []):
+        filter["name"] = TRANSLATIONS.get(filter["id"], {}).get(language, filter["name"])
 
 
 def create_superset_db(database_name, uri) -> None:
