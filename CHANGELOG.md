@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.18.5 - 2023-07-28
+
+### [0.18.5](https://github.com/openedx/tutor-contrib-aspects/compare/v0.18.4...v0.18.5) (2023-07-28)
+
+### ⚠ BREAKING CHANGES
+
+- reorder MVs and change data types
+
+### Features
+
+- reorder MVs and change data types ([c9cf476](https://github.com/openedx/tutor-contrib-aspects/commit/c9cf47670e91205ca354c540a5ac0ee9e7001790))
+
+### Bug Fixes
+
+- deduplicate video timeline events ([e575b76](https://github.com/openedx/tutor-contrib-aspects/commit/e575b76ddb4994a6b8d56ea6e8c440c604a9ce3c))
+- update timestamp type in enrollment_by_day ([3a73907](https://github.com/openedx/tutor-contrib-aspects/commit/3a73907837dc64d78b6073044d1d2df14e88ed12))
+
+### Code Refactoring
+
+- reorder top-level materialized views ([14a21d8](https://github.com/openedx/tutor-contrib-aspects/commit/14a21d8662d90908f96a83c72b4a7cf8f2710ecf))
+
 ## v0.18.4 - 2023-07-27
 
 ### [0.18.4](https://github.com/openedx/tutor-contrib-aspects/compare/v0.18.3...v0.18.4) (2023-07-27)
