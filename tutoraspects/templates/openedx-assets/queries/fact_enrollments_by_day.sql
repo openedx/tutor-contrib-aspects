@@ -21,7 +21,7 @@ with enrollments as (
     enrollment_status,
     enrollment_mode,
     emission_time as window_start_at,
-    lagInFrame(emission_time, 1, now64(6)) over (partition by org, course_name, run_name, actor_id order by emission_time desc) as window_end_at
+    lagInFrame(emission_time, 1, now()) over (partition by org, course_name, run_name, actor_id order by emission_time desc) as window_end_at
   from
     enrollments_ranked
   where
