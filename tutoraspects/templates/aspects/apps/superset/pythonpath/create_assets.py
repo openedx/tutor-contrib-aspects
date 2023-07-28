@@ -114,7 +114,7 @@ def generate_asset(asset, asset_name, folder, language, title, roles):
     if folder == "dashboards":
         copy["slug"] = f"{copy['slug']}-{language}"
 
-        dashboard_roles = copy.pop("_roles", None)
+        dashboard_roles = copy.pop("_roles", [])
         translated_dashboard_roles = []
 
         for role in dashboard_roles:
@@ -146,6 +146,16 @@ def generate_translated_dashboard_charts(copy, language):
             print(
                 f"Generating chart {chart_body['meta']['uuid']} for {language} {chart_body['meta']['sliceName']}"
             )
+        if chart_body.get("type") and chart_body["type"] == "TAB":
+            id = chart_body.get("id")
+            if not chart_body.get("meta") or not chart_body["meta"].get("text"):
+                continue
+            translation = TRANSLATIONS.get(
+                chart_body["id"], {}
+            ).get(language, chart_body["meta"]["text"])
+
+            print(f"Translating tab {id} for lang {language} {translation}")
+            chart_body["meta"]["text"] = translation
 
 def generate_translated_dashboard_filters(copy, language):
     metadata = copy.get("metadata", {})

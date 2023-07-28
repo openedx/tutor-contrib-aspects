@@ -313,7 +313,6 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
         # Each override is a pair: (setting_name, new_value). For example:
         ### ("PLATFORM_NAME", "My platform"),
         # Superset overrides
-        ("SUPERSET_XAPI_DASHBOARD_SLUG", "openedx-xapi"),
         ("SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY", "xapi_course_id"),
     ]
 )

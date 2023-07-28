@@ -1,6 +1,6 @@
 - _file_name: Operator_Dashboard_5.yaml
   _roles:
-  - - {{ SUPERSET_ROLES_MAPPING.operator }}
+  - {{ SUPERSET_ROLES_MAPPING.operator }}
   css: ''
   dashboard_title: Operator Dashboard
   description: null
@@ -311,6 +311,6 @@
       - ROOT_ID
       - GRID_ID
       type: ROW
-  slug: null
+  slug: operator-dashboard
   uuid: 02c0121c-40e9-4d8a-b86a-6b996a1cc6fe
   version: 1.0.0
