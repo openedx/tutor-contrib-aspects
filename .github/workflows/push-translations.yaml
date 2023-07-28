@@ -1,0 +1,29 @@
+name: Push Translations
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  TUTOR_ROOT: ./.ci/
+  TRANSIFEX_TOKEN: ${{ secrets.EDUNEXT_ASPECTS_ASSET_TRANSIFEX_TOKEN }}
+  TRANSIFEX_SECRET: ${{ secrets.EDUNEXT_ASPECTS_ASSET_TRANSIFEX_SECRET }}
+
+jobs:
+  push_translations:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: Install aspects
+        run: pip install .
+      - name: Install requirements
+        run: make requirements
+      - name: Mark for translation
+        run: make push_translations

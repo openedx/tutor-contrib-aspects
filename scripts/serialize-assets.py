@@ -1,7 +1,8 @@
-from zipfile import ZipFile
-import sys
-import yaml
 import os
+import sys
+from zipfile import ZipFile
+
+import yaml
 
 
 def serialize_assets(path):

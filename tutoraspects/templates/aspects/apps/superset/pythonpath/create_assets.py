@@ -26,6 +26,8 @@ ASSET_FOLDER_MAPPING = {
     "table_name": "datasets",
 }
 
+ENABLED_LANGUAGES = {{SUPERSET_SUPPORTED_LANGUAGES}}
+
 for folder in ASSET_FOLDER_MAPPING.values():
     os.makedirs(f"{BASE_DIR}/{folder}", exist_ok=True)
 
@@ -83,16 +85,15 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
         # This will fix the URI connection string by setting the right password.
         create_superset_db(asset["database_name"], asset["sqlalchemy_uri"])
 
-    asset_translation = ASSETS_TRANSLATIONS.get(asset.get("uuid"), {})
+    if folder in ["charts", "dashboards"]:
+        for language in ENABLED_LANGUAGES.keys():
+            updated_asset = generate_translated_asset(
+                asset, asset_name, folder, language, roles
+            )
 
-    for language, title in asset_translation.items():
-        updated_asset = generate_translated_asset(
-            asset, asset_name, folder, language, title, roles
-        )
-
-        path = f"{BASE_DIR}/{folder}/{file_name}-{language}.yaml"
-        with open(path, "w") as file:
-            yaml.dump(updated_asset, file)
+            path = f"{BASE_DIR}/{folder}/{file_name}-{language}.yaml"
+            with open(path, "w") as file:
+                yaml.dump(updated_asset, file)
 
     ## WARNING: Dashboard are assigned a Dummy role which prevents users to
     #           access the original dashboards.
@@ -107,11 +108,11 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
         yaml.dump(asset, file)
 
 
-def generate_translated_asset(asset, asset_name, folder, language, title, roles):
+def generate_translated_asset(asset, asset_name, folder, language, roles):
     """Generate a translated asset with their elements updated"""
     copy = deepcopy(asset)
     copy["uuid"] = str(get_uuid5(copy["uuid"], language))
-    copy[asset_name] = title
+    copy[asset_name] = get_translation(copy[asset_name], language)
 
     if folder == "dashboards":
         copy["slug"] = f"{copy['slug']}-{language}"
@@ -147,15 +148,9 @@ def generate_translated_dashboard_elements(copy, language):
         translation, element_type, element_id = None, None, None
 
         if original_uuid:
-            if not original_uuid in ASSETS_TRANSLATIONS:
-                print(f"Chart {meta['uuid']} not found in translations")
-                continue
-
             element_type = "Chart"
             element_id = str(get_uuid5(original_uuid, language))
-            translation = ASSETS_TRANSLATIONS.get(original_uuid, {}).get(
-                language, meta["sliceName"]
-            )
+            translation = get_translation(meta["sliceName"], language)
 
             meta["sliceName"] = translation
             meta["uuid"] = element_id
@@ -165,15 +160,9 @@ def generate_translated_dashboard_elements(copy, language):
             if not meta or not meta.get("text"):
                 continue
 
-            if not chart_body_id in ASSETS_TRANSLATIONS:
-                print(f"Tab {chart_body_id} not found in translations")
-                continue
-
             element_type = "Tab"
             element_id = chart_body_id
-            translation = ASSETS_TRANSLATIONS.get(chart_body_id, {}).get(
-                language, meta["text"]
-            )
+            translation = get_translation(meta["text"], language)
 
             meta["text"] = translation
 
@@ -190,9 +179,7 @@ def generate_translated_dashboard_filters(copy, language):
     for filter in metadata.get("native_filter_configuration", []):
         element_type = "Filter"
         element_id = filter["id"]
-        translation = ASSETS_TRANSLATIONS.get(element_id, {}).get(
-            language, filter["name"]
-        )
+        translation = get_translation(filter["name"], language)
 
         filter["name"] = translation
         print(
@@ -227,9 +214,16 @@ def update_dashboard_roles(roles):
     """Update the roles of the dashboards"""
     for dashboard_uuid, role_ids in roles.items():
         dashboard = db.session.query(Dashboard).filter_by(uuid=dashboard_uuid).one()
+        print("Importing dashboard roles", dashboard_uuid, role_ids)
         dashboard.roles = role_ids
         dashboard.published = True
         db.session.commit()
+
+
+
+def get_translation(text, language):
+    """Get a translation for a text in a language"""
+    return ASSETS_TRANSLATIONS.get(language, {}).get(text) or text
 
 
 if __name__ == "__main__":
