@@ -71,7 +71,9 @@ with courses as (
     from
         segments
         join courses
-            on (segments.org = courses.org and segments.course_key = courses.course_key)
+            on (segments.org = courses.org
+                and segments.course_key = courses.course_key
+                and segments.video_id = courses.video_id)
 )
 
 select
