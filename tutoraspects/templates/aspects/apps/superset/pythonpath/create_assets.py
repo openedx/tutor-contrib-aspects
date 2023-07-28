@@ -92,10 +92,13 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
         with open(path, "w") as file:
             yaml.dump(updated_asset, file)
 
+    ## WARNING: Dashboard are assigned a Dummy role which prevents users to
+    #           access the original dashboards.
     dashboard_roles = asset.pop("_roles", None)
     if dashboard_roles:
+        dashboard_roles = ["Admin"]
         roles[asset["uuid"]] = [
-            security_manager.find_role(role) for role in dashboard_roles
+           security_manager.find_role(role) for role in dashboard_roles
         ]
 
     path = f"{BASE_DIR}/{folder}/{file_name}.yaml"

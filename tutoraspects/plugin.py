@@ -156,6 +156,10 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "/api/courses/v1/courses/?permissions={permission}&username={username}",
         ),
         (
+            "SUPERSET_OPENEDX_PREFERENCE_PATH",
+            "api/user/v1/preferences/{username}"
+        ),
+        (
             "SUPERSET_ROLES_MAPPING",
             {
                 "instructor": "Instructor",
@@ -189,7 +193,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "SUPERSET_SUPPORTED_LANGUAGES",
             {
                 "en": {"flag": "us", "name": "English"},
-                "es": {"flag": "es", "name": "Spanish"},
+                "es": {"flag": "es", "name": "Español"},
             },
         ),
         ("SUPERSET_EXTRA_JINJA_FILTERS", {}),

@@ -63,8 +63,20 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         if provider == "openedxsso":
             user_profile = self.decoded_user_info()
 
-            # TODO: Call the account or profile api to get this information
-            language_preference = request.cookies.get('openedx-language-preference', 'es')
+            openedx_apis = current_app.config["OPENEDX_API_URLS"]
+            url = openedx_apis["get_preference"].format(
+                username=user_profile["preferred_username"]
+            )
+            oauth_remote = self.oauth_remotes.get(provider)
+
+            response = oauth_remote.get(url).json()
+            language_preference = response.get("pref-lang", "en").replace("-", "_")[0:2]
+
+            if language_preference not in current_app.config["LANGUAGES"]:
+                log.warning(
+                    f"Language {language_preference} is not supported by Superset"
+                )
+                language_preference = "en"
 
             user_roles = self._get_user_roles(user_profile.get("preferred_username"), language_preference)
 
@@ -150,14 +162,14 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         decoded_access_token = self.decoded_user_info()
 
         if decoded_access_token.get("superuser", False):
-            return ["admin"]
+            return ["admin", "admin-{language}"]
         elif decoded_access_token.get("administrator", False):
             return ["alpha", "operator", "operator-{language}"]
         else:
             # User has to have staff access to one or more courses to view any content here.
             courses = self.get_courses(username)
             if courses:
-                return ["openedx", f"openedx-{language}"]
+                return ["instructor", f"instructor-{language}"]
             else:
                 roles = self.extra_get_user_roles(username, decoded_access_token)
                 if bool("{{SUPERSET_BLOCK_STUDENT_ACCESS}}") and not roles:

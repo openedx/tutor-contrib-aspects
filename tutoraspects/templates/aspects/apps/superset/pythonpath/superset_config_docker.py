@@ -13,7 +13,8 @@ SQL_MAX_ROW = ROW_LIMIT
 
 OPENEDX_LMS_ROOT_URL = os.environ["OPENEDX_LMS_ROOT_URL"]
 OPENEDX_API_URLS = {
-    "get_courses": urljoin(OPENEDX_LMS_ROOT_URL, os.environ["OPENEDX_COURSES_LIST_PATH"]),
+    "get_courses": urljoin(OPENEDX_LMS_ROOT_URL, "{{ SUPERSET_OPENEDX_COURSES_LIST_PATH }}"),
+    "get_preference": urljoin(OPENEDX_LMS_ROOT_URL, "{{ SUPERSET_OPENEDX_PREFERENCE_PATH }}"),
 }
 
 # Set the authentication type to OAuth
@@ -67,7 +68,7 @@ AUTH_ROLES_MAPPING = {
 }
 
 for language in LANGUAGES.keys():
-    AUTH_ROLES_MAPPING[f"openedx-{language}"] = [f"{{SUPERSET_ROLES_MAPPING.instructor}} - {language}"]
+    AUTH_ROLES_MAPPING[f"instructor-{language}"] = [f"{{SUPERSET_ROLES_MAPPING.instructor}} - {language}"]
 
 
 from openedx_sso_security_manager import OpenEdxSsoSecurityManager
