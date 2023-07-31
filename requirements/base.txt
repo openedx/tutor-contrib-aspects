@@ -67,7 +67,7 @@ six==1.16.0
     #   python-dateutil
 tomli==2.0.1
     # via mypy
-tutor==16.0.2
+tutor==16.0.3
     # via -r requirements/base.in
 typing-extensions==4.7.1
     # via
