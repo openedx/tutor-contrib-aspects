@@ -88,7 +88,7 @@ mccabe==0.7.0
     # via pylint
 mdurl==0.1.2
     # via markdown-it-py
-more-itertools==9.1.0
+more-itertools==10.0.0
     # via jaraco-classes
 mypy==1.4.1
     # via
@@ -106,11 +106,11 @@ oauthlib==3.2.2
     #   requests-oauthlib
 packaging==23.1
     # via black
-pathspec==0.11.1
+pathspec==0.11.2
     # via black
 pkginfo==1.9.6
     # via twine
-platformdirs==3.9.1
+platformdirs==3.10.0
     # via
     #   black
     #   pylint
@@ -137,7 +137,7 @@ pyinstaller==5.13.0
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2023.6
     # via pyinstaller
-pylint==2.17.4
+pylint==2.17.5
     # via -r requirements/dev.in
 python-dateutil==2.8.2
     # via
@@ -165,7 +165,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.4.2
+rich==13.5.0
     # via twine
 rsa==4.9
     # via
@@ -186,9 +186,9 @@ tomli==2.0.1
     #   black
     #   mypy
     #   pylint
-tomlkit==0.11.8
+tomlkit==0.12.1
     # via pylint
-tutor==16.0.2
+tutor==16.0.3
     # via -r requirements/base.txt
 twine==4.0.2
     # via -r requirements/dev.in
