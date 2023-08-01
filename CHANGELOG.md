@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.19.0 - 2023-08-01
+
+### [0.19.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.18.5...v0.19.0) (2023-08-01)
+
+#### Features
+
+- patch for extra asset translations ([493275f](https://github.com/openedx/tutor-contrib-aspects/commit/493275f9ac8a7d3b8eee5c7319ae89b26981159c))
+- support for asset translation ([7735d28](https://github.com/openedx/tutor-contrib-aspects/commit/7735d28ee5ceef7b9dd9f9bbd29d34270e1e9610))
+
+#### Build Systems
+
+- **deps:** bump helm/kind-action from 1.5.0 to 1.8.0 ([6036e89](https://github.com/openedx/tutor-contrib-aspects/commit/6036e8951ac7e85046f07c4d6e648a7bcddd4f02))
+- k8s ci refactored to fail earlier ([abad1d9](https://github.com/openedx/tutor-contrib-aspects/commit/abad1d9c4c0e23cff3e493203d868d008d8adee1))
+
 ## v0.18.5 - 2023-07-28
 
 ### [0.18.5](https://github.com/openedx/tutor-contrib-aspects/compare/v0.18.4...v0.18.5) (2023-07-28)
