@@ -9,7 +9,7 @@ with courses as (
     from
         {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_NODES_TABLE }}
     where
-        JSON_VALUE(xblock_data_json, '$.block_type') = 'problem'
+        location like '%problem+block%'
     {% raw -%}
         {% if filter_values('org') != [] %}
         and org in ({{ filter_values('org') | where_in }})

@@ -1,6 +1,4 @@
-with course_problems as (
-     {% include 'openedx-assets/queries/dim_course_problems.sql' %}
-), responses as (
+with responses as (
     select
         emission_time,
         org,
@@ -22,17 +20,17 @@ with course_problems as (
 
 select
     responses.emission_time as emission_time,
-    course_problems.org as org,
-    course_problems.course_name as course_name,
-    course_problems.run_name as run_name,
-    course_problems.problem_name as problem_name,
+    responses.org as org,
+    courses.course_name as course_name,
+    splitByString('+', courses.course_key)[-1] as run_name,
+    blocks.block_name as problem_name,
     responses.actor_id as actor_id,
     responses.responses as responses,
     responses.success as success,
     responses.attempts as attempts
 from
     responses
-    join course_problems
-        on (responses.org = course_problems.org
-            and responses.course_key = course_problems.course_key
-            and responses.problem_id = course_problems.problem_id)
+    join {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names courses
+         on responses.course_key = courses.course_key
+    join {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names blocks
+         on responses.problem_id = blocks.location

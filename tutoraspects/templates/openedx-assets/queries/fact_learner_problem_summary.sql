@@ -21,9 +21,9 @@ with course_problems as (
 
 select
     summary.org as org,
-    course_problems.course_name as course_name,
-    course_problems.run_name as run_name,
-    course_problems.problem_name as problem_name,
+    courses.course_name as course_name,
+    splitByString('+', courses.course_key)[-1] as run_name,
+    blocks.block_name as problem_name,
     summary.actor_id as actor_id,
     summary.success as success,
     summary.attempts as attempts,
@@ -31,7 +31,7 @@ select
     summary.num_answers_displayed as num_answers_displayed
 from
     summary
-    join course_problems
-        on (summary.org = course_problems.org
-            and summary.course_key = course_problems.course_key
-            and summary.problem_id = course_problems.problem_id)
+    join {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names courses
+         on summary.course_key = courses.course_key
+    join {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names blocks
+         on summary.problem_id = blocks.location

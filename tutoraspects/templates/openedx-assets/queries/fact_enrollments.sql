@@ -1,6 +1,4 @@
-with courses as (
-    {% include 'openedx-assets/queries/dim_courses.sql' %}
-), enrollments as (
+with enrollments as (
     select
         emission_time,
         org,
@@ -22,12 +20,11 @@ select
     enrollments.emission_time,
     enrollments.org,
     courses.course_name,
-    courses.run_name,
+    splitByString('+', courses.course_key)[-1] as run_name,
     enrollments.actor_id,
     enrollments.enrollment_mode,
     enrollments.enrollment_status
 from
     enrollments
-    join courses
-        on (enrollments.org = courses.org
-            and enrollments.course_key = courses.course_key)
+    join {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names courses
+        on enrollments.course_key = courses.course_key
