@@ -128,3 +128,5 @@ eda31542-e23c-4a9e-b9d2-712c9536265d:
 0cc08ea4-fe3f-45ef-89b9-21d9e2c4c5ff:
   en: "Video events"
   es: "Eventos de video"
+
+{{ patch('superset-extra-asset-translations')}}
