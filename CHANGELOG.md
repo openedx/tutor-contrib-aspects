@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.20.0 - 2023-08-01
+
+### [0.20.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.19.0...v0.20.0) (2023-08-01)
+
+#### Features
+
+- use new dictionary-backed lookup tables ([ec89692](https://github.com/openedx/tutor-contrib-aspects/commit/ec89692d7803b40e9c293d113db1ae2828b446b1))
+
 ## v0.19.0 - 2023-08-01
 
 ### [0.19.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.18.5...v0.19.0) (2023-08-01)
