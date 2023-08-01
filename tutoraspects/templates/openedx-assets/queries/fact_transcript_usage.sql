@@ -1,6 +1,4 @@
-with videos as (
-    {% include 'openedx-assets/queries/dim_course_videos.sql' %}
-), transcripts as (
+with transcripts as (
     select
         emission_time,
         org,
@@ -20,13 +18,13 @@ with videos as (
 select
     transcripts.emission_time as emission_time,
     transcripts.org as org,
-    videos.course_name as course_name,
-    videos.run_name as run_name,
-    videos.video_name as video_name,
+    courses.course_name as course_name,
+    splitByString('+', courses.course_key)[-1] as run_name,
+    blocks.block_name as video_name,
     transcripts.actor_id as actor_id
 from
     transcripts
-    join videos
-        on (transcripts.org = videos.org
-            and transcripts.course_key = videos.course_key
-            and transcripts.video_id = videos.video_id)
+    join {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names courses
+         on transcripts.course_key = courses.course_key
+    join {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names blocks
+         on transcripts.video_id = blocks.location

@@ -2,12 +2,11 @@ select distinct
     org,
     course_key,
     display_name as course_name,
-    location as run_id,
-    JSON_VALUE(xblock_data_json, '$.run') as run_name
+    splitByString('+', course_key)[-1] as run_name
 from
     {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_NODES_TABLE }}
 where
-    JSON_VALUE(xblock_data_json, '$.block_type') = 'course'
+    location like '%course+block%'
 {% raw -%}
     {% if filter_values('org') != [] %}
     and org in {{ filter_values('org') | where_in }}

@@ -1,6 +1,4 @@
-with courses as (
-    {% include 'openedx-assets/queries/dim_course_videos.sql' %}
-), starts as (
+with starts as (
     select
         emission_time,
         org,
@@ -60,20 +58,20 @@ with courses as (
                 and starts.emission_time < ends.emission_time)
 ), enriched_segments as (
     select
-        courses.org as org,
+        segments.org as org,
         courses.course_name as course_name,
-        courses.run_name as run_name,
-        courses.video_name as video_name,
+        splitByString('+', courses.course_key)[-1] as run_name,
+        blocks.block_name as video_name,
         segments.actor_id as actor_id,
         segments.started_at as started_at,
         segments.start_position - (segments.start_position % 5) as start_position,
         segments.end_position - (segments.end_position % 5) as end_position
     from
         segments
-        join courses
-            on (segments.org = courses.org
-                and segments.course_key = courses.course_key
-                and segments.video_id = courses.video_id)
+        join {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names courses
+            on segments.course_key = courses.course_key
+        join {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names blocks
+            on segments.video_id = blocks.location
 )
 
 select
