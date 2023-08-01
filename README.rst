@@ -146,9 +146,9 @@ To make it easier for developers to manage virtual datasets, there is an extra s
 
 However, please keep in mind that the assets declaration is itself a jinja template. That means that any jinja used in the dataset definition should be escaped. There are examples of how to handle this in the existing queries, such as `dim_courses.sql`_.
 
-.. _queries: tutoraspects/templates/aspects/apps/superset/pythonpath/queries
+.. _queries: tutoraspects/templates/openedx-assets/queries/
 
-.. _dim_courses.sql: tutoraspects/templates/aspects/apps/superset/pythonpath/queries/dim_courses.sql
+.. _dim_courses.sql: tutoraspects/templates/openedx-assets/queries/dim_courses.sql
 
 License
 -------
