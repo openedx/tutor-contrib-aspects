@@ -13,7 +13,8 @@ SQL_MAX_ROW = ROW_LIMIT
 
 OPENEDX_LMS_ROOT_URL = os.environ["OPENEDX_LMS_ROOT_URL"]
 OPENEDX_API_URLS = {
-    "get_courses": urljoin(OPENEDX_LMS_ROOT_URL, os.environ["OPENEDX_COURSES_LIST_PATH"]),
+    "get_courses": urljoin(OPENEDX_LMS_ROOT_URL, "{{ SUPERSET_OPENEDX_COURSES_LIST_PATH }}"),
+    "get_preference": urljoin(OPENEDX_LMS_ROOT_URL, "{{ SUPERSET_OPENEDX_PREFERENCE_PATH }}"),
 }
 
 # Set the authentication type to OAuth
@@ -53,6 +54,8 @@ AUTH_USER_REGISTRATION_ROLE = "{{SUPERSET_ROLES_MAPPING.instructor}}"
 # Should we replace ALL the user's roles each login, or only on registration?
 AUTH_ROLES_SYNC_AT_LOGIN = True
 
+
+LANGUAGES = {{ SUPERSET_SUPPORTED_LANGUAGES }}
 # map from the values of `userinfo["role_keys"]` to a list of Superset roles
 # cf https://superset.apache.org/docs/security/#roles
 AUTH_ROLES_MAPPING = {
@@ -63,6 +66,10 @@ AUTH_ROLES_MAPPING = {
     "operator": ["{{SUPERSET_ROLES_MAPPING.operator}}"], # Installation operators
     "public": ["Public"],    # AKA anonymous users
 }
+
+for language in LANGUAGES.keys():
+    AUTH_ROLES_MAPPING[f"instructor-{language}"] = [f"{{SUPERSET_ROLES_MAPPING.instructor}} - {language}"]
+
 
 from openedx_sso_security_manager import OpenEdxSsoSecurityManager
 

@@ -155,6 +155,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "SUPERSET_OPENEDX_COURSES_LIST_PATH",
             "/api/courses/v1/courses/?permissions={permission}&username={username}",
         ),
+        ("SUPERSET_OPENEDX_PREFERENCE_PATH", "api/user/v1/preferences/{username}"),
         (
             "SUPERSET_ROLES_MAPPING",
             {
@@ -189,7 +190,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "SUPERSET_SUPPORTED_LANGUAGES",
             {
                 "en": {"flag": "us", "name": "English"},
-                "es": {"flag": "es", "name": "Spanish"},
+                "es": {"flag": "es", "name": "Español"},
             },
         ),
         ("SUPERSET_EXTRA_JINJA_FILTERS", {}),
@@ -309,7 +310,6 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
         # Each override is a pair: (setting_name, new_value). For example:
         ### ("PLATFORM_NAME", "My platform"),
         # Superset overrides
-        ("SUPERSET_XAPI_DASHBOARD_SLUG", "openedx-xapi"),
         ("SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY", "xapi_course_id"),
     ]
 )

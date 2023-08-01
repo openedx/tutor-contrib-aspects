@@ -5095,5 +5095,15 @@
       }
     ]
   }
-  {{ patch("superset-extra-roles"|indent(2))}}
+  {% for role in SUPERSET_SUPPORTED_LANGUAGES %},{
+    "name": "{{SUPERSET_ROLES_MAPPING.instructor}} - {{role}}",
+    "permissions": []
+  },{
+    "name": "{{SUPERSET_ROLES_MAPPING.operator}} - {{role}}",
+    "permissions": []
+  },{
+    "name": "{{SUPERSET_ROLES_MAPPING.admin}} - {{role}}",
+    "permissions": []
+  }{% endfor %}
+  {{ patch("superset-extra-roles"|indent(2)) }}
 ]
