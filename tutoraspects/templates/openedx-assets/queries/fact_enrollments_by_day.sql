@@ -10,6 +10,12 @@ with enrollments_ranked as (
     rank() over (partition by date(emission_time), org, course_name, run_name, actor_id order by emission_time desc) as event_rank
   from
     {{ DBT_PROFILE_TARGET_DATABASE }}.fact_enrollments
+  {% raw -%}
+  {% if filter_values('org') != [] %}
+    where
+      org in {{ filter_values('org') | where_in }}
+  {% endif %}
+  {%- endraw %}
 ), enrollment_windows as (
   select
     org,
