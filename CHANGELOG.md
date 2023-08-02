@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.21.0 - 2023-08-02
+
+### [0.21.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.20.0...v0.21.0) (2023-08-02)
+
+#### Features
+
+- add filter to initial enrollments query ([d032f95](https://github.com/openedx/tutor-contrib-aspects/commit/d032f9590a60e6426578d4d33eebb82b08f035e6))
+- use `fact_enrollments` dbt model ([d83ed3a](https://github.com/openedx/tutor-contrib-aspects/commit/d83ed3afe7fb29b0b67d1c673dbcf7c24d3140fb))
+
+#### Documentation
+
+- update virtual dataset links in README ([189f3cd](https://github.com/openedx/tutor-contrib-aspects/commit/189f3cdfdbc6daa0e172d7caa348ca8b61738781))
+
 ## v0.20.0 - 2023-08-01
 
 ### [0.20.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.19.0...v0.20.0) (2023-08-01)
