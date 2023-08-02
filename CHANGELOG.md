@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.22.0 - 2023-08-02
+
+### [0.22.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.21.0...v0.22.0) (2023-08-02)
+
+#### Features
+
+- add transifex automatic translations ([7f1d756](https://github.com/openedx/tutor-contrib-aspects/commit/7f1d756554790d251aa257d67cc97bd42e5f6289))
+
+#### Code Refactoring
+
+- use dbt models for video datasets ([d03c641](https://github.com/openedx/tutor-contrib-aspects/commit/d03c641bacafb2bc08aeec32c88b311b4962a56c))
+
 ## v0.21.0 - 2023-08-02
 
 ### [0.21.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.20.0...v0.21.0) (2023-08-02)
