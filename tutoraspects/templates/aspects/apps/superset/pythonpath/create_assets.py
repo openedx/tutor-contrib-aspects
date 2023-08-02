@@ -1,12 +1,15 @@
 """Import a list of assets from a yaml file and create them in the superset assets folder."""
 import os
 import uuid
-import yaml
 from zipfile import ZipFile
+
+import yaml
 from superset.app import create_app
 
 app = create_app()
 app.app_context().push()
+
+from copy import deepcopy
 
 from superset import security_manager
 from superset.commands.importers.v1.assets import ImportAssetsCommand
@@ -14,8 +17,6 @@ from superset.commands.importers.v1.utils import get_contents_from_bundle
 from superset.extensions import db
 from superset.models.dashboard import Dashboard
 from superset.utils.database import get_or_create_db
-
-from copy import deepcopy
 
 BASE_DIR = "/app/assets/superset"
 
@@ -37,7 +38,9 @@ TRANSLATIONS_FILE_PATH = "/app/pythonpath/locale.yaml"
 ASSETS_FILE_PATH = "/app/pythonpath/assets.yaml"
 ASSETS_ZIP_PATH = "/app/assets/assets.zip"
 
-ASSETS_TRANSLATIONS = yaml.load(open(TRANSLATIONS_FILE_PATH, "r"), Loader=yaml.FullLoader)
+ASSETS_TRANSLATIONS = yaml.load(
+    open(TRANSLATIONS_FILE_PATH, "r"), Loader=yaml.FullLoader
+)
 
 
 def main():
@@ -99,9 +102,7 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
     #           access the original dashboards.
     dashboard_roles = asset.pop("_roles", None)
     if dashboard_roles:
-        roles[asset["uuid"]] = [
-            security_manager.find_role("Admin")
-        ]
+        roles[asset["uuid"]] = [security_manager.find_role("Admin")]
 
     path = f"{BASE_DIR}/{folder}/{file_name}.yaml"
     with open(path, "w") as file:
@@ -136,6 +137,8 @@ def generate_translated_dashboard_elements(copy, language):
     """Generate translated elements for a dashboard"""
     position = copy.get("position", {})
 
+    SUPPORTED_TYPES = ["TAB", "HEADER"]
+
     for element in position.values():
         if not isinstance(element, dict):
             continue
@@ -155,12 +158,12 @@ def generate_translated_dashboard_elements(copy, language):
             meta["sliceName"] = translation
             meta["uuid"] = element_id
 
-        elif element.get("type") == "TAB":
+        elif element.get("type") in SUPPORTED_TYPES:
             chart_body_id = element.get("id")
             if not meta or not meta.get("text"):
                 continue
 
-            element_type = "Tab"
+            element_type = element.get("type")
             element_id = chart_body_id
             translation = get_translation(meta["text"], language)
 
@@ -218,7 +221,6 @@ def update_dashboard_roles(roles):
         dashboard.roles = role_ids
         dashboard.published = True
         db.session.commit()
-
 
 
 def get_translation(text, language):
