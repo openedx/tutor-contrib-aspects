@@ -11,7 +11,7 @@ SOURCES=./setup.py ./$(PACKAGE)
 BLACK_OPTS = --exclude templates ${SOURCES}
 
 UPGRADE=CUSTOM_COMPILE_COMMAND='make upgrade' pip-compile --upgrade
-
+TUTOR_ROOT=$(PWD)/.ci
 ###### Development
 
 COMMON_CONSTRAINTS_TXT=requirements/common_constraints.txt
@@ -78,6 +78,13 @@ release-push:
 	git push origin $(TAG)
 
 ###### Additional commands
+push_translations:
+	TUTOR_ROOT=$(TUTOR_ROOT) tutor config save
+	python scripts/translate.py $(TUTOR_ROOT) push
+
+compile_translations:
+	TUTOR_ROOT=$(TUTOR_ROOT) tutor config save
+	python scripts/translate.py $(TUTOR_ROOT) compile
 
 version: ## Print the current tutor version
 	@python -c 'import io, os; about = {}; exec(io.open(os.path.join("$(PACKAGE)", "__about__.py"), "rt", encoding="utf-8").read(), about); print(about["__version__"])'

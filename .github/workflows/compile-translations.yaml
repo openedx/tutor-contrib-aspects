@@ -1,0 +1,49 @@
+name: Pull Translations
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 1' # On Mondays
+
+env:
+  TUTOR_ROOT: ./.ci/
+  TRANSIFEX_TOKEN: ${{ secrets.EDUNEXT_ASPECTS_ASSET_TRANSIFEX_TOKEN }}
+  TRANSIFEX_SECRET: ${{ secrets.EDUNEXT_ASPECTS_ASSET_TRANSIFEX_SECRET }}
+
+jobs:
+  push_translations:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: Install aspects
+        run: pip install .
+      - name: Install requirements
+        run: make requirements
+      - name: Mark for translation
+        run: make compile_translations
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      - name: Push branch
+        run: |
+          git status
+          git log -l 3
+          git checkout -b bot/translations/${{ steps.date.outputs.date }}
+          git push -d origin bot/translations/${{ steps.date.outputs.date }}
+          git push origin bot/translations/${{ steps.date.outputs.date }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.EDX_TRANSIFEX_BOT_GITHUB_TOKEN }}
+          title: "chore(i18n): updating translations"
+          commit-message: "chore(i18n): updating translations on ${{ steps.date.outputs.date }}"
+          branch: "bot/translations/${{ steps.date.outputs.date }}"
+          base: main
+          body: |
+            Automated update of translations for assets on ${{ steps.date.outputs.date }}.
+          
+            This pull request was automatically generated.

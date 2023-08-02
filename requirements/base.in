@@ -1,3 +1,4 @@
 click
 tutor>=15
 bcrypt
+transifex-python
