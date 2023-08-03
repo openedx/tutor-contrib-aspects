@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.23.0 - 2023-08-03
+
+### [0.23.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.22.0...v0.23.0) (2023-08-03)
+
+#### Features
+
+- include current day in instructor dashboard ([19b7b47](https://github.com/openedx/tutor-contrib-aspects/commit/19b7b472dad2dc09c3f1900a3fc25055b92e879c)), closes [#246](https://github.com/openedx/tutor-contrib-aspects/issues/246)
+
+#### Bug Fixes
+
+- allow to translate dashboard headers ([12bc030](https://github.com/openedx/tutor-contrib-aspects/commit/12bc03018d1e82621562f531027e92c6ba8f313a))
+- remove extra parens from org filters ([dfef41c](https://github.com/openedx/tutor-contrib-aspects/commit/dfef41cbe6020b444a4701303c7e1c2d9b55927c)), closes [#258](https://github.com/openedx/tutor-contrib-aspects/issues/258)
+
 ## v0.22.0 - 2023-08-02
 
 ### [0.22.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.21.0...v0.22.0) (2023-08-02)
