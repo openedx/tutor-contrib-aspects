@@ -12,10 +12,10 @@ with courses as (
     {% raw -%}
         location like '%video+block%'
         {% if filter_values('org') != [] %}
-        and org in ({{ filter_values('org') | where_in }})
+        and org in {{ filter_values('org') | where_in }}
         {% endif %}
         {% if filter_values('video_name') != [] %}
-        and video_name in ({{ filter_values('video_name') | where_in }})
+        and video_name in {{ filter_values('video_name') | where_in }}
         {% endif %}
     {%- endraw %}
 )

@@ -12,7 +12,7 @@ with starts as (
         verb_id = 'https://w3id.org/xapi/video/verbs/played'
         {% raw -%}
         {% if filter_values('org') != [] %}
-        and org in ({{ filter_values('org') | where_in }})
+        and org in {{ filter_values('org') | where_in }}
         {% endif %}
         {%- endraw %}
 ), ends as (
@@ -34,7 +34,7 @@ with starts as (
         )
         {% raw -%}
         {% if filter_values('org') != [] %}
-        and org in ({{ filter_values('org') | where_in }})
+        and org in {{ filter_values('org') | where_in }}
         {% endif %}
         {%- endraw %}
 ), segments as(
