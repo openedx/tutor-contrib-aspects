@@ -55,7 +55,7 @@ def mark_text_for_translation(asset):
 
                 meta = element.get("meta", {})
 
-                if element.get("type") == "TAB" and meta.get("text"):
+                if meta.get("text"):
                     strings.append(meta["text"])
 
         elif type == "charts":

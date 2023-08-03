@@ -86,6 +86,10 @@ compile_translations:
 	TUTOR_ROOT=$(TUTOR_ROOT) tutor config save
 	python scripts/translate.py $(TUTOR_ROOT) compile
 
+list_translations:
+	TUTOR_ROOT=$(TUTOR_ROOT) tutor config save
+	python scripts/translate.py $(TUTOR_ROOT) list
+
 version: ## Print the current tutor version
 	@python -c 'import io, os; about = {}; exec(io.open(os.path.join("$(PACKAGE)", "__about__.py"), "rt", encoding="utf-8").read(), about); print(about["__version__"])'
 

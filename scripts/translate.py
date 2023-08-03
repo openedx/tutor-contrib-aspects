@@ -2,10 +2,9 @@ import os
 import sys
 
 import click
-import yaml
-from transifex.native import init, tx
-from transifex.native.parsing import SourceString
-from utils import LANGUAGES, compile_translations, push_translations
+from transifex.native import init
+from utils import (LANGUAGES, compile_translations, get_text_for_translations,
+                   push_translations)
 
 init(
     os.getenv("TRANSIFEX_TOKEN"),
@@ -23,6 +22,8 @@ def command(root, action):
         push_translations(root)
     elif action == "compile":
         compile_translations(root)
+    elif action == "list":
+        get_text_for_translations(root)
     else:
         print("Unknown action: {}".format(action))
         sys.exit(1)
