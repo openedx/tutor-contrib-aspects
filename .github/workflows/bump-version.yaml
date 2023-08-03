@@ -43,6 +43,7 @@ jobs:
         if: steps.tag_version.outputs.new_version
         run: |
           git checkout -b bot/v${{ steps.tag_version.outputs.new_version }}
+          git push -d origin bot/v${{ steps.tag_version.outputs.new_version }}
           git push origin bot/v${{ steps.tag_version.outputs.new_version }}
       - name: Create Pull Request
         if: steps.tag_version.outputs.new_version
