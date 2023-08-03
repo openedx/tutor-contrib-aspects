@@ -30,11 +30,13 @@ jobs:
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - name: Push branch
         run: |
-          git status
-          git log -l 3
-          git checkout -b bot/translations/${{ steps.date.outputs.date }}
-          git push -d origin bot/translations/${{ steps.date.outputs.date }}
-          git push origin bot/translations/${{ steps.date.outputs.date }}
+          branch_name="bot/translations/${{ steps.date.outputs.date }}"
+          git fetch --prune origin
+          if git show-ref --quiet refs/remotes/origin/$branch_name; then
+            git push --delete origin $branch_name
+          fi
+          git checkout -b $branch_name || git checkout $branch_name
+          git push origin $branch_name
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
