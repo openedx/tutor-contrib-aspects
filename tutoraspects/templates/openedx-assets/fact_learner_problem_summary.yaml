@@ -127,8 +127,8 @@
       warning_text: null
   offset: 0
   params: null
-  schema: null
-  sql: "{% include 'openedx-assets/queries/fact_learner_problem_summary.sql' %}"
+  schema: {{ DBT_PROFILE_TARGET_DATABASE }}
+  sql: null
   table_name: fact_learner_problem_summary
   template_params: null
   uuid: 9362354c-1541-43c2-b769-da9818236298
