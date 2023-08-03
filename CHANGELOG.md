@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.22.1 - 2023-08-03
+
+### [0.22.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.22.0...v0.22.1) (2023-08-03)
+
+### Bug Fixes
+
+- allow to translate dashboard headers ([12bc030](https://github.com/openedx/tutor-contrib-aspects/commit/12bc03018d1e82621562f531027e92c6ba8f313a))
+
 ## v0.22.0 - 2023-08-02
 
 ### [0.22.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.21.0...v0.22.0) (2023-08-02)
