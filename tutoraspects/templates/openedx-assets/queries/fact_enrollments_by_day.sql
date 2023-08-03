@@ -25,7 +25,7 @@ with enrollments_ranked as (
     enrollment_status,
     enrollment_mode,
     emission_time as window_start_at,
-    lagInFrame(emission_time, 1, now()) over (partition by org, course_name, run_name, actor_id order by emission_time desc) as window_end_at
+    lagInFrame(emission_time, 1, now() + interval '1' day) over (partition by org, course_name, run_name, actor_id order by emission_time desc) as window_end_at
   from
     enrollments_ranked
   where
@@ -39,7 +39,7 @@ with enrollments_ranked as (
         enrollment_status,
         enrollment_mode,
         date_trunc('day', window_start_at) as window_start_date,
-        date_trunc('day', coalesce(window_end_at, now())) as window_end_date
+        date_trunc('day', window_end_at) as window_end_date
     from enrollment_windows
 )
 select
