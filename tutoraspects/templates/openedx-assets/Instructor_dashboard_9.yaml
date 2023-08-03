@@ -1,5 +1,5 @@
 - _file_name: Instructor_dashboard_9.yaml
-  _roles: 
+  _roles:
   - {{ SUPERSET_ROLES_MAPPING.instructor }}
   css: ""
   dashboard_title: Instructor dashboard
@@ -27,9 +27,13 @@
           enableEmptyFilter: false
         defaultDataMask:
           extraFormData:
-            time_range: Last month
+            time_range:
+              'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"),
+              1, day)'
           filterState:
-            value: Last month
+            value:
+              'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"), 1,
+              day)'
         description: ""
         filterType: filter_time
         id: NATIVE_FILTER-zxfszG4xH
@@ -174,7 +178,6 @@
           - 45
           - 46
           - 47
-          - 52
         controlValues:
           defaultToFirstItem: false
           enableEmptyFilter: false
@@ -196,7 +199,6 @@
             - TAB-NR4UTAs9K
         tabsInScope:
           - TAB-NR4UTAs9K
-          - TAB-7PGDduCA7
         targets:
           - column:
               name: problem_name
