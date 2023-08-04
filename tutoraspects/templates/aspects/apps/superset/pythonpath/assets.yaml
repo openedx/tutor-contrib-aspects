@@ -1,43 +1,6 @@
-{% include 'openedx-assets/Open_edX_Admin_Dashboard_2.yaml' %}
-{% include 'openedx-assets/xapi_events_all_parsed.yaml' %}
-{% include 'openedx-assets/xAPI_problem_events_by_block_7.yaml' %}
-{% include 'openedx-assets/xAPI_events_by_course_11.yaml' %}
-{% include 'openedx-assets/OpenedX_Clickhouse.yaml' %}
-{% include 'openedx-assets/course_overviews.yaml' %}
-{% include 'openedx-assets/Instructor_dashboard_9.yaml' %}
-{% include 'openedx-assets/Watches_per_video_10.yaml' %}
-{% include 'openedx-assets/fact_video_plays.yaml' %}
-{% include 'openedx-assets/Transcript_closed_captioning_usage_per_video_11.yaml' %}
-{% include 'openedx-assets/fact_transcript_usage.yaml' %}
-{% include 'openedx-assets/Cumulative_enrollments_by_mode_15.yaml' %}
-{% include 'openedx-assets/fact_enrollments.yaml' %}
-{% include 'openedx-assets/Enrollment_events_per_day_16.yaml' %}
-{% include 'openedx-assets/course_blocks.yaml' %}
-{% include 'openedx-assets/dim_courses.yaml' %}
-{% include 'openedx-assets/Enrolled_learners_per_day_36.yaml' %}
-{% include 'openedx-assets/fact_enrollments_by_day.yaml' %}
-{% include 'openedx-assets/Attempts_to_first_success_42.yaml' %}
-{% include 'openedx-assets/Hints_and_answers_displayed_per_correct_answer_43.yaml' %}
-{% include 'openedx-assets/Problem_submission_counts_38.yaml' %}
-{% include 'openedx-assets/Response_distribution_39.yaml' %}
-{% include 'openedx-assets/dim_course_problems.yaml' %}
-{% include 'openedx-assets/fact_learner_problem_summary.yaml' %}
-{% include 'openedx-assets/fact_problem_responses.yaml' %}
-{% include 'openedx-assets/hints_per_success.yaml' %}
-{% include 'openedx-assets/dim_course_videos.yaml' %}
-{% include 'openedx-assets/fact_watched_video_segments.yaml' %}
-{% include 'openedx-assets/Watched_video_segments_51.yaml' %}
-{% include 'openedx-assets/Actor_IDs_over_time_47.yaml' %}
-{% include 'openedx-assets/Courses_44.yaml' %}
-{% include 'openedx-assets/Event_type_45.yaml' %}
-{% include 'openedx-assets/Events_per_course_46.yaml' %}
-{% include 'openedx-assets/Last_course_syncronized_41.yaml' %}
-{% include 'openedx-assets/Last_received_xAPI_events_40.yaml' %}
-{% include 'openedx-assets/Operator_Dashboard_5.yaml' %}
-{% include 'openedx-assets/Organizations_42.yaml' %}
-{% include 'openedx-assets/Synchronized_Courses_39.yaml' %}
-{% include 'openedx-assets/Unique_actors_43.yaml' %}
-{% include 'openedx-assets/xAPI_events_38.yaml' %}
+{% for file in "openedx-assets/assets/"|walk_templates %}
+{% include file %}
+{% endfor %}
 
 
 {{ patch("superset-extra-assets") }}
