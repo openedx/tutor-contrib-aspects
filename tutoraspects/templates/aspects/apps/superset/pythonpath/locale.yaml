@@ -1,3 +1,4 @@
+---
 de:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -8,12 +9,10 @@ de:
   Enrollment events per day: ''
   Event type: ''
   Events per course: ''
-  Events per day: ''
   Hints and answers displayed per correct answer: ''
   Instructor dashboard: ''
   Last course syncronized: ''
   Last received xAPI events: ''
-  Open edX Admin Dashboard: ''
   Operator Dashboard: ''
   Organizations: ''
   Problem engagement: ''
@@ -25,13 +24,9 @@ de:
   Transcript/closed captioning usage per video: ''
   Unique actors: ''
   Video engagement: ''
-  Video events: ''
   Watched video segments: ''
   Watches per video: ''
   xAPI events: ''
-  xAPI events by course: ''
-  xAPI problem events by block: ''
----
 es:
   Actor IDs over time: IDs de actores a lo largo del tiempo
   Attempts to first success: "Intentos de primer \xE9xito"
@@ -42,13 +37,11 @@ es:
   Enrollment events per day: "Eventos de inscripci\xF3n por d\xEDa"
   Event type: Tipo de evento
   Events per course: Eventos por curso
-  Events per day: "Eventos por d\xEDa"
   Hints and answers displayed per correct answer: Sugerencias y respuestas mostradas
     por respuesta correcta
   Instructor dashboard: Panel del Instructor
   Last course syncronized: "\xDAltimo curso sincronizado"
   Last received xAPI events: "\xDAltimo evento xAPI recibido"
-  Open edX Admin Dashboard: Panel de Administracion de Open edX
   Operator Dashboard: Panel de Operador
   Organizations: Organizaciones
   Problem engagement: "Participaci\xF3n en problemas"
@@ -61,13 +54,9 @@ es:
     \ por video"
   Unique actors: "Actores \xFAnicos"
   Video engagement: "Participaci\xF3n en videos"
-  Video events: "Eventos de V\xEDdeo"
   Watched video segments: Segmentos de video vistos
   Watches per video: "Vistas por v\xEDdeo"
   xAPI events: Eventos xAPI
-  xAPI events by course: Eventos xAPI por curso
-  xAPI problem events by block: Eventos de problema xAPI por bloque
----
 fr:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -78,12 +67,10 @@ fr:
   Enrollment events per day: ''
   Event type: ''
   Events per course: ''
-  Events per day: ''
   Hints and answers displayed per correct answer: ''
   Instructor dashboard: ''
   Last course syncronized: ''
   Last received xAPI events: ''
-  Open edX Admin Dashboard: ''
   Operator Dashboard: ''
   Organizations: ''
   Problem engagement: ''
@@ -95,13 +82,9 @@ fr:
   Transcript/closed captioning usage per video: ''
   Unique actors: ''
   Video engagement: ''
-  Video events: ''
   Watched video segments: ''
   Watches per video: ''
   xAPI events: ''
-  xAPI events by course: ''
-  xAPI problem events by block: ''
----
 it:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -112,12 +95,10 @@ it:
   Enrollment events per day: ''
   Event type: ''
   Events per course: ''
-  Events per day: ''
   Hints and answers displayed per correct answer: ''
   Instructor dashboard: ''
   Last course syncronized: ''
   Last received xAPI events: ''
-  Open edX Admin Dashboard: ''
   Operator Dashboard: ''
   Organizations: ''
   Problem engagement: ''
@@ -129,13 +110,9 @@ it:
   Transcript/closed captioning usage per video: ''
   Unique actors: ''
   Video engagement: ''
-  Video events: ''
   Watched video segments: ''
   Watches per video: ''
   xAPI events: ''
-  xAPI events by course: ''
-  xAPI problem events by block: ''
----
 ja:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -146,12 +123,10 @@ ja:
   Enrollment events per day: ''
   Event type: ''
   Events per course: ''
-  Events per day: ''
   Hints and answers displayed per correct answer: ''
   Instructor dashboard: ''
   Last course syncronized: ''
   Last received xAPI events: ''
-  Open edX Admin Dashboard: ''
   Operator Dashboard: ''
   Organizations: ''
   Problem engagement: ''
@@ -163,13 +138,9 @@ ja:
   Transcript/closed captioning usage per video: ''
   Unique actors: ''
   Video engagement: ''
-  Video events: ''
   Watched video segments: ''
   Watches per video: ''
   xAPI events: ''
-  xAPI events by course: ''
-  xAPI problem events by block: ''
----
 ko:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -180,12 +151,10 @@ ko:
   Enrollment events per day: ''
   Event type: ''
   Events per course: ''
-  Events per day: ''
   Hints and answers displayed per correct answer: ''
   Instructor dashboard: ''
   Last course syncronized: ''
   Last received xAPI events: ''
-  Open edX Admin Dashboard: ''
   Operator Dashboard: ''
   Organizations: ''
   Problem engagement: ''
@@ -197,13 +166,9 @@ ko:
   Transcript/closed captioning usage per video: ''
   Unique actors: ''
   Video engagement: ''
-  Video events: ''
   Watched video segments: ''
   Watches per video: ''
   xAPI events: ''
-  xAPI events by course: ''
-  xAPI problem events by block: ''
----
 nl:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -214,12 +179,10 @@ nl:
   Enrollment events per day: ''
   Event type: ''
   Events per course: ''
-  Events per day: ''
   Hints and answers displayed per correct answer: ''
   Instructor dashboard: ''
   Last course syncronized: ''
   Last received xAPI events: ''
-  Open edX Admin Dashboard: ''
   Operator Dashboard: ''
   Organizations: ''
   Problem engagement: ''
@@ -231,13 +194,9 @@ nl:
   Transcript/closed captioning usage per video: ''
   Unique actors: ''
   Video engagement: ''
-  Video events: ''
   Watched video segments: ''
   Watches per video: ''
   xAPI events: ''
-  xAPI events by course: ''
-  xAPI problem events by block: ''
----
 pt:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -248,12 +207,10 @@ pt:
   Enrollment events per day: ''
   Event type: ''
   Events per course: ''
-  Events per day: ''
   Hints and answers displayed per correct answer: ''
   Instructor dashboard: ''
   Last course syncronized: ''
   Last received xAPI events: ''
-  Open edX Admin Dashboard: ''
   Operator Dashboard: ''
   Organizations: ''
   Problem engagement: ''
@@ -265,13 +222,9 @@ pt:
   Transcript/closed captioning usage per video: ''
   Unique actors: ''
   Video engagement: ''
-  Video events: ''
   Watched video segments: ''
   Watches per video: ''
   xAPI events: ''
-  xAPI events by course: ''
-  xAPI problem events by block: ''
----
 ru:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -282,12 +235,10 @@ ru:
   Enrollment events per day: ''
   Event type: ''
   Events per course: ''
-  Events per day: ''
   Hints and answers displayed per correct answer: ''
   Instructor dashboard: ''
   Last course syncronized: ''
   Last received xAPI events: ''
-  Open edX Admin Dashboard: ''
   Operator Dashboard: ''
   Organizations: ''
   Problem engagement: ''
@@ -299,13 +250,9 @@ ru:
   Transcript/closed captioning usage per video: ''
   Unique actors: ''
   Video engagement: ''
-  Video events: ''
   Watched video segments: ''
   Watches per video: ''
   xAPI events: ''
-  xAPI events by course: ''
-  xAPI problem events by block: ''
----
 sk:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -316,12 +263,10 @@ sk:
   Enrollment events per day: ''
   Event type: ''
   Events per course: ''
-  Events per day: ''
   Hints and answers displayed per correct answer: ''
   Instructor dashboard: ''
   Last course syncronized: ''
   Last received xAPI events: ''
-  Open edX Admin Dashboard: ''
   Operator Dashboard: ''
   Organizations: ''
   Problem engagement: ''
@@ -333,13 +278,9 @@ sk:
   Transcript/closed captioning usage per video: ''
   Unique actors: ''
   Video engagement: ''
-  Video events: ''
   Watched video segments: ''
   Watches per video: ''
   xAPI events: ''
-  xAPI events by course: ''
-  xAPI problem events by block: ''
----
 sl:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -350,12 +291,10 @@ sl:
   Enrollment events per day: ''
   Event type: ''
   Events per course: ''
-  Events per day: ''
   Hints and answers displayed per correct answer: ''
   Instructor dashboard: ''
   Last course syncronized: ''
   Last received xAPI events: ''
-  Open edX Admin Dashboard: ''
   Operator Dashboard: ''
   Organizations: ''
   Problem engagement: ''
@@ -367,13 +306,9 @@ sl:
   Transcript/closed captioning usage per video: ''
   Unique actors: ''
   Video engagement: ''
-  Video events: ''
   Watched video segments: ''
   Watches per video: ''
   xAPI events: ''
-  xAPI events by course: ''
-  xAPI problem events by block: ''
----
 zh:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -384,12 +319,10 @@ zh:
   Enrollment events per day: ''
   Event type: ''
   Events per course: ''
-  Events per day: ''
   Hints and answers displayed per correct answer: ''
   Instructor dashboard: ''
   Last course syncronized: ''
   Last received xAPI events: ''
-  Open edX Admin Dashboard: ''
   Operator Dashboard: ''
   Organizations: ''
   Problem engagement: ''
@@ -401,10 +334,8 @@ zh:
   Transcript/closed captioning usage per video: ''
   Unique actors: ''
   Video engagement: ''
-  Video events: ''
   Watched video segments: ''
   Watches per video: ''
   xAPI events: ''
-  xAPI events by course: ''
-  xAPI problem events by block: ''
+
 {{ patch('superset-extra-asset-translations')}}

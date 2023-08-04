@@ -39,10 +39,10 @@ ASSETS_FILE_PATH = "/app/pythonpath/assets.yaml"
 ASSETS_ZIP_PATH = "/app/assets/assets.zip"
 
 merged_data = {}
-with open(TRANSLATIONS_FILE_PATH, 'r') as file:
+with open(TRANSLATIONS_FILE_PATH, "r") as file:
     yaml_content = file.read()
-    yaml_documents = yaml_content.split('\n---\n')
-    
+    yaml_documents = yaml_content.split("\n---\n")
+
     for doc in yaml_documents:
         data = yaml.safe_load(doc)
         if data is not None:
@@ -149,7 +149,7 @@ def generate_translated_dashboard_elements(copy, language):
     """Generate translated elements for a dashboard"""
     position = copy.get("position", {})
 
-    SUPPORTED_TYPES = ["TAB", "HEADER"]
+    SUPPORTED_TYPES = {"TAB": "text", "HEADER": "text", "MARKDOWN": "code"}
 
     for element in position.values():
         if not isinstance(element, dict):
@@ -170,16 +170,17 @@ def generate_translated_dashboard_elements(copy, language):
             meta["sliceName"] = translation
             meta["uuid"] = element_id
 
-        elif element.get("type") in SUPPORTED_TYPES:
+        elif element.get("type") in SUPPORTED_TYPES.keys():
+            text_key = SUPPORTED_TYPES.get(element["type"])
             chart_body_id = element.get("id")
-            if not meta or not meta.get("text"):
+            if not meta or not meta.get(text_key):
                 continue
 
             element_type = element.get("type")
             element_id = chart_body_id
-            translation = get_translation(meta["text"], language)
+            translation = get_translation(meta[text_key], language)
 
-            meta["text"] = translation
+            meta[text_key] = translation
 
         if translation and element_type and element_id:
             print(

@@ -58,6 +58,9 @@ def mark_text_for_translation(asset):
                 if meta.get("text"):
                     strings.append(meta["text"])
 
+                if meta.get("code"):
+                    strings.append(meta["code"])
+
         elif type == "charts":
             strings.append(asset["slice_name"])
         elif type == "databases":
@@ -101,9 +104,10 @@ def compile_translations(root_path):
                 translation = tx.get_translation(string, language, None)
                 translations[language][string] = translation if translation else ""
 
+    file.write("---\n")
     file.write(yaml.dump(translations))
 
-    file.write("{{ patch('superset-extra-asset-translations')}}\n")
+    file.write("\n{{ patch('superset-extra-asset-translations')}}\n")
 
 
 def push_translations(root_path):
