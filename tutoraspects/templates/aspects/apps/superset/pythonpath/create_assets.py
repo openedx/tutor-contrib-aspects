@@ -38,10 +38,6 @@ TRANSLATIONS_FILE_PATH = "/app/pythonpath/locale.yaml"
 ASSETS_FILE_PATH = "/app/pythonpath/assets.yaml"
 ASSETS_ZIP_PATH = "/app/assets/assets.zip"
 
-ASSETS_TRANSLATIONS = yaml.load(
-    open(TRANSLATIONS_FILE_PATH, "r"), Loader=yaml.FullLoader
-)
-
 merged_data = {}
 with open(TRANSLATIONS_FILE_PATH, 'r') as file:
     yaml_content = file.read()
