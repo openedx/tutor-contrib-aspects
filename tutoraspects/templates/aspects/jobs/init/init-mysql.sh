@@ -19,3 +19,7 @@ mysql -u {{ MYSQL_ROOT_USERNAME }} --password="{{ MYSQL_ROOT_PASSWORD }}" --host
 mysql -u {{ MYSQL_ROOT_USERNAME }} --password="{{ MYSQL_ROOT_PASSWORD }}" --host "{{ MYSQL_HOST }}" --port {{ MYSQL_PORT }} -e "CREATE USER IF NOT EXISTS '{{ SUPERSET_DB_USERNAME }}';"
 mysql -u {{ MYSQL_ROOT_USERNAME }} --password="{{ MYSQL_ROOT_PASSWORD }}" --host "{{ MYSQL_HOST }}" --port {{ MYSQL_PORT }} -e "ALTER USER '{{ SUPERSET_DB_USERNAME }}'@'%' IDENTIFIED BY '{{ SUPERSET_DB_PASSWORD }}';"
 mysql -u {{ MYSQL_ROOT_USERNAME }} --password="{{ MYSQL_ROOT_PASSWORD }}" --host "{{ MYSQL_HOST }}" --port {{ MYSQL_PORT }} -e "GRANT ALL ON {{ SUPERSET_DB_NAME }}.* TO '{{ SUPERSET_DB_USERNAME }}'@'%';"
+
+mysql -u {{ MYSQL_ROOT_USERNAME }} --password="{{ MYSQL_ROOT_PASSWORD }}" --host "{{ MYSQL_HOST }}" --port {{ MYSQL_PORT }} -e "CREATE USER IF NOT EXISTS '{{ ASPECTS_MYSQL_USERNAME }}';"
+mysql -u {{ MYSQL_ROOT_USERNAME }} --password="{{ MYSQL_ROOT_PASSWORD }}" --host "{{ MYSQL_HOST }}" --port {{ MYSQL_PORT }} -e "ALTER USER '{{ ASPECTS_MYSQL_USERNAME }}'@'%' IDENTIFIED BY '{{ ASPECTS_MYSQL_PASSWORD }}';"
+mysql -u {{ MYSQL_ROOT_USERNAME }} --password="{{ MYSQL_ROOT_PASSWORD }}" --host "{{ MYSQL_HOST }}" --port {{ MYSQL_PORT }} -e "GRANT SELECT ON {{ OPENEDX_MYSQL_DATABASE }}.* TO '{{ ASPECTS_MYSQL_USERNAME }}'@'%';"

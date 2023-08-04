@@ -290,6 +290,9 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         # CMS user is used by CMS to insert into event sink tables
         ("ASPECTS_CLICKHOUSE_CMS_USER", "ch_cms"),
         ("ASPECTS_CLICKHOUSE_CMS_PASSWORD", "{{ 24|random_string }}"),
+        # LMS user is used by Superset to read from Mysql tables
+        ("ASPECTS_MYSQL_USERNAME", "aspects"),
+        ("ASPECTS_MYSQL_PASSWORD", "{{ 24|random_string }}"),
         ######################
         # ClickHouse Settings
         ("CLICKHOUSE_ADMIN_USER", "ch_admin"),
