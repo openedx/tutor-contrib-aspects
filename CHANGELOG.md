@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.23.2 - 2023-08-04
+
+### [0.23.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.23.1...v0.23.2) (2023-08-04)
+
+### Bug Fixes
+
+- remove loading locale file before processing ([3401796](https://github.com/openedx/tutor-contrib-aspects/commit/3401796061b62e39f2c9cc6414b59a78565c5f80))
+
 ## v0.23.1 - 2023-08-04
 
 ### [0.23.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.23.0...v0.23.1) (2023-08-04)
