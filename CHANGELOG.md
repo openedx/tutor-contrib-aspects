@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.24.0 - 2023-08-04
+
+### [0.24.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.23.2...v0.24.0) (2023-08-04)
+
+#### Features
+
+- add superset owners configurable variable ([870a9d9](https://github.com/openedx/tutor-contrib-aspects/commit/870a9d9dd03e7ef1f0715b459d7d6150342ef117))
+- allow to translate markdown elements ([ceaf898](https://github.com/openedx/tutor-contrib-aspects/commit/ceaf89893f8ebe0c4e1296fdd4566d5b21808654))
+
 ## v0.23.2 - 2023-08-04
 
 ### [0.23.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.23.1...v0.23.2) (2023-08-04)
