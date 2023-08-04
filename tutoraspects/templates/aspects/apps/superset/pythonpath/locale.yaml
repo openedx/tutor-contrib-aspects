@@ -31,6 +31,7 @@ de:
   xAPI events: ''
   xAPI events by course: ''
   xAPI problem events by block: ''
+---
 es:
   Actor IDs over time: IDs de actores a lo largo del tiempo
   Attempts to first success: "Intentos de primer \xE9xito"
@@ -66,6 +67,7 @@ es:
   xAPI events: Eventos xAPI
   xAPI events by course: Eventos xAPI por curso
   xAPI problem events by block: Eventos de problema xAPI por bloque
+---
 fr:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -99,6 +101,7 @@ fr:
   xAPI events: ''
   xAPI events by course: ''
   xAPI problem events by block: ''
+---
 it:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -132,6 +135,7 @@ it:
   xAPI events: ''
   xAPI events by course: ''
   xAPI problem events by block: ''
+---
 ja:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -165,6 +169,7 @@ ja:
   xAPI events: ''
   xAPI events by course: ''
   xAPI problem events by block: ''
+---
 ko:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -198,6 +203,7 @@ ko:
   xAPI events: ''
   xAPI events by course: ''
   xAPI problem events by block: ''
+---
 nl:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -231,6 +237,7 @@ nl:
   xAPI events: ''
   xAPI events by course: ''
   xAPI problem events by block: ''
+---
 pt:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -264,6 +271,7 @@ pt:
   xAPI events: ''
   xAPI events by course: ''
   xAPI problem events by block: ''
+---
 ru:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -297,6 +305,7 @@ ru:
   xAPI events: ''
   xAPI events by course: ''
   xAPI problem events by block: ''
+---
 sk:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -330,6 +339,7 @@ sk:
   xAPI events: ''
   xAPI events by course: ''
   xAPI problem events by block: ''
+---
 sl:
   Actor IDs over time: ''
   Attempts to first success: ''
@@ -363,6 +373,7 @@ sl:
   xAPI events: ''
   xAPI events by course: ''
   xAPI problem events by block: ''
+---
 zh:
   Actor IDs over time: ''
   Attempts to first success: ''

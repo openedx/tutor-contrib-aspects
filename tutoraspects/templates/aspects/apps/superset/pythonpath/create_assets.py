@@ -42,6 +42,22 @@ ASSETS_TRANSLATIONS = yaml.load(
     open(TRANSLATIONS_FILE_PATH, "r"), Loader=yaml.FullLoader
 )
 
+merged_data = {}
+with open(TRANSLATIONS_FILE_PATH, 'r') as file:
+    yaml_content = file.read()
+    yaml_documents = yaml_content.split('\n---\n')
+    
+    for doc in yaml_documents:
+        data = yaml.safe_load(doc)
+        if data is not None:
+            for lang, translations in data.items():
+                if lang not in merged_data:
+                    merged_data[lang] = {}
+                merged_data[lang].update(translations)
+
+
+ASSETS_TRANSLATIONS = merged_data
+
 
 def main():
     create_assets()
