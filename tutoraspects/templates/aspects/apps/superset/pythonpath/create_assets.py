@@ -227,11 +227,22 @@ def create_zip_and_import_assets():
 
 def update_dashboard_roles(roles):
     """Update the roles of the dashboards"""
+    owners_username = {{SUPERSET_OWNERS}}
+
+    owners = []
+
+    for owner in owners_username:
+        user = security_manager.find_user(username=owner)
+        if user:
+            owners.append(user)
+
     for dashboard_uuid, role_ids in roles.items():
         dashboard = db.session.query(Dashboard).filter_by(uuid=dashboard_uuid).one()
         print("Importing dashboard roles", dashboard_uuid, role_ids)
         dashboard.roles = role_ids
         dashboard.published = True
+        if owners:
+            dashboard.owners = owners
         db.session.commit()
 
 
