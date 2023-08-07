@@ -46,8 +46,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "OPENEDX_EXTRA_PIP_REQUIREMENTS",
             [
-                "openedx-event-sink-clickhouse==0.1.0",
-                "edx-event-routing-backends==5.5.0",
+                "openedx-event-sink-clickhouse==0.1.1",
+                "edx-event-routing-backends==5.5.5",
             ],
         ),
         # ClickHouse xAPI settings
@@ -165,6 +165,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             },
         ),
         ("SUPERSET_ADMIN_EMAIL", "admin@openedx.org"),
+        ("SUPERSET_OWNERS", []),
         # Set to 0 to have no row limit.
         ("SUPERSET_ROW_LIMIT", 100_000),
         ("SUPERSET_SENTRY_DSN", ""),

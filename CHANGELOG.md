@@ -5,6 +5,45 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.24.0 - 2023-08-04
+
+### [0.24.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.23.2...v0.24.0) (2023-08-04)
+
+#### Features
+
+- add superset owners configurable variable ([870a9d9](https://github.com/openedx/tutor-contrib-aspects/commit/870a9d9dd03e7ef1f0715b459d7d6150342ef117))
+- allow to translate markdown elements ([ceaf898](https://github.com/openedx/tutor-contrib-aspects/commit/ceaf89893f8ebe0c4e1296fdd4566d5b21808654))
+
+## v0.23.2 - 2023-08-04
+
+### [0.23.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.23.1...v0.23.2) (2023-08-04)
+
+### Bug Fixes
+
+- remove loading locale file before processing ([3401796](https://github.com/openedx/tutor-contrib-aspects/commit/3401796061b62e39f2c9cc6414b59a78565c5f80))
+
+## v0.23.1 - 2023-08-04
+
+### [0.23.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.23.0...v0.23.1) (2023-08-04)
+
+### Bug Fixes
+
+- use yaml delimiter to separate translations ([a95706d](https://github.com/openedx/tutor-contrib-aspects/commit/a95706d048f69762b03572498fd5c748020d931e))
+
+## v0.23.0 - 2023-08-03
+
+### [0.23.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.22.0...v0.23.0) (2023-08-03)
+
+#### Features
+
+- include current day in instructor dashboard ([19b7b47](https://github.com/openedx/tutor-contrib-aspects/commit/19b7b472dad2dc09c3f1900a3fc25055b92e879c)), closes [#246](https://github.com/openedx/tutor-contrib-aspects/issues/246)
+
+#### Bug Fixes
+
+- allow to translate dashboard headers ([12bc030](https://github.com/openedx/tutor-contrib-aspects/commit/12bc03018d1e82621562f531027e92c6ba8f313a))
+- remove extra parens from org filters ([dfef41c](https://github.com/openedx/tutor-contrib-aspects/commit/dfef41cbe6020b444a4701303c7e1c2d9b55927c)), closes [#258](https://github.com/openedx/tutor-contrib-aspects/issues/258)
+- upgrade event-routing-backends to 5.5.4 ([454063c](https://github.com/openedx/tutor-contrib-aspects/commit/454063c226860f7477d24020b38e27b0b811bbc8))
+
 ## v0.22.0 - 2023-08-02
 
 ### [0.22.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.21.0...v0.22.0) (2023-08-02)

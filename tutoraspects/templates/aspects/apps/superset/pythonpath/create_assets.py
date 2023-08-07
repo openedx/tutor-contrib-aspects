@@ -38,9 +38,21 @@ TRANSLATIONS_FILE_PATH = "/app/pythonpath/locale.yaml"
 ASSETS_FILE_PATH = "/app/pythonpath/assets.yaml"
 ASSETS_ZIP_PATH = "/app/assets/assets.zip"
 
-ASSETS_TRANSLATIONS = yaml.load(
-    open(TRANSLATIONS_FILE_PATH, "r"), Loader=yaml.FullLoader
-)
+merged_data = {}
+with open(TRANSLATIONS_FILE_PATH, "r") as file:
+    yaml_content = file.read()
+    yaml_documents = yaml_content.split("\n---\n")
+
+    for doc in yaml_documents:
+        data = yaml.safe_load(doc)
+        if data is not None:
+            for lang, translations in data.items():
+                if lang not in merged_data:
+                    merged_data[lang] = {}
+                merged_data[lang].update(translations)
+
+
+ASSETS_TRANSLATIONS = merged_data
 
 
 def main():
@@ -137,7 +149,7 @@ def generate_translated_dashboard_elements(copy, language):
     """Generate translated elements for a dashboard"""
     position = copy.get("position", {})
 
-    SUPPORTED_TYPES = ["TAB", "HEADER"]
+    SUPPORTED_TYPES = {"TAB": "text", "HEADER": "text", "MARKDOWN": "code"}
 
     for element in position.values():
         if not isinstance(element, dict):
@@ -158,16 +170,17 @@ def generate_translated_dashboard_elements(copy, language):
             meta["sliceName"] = translation
             meta["uuid"] = element_id
 
-        elif element.get("type") in SUPPORTED_TYPES:
+        elif element.get("type") in SUPPORTED_TYPES.keys():
+            text_key = SUPPORTED_TYPES.get(element["type"])
             chart_body_id = element.get("id")
-            if not meta or not meta.get("text"):
+            if not meta or not meta.get(text_key):
                 continue
 
             element_type = element.get("type")
             element_id = chart_body_id
-            translation = get_translation(meta["text"], language)
+            translation = get_translation(meta[text_key], language)
 
-            meta["text"] = translation
+            meta[text_key] = translation
 
         if translation and element_type and element_id:
             print(
@@ -215,11 +228,22 @@ def create_zip_and_import_assets():
 
 def update_dashboard_roles(roles):
     """Update the roles of the dashboards"""
+    owners_username = {{SUPERSET_OWNERS}}
+
+    owners = []
+
+    for owner in owners_username:
+        user = security_manager.find_user(username=owner)
+        if user:
+            owners.append(user)
+
     for dashboard_uuid, role_ids in roles.items():
         dashboard = db.session.query(Dashboard).filter_by(uuid=dashboard_uuid).one()
         print("Importing dashboard roles", dashboard_uuid, role_ids)
         dashboard.roles = role_ids
         dashboard.published = True
+        if owners:
+            dashboard.owners = owners
         db.session.commit()
 
 
