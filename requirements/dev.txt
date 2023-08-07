@@ -43,7 +43,7 @@ click==8.1.6
     #   black
     #   transifex-python
     #   tutor
-cryptography==41.0.2
+cryptography==41.0.3
     # via secretstorage
 dill==0.3.7
     # via pylint
@@ -97,7 +97,7 @@ mccabe==0.7.0
     # via pylint
 mdurl==0.1.2
     # via markdown-it-py
-more-itertools==10.0.0
+more-itertools==10.1.0
     # via jaraco-classes
 mypy==1.4.1
     # via
@@ -142,7 +142,7 @@ pycryptodome==3.18.0
     # via
     #   -r requirements/base.txt
     #   tutor
-pygments==2.15.1
+pygments==2.16.1
     # via
     #   readme-renderer
     #   rich
