@@ -1,7 +1,3 @@
-with summary as (
-    {% include 'openedx-assets/queries/fact_learner_problem_summary.sql' %}
-)
-
 select
     org,
     course_name,
@@ -10,7 +6,7 @@ select
     actor_id,
     sum(num_hints_displayed) + sum(num_answers_displayed) as total_hints
 from
-    summary
+    {{ DBT_PROFILE_TARGET_DATABASE }}.fact_learner_problem_summary
 where success = 1
 group by
     org,
