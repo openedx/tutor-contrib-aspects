@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.25.1 - 2023-08-08
+
+### [0.25.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.25.0...v0.25.1) (2023-08-08)
+
+### Bug Fixes
+
+- add configurable clickhouse volume size ([e513d02](https://github.com/openedx/tutor-contrib-aspects/commit/e513d02648b314fd7ed1ced934609d2e4c0f260d))
+
 ## v0.25.0 - 2023-08-08
 
 ### [0.25.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.24.0...v0.25.0) (2023-08-08)
