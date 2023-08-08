@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.25.0 - 2023-08-08
+
+### [0.25.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.24.0...v0.25.0) (2023-08-08)
+
+#### Features
+
+- use dbt models for problem datasets ([b5e9ee5](https://github.com/openedx/tutor-contrib-aspects/commit/b5e9ee53ab9235d7e3efcc6179f8f68bd3e3c892))
+
+#### Build Systems
+
+- **deps:** bump stefanzweifel/changelog-updater-action ([26ff876](https://github.com/openedx/tutor-contrib-aspects/commit/26ff876e96ff8758f11a6d0797e074db4b15c365))
+
 ## v0.24.0 - 2023-08-04
 
 ### [0.24.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.23.2...v0.24.0) (2023-08-04)
