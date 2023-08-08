@@ -93,6 +93,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "{% if CLICKHOUSE_SECURE_CONNECTION %}"
             "{{CLICKHOUSE_HTTPS_PORT}}{% else %}{{CLICKHOUSE_HTTP_PORT}}{% endif %}",
         ),
+        ("CLICKHOUSE_K8S_VOLUME_SIZE", "10Gi"),
         # This can be used to override some configuration values in
         # via "docker_config.xml" file, which will be read from a
         # mount on /etc/clickhouse-server/config.d/ on startup.
