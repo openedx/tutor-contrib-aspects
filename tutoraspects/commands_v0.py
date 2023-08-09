@@ -170,22 +170,17 @@ def transform_tracking_logs(context, **kwargs) -> None:
     config = tutor_config.load(context.root)
     runner = context.job_runner(config)
 
-    options = (
-        f"--source_provider {kwargs['source_provider']} "
-        f"--source_config {kwargs['source_config']} "
-        f"--destination_provider {kwargs['destination_provider']} "
-        f"--transformer_type {kwargs['transformer_type']}"
-    )    
-    
-    if 'destination_config' in kwargs and kwargs['destination_config']:
-        options += f" --destination_config {kwargs['destination_config']}"
-        
-    options += f" --batch_size {kwargs['batch_size']} --sleep_between_batches_secs {kwargs['sleep_between_batches_secs']}"
+    options = []
+    for arg, value in kwargs.items():
+        if value:
+            options.append(f"--{arg} {value}")
 
     if 'dry_run' in kwargs and kwargs['dry_run']:
-        options += " --dry_run"
+        options.append("--dry_run")
 
-    command = f"./manage.py lms transform_tracking_logs {options}"
+    options_str = " ".join(options)
+
+    command = f"./manage.py lms transform_tracking_logs {options_str}"
     
     runner.run_job("lms", command)
 
