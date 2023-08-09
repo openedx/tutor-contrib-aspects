@@ -111,56 +111,56 @@ def dump_courses_to_clickhouse(context, options) -> None:
 # Ex: tutor local do transform-tracking-logs --options "--source_provider MINIO --source_config '{\"key\": \"openedx\", \"secret\": \"h3SIhXAqDDxJAP6TcXklNxro\", \"container\": \"openedx\", \"prefix\": \"/tracking_logs\", \"host\": \"files.local.overhang.io\", \"secure\": false}' --destination_provider LRS --transformer_type xapi"
 @click.command(help="Uses event-routing-backends to replay tracking logs.")
 @click.option(
-    '--source_provider', 
-    type=str, 
-    required=True, 
-    help="An Apache Libcloud provider. This is mandatory."
+    "--source_provider",
+    type=str,
+    required=True,
+    help="An Apache Libcloud provider. This is mandatory.",
 )
 @click.option(
-    '--source_config', 
-    type=str, 
-    required=True, 
-    help="A JSON dictionary of configuration for the source provider. This is mandatory."
+    "--source_config",
+    type=str,
+    required=True,
+    help="A JSON dictionary of configuration for the source provider. This is mandatory.",
 )
 @click.option(
-    '--destination_provider', 
-    type=str, 
-    default="LRS", 
-    help="Either 'LRS' or an Apache Libcloud provider. The default is 'LRS'."
+    "--destination_provider",
+    type=str,
+    default="LRS",
+    help="Either 'LRS' or an Apache Libcloud provider. The default is 'LRS'.",
 )
 @click.option(
-    '--destination_config', 
-    type=str, 
+    "--destination_config",
+    type=str,
     help=(
         "A JSON dictionary of configuration for the destination provider. "
         "Optional if 'LRS' is used as the destination_provider."
-    )
+    ),
 )
 @click.option(
-    '--transformer_type', 
-    type=click.Choice(['xapi', 'caliper']), 
-    required=True, 
-    help="The type of transformation to perform, either 'xapi' or 'caliper'. This is mandatory."
+    "--transformer_type",
+    type=click.Choice(["xapi", "caliper"]),
+    required=True,
+    help="The type of transformation to perform, either 'xapi' or 'caliper'. This is mandatory.",
 )
 @click.option(
-    '--batch_size', 
-    type=int, 
-    default=10000, 
-    help="The batch size. The default is 10000."
+    "--batch_size",
+    type=int,
+    default=10000,
+    help="The batch size. The default is 10000.",
 )
 @click.option(
-    '--sleep_between_batches_secs', 
-    type=float, 
-    default=10.0, 
-    help="The amount of time (in seconds) to sleep between sending batches. Default is 10.0 seconds."
+    "--sleep_between_batches_secs",
+    type=float,
+    default=10.0,
+    help="The amount of time (in seconds) to sleep between sending batches. Default is 10.0 seconds.",
 )
 @click.option(
-    '--dry_run', 
-    is_flag=True, 
+    "--dry_run",
+    is_flag=True,
     help=(
         "A flag to determine if this is a dry run. If present, all lines from all files "
         "will be attempted to be transformed, but won't be sent to the destination."
-    )
+    ),
 )
 @click.pass_obj
 def transform_tracking_logs(context, **kwargs) -> None:
@@ -174,9 +174,9 @@ def transform_tracking_logs(context, **kwargs) -> None:
     for arg, value in kwargs.items():
         if not value:
             continue
-        if arg == 'dry_run':
+        if arg == "dry_run":
             options.append(f"--{arg}")
-        elif arg == 'source_config' or arg == 'destination_config':
+        elif arg == "source_config" or arg == "destination_config":
             options.append(f"--{arg} '{value}'")
         else:
             options.append(f"--{arg} {value}")
@@ -184,7 +184,7 @@ def transform_tracking_logs(context, **kwargs) -> None:
     options_str = " ".join(options)
 
     command = f"./manage.py lms transform_tracking_logs {options_str}"
-    
+
     runner.run_job("lms", command)
 
 
