@@ -164,11 +164,14 @@ def transform_tracking_logs(**kwargs) -> list[tuple[str, str]]:
 
     options = []
     for arg, value in kwargs.items():
-        if value:
+        if not value:
+            continue
+        if arg == 'dry_run':
+            options.append(f"--{arg}")
+        elif arg == 'source_config' or arg == 'destination_config':
+            options.append(f"--{arg} '{value}'")
+        else:
             options.append(f"--{arg} {value}")
-
-    if 'dry_run' in kwargs and kwargs['dry_run']:
-        options.append("--dry_run")
 
     options_str = " ".join(options)
 
