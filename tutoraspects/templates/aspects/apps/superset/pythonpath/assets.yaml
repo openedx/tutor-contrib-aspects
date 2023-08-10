@@ -1,5 +1,5 @@
 {% for file in "openedx-assets/assets/"|walk_templates %}
-{% include file %}
+- {% filter indent(width=2) %}{% include file %}{% endfilter %}
 {% endfor %}
 
 

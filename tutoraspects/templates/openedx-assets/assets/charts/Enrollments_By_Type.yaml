@@ -1,0 +1,50 @@
+_file_name: Enrollments_By_Type.yaml
+cache_timeout: null
+dataset_uuid: 352311fe-12f0-470c-8b8c-d4f6a3936b3d
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: registered
+    expressionType: SIMPLE
+    filterOptionName: filter_9j7l0ptktr_v7mtdaqejs
+    isExtra: false
+    isNew: false
+    operator: ==
+    operatorId: EQUALS
+    sqlExpression: null
+    subject: enrollment_status
+  - clause: WHERE
+    comparator: null
+    expressionType: SQL
+    filterOptionName: filter_4sdk9ru188w_eaalq65hp2c
+    isExtra: false
+    isNew: false
+    operator: null
+    sqlExpression: enrollment_status_date = today()
+    subject: null
+  color_scheme: supersetColors
+  datasource: 2__table
+  date_format: smart_date
+  extra_form_data: {}
+  granularity_sqla: enrollment_status_date
+  groupby:
+  - enrollment_mode
+  innerRadius: 30
+  label_type: key
+  labels_outside: true
+  legendOrientation: top
+  legendType: scroll
+  metric: count
+  number_format: SMART_NUMBER
+  outerRadius: 70
+  row_limit: 100
+  show_labels: true
+  show_labels_threshold: 5
+  show_legend: true
+  sort_by_metric: true
+  time_range: No filter
+  viz_type: pie
+slice_name: Enrollments By Type
+uuid: 6c473b09-6a1a-4531-b71d-ab82e09721ef
+version: 1.0.0
+viz_type: pie
