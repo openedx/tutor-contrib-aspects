@@ -13,18 +13,7 @@ depends_on = None
 def upgrade():
     op.execute(
         """
-        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names;
-    """
-    )
-    op.execute(
-        """
-        DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict;
-    """
-    )
-
-    op.execute(
-        """
-        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict (
+        CREATE OR REPLACE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict (
             course_key String,
             course_name String,
             course_run String,
@@ -34,10 +23,10 @@ def upgrade():
         SOURCE(CLICKHOUSE(
             user '{{ CLICKHOUSE_ADMIN_USER }}'
             password '{{ CLICKHOUSE_ADMIN_PASSWORD }}'
-            db 'event_sink'
+            db '{{ ASPECTS_EVENT_SINK_DATABASE }}'
             query 'with most_recent_overviews as (
                     select org, course_key, max(modified) as last_modified
-                    from event_sink.course_overviews
+                    from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_overviews
                     group by org, course_key
             )
             select
@@ -45,7 +34,7 @@ def upgrade():
                 display_name,
                 splitByString(\\'+\\', course_key)[-1] as course_run,
                 org
-            from event_sink.course_overviews co
+            from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_overviews co
             inner join most_recent_overviews mro on
                 co.org = mro.org and
                 co.course_key = mro.course_key and
@@ -72,18 +61,7 @@ def upgrade():
 def downgrade():
     op.execute(
         """
-        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names;
-    """
-    )
-    op.execute(
-        """
-        DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict;
-    """
-    )
-
-    op.execute(
-        """
-        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict (
+        CREATE OR REPLACE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict (
             course_key String,
             course_name String
         )
@@ -91,16 +69,16 @@ def downgrade():
         SOURCE(CLICKHOUSE(
             user '{{ CLICKHOUSE_ADMIN_USER }}'
             password '{{ CLICKHOUSE_ADMIN_PASSWORD }}'
-            db 'event_sink'
+            db '{{ ASPECTS_EVENT_SINK_DATABASE }}'
             query 'with most_recent_overviews as (
                     select org, course_key, max(modified) as last_modified
-                    from event_sink.course_overviews
+                    from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_overviews
                     group by org, course_key
             )
             select
                 course_key,
                 display_name
-            from event_sink.course_overviews co
+            from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_overviews co
             inner join most_recent_overviews mro on
                 co.org = mro.org and
                 co.course_key = mro.course_key and
