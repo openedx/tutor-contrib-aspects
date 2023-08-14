@@ -176,7 +176,7 @@ def transform_tracking_logs(context, **kwargs) -> None:
             continue
         if arg == "dry_run":
             options.append(f"--{arg}")
-        elif arg == "source_config" or arg == "destination_config":
+        elif arg in ("source_config", "destination_config"):
             options.append(f"--{arg} '{value}'")
         else:
             options.append(f"--{arg} {value}")
