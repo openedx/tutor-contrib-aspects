@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.26.0 - 2023-08-15
+
+### [0.26.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.25.1...v0.26.0) (2023-08-15)
+
+#### Features
+
+- Update Operator Dashboard ([3659f90](https://github.com/openedx/tutor-contrib-aspects/commit/3659f904768e9233c4ed95f9a676dff486f3270d))
+
+#### Bug Fixes
+
+- Re-add roles to dashboards, update docs, update import script to force roles ([bcab2a0](https://github.com/openedx/tutor-contrib-aspects/commit/bcab2a01a40094f77ae9bd41a5ed3e57765c3561))
+- Remove unnecessary date filter from unique actors chart ([598b794](https://github.com/openedx/tutor-contrib-aspects/commit/598b794332221b35055d1a36a4d9309ac0c35b00))
+
+#### Documentation
+
+- Update asset contribution readme section ([12fb7bf](https://github.com/openedx/tutor-contrib-aspects/commit/12fb7bfead8fec3c1772248fd6ab107789bddafe))
+
+#### Build Systems
+
+- Pin disk space cleaner, try to fix build error ([5b1fef2](https://github.com/openedx/tutor-contrib-aspects/commit/5b1fef207900332f516237657f585516bec3fbe0))
+
 ## v0.25.1 - 2023-08-14
 
 ### [0.25.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.25.0...v0.25.1) (2023-08-14)
