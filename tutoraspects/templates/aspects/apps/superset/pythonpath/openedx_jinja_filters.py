@@ -39,4 +39,5 @@ def can_view_courses(username, field_name="course_id"):
         # If you're not course staff on any courses, you don't get to see any.
         return NO_COURSES
 
-{{ patch("superset-jinja-filters") }}
+
+{{patch("superset-jinja-filters")}}

@@ -65,7 +65,7 @@ importlib-metadata==6.8.0
     # via
     #   keyring
     #   twine
-importlib-resources==6.0.0
+importlib-resources==6.0.1
     # via keyring
 isort==5.12.0
     # via pylint
@@ -99,7 +99,7 @@ mdurl==0.1.2
     # via markdown-it-py
 more-itertools==10.1.0
     # via jaraco-classes
-mypy==1.4.1
+mypy==1.5.0
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -171,7 +171,7 @@ pyyaml==6.0.1
     #   tutor
 readme-renderer==40.0
     # via twine
-regex==2023.6.3
+regex==2023.8.8
     # via
     #   -r requirements/base.txt
     #   parsimonious
@@ -221,7 +221,7 @@ toolz==0.12.0
     #   pyseeyou
 transifex-python==3.4.0
     # via -r requirements/base.txt
-tutor==16.0.3
+tutor==16.0.5
     # via -r requirements/base.txt
 twine==4.0.2
     # via -r requirements/dev.in

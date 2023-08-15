@@ -1,0 +1,77 @@
+_file_name: Course_Registrations_Over_Time.yaml
+cache_timeout: null
+dataset_uuid: 352311fe-12f0-470c-8b8c-d4f6a3936b3d
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: registered
+    expressionType: SIMPLE
+    filterOptionName: filter_0boo7wmml3y9_u9cjkku59hh
+    isExtra: false
+    isNew: false
+    operator: ==
+    operatorId: EQUALS
+    sqlExpression: null
+    subject: enrollment_status
+  annotation_layers: []
+  color_scheme: supersetColors
+  comparison_type: values
+  datasource: 2__table
+  extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
+  granularity_sqla: enrollment_status_date
+  groupby:
+  - enrollment_status
+  legendOrientation: top
+  legendType: scroll
+  markerSize: 6
+  metrics:
+  - aggregate: COUNT
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: enrollment_status
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 10
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: String
+      type_generic: 1
+      verbose_name: null
+      warning_markdown: null
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    isNew: false
+    label: COUNT(enrollment_status)
+    optionName: metric_iapetcrge8_4fkcsr2b3nj
+    sqlExpression: null
+  only_total: true
+  order_desc: true
+  rich_tooltip: true
+  row_limit: 10000
+  show_legend: true
+  slice_id: 451
+  time_grain_sqla: P1D
+  time_range: No filter
+  tooltipTimeFormat: smart_date
+  truncate_metric: true
+  viz_type: echarts_timeseries_line
+  x_axis_time_format: smart_date
+  x_axis_title_margin: 15
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  y_axis_title: Registrations
+  y_axis_title_margin: 15
+  y_axis_title_position: Left
+slice_name: Course Registrations Over Time
+uuid: bf4f4671-c276-4185-9b9a-b10864efea6c
+version: 1.0.0
+viz_type: echarts_timeseries_line
