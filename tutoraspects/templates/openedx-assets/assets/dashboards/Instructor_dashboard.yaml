@@ -1,4 +1,6 @@
 _file_name: Instructor_dashboard.yaml
+_roles:
+  - {{ SUPERSET_ROLES_MAPPING.instructor }}
 css: ''
 dashboard_title: Instructor dashboard
 description: null

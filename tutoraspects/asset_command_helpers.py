@@ -29,6 +29,7 @@ class Asset:
     path = None
     assets_path = None
     templated_vars = None
+    required_vars = None
 
     def __init__(self):
         if not self.path:
@@ -53,6 +54,15 @@ class Asset:
         """
         return self.templated_vars or []
 
+    def get_required_vars(self):
+        """
+        Returns a list of variables which must exist for the asset.
+
+        This allows us to make sure users remember to add `_roles` to dashboards.
+        Since those do not export.
+        """
+        return self.required_vars or []
+
 
 class ChartAsset(Asset):
     """
@@ -68,6 +78,7 @@ class DashboardAsset(Asset):
     """
 
     path = "dashboards"
+    required_vars = ["_roles"]
 
 
 class DatasetAsset(Asset):
@@ -96,9 +107,14 @@ ASSET_TYPE_MAP = {
 }
 
 
-def import_asset_file(asset_path, content, echo):
+def validate_asset_file(asset_path, content, echo):
+    """
+    Check various aspects of the asset file based on its type.
+
+    Returns the destination path for the file to import to.
+    """
     orig_filename = os.path.basename(asset_path)
-    out_filename = re.sub(r'(_\d*)\.yaml', '.yaml', orig_filename)
+    out_filename = re.sub(r"(_\d*)\.yaml", ".yaml", orig_filename)
     content[FILE_NAME_ATTRIBUTE] = out_filename
 
     out_path = None
@@ -111,9 +127,9 @@ def import_asset_file(asset_path, content, echo):
                 # If this is a variable we expect to be templated,
                 # check that it is.
                 if (
-                        content[var]
-                        and not content[var].startswith("{{")
-                        and not content[var].startswith("{%")
+                    content[var]
+                    and not content[var].startswith("{{")
+                    and not content[var].startswith("{%")
                 ):
                     echo(
                         click.style(
@@ -124,6 +140,19 @@ def import_asset_file(asset_path, content, echo):
                         )
                     )
                     needs_review = True
+
+            for var in cls.get_required_vars():
+                # If this variable is required and doesn't exist, warn.
+                if var not in content:
+                    echo(
+                        click.style(
+                            f"WARN: {orig_filename} is missing required "
+                            f"item '{var}'!",
+                            fg="red",
+                        )
+                    )
+                    needs_review = True
+            # We found the correct class, we can stop looking.
             break
     return out_path, needs_review
 
@@ -142,7 +171,7 @@ def import_superset_assets(file, echo):
                 continue
             with zip_file.open(asset_path) as asset_file:
                 content = yaml.safe_load(asset_file)
-                out_path, needs_review = import_asset_file(asset_path, content, echo)
+                out_path, needs_review = validate_asset_file(asset_path, content, echo)
 
                 # This can happen if it's an unknown asset type
                 if not out_path:

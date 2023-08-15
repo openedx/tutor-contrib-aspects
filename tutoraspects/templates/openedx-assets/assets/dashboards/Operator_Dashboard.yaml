@@ -1,4 +1,6 @@
 _file_name: Operator_Dashboard.yaml
+_roles:
+- {{ SUPERSET_ROLES_MAPPING.operator }}
 css: ''
 dashboard_title: Operator Dashboard
 description: null

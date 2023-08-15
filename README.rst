@@ -129,8 +129,9 @@ To contribute assets to Aspects:
 
    `WARN: fact_enrollments.yaml has schema set to reporting instead of a setting.`
 #. Check the diff of files and update any database connection strings or table names
-   to use Tutor configuration template variables instead of hard-coded strings, e.g. replace ``clickhouse`` with ``{{CLICKHOUSE_HOST}}``.
-   Passwords can be left as ``{{CLICKHOUSE_PASSWORD}}``, though be aware that if you are adding new
+   to use Tutor configuration template variables instead of hard-coded strings, e.g.
+   replace ``clickhouse`` with ``{{CLICKHOUSE_HOST}}``. Passwords can be left as
+   ``{{CLICKHOUSE_PASSWORD}}``, though be aware that if you are adding new
    databases, you'll need to update ``SUPERSET_DB_PASSWORDS`` in the init scripts.
    Here is the default connection string for reference::
 
@@ -140,6 +141,9 @@ To contribute assets to Aspects:
    `tutoraspects/templates/openedx-assets/queries` you can just revert that change back
    to their `include` values such as:
    `sql: "{% include 'openedx-assets/queries/fact_enrollments_by_day.sql' %}"`
+#. The script will also warn about missing `_roles` in dashboards. Superset does not export
+   these, so you will need to manually add this key with the roles that are necessary to
+   view the dashboard. See the existing dashboards for how this is done.
 #. Run the command `tutor aspects check_superset_assets` to confirm there are no
    duplicate assets, which can happen when you rename an asset, and will cause import
    to fail. The command will automatically delete the older file if it finds a duplicate.
