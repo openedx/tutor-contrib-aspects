@@ -1,22 +1,21 @@
 """Implements Aspects plugin via Tutor Plugin API v1."""
 from __future__ import annotations
 
-import os
 import os.path
 import random
 import string
 from glob import glob
-from zipfile import ZipFile
 
 import bcrypt
-import click
 import pkg_resources
-import yaml
 from tutor import hooks
 
 from .__about__ import __version__
 from .commands_v0 import COMMANDS as TUTOR_V0_COMMANDS
-from .commands_v1 import COMMANDS as TUTOR_V1_COMMANDS
+from .commands_v1 import (
+    DO_COMMANDS as TUTOR_V1_DO_COMMANDS,
+    COMMANDS as TUTOR_V1_COMMANDS,
+)
 
 ########################################
 # CONFIGURATION
@@ -475,51 +474,10 @@ except AttributeError:
         for mode in [dev.dev, local.local, k8s.k8s]:
             mode.add_command(f)
 else:
-    for f in TUTOR_V1_COMMANDS:
+    for f in TUTOR_V1_DO_COMMANDS:
         CLI_DO_COMMANDS.add_item(f)
-#######################################
-# CUSTOM CLI COMMANDS
-#######################################
 
-# Your plugin can also add custom commands directly to the Tutor CLI.
-# These commands are run directly on the user's host computer
-# (unlike jobs, which are run in containers).
-
-# To define a command group for your plugin, you would define a Click
-# group and then add it to CLI_COMMANDS:
-
-
-@click.group()
-def aspects() -> None:
-    """
-    Custom commands for the Aspects plugin.
-    """
-
-
-FILE_NAME_ATTRIBUTE = "_file_name"
-
-
-@aspects.command("serialize")
-@click.argument("file", type=click.File("r"))
-def serialize_zip(file):
-    """
-    Script that serializes a zip file to the assets.yaml file.
-    """
-    new_content = []
-
-    with ZipFile(file.name) as zip_file:
-        for asset_path in zip_file.namelist():
-            if "metadata.yaml" in asset_path:
-                continue
-            with zip_file.open(asset_path) as asset_file:
-                asset_content = yaml.safe_load(asset_file)
-                asset_content[FILE_NAME_ATTRIBUTE] = os.path.basename(asset_path)
-                new_content.append(asset_content)
-
-    with open("assets.yaml", "w", encoding="utf-8") as plugin:
-        yaml.dump(new_content, plugin)
-
-    click.echo(f"Serialized {len(new_content)} assets to assets.yaml")
-
-
-hooks.Filters.CLI_COMMANDS.add_item(aspects)
+# These commands work in both versions, but we're keeping them in the V1
+# file for now.
+for f in TUTOR_V1_COMMANDS:
+    hooks.Filters.CLI_COMMANDS.add_item(f)

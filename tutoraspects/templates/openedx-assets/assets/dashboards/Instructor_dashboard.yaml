@@ -1,0 +1,578 @@
+_file_name: Instructor_dashboard.yaml
+_roles:
+  - {{ SUPERSET_ROLES_MAPPING.instructor }}
+css: ''
+dashboard_title: Instructor dashboard
+description: null
+metadata:
+  chart_configuration: {}
+  color_scheme: ''
+  default_filters: '{}'
+  expanded_slices: {}
+  label_colors: {}
+  native_filter_configuration:
+  - cascadeParentIds: []
+    chartsInScope:
+    - 24
+    - 25
+    - 32
+    - 34
+    - 37
+    - 45
+    - 46
+    - 47
+    - 48
+    - 52
+    controlValues:
+      enableEmptyFilter: false
+    defaultDataMask:
+      extraFormData:
+        time_range: 'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"),
+          1, day)'
+      filterState:
+        value: 'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"), 1,
+          day)'
+    description: ''
+    filterType: filter_time
+    id: NATIVE_FILTER-zxfszG4xH
+    name: Time range
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope:
+    - TAB-8BxDuJd9Jb
+    - TAB-NR4UTAs9K
+    - TAB-7PGDduCA7
+    targets:
+    - {}
+    type: NATIVE_FILTER
+  - cascadeParentIds: []
+    chartsInScope:
+    - 24
+    - 25
+    - 32
+    - 34
+    - 37
+    - 45
+    - 46
+    - 47
+    - 48
+    - 52
+    controlValues:
+      defaultToFirstItem: true
+      enableEmptyFilter: true
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-Vx7HxG8_7
+    name: org
+    requiredFirst: true
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope:
+    - TAB-8BxDuJd9Jb
+    - TAB-NR4UTAs9K
+    - TAB-7PGDduCA7
+    targets:
+    - column:
+        name: org
+      datasetUuid: 4b274428-d781-41be-b362-ed6917443678
+    type: NATIVE_FILTER
+  - cascadeParentIds:
+    - NATIVE_FILTER-Vx7HxG8_7
+    chartsInScope:
+    - 24
+    - 25
+    - 32
+    - 34
+    - 37
+    - 45
+    - 46
+    - 47
+    - 48
+    - 52
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-XPuiTOej4
+    name: Course name
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope:
+    - TAB-8BxDuJd9Jb
+    - TAB-NR4UTAs9K
+    - TAB-7PGDduCA7
+    targets:
+    - column:
+        name: course_name
+      datasetUuid: 4b274428-d781-41be-b362-ed6917443678
+    type: NATIVE_FILTER
+  - cascadeParentIds:
+    - NATIVE_FILTER-Vx7HxG8_7
+    - NATIVE_FILTER-XPuiTOej4
+    chartsInScope:
+    - 24
+    - 25
+    - 32
+    - 34
+    - 37
+    - 45
+    - 46
+    - 47
+    - 48
+    - 52
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-E6-vOpjZv
+    name: Run name
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope:
+    - TAB-8BxDuJd9Jb
+    - TAB-NR4UTAs9K
+    - TAB-7PGDduCA7
+    targets:
+    - column:
+        name: run_name
+      datasetUuid: 4b274428-d781-41be-b362-ed6917443678
+    type: NATIVE_FILTER
+  - cascadeParentIds:
+    - NATIVE_FILTER-Vx7HxG8_7
+    - NATIVE_FILTER-XPuiTOej4
+    - NATIVE_FILTER-E6-vOpjZv
+    chartsInScope:
+    - 45
+    - 46
+    - 47
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-6xfFY5VGz
+    name: Problem name
+    scope:
+      excluded:
+      - 414
+      rootPath:
+      - TAB-NR4UTAs9K
+    tabsInScope:
+    - TAB-NR4UTAs9K
+    targets:
+    - column:
+        name: problem_name
+      datasetUuid: 008e2907-fc6b-45ef-bf85-73a04c5791ff
+    type: NATIVE_FILTER
+  - cascadeParentIds:
+    - NATIVE_FILTER-Vx7HxG8_7
+    - NATIVE_FILTER-XPuiTOej4
+    - NATIVE_FILTER-E6-vOpjZv
+    chartsInScope:
+    - 52
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-V77Ybaw2w
+    name: Video name
+    scope:
+      excluded:
+      - 416
+      - 412
+      rootPath:
+      - TAB-7PGDduCA7
+    tabsInScope:
+    - TAB-7PGDduCA7
+    targets:
+    - column:
+        name: video_name
+      datasetUuid: 417b2035-8fa1-4c60-a405-4b1947c3c966
+    type: NATIVE_FILTER
+  refresh_frequency: 0
+  shared_label_colors: {}
+  show_native_filters: true
+  timed_refresh_immune_slices: []
+position:
+  CHART-1nuLZrBxuC:
+    children: []
+    id: CHART-1nuLZrBxuC
+    meta:
+      chartId: 443
+      height: 50
+      sliceName: Watched video segments
+      uuid: 2985a9db-c338-4008-af52-2930b81ee2e5
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-7PGDduCA7
+    - ROW-zM_Vvq_Wo4
+    type: CHART
+  CHART-6ShUwMXI4Q:
+    children: []
+    id: CHART-6ShUwMXI4Q
+    meta:
+      chartId: 428
+      height: 50
+      sliceName: Attempts to first success
+      uuid: db90930f-f16e-4c32-8050-0e4abae28f4c
+      width: 6
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    - ROW-F0Kodzjt8
+    type: CHART
+  CHART-AZZnl_lpMv:
+    children: []
+    id: CHART-AZZnl_lpMv
+    meta:
+      chartId: 416
+      height: 50
+      sliceName: Watches per video
+      uuid: 829c1d5b-2844-4115-876a-34ad3b3cad64
+      width: 6
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-7PGDduCA7
+    - ROW-BO2IHCiYF8
+    type: CHART
+  CHART-Jr-gNVms2Q:
+    children: []
+    id: CHART-Jr-gNVms2Q
+    meta:
+      chartId: 440
+      height: 50
+      sliceName: Enrollment events per day
+      uuid: bb1147cc-b7bc-44b7-b06a-79b0db6626aa
+      width: 8
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-8BxDuJd9Jb
+    - ROW-je_Wqya3Ga
+    type: CHART
+  CHART-Tej2oLPBAl:
+    children: []
+    id: CHART-Tej2oLPBAl
+    meta:
+      chartId: 412
+      height: 50
+      sliceName: Transcript/closed captioning usage per video
+      uuid: 6b830def-f3ca-4b4c-9455-7a7b7354bce8
+      width: 6
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-7PGDduCA7
+    - ROW-BO2IHCiYF8
+    type: CHART
+  CHART-VBeaYzSdd6:
+    children: []
+    id: CHART-VBeaYzSdd6
+    meta:
+      chartId: 423
+      height: 50
+      sliceName: Hints and answers displayed per correct answer
+      uuid: ee94be4c-6fdd-4295-b43c-40890d6c549d
+      width: 6
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    - ROW-F0Kodzjt8
+    type: CHART
+  CHART-evjVO-ZSSd:
+    children: []
+    id: CHART-evjVO-ZSSd
+    meta:
+      chartId: 444
+      height: 50
+      sliceName: Cumulative enrollments by mode
+      uuid: 05ed7102-5464-4e2f-86ae-31700b787cc3
+      width: 4
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-8BxDuJd9Jb
+    - ROW-je_Wqya3Ga
+    type: CHART
+  CHART-hrPFXl_7_X:
+    children: []
+    id: CHART-hrPFXl_7_X
+    meta:
+      chartId: 426
+      height: 50
+      sliceName: Response distribution
+      uuid: f1651c44-a8f4-4b44-ad49-962823009319
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    - ROW-hl5VZP3L0
+    type: CHART
+  CHART-rnb6PSwCOS:
+    children: []
+    id: CHART-rnb6PSwCOS
+    meta:
+      chartId: 421
+      height: 50
+      sliceName: Enrolled learners per day
+      uuid: ed2fe731-6544-422f-bc55-42f399f48b2c
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-8BxDuJd9Jb
+    - ROW-K8s_8uq9IP
+    type: CHART
+  CHART-s8sC81tP9u:
+    children: []
+    id: CHART-s8sC81tP9u
+    meta:
+      chartId: 414
+      height: 48
+      sliceName: Problem submission counts
+      uuid: 3dc6a642-a71d-4c8c-ab98-14f54852b40f
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    - ROW-_qzhG9fM3z
+    type: CHART
+  DASHBOARD_VERSION_KEY: v2
+  DIVIDER-G6rO0La8YT:
+    children: []
+    id: DIVIDER-G6rO0La8YT
+    meta: {}
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    type: DIVIDER
+  GRID_ID:
+    children: []
+    id: GRID_ID
+    parents:
+    - ROOT_ID
+    type: GRID
+  HEADER-ugSaqn0qxx:
+    children: []
+    id: HEADER-ugSaqn0qxx
+    meta:
+      background: BACKGROUND_TRANSPARENT
+      headerSize: MEDIUM_HEADER
+      text: Problem performance
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    type: HEADER
+  HEADER-v9QDHi2Dxm:
+    children: []
+    id: HEADER-v9QDHi2Dxm
+    meta:
+      background: BACKGROUND_TRANSPARENT
+      headerSize: MEDIUM_HEADER
+      text: Problem engagement overview
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    type: HEADER
+  HEADER_ID:
+    id: HEADER_ID
+    meta:
+      text: Instructor dashboard
+    type: HEADER
+  ROOT_ID:
+    children:
+    - TABS-SNeKAJcjhd
+    id: ROOT_ID
+    type: ROOT
+  ROW-BO2IHCiYF8:
+    children:
+    - CHART-AZZnl_lpMv
+    - CHART-Tej2oLPBAl
+    id: ROW-BO2IHCiYF8
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-7PGDduCA7
+    type: ROW
+  ROW-F0Kodzjt8:
+    children:
+    - CHART-6ShUwMXI4Q
+    - CHART-VBeaYzSdd6
+    id: ROW-F0Kodzjt8
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    type: ROW
+  ROW-K8s_8uq9IP:
+    children:
+    - CHART-rnb6PSwCOS
+    id: ROW-K8s_8uq9IP
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-8BxDuJd9Jb
+    type: ROW
+  ROW-_qzhG9fM3z:
+    children:
+    - CHART-s8sC81tP9u
+    id: ROW-_qzhG9fM3z
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    type: ROW
+  ROW-hl5VZP3L0:
+    children:
+    - CHART-hrPFXl_7_X
+    id: ROW-hl5VZP3L0
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    type: ROW
+  ROW-je_Wqya3Ga:
+    children:
+    - CHART-evjVO-ZSSd
+    - CHART-Jr-gNVms2Q
+    id: ROW-je_Wqya3Ga
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-8BxDuJd9Jb
+    type: ROW
+  ROW-zM_Vvq_Wo4:
+    children:
+    - CHART-1nuLZrBxuC
+    id: ROW-zM_Vvq_Wo4
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-7PGDduCA7
+    type: ROW
+  TAB-7PGDduCA7:
+    children:
+    - ROW-BO2IHCiYF8
+    - ROW-zM_Vvq_Wo4
+    id: TAB-7PGDduCA7
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Video engagement
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    type: TAB
+  TAB-8BxDuJd9Jb:
+    children:
+    - ROW-K8s_8uq9IP
+    - ROW-je_Wqya3Ga
+    id: TAB-8BxDuJd9Jb
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Enrollment
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    type: TAB
+  TAB-NR4UTAs9K:
+    children:
+    - HEADER-v9QDHi2Dxm
+    - ROW-_qzhG9fM3z
+    - DIVIDER-G6rO0La8YT
+    - HEADER-ugSaqn0qxx
+    - ROW-hl5VZP3L0
+    - ROW-F0Kodzjt8
+    id: TAB-NR4UTAs9K
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Problem engagement
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    type: TAB
+  TABS-SNeKAJcjhd:
+    children:
+    - TAB-8BxDuJd9Jb
+    - TAB-NR4UTAs9K
+    - TAB-7PGDduCA7
+    id: TABS-SNeKAJcjhd
+    meta: {}
+    parents:
+    - ROOT_ID
+    type: TABS
+slug: instructor-dashboard
+uuid: 1d6bf904-f53f-47fd-b1c9-6cd7e284d286
+version: 1.0.0

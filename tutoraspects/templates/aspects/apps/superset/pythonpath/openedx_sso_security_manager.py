@@ -78,7 +78,9 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
                 )
                 language_preference = "en"
 
-            user_roles = self._get_user_roles(user_profile.get("preferred_username"), language_preference)
+            user_roles = self._get_user_roles(
+                user_profile.get("preferred_username"), language_preference
+            )
 
             return {
                 "name": user_profile["name"],
@@ -103,7 +105,7 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
 
         if not self.is_token_expired(token):
             return token
-            
+
         try:
             new_token = self.refresh_token(token)
         except OAuthError as e:
@@ -118,7 +120,7 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         """
         Checks if the given token is expired.
         """
-        is_expired = time.time() > token.get('expires_at', 0)
+        is_expired = time.time() > token.get("expires_at", 0)
         return is_expired
 
     def refresh_token(self, token):
@@ -127,20 +129,20 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         """
         provider = session.get("oauth_provider")
         oauth_remote = self.oauth_remotes.get(provider)
-        
+
         if not oauth_remote:
             raise Exception("No OAuth remote object found")
 
-        refresh_token = token.get('refresh_token')
+        refresh_token = token.get("refresh_token")
         lms_root_url = current_app.config["OPENEDX_LMS_ROOT_URL"]
-        refresh_url = f'{lms_root_url}/oauth2/access_token/'
+        refresh_url = f"{lms_root_url}/oauth2/access_token/"
 
         data = {
-            'client_id': oauth_remote.client_id,
-            'client_secret': oauth_remote.client_secret,
-            'grant_type': 'refresh_token',
-            'refresh_token': refresh_token,
-            'token_type': 'JWT'
+            "client_id": oauth_remote.client_id,
+            "client_secret": oauth_remote.client_secret,
+            "grant_type": "refresh_token",
+            "refresh_token": refresh_token,
+            "token_type": "JWT",
         }
         response = requests.post(refresh_url, data=data)
         if response.status_code == 200:
@@ -175,12 +177,12 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
                 if bool("{{SUPERSET_BLOCK_STUDENT_ACCESS}}") and not roles:
                     raise Exception(f"Student {username} tried to access Superset")
             return roles if roles else []
-    
+
     def extra_get_user_roles(self, username, decoded_access_token):
         """
         Returns the Superset roles that should be associated with the given user.
         """
-        {{ patch("superset-sso-assignment-rules")|indent(8) }}
+        {{patch("superset-sso-assignment-rules") | indent(8)}}
         return None
 
     @memoized(watch=("access_token",))

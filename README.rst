@@ -93,10 +93,11 @@ Sharing Charts and Dashboards
 To share your charts with others in the community, use Superset's "Export" button to
 save a zip file of your charts and related datasets.
 
-.. note::
+.. warning::
     The exported datasets will contain hard-coded references to your particular
-    databases, including your database hostname, port, and username, but it
-    will not contain passwords.
+    databases, including your database hostname, port, and username, in some cases
+    it may also contain database passwords. It is vital that you review the
+    database and dataset files before sharing them.
 
 To import charts or dashboards shared by someone in the community:
 
@@ -109,28 +110,49 @@ To import charts or dashboards shared by someone in the community:
 Contributing Charts and Dashboards to Aspects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Superset assets provided by Aspects can be found in the templated `assets.yaml`_ file.
-For the most part, these files what Superset exports, but with some crucial differences
+The Superset assets provided by Aspects can be found in the templated
+`tutoraspects/templates/openedx-assets/assets` directory. For the most part,
+these files are what Superset exports, but with some crucial differences
 which make these assets usable across all Tutor deployments.
 
 To contribute assets to Aspects:
 
+#. Fork this repository and have a locally running Tutor set up with this plugin
+   installed.
 #. Export the assets you want to contribute as described in `Sharing Charts and Dashboards`
-#. Expand the ``.zip`` file.
-#. Update any database connection strings to use Tutor configuration template variables
-   instead of hard-coded strings, e.g. replace ``clickhouse`` with ``{{CLICKHOUSE_HOST}}``.
-   Passwords can be left as ``{{CLICKHOUSE_PASSWORD}}``, though be aware that if you are adding new
+#. Run the command:
+   `tutor aspects import_superset_zip ~/Downloads/your_file.zip`
+#. This command will copy the files from your zip to the assets directory and
+   attempt to warn you if there are hard coded connection settings where it expects
+   template variables. These are usually in database and dataset assets, and those are
+   often assets that already exist. The warnings look like:
+
+   `WARN: fact_enrollments.yaml has schema set to reporting instead of a setting.`
+#. Check the diff of files and update any database connection strings or table names
+   to use Tutor configuration template variables instead of hard-coded strings, e.g.
+   replace ``clickhouse`` with ``{{CLICKHOUSE_HOST}}``. Passwords can be left as
+   ``{{CLICKHOUSE_PASSWORD}}``, though be aware that if you are adding new
    databases, you'll need to update ``SUPERSET_DB_PASSWORDS`` in the init scripts.
    Here is the default connection string for reference::
 
-    ``clickhousedb+connect://{{CLICKHOUSE_REPORT_URL}}``
-#. Remove any ``metadata.yaml`` files from the export. We generate these as needed during import.
-#. Merge your exported files into the directories and files in the `assets.yaml`_.
-#. Submit a PR with screenshots of your new chart or dashboards, along with an explanation
-   of what data question they answer.
+   ``clickhousedb+connect://{{CLICKHOUSE_REPORT_URL}}``
+#. You will likely also run into issues where our SQL templates have been expanded into
+   their actual SQL. If you haven't changed the SQL of these queries (stored in
+   `tutoraspects/templates/openedx-assets/queries` you can just revert that change back
+   to their `include` values such as:
+   `sql: "{% include 'openedx-assets/queries/fact_enrollments_by_day.sql' %}"`
+#. The script will also warn about missing `_roles` in dashboards. Superset does not export
+   these, so you will need to manually add this key with the roles that are necessary to
+   view the dashboard. See the existing dashboards for how this is done.
+#. Run the command `tutor aspects check_superset_assets` to confirm there are no
+   duplicate assets, which can happen when you rename an asset, and will cause import
+   to fail. The command will automatically delete the older file if it finds a duplicate.
+#. Check that everything imports correctly by running `tutor local do init -l aspects`
+   and confirming there are no errors.
+#. Double check that your database password did not get exported before committing!
+#. Commit and submit a PR with screenshots of your new chart or dashboards, along with an
+   explanation of what data question they answer.
 
-
-.. _assets.yaml: tutoraspects/templates/aspects/apps/superset/pythonpath/assets.yaml
 
 Virtual datasets in Superset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

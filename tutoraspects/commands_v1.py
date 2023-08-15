@@ -2,8 +2,16 @@
 from __future__ import annotations
 
 import string
+import sys
 
 import click
+
+from tutoraspects.asset_command_helpers import (
+    check_asset_names,
+    import_superset_assets,
+    deduplicate_superset_assets,
+    SupersetCommandError,
+)
 
 
 @click.command()
@@ -180,10 +188,69 @@ def transform_tracking_logs(**kwargs) -> list[tuple[str, str]]:
     return [("lms", command)]
 
 
-COMMANDS = (
+@click.group()
+def aspects() -> None:
+    """
+    Custom commands for the Aspects plugin.
+    """
+
+
+@aspects.command("import_superset_zip")
+@click.argument("file", type=click.File("r"))
+def serialize_zip(file):
+    """
+    Script that serializes a zip file to the assets.yaml file.
+    """
+    try:
+        import_superset_assets(file, click.echo)
+    except SupersetCommandError:
+        click.echo()
+        click.echo("Errors found on import. Please correct the issues, then run:")
+        click.echo(click.style("tutor aspects check_superset_assets", fg="green"))
+        sys.exit(-1)
+
+    click.echo()
+    deduplicate_superset_assets(click.echo)
+
+    click.echo()
+    check_asset_names(click.echo)
+
+    click.echo()
+    click.echo("Asset merge complete!")
+    click.echo()
+    click.echo(
+        click.style(
+            "PLEASE check your diffs for exported passwords before committing!",
+            fg="yellow",
+        )
+    )
+
+
+@aspects.command("check_superset_assets")
+def check_superset_assets():
+    """
+    Deduplicate assets by UUID, and check for duplicate asset names.
+    """
+    deduplicate_superset_assets(click.echo)
+
+    click.echo()
+    check_asset_names(click.echo)
+
+    click.echo()
+    click.echo(
+        click.style(
+            "PLEASE check your diffs for exported passwords before committing!",
+            fg="yellow",
+        )
+    )
+
+
+DO_COMMANDS = (
     load_xapi_test_data,
     dbt,
     alembic,
     dump_courses_to_clickhouse,
     transform_tracking_logs,
 )
+
+COMMANDS = (aspects,)
