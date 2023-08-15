@@ -37,7 +37,7 @@ params:
   subheader_font_size: 0.15
   time_format: smart_date
   time_grain_sqla: P1D
-  time_range: Last month
+  time_range: No filter
   viz_type: big_number_total
   y_axis_format: SMART_NUMBER
 slice_name: Unique actors
