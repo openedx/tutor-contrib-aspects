@@ -7,6 +7,9 @@ on:
       - .github/**
       - .ci/**
       - .gitignore
+      - CHANGELOG.md
+      - setup.cfg
+      - tutoraspects/__about__.py
 
 
 env:
@@ -94,8 +97,6 @@ jobs:
             kustomize build $TUTOR_ROOT/env | kubeconform -strict -ignore-missing-schemas -kubernetes-version 1.22.0
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v2
-      - name: Tutor build openedx
-        run: tutor images build openedx-dev aspects aspects-superset
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@4d9e71b726748f254fe64fa44d273194bd18ec91
         with:
@@ -110,8 +111,16 @@ jobs:
           haskell: true
           large-packages: false
           swap-storage: true
+      - name: Tutor build openedx
+        run: tutor images build openedx-dev aspects aspects-superset
       - name: Create k8s Kind Cluster
         uses: helm/kind-action@v1.8.0
+      - name: Mount docker image
+        run: |
+          kind get clusters
+          kind load docker-image $(tutor images printtag openedx-dev) --name chart-testing
+          kind load docker-image $(tutor images printtag aspects) --name chart-testing
+          kind load docker-image $(tutor images printtag aspects-superset) --name chart-testing
       - name: Init k8s environment
         run: |
           tutor k8s start
