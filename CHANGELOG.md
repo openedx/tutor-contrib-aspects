@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.26.1 - 2023-08-16
+
+### [0.26.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.26.0...v0.26.1) (2023-08-16)
+
+### Bug Fixes
+
+- Environment variable contain whitespace issue ([9d20dd1](https://github.com/openedx/tutor-contrib-aspects/commit/9d20dd12211363495d39103eab6599a2352e00a6))
+- Update env ([882db11](https://github.com/openedx/tutor-contrib-aspects/commit/882db116ad0e061776a61f21f19754b81e027a6a))
+
 ## v0.26.0 - 2023-08-15
 
 ### [0.26.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.25.1...v0.26.0) (2023-08-15)
