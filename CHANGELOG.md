@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.27.0 - 2023-08-16
+
+### [0.27.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.26.1...v0.27.0) (2023-08-16)
+
+#### Features
+
+- add fields to event_sink.course_names ([9ee5fe5](https://github.com/openedx/tutor-contrib-aspects/commit/9ee5fe54fc27b32e1625808588d4c17dfcc7354f))
+
+#### Bug Fixes
+
+- use drop and create for increased stability ([6ccdaf4](https://github.com/openedx/tutor-contrib-aspects/commit/6ccdaf4f08a8b7ed373be4dc7f33a35ceb121a22))
+
+#### Code Refactoring
+
+- templatize db name in migration ([82828a6](https://github.com/openedx/tutor-contrib-aspects/commit/82828a634ae733642f3e0328af29cd7e0c324b5f))
+
 ## v0.26.1 - 2023-08-16
 
 ### [0.26.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.26.0...v0.26.1) (2023-08-16)
