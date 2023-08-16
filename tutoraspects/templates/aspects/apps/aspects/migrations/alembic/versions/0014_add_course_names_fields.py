@@ -11,9 +11,23 @@ depends_on = None
 
 
 def upgrade():
+    # We include these drop statements here because "CREATE OR REPLACE DICTIONARY"
+    # currently throws a file rename error and you can't drop a dictionary with a
+    # table referring to it.
     op.execute(
         """
-        CREATE OR REPLACE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict (
+        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names;
+    """
+    )
+    op.execute(
+        """
+        DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict;
+    """
+    )
+
+    op.execute(
+        """
+        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict (
             course_key String,
             course_name String,
             course_run String,
@@ -47,7 +61,7 @@ def upgrade():
     )
     op.execute(
         """
-        CREATE OR REPLACE TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names
+        CREATE TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names
         (
             course_key String,
             course_name String,
@@ -61,7 +75,18 @@ def upgrade():
 def downgrade():
     op.execute(
         """
-        CREATE OR REPLACE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict (
+        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names;
+    """
+    )
+    op.execute(
+        """
+        DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict;
+    """
+    )
+
+    op.execute(
+        """
+        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict (
             course_key String,
             course_name String
         )
@@ -91,7 +116,7 @@ def downgrade():
     )
     op.execute(
         """
-        CREATE OR REPLACE TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names
+        CREATE TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names
         (
             course_key String,
             course_name String
