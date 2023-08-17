@@ -43,7 +43,9 @@ metadata:
     tabsInScope:
     - TAB-8BxDuJd9Jb
     - TAB-NR4UTAs9K
+    - TAB-pOd4znTAV
     - TAB-7PGDduCA7
+    - TAB-CLiLC4zxo
     targets:
     - {}
     type: NATIVE_FILTER
@@ -81,7 +83,9 @@ metadata:
     tabsInScope:
     - TAB-8BxDuJd9Jb
     - TAB-NR4UTAs9K
+    - TAB-pOd4znTAV
     - TAB-7PGDduCA7
+    - TAB-CLiLC4zxo
     targets:
     - column:
         name: org
@@ -121,7 +125,9 @@ metadata:
     tabsInScope:
     - TAB-8BxDuJd9Jb
     - TAB-NR4UTAs9K
+    - TAB-pOd4znTAV
     - TAB-7PGDduCA7
+    - TAB-CLiLC4zxo
     targets:
     - column:
         name: course_name
@@ -162,7 +168,9 @@ metadata:
     tabsInScope:
     - TAB-8BxDuJd9Jb
     - TAB-NR4UTAs9K
+    - TAB-pOd4znTAV
     - TAB-7PGDduCA7
+    - TAB-CLiLC4zxo
     targets:
     - column:
         name: run_name
@@ -177,10 +185,10 @@ metadata:
     - 46
     - 47
     controlValues:
-      defaultToFirstItem: false
-      enableEmptyFilter: false
+      defaultToFirstItem: true
+      enableEmptyFilter: true
       inverseSelection: false
-      multiSelect: true
+      multiSelect: false
       searchAllOptions: false
     defaultDataMask:
       extraFormData: {}
@@ -190,13 +198,13 @@ metadata:
     filterType: filter_select
     id: NATIVE_FILTER-6xfFY5VGz
     name: Problem name
+    requiredFirst: true
     scope:
-      excluded:
-      - 414
+      excluded: []
       rootPath:
-      - TAB-NR4UTAs9K
+      - TAB-pOd4znTAV
     tabsInScope:
-    - TAB-NR4UTAs9K
+    - TAB-pOd4znTAV
     targets:
     - column:
         name: problem_name
@@ -206,13 +214,12 @@ metadata:
     - NATIVE_FILTER-Vx7HxG8_7
     - NATIVE_FILTER-XPuiTOej4
     - NATIVE_FILTER-E6-vOpjZv
-    chartsInScope:
-    - 52
+    chartsInScope: []
     controlValues:
-      defaultToFirstItem: false
-      enableEmptyFilter: false
+      defaultToFirstItem: true
+      enableEmptyFilter: true
       inverseSelection: false
-      multiSelect: true
+      multiSelect: false
       searchAllOptions: false
     defaultDataMask:
       extraFormData: {}
@@ -222,14 +229,12 @@ metadata:
     filterType: filter_select
     id: NATIVE_FILTER-V77Ybaw2w
     name: Video name
+    requiredFirst: true
     scope:
-      excluded:
-      - 416
-      - 412
+      excluded: []
       rootPath:
-      - TAB-7PGDduCA7
-    tabsInScope:
-    - TAB-7PGDduCA7
+      - TAB-CLiLC4zxo
+    tabsInScope: []
     targets:
     - column:
         name: video_name
@@ -240,41 +245,11 @@ metadata:
   show_native_filters: true
   timed_refresh_immune_slices: []
 position:
-  CHART-1nuLZrBxuC:
-    children: []
-    id: CHART-1nuLZrBxuC
-    meta:
-      chartId: 443
-      height: 50
-      sliceName: Watched video segments
-      uuid: 2985a9db-c338-4008-af52-2930b81ee2e5
-      width: 12
-    parents:
-    - ROOT_ID
-    - TABS-SNeKAJcjhd
-    - TAB-7PGDduCA7
-    - ROW-zM_Vvq_Wo4
-    type: CHART
-  CHART-6ShUwMXI4Q:
-    children: []
-    id: CHART-6ShUwMXI4Q
-    meta:
-      chartId: 428
-      height: 50
-      sliceName: Attempts to first success
-      uuid: db90930f-f16e-4c32-8050-0e4abae28f4c
-      width: 6
-    parents:
-    - ROOT_ID
-    - TABS-SNeKAJcjhd
-    - TAB-NR4UTAs9K
-    - ROW-F0Kodzjt8
-    type: CHART
   CHART-AZZnl_lpMv:
     children: []
     id: CHART-AZZnl_lpMv
     meta:
-      chartId: 416
+      chartId: 25
       height: 50
       sliceName: Watches per video
       uuid: 829c1d5b-2844-4115-876a-34ad3b3cad64
@@ -285,11 +260,26 @@ position:
     - TAB-7PGDduCA7
     - ROW-BO2IHCiYF8
     type: CHART
+  CHART-GFCO8s2cxv:
+    children: []
+    id: CHART-GFCO8s2cxv
+    meta:
+      chartId: 45
+      height: 50
+      sliceName: Response distribution
+      uuid: f1651c44-a8f4-4b44-ad49-962823009319
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-pOd4znTAV
+    - ROW-lZkhTcIAro
+    type: CHART
   CHART-Jr-gNVms2Q:
     children: []
     id: CHART-Jr-gNVms2Q
     meta:
-      chartId: 440
+      chartId: 34
       height: 50
       sliceName: Enrollment events per day
       uuid: bb1147cc-b7bc-44b7-b06a-79b0db6626aa
@@ -300,11 +290,26 @@ position:
     - TAB-8BxDuJd9Jb
     - ROW-je_Wqya3Ga
     type: CHART
+  CHART-OMy4wjRBWt:
+    children: []
+    id: CHART-OMy4wjRBWt
+    meta:
+      chartId: 52
+      height: 50
+      sliceName: Watched video segments
+      uuid: 2985a9db-c338-4008-af52-2930b81ee2e5
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-CLiLC4zxo
+    - ROW-lN_IXnlUhL
+    type: CHART
   CHART-Tej2oLPBAl:
     children: []
     id: CHART-Tej2oLPBAl
     meta:
-      chartId: 412
+      chartId: 24
       height: 50
       sliceName: Transcript/closed captioning usage per video
       uuid: 6b830def-f3ca-4b4c-9455-7a7b7354bce8
@@ -315,26 +320,11 @@ position:
     - TAB-7PGDduCA7
     - ROW-BO2IHCiYF8
     type: CHART
-  CHART-VBeaYzSdd6:
-    children: []
-    id: CHART-VBeaYzSdd6
-    meta:
-      chartId: 423
-      height: 50
-      sliceName: Hints and answers displayed per correct answer
-      uuid: ee94be4c-6fdd-4295-b43c-40890d6c549d
-      width: 6
-    parents:
-    - ROOT_ID
-    - TABS-SNeKAJcjhd
-    - TAB-NR4UTAs9K
-    - ROW-F0Kodzjt8
-    type: CHART
   CHART-evjVO-ZSSd:
     children: []
     id: CHART-evjVO-ZSSd
     meta:
-      chartId: 444
+      chartId: 32
       height: 50
       sliceName: Cumulative enrollments by mode
       uuid: 05ed7102-5464-4e2f-86ae-31700b787cc3
@@ -345,26 +335,26 @@ position:
     - TAB-8BxDuJd9Jb
     - ROW-je_Wqya3Ga
     type: CHART
-  CHART-hrPFXl_7_X:
+  CHART-lTr8DL3XuI:
     children: []
-    id: CHART-hrPFXl_7_X
+    id: CHART-lTr8DL3XuI
     meta:
-      chartId: 426
+      chartId: 46
       height: 50
-      sliceName: Response distribution
-      uuid: f1651c44-a8f4-4b44-ad49-962823009319
-      width: 12
+      sliceName: Hints and answers displayed per correct answer
+      uuid: ee94be4c-6fdd-4295-b43c-40890d6c549d
+      width: 6
     parents:
     - ROOT_ID
     - TABS-SNeKAJcjhd
-    - TAB-NR4UTAs9K
-    - ROW-hl5VZP3L0
+    - TAB-pOd4znTAV
+    - ROW-GKMT8uEu6K
     type: CHART
   CHART-rnb6PSwCOS:
     children: []
     id: CHART-rnb6PSwCOS
     meta:
-      chartId: 421
+      chartId: 37
       height: 50
       sliceName: Enrolled learners per day
       uuid: ed2fe731-6544-422f-bc55-42f399f48b2c
@@ -379,7 +369,7 @@ position:
     children: []
     id: CHART-s8sC81tP9u
     meta:
-      chartId: 414
+      chartId: 48
       height: 48
       sliceName: Problem submission counts
       uuid: 3dc6a642-a71d-4c8c-ab98-14f54852b40f
@@ -389,6 +379,21 @@ position:
     - TABS-SNeKAJcjhd
     - TAB-NR4UTAs9K
     - ROW-_qzhG9fM3z
+    type: CHART
+  CHART-tWnaoVNNTH:
+    children: []
+    id: CHART-tWnaoVNNTH
+    meta:
+      chartId: 47
+      height: 50
+      sliceName: Attempts to first success
+      uuid: db90930f-f16e-4c32-8050-0e4abae28f4c
+      width: 6
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-pOd4znTAV
+    - ROW-GKMT8uEu6K
     type: CHART
   DASHBOARD_VERSION_KEY: v2
   DIVIDER-G6rO0La8YT:
@@ -406,18 +411,6 @@ position:
     parents:
     - ROOT_ID
     type: GRID
-  HEADER-ugSaqn0qxx:
-    children: []
-    id: HEADER-ugSaqn0qxx
-    meta:
-      background: BACKGROUND_TRANSPARENT
-      headerSize: MEDIUM_HEADER
-      text: Problem performance
-    parents:
-    - ROOT_ID
-    - TABS-SNeKAJcjhd
-    - TAB-NR4UTAs9K
-    type: HEADER
   HEADER-v9QDHi2Dxm:
     children: []
     id: HEADER-v9QDHi2Dxm
@@ -452,17 +445,17 @@ position:
     - TABS-SNeKAJcjhd
     - TAB-7PGDduCA7
     type: ROW
-  ROW-F0Kodzjt8:
+  ROW-GKMT8uEu6K:
     children:
-    - CHART-6ShUwMXI4Q
-    - CHART-VBeaYzSdd6
-    id: ROW-F0Kodzjt8
+    - CHART-tWnaoVNNTH
+    - CHART-lTr8DL3XuI
+    id: ROW-GKMT8uEu6K
     meta:
       background: BACKGROUND_TRANSPARENT
     parents:
     - ROOT_ID
     - TABS-SNeKAJcjhd
-    - TAB-NR4UTAs9K
+    - TAB-pOd4znTAV
     type: ROW
   ROW-K8s_8uq9IP:
     children:
@@ -486,17 +479,6 @@ position:
     - TABS-SNeKAJcjhd
     - TAB-NR4UTAs9K
     type: ROW
-  ROW-hl5VZP3L0:
-    children:
-    - CHART-hrPFXl_7_X
-    id: ROW-hl5VZP3L0
-    meta:
-      background: BACKGROUND_TRANSPARENT
-    parents:
-    - ROOT_ID
-    - TABS-SNeKAJcjhd
-    - TAB-NR4UTAs9K
-    type: ROW
   ROW-je_Wqya3Ga:
     children:
     - CHART-evjVO-ZSSd
@@ -509,21 +491,31 @@ position:
     - TABS-SNeKAJcjhd
     - TAB-8BxDuJd9Jb
     type: ROW
-  ROW-zM_Vvq_Wo4:
+  ROW-lN_IXnlUhL:
     children:
-    - CHART-1nuLZrBxuC
-    id: ROW-zM_Vvq_Wo4
+    - CHART-OMy4wjRBWt
+    id: ROW-lN_IXnlUhL
     meta:
       background: BACKGROUND_TRANSPARENT
     parents:
     - ROOT_ID
     - TABS-SNeKAJcjhd
-    - TAB-7PGDduCA7
+    - TAB-CLiLC4zxo
+    type: ROW
+  ROW-lZkhTcIAro:
+    children:
+    - CHART-GFCO8s2cxv
+    id: ROW-lZkhTcIAro
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-pOd4znTAV
     type: ROW
   TAB-7PGDduCA7:
     children:
     - ROW-BO2IHCiYF8
-    - ROW-zM_Vvq_Wo4
     id: TAB-7PGDduCA7
     meta:
       defaultText: Tab title
@@ -546,19 +538,41 @@ position:
     - ROOT_ID
     - TABS-SNeKAJcjhd
     type: TAB
+  TAB-CLiLC4zxo:
+    children:
+    - ROW-lN_IXnlUhL
+    id: TAB-CLiLC4zxo
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Video drilldown
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    type: TAB
   TAB-NR4UTAs9K:
     children:
     - HEADER-v9QDHi2Dxm
     - ROW-_qzhG9fM3z
     - DIVIDER-G6rO0La8YT
-    - HEADER-ugSaqn0qxx
-    - ROW-hl5VZP3L0
-    - ROW-F0Kodzjt8
     id: TAB-NR4UTAs9K
     meta:
       defaultText: Tab title
       placeholder: Tab title
-      text: Problem engagement
+      text: Course problem engagement
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    type: TAB
+  TAB-pOd4znTAV:
+    children:
+    - ROW-lZkhTcIAro
+    - ROW-GKMT8uEu6K
+    id: TAB-pOd4znTAV
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Problem performance
     parents:
     - ROOT_ID
     - TABS-SNeKAJcjhd
@@ -567,7 +581,9 @@ position:
     children:
     - TAB-8BxDuJd9Jb
     - TAB-NR4UTAs9K
+    - TAB-pOd4znTAV
     - TAB-7PGDduCA7
+    - TAB-CLiLC4zxo
     id: TABS-SNeKAJcjhd
     meta: {}
     parents:
