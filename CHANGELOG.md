@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.28.0 - 2023-08-17
+
+### [0.28.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.27.0...v0.28.0) (2023-08-17)
+
+#### Features
+
+- create component-specific tabs ([f42e24d](https://github.com/openedx/tutor-contrib-aspects/commit/f42e24d595ec3b4b98adcd7ac3eb465451c40879))
+
+#### Tests
+
+- load images built in kind ([ae4d4e7](https://github.com/openedx/tutor-contrib-aspects/commit/ae4d4e7efacf2cade57dece732dd2a40018b679e))
+
 ## v0.27.0 - 2023-08-16
 
 ### [0.27.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.26.1...v0.27.0) (2023-08-16)
