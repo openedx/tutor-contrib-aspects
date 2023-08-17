@@ -162,6 +162,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "instructor": "Instructor",
                 "operator": "Operator",
                 "admin": "Admin",
+                "student": "Student",
             },
         ),
         ("SUPERSET_ADMIN_EMAIL", "admin@openedx.org"),
