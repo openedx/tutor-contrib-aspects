@@ -1,7 +1,7 @@
 select
     org,
     course_name,
-    run_name,
+    course_run,
     problem_name,
     actor_id,
     sum(num_hints_displayed) + sum(num_answers_displayed) as total_hints
@@ -11,6 +11,6 @@ where success = 1
 group by
     org,
     course_name,
-    run_name,
+    course_run,
     problem_name,
     actor_id

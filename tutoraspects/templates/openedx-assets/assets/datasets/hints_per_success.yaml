@@ -50,7 +50,7 @@ columns:
   type: String
   verbose_name: null
 - advanced_data_type: null
-  column_name: run_name
+  column_name: course_run
   description: null
   expression: null
   extra: null
