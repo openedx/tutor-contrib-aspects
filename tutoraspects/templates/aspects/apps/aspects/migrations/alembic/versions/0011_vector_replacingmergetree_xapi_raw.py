@@ -36,14 +36,13 @@ def upgrade():
         {DESTINATION_TABLE};
         """
     )
-    # 3. Swap both tables in a single rename statement.
+    # 3. Swap both tables. We can't do this in a single statement because CH Cloud
+    #    uses replicated tables and will error.
     op.execute(
-        f"""
-        RENAME TABLE {DESTINATION_TABLE}
-         TO {TMP_TABLE_ORIG}, 
-         {TMP_TABLE_NEW}
-         TO {DESTINATION_TABLE};
-        """
+        f"RENAME TABLE {DESTINATION_TABLE} TO {TMP_TABLE_ORIG};"
+    )
+    op.execute(
+        f"RENAME TABLE {TMP_TABLE_NEW} TO {DESTINATION_TABLE};"
     )
     # 4. Force deduplication of the existing data and may take a very long time
     #    on a larger dataset, but since Aspects isn't in production anywhere yet this
@@ -87,15 +86,11 @@ def downgrade():
         {DESTINATION_TABLE};
         """
     )
-    # 3. Swap both tables in a single rename statement.
-    op.execute(
-        f"""
-        RENAME TABLE {DESTINATION_TABLE}
-         TO {TMP_TABLE_NEW}, 
-         {TMP_TABLE_ORIG}
-         TO {DESTINATION_TABLE};
-        """
-    )
+    # 3. Swap both tables. We can't do this in a single statement because CH Cloud
+    #    uses replicated tables and will error.
+    op.execute(f"RENAME TABLE {DESTINATION_TABLE} TO {TMP_TABLE_NEW}")
+    op.execute(f"RENAME TABLE {TMP_TABLE_ORIG} TO {DESTINATION_TABLE};")
+
     # 4. Force deduplication of the existing data and may take a very long time
     #    on a larger dataset, but since Aspects isn't in production anywhere yet this
     #    seems like a reasonable thing to do. If you're looking at this as fodder for

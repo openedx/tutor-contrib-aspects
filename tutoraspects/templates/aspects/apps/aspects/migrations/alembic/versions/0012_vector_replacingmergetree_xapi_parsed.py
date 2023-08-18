@@ -32,14 +32,9 @@ def upgrade():
     )
     # 2. Swap both tables in a single rename statement. New data will flow into
     #    the new table now and cascade through the MVs and downstream tables per normal.
-    op.execute(
-        f"""
-        RENAME TABLE {DESTINATION_TABLE} 
-         TO {TMP_TABLE_ORIG}, 
-         {TMP_TABLE_NEW}
-         TO {DESTINATION_TABLE};
-        """
-    )
+    op.execute(f"RENAME TABLE {DESTINATION_TABLE} TO {TMP_TABLE_ORIG};")
+    op.execute(f"RENAME TABLE {TMP_TABLE_NEW} TO {DESTINATION_TABLE};")
+
     # 3. Copy in all existing rows from the parent raw table. This will cascade through
     #    the system and duplicate rows downstream, but the alternative is to potentially
     #    lose rows in this table while performing a copy. Downstream tables at this
@@ -108,16 +103,12 @@ def downgrade():
         ORDER BY (org, course_id, verb_id, actor_id, emission_time, event_id);
         """
     )
-    # 2. Swap both tables in a single rename statement. New data will flow into
-    #    the new table now and cascade through the MVs and downstream tables per normal.
-    op.execute(
-        f"""
-        RENAME TABLE {DESTINATION_TABLE} 
-         TO {TMP_TABLE_NEW}, 
-         {TMP_TABLE_ORIG}
-         TO {DESTINATION_TABLE};
-        """
-    )
+    # 2. Swap both tables. We can't do this in a single statement because CH Cloud
+    #    uses replicated tables and will error. New data will flow into the new table
+    #    now and cascade through the MVs and downstream tables per normal.
+    op.execute(f"RENAME TABLE {DESTINATION_TABLE} TO {TMP_TABLE_NEW};")
+    op.execute(f"RENAME TABLE {TMP_TABLE_ORIG} TO {DESTINATION_TABLE};")
+
     # 3. Copy in all existing rows from the parent raw table. This will cascade through
     #    the system and duplicate rows downstream, but the alternative is to potentially
     #    lose rows in this table while performing a copy. Downstream tables at this

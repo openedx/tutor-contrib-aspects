@@ -33,16 +33,16 @@ def upgrade():
         SOURCE(CLICKHOUSE(
             user '{{ CLICKHOUSE_ADMIN_USER }}'
             password '{{ CLICKHOUSE_ADMIN_PASSWORD }}'
-            db 'event_sink'
+            db '{{ ASPECTS_EVENT_SINK_DATABASE }}'
             query 'with most_recent_overviews as (
                     select org, course_key, max(modified) as last_modified
-                    from event_sink.course_overviews
+                    from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_overviews
                     group by org, course_key
             )
             select
                 course_key,
                 display_name
-            from event_sink.course_overviews co
+            from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_overviews co
             inner join most_recent_overviews mro on
                 co.org = mro.org and
                 co.course_key = mro.course_key and
@@ -72,16 +72,16 @@ def upgrade():
         SOURCE(CLICKHOUSE(
             user '{{ CLICKHOUSE_ADMIN_USER }}'
             password '{{ CLICKHOUSE_ADMIN_PASSWORD }}'
-            db 'event_sink'
+            db '{{ ASPECTS_EVENT_SINK_DATABASE }}'
             query 'with most_recent_blocks as (
                     select org, course_key, location, max(edited_on) as last_modified
-                    from event_sink.course_blocks
+                    from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_blocks
                     group by org, course_key, location
                 )
                 select
                     location,
                     display_name
-                from event_sink.course_blocks co
+                from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_blocks co
                 inner join most_recent_blocks mrb on
                     co.org = mrb.org and
                     co.course_key = mrb.course_key and

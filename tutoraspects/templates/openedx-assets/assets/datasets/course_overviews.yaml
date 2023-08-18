@@ -175,7 +175,7 @@ metrics:
   warning_text: null
 offset: 0
 params: null
-schema: event_sink
+schema: {{ ASPECTS_EVENT_SINK_DATABASE }}
 sql: null
 table_name: course_overviews
 template_params: null

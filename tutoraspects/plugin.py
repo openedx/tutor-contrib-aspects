@@ -124,7 +124,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "CLICKHOUSE_ADMIN_SQLALCHEMY_URI",
             "clickhouse+native://{{CLICKHOUSE_ADMIN_USER}}:{{CLICKHOUSE_ADMIN_PASSWORD}}"
-            "@{{CLICKHOUSE_HOST}}/{{ASPECTS_XAPI_DATABASE}}",
+            "@{{CLICKHOUSE_HOST}}:{{CLICKHOUSE_CLIENT_PORT}}/{{ASPECTS_XAPI_DATABASE}}"
+            "{% if CLICKHOUSE_SECURE_CONNECTION %}?secure=True{% endif %}",
         ),
         ######################
         # Ralph Settings
