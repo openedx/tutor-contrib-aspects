@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.28.1 - 2023-08-21
+
+### [0.28.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.28.0...v0.28.1) (2023-08-21)
+
+### Bug Fixes
+
+- Changes needed to run in CH Cloud ([8648fa0](https://github.com/openedx/tutor-contrib-aspects/commit/8648fa0d44543b3cf64f5396f1e06b19e520da49))
+
 ## v0.28.0 - 2023-08-17
 
 ### [0.28.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.27.0...v0.28.0) (2023-08-17)
