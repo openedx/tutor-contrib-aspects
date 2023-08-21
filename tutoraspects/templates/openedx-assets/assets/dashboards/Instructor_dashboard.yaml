@@ -74,7 +74,7 @@ metadata:
     description: ''
     filterType: filter_select
     id: NATIVE_FILTER-Vx7HxG8_7
-    name: org
+    name: Org
     requiredFirst: true
     scope:
       excluded: []
@@ -89,7 +89,7 @@ metadata:
     targets:
     - column:
         name: org
-      datasetUuid: 4b274428-d781-41be-b362-ed6917443678
+      datasetUuid: 41278a97-d0ff-4645-9514-d79f80d275df
     type: NATIVE_FILTER
   - cascadeParentIds:
     - NATIVE_FILTER-Vx7HxG8_7
@@ -131,7 +131,7 @@ metadata:
     targets:
     - column:
         name: course_name
-      datasetUuid: 4b274428-d781-41be-b362-ed6917443678
+      datasetUuid: 41278a97-d0ff-4645-9514-d79f80d275df
     type: NATIVE_FILTER
   - cascadeParentIds:
     - NATIVE_FILTER-Vx7HxG8_7
@@ -160,7 +160,7 @@ metadata:
     description: ''
     filterType: filter_select
     id: NATIVE_FILTER-E6-vOpjZv
-    name: Run name
+    name: Course run
     scope:
       excluded: []
       rootPath:
@@ -173,8 +173,8 @@ metadata:
     - TAB-CLiLC4zxo
     targets:
     - column:
-        name: run_name
-      datasetUuid: 4b274428-d781-41be-b362-ed6917443678
+        name: course_run
+      datasetUuid: 41278a97-d0ff-4645-9514-d79f80d275df
     type: NATIVE_FILTER
   - cascadeParentIds:
     - NATIVE_FILTER-Vx7HxG8_7

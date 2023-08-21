@@ -1,4 +1,4 @@
-_file_name: dim_courses.yaml
+_file_name: course_names.yaml
 cache_timeout: null
 columns:
 - advanced_data_type: null
@@ -14,7 +14,7 @@ columns:
   type: String
   verbose_name: null
 - advanced_data_type: null
-  column_name: run_name
+  column_name: course_key
   description: null
   expression: null
   extra: null
@@ -26,7 +26,7 @@ columns:
   type: String
   verbose_name: null
 - advanced_data_type: null
-  column_name: course_key
+  column_name: course_run
   description: null
   expression: null
   extra: null
@@ -59,17 +59,17 @@ main_dttm_col: null
 metrics:
 - d3format: null
   description: null
-  expression: count(*)
+  expression: COUNT(*)
   extra: null
   metric_name: count
-  metric_type: null
-  verbose_name: null
+  metric_type: count
+  verbose_name: COUNT(*)
   warning_text: null
 offset: 0
 params: null
-schema: null
-sql: "{% include 'openedx-assets/queries/dim_courses.sql' %}"
-table_name: dim_courses
-template_params: {}
-uuid: 4b274428-d781-41be-b362-ed6917443678
+schema: {{ ASPECTS_EVENT_SINK_DATABASE }}
+sql: null
+table_name: course_names
+template_params: null
+uuid: 41278a97-d0ff-4645-9514-d79f80d275df
 version: 1.0.0

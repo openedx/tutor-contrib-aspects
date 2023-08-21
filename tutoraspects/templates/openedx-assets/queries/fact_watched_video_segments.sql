@@ -60,7 +60,7 @@ with starts as (
     select
         segments.org as org,
         courses.course_name as course_name,
-        splitByString('+', courses.course_key)[-1] as run_name,
+        courses.course_run as course_run,
         blocks.block_name as video_name,
         segments.actor_id as actor_id,
         segments.started_at as started_at,
@@ -77,7 +77,7 @@ with starts as (
 select
     org,
     course_name,
-    run_name,
+    course_run,
     video_name,
     actor_id,
     started_at,

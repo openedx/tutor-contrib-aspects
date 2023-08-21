@@ -3,11 +3,11 @@ with enrollments_ranked as (
     emission_time,
     org,
     course_name,
-    run_name,
+    course_run,
     actor_id,
     enrollment_mode,
     enrollment_status,
-    rank() over (partition by date(emission_time), org, course_name, run_name, actor_id order by emission_time desc) as event_rank
+    rank() over (partition by date(emission_time), org, course_name, course_run, actor_id order by emission_time desc) as event_rank
   from
     {{ DBT_PROFILE_TARGET_DATABASE }}.fact_enrollments
   {% raw -%}
@@ -20,12 +20,12 @@ with enrollments_ranked as (
   select
     org,
     course_name,
-    run_name,
+    course_run,
     actor_id,
     enrollment_status,
     enrollment_mode,
     emission_time as window_start_at,
-    lagInFrame(emission_time, 1, now() + interval '1' day) over (partition by org, course_name, run_name, actor_id order by emission_time desc) as window_end_at
+    lagInFrame(emission_time, 1, now() + interval '1' day) over (partition by org, course_name, course_run, actor_id order by emission_time desc) as window_end_at
   from
     enrollments_ranked
   where
@@ -34,7 +34,7 @@ with enrollments_ranked as (
     select
         org,
         course_name,
-        run_name,
+        course_run,
         actor_id,
         enrollment_status,
         enrollment_mode,
@@ -54,7 +54,7 @@ select
     )) as enrollment_status_date,
     org,
     course_name,
-    run_name,
+    course_run,
     actor_id,
     enrollment_status,
     enrollment_mode

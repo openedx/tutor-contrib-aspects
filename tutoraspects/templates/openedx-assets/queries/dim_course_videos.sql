@@ -1,6 +1,4 @@
-with courses as (
-    {% include 'openedx-assets/queries/dim_courses.sql' %}
-), video_blocks as (
+with video_blocks as (
     select
         org,
         course_key,
@@ -21,14 +19,14 @@ with courses as (
 )
 
 select
-    courses.org as org,
-    courses.course_name as course_name,
-    courses.course_key as course_key,
-    courses.run_name as run_name,
+    course_names.org as org,
+    course_names.course_name as course_name,
+    course_names.course_key as course_key,
+    course_names.course_run as course_run,
     video_blocks.video_id as video_id,
     video_blocks.video_name as video_name
 from
-    courses
+    {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names course_names
     join video_blocks
-        on (courses.org = video_blocks.org
-            and courses.course_key = video_blocks.course_key)
+        on (course_names.org = video_blocks.org
+            and course_names.course_key = video_blocks.course_key)
