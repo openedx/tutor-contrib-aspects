@@ -27,6 +27,7 @@ echo "Installing dbt dependencies"
 dbt deps --profiles-dir /app/aspects/dbt/
 
 echo "Running dbt $*"
+export ASPECTS_EVENT_SINK_DATABASE={{ASPECTS_EVENT_SINK_DATABASE}}
 dbt "$@" --profiles-dir /app/aspects/dbt/
 
 rm -rf {{ DBT_REPOSITORY_PATH }}

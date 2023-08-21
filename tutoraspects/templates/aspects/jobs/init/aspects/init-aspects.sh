@@ -31,6 +31,8 @@ cat {{ DBT_REPOSITORY_PATH }}/packages.yml
 cat {{ DBT_REPOSITORY_PATH }}/dbt_project.yml
 {% endif %}
 
+export ASPECTS_EVENT_SINK_DATABASE={{ASPECTS_EVENT_SINK_DATABASE}}
+
 echo "Installing dbt dependencies"
 dbt deps --profiles-dir /app/aspects/dbt/
 
