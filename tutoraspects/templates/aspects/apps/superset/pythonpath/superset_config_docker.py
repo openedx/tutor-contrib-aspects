@@ -63,12 +63,14 @@ AUTH_ROLES_MAPPING = {
     "alpha": ["Alpha"],      # Global staff
     "gamma": ["Gamma"],      # Course staff
     "instructor": ["{{SUPERSET_ROLES_MAPPING.instructor}}"], # Course instructors
+    "student": ["{{SUPERSET_ROLES_MAPPING.student}}"], # Course students
     "operator": ["{{SUPERSET_ROLES_MAPPING.operator}}"], # Installation operators
     "public": ["Public"],    # AKA anonymous users
 }
 
 for language in LANGUAGES.keys():
     AUTH_ROLES_MAPPING[f"instructor-{language}"] = [f"{{SUPERSET_ROLES_MAPPING.instructor}} - {language}"]
+    AUTH_ROLES_MAPPING[f"student-{language}"] = [f"{{SUPERSET_ROLES_MAPPING.student}} - {language}"]
 
 
 from openedx_sso_security_manager import OpenEdxSsoSecurityManager
