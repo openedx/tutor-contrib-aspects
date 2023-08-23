@@ -48,9 +48,6 @@ OAUTH_PROVIDERS = [
 # Will allow user self registration, allowing to create Flask users from Authorized User
 AUTH_USER_REGISTRATION = True
 
-# The default user self registration role
-AUTH_USER_REGISTRATION_ROLE = "{{SUPERSET_ROLES_MAPPING.instructor}}"
-
 # Should we replace ALL the user's roles each login, or only on registration?
 AUTH_ROLES_SYNC_AT_LOGIN = True
 
