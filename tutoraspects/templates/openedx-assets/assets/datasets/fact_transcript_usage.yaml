@@ -92,8 +92,8 @@ metrics:
   warning_text: null
 offset: 0
 params: null
-schema: {{ DBT_PROFILE_TARGET_DATABASE }}
-sql: null
+schema: null
+sql: "{% include 'openedx-assets/queries/fact_transcript_usage.sql' %}"
 table_name: fact_transcript_usage
 template_params: {}
 uuid: a96a4b13-a429-442d-83ca-5d6f94010909

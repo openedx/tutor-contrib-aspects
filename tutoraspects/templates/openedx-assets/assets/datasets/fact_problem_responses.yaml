@@ -127,8 +127,8 @@ metrics:
   warning_text: null
 offset: 0
 params: null
-schema: {{ DBT_PROFILE_TARGET_DATABASE }}
-sql: null
+schema: null
+sql: "{% include 'openedx-assets/queries/fact_problem_responses.sql' %}"
 table_name: fact_problem_responses
 template_params: null
 uuid: 511dd5f1-3925-4e9e-ad8a-a227b5680047
