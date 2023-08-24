@@ -6,3 +6,67 @@
     "clause": {% raw %}'{{can_view_courses(current_username(), "splitByChar(\'/\', course_id)[-1]")}}',{% endraw %}
     "filter_type": "Regular",
 },
+{
+  "schema": None,
+  "table_name": "fact_enrollments_by_day",
+  "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
+  "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
+  "clause": {% raw %}'{{can_view_courses(current_username(), "course_key")}}',{% endraw %}
+  "filter_type": "Regular"
+},
+{
+  "schema": None,
+  "table_name": "fact_enrollments",
+  "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
+  "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
+  "clause": {% raw %}'{{can_view_courses(current_username(), "course_key")}}',{% endraw %}
+  "filter_type": "Regular"
+},
+{
+  "schema": None,
+  "table_name": "fact_learner_problem_summary",
+  "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
+  "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
+  "clause": {% raw %}'{{can_view_courses(current_username(), "course_key")}}',{% endraw %}
+  "filter_type": "Regular"
+},
+{
+  "schema": None,
+  "table_name": "fact_problem_responses",
+  "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
+  "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
+  "clause": {% raw %}'{{can_view_courses(current_username(), "course_key")}}',{% endraw %}
+  "filter_type": "Regular"
+},
+{
+  "schema": None,
+  "table_name": "fact_transcript_usage",
+  "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
+  "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
+  "clause": {% raw %}'{{can_view_courses(current_username(), "course_key")}}',{% endraw %}
+  "filter_type": "Regular"
+},
+{
+  "schema": None,
+  "table_name": "fact_video_plays",
+  "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
+  "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
+  "clause": {% raw %}'{{can_view_courses(current_username(), "course_key")}}',{% endraw %}
+  "filter_type": "Regular"
+},
+{
+  "schema": None,
+  "table_name": "fact_watched_video_segments",
+  "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
+  "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
+  "clause": {% raw %}'{{can_view_courses(current_username(), "course_key")}}',{% endraw %}
+  "filter_type": "Regular"
+},
+{
+  "schema": None,
+  "table_name": "hints_per_success",
+  "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
+  "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
+  "clause": {% raw %}'{{can_view_courses(current_username(), "course_key")}}',{% endraw %}
+  "filter_type": "Regular"
+},
