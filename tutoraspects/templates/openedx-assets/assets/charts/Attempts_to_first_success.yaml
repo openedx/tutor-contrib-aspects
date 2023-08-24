@@ -2,7 +2,17 @@ _file_name: Attempts_to_first_success.yaml
 cache_timeout: null
 dataset_uuid: 9362354c-1541-43c2-b769-da9818236298
 params:
-  adhoc_filters: []
+  adhoc_filters:
+  - clause: WHERE
+    comparator: 'true'
+    expressionType: SIMPLE
+    filterOptionName: filter_0fpmws3t1h6a_md2ud9xse7m
+    isExtra: false
+    isNew: false
+    operator: ==
+    operatorId: EQUALS
+    sqlExpression: null
+    subject: success
   bottom_margin: auto
   color_scheme: supersetColors
   columns: []
