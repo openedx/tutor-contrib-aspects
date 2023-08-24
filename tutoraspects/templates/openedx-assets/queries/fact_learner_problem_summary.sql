@@ -101,6 +101,7 @@ WITH problem_responses AS (
 
 SELECT
     org,
+    course_key,
     course_name,
     course_run,
     problem_name,
@@ -112,6 +113,7 @@ SELECT
 FROM summary
 GROUP BY
     org,
+    course_key,
     course_name,
     course_run,
     problem_name,

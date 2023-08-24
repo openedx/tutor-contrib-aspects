@@ -51,6 +51,7 @@ with starts as (
 ), enriched_segments as (
     select
         segments.org as org,
+        courses.course_key as course_key,
         courses.course_name as course_name,
         courses.course_run as course_run,
         blocks.block_name as video_name,
@@ -68,6 +69,7 @@ with starts as (
 
 select
     org,
+    course_key,
     course_name,
     course_run,
     video_name,

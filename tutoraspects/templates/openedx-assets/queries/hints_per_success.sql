@@ -4,6 +4,7 @@ with summary as (
 
 select
     org,
+    course_key,
     course_name,
     course_run,
     problem_name,
@@ -14,6 +15,7 @@ from
 where success = 1
 group by
     org,
+    course_key,
     course_name,
     course_run,
     problem_name,

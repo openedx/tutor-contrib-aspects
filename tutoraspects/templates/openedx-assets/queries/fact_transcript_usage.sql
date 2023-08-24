@@ -9,6 +9,7 @@ where
 select
     emission_time,
     org,
+    course_key,
     course_name,
     course_run,
     video_name,

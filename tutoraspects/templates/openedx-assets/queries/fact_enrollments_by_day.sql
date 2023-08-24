@@ -4,6 +4,7 @@ with enrollments as (
   select
     emission_time,
     org,
+    course_key,
     course_name,
     course_run,
     actor_id,
@@ -15,6 +16,7 @@ with enrollments as (
 ), enrollment_windows as (
   select
     org,
+    course_key,
     course_name,
     course_run,
     actor_id,
@@ -29,6 +31,7 @@ with enrollments as (
 ), enrollment_window_dates as (
     select
         org,
+        course_key,
         course_name,
         course_run,
         actor_id,
@@ -49,6 +52,7 @@ select
         )
     )) as enrollment_status_date,
     org,
+    course_key,
     course_name,
     course_run,
     actor_id,
