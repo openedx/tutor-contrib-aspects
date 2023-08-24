@@ -10,11 +10,7 @@ with starts as (
     from {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK_EVENTS_TABLE }}
     where
         verb_id = 'https://w3id.org/xapi/video/verbs/played'
-        {% raw -%}
-        {% if filter_values('org') != [] %}
-        and org in {{ filter_values('org') | where_in }}
-        {% endif %}
-        {%- endraw %}
+        {% include 'openedx-assets/queries/common_filters.sql' %}
 ), ends as (
     select
         emission_time,
@@ -32,11 +28,7 @@ with starts as (
             'https://w3id.org/xapi/video/verbs/paused',
             'http://adlnet.gov/expapi/verbs/terminated'
         )
-        {% raw -%}
-        {% if filter_values('org') != [] %}
-        and org in {{ filter_values('org') | where_in }}
-        {% endif %}
-        {%- endraw %}
+        {% include 'openedx-assets/queries/common_filters.sql' %}
 ), segments as(
     select
         starts.org as org,
@@ -59,6 +51,7 @@ with starts as (
 ), enriched_segments as (
     select
         segments.org as org,
+        courses.course_key as course_key,
         courses.course_name as course_name,
         courses.course_run as course_run,
         blocks.block_name as video_name,
@@ -76,6 +69,7 @@ with starts as (
 
 select
     org,
+    course_key,
     course_name,
     course_run,
     video_name,

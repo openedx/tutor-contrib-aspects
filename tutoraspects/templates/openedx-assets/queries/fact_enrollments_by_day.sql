@@ -1,7 +1,10 @@
-with enrollments_ranked as (
+with enrollments as (
+    {% include 'openedx-assets/queries/fact_enrollments.sql' %}
+), enrollments_ranked as (
   select
     emission_time,
     org,
+    course_key,
     course_name,
     course_run,
     actor_id,
@@ -9,16 +12,11 @@ with enrollments_ranked as (
     enrollment_status,
     rank() over (partition by date(emission_time), org, course_name, course_run, actor_id order by emission_time desc) as event_rank
   from
-    {{ DBT_PROFILE_TARGET_DATABASE }}.fact_enrollments
-  {% raw -%}
-  {% if filter_values('org') != [] %}
-    where
-      org in {{ filter_values('org') | where_in }}
-  {% endif %}
-  {%- endraw %}
+    enrollments
 ), enrollment_windows as (
   select
     org,
+    course_key,
     course_name,
     course_run,
     actor_id,
@@ -33,6 +31,7 @@ with enrollments_ranked as (
 ), enrollment_window_dates as (
     select
         org,
+        course_key,
         course_name,
         course_run,
         actor_id,
@@ -53,6 +52,7 @@ select
         )
     )) as enrollment_status_date,
     org,
+    course_key,
     course_name,
     course_run,
     actor_id,

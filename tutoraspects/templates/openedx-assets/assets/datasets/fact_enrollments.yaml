@@ -38,6 +38,18 @@ columns:
   type: String
   verbose_name: null
 - advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: null
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: null
+- advanced_data_type: null
   column_name: course_name
   description: null
   expression: null
@@ -103,8 +115,8 @@ metrics:
   warning_text: null
 offset: 0
 params: null
-schema: {{ DBT_PROFILE_TARGET_DATABASE }}
-sql: null
+schema: null
+sql: "{% include 'openedx-assets/queries/fact_enrollments.sql' %}"
 table_name: fact_enrollments
 template_params: {}
 uuid: a234545d-08ff-480d-8361-961c3d15f14f

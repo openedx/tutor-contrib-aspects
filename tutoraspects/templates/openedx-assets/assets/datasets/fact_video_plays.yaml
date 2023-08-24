@@ -26,6 +26,18 @@ columns:
   type: String
   verbose_name: null
 - advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: null
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: null
+- advanced_data_type: null
   column_name: course_name
   description: null
   expression: null
@@ -92,8 +104,8 @@ metrics:
   warning_text: null
 offset: 0
 params: null
-schema: {{ DBT_PROFILE_TARGET_DATABASE }}
-sql: null
+schema: null
+sql: "{% include 'openedx-assets/queries/fact_video_plays.sql' %}"
 table_name: fact_video_plays
 template_params: {}
 uuid: 6ec360a5-e247-42e7-b301-fa8275fc93f9

@@ -74,6 +74,18 @@ columns:
   type: String
   verbose_name: null
 - advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: null
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: null
+- advanced_data_type: null
   column_name: course_name
   description: null
   expression: null
@@ -127,8 +139,8 @@ metrics:
   warning_text: null
 offset: 0
 params: null
-schema: {{ DBT_PROFILE_TARGET_DATABASE }}
-sql: null
+schema: null
+sql: "{% include 'openedx-assets/queries/fact_learner_problem_summary.sql' %}"
 table_name: fact_learner_problem_summary
 template_params: null
 uuid: 9362354c-1541-43c2-b769-da9818236298
