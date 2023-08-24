@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.29.0 - 2023-08-24
+
+### [0.29.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.28.1...v0.29.0) (2023-08-24)
+
+#### Features
+
+- ensure course_key is in each dataset ([01f7d28](https://github.com/openedx/tutor-contrib-aspects/commit/01f7d2887ba80eaa9d4820748a8733abd472d9b7))
+
+#### Bug Fixes
+
+- filter out unsuccessful responses in chart ([4ea1824](https://github.com/openedx/tutor-contrib-aspects/commit/4ea1824b21c68aa5cc4d34d9f6d5985c0f718f08))
+
+#### Code Refactoring
+
+- rewrite query to avoid memory limits ([87ce848](https://github.com/openedx/tutor-contrib-aspects/commit/87ce848271a8d27865ed7aebaa36b2c719145585))
+- use `course_run` instead of `run_name` ([66e493a](https://github.com/openedx/tutor-contrib-aspects/commit/66e493af956c7e0dad0eb04fb09ab9117cf7f0ea))
+- use course_key index in dashboard queries ([4516386](https://github.com/openedx/tutor-contrib-aspects/commit/4516386c90f583e6944b6ef8dae08dfa80528aca))
+
 ## v0.28.1 - 2023-08-21
 
 ### [0.28.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.28.0...v0.28.1) (2023-08-21)
