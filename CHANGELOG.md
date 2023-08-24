@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.28.2 - 2023-08-24
+
+### [0.28.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.28.1...v0.28.2) (2023-08-24)
+
+### Bug Fixes
+
+- filter out unsuccessful responses in chart ([4ea1824](https://github.com/openedx/tutor-contrib-aspects/commit/4ea1824b21c68aa5cc4d34d9f6d5985c0f718f08))
+
+### Code Refactoring
+
+- use `course_run` instead of `run_name` ([66e493a](https://github.com/openedx/tutor-contrib-aspects/commit/66e493af956c7e0dad0eb04fb09ab9117cf7f0ea))
+
 ## v0.28.1 - 2023-08-21
 
 ### [0.28.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.28.0...v0.28.1) (2023-08-21)
