@@ -6,6 +6,8 @@ import sys
 
 import click
 
+from tutor import env
+
 from tutoraspects.asset_command_helpers import (
     check_asset_names,
     import_superset_assets,
@@ -165,7 +167,15 @@ def dump_courses_to_clickhouse(options) -> list[tuple[str, str]]:
         "will be attempted to be transformed, but won't be sent to the destination."
     ),
 )
-def transform_tracking_logs(**kwargs) -> list[tuple[str, str]]:
+@click.option(
+    "--deduplicate",
+    is_flag=True,
+    help=(
+        "This should only be added if you believe events will be duplicated such as replaying logs"
+        "that have already been added. De-duplication can take a very long time to process."
+    ),
+)
+def transform_tracking_logs(deduplicate, **kwargs) -> list[tuple[str, str]]:
     """
     Job that proxies the transform_tracking_logs commands.
     """
@@ -185,7 +195,21 @@ def transform_tracking_logs(**kwargs) -> list[tuple[str, str]]:
 
     command = f"./manage.py lms transform_tracking_logs {options_str}"
 
-    return [("lms", command)]
+    tasks = [
+        ("lms", command),
+    ]
+
+    if deduplicate:
+        tasks.append(
+            (
+                "clickhouse",
+                env.read_template_file(
+                    "aspects", "jobs", "init", "clickhouse", "deduplicate.sh"
+                ),
+            )
+        )
+
+    return tasks
 
 
 @click.group()

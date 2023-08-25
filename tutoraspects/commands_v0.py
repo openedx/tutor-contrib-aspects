@@ -2,6 +2,8 @@
 import click
 from tutor import config as tutor_config
 
+from tutor import env
+
 
 @click.command(help="Run dbt with the provided command and options.")
 @click.option(
@@ -92,6 +94,7 @@ def alembic(context, command) -> None:
     runner.run_job("aspects", command)
 
 
+@click.command(help="Dump courses to ClickHouse.")
 @click.option("--options", default="")
 @click.pass_obj
 def dump_courses_to_clickhouse(context, options) -> None:
@@ -162,8 +165,16 @@ def dump_courses_to_clickhouse(context, options) -> None:
         "will be attempted to be transformed, but won't be sent to the destination."
     ),
 )
+@click.option(
+    "--deduplicate",
+    is_flag=True,
+    help=(
+        "This should only be added if you believe events will be duplicated such as replaying logs"
+        "that have already been added. De-duplication can take a very long time to process."
+    ),
+)
 @click.pass_obj
-def transform_tracking_logs(context, **kwargs) -> None:
+def transform_tracking_logs(context, deduplicate, **kwargs) -> None:
     """
     Job that proxies the dump_courses_to_clickhouse commands.
     """
@@ -186,6 +197,14 @@ def transform_tracking_logs(context, **kwargs) -> None:
     command = f"./manage.py lms transform_tracking_logs {options_str}"
 
     runner.run_job("lms", command)
+
+    if deduplicate:
+        runner.run_job(
+            "clickhouse",
+            env.read_template_file(
+                "aspects", "jobs", "init", "clickhouse", "deduplicate.sh"
+            ),
+        )
 
 
 COMMANDS = (

@@ -70,9 +70,17 @@ Usage
 
 #. (Optional) Sink Historical event data to ClickHouse::
 
-    tutor [dev|local] run lms ./manage.py lms transform_tracking_logs --source_provider LOCAL --source_config '{"key": "/openedx/data", "container": "logs", "prefix": "tracking.log"}' --transformer_type xapi
+    tutor [dev|local] do transform_tracking_logs \
+      --source_provider LOCAL --source_config '{"key": "/openedx/data", "container": "logs", "prefix": "tracking.log"}' \
+      --transformer_type xapi
+
     # Note that this will work only for default tutor installation. If you store your tracking logs any other way, you need to change the source_config option accordingly.
     # See https://event-routing-backends.readthedocs.io/en/latest/howto/how_to_bulk_transform.html#sources-and-destinations for details on how to change the source_config option.
+
+#. (Optional) Run deduplicate data. This is useful for cases in which you are already have pre-existing data and you want to backfill tracking logs,
+   which can lead to duplicated data. This can take a long time to run::
+
+    tutor [dev|local] do transform_tracking_logs ... --deduplicate
 
 Superset Assets
 ---------------
