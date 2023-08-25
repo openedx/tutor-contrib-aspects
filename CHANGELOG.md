@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.31.0 - 2023-08-25
+
+### [0.31.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.30.0...v0.31.0) (2023-08-25)
+
+#### Features
+
+- add RLS filters for dbt models ([f63fd4f](https://github.com/openedx/tutor-contrib-aspects/commit/f63fd4f06c745e74a362574528a59a0524e095c6))
+- add RLS filters for event_sink tables ([5f27772](https://github.com/openedx/tutor-contrib-aspects/commit/5f277721e7a42a5d770362fcbedae5b149a56bf6))
+
 ## v0.30.0 - 2023-08-25
 
 ### [0.30.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.29.0...v0.30.0) (2023-08-25)
