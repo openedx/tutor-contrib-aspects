@@ -86,8 +86,15 @@ FEATURE_FLAGS = {
 # Add this custom template processor which returns the list of courses the current user can access
 from openedx_jinja_filters import *
 
+def can_view_courses_wrapper(*args, **kwargs):
+    from superset.utils.cache import memoized_func
+    from superset.extensions import cache_manager
+
+    return memoized_func(key="{username}", cache=cache_manager.cache)(can_view_courses)(*args, **kwargs)
+    
+
 JINJA_CONTEXT_ADDONS = {
-    'can_view_courses': can_view_courses,
+    'can_view_courses': can_view_courses_wrapper,
     {% for filter in SUPERSET_EXTRA_JINJA_FILTERS %}'{{ filter }}': {{filter}},{% endfor %}
 }
 

@@ -3,7 +3,7 @@ from collections import namedtuple
 
 import jwt
 from authlib.common.urls import add_params_to_qs, add_params_to_uri
-from flask import current_app, session, request
+from flask import current_app, session
 from superset.security import SupersetSecurityManager
 from superset.utils.memoized import memoized
 
