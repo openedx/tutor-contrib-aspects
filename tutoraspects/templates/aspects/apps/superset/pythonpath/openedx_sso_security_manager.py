@@ -174,9 +174,15 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
                 return ["instructor", f"instructor-{language}"]
             else:
                 roles = self.extra_get_user_roles(username, decoded_access_token)
-                if bool("{{SUPERSET_BLOCK_STUDENT_ACCESS}}") and not roles:
+                if roles:
+                    if {{SUPERSET_BLOCK_STUDENT_ACCESS}} and 'student' in roles:
+                        raise Exception(f"Student access not allowed for {username} due to SUPERSET_BLOCK_STUDENT_ACCESS setting.")
+                    return roles
+                
+                if {{SUPERSET_BLOCK_STUDENT_ACCESS}}:
                     raise Exception(f"Student {username} tried to access Superset")
-            return roles if roles else []
+                else:
+                    return ["student", f"student-{language}"]
 
     def extra_get_user_roles(self, username, decoded_access_token):
         """
@@ -222,8 +228,4 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
             for course_id in next_courses:
                 courses.append(course_id)
 
-        # If the user has no staff access to any courses, they are a student
-        if not courses and bool("{{SUPERSET_BLOCK_STUDENT_ACCESS}}"):
-            raise Exception(f"User {username} is not an instructor")
-        else:
-            return courses
+        return courses

@@ -48,9 +48,6 @@ OAUTH_PROVIDERS = [
 # Will allow user self registration, allowing to create Flask users from Authorized User
 AUTH_USER_REGISTRATION = True
 
-# The default user self registration role
-AUTH_USER_REGISTRATION_ROLE = "{{SUPERSET_ROLES_MAPPING.instructor}}"
-
 # Should we replace ALL the user's roles each login, or only on registration?
 AUTH_ROLES_SYNC_AT_LOGIN = True
 
@@ -63,12 +60,15 @@ AUTH_ROLES_MAPPING = {
     "alpha": ["Alpha"],      # Global staff
     "gamma": ["Gamma"],      # Course staff
     "instructor": ["{{SUPERSET_ROLES_MAPPING.instructor}}"], # Course instructors
+    "student": ["{{SUPERSET_ROLES_MAPPING.student}}"], # Course students
     "operator": ["{{SUPERSET_ROLES_MAPPING.operator}}"], # Installation operators
     "public": ["Public"],    # AKA anonymous users
 }
 
 for language in LANGUAGES.keys():
     AUTH_ROLES_MAPPING[f"instructor-{language}"] = [f"{{SUPERSET_ROLES_MAPPING.instructor}} - {language}"]
+    AUTH_ROLES_MAPPING[f"student-{language}"] = [f"{{SUPERSET_ROLES_MAPPING.student}} - {language}"]
+    AUTH_ROLES_MAPPING[f"operator-{language}"] = [f"{{SUPERSET_ROLES_MAPPING.operator}} - {language}"]
 
 
 from openedx_sso_security_manager import OpenEdxSsoSecurityManager
