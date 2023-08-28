@@ -249,10 +249,11 @@ def update_dashboard_roles(roles):
 
 def get_translation(text, language):
     """Get a translation for a text in a language"""
+    default_text = f"{text} - {language}"
     LANGUAGE = ASSETS_TRANSLATIONS.get(language, {})
     if not LANGUAGE:
-        return text
-    return ASSETS_TRANSLATIONS.get(language, {}).get(text) or text
+        return default_text
+    return ASSETS_TRANSLATIONS.get(language, {}).get(text) or default_text
 
 
 if __name__ == "__main__":

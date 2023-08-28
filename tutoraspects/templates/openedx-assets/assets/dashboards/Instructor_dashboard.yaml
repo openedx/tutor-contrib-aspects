@@ -1,6 +1,4 @@
 _file_name: Instructor_dashboard.yaml
-_roles:
-  - {{ SUPERSET_ROLES_MAPPING.instructor }}
 css: ''
 dashboard_title: Instructor dashboard
 description: null
@@ -185,8 +183,8 @@ metadata:
     - 46
     - 47
     controlValues:
-      defaultToFirstItem: true
-      enableEmptyFilter: true
+      defaultToFirstItem: false
+      enableEmptyFilter: false
       inverseSelection: false
       multiSelect: false
       searchAllOptions: false
@@ -198,7 +196,6 @@ metadata:
     filterType: filter_select
     id: NATIVE_FILTER-6xfFY5VGz
     name: Problem name
-    requiredFirst: true
     scope:
       excluded: []
       rootPath:
@@ -216,8 +213,8 @@ metadata:
     - NATIVE_FILTER-E6-vOpjZv
     chartsInScope: []
     controlValues:
-      defaultToFirstItem: true
-      enableEmptyFilter: true
+      defaultToFirstItem: false
+      enableEmptyFilter: false
       inverseSelection: false
       multiSelect: false
       searchAllOptions: false
@@ -229,7 +226,6 @@ metadata:
     filterType: filter_select
     id: NATIVE_FILTER-V77Ybaw2w
     name: Video name
-    requiredFirst: true
     scope:
       excluded: []
       rootPath:
