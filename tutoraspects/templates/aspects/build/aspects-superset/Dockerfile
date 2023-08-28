@@ -3,7 +3,7 @@
 # https://github.com/apache/superset/releases
 # https://github.com/apache/superset/blob/master/Dockerfile
 # https://superset.apache.org/docs/databases/installing-database-drivers
-FROM apache/superset:2.0.1
+FROM apache/superset:2.1.0
 
 USER root
 
