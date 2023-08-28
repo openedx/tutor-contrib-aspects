@@ -24,11 +24,8 @@ git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }}
 cd {{ DBT_REPOSITORY_PATH }} || exit
 
 {% if DBT_ENABLE_OVERRIDE %}
-echo /app/aspects/dbt/packages.yml > packages.yml
-echo /app/aspects/dbt/dbt_project.yml > dbt_project.yml
-
-cat {{ DBT_REPOSITORY_PATH }}/packages.yml
-cat {{ DBT_REPOSITORY_PATH }}/dbt_project.yml
+cat /app/aspects/dbt/packages.yml > packages.yml
+cat /app/aspects/dbt/dbt_project.yml > dbt_project.yml
 {% endif %}
 
 export ASPECTS_EVENT_SINK_DATABASE={{ASPECTS_EVENT_SINK_DATABASE}}
