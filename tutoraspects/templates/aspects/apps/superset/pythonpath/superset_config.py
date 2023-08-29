@@ -104,7 +104,7 @@ EXPLORE_FORM_DATA_CACHE_CONFIG: CacheConfig = {
 
 class CeleryConfig(object):
     BROKER_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_CELERY_DB}"
-    CELERY_IMPORTS = ("superset.sql_lab",)
+    CELERY_IMPORTS = ("superset.sql_lab", "superset.tasks", "superset.tasks.thumbnails",)
     CELERY_RESULT_BACKEND = f"redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_RESULTS_DB}"
     CELERYD_LOG_LEVEL = "DEBUG"
     CELERYD_PREFETCH_MULTIPLIER = 1
@@ -123,11 +123,23 @@ class CeleryConfig(object):
 
 CELERY_CONFIG = CeleryConfig
 
+# Email configuration
+SMTP_HOST = "{{SMTP_HOST}}" # change to your host
+SMTP_PORT = {{SMTP_PORT}} # your port, e.g. 587
+SMTP_STARTTLS = {{SMTP_USE_TLS}}
+SMTP_SSL = {{SMTP_USE_SSL}}
+SMTP_USER = "{{SMTP_USERNAME}}" # use the empty string "" if using an unauthenticated SMTP server
+SMTP_PASSWORD = "{{SMTP_PASSWORD}}" # use the empty string "" if using an unauthenticated SMTP server
+SMTP_MAIL_FROM = "{{CONTACT_EMAIL}}"
+EMAIL_REPORTS_SUBJECT_PREFIX = "[{{PLATFORM_NAME}}] "
+
 FEATURE_FLAGS = {"ALERT_REPORTS": True}
-ALERT_REPORTS_NOTIFICATION_DRY_RUN = True
+ALERT_REPORTS_NOTIFICATION_DRY_RUN = False
 WEBDRIVER_BASEURL = "http://superset:8088/"
 # The base URL for the email report hyperlinks.
-WEBDRIVER_BASEURL_USER_FRIENDLY = WEBDRIVER_BASEURL
+WEBDRIVER_BASEURL_USER_FRIENDLY = "{{SUPERSET_HOST}}"
+
+WEBDRIVER_OPTION_ARGS = ["--headless"]
 
 SQLLAB_CTAS_NO_LIMIT = True
 
