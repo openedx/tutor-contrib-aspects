@@ -768,6 +768,14 @@
     }
   },
   {
+    "permission": {
+      "name": "can_recent_activity"
+    },
+    "view_menu": {
+      "name": "Log"
+    }
+  },
+  {
     "permission":{
       "name":"can_sqllab_table_viz"
     },
