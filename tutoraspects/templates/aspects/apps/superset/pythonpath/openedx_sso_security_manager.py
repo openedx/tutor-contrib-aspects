@@ -1,15 +1,14 @@
 import logging
-from collections import namedtuple
+import time
+from functools import lru_cache
 
 import jwt
-from authlib.common.urls import add_params_to_qs, add_params_to_uri
-from flask import current_app, session
-from superset.security import SupersetSecurityManager
-from superset.utils.memoized import memoized
-
-from authlib.integrations.flask_client import OAuthError
-import time
 import requests
+from authlib.common.urls import add_params_to_qs, add_params_to_uri
+from authlib.integrations.flask_client import OAuthError
+from flask import current_app, session
+from superset.constants import LRU_CACHE_MAX_SIZE
+from superset.security import SupersetSecurityManager
 
 log = logging.getLogger(__name__)
 
@@ -191,7 +190,7 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         {{patch("superset-sso-assignment-rules") | indent(8)}}
         return None
 
-    @memoized(watch=("access_token",))
+    @lru_cache(maxsize=LRU_CACHE_MAX_SIZE)
     def get_courses(self, username, permission="staff", next_url=None):
         """
         Returns the list of courses the current user has access to.

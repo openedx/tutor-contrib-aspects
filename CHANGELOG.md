@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.34.0 - 2023-08-29
+
+### [0.34.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.33.0...v0.34.0) (2023-08-29)
+
+#### Features
+
+- upgrade dbt-aspects to v2.2 ([e732e5b](https://github.com/openedx/tutor-contrib-aspects/commit/e732e5b7c0ee7cbf2e69759f486ab505280074d9))
+- upgrade superset to 2.1.0 ([8fd4396](https://github.com/openedx/tutor-contrib-aspects/commit/8fd439637eca7a82359e8fd5391b0ddc6515a13a))
+
+#### Bug Fixes
+
+- add missing permission for activity log ([4dfa26a](https://github.com/openedx/tutor-contrib-aspects/commit/4dfa26a420d8774bc189864a925b5e240b60a97b))
+- add name for superset RLSF ([8ff5a5d](https://github.com/openedx/tutor-contrib-aspects/commit/8ff5a5d224e4f30a822d68c773efd3745bea8d37))
+
 ## v0.33.0 - 2023-08-29
 
 ### [0.33.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.32.0...v0.33.0) (2023-08-29)
