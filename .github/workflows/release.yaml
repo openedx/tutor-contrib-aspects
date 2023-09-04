@@ -16,7 +16,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Create tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.1
@@ -32,7 +32,7 @@ jobs:
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: setup python
         uses: actions/setup-python@v4
         with:
@@ -56,7 +56,7 @@ jobs:
           username: ${{ secrets.EDUNEXT_DOCKER_USERNAME }}
           password: ${{ secrets.EDUNEXT_DOCKER_PASSWORD }}
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: setup python
         uses: actions/setup-python@v4
         with:
@@ -81,7 +81,7 @@ jobs:
             username: ${{ secrets.EDUNEXT_DOCKER_USERNAME }}
             password: ${{ secrets.EDUNEXT_DOCKER_PASSWORD }}
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: setup python
         uses: actions/setup-python@v4
         with:
@@ -106,7 +106,7 @@ jobs:
             username: ${{ secrets.EDUNEXT_DOCKER_USERNAME }}
             password: ${{ secrets.EDUNEXT_DOCKER_PASSWORD }}
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: setup python
         uses: actions/setup-python@v4
         with:
@@ -132,7 +132,7 @@ jobs:
             username: ${{ secrets.EDUNEXT_DOCKER_USERNAME }}
             password: ${{ secrets.EDUNEXT_DOCKER_PASSWORD }}
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: setup python
         uses: actions/setup-python@v4
         with:
