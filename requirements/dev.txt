@@ -12,7 +12,7 @@ appdirs==1.4.4
     #   tutor
 astroid==2.15.6
     # via pylint
-asttokens==2.2.1
+asttokens==2.3.0
     # via
     #   -r requirements/base.txt
     #   transifex-python
@@ -146,9 +146,9 @@ pygments==2.16.1
     # via
     #   readme-renderer
     #   rich
-pyinstaller==5.13.1
+pyinstaller==5.13.2
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2023.7
+pyinstaller-hooks-contrib==2023.8
     # via pyinstaller
 pylint==2.17.5
     # via -r requirements/dev.in
@@ -221,7 +221,7 @@ toolz==0.12.0
     #   pyseeyou
 transifex-python==3.4.0
     # via -r requirements/base.txt
-tutor==16.1.0
+tutor==16.1.1
     # via -r requirements/base.txt
 twine==4.0.2
     # via -r requirements/dev.in

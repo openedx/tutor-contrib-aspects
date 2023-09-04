@@ -6,7 +6,7 @@
 #
 appdirs==1.4.4
     # via tutor
-asttokens==2.2.1
+asttokens==2.3.0
     # via transifex-python
 bcrypt==4.0.1
     # via -r requirements/base.in
@@ -86,7 +86,7 @@ toolz==0.12.0
     # via pyseeyou
 transifex-python==3.4.0
     # via -r requirements/base.in
-tutor==16.1.0
+tutor==16.1.1
     # via -r requirements/base.in
 typing-extensions==4.7.1
     # via
