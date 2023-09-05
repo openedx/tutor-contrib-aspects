@@ -1,7 +1,9 @@
 """Package metadata for tutor-contrib-aspects."""
 import io
 import os
-from setuptools import setup, find_packages
+import re
+
+from setuptools import find_packages, setup
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 
