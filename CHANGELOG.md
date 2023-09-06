@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.36.0 - 2023-09-06
+
+### [0.36.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.35.0...v0.36.0) (2023-09-06)
+
+#### Features
+
+- enable alerts and reports ([66bf961](https://github.com/openedx/tutor-contrib-aspects/commit/66bf9611d7357841f796f01d22caf761cf660892))
+
+#### Bug Fixes
+
+- setup.py update using script ([5b1a142](https://github.com/openedx/tutor-contrib-aspects/commit/5b1a14239d024a69c89b94182bb88c15aed10e9f))
+
 ## v0.35.0 - 2023-09-05
 
 ### [0.35.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.34.0...v0.35.0) (2023-09-05)
