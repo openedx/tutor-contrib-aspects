@@ -51,9 +51,9 @@ with starts as (
 ), enriched_segments as (
     select
         segments.org as org,
-        courses.course_key as course_key,
-        courses.course_name as course_name,
-        courses.course_run as course_run,
+        segments.course_key as course_key,
+        blocks.course_name as course_name,
+        blocks.course_run as course_run,
         blocks.block_name as video_name,
         segments.actor_id as actor_id,
         segments.started_at as started_at,
@@ -61,10 +61,9 @@ with starts as (
         segments.end_position - (segments.end_position % 5) as end_position
     from
         segments
-        join {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names courses
-            on segments.course_key = courses.course_key
-        join {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names blocks
-            on segments.video_id = blocks.location
+        join {{ DBT_PROFILE_TARGET_DATABASE }}.dim_course_blocks blocks
+            on (segments.course_key = blocks.course_key
+                and segments.video_id = blocks.block_id)
 )
 
 select
