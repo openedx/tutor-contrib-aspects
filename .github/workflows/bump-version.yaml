@@ -15,7 +15,7 @@ jobs:
       bump_commit_sha: ${{ steps.bumpversion.outputs.commit_hash }}
       pr_number: ${{ steps.cpr.outputs.pull-request-number }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Get next version
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.1
