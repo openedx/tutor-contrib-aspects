@@ -66,7 +66,7 @@ metadata:
     - TAB-6Mdnw3FZh
     targets:
     - column:
-        name: run_name
+        name: course_run
       datasetUuid: 352311fe-12f0-470c-8b8c-d4f6a3936b3d
     type: NATIVE_FILTER
   - cascadeParentIds: []
