@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.37.0 - 2023-09-07
+
+### [0.37.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.36.0...v0.37.0) (2023-09-07)
+
+#### Features
+
+- enable model sink by default ([5f4b2c8](https://github.com/openedx/tutor-contrib-aspects/commit/5f4b2c837dd55a52e9efe16a3d1882481abe99ee))
+- upgrade openedx-event-sink-clickhouse to 0.2.0 ([0519906](https://github.com/openedx/tutor-contrib-aspects/commit/0519906eeeb9063331d8618d2d197ef2edcedb57))
+
+#### Bug Fixes
+
+- correct event sink profile migration ([9aedc16](https://github.com/openedx/tutor-contrib-aspects/commit/9aedc16d6602c24818e8adb57dab687154109095))
+
+#### Tests
+
+- start tutor services before initialization ([1a1853a](https://github.com/openedx/tutor-contrib-aspects/commit/1a1853a89342ae930a5dcb7b950c8aeddaf01654))
+
+#### Code Refactoring
+
+- use dim_course_blocks for metadata joins ([dde2864](https://github.com/openedx/tutor-contrib-aspects/commit/dde2864fa03e78a8088fd75ff6b25d5039341b50))
+
 ## v0.36.0 - 2023-09-06
 
 ### [0.36.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.35.0...v0.36.0) (2023-09-06)
