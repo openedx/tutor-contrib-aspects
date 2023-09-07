@@ -33,7 +33,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("RUN_RALPH", True),
         ("RUN_SUPERSET", True),
         ("DOCKER_IMAGE_ASPECTS", "edunext/aspects:{{ ASPECTS_VERSION }}"),
-        ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:23.3"),
+        ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:23.8"),
         ("DOCKER_IMAGE_RALPH", "fundocker/ralph:3.9.0"),
         ("DOCKER_IMAGE_SUPERSET", "edunext/aspects-superset:{{ ASPECTS_VERSION }}"),
         ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.30.0-alpine"),
