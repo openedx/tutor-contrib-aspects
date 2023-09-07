@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.37.1 - 2023-09-07
+
+### [0.37.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.37.0...v0.37.1) (2023-09-07)
+
+### Bug Fixes
+
+- update course run filter to correct column name ([a2068cf](https://github.com/openedx/tutor-contrib-aspects/commit/a2068cfc7dfa3ae2f230b34e34e7f0a62b522de5))
+
 ## v0.37.0 - 2023-09-07
 
 ### [0.37.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.36.0...v0.37.0) (2023-09-07)
