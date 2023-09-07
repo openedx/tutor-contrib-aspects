@@ -38,3 +38,7 @@ EOF
 ./manage.py lms manage_user tutor-contrib-aspects aspects@axim --unusable-password
 ./manage.py lms populate_model -f /tmp/erb_config.json -u tutor-contrib-aspects
 {% endif %}
+
+{% for model in EVENT_SINK_CLICKHOUSE_MODELS %}
+(./manage.py lms waffle_flag --list | grep event_sink_clickhouse.{{model}}.enabled) || ./manage.py lms waffle_flag --create event_sink_clickhouse.{{model}}.enabled --everyone
+{% endfor %}

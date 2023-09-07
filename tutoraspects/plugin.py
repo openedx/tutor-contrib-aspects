@@ -45,10 +45,11 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "OPENEDX_EXTRA_PIP_REQUIREMENTS",
             [
-                "openedx-event-sink-clickhouse==0.1.1",
+                "openedx-event-sink-clickhouse==0.2.0",
                 "edx-event-routing-backends==5.6.0",
             ],
         ),
+        ("EVENT_SINK_CLICKHOUSE_MODELS", ["course_overviews", "user_profile"]),
         # ClickHouse xAPI settings
         ("ASPECTS_XAPI_DATABASE", "xapi"),
         ("ASPECTS_RAW_XAPI_TABLE", "xapi_events_all"),
@@ -68,6 +69,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_EVENT_SINK_NODES_TABLE", "course_blocks"),
         ("ASPECTS_EVENT_SINK_RELATIONSHIPS_TABLE", "course_relationships"),
         ("ASPECTS_EVENT_SINK_OVERVIEWS_TABLE", "course_overviews"),
+        ("ASPECTS_EVENT_SINK_USER_PROFILE_TABLE", "user_profile"),
         ("ASPECTS_EVENT_SINK_CLICKHOUSE_TIMEOUT_SECS", "5"),
         # Vector settings
         ("ASPECTS_DOCKER_HOST_SOCK_PATH", "/var/run/docker.sock"),
