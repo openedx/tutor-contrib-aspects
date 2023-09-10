@@ -83,7 +83,8 @@ def downgrade():
         """
         CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict (
             location String,
-            block_name String
+            block_name String,
+            course_key String
         )
         PRIMARY KEY location
         SOURCE(CLICKHOUSE(
@@ -97,7 +98,8 @@ def downgrade():
                 )
                 select
                     location,
-                    display_name
+                    display_name,
+                    course_key
                 from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_blocks co
                 inner join most_recent_blocks mrb on
                     co.org = mrb.org and
@@ -115,7 +117,8 @@ def downgrade():
         CREATE OR REPLACE TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names
         (
             location String,
-            block_name String
+            block_name String,
+            course_key String
         ) engine = Dictionary({{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict)
         ;
         """
