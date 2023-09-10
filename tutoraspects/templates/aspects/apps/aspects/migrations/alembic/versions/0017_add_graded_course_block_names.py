@@ -1,11 +1,11 @@
 """
-add additional fields to course_block_names_dict and course_block_names
+add a 'graded' boolean to course_block_names_dict and course_block_names
 """
 from alembic import op
 
 
-revision = "0015"
-down_revision = "0014"
+revision = "0017"
+down_revision = "0016"
 branch_labels = None
 depends_on = None
 
@@ -33,14 +33,15 @@ def upgrade():
         CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict (
             location String,
             block_name String,
-            course_key String
+            course_key String,
+            graded Bool
         )
         PRIMARY KEY location
         SOURCE(CLICKHOUSE(
             user '{{ CLICKHOUSE_ADMIN_USER }}'
             password '{{ CLICKHOUSE_ADMIN_PASSWORD }}'
             db '{{ ASPECTS_EVENT_SINK_DATABASE }}'
-            query 'with most_recent_blocks as (
+            query "with most_recent_blocks as (
                     select org, course_key, location, max(edited_on) as last_modified
                     from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_blocks
                     group by org, course_key, location
@@ -48,14 +49,15 @@ def upgrade():
                 select
                     location,
                     display_name,
-                    course_key
+                    course_key,
+                    JSONExtractBool(xblock_data_json, 'graded') as graded
                 from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_blocks co
                 inner join most_recent_blocks mrb on
                     co.org = mrb.org and
                     co.course_key = mrb.course_key and
                     co.location = mrb.location and
                     co.edited_on = mrb.last_modified
-            '
+            "
         ))
         LAYOUT(COMPLEX_KEY_SPARSE_HASHED())
         LIFETIME(120);
@@ -67,7 +69,8 @@ def upgrade():
         (
             location String,
             block_name String,
-            course_key String
+            course_key String,
+            graded Bool
         ) engine = Dictionary({{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict)
         ;
         """
