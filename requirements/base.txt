@@ -6,7 +6,7 @@
 #
 appdirs==1.4.4
     # via tutor
-asttokens==2.3.0
+asttokens==2.4.0
     # via transifex-python
 bcrypt==4.0.1
     # via -r requirements/base.in
@@ -57,7 +57,7 @@ pyseeyou==1.0.2
     # via transifex-python
 python-dateutil==2.8.2
     # via kubernetes
-pytz==2023.3
+pytz==2023.3.post1
     # via transifex-python
 pyyaml==6.0.1
     # via
