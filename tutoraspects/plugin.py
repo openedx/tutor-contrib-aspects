@@ -64,6 +64,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_PROBLEM_EVENTS_TABLE", "problem_events"),
         ("ASPECTS_NAVIGATION_TRANSFORM_MV", "navigation_events_mv"),
         ("ASPECTS_NAVIGATION_EVENTS_TABLE", "navigation_events"),
+        ("ASPECTS_GRADING_TRANSFORM_MV", "grading_events_mv"),
+        ("ASPECTS_GRADING_EVENTS_TABLE", "grading_events"),
         # ClickHouse event sink settings
         ("ASPECTS_EVENT_SINK_DATABASE", "event_sink"),
         ("ASPECTS_EVENT_SINK_NODES_TABLE", "course_blocks"),
