@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.39.0 - 2023-09-11
+
+### [0.39.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.38.0...v0.39.0) (2023-09-11)
+
+#### Features
+
+- add graded boolean to course_block_names ([44aa74b](https://github.com/openedx/tutor-contrib-aspects/commit/44aa74bbba2ec11b71b13c9a1d49b3ca8cf5ddf9))
+- add top-level MV for grading events ([06d30b8](https://github.com/openedx/tutor-contrib-aspects/commit/06d30b8c6334d841330011041c3651ba6e2c056d))
+
+#### Bug Fixes
+
+- align downgrade schema with previous version ([6a39394](https://github.com/openedx/tutor-contrib-aspects/commit/6a39394889898544f1cc95d0e8275aea929ac69f))
+
+#### Documentation
+
+- Update readme install instructions ([4ca46dd](https://github.com/openedx/tutor-contrib-aspects/commit/4ca46dd69625b83a1608a13ee8ce225d626784b5))
+
+#### Code Refactoring
+
+- move graded into separate migration ([cfe2a86](https://github.com/openedx/tutor-contrib-aspects/commit/cfe2a86318714c7748d75ec2b19a317124a216e3))
+
 ## v0.38.0 - 2023-09-07
 
 ### [0.38.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.37.0...v0.38.0) (2023-09-07)
