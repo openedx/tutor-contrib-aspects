@@ -15,9 +15,7 @@ See https://github.com/openedx/openedx-aspects for more details about the Aspect
 
 Aspects is a community developed effort combining the Cairn project by Overhang.io and the OARS project by EduNEXT, OpenCraft, and Axim Collaborative.
 
-Note: Aspects is in heavy development and not yet production ready! Please feel
-free to experiment with the system and offer feedback about what you'd like to see
-by adding Issues in this repository.
+Note: Aspects is beta and not yet production ready! Please feel free to experiment with the system and offer feedback about what you'd like to see by adding Issues in this repository. Current details on the beta progress can be found here: https://openedx.atlassian.net/wiki/spaces/COMM/pages/3861512203/Aspects+Beta
 
 Compatibility
 -------------
@@ -27,20 +25,15 @@ This plugin is compatible with Tutor 15.0.0 and later and is expected to be comp
 Installation
 ------------
 
-The Aspects project can be installed in a Tutor environment with the following command
+Aspects is implemented as a Tutor plugin. Documentation will be coming soon to cover how to install Aspects in non-Tutor environments, but by far the easiest way to try and install it is via Tutor. These instructions assume you are running a `tutor local` install, which is the fastest and easiest way to get started.
 
-::
+#. Install Tutor: https://docs.tutor.overhang.io/install.html#install
+
+#. Create an admin user on the LMS: https://docs.tutor.overhang.io/whatnext.html#logging-in-as-administrator
+
+#. Install the Aspects plugin (in your Tutor Python environment)::
 
     pip install tutor-contrib-aspects
-
-Or to install the main branch you can:
-
-::
-    pip install git+https://github.com/openedx/tutor-contrib-aspects
-
-
-Usage
------
 
 #. Enable the plugins::
 
@@ -50,37 +43,45 @@ Usage
 
     tutor config save
 
-#. Because we're installing a new app in LMS (event-routing-backends) you will need to
-   rebuild your openedx image::
+#. Because we're installing new applications in LMS (event-routing-backends, event-sink-clickhouse) you will need to rebuild your openedx image::
 
-    tutor images build openedx
+    tutor images build openedx --no-cache
 
-#. Run the initialization scripts in your chosen environment (dev or local)::
+#. Run the initialization scripts::
 
-    tutor [dev|local] do init
+    tutor local do init
 
-#. (Optional) Load test xAPI data into Ralph/Clickhouse/Superset (with ``--help`` for usage)::
+At this point you should have a working Tutor / Aspects environment, but with no way to create data! There are a few options for how to proceed.
 
-    tutor [dev|local] do load-xapi-test-data
+#. If you would just like to see some data populated in the charts without loading a real course in the LMS you can create test data in the database (use ``--help`` for usage)::
 
-#. (Optional) Sink course data from the LMS to clickhouse (see  `https://github.com/openedx/openedx-event-sink-clickhouse` for more information)::
+        tutor local do load-xapi-test-data
 
-    tutor [dev|local] do dump-courses-to-clickhouse --options "--force"
-    # If you already have some courses in your clickhouse sink, its better to drop --options "--force" as it will create duplicates of the pre-existing courses.
+#. OR Load the test course and generate real data from the LMS:
 
-#. (Optional) Sink Historical event data to ClickHouse::
+   #. https://docs.tutor.overhang.io/whatnext.html#importing-a-demo-course
 
-    tutor [dev|local] do transform_tracking_logs \
-      --source_provider LOCAL --source_config '{"key": "/openedx/data", "container": "logs", "prefix": "tracking.log"}' \
-      --transformer_type xapi
+   #. Log into the LMS with your admin user and enroll / proceed through the demo course
 
-    # Note that this will work only for default tutor installation. If you store your tracking logs any other way, you need to change the source_config option accordingly.
-    # See https://event-routing-backends.readthedocs.io/en/latest/howto/how_to_bulk_transform.html#sources-and-destinations for details on how to change the source_config option.
+#. OR If you are adding Aspects to an existing LMS that already has data
 
-#. (Optional) Run deduplicate data. This is useful for cases in which you are already have pre-existing data and you want to backfill tracking logs,
-   which can lead to duplicated data. This can take a long time to run::
+   #. Sink course data from the LMS to clickhouse (see https://github.com/openedx/openedx-event-sink-clickhouse for more information)::
 
-    tutor [dev|local] do transform_tracking_logs ... --deduplicate
+       tutor local do dump-courses-to-clickhouse --options "--force"
+
+
+   #. Sink Historical event data to ClickHouse::
+
+       tutor [dev|local] do transform_tracking_logs \
+         --source_provider LOCAL --source_config '{"key": "/openedx/data", "container":
+            "logs", "prefix": "tracking.log"}' \
+         --transformer_type xapi
+
+       # Note that this will work only for default tutor installation. If you store your tracking logs any other way, you need to change the source_config option accordingly.
+       # See https://event-routing-backends.readthedocs.io/en/latest/howto/how_to_bulk_transform.html#sources-and-destinations for details on how to change the source_config option.
+
+
+You should now have data to look at in Superset! Log in to https://superset.local.overhang.io/ with your admin account and you should see charts with your data.
 
 Superset Assets
 ---------------
