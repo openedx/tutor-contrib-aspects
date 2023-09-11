@@ -1,6 +1,6 @@
 # Configuration needed for openedx-event-sink-clickhouse
 EVENT_SINK_CLICKHOUSE_BACKEND_CONFIG = {
-        "url": "http://{{ CLICKHOUSE_HOST }}:{{ CLICKHOUSE_PORT }}",
+        "url": "http://{{ CLICKHOUSE_HOST }}:{{ CLICKHOUSE_INTERNAL_HTTP_PORT }}",
         "username": "{{ ASPECTS_CLICKHOUSE_CMS_USER }}",
         "password": "{{ ASPECTS_CLICKHOUSE_CMS_PASSWORD }}",
         "database": "{{ ASPECTS_EVENT_SINK_DATABASE }}",

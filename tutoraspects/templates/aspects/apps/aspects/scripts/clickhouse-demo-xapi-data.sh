@@ -4,7 +4,7 @@ xapi-db-load --backend ralph_clickhouse \
     --num_batches $1 \
     --batch_size $2 \
     --db_host "{{ CLICKHOUSE_HOST }}" \
-    --db_port "{{ CLICKHOUSE_PORT }}" \
+    --db_port "{{ CLICKHOUSE_INTERNAL_HTTP_PORT }}" \
     --db_username "{{ CLICKHOUSE_ADMIN_USER }}" \
     --db_password "{{ CLICKHOUSE_ADMIN_PASSWORD }}" \
     --db_name "{{ ASPECTS_XAPI_DATABASE }}" \
