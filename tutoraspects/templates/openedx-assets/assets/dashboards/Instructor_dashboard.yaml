@@ -7,6 +7,8 @@ description: null
 metadata:
   chart_configuration: {}
   color_scheme: ''
+  color_scheme_domain: []
+  cross_filters_enabled: false
   default_filters: '{}'
   expanded_slices: {}
   label_colors: {}
@@ -241,7 +243,10 @@ metadata:
       datasetUuid: 417b2035-8fa1-4c60-a405-4b1947c3c966
     type: NATIVE_FILTER
   refresh_frequency: 0
-  shared_label_colors: {}
+  shared_label_colors:
+    'True': '#1FA8C9'
+    audit: '#1FA8C9'
+    registered: '#1FA8C9'
   show_native_filters: true
   timed_refresh_immune_slices: []
 position:
@@ -268,7 +273,7 @@ position:
       height: 50
       sliceName: Response distribution
       uuid: f1651c44-a8f4-4b44-ad49-962823009319
-      width: 12
+      width: 6
     parents:
     - ROOT_ID
     - TABS-SNeKAJcjhd
@@ -350,6 +355,21 @@ position:
     - TAB-pOd4znTAV
     - ROW-GKMT8uEu6K
     type: CHART
+  CHART-o56v9yEe2I:
+    children: []
+    id: CHART-o56v9yEe2I
+    meta:
+      chartId: 865
+      height: 50
+      sliceName: Grade distribution - problems
+      uuid: 4f7e3606-f5de-4643-97c0-bbb6340a3df2
+      width: 6
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-pOd4znTAV
+    - ROW-lZkhTcIAro
+    type: CHART
   CHART-rnb6PSwCOS:
     children: []
     id: CHART-rnb6PSwCOS
@@ -395,6 +415,21 @@ position:
     - TAB-pOd4znTAV
     - ROW-GKMT8uEu6K
     type: CHART
+  CHART-w-k4N2T_L8:
+    children: []
+    id: CHART-w-k4N2T_L8
+    meta:
+      chartId: 879
+      height: 50
+      sliceName: Grade distribution - courses
+      uuid: f9adbc85-1f50-4c04-ace3-31ba7390de5e
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    - ROW-AG2xAOM044
+    type: CHART
   DASHBOARD_VERSION_KEY: v2
   DIVIDER-G6rO0La8YT:
     children: []
@@ -433,6 +468,17 @@ position:
     - TABS-SNeKAJcjhd
     id: ROOT_ID
     type: ROOT
+  ROW-AG2xAOM044:
+    children:
+    - CHART-w-k4N2T_L8
+    id: ROW-AG2xAOM044
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    type: ROW
   ROW-BO2IHCiYF8:
     children:
     - CHART-AZZnl_lpMv
@@ -505,6 +551,7 @@ position:
   ROW-lZkhTcIAro:
     children:
     - CHART-GFCO8s2cxv
+    - CHART-o56v9yEe2I
     id: ROW-lZkhTcIAro
     meta:
       background: BACKGROUND_TRANSPARENT
@@ -554,6 +601,7 @@ position:
     children:
     - HEADER-v9QDHi2Dxm
     - ROW-_qzhG9fM3z
+    - ROW-AG2xAOM044
     - DIVIDER-G6rO0La8YT
     id: TAB-NR4UTAs9K
     meta:

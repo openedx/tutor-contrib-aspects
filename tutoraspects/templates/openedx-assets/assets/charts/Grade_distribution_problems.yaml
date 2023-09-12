@@ -1,0 +1,30 @@
+_file_name: Grade_distribution_problems.yaml
+cache_timeout: null
+dataset_uuid: b31154e0-afed-4445-b90d-a501d555784e
+params:
+  adhoc_filters: []
+  bottom_margin: auto
+  color_scheme: supersetColors
+  columns: []
+  datasource: 53__table
+  extra_form_data: {}
+  granularity_sqla: emission_time
+  groupby:
+    - grade_bucket
+  metrics:
+    - count
+  order_desc: true
+  rich_tooltip: true
+  row_limit: 10000
+  show_legend: true
+  time_range: No filter
+  viz_type: dist_bar
+  x_ticks_layout: auto
+  y_axis_bounds:
+    - null
+    - null
+  y_axis_format: SMART_NUMBER
+slice_name: Grade distribution - problems
+uuid: 4f7e3606-f5de-4643-97c0-bbb6340a3df2
+version: 1.0.0
+viz_type: dist_bar
