@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.40.0 - 2023-09-12
+
+### [0.40.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.39.0...v0.40.0) (2023-09-12)
+
+#### Features
+
+- add charts for course and problem grades ([95180d1](https://github.com/openedx/tutor-contrib-aspects/commit/95180d147a7865d75dd04905b9d6b1d4a71921cf))
+
+#### Code Refactoring
+
+- rename grade distribution chart files ([a9bd0d2](https://github.com/openedx/tutor-contrib-aspects/commit/a9bd0d2abbb1e3dbbb3a1dcb6bc277cf7356ef66))
+
 ## v0.39.0 - 2023-09-11
 
 ### [0.39.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.38.0...v0.39.0) (2023-09-11)
