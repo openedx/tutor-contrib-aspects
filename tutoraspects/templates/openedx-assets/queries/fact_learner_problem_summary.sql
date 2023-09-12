@@ -95,7 +95,14 @@ WITH problem_responses AS (
         caseWithExpression(help_type, 'hint', 1, 0) AS num_hints_displayed,
         caseWithExpression(help_type, 'answer', 1, 0) AS num_answers_displayed
     FROM {{ DBT_PROFILE_TARGET_DATABASE }}.int_problem_hints
-    WHERE 1=1
+    WHERE
+    {% raw %}
+    {% if filter_values('problem_name') != [] %}
+    problem_name in {{ filter_values('problem_name') | where_in }}
+    {% else %}
+    1=0
+    {% endif %}
+    {% endraw %}
     {% include 'openedx-assets/queries/common_filters.sql' %}
 )
 
