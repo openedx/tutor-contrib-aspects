@@ -24,7 +24,7 @@ params:
     - null
     - null
   y_axis_format: SMART_NUMBER
-slice_name: Grade distribution - courses
+slice_name: Grade distribution - course
 uuid: f9adbc85-1f50-4c04-ace3-31ba7390de5e
 version: 1.0.0
 viz_type: dist_bar

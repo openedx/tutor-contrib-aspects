@@ -1,8 +1,18 @@
 with grades as (
     select *
     from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_grades
-    where grade_type = 'problem'
-    {% include 'openedx-assets/queries/common_filters.sql' %}
+    where
+        grade_type = 'problem'
+
+        {% raw %}
+        {% if filter_values('problem_name') != [] %}
+        and entity_name in {{ filter_values('problem_name', remove_filter=True) | where_in }}
+        {% else %}
+        and 1=0
+        {% endif %}
+        {% endraw %}
+
+        {% include 'openedx-assets/queries/common_filters.sql' %}
 ),
 most_recent_grades as (
     select
@@ -35,11 +45,3 @@ from
     grades
     join most_recent_grades
         using (org, course_key, entity_id, actor_id, emission_time)
-where
-    {% raw %}
-    {% if filter_values('problem_name') != [] %}
-    entity_name in {{ filter_values('problem_name', remove_filter=True) | where_in }}
-    {% else %}
-    entity_name in ('')
-    {% endif %}
-    {% endraw %}

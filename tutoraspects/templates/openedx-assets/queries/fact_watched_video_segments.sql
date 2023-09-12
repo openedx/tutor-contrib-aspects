@@ -1,6 +1,5 @@
-with starts as (
-    select
-        emission_time,
+with video_events as (
+    emission_time,
         org,
         course_key,
         splitByString('/xblock/', object_id)[-1] as video_id,
@@ -8,19 +7,15 @@ with starts as (
         verb_id,
         video_position
     from {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK_EVENTS_TABLE }}
-    where
-        verb_id = 'https://w3id.org/xapi/video/verbs/played'
-        {% include 'openedx-assets/queries/common_filters.sql' %}
+    where 1=1
+    {% include 'openedx-assets/queries/common_filters.sql' %}
+), starts as (
+    select *
+    from video_events
+    where verb_id = 'https://w3id.org/xapi/video/verbs/played'
 ), ends as (
-    select
-        emission_time,
-        org,
-        course_key,
-        splitByString('/xblock/', object_id)[-1] as video_id,
-        actor_id,
-        verb_id,
-        video_position
-    from {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK_EVENTS_TABLE }}
+    select *
+    from video_events
     where
         verb_id in (
             'http://adlnet.gov/expapi/verbs/completed',
@@ -28,7 +23,6 @@ with starts as (
             'https://w3id.org/xapi/video/verbs/paused',
             'http://adlnet.gov/expapi/verbs/terminated'
         )
-        {% include 'openedx-assets/queries/common_filters.sql' %}
 ), segments as(
     select
         starts.org as org,
@@ -76,3 +70,11 @@ select
     started_at,
     arrayJoin(range(start_position, end_position, 5)) as segment_start
 from enriched_segments
+where
+    {% raw %}
+    {% if filter_values('video_name') != [] %}
+    video_name in {{ filter_values('video_name') | where_in }}
+    {% else %}
+    1=0
+    {% endif %}
+    {% endraw %}

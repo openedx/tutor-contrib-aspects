@@ -25,6 +25,8 @@ metadata:
     - 47
     - 48
     - 52
+    - 865
+    - 879
     controlValues:
       enableEmptyFilter: false
     defaultDataMask:
@@ -186,9 +188,10 @@ metadata:
     - 45
     - 46
     - 47
+    - 865
     controlValues:
-      defaultToFirstItem: true
-      enableEmptyFilter: true
+      defaultToFirstItem: false
+      enableEmptyFilter: false
       inverseSelection: false
       multiSelect: false
       searchAllOptions: false
@@ -200,7 +203,6 @@ metadata:
     filterType: filter_select
     id: NATIVE_FILTER-6xfFY5VGz
     name: Problem name
-    requiredFirst: true
     scope:
       excluded: []
       rootPath:
@@ -216,10 +218,11 @@ metadata:
     - NATIVE_FILTER-Vx7HxG8_7
     - NATIVE_FILTER-XPuiTOej4
     - NATIVE_FILTER-E6-vOpjZv
-    chartsInScope: []
+    chartsInScope:
+    - 52
     controlValues:
-      defaultToFirstItem: true
-      enableEmptyFilter: true
+      defaultToFirstItem: false
+      enableEmptyFilter: false
       inverseSelection: false
       multiSelect: false
       searchAllOptions: false
@@ -231,12 +234,12 @@ metadata:
     filterType: filter_select
     id: NATIVE_FILTER-V77Ybaw2w
     name: Video name
-    requiredFirst: true
     scope:
       excluded: []
       rootPath:
       - TAB-CLiLC4zxo
-    tabsInScope: []
+    tabsInScope:
+    - TAB-CLiLC4zxo
     targets:
     - column:
         name: video_name
