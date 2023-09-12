@@ -104,7 +104,7 @@ auth.password = "{{ ASPECTS_CLICKHOUSE_VECTOR_PASSWORD }}"
 # Required: https://github.com/timberio/vector/issues/5797
 encoding.timestamp_format = "unix"
 inputs = ["tracking"]
-endpoint = "{% if CLICKHOUSE_SECURE_CONNECTION %}https{% else %}http{% endif %}://{{ CLICKHOUSE_HOST }}:{{ CLICKHOUSE_PORT }}"
+endpoint = "{% if CLICKHOUSE_SECURE_CONNECTION %}https{% else %}http{% endif %}://{{ CLICKHOUSE_HOST }}:{{ CLICKHOUSE_INTERNAL_HTTP_PORT }}"
 database = "{{ ASPECTS_VECTOR_DATABASE }}"
 table = "{{ ASPECTS_VECTOR_RAW_TRACKING_LOGS_TABLE }}"
 healthcheck = true
@@ -119,7 +119,7 @@ encoding.timestamp_format = "unix"
 # Allows better parsing of date times
 date_time_best_effort = true
 inputs = ["xapi"]
-endpoint = "{% if CLICKHOUSE_SECURE_CONNECTION %}https{% else %}http{% endif %}://{{ CLICKHOUSE_HOST }}:{{ CLICKHOUSE_PORT }}"
+endpoint = "{% if CLICKHOUSE_SECURE_CONNECTION %}https{% else %}http{% endif %}://{{ CLICKHOUSE_HOST }}:{{ CLICKHOUSE_INTERNAL_HTTP_PORT }}"
 database = "{{ ASPECTS_VECTOR_DATABASE }}"
 table = "{{ ASPECTS_VECTOR_RAW_XAPI_TABLE }}"
 healthcheck = true

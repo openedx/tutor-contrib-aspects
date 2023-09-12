@@ -81,20 +81,64 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Make sure LMS / CMS have event-routing-backends installed
         ######################
         # ClickHouse Settings
+        # Note! ClickHouse has several reserved ports, make sure you are not reusing
+        # a taken port: https://clickhouse.com/docs/en/guides/sre/network-ports
         ("CLICKHOUSE_HOST", "clickhouse"),
-        ("CLICKHOUSE_CLIENT_HTTP_PORT", "9000"),
-        ("CLICKHOUSE_CLIENT_HTTPS_PORT", "9440"),
+        # Port for the native interface exposed on the host container in Docker Compose,
+        # this is changed from 9000 to prevent conflicts with MinIO, which also listens
+        # on 9000.
+        ("CLICKHOUSE_HOST_INSECURE_NATIVE_PORT", "9006"),
+        # Port for the native interface ClickHouse will open on the container, used in
+        # internal networking on the cluster.
+        ("CLICKHOUSE_INTERNAL_INSECURE_NATIVE_PORT", "9000"),
+        # Port for the TLS native encrypted native interface exposed on the host
+        # container in Docker Compose.
+        ("CLICKHOUSE_HOST_TLS_NATIVE_PORT", "9440"),
+        # Port for the TLS native interface ClickHouse will open on the container
+        ("CLICKHOUSE_INTERNAL_TLS_NATIVE_PORT", "9440"),
+        # Use the secure ports if we're configured for them, otherwise insecure
         (
-            "CLICKHOUSE_CLIENT_PORT",
+            "CLICKHOUSE_HOST_NATIVE_PORT",
             "{% if CLICKHOUSE_SECURE_CONNECTION %}"
-            "{{CLICKHOUSE_CLIENT_HTTPS_PORT}}{% else %}{{CLICKHOUSE_CLIENT_HTTP_PORT}}{% endif %}",
+            "{{CLICKHOUSE_HOST_TLS_NATIVE_PORT}}"
+            "{% else %}"
+            "{{CLICKHOUSE_HOST_INSECURE_NATIVE_PORT}}"
+            "{% endif %}",
         ),
-        ("CLICKHOUSE_HTTP_PORT", "8123"),
-        ("CLICKHOUSE_HTTPS_PORT", "8443"),
         (
-            "CLICKHOUSE_PORT",
+            "CLICKHOUSE_INTERNAL_NATIVE_PORT",
             "{% if CLICKHOUSE_SECURE_CONNECTION %}"
-            "{{CLICKHOUSE_HTTPS_PORT}}{% else %}{{CLICKHOUSE_HTTP_PORT}}{% endif %}",
+            "{{CLICKHOUSE_INTERNAL_TLS_NATIVE_PORT}}"
+            "{% else %}"
+            "{{CLICKHOUSE_INTERNAL_INSECURE_NATIVE_PORT}}"
+            "{% endif %}",
+        ),
+        # Port for the HTTP interface exposed on the host container in Docker Compose.
+        ("CLICKHOUSE_HOST_INSECURE_HTTP_PORT", "8123"),
+        # Port for the HTTP interface ClickHouse will open on the container, used in
+        # internal networking on the cluster.
+        ("CLICKHOUSE_INTERNAL_INSECURE_HTTP_PORT", "8123"),
+        # Port for the TLS HTTP encrypted HTTP interface exposed on the host
+        # container in Docker Compose.
+        ("CLICKHOUSE_HOST_TLS_HTTP_PORT", "8443"),
+        # Port for the TLS HTTP interface ClickHouse will open on the container
+        ("CLICKHOUSE_INTERNAL_TLS_HTTP_PORT", "8443"),
+        # Use the secure ports if we're configured for them, otherwise insecure
+        (
+            "CLICKHOUSE_HOST_HTTP_PORT",
+            "{% if CLICKHOUSE_SECURE_CONNECTION %}"
+            "{{CLICKHOUSE_HOST_TLS_HTTP_PORT}}"
+            "{% else %}"
+            "{{CLICKHOUSE_HOST_INSECURE_HTTP_PORT}}"
+            "{% endif %}",
+        ),
+        (
+            "CLICKHOUSE_INTERNAL_HTTP_PORT",
+            "{% if CLICKHOUSE_SECURE_CONNECTION %}"
+            "{{CLICKHOUSE_INTERNAL_TLS_HTTP_PORT}}"
+            "{% else %}"
+            "{{CLICKHOUSE_INTERNAL_INSECURE_HTTP_PORT}}"
+            "{% endif %}",
         ),
         ("CLICKHOUSE_K8S_VOLUME_SIZE", "10Gi"),
         # This can be used to override some configuration values in
@@ -107,6 +151,22 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "CLICKHOUSE_EXTRA_XML_CONFIG",
             """
+    <!-- Port for HTTP API. See also 'https_port' for secure connections.
+         This interface is also used by ODBC and JDBC drivers (DataGrip, Dbeaver, ...)
+         and by most of web interfaces (embedded UI, Grafana, Redash, ...).
+    -->
+    <http_port>{{CLICKHOUSE_INTERNAL_HTTP_PORT}}</http_port>
+
+    <!-- Port for interaction by native protocol with:
+         - clickhouse-client and other native ClickHouse tools (clickhouse-benchmark,
+           clickhouse-copier);
+         - clickhouse-server with other clickhouse-servers for distributed query processing;
+         - ClickHouse drivers and applications supporting native protocol
+         (this protocol is also informally called as "the TCP protocol");
+         See also 'tcp_port_secure' for secure connections.
+    -->
+    <tcp_port>{{CLICKHOUSE_INTERNAL_NATIVE_PORT}}</tcp_port>
+
     <listen_host>::</listen_host>
     <listen_host>0.0.0.0</listen_host>
     <listen_try>1</listen_try>
@@ -114,7 +174,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ),
         (
             "CLICKHOUSE_URL",
-            "{{CLICKHOUSE_HOST}}:{{CLICKHOUSE_PORT}}",
+            "{{CLICKHOUSE_HOST}}:{{CLICKHOUSE_INTERNAL_HTTP_PORT}}",
         ),
         (
             "CLICKHOUSE_REPORT_URL",
@@ -128,7 +188,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "CLICKHOUSE_ADMIN_SQLALCHEMY_URI",
             "clickhouse+native://{{CLICKHOUSE_ADMIN_USER}}:{{CLICKHOUSE_ADMIN_PASSWORD}}"
-            "@{{CLICKHOUSE_HOST}}:{{CLICKHOUSE_CLIENT_PORT}}/{{ASPECTS_XAPI_DATABASE}}"
+            "@{{CLICKHOUSE_HOST}}:{{CLICKHOUSE_INTERNAL_NATIVE_PORT}}/{{"
+            "ASPECTS_XAPI_DATABASE}}"
             "{% if CLICKHOUSE_SECURE_CONNECTION %}?secure=True{% endif %}",
         ),
         ######################

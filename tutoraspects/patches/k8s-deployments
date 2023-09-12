@@ -87,7 +87,7 @@ spec:
             - name: RALPH_BACKENDS__DATABASE__CLICKHOUSE__PASSWORD
               value: "{{CLICKHOUSE_ADMIN_PASSWORD}}"
             - name: RALPH_BACKENDS__DATABASE__CLICKHOUSE__PORT
-              value: "{{CLICKHOUSE_PORT}}"
+              value: "{{CLICKHOUSE_INTERNAL_HTTP_PORT}}"
             - name: RALPH_BACKENDS__DATABASE__CLICKHOUSE__TEST_HOST
               value: "clickhouse"
             - name: RALPH_BACKENDS__DATABASE__CLICKHOUSE__USERNAME
