@@ -100,12 +100,18 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "CLICKHOUSE_HOST_NATIVE_PORT",
             "{% if CLICKHOUSE_SECURE_CONNECTION %}"
-            "{{CLICKHOUSE_HOST_TLS_NATIVE_PORT}}{% else %}{{CLICKHOUSE_HOST_INSECURE_NATIVE_PORT}}{% endif %}",
+            "{{CLICKHOUSE_HOST_TLS_NATIVE_PORT}}"
+            "{% else %}"
+            "{{CLICKHOUSE_HOST_INSECURE_NATIVE_PORT}}"
+            "{% endif %}",
         ),
         (
             "CLICKHOUSE_INTERNAL_NATIVE_PORT",
             "{% if CLICKHOUSE_SECURE_CONNECTION %}"
-            "{{CLICKHOUSE_INTERNAL_TLS_NATIVE_PORT}}{% else %}{{CLICKHOUSE_INTERNAL_INSECURE_NATIVE_PORT}}{% endif %}",
+            "{{CLICKHOUSE_INTERNAL_TLS_NATIVE_PORT}}"
+            "{% else %}"
+            "{{CLICKHOUSE_INTERNAL_INSECURE_NATIVE_PORT}}"
+            "{% endif %}",
         ),
         # Port for the HTTP interface exposed on the host container in Docker Compose.
         ("CLICKHOUSE_HOST_INSECURE_HTTP_PORT", "8123"),
@@ -121,14 +127,19 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "CLICKHOUSE_HOST_HTTP_PORT",
             "{% if CLICKHOUSE_SECURE_CONNECTION %}"
-            "{{CLICKHOUSE_HOST_TLS_HTTP_PORT}}{% else %}{{CLICKHOUSE_HOST_INSECURE_HTTP_PORT}}{% endif %}",
+            "{{CLICKHOUSE_HOST_TLS_HTTP_PORT}}"
+            "{% else %}"
+            "{{CLICKHOUSE_HOST_INSECURE_HTTP_PORT}}"
+            "{% endif %}",
         ),
         (
             "CLICKHOUSE_INTERNAL_HTTP_PORT",
             "{% if CLICKHOUSE_SECURE_CONNECTION %}"
-            "{{CLICKHOUSE_INTERNAL_TLS_HTTP_PORT}}{% else %}{{CLICKHOUSE_INTERNAL_INSECURE_HTTP_PORT}}{% endif %}",
+            "{{CLICKHOUSE_INTERNAL_TLS_HTTP_PORT}}"
+            "{% else %}"
+            "{{CLICKHOUSE_INTERNAL_INSECURE_HTTP_PORT}}"
+            "{% endif %}",
         ),
-
         ("CLICKHOUSE_K8S_VOLUME_SIZE", "10Gi"),
         # This can be used to override some configuration values in
         # via "docker_config.xml" file, which will be read from a
@@ -147,7 +158,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
     <http_port>{{CLICKHOUSE_INTERNAL_HTTP_PORT}}</http_port>
 
     <!-- Port for interaction by native protocol with:
-         - clickhouse-client and other native ClickHouse tools (clickhouse-benchmark, clickhouse-copier);
+         - clickhouse-client and other native ClickHouse tools (clickhouse-benchmark,
+           clickhouse-copier);
          - clickhouse-server with other clickhouse-servers for distributed query processing;
          - ClickHouse drivers and applications supporting native protocol
          (this protocol is also informally called as "the TCP protocol");
