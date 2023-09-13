@@ -2,7 +2,13 @@ with transcripts as (
 select *
 from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_transcript_usage
 where
-    1=1
+    {% raw %}
+    {% if filter_values('course_name') != [] %}
+    course_name in {{ filter_values('course_name') | where_in }}
+    {% else %}
+    0=1
+    {% endif %}
+    {% endraw %}
     {% include 'openedx-assets/queries/common_filters.sql' %}
 )
 
