@@ -1,6 +1,7 @@
 _file_name: OpenedX_Clickhouse.yaml
 allow_ctas: false
 allow_cvas: false
+allow_dml: false
 allow_file_upload: false
 allow_run_async: false
 cache_timeout: null

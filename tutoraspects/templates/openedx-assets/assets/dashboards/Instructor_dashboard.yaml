@@ -1,8 +1,8 @@
-_file_name: Instructor_dashboard.yaml
+_file_name: Instructor_Dashboard.yaml
 _roles:
   - {{ SUPERSET_ROLES_MAPPING.instructor }}
 css: ''
-dashboard_title: Instructor dashboard
+dashboard_title: Instructor Dashboard
 description: null
 metadata:
   chart_configuration: {}
@@ -15,18 +15,18 @@ metadata:
   native_filter_configuration:
   - cascadeParentIds: []
     chartsInScope:
-    - 24
     - 25
-    - 32
-    - 34
-    - 37
-    - 45
-    - 46
+    - 30
+    - 40
     - 47
-    - 48
-    - 52
-    - 865
-    - 879
+    - 87
+    - 111
+    - 166
+    - 204
+    - 262
+    - 314
+    - 345
+    - 352
     controlValues:
       enableEmptyFilter: false
     defaultDataMask:
@@ -55,16 +55,18 @@ metadata:
     type: NATIVE_FILTER
   - cascadeParentIds: []
     chartsInScope:
-    - 24
     - 25
-    - 32
-    - 34
-    - 37
-    - 45
-    - 46
+    - 30
+    - 40
     - 47
-    - 48
-    - 52
+    - 87
+    - 111
+    - 166
+    - 204
+    - 262
+    - 314
+    - 345
+    - 352
     controlValues:
       defaultToFirstItem: true
       enableEmptyFilter: true
@@ -78,7 +80,7 @@ metadata:
     description: ''
     filterType: filter_select
     id: NATIVE_FILTER-Vx7HxG8_7
-    name: Org
+    name: Organization
     requiredFirst: true
     scope:
       excluded: []
@@ -247,7 +249,9 @@ metadata:
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
-    audit: '#1FA8C9'
+    Repeat views: '#454E7C'
+    Unique viewers: '#1FA8C9'
+    audit: '#454E7C'
     registered: '#1FA8C9'
   show_native_filters: true
   timed_refresh_immune_slices: []
@@ -258,7 +262,7 @@ position:
     meta:
       chartId: 25
       height: 50
-      sliceName: Watches per video
+      sliceName: Watches Per Video
       uuid: 829c1d5b-2844-4115-876a-34ad3b3cad64
       width: 6
     parents:
@@ -271,9 +275,9 @@ position:
     children: []
     id: CHART-GFCO8s2cxv
     meta:
-      chartId: 45
+      chartId: 314
       height: 50
-      sliceName: Response distribution
+      sliceName: Distribution Of Responses
       uuid: f1651c44-a8f4-4b44-ad49-962823009319
       width: 6
     parents:
@@ -286,9 +290,9 @@ position:
     children: []
     id: CHART-Jr-gNVms2Q
     meta:
-      chartId: 34
+      chartId: 111
       height: 50
-      sliceName: Enrollment events per day
+      sliceName: Enrollment Events Per Day
       uuid: bb1147cc-b7bc-44b7-b06a-79b0db6626aa
       width: 8
     parents:
@@ -301,9 +305,9 @@ position:
     children: []
     id: CHART-OMy4wjRBWt
     meta:
-      chartId: 52
+      chartId: 204
       height: 50
-      sliceName: Watched video segments
+      sliceName: Watched Video Segments
       uuid: 2985a9db-c338-4008-af52-2930b81ee2e5
       width: 12
     parents:
@@ -312,28 +316,13 @@ position:
     - TAB-CLiLC4zxo
     - ROW-lN_IXnlUhL
     type: CHART
-  CHART-RTO33WE9FH:
-    children: []
-    id: CHART-RTO33WE9FH
-    meta:
-      chartId: 894
-      height: 50
-      sliceName: Problem submission counts
-      uuid: a3e79162-4ace-4349-ab34-89aa60ae75ed
-      width: 12
-    parents:
-    - ROOT_ID
-    - TABS-SNeKAJcjhd
-    - TAB-NR4UTAs9K
-    - ROW-87X0ypdHH_
-    type: CHART
   CHART-Tej2oLPBAl:
     children: []
     id: CHART-Tej2oLPBAl
     meta:
-      chartId: 24
+      chartId: 47
       height: 50
-      sliceName: Transcript/closed captioning usage per video
+      sliceName: Transcripts / Captions Per Video
       uuid: 6b830def-f3ca-4b4c-9455-7a7b7354bce8
       width: 6
     parents:
@@ -346,9 +335,9 @@ position:
     children: []
     id: CHART-evjVO-ZSSd
     meta:
-      chartId: 32
+      chartId: 40
       height: 50
-      sliceName: Cumulative enrollments by mode
+      sliceName: Enrollments By Enrollment Mode
       uuid: 05ed7102-5464-4e2f-86ae-31700b787cc3
       width: 4
     parents:
@@ -361,9 +350,9 @@ position:
     children: []
     id: CHART-lTr8DL3XuI
     meta:
-      chartId: 46
+      chartId: 166
       height: 50
-      sliceName: Hints and answers displayed per correct answer
+      sliceName: Distribution Of Hints Per Correct Answer
       uuid: ee94be4c-6fdd-4295-b43c-40890d6c549d
       width: 6
     parents:
@@ -376,9 +365,9 @@ position:
     children: []
     id: CHART-o56v9yEe2I
     meta:
-      chartId: 865
+      chartId: 345
       height: 50
-      sliceName: Grade distribution - problem
+      sliceName: Distribution Of Problem Grades
       uuid: 4f7e3606-f5de-4643-97c0-bbb6340a3df2
       width: 6
     parents:
@@ -391,9 +380,9 @@ position:
     children: []
     id: CHART-rnb6PSwCOS
     meta:
-      chartId: 37
+      chartId: 87
       height: 50
-      sliceName: Enrolled learners per day
+      sliceName: Currently Enrolled Learners Per Day
       uuid: ed2fe731-6544-422f-bc55-42f399f48b2c
       width: 12
     parents:
@@ -402,13 +391,28 @@ position:
     - TAB-8BxDuJd9Jb
     - ROW-K8s_8uq9IP
     type: CHART
+  CHART-s8sC81tP9u:
+    children: []
+    id: CHART-s8sC81tP9u
+    meta:
+      chartId: 262
+      height: 48
+      sliceName: Responses Per Problem
+      uuid: 3dc6a642-a71d-4c8c-ab98-14f54852b40f
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    - ROW-_qzhG9fM3z
+    type: CHART
   CHART-tWnaoVNNTH:
     children: []
     id: CHART-tWnaoVNNTH
     meta:
-      chartId: 47
+      chartId: 30
       height: 50
-      sliceName: Attempts to first success
+      sliceName: Distribution Of Attempts
       uuid: db90930f-f16e-4c32-8050-0e4abae28f4c
       width: 6
     parents:
@@ -421,9 +425,9 @@ position:
     children: []
     id: CHART-w-k4N2T_L8
     meta:
-      chartId: 879
+      chartId: 352
       height: 50
-      sliceName: Grade distribution - course
+      sliceName: Course Grade Distribution
       uuid: f9adbc85-1f50-4c04-ace3-31ba7390de5e
       width: 12
     parents:
@@ -448,28 +452,188 @@ position:
     parents:
     - ROOT_ID
     type: GRID
-  HEADER-v9QDHi2Dxm:
-    children: []
-    id: HEADER-v9QDHi2Dxm
+  HEADER_ID:
+    id: HEADER_ID
     meta:
-      background: BACKGROUND_TRANSPARENT
-      headerSize: MEDIUM_HEADER
-      text: Problem engagement overview
+      text: Instructor Dashboard
+    type: HEADER
+  MARKDOWN-904VlyNSAd:
+    children: []
+    id: MARKDOWN-904VlyNSAd
+    meta:
+      code: '### Enrollment Overview
+
+
+
+        These charts can help you understand how many students are enrolled in your
+        course by showing how enrollments have changed over time and which enrollment
+        modes students are choosing. More details about each chart can be found by
+        clicking the "3 dot" menu at the top right of the chart and selecting "Show
+        chart description".
+
+
+        You can filter these results by choosing selecting various options from the
+        filters on the left.'
+      height: 20
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-8BxDuJd9Jb
+    - ROW-DVUl3c6hFU
+    type: MARKDOWN
+  MARKDOWN-Cs_pVxjPWd:
+    children: []
+    id: MARKDOWN-Cs_pVxjPWd
+    meta:
+      code: '### Problem Performance
+
+
+        These charts help show the difficulty of your problems by showing you which
+        answers your students choose and which require many tries or hints to complete
+        successfully.
+
+
+        Select a problem from the filters on the left to populate the charts.'
+      height: 19
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-pOd4znTAV
+    - ROW-7H84y2hXCn
+    type: MARKDOWN
+  MARKDOWN-EVIRENCcGc:
+    children: []
+    id: MARKDOWN-EVIRENCcGc
+    meta:
+      code: '### Video Performance
+
+
+        This section allows you to see which parts of a particular video are most
+        watched or skipped.
+
+
+        Select a problem from the filters on the left to populate the charts.'
+      height: 15
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-CLiLC4zxo
+    - ROW-chsNWRRd4
+    type: MARKDOWN
+  MARKDOWN-FhaKADKFSa:
+    children: []
+    id: MARKDOWN-FhaKADKFSa
+    meta:
+      code: '### Problem Engagement
+
+
+        These charts can help you learn which problems your students have engaged
+        with or skipped, and the relative difficulty of problems across your course.
+        More details about each chart can be found by clicking the "3 dot" menu at
+        the top right of the chart and selecting "Show chart description".
+
+
+        You can filter these results by choosing selecting various options from the
+        filters on the left.'
+      height: 19
+      width: 12
     parents:
     - ROOT_ID
     - TABS-SNeKAJcjhd
     - TAB-NR4UTAs9K
-    type: HEADER
-  HEADER_ID:
-    id: HEADER_ID
+    - ROW-yKhiUYNdDL
+    type: MARKDOWN
+  MARKDOWN-NaNsE4EBKf:
+    children: []
+    id: MARKDOWN-NaNsE4EBKf
     meta:
-      text: Instructor dashboard
-    type: HEADER
+      code: '### Video Engagement
+
+
+        These charts can help understand which videos are watched, and rewatched,
+        most often. It can also show how many users use the closed captions and transcript
+        features on your videos, and how often.
+
+
+        You can filter these results by choosing selecting various options from the
+        filters on the left.'
+      height: 18
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-7PGDduCA7
+    - ROW-nNEywSG0jX
+    type: MARKDOWN
+  MARKDOWN-tAj9jkrDGS:
+    children: []
+    id: MARKDOWN-tAj9jkrDGS
+    meta:
+      code: '## Help
+
+
+        ### Frequently Asked Questions
+
+
+        Q. Why do my videos and problems have odd titles or no titles?
+
+
+        A. Open edX Studio does not force you to name your videos or problems. In
+        order to see friendly names here you will need to edit the names of your components
+        in Studio. Once you re-publish your course the new names should appear with
+        no data lost.
+
+
+        ---
+
+
+        Q. Why do I see "No results were returned for this query"?
+
+
+        A. Sometimes the feature we are trying to report on is not enabled for the
+        component, such as a video with no captions or transcripts. In other cases
+        you may need to select a course, video, or problem from the filters before
+        data will populate.
+
+
+        ---
+
+
+        Q. How long does it take data to appear in charts?
+
+
+        A. In most cases the data is updated in under a minute, but you may need to
+        select "Force Refresh" from the "three dot" menu in the top right of a chart
+        to see the newest data. In the future some data may take longer to process,
+        in which case it should be noted in the chart''s description (also accessible
+        from the "three dot" menu).'
+      height: 50
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-ULaL-0zhl
+    - ROW-CfEXPbZWh_
+    type: MARKDOWN
   ROOT_ID:
     children:
     - TABS-SNeKAJcjhd
     id: ROOT_ID
     type: ROOT
+  ROW-7H84y2hXCn:
+    children:
+    - MARKDOWN-Cs_pVxjPWd
+    id: ROW-7H84y2hXCn
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-pOd4znTAV
+    type: ROW
   ROW-87X0ypdHH_:
     children:
     - CHART-RTO33WE9FH
@@ -504,6 +668,28 @@ position:
     - TABS-SNeKAJcjhd
     - TAB-7PGDduCA7
     type: ROW
+  ROW-CfEXPbZWh_:
+    children:
+    - MARKDOWN-tAj9jkrDGS
+    id: ROW-CfEXPbZWh_
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-ULaL-0zhl
+    type: ROW
+  ROW-DVUl3c6hFU:
+    children:
+    - MARKDOWN-904VlyNSAd
+    id: ROW-DVUl3c6hFU
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-8BxDuJd9Jb
+    type: ROW
   ROW-GKMT8uEu6K:
     children:
     - CHART-tWnaoVNNTH
@@ -526,6 +712,28 @@ position:
     - ROOT_ID
     - TABS-SNeKAJcjhd
     - TAB-8BxDuJd9Jb
+    type: ROW
+  ROW-_qzhG9fM3z:
+    children:
+    - CHART-s8sC81tP9u
+    id: ROW-_qzhG9fM3z
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    type: ROW
+  ROW-chsNWRRd4:
+    children:
+    - MARKDOWN-EVIRENCcGc
+    id: ROW-chsNWRRd4
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-CLiLC4zxo
     type: ROW
   ROW-je_Wqya3Ga:
     children:
@@ -562,45 +770,72 @@ position:
     - TABS-SNeKAJcjhd
     - TAB-pOd4znTAV
     type: ROW
+  ROW-nNEywSG0jX:
+    children:
+    - MARKDOWN-NaNsE4EBKf
+    id: ROW-nNEywSG0jX
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-7PGDduCA7
+    type: ROW
+  ROW-yKhiUYNdDL:
+    children:
+    - MARKDOWN-FhaKADKFSa
+    id: ROW-yKhiUYNdDL
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    type: ROW
   TAB-7PGDduCA7:
     children:
+    - ROW-nNEywSG0jX
     - ROW-BO2IHCiYF8
     id: TAB-7PGDduCA7
     meta:
       defaultText: Tab title
       placeholder: Tab title
-      text: Video engagement
+      text: Video Engagement
     parents:
     - ROOT_ID
     - TABS-SNeKAJcjhd
     type: TAB
   TAB-8BxDuJd9Jb:
     children:
+    - ROW-DVUl3c6hFU
     - ROW-K8s_8uq9IP
     - ROW-je_Wqya3Ga
     id: TAB-8BxDuJd9Jb
     meta:
       defaultText: Tab title
       placeholder: Tab title
-      text: Enrollment
+      text: Course Enrollment
     parents:
     - ROOT_ID
     - TABS-SNeKAJcjhd
     type: TAB
   TAB-CLiLC4zxo:
     children:
+    - ROW-chsNWRRd4
     - ROW-lN_IXnlUhL
     id: TAB-CLiLC4zxo
     meta:
       defaultText: Tab title
       placeholder: Tab title
-      text: Video drilldown
+      text: Video Performance
     parents:
     - ROOT_ID
     - TABS-SNeKAJcjhd
     type: TAB
   TAB-NR4UTAs9K:
     children:
+    - ROW-yKhiUYNdDL
+    - ROW-_qzhG9fM3z
     - HEADER-v9QDHi2Dxm
     - ROW-87X0ypdHH_
     - ROW-AG2xAOM044
@@ -609,20 +844,33 @@ position:
     meta:
       defaultText: Tab title
       placeholder: Tab title
-      text: Course problem engagement
+      text: Problem Engagement
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    type: TAB
+  TAB-ULaL-0zhl:
+    children:
+    - ROW-CfEXPbZWh_
+    id: TAB-ULaL-0zhl
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Help
     parents:
     - ROOT_ID
     - TABS-SNeKAJcjhd
     type: TAB
   TAB-pOd4znTAV:
     children:
+    - ROW-7H84y2hXCn
     - ROW-lZkhTcIAro
     - ROW-GKMT8uEu6K
     id: TAB-pOd4znTAV
     meta:
       defaultText: Tab title
       placeholder: Tab title
-      text: Problem performance
+      text: Problem Performance
     parents:
     - ROOT_ID
     - TABS-SNeKAJcjhd
@@ -634,6 +882,7 @@ position:
     - TAB-pOd4znTAV
     - TAB-7PGDduCA7
     - TAB-CLiLC4zxo
+    - TAB-ULaL-0zhl
     id: TABS-SNeKAJcjhd
     meta: {}
     parents:
