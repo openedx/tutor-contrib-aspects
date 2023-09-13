@@ -37,6 +37,7 @@
 - name: clickhouse-settings
   files:
     - plugins/aspects/apps/clickhouse/config/docker_config.xml
+    - plugins/aspects/apps/clickhouse/users/docker_config.xml
   options:
     labels:
         app.kubernetes.io/name: clickhouse
