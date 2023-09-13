@@ -172,6 +172,22 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
     <listen_try>1</listen_try>
         """,
         ),
+        # Override configuration in users.xml. Similar to CLICKHOUSE_EXTRA_XML_CONFIG,
+        # this will be read from a mount on /etc/clickhouse-server/users.d/
+        # on startup
+        # The http settings revert back to the value from versions pre-23.6,
+        # when the default was changed from 1Mb to 128Kb
+        (
+            "CLICKHOUSE_EXTRA_USERS_XML_CONFIG",
+            """
+    <profiles>
+        <default>
+            <http_max_field_value_size>1048576</http_max_field_value_size>
+            <http_max_field_name_size>1048576</http_max_field_name_size>
+        </default>
+    </profiles>
+            """,
+        ),
         (
             "CLICKHOUSE_URL",
             "{{CLICKHOUSE_HOST}}:{{CLICKHOUSE_INTERNAL_HTTP_PORT}}",
