@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.40.2 - 2023-09-13
+
+### [0.40.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.40.1...v0.40.2) (2023-09-13)
+
+### Bug Fixes
+
+- rename clickhouse config to avoid conflict ([badd23f](https://github.com/openedx/tutor-contrib-aspects/commit/badd23ffa88744c8ea641c58838bd863f841c761))
+- revert value for ClickHouse HTTP settings ([791eac6](https://github.com/openedx/tutor-contrib-aspects/commit/791eac679ece26d2ec09fcdac5f3eff494c739c1))
+
 ## v0.40.1 - 2023-09-12
 
 ### [0.40.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.40.0...v0.40.1) (2023-09-12)
