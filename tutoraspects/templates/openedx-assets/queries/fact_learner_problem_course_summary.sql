@@ -95,8 +95,7 @@ WITH problem_responses AS (
         caseWithExpression(help_type, 'hint', 1, 0) AS num_hints_displayed,
         caseWithExpression(help_type, 'answer', 1, 0) AS num_answers_displayed
     FROM {{ DBT_PROFILE_TARGET_DATABASE }}.int_problem_hints
-    WHERE
-    1=1
+    WHERE 1=1
     {% include 'openedx-assets/queries/common_filters.sql' %}
 )
 
@@ -112,10 +111,10 @@ SELECT
     sum(num_hints_displayed) AS num_hints_displayed,
     sum(num_answers_displayed) AS num_answers_displayed
 FROM summary
-where
+WHERE
     {% raw %}
-    {% if filter_values('problem_name') != [] %}
-    problem_name in {{ filter_values('problem_name') | where_in }}
+    {% if filter_values('course_name') != [] %}
+    course_name in {{ filter_values('course_name') | where_in }}
     {% else %}
     1=0
     {% endif %}

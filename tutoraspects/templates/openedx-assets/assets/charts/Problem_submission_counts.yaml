@@ -1,6 +1,6 @@
 _file_name: Problem_submission_counts.yaml
 cache_timeout: null
-dataset_uuid: 9362354c-1541-43c2-b769-da9818236298
+dataset_uuid: 981f30d9-b2f0-4a0b-9e95-0ee0e06db806
 params:
   adhoc_filters: []
   bar_stacked: true
@@ -8,7 +8,7 @@ params:
   color_scheme: supersetColors
   columns:
   - success
-  datasource: 43__table
+  datasource: 56__table
   extra_form_data: {}
   groupby:
   - problem_name
@@ -41,7 +41,7 @@ params:
   rich_tooltip: true
   row_limit: 10000
   show_legend: true
-  slice_id: '38'
+  slice_id: 48
   time_range: No filter
   viz_type: dist_bar
   x_ticks_layout: auto
@@ -50,6 +50,6 @@ params:
   - null
   y_axis_format: SMART_NUMBER
 slice_name: Problem submission counts
-uuid: 3dc6a642-a71d-4c8c-ab98-14f54852b40f
+uuid: a3e79162-4ace-4349-ab34-89aa60ae75ed
 version: 1.0.0
 viz_type: dist_bar

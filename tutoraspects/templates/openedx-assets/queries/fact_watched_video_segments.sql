@@ -1,5 +1,6 @@
 with video_events as (
-    emission_time,
+    select
+        emission_time,
         org,
         course_key,
         splitByString('/xblock/', object_id)[-1] as video_id,
