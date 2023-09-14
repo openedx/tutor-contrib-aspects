@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.41.0 - 2023-09-13
+
+### [0.41.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.40.2...v0.41.0) (2023-09-13)
+
+#### Features
+
+- limit data returned by learner summary query ([0f7e904](https://github.com/openedx/tutor-contrib-aspects/commit/0f7e9041b96529c0ce2faa705e0f982e67a8d205))
+- limit data returned when filters are absent ([7a71daf](https://github.com/openedx/tutor-contrib-aspects/commit/7a71daf64a526b73c6243e818f3a51b508281e7b))
+
+#### Bug Fixes
+
+- ensure datasets follow filter guidelines ([d5270ce](https://github.com/openedx/tutor-contrib-aspects/commit/d5270cef60536cdfb7d7b0ea72a1bb2d8f61186e))
+
 ## v0.40.2 - 2023-09-13
 
 ### [0.40.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.40.1...v0.40.2) (2023-09-13)
