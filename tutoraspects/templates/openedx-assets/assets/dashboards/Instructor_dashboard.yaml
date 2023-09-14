@@ -313,6 +313,21 @@ position:
     - TAB-CLiLC4zxo
     - ROW-lN_IXnlUhL
     type: CHART
+  CHART-RTO33WE9FH:
+    children: []
+    id: CHART-RTO33WE9FH
+    meta:
+      chartId: 367
+      height: 50
+      sliceName: Responses Per Problem
+      uuid: a3e79162-4ace-4349-ab34-89aa60ae75ed
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    - ROW-87X0ypdHH_
+    type: CHART
   CHART-Tej2oLPBAl:
     children: []
     id: CHART-Tej2oLPBAl
@@ -387,21 +402,6 @@ position:
     - TABS-SNeKAJcjhd
     - TAB-8BxDuJd9Jb
     - ROW-K8s_8uq9IP
-    type: CHART
-  CHART-RTO33WE9FH:
-    children: []
-    id: CHART-RTO33WE9FH
-    meta:
-      chartId: 894
-      height: 50
-      sliceName: Responses Per Problem
-      uuid: a3e79162-4ace-4349-ab34-89aa60ae75ed
-      width: 12
-    parents:
-    - ROOT_ID
-    - TABS-SNeKAJcjhd
-    - TAB-NR4UTAs9K
-    - ROW-_qzhG9fM3z
     type: CHART
   CHART-tWnaoVNNTH:
     children: []
@@ -563,56 +563,6 @@ position:
     - TAB-7PGDduCA7
     - ROW-nNEywSG0jX
     type: MARKDOWN
-  MARKDOWN-tAj9jkrDGS:
-    children: []
-    id: MARKDOWN-tAj9jkrDGS
-    meta:
-      code: '## Help
-
-
-        ### Frequently Asked Questions
-
-
-        Q. Why do my videos and problems have odd titles or no titles?
-
-
-        A. Open edX Studio does not force you to name your videos or problems. In
-        order to see friendly names here you will need to edit the names of your components
-        in Studio. Once you re-publish your course the new names should appear with
-        no data lost.
-
-
-        ---
-
-
-        Q. Why do I see "No results were returned for this query"?
-
-
-        A. Sometimes the feature we are trying to report on is not enabled for the
-        component, such as a video with no captions or transcripts. In other cases
-        you may need to select a course, video, or problem from the filters before
-        data will populate.
-
-
-        ---
-
-
-        Q. How long does it take data to appear in charts?
-
-
-        A. In most cases the data is updated in under a minute, but you may need to
-        select "Force Refresh" from the "three dot" menu in the top right of a chart
-        to see the newest data. In the future some data may take longer to process,
-        in which case it should be noted in the chart''s description (also accessible
-        from the "three dot" menu).'
-      height: 50
-      width: 12
-    parents:
-    - ROOT_ID
-    - TABS-SNeKAJcjhd
-    - TAB-ULaL-0zhl
-    - ROW-CfEXPbZWh_
-    type: MARKDOWN
   ROOT_ID:
     children:
     - TABS-SNeKAJcjhd
@@ -662,17 +612,6 @@ position:
     - ROOT_ID
     - TABS-SNeKAJcjhd
     - TAB-7PGDduCA7
-    type: ROW
-  ROW-CfEXPbZWh_:
-    children:
-    - MARKDOWN-tAj9jkrDGS
-    id: ROW-CfEXPbZWh_
-    meta:
-      background: BACKGROUND_TRANSPARENT
-    parents:
-    - ROOT_ID
-    - TABS-SNeKAJcjhd
-    - TAB-ULaL-0zhl
     type: ROW
   ROW-DVUl3c6hFU:
     children:
@@ -833,18 +772,6 @@ position:
     - ROOT_ID
     - TABS-SNeKAJcjhd
     type: TAB
-  TAB-ULaL-0zhl:
-    children:
-    - ROW-CfEXPbZWh_
-    id: TAB-ULaL-0zhl
-    meta:
-      defaultText: Tab title
-      placeholder: Tab title
-      text: Help
-    parents:
-    - ROOT_ID
-    - TABS-SNeKAJcjhd
-    type: TAB
   TAB-pOd4znTAV:
     children:
     - ROW-7H84y2hXCn
@@ -866,7 +793,6 @@ position:
     - TAB-pOd4znTAV
     - TAB-7PGDduCA7
     - TAB-CLiLC4zxo
-    - TAB-ULaL-0zhl
     id: TABS-SNeKAJcjhd
     meta: {}
     parents:

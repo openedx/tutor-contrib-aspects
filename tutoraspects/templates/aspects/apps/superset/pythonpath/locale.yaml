@@ -1,43 +1,5 @@
 ---
 de:
-  ? '## Help
-
-
-    ### Frequently Asked Questions
-
-
-    Q. Why do my videos and problems have odd titles or no titles?
-
-
-    A. Open edX Studio does not force you to name your videos or problems. In order
-    to see friendly names here you will need to edit the names of your components
-    in Studio. Once you re-publish your course the new names should appear with no
-    data lost.
-
-
-    ---
-
-
-    Q. Why do I see "No results were returned for this query"?
-
-
-    A. Sometimes the feature we are trying to report on is not enabled for the component,
-    such as a video with no captions or transcripts. In other cases you may need to
-    select a course, video, or problem from the filters before data will populate.
-
-
-    ---
-
-
-    Q. How long does it take data to appear in charts?
-
-
-    A. In most cases the data is updated in under a minute, but you may need to select
-    "Force Refresh" from the "three dot" menu in the top right of a chart to see the
-    newest data. In the future some data may take longer to process, in which case
-    it should be noted in the chart''s description (also accessible from the "three
-    dot" menu).'
-  : ''
   ? '### Course Enrollment
 
 
@@ -60,8 +22,7 @@ de:
     the chart and selecting "Show chart description".
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Problem Performance
 
@@ -70,7 +31,7 @@ de:
     your students choose and which require many tries or hints to complete successfully.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a problem from the filters on the left to populate the charts.**'
   : ''
   ? '### Video Engagement
 
@@ -80,8 +41,7 @@ de:
     features on your videos, and how often.
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Video Performance
 
@@ -90,7 +50,7 @@ de:
     or skipped.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a video from the filters on the left to populate these charts.**'
   : ''
   ? A count of the number of enrollments and un-enrollments per day. Learners can
     enroll and unenroll multiple times, in this chart each individual enrollment and
@@ -118,7 +78,6 @@ de:
   Enrollments By Type: ''
   Event type: ''
   Events per course: ''
-  Help: ''
   Hints / Answer Displayed Before Correct Answer Chosen: ''
   Instance Health: ''
   Instructor Dashboard: ''
@@ -193,44 +152,6 @@ de:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 es:
-  ? '## Help
-
-
-    ### Frequently Asked Questions
-
-
-    Q. Why do my videos and problems have odd titles or no titles?
-
-
-    A. Open edX Studio does not force you to name your videos or problems. In order
-    to see friendly names here you will need to edit the names of your components
-    in Studio. Once you re-publish your course the new names should appear with no
-    data lost.
-
-
-    ---
-
-
-    Q. Why do I see "No results were returned for this query"?
-
-
-    A. Sometimes the feature we are trying to report on is not enabled for the component,
-    such as a video with no captions or transcripts. In other cases you may need to
-    select a course, video, or problem from the filters before data will populate.
-
-
-    ---
-
-
-    Q. How long does it take data to appear in charts?
-
-
-    A. In most cases the data is updated in under a minute, but you may need to select
-    "Force Refresh" from the "three dot" menu in the top right of a chart to see the
-    newest data. In the future some data may take longer to process, in which case
-    it should be noted in the chart''s description (also accessible from the "three
-    dot" menu).'
-  : ''
   ? '### Course Enrollment
 
 
@@ -253,8 +174,7 @@ es:
     the chart and selecting "Show chart description".
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Problem Performance
 
@@ -263,7 +183,7 @@ es:
     your students choose and which require many tries or hints to complete successfully.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a problem from the filters on the left to populate the charts.**'
   : ''
   ? '### Video Engagement
 
@@ -273,8 +193,7 @@ es:
     features on your videos, and how often.
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Video Performance
 
@@ -283,7 +202,7 @@ es:
     or skipped.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a video from the filters on the left to populate these charts.**'
   : ''
   ? A count of the number of enrollments and un-enrollments per day. Learners can
     enroll and unenroll multiple times, in this chart each individual enrollment and
@@ -311,7 +230,6 @@ es:
   Enrollments By Type: ''
   Event type: ''
   Events per course: ''
-  Help: ''
   Hints / Answer Displayed Before Correct Answer Chosen: ''
   Instance Health: ''
   Instructor Dashboard: ''
@@ -386,44 +304,6 @@ es:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 fr:
-  ? '## Help
-
-
-    ### Frequently Asked Questions
-
-
-    Q. Why do my videos and problems have odd titles or no titles?
-
-
-    A. Open edX Studio does not force you to name your videos or problems. In order
-    to see friendly names here you will need to edit the names of your components
-    in Studio. Once you re-publish your course the new names should appear with no
-    data lost.
-
-
-    ---
-
-
-    Q. Why do I see "No results were returned for this query"?
-
-
-    A. Sometimes the feature we are trying to report on is not enabled for the component,
-    such as a video with no captions or transcripts. In other cases you may need to
-    select a course, video, or problem from the filters before data will populate.
-
-
-    ---
-
-
-    Q. How long does it take data to appear in charts?
-
-
-    A. In most cases the data is updated in under a minute, but you may need to select
-    "Force Refresh" from the "three dot" menu in the top right of a chart to see the
-    newest data. In the future some data may take longer to process, in which case
-    it should be noted in the chart''s description (also accessible from the "three
-    dot" menu).'
-  : ''
   ? '### Course Enrollment
 
 
@@ -446,8 +326,7 @@ fr:
     the chart and selecting "Show chart description".
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Problem Performance
 
@@ -456,7 +335,7 @@ fr:
     your students choose and which require many tries or hints to complete successfully.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a problem from the filters on the left to populate the charts.**'
   : ''
   ? '### Video Engagement
 
@@ -466,8 +345,7 @@ fr:
     features on your videos, and how often.
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Video Performance
 
@@ -476,7 +354,7 @@ fr:
     or skipped.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a video from the filters on the left to populate these charts.**'
   : ''
   ? A count of the number of enrollments and un-enrollments per day. Learners can
     enroll and unenroll multiple times, in this chart each individual enrollment and
@@ -504,7 +382,6 @@ fr:
   Enrollments By Type: ''
   Event type: ''
   Events per course: ''
-  Help: ''
   Hints / Answer Displayed Before Correct Answer Chosen: ''
   Instance Health: ''
   Instructor Dashboard: ''
@@ -579,44 +456,6 @@ fr:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 it:
-  ? '## Help
-
-
-    ### Frequently Asked Questions
-
-
-    Q. Why do my videos and problems have odd titles or no titles?
-
-
-    A. Open edX Studio does not force you to name your videos or problems. In order
-    to see friendly names here you will need to edit the names of your components
-    in Studio. Once you re-publish your course the new names should appear with no
-    data lost.
-
-
-    ---
-
-
-    Q. Why do I see "No results were returned for this query"?
-
-
-    A. Sometimes the feature we are trying to report on is not enabled for the component,
-    such as a video with no captions or transcripts. In other cases you may need to
-    select a course, video, or problem from the filters before data will populate.
-
-
-    ---
-
-
-    Q. How long does it take data to appear in charts?
-
-
-    A. In most cases the data is updated in under a minute, but you may need to select
-    "Force Refresh" from the "three dot" menu in the top right of a chart to see the
-    newest data. In the future some data may take longer to process, in which case
-    it should be noted in the chart''s description (also accessible from the "three
-    dot" menu).'
-  : ''
   ? '### Course Enrollment
 
 
@@ -639,8 +478,7 @@ it:
     the chart and selecting "Show chart description".
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Problem Performance
 
@@ -649,7 +487,7 @@ it:
     your students choose and which require many tries or hints to complete successfully.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a problem from the filters on the left to populate the charts.**'
   : ''
   ? '### Video Engagement
 
@@ -659,8 +497,7 @@ it:
     features on your videos, and how often.
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Video Performance
 
@@ -669,7 +506,7 @@ it:
     or skipped.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a video from the filters on the left to populate these charts.**'
   : ''
   ? A count of the number of enrollments and un-enrollments per day. Learners can
     enroll and unenroll multiple times, in this chart each individual enrollment and
@@ -697,7 +534,6 @@ it:
   Enrollments By Type: ''
   Event type: ''
   Events per course: ''
-  Help: ''
   Hints / Answer Displayed Before Correct Answer Chosen: ''
   Instance Health: ''
   Instructor Dashboard: ''
@@ -772,44 +608,6 @@ it:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 ja:
-  ? '## Help
-
-
-    ### Frequently Asked Questions
-
-
-    Q. Why do my videos and problems have odd titles or no titles?
-
-
-    A. Open edX Studio does not force you to name your videos or problems. In order
-    to see friendly names here you will need to edit the names of your components
-    in Studio. Once you re-publish your course the new names should appear with no
-    data lost.
-
-
-    ---
-
-
-    Q. Why do I see "No results were returned for this query"?
-
-
-    A. Sometimes the feature we are trying to report on is not enabled for the component,
-    such as a video with no captions or transcripts. In other cases you may need to
-    select a course, video, or problem from the filters before data will populate.
-
-
-    ---
-
-
-    Q. How long does it take data to appear in charts?
-
-
-    A. In most cases the data is updated in under a minute, but you may need to select
-    "Force Refresh" from the "three dot" menu in the top right of a chart to see the
-    newest data. In the future some data may take longer to process, in which case
-    it should be noted in the chart''s description (also accessible from the "three
-    dot" menu).'
-  : ''
   ? '### Course Enrollment
 
 
@@ -832,8 +630,7 @@ ja:
     the chart and selecting "Show chart description".
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Problem Performance
 
@@ -842,7 +639,7 @@ ja:
     your students choose and which require many tries or hints to complete successfully.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a problem from the filters on the left to populate the charts.**'
   : ''
   ? '### Video Engagement
 
@@ -852,8 +649,7 @@ ja:
     features on your videos, and how often.
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Video Performance
 
@@ -862,7 +658,7 @@ ja:
     or skipped.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a video from the filters on the left to populate these charts.**'
   : ''
   ? A count of the number of enrollments and un-enrollments per day. Learners can
     enroll and unenroll multiple times, in this chart each individual enrollment and
@@ -890,7 +686,6 @@ ja:
   Enrollments By Type: ''
   Event type: ''
   Events per course: ''
-  Help: ''
   Hints / Answer Displayed Before Correct Answer Chosen: ''
   Instance Health: ''
   Instructor Dashboard: ''
@@ -965,44 +760,6 @@ ja:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 ko:
-  ? '## Help
-
-
-    ### Frequently Asked Questions
-
-
-    Q. Why do my videos and problems have odd titles or no titles?
-
-
-    A. Open edX Studio does not force you to name your videos or problems. In order
-    to see friendly names here you will need to edit the names of your components
-    in Studio. Once you re-publish your course the new names should appear with no
-    data lost.
-
-
-    ---
-
-
-    Q. Why do I see "No results were returned for this query"?
-
-
-    A. Sometimes the feature we are trying to report on is not enabled for the component,
-    such as a video with no captions or transcripts. In other cases you may need to
-    select a course, video, or problem from the filters before data will populate.
-
-
-    ---
-
-
-    Q. How long does it take data to appear in charts?
-
-
-    A. In most cases the data is updated in under a minute, but you may need to select
-    "Force Refresh" from the "three dot" menu in the top right of a chart to see the
-    newest data. In the future some data may take longer to process, in which case
-    it should be noted in the chart''s description (also accessible from the "three
-    dot" menu).'
-  : ''
   ? '### Course Enrollment
 
 
@@ -1025,8 +782,7 @@ ko:
     the chart and selecting "Show chart description".
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Problem Performance
 
@@ -1035,7 +791,7 @@ ko:
     your students choose and which require many tries or hints to complete successfully.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a problem from the filters on the left to populate the charts.**'
   : ''
   ? '### Video Engagement
 
@@ -1045,8 +801,7 @@ ko:
     features on your videos, and how often.
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Video Performance
 
@@ -1055,7 +810,7 @@ ko:
     or skipped.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a video from the filters on the left to populate these charts.**'
   : ''
   ? A count of the number of enrollments and un-enrollments per day. Learners can
     enroll and unenroll multiple times, in this chart each individual enrollment and
@@ -1083,7 +838,6 @@ ko:
   Enrollments By Type: ''
   Event type: ''
   Events per course: ''
-  Help: ''
   Hints / Answer Displayed Before Correct Answer Chosen: ''
   Instance Health: ''
   Instructor Dashboard: ''
@@ -1158,44 +912,6 @@ ko:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 nl:
-  ? '## Help
-
-
-    ### Frequently Asked Questions
-
-
-    Q. Why do my videos and problems have odd titles or no titles?
-
-
-    A. Open edX Studio does not force you to name your videos or problems. In order
-    to see friendly names here you will need to edit the names of your components
-    in Studio. Once you re-publish your course the new names should appear with no
-    data lost.
-
-
-    ---
-
-
-    Q. Why do I see "No results were returned for this query"?
-
-
-    A. Sometimes the feature we are trying to report on is not enabled for the component,
-    such as a video with no captions or transcripts. In other cases you may need to
-    select a course, video, or problem from the filters before data will populate.
-
-
-    ---
-
-
-    Q. How long does it take data to appear in charts?
-
-
-    A. In most cases the data is updated in under a minute, but you may need to select
-    "Force Refresh" from the "three dot" menu in the top right of a chart to see the
-    newest data. In the future some data may take longer to process, in which case
-    it should be noted in the chart''s description (also accessible from the "three
-    dot" menu).'
-  : ''
   ? '### Course Enrollment
 
 
@@ -1218,8 +934,7 @@ nl:
     the chart and selecting "Show chart description".
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Problem Performance
 
@@ -1228,7 +943,7 @@ nl:
     your students choose and which require many tries or hints to complete successfully.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a problem from the filters on the left to populate the charts.**'
   : ''
   ? '### Video Engagement
 
@@ -1238,8 +953,7 @@ nl:
     features on your videos, and how often.
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Video Performance
 
@@ -1248,7 +962,7 @@ nl:
     or skipped.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a video from the filters on the left to populate these charts.**'
   : ''
   ? A count of the number of enrollments and un-enrollments per day. Learners can
     enroll and unenroll multiple times, in this chart each individual enrollment and
@@ -1276,7 +990,6 @@ nl:
   Enrollments By Type: ''
   Event type: ''
   Events per course: ''
-  Help: ''
   Hints / Answer Displayed Before Correct Answer Chosen: ''
   Instance Health: ''
   Instructor Dashboard: ''
@@ -1351,44 +1064,6 @@ nl:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 pt:
-  ? '## Help
-
-
-    ### Frequently Asked Questions
-
-
-    Q. Why do my videos and problems have odd titles or no titles?
-
-
-    A. Open edX Studio does not force you to name your videos or problems. In order
-    to see friendly names here you will need to edit the names of your components
-    in Studio. Once you re-publish your course the new names should appear with no
-    data lost.
-
-
-    ---
-
-
-    Q. Why do I see "No results were returned for this query"?
-
-
-    A. Sometimes the feature we are trying to report on is not enabled for the component,
-    such as a video with no captions or transcripts. In other cases you may need to
-    select a course, video, or problem from the filters before data will populate.
-
-
-    ---
-
-
-    Q. How long does it take data to appear in charts?
-
-
-    A. In most cases the data is updated in under a minute, but you may need to select
-    "Force Refresh" from the "three dot" menu in the top right of a chart to see the
-    newest data. In the future some data may take longer to process, in which case
-    it should be noted in the chart''s description (also accessible from the "three
-    dot" menu).'
-  : ''
   ? '### Course Enrollment
 
 
@@ -1411,8 +1086,7 @@ pt:
     the chart and selecting "Show chart description".
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Problem Performance
 
@@ -1421,7 +1095,7 @@ pt:
     your students choose and which require many tries or hints to complete successfully.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a problem from the filters on the left to populate the charts.**'
   : ''
   ? '### Video Engagement
 
@@ -1431,8 +1105,7 @@ pt:
     features on your videos, and how often.
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Video Performance
 
@@ -1441,7 +1114,7 @@ pt:
     or skipped.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a video from the filters on the left to populate these charts.**'
   : ''
   ? A count of the number of enrollments and un-enrollments per day. Learners can
     enroll and unenroll multiple times, in this chart each individual enrollment and
@@ -1469,7 +1142,6 @@ pt:
   Enrollments By Type: ''
   Event type: ''
   Events per course: ''
-  Help: ''
   Hints / Answer Displayed Before Correct Answer Chosen: ''
   Instance Health: ''
   Instructor Dashboard: ''
@@ -1544,44 +1216,6 @@ pt:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 ru:
-  ? '## Help
-
-
-    ### Frequently Asked Questions
-
-
-    Q. Why do my videos and problems have odd titles or no titles?
-
-
-    A. Open edX Studio does not force you to name your videos or problems. In order
-    to see friendly names here you will need to edit the names of your components
-    in Studio. Once you re-publish your course the new names should appear with no
-    data lost.
-
-
-    ---
-
-
-    Q. Why do I see "No results were returned for this query"?
-
-
-    A. Sometimes the feature we are trying to report on is not enabled for the component,
-    such as a video with no captions or transcripts. In other cases you may need to
-    select a course, video, or problem from the filters before data will populate.
-
-
-    ---
-
-
-    Q. How long does it take data to appear in charts?
-
-
-    A. In most cases the data is updated in under a minute, but you may need to select
-    "Force Refresh" from the "three dot" menu in the top right of a chart to see the
-    newest data. In the future some data may take longer to process, in which case
-    it should be noted in the chart''s description (also accessible from the "three
-    dot" menu).'
-  : ''
   ? '### Course Enrollment
 
 
@@ -1604,8 +1238,7 @@ ru:
     the chart and selecting "Show chart description".
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Problem Performance
 
@@ -1614,7 +1247,7 @@ ru:
     your students choose and which require many tries or hints to complete successfully.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a problem from the filters on the left to populate the charts.**'
   : ''
   ? '### Video Engagement
 
@@ -1624,8 +1257,7 @@ ru:
     features on your videos, and how often.
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Video Performance
 
@@ -1634,7 +1266,7 @@ ru:
     or skipped.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a video from the filters on the left to populate these charts.**'
   : ''
   ? A count of the number of enrollments and un-enrollments per day. Learners can
     enroll and unenroll multiple times, in this chart each individual enrollment and
@@ -1662,7 +1294,6 @@ ru:
   Enrollments By Type: ''
   Event type: ''
   Events per course: ''
-  Help: ''
   Hints / Answer Displayed Before Correct Answer Chosen: ''
   Instance Health: ''
   Instructor Dashboard: ''
@@ -1737,44 +1368,6 @@ ru:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 sk:
-  ? '## Help
-
-
-    ### Frequently Asked Questions
-
-
-    Q. Why do my videos and problems have odd titles or no titles?
-
-
-    A. Open edX Studio does not force you to name your videos or problems. In order
-    to see friendly names here you will need to edit the names of your components
-    in Studio. Once you re-publish your course the new names should appear with no
-    data lost.
-
-
-    ---
-
-
-    Q. Why do I see "No results were returned for this query"?
-
-
-    A. Sometimes the feature we are trying to report on is not enabled for the component,
-    such as a video with no captions or transcripts. In other cases you may need to
-    select a course, video, or problem from the filters before data will populate.
-
-
-    ---
-
-
-    Q. How long does it take data to appear in charts?
-
-
-    A. In most cases the data is updated in under a minute, but you may need to select
-    "Force Refresh" from the "three dot" menu in the top right of a chart to see the
-    newest data. In the future some data may take longer to process, in which case
-    it should be noted in the chart''s description (also accessible from the "three
-    dot" menu).'
-  : ''
   ? '### Course Enrollment
 
 
@@ -1797,8 +1390,7 @@ sk:
     the chart and selecting "Show chart description".
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Problem Performance
 
@@ -1807,7 +1399,7 @@ sk:
     your students choose and which require many tries or hints to complete successfully.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a problem from the filters on the left to populate the charts.**'
   : ''
   ? '### Video Engagement
 
@@ -1817,8 +1409,7 @@ sk:
     features on your videos, and how often.
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Video Performance
 
@@ -1827,7 +1418,7 @@ sk:
     or skipped.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a video from the filters on the left to populate these charts.**'
   : ''
   ? A count of the number of enrollments and un-enrollments per day. Learners can
     enroll and unenroll multiple times, in this chart each individual enrollment and
@@ -1855,7 +1446,6 @@ sk:
   Enrollments By Type: ''
   Event type: ''
   Events per course: ''
-  Help: ''
   Hints / Answer Displayed Before Correct Answer Chosen: ''
   Instance Health: ''
   Instructor Dashboard: ''
@@ -1930,44 +1520,6 @@ sk:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 sl:
-  ? '## Help
-
-
-    ### Frequently Asked Questions
-
-
-    Q. Why do my videos and problems have odd titles or no titles?
-
-
-    A. Open edX Studio does not force you to name your videos or problems. In order
-    to see friendly names here you will need to edit the names of your components
-    in Studio. Once you re-publish your course the new names should appear with no
-    data lost.
-
-
-    ---
-
-
-    Q. Why do I see "No results were returned for this query"?
-
-
-    A. Sometimes the feature we are trying to report on is not enabled for the component,
-    such as a video with no captions or transcripts. In other cases you may need to
-    select a course, video, or problem from the filters before data will populate.
-
-
-    ---
-
-
-    Q. How long does it take data to appear in charts?
-
-
-    A. In most cases the data is updated in under a minute, but you may need to select
-    "Force Refresh" from the "three dot" menu in the top right of a chart to see the
-    newest data. In the future some data may take longer to process, in which case
-    it should be noted in the chart''s description (also accessible from the "three
-    dot" menu).'
-  : ''
   ? '### Course Enrollment
 
 
@@ -1990,8 +1542,7 @@ sl:
     the chart and selecting "Show chart description".
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Problem Performance
 
@@ -2000,7 +1551,7 @@ sl:
     your students choose and which require many tries or hints to complete successfully.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a problem from the filters on the left to populate the charts.**'
   : ''
   ? '### Video Engagement
 
@@ -2010,8 +1561,7 @@ sl:
     features on your videos, and how often.
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Video Performance
 
@@ -2020,7 +1570,7 @@ sl:
     or skipped.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a video from the filters on the left to populate these charts.**'
   : ''
   ? A count of the number of enrollments and un-enrollments per day. Learners can
     enroll and unenroll multiple times, in this chart each individual enrollment and
@@ -2048,7 +1598,6 @@ sl:
   Enrollments By Type: ''
   Event type: ''
   Events per course: ''
-  Help: ''
   Hints / Answer Displayed Before Correct Answer Chosen: ''
   Instance Health: ''
   Instructor Dashboard: ''
@@ -2123,44 +1672,6 @@ sl:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 zh:
-  ? '## Help
-
-
-    ### Frequently Asked Questions
-
-
-    Q. Why do my videos and problems have odd titles or no titles?
-
-
-    A. Open edX Studio does not force you to name your videos or problems. In order
-    to see friendly names here you will need to edit the names of your components
-    in Studio. Once you re-publish your course the new names should appear with no
-    data lost.
-
-
-    ---
-
-
-    Q. Why do I see "No results were returned for this query"?
-
-
-    A. Sometimes the feature we are trying to report on is not enabled for the component,
-    such as a video with no captions or transcripts. In other cases you may need to
-    select a course, video, or problem from the filters before data will populate.
-
-
-    ---
-
-
-    Q. How long does it take data to appear in charts?
-
-
-    A. In most cases the data is updated in under a minute, but you may need to select
-    "Force Refresh" from the "three dot" menu in the top right of a chart to see the
-    newest data. In the future some data may take longer to process, in which case
-    it should be noted in the chart''s description (also accessible from the "three
-    dot" menu).'
-  : ''
   ? '### Course Enrollment
 
 
@@ -2183,8 +1694,7 @@ zh:
     the chart and selecting "Show chart description".
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Problem Performance
 
@@ -2193,7 +1703,7 @@ zh:
     your students choose and which require many tries or hints to complete successfully.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a problem from the filters on the left to populate the charts.**'
   : ''
   ? '### Video Engagement
 
@@ -2203,8 +1713,7 @@ zh:
     features on your videos, and how often.
 
 
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
+    **Select a course from the filters on the left to populate these charts.**'
   : ''
   ? '### Video Performance
 
@@ -2213,7 +1722,7 @@ zh:
     or skipped.
 
 
-    Select a problem from the filters on the left to populate the charts.'
+    **Select a video from the filters on the left to populate these charts.**'
   : ''
   ? A count of the number of enrollments and un-enrollments per day. Learners can
     enroll and unenroll multiple times, in this chart each individual enrollment and
@@ -2241,7 +1750,6 @@ zh:
   Enrollments By Type: ''
   Event type: ''
   Events per course: ''
-  Help: ''
   Hints / Answer Displayed Before Correct Answer Chosen: ''
   Instance Health: ''
   Instructor Dashboard: ''
