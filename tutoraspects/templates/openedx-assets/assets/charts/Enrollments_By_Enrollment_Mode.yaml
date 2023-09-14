@@ -43,9 +43,6 @@ params:
   sort_by_metric: true
   time_range: 'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"), 1, day)'
   viz_type: pie
-query_context: '{"datasource":{"id":11,"type":"table"},"force":false,"queries":[{"time_range":"DATEADD(DATETIME(\"now\"),
-  -1, month) : DATEADD(DATETIME(\"now\"), 1, day)","granularity":"emission_time","filters":[{"col":"enrollment_status","op":"==","val":"registered"}],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":["enrollment_mode"],"metrics":["count"],"orderby":[["count",false]],"annotation_layers":[],"row_limit":100,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"form_data":{"datasource":"11__table","viz_type":"pie","slice_id":40,"granularity_sqla":"emission_time","time_range":"DATEADD(DATETIME(\"now\"),
-  -1, month) : DATEADD(DATETIME(\"now\"), 1, day)","groupby":["enrollment_mode"],"metric":"count","adhoc_filters":[{"clause":"WHERE","comparator":"registered","expressionType":"SIMPLE","filterOptionName":"filter_itrvc9c0jxb_g4qd4b18na4","isExtra":false,"isNew":false,"operator":"==","operatorId":"EQUALS","sqlExpression":null,"subject":"enrollment_status"}],"row_limit":100,"sort_by_metric":true,"color_scheme":"supersetColors","show_labels_threshold":5,"show_legend":true,"legendType":"scroll","legendOrientation":"top","label_type":"key","number_format":"SMART_NUMBER","date_format":"smart_date","show_labels":true,"labels_outside":true,"outerRadius":70,"innerRadius":30,"extra_form_data":{},"dashboards":[23],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
 slice_name: Enrollments By Enrollment Mode
 uuid: 05ed7102-5464-4e2f-86ae-31700b787cc3
 version: 1.0.0

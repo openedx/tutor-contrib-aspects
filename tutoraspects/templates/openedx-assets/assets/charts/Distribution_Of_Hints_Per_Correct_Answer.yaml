@@ -34,10 +34,6 @@ params:
   - null
   y_axis_format: SMART_NUMBER
   y_axis_label: Students
-query_context: '{"datasource":{"id":14,"type":"table"},"force":false,"queries":[{"time_range":"DATEADD(DATETIME(\"now\"),
-  -1, month) : DATEADD(DATETIME(\"now\"), 1, day)","filters":[],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":["total_hints"],"metrics":["count"],"annotation_layers":[],"row_limit":10000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"form_data":{"datasource":"14__table","viz_type":"dist_bar","slice_id":166,"time_range":"DATEADD(DATETIME(\"now\"),
-  -1, month) : DATEADD(DATETIME(\"now\"), 1, day)","metrics":["count"],"adhoc_filters":[],"groupby":["total_hints"],"columns":[],"row_limit":10000,"order_desc":true,"color_scheme":"supersetColors","show_legend":false,"rich_tooltip":true,"y_axis_format":"SMART_NUMBER","y_axis_label":"Students","y_axis_bounds":[null,null],"x_axis_label":"Hints
-  / Answer Displayed Before Correct Answer Chosen","bottom_margin":"auto","x_ticks_layout":"auto","extra_form_data":{},"dashboards":[23],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
 slice_name: Distribution Of Hints Per Correct Answer
 uuid: ee94be4c-6fdd-4295-b43c-40890d6c549d
 version: 1.0.0

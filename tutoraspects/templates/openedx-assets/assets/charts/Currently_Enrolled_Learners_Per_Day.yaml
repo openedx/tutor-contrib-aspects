@@ -38,9 +38,6 @@ params:
   time_range: No filter
   viz_type: big_number
   y_axis_format: SMART_NUMBER
-query_context: '{"datasource":{"id":1,"type":"table"},"force":false,"queries":[{"time_range":"No
-  filter","granularity":"enrollment_status_date","filters":[{"col":"enrollment_status","op":"==","val":"registered"}],"extras":{"time_grain_sqla":"P1D","having":"","where":""},"applied_time_extras":{},"columns":[],"metrics":["count"],"annotation_layers":[],"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"is_timeseries":true,"post_processing":[{"operation":"pivot","options":{"index":["__timestamp"],"columns":[],"aggregates":{"count":{"operator":"mean"}},"drop_missing_columns":true}},{"operation":"flatten"}]}],"form_data":{"adhoc_filters":[{"clause":"WHERE","comparator":"registered","expressionType":"SIMPLE","filterOptionName":"filter_hcnm4t7piq6_hfbtt65nqqs","isExtra":false,"isNew":false,"operator":"==","operatorId":"EQUALS","sqlExpression":null,"subject":"enrollment_status"}],"color_picker":{"a":1,"b":135,"g":122,"r":0},"datasource":"1__table","extra_form_data":{},"granularity_sqla":"enrollment_status_date","header_font_size":0.4,"metric":"count","rolling_type":"None","show_trend_line":true,"slice_id":87,"start_y_axis_at_zero":true,"subheader_font_size":0.15,"time_format":"smart_date","time_grain_sqla":"P1D","time_range":"No
-  filter","viz_type":"big_number","y_axis_format":"SMART_NUMBER","force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
 slice_name: Currently Enrolled Learners Per Day
 uuid: ed2fe731-6544-422f-bc55-42f399f48b2c
 version: 1.0.0

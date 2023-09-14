@@ -49,10 +49,6 @@ params:
   y_axis_title: Number Of Events
   y_axis_title_margin: 15
   y_axis_title_position: Left
-query_context: '{"datasource":{"id":11,"type":"table"},"force":false,"queries":[{"time_range":"DATEADD(DATETIME(\"now\"),
-  -1, month) : DATEADD(DATETIME(\"now\"), 1, day)","granularity":"emission_time","filters":[],"extras":{"time_grain_sqla":"P1D","having":"","where":""},"applied_time_extras":{},"columns":["enrollment_status"],"metrics":["count"],"orderby":[["count",false]],"annotation_layers":[],"row_limit":10000,"series_columns":["enrollment_status"],"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"is_timeseries":true,"time_offsets":[],"post_processing":[{"operation":"pivot","options":{"index":["__timestamp"],"columns":["enrollment_status"],"aggregates":{"count":{"operator":"mean"}},"drop_missing_columns":false}},{"operation":"rename","options":{"columns":{"count":null},"level":0,"inplace":true}},{"operation":"flatten"}]}],"form_data":{"datasource":"11__table","viz_type":"echarts_timeseries_bar","slice_id":111,"granularity_sqla":"emission_time","time_grain_sqla":"P1D","time_range":"DATEADD(DATETIME(\"now\"),
-  -1, month) : DATEADD(DATETIME(\"now\"), 1, day)","metrics":["count"],"groupby":["enrollment_status"],"adhoc_filters":[],"order_desc":true,"row_limit":10000,"truncate_metric":true,"show_empty_columns":true,"comparison_type":"values","annotation_layers":[],"forecastPeriods":10,"forecastInterval":0.8,"orientation":"vertical","x_axis_title_margin":15,"y_axis_title":"Number
-  Of Events","y_axis_title_margin":15,"y_axis_title_position":"Left","color_scheme":"supersetColors","stack":true,"only_total":true,"show_legend":false,"legendType":"scroll","legendOrientation":"top","legendMargin":null,"x_axis_time_format":"%Y-%m-%d","xAxisLabelRotation":45,"y_axis_format":"SMART_NUMBER","y_axis_bounds":[null,null],"rich_tooltip":true,"tooltipTimeFormat":"smart_date","extra_form_data":{},"dashboards":[23],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
 slice_name: Enrollment Events Per Day
 uuid: bb1147cc-b7bc-44b7-b06a-79b0db6626aa
 version: 1.0.0
