@@ -491,7 +491,7 @@ position:
         successfully.
 
 
-        Select a problem from the filters on the left to populate the charts.'
+        **Select a problem from the filters on the left to populate the charts.**'
       height: 19
       width: 12
     parents:
@@ -511,7 +511,7 @@ position:
         watched or skipped.
 
 
-        Select a problem from the filters on the left to populate the charts.'
+        **Select a video from the filters on the left to populate these charts.**'
       height: 15
       width: 12
     parents:
@@ -533,8 +533,7 @@ position:
         the top right of the chart and selecting "Show chart description".
 
 
-        You can filter these results by choosing selecting various options from the
-        filters on the left.'
+        **Select a course from the filters on the left to populate these charts.**'
       height: 19
       width: 12
     parents:
@@ -555,8 +554,7 @@ position:
         features on your videos, and how often.
 
 
-        You can filter these results by choosing selecting various options from the
-        filters on the left.'
+        **Select a course from the filters on the left to populate these charts.**'
       height: 18
       width: 12
     parents:
