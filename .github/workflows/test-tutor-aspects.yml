@@ -121,14 +121,14 @@ jobs:
           kind load docker-image $(tutor images printtag openedx-dev) --name chart-testing
           kind load docker-image $(tutor images printtag aspects) --name chart-testing
           kind load docker-image $(tutor images printtag aspects-superset) --name chart-testing
-      - name: Init k8s environment
-        run: |
-          tutor k8s start
-          tutor k8s do init
       - name: Setup namespace
         run: |
           kubectl config set-context --current --namespace=openedx
           kubectl get pods
+      - name: Init k8s environment
+        run: |
+          tutor k8s start
+          tutor k8s do init
       - name: Load test
         run: tutor k8s do load-xapi-test-data --num_batches=5 --batch_size=5
       - name: Check failure logs
