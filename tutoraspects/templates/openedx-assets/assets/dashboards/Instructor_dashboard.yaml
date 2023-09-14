@@ -249,10 +249,7 @@ metadata:
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
-    Repeat views: '#454E7C'
-    Unique viewers: '#1FA8C9'
-    audit: '#454E7C'
-    registered: '#1FA8C9'
+    audit: '#1FA8C9'
   show_native_filters: true
   timed_refresh_immune_slices: []
 position:
@@ -391,14 +388,14 @@ position:
     - TAB-8BxDuJd9Jb
     - ROW-K8s_8uq9IP
     type: CHART
-  CHART-s8sC81tP9u:
+  CHART-RTO33WE9FH:
     children: []
-    id: CHART-s8sC81tP9u
+    id: CHART-RTO33WE9FH
     meta:
-      chartId: 262
-      height: 48
+      chartId: 894
+      height: 50
       sliceName: Responses Per Problem
-      uuid: 3dc6a642-a71d-4c8c-ab98-14f54852b40f
+      uuid: a3e79162-4ace-4349-ab34-89aa60ae75ed
       width: 12
     parents:
     - ROOT_ID
@@ -712,17 +709,6 @@ position:
     - ROOT_ID
     - TABS-SNeKAJcjhd
     - TAB-8BxDuJd9Jb
-    type: ROW
-  ROW-_qzhG9fM3z:
-    children:
-    - CHART-s8sC81tP9u
-    id: ROW-_qzhG9fM3z
-    meta:
-      background: BACKGROUND_TRANSPARENT
-    parents:
-    - ROOT_ID
-    - TABS-SNeKAJcjhd
-    - TAB-NR4UTAs9K
     type: ROW
   ROW-chsNWRRd4:
     children:

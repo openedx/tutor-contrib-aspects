@@ -2,7 +2,7 @@ _file_name: Responses_Per_Problem.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: 9362354c-1541-43c2-b769-da9818236298
+dataset_uuid: 981f30d9-b2f0-4a0b-9e95-0ee0e06db806
 description: The number of students who have responded to a question, and whether
   they have ever answered correctly. Students can answer some questions multiple times,
   but this chart counts each student only once per question.
@@ -66,6 +66,6 @@ query_context: '{"datasource":{"id":2,"type":"table"},"force":false,"queries":[{
   Of Students","show_controls":false,"y_axis_bounds":[null,null],"x_axis_label":"Question
   Title","bottom_margin":"auto","x_ticks_layout":"auto","extra_form_data":{},"dashboards":[23],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
 slice_name: Responses Per Problem
-uuid: 3dc6a642-a71d-4c8c-ab98-14f54852b40f
+uuid: a3e79162-4ace-4349-ab34-89aa60ae75ed
 version: 1.0.0
 viz_type: dist_bar
