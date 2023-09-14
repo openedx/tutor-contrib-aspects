@@ -1,12 +1,19 @@
-_file_name: Watches_per_video.yaml
+_file_name: Watches_Per_Video.yaml
 cache_timeout: null
+certification_details: null
+certified_by: null
 dataset_uuid: 6ec360a5-e247-42e7-b301-fa8275fc93f9
+description: This chart shows how many unique learners have watched each video, and
+  how many repeat views each has gotten. If a video has never been played it will
+  not appear in this chart.
 params:
   adhoc_filters: []
   bottom_margin: auto
   color_scheme: supersetColors
   columns: []
-  datasource: 7__table
+  dashboards:
+  - 23
+  datasource: 10__table
   extra_form_data: {}
   granularity_sqla: emission_time
   groupby:
@@ -41,14 +48,17 @@ params:
   rich_tooltip: true
   row_limit: 10000
   show_legend: true
-  time_range: No filter
+  slice_id: 25
+  time_range: 'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"), 1, day)'
   viz_type: dist_bar
+  x_axis_label: Video Title
   x_ticks_layout: auto
   y_axis_bounds:
   - null
   - null
   y_axis_format: SMART_NUMBER
-slice_name: Watches per video
+  y_axis_label: Number of Views / Viewers
+slice_name: Watches Per Video
 uuid: 829c1d5b-2844-4115-876a-34ad3b3cad64
 version: 1.0.0
 viz_type: dist_bar

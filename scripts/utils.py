@@ -63,6 +63,16 @@ def mark_text_for_translation(asset):
 
         elif type == "charts":
             strings.append(asset["slice_name"])
+
+            if asset.get("description"):
+                strings.append(asset["description"])
+
+            if asset["params"].get("x_axis_label"):
+                strings.append(asset["params"]["x_axis_label"])
+
+            if asset["params"].get("y_axis_label"):
+                strings.append(asset["params"]["y_axis_label"])
+
         elif type == "databases":
             # WARNING: Databases are not translated
             pass

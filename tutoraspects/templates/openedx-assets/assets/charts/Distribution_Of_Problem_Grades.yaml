@@ -1,0 +1,41 @@
+_file_name: Distribution_Of_Problem_Grades.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: b31154e0-afed-4445-b90d-a501d555784e
+description: 'This chart shows the number of students who scored within a certain
+  percentage of points for this problem. For problems that are pass/fail it will only
+  show the lowest and highest percentage ranges. '
+params:
+  adhoc_filters: []
+  bottom_margin: auto
+  color_scheme: supersetColors
+  columns: []
+  dashboards:
+  - 23
+  datasource: 15__table
+  extra_form_data: {}
+  granularity_sqla: emission_time
+  groupby:
+  - grade_bucket
+  metrics:
+  - count
+  order_bars: true
+  order_desc: true
+  rich_tooltip: true
+  row_limit: 10000
+  show_legend: false
+  slice_id: 345
+  time_range: 'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"), 1, day)'
+  viz_type: dist_bar
+  x_axis_label: Percentage Grade
+  x_ticks_layout: auto
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  y_axis_label: Students
+slice_name: Distribution Of Problem Grades
+uuid: 4f7e3606-f5de-4643-97c0-bbb6340a3df2
+version: 1.0.0
+viz_type: dist_bar

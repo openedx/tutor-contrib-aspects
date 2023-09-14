@@ -1,12 +1,19 @@
-_file_name: Transcript_closed_captioning_usage_per_video.yaml
+_file_name: Transcripts_Captions_Per_Video.yaml
 cache_timeout: null
+certification_details: null
+certified_by: null
 dataset_uuid: a96a4b13-a429-442d-83ca-5d6f94010909
+description: This chart helps understand how many learners are using the video's transcripts
+  or closed captions. If the video has not transcripts or captions the chart will
+  be empty.
 params:
   adhoc_filters: []
   bottom_margin: auto
   color_scheme: supersetColors
   columns: []
-  datasource: 8__table
+  dashboards:
+  - 23
+  datasource: 3__table
   extra_form_data: {}
   granularity_sqla: emission_time
   groupby:
@@ -41,14 +48,17 @@ params:
   rich_tooltip: true
   row_limit: 10000
   show_legend: true
-  time_range: No filter
+  slice_id: 47
+  time_range: 'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"), 1, day)'
   viz_type: dist_bar
+  x_axis_label: Video Title
   x_ticks_layout: auto
   y_axis_bounds:
   - null
   - null
   y_axis_format: SMART_NUMBER
-slice_name: Transcript/closed captioning usage per video
+  y_axis_label: Number of Users / Uses
+slice_name: Transcripts / Captions Per Video
 uuid: 6b830def-f3ca-4b4c-9455-7a7b7354bce8
 version: 1.0.0
 viz_type: dist_bar

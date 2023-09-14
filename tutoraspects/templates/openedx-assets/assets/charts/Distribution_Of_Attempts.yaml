@@ -1,6 +1,11 @@
-_file_name: Attempts_to_first_success.yaml
+_file_name: Distribution_Of_Attempts.yaml
 cache_timeout: null
+certification_details: null
+certified_by: null
 dataset_uuid: 9362354c-1541-43c2-b769-da9818236298
+description: This chart shows the number of attempts that students needed to make
+  before getting the problem's answer correct. This only counts students who eventually
+  answered correctly.
 params:
   adhoc_filters:
   - clause: WHERE
@@ -16,24 +21,30 @@ params:
   bottom_margin: auto
   color_scheme: supersetColors
   columns: []
-  datasource: 43__table
+  dashboards:
+  - 23
+  datasource: 2__table
   extra_form_data: {}
   groupby:
   - attempts
   metrics:
   - count
+  order_bars: true
   order_desc: true
   rich_tooltip: true
   row_limit: 10000
-  show_legend: true
-  time_range: No filter
+  show_legend: false
+  slice_id: 30
+  time_range: 'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"), 1, day)'
   viz_type: dist_bar
+  x_axis_label: Number Of Attempts To Find Correct Answer
   x_ticks_layout: auto
   y_axis_bounds:
   - null
   - null
   y_axis_format: SMART_NUMBER
-slice_name: Attempts to first success
+  y_axis_label: Students
+slice_name: Distribution Of Attempts
 uuid: db90930f-f16e-4c32-8050-0e4abae28f4c
 version: 1.0.0
 viz_type: dist_bar

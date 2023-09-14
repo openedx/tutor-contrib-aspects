@@ -1,0 +1,40 @@
+_file_name: Distribution_Of_Hints_Per_Correct_Answer.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: a5db584d-c8dd-4acc-889e-074288c38433
+description: This chart displays counts of the number of times hints (including displaying
+  the answer itself) were displayed for each learner who eventually answered the problem
+  correctly. If the problem had no hint or answer display configured this chart will
+  group everyone into "0".
+params:
+  adhoc_filters: []
+  bottom_margin: auto
+  color_scheme: supersetColors
+  columns: []
+  dashboards:
+  - 23
+  datasource: 14__table
+  extra_form_data: {}
+  groupby:
+  - total_hints
+  metrics:
+  - count
+  order_desc: true
+  rich_tooltip: true
+  row_limit: 10000
+  show_legend: false
+  slice_id: 166
+  time_range: 'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"), 1, day)'
+  viz_type: dist_bar
+  x_axis_label: Hints / Answer Displayed Before Correct Answer Chosen
+  x_ticks_layout: auto
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  y_axis_label: Students
+slice_name: Distribution Of Hints Per Correct Answer
+uuid: ee94be4c-6fdd-4295-b43c-40890d6c549d
+version: 1.0.0
+viz_type: dist_bar

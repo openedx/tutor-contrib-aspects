@@ -1,18 +1,26 @@
-_file_name: Enrollment_events_per_day.yaml
+_file_name: Enrollment_Events_Per_Day.yaml
 cache_timeout: null
+certification_details: null
+certified_by: null
 dataset_uuid: a234545d-08ff-480d-8361-961c3d15f14f
+description: A count of the number of enrollments and un-enrollments per day. Learners
+  can enroll and unenroll multiple times, in this chart each individual enrollment
+  and unenrollment will be counted.
 params:
   adhoc_filters: []
   annotation_layers: []
   color_scheme: supersetColors
   comparison_type: values
-  datasource: 14__table
+  dashboards:
+  - 23
+  datasource: 11__table
   extra_form_data: {}
   forecastInterval: 0.8
   forecastPeriods: 10
   granularity_sqla: emission_time
   groupby:
   - enrollment_status
+  legendMargin: null
   legendOrientation: top
   legendType: scroll
   metrics:
@@ -22,7 +30,9 @@ params:
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
-  show_legend: true
+  show_empty_columns: true
+  show_legend: false
+  slice_id: 111
   stack: true
   time_grain_sqla: P1D
   time_range: No filter
@@ -36,9 +46,10 @@ params:
   - null
   - null
   y_axis_format: SMART_NUMBER
+  y_axis_title: Number Of Events
   y_axis_title_margin: 15
   y_axis_title_position: Left
-slice_name: Enrollment events per day
+slice_name: Enrollment Events Per Day
 uuid: bb1147cc-b7bc-44b7-b06a-79b0db6626aa
 version: 1.0.0
 viz_type: echarts_timeseries_bar

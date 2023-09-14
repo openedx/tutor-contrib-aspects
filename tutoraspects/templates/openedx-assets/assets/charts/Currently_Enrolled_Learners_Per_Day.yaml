@@ -1,6 +1,12 @@
-_file_name: Enrolled_learners_per_day.yaml
+_file_name: Currently_Enrolled_Learners_Per_Day.yaml
 cache_timeout: null
+certification_details: null
+certified_by: null
 dataset_uuid: 352311fe-12f0-470c-8b8c-d4f6a3936b3d
+description: The cumulative total of unique enrolled learners based on their enrollment
+  state at the end of each day. If a learner was enrolled previously, but has left
+  the course since, they are not counted as of the date they left. If they re-enroll
+  in the course they will be counted again.
 params:
   adhoc_filters:
   - clause: WHERE
@@ -32,7 +38,7 @@ params:
   time_range: No filter
   viz_type: big_number
   y_axis_format: SMART_NUMBER
-slice_name: Enrolled learners per day
+slice_name: Currently Enrolled Learners Per Day
 uuid: ed2fe731-6544-422f-bc55-42f399f48b2c
 version: 1.0.0
 viz_type: big_number
