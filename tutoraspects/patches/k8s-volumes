@@ -29,6 +29,20 @@ spec:
   resources:
     requests:
       storage: 5Mi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: superset-pythonpath
+  labels:
+    app.kubernetes.io/component: volume
+    app.kubernetes.io/name: superset
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Mi
 {% endif %}
 {% if RUN_VECTOR %}
 ---

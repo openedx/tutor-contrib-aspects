@@ -219,15 +219,15 @@ spec:
         - name: docker
           configMap:
             name: superset-docker
-        - name: pythonpath
-          configMap:
-            name: superset-pythonpath
         - name: security
           configMap:
             name: superset-security
         - name: assets
           persistentVolumeClaim:
             claimName: superset-assets
+        - name: pythonpath
+          persistentVolumeClaim:
+            claimName: superset-pythonpath
 
 ---
 apiVersion: batch/v1
@@ -299,13 +299,13 @@ spec:
         - name: docker
           configMap:
             name: superset-docker
-        - name: pythonpath
-          configMap:
-            name: superset-pythonpath
         - name: security
           configMap:
             name: superset-security
         - name: assets
           persistentVolumeClaim:
             claimName: superset-assets
+        - name: pythonpath
+          persistentVolumeClaim:
+            claimName: superset-pythonpath
 {% endif %}
