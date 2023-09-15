@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.42.0 - 2023-09-14
+
+### [0.42.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.41.0...v0.42.0) (2023-09-14)
+
+#### Features
+
+- Add new localization fields, update locale ([7f5c23f](https://github.com/openedx/tutor-contrib-aspects/commit/7f5c23f58ba1b50561cfeaf3779fbc8d4a10e848))
+- Usability updates to Instructor Dashboard ([0b45e16](https://github.com/openedx/tutor-contrib-aspects/commit/0b45e16b2a30293a541f7c3c7f1f7742f58f9566))
+
+#### Bug Fixes
+
+- Org filter, weird colors, Responses Per Problem chart ([1245981](https://github.com/openedx/tutor-contrib-aspects/commit/1245981f55d6793b4e3eeb21668f82c90eea75c0)), closes [#377](https://github.com/openedx/tutor-contrib-aspects/issues/377)
+- Remove Help tab and FAQ ([d230469](https://github.com/openedx/tutor-contrib-aspects/commit/d2304690bc8c97e7ac23893dbf8141a10853e0be))
+- Remove query_context to try to reduce assets.yml size ([a5abd78](https://github.com/openedx/tutor-contrib-aspects/commit/a5abd7868f230435abedab31774340a9844ce398))
+- Update help text to match what users need to do ([df133cd](https://github.com/openedx/tutor-contrib-aspects/commit/df133cd9055c3a695b1ea26eaafcf3ccf6224c99)), closes [#377](https://github.com/openedx/tutor-contrib-aspects/issues/377)
+
+#### Build Systems
+
+- Move namespace setup above init in k8s tests ([74c636d](https://github.com/openedx/tutor-contrib-aspects/commit/74c636d85b5d79ef7ac91b6737d7a9e769b5843b))
+
 ## v0.41.0 - 2023-09-13
 
 ### [0.41.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.40.2...v0.41.0) (2023-09-13)
