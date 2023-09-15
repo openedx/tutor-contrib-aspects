@@ -91,14 +91,14 @@ def can_view_courses_wrapper(*args, **kwargs):
     from superset.extensions import cache_manager
 
     return memoized_func(key="{username}", cache=cache_manager.cache)(can_view_courses)(*args, **kwargs)
-    
+
 
 JINJA_CONTEXT_ADDONS = {
     'can_view_courses': can_view_courses_wrapper,
     {% for filter in SUPERSET_EXTRA_JINJA_FILTERS %}'{{ filter }}': {{filter}},{% endfor %}
 }
 
-{% if not ENABLE_WEB_PROXY %}
+{% if ENABLE_WEB_PROXY %}
 # Caddy is running behind a proxy: Superset needs to handle x-forwarded-* headers
 # https://flask.palletsprojects.com/en/latest/deploying/proxy_fix/
 ENABLE_PROXY_FIX = True
