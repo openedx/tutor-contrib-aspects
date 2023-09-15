@@ -226,8 +226,8 @@ spec:
           persistentVolumeClaim:
             claimName: superset-assets
         - name: pythonpath
-          persistentVolumeClaim:
-            claimName: superset-pythonpath
+          hostPath:
+            path: aspects/apps/superset/pythonpath
 
 ---
 apiVersion: batch/v1
@@ -306,6 +306,6 @@ spec:
           persistentVolumeClaim:
             claimName: superset-assets
         - name: pythonpath
-          persistentVolumeClaim:
-            claimName: superset-pythonpath
+          hostPath:
+            path: aspects/apps/superset/pythonpath
 {% endif %}
