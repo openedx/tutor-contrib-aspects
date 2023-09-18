@@ -209,7 +209,7 @@ es:
     unenrollment will be counted.
   : ''
   Active Users Per Organization: ''
-  Actor IDs over time: ''
+  Actor IDs over time: IDs de actores a lo largo del tiempo
   Answers Chosen: ''
   Coming Soon: ''
   Course Enrollment: ''
@@ -217,7 +217,7 @@ es:
   Course Grade Distribution: ''
   Course Registrations Over Time: ''
   Course Success: ''
-  Courses: ''
+  Courses: Cursos
   Courses Per Organization: ''
   Currently Enrolled Learners Per Day: ''
   Distribution Of Attempts: ''
@@ -228,13 +228,13 @@ es:
   Enrollments: ''
   Enrollments By Enrollment Mode: ''
   Enrollments By Type: ''
-  Event type: ''
-  Events per course: ''
+  Event type: Tipo de evento
+  Events per course: Eventos por curso
   Hints / Answer Displayed Before Correct Answer Chosen: ''
   Instance Health: ''
   Instructor Dashboard: ''
   Last Received Event: ''
-  Last course syncronized: ''
+  Last course syncronized: "\xDAltimo curso sincronizado"
   Learner Engagement: ''
   Most Active Courses Per Day: ''
   Number Of Attempts To Find Correct Answer: ''
@@ -242,8 +242,8 @@ es:
   Number Of Viewers / Views: ''
   Number of Users / Uses: ''
   Number of Views / Viewers: ''
-  Operator Dashboard: ''
-  Organizations: ''
+  Operator Dashboard: Panel de Operador
+  Organizations: Organizaciones
   Percentage Grade: ''
   Problem Engagement: ''
   Problem Performance: ''
@@ -296,7 +296,7 @@ es:
   : ''
   Total Organizations: ''
   Transcripts / Captions Per Video: ''
-  Unique actors: ''
+  Unique actors: "Actores \xFAnicos"
   Video Engagement: ''
   Video Performance: ''
   Video Title: ''
