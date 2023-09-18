@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.42.1 - 2023-09-18
+
+### [0.42.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.42.0...v0.42.1) (2023-09-18)
+
+### Bug Fixes
+
+- add security context for k8s-job ([0709612](https://github.com/openedx/tutor-contrib-aspects/commit/07096121b317f565599624c9111dcd700ac6a302))
+- delete folder ([52b1bb8](https://github.com/openedx/tutor-contrib-aspects/commit/52b1bb8cdaf34d41850fbb09f84fa15a31b58c09))
+
 ## v0.42.0 - 2023-09-14
 
 ### [0.42.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.41.0...v0.42.0) (2023-09-14)
