@@ -77,10 +77,8 @@ type: assets
 timestamp: '$date'" > superset/metadata.yaml
 
 python /app/pythonpath/create_assets.py
-
-
 rm -rf /app/assets/superset
-rm -rf /app/assets/superset.zip
+
 echo_step "4" "Complete" "Importing assets"
 
 # Set up a Row-Level Security filter to enforce course-based access restrictions.

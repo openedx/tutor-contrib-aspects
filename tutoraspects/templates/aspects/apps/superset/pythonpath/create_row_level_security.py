@@ -15,6 +15,8 @@ session = security_manager.get_session()
 
 ## https://docs.preset.io/docs/row-level-security-rls
 
+VIRTUAL_TABLE_SCHEMA = "main"
+
 SECURITY_FILTERS = [
     {
         "schema": "{{ASPECTS_XAPI_DATABASE}}",
@@ -25,7 +27,7 @@ SECURITY_FILTERS = [
         "filter_type": "Regular",
     },
     {
-        "schema": None,
+        "schema": VIRTUAL_TABLE_SCHEMA,
         "table_name": "fact_enrollments_by_day",
         "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
         "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
@@ -33,7 +35,7 @@ SECURITY_FILTERS = [
         "filter_type": "Regular"
     },
     {
-        "schema": None,
+        "schema": VIRTUAL_TABLE_SCHEMA,
         "table_name": "fact_enrollments",
         "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
         "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
@@ -41,7 +43,7 @@ SECURITY_FILTERS = [
         "filter_type": "Regular"
     },
     {
-        "schema": None,
+        "schema": VIRTUAL_TABLE_SCHEMA,
         "table_name": "fact_learner_problem_summary",
         "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
         "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
@@ -49,7 +51,7 @@ SECURITY_FILTERS = [
         "filter_type": "Regular"
     },
     {
-        "schema": None,
+        "schema": VIRTUAL_TABLE_SCHEMA,
         "table_name": "fact_problem_responses",
         "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
         "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
@@ -57,7 +59,7 @@ SECURITY_FILTERS = [
         "filter_type": "Regular"
     },
     {
-        "schema": None,
+        "schema": VIRTUAL_TABLE_SCHEMA,
         "table_name": "fact_transcript_usage",
         "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
         "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
@@ -65,7 +67,7 @@ SECURITY_FILTERS = [
         "filter_type": "Regular"
     },
     {
-        "schema": None,
+        "schema": VIRTUAL_TABLE_SCHEMA,
         "table_name": "fact_video_plays",
         "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
         "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
@@ -73,7 +75,7 @@ SECURITY_FILTERS = [
         "filter_type": "Regular"
     },
     {
-        "schema": None,
+        "schema": VIRTUAL_TABLE_SCHEMA,
         "table_name": "fact_watched_video_segments",
         "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
         "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
@@ -81,7 +83,7 @@ SECURITY_FILTERS = [
         "filter_type": "Regular"
     },
     {
-        "schema": None,
+        "schema": VIRTUAL_TABLE_SCHEMA,
         "table_name": "hints_per_success",
         "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
         "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
