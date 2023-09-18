@@ -67,9 +67,9 @@ echo_step "3" "Complete" "Setting up roles and perms"
 echo_step "4" "Starting" "Importing assets"
 
 cd /app/assets/
-rm -rf /app/assets/superset
+rm -rf superset
 
-mkdir /app/assets/superset -p
+mkdir superset
 
 date=$(date -u +"%Y-%m-%dT%H:%M:%S.%6N+00:00") 
 echo "version: 1.0.0
