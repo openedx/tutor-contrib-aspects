@@ -25,7 +25,7 @@ click==8.1.7
     #   tutor
 future==0.18.3
     # via pyseeyou
-google-auth==2.22.0
+google-auth==2.23.0
     # via kubernetes
 idna==3.4
     # via requests
@@ -51,7 +51,7 @@ pyasn1==0.5.0
     #   rsa
 pyasn1-modules==0.3.0
     # via google-auth
-pycryptodome==3.18.0
+pycryptodome==3.19.0
     # via tutor
 pyseeyou==1.0.2
     # via transifex-python
@@ -77,7 +77,6 @@ rsa==4.9
 six==1.16.0
     # via
     #   asttokens
-    #   google-auth
     #   kubernetes
     #   python-dateutil
 tomli==2.0.1
@@ -97,5 +96,5 @@ urllib3==1.26.16
     #   google-auth
     #   kubernetes
     #   requests
-websocket-client==1.6.2
+websocket-client==1.6.3
     # via kubernetes
