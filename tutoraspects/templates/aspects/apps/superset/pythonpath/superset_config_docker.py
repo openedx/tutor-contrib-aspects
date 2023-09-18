@@ -98,7 +98,7 @@ JINJA_CONTEXT_ADDONS = {
     {% for filter in SUPERSET_EXTRA_JINJA_FILTERS %}'{{ filter }}': {{filter}},{% endfor %}
 }
 
-{% if ENABLE_WEB_PROXY %}
+{% if SUPERSET_ENABLE_PROXY_FIX %}
 # Caddy is running behind a proxy: Superset needs to handle x-forwarded-* headers
 # https://flask.palletsprojects.com/en/latest/deploying/proxy_fix/
 ENABLE_PROXY_FIX = True
