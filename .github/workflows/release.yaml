@@ -51,7 +51,7 @@ jobs:
     needs: release
     steps:
       - name: Log in to Docker Hub
-        uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc
+        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d
         with:
           username: ${{ secrets.EDUNEXT_DOCKER_USERNAME }}
           password: ${{ secrets.EDUNEXT_DOCKER_PASSWORD }}
@@ -76,7 +76,7 @@ jobs:
     needs: release
     steps:
       - name: Log in to Docker Hub
-        uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc
+        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d
         with:
             username: ${{ secrets.EDUNEXT_DOCKER_USERNAME }}
             password: ${{ secrets.EDUNEXT_DOCKER_PASSWORD }}
@@ -101,7 +101,7 @@ jobs:
     needs: release
     steps:
       - name: Log in to Docker Hub
-        uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc
+        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d
         with:
             username: ${{ secrets.EDUNEXT_DOCKER_USERNAME }}
             password: ${{ secrets.EDUNEXT_DOCKER_PASSWORD }}
@@ -127,7 +127,7 @@ jobs:
     needs: release
     steps:
       - name: Log in to Docker Hub
-        uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc
+        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d
         with:
             username: ${{ secrets.EDUNEXT_DOCKER_USERNAME }}
             password: ${{ secrets.EDUNEXT_DOCKER_PASSWORD }}
