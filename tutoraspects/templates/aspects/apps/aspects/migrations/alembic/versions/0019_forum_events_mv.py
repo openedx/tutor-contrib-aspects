@@ -42,15 +42,7 @@ def upgrade():
         FROM
             {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_XAPI_TABLE }}
         WHERE
-            verb_id in (
-                'https://w3id.org/xapi/acrossx/verbs/posted',
-                'https://w3id.org/xapi/acrossx/verbs/edited',
-                'https://w3id.org/xapi/dod-isd/verbs/deleted',
-                'http://id.tincanapi.com/verb/viewed',
-                'https://w3id.org/xapi/openedx/verb/voted',
-                'https://w3id.org/xapi/acrossx/verbs/reported',
-                'https://w3id.org/xapi/openedx/verb/unreported'
-            );
+            JSON_VALUE(event_str, '$.object.definition.type') = 'http://id.tincanapi.com/activitytype/discussion'
         """
     )
 
