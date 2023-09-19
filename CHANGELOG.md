@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.43.0 - 2023-09-19
+
+### [0.43.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.42.2...v0.43.0) (2023-09-19)
+
+#### Features
+
+- add materialized view for forum events ([65e7785](https://github.com/openedx/tutor-contrib-aspects/commit/65e7785b4e9f6af0102e8e263585d3fb58d16f23))
+
+#### Code Refactoring
+
+- use more accurate filter for forum event MV ([4a9bbef](https://github.com/openedx/tutor-contrib-aspects/commit/4a9bbefcdd2239cb93d983cf0363ac19c6b41a85))
+
 ## v0.42.2 - 2023-09-19
 
 ### [0.42.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.42.1...v0.42.2) (2023-09-19)
