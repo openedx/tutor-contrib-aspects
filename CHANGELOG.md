@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.42.2 - 2023-09-19
+
+### [0.42.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.42.1...v0.42.2) (2023-09-19)
+
+### Bug Fixes
+
+- Enable Superset proxy fix when Caddy is on ([39e4b53](https://github.com/openedx/tutor-contrib-aspects/commit/39e4b53bab73f258a957f319f0636b50c4c82dfb))
+
 ## v0.42.1 - 2023-09-18
 
 ### [0.42.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.42.0...v0.42.1) (2023-09-18)
