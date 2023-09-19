@@ -290,6 +290,11 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ),
         ("SUPERSET_EXTRA_JINJA_FILTERS", {}),
         ("SUPERSET_BLOCK_STUDENT_ACCESS", True),
+        # This setting allows Superset to run behind a reverse proxy in HTTPS and
+        # redirect to the correct http/s based on the headers sent from the proxy.
+        # By default it is on if Caddy is enabled, but it can be set separately in
+        # case you are running a different proxy or otherwise have different needs.
+        ("SUPERSET_ENABLE_PROXY_FIX", "{{ENABLE_WEB_PROXY}}"),
         ######################
         # dbt Settings
         # For the most part you shouldn't have to touch these
