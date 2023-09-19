@@ -9,6 +9,9 @@ depends_on = None
 DESTINATION_TABLE = "{{ ASPECTS_VECTOR_DATABASE }}.{{ ASPECTS_VECTOR_RAW_XAPI_TABLE }}"
 TMP_TABLE_NEW = f"{DESTINATION_TABLE}_tmp_{revision}"
 TMP_TABLE_ORIG = f"{DESTINATION_TABLE}_tmp_mergetree_{revision}"
+on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""
+old_engine = "ReplicatedMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "MergeTree"
+engine = "ReplicatedReplacingMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "ReplacingMergeTree"
 
 
 def upgrade():
@@ -16,12 +19,13 @@ def upgrade():
     op.execute(
         f"""
         CREATE OR REPLACE TABLE {TMP_TABLE_NEW}
+        {on_cluster}
         (
             event_id      UUID,
             emission_time DateTime64(6),
             event_str     String
         )
-        engine = ReplacingMergeTree
+        engine = {engine}
         PRIMARY KEY (emission_time)
         ORDER BY (emission_time, event_id);
         """
@@ -32,6 +36,7 @@ def upgrade():
     op.execute(
         f"""
         ALTER TABLE {TMP_TABLE_NEW}
+        {on_cluster}
         ATTACH PARTITION tuple() FROM 
         {DESTINATION_TABLE};
         """
@@ -39,10 +44,10 @@ def upgrade():
     # 3. Swap both tables. We can't do this in a single statement because CH Cloud
     #    uses replicated tables and will error.
     op.execute(
-        f"RENAME TABLE {DESTINATION_TABLE} TO {TMP_TABLE_ORIG};"
+        f"RENAME TABLE {DESTINATION_TABLE} TO {TMP_TABLE_ORIG} {on_cluster}"
     )
     op.execute(
-        f"RENAME TABLE {TMP_TABLE_NEW} TO {DESTINATION_TABLE};"
+        f"RENAME TABLE {TMP_TABLE_NEW} TO {DESTINATION_TABLE} {on_cluster}"
     )
     # 4. Force deduplication of the existing data and may take a very long time
     #    on a larger dataset, but since Aspects isn't in production anywhere yet this
@@ -56,7 +61,7 @@ def upgrade():
     # 5. Drop the renamed version of the original table.
     op.execute(
         f"""
-        DROP TABLE {TMP_TABLE_ORIG};
+        DROP TABLE {TMP_TABLE_ORIG} {on_cluster}
         """
     )
 
@@ -66,12 +71,13 @@ def downgrade():
     op.execute(
         f"""
         CREATE TABLE IF NOT EXISTS {TMP_TABLE_ORIG}
+        {on_cluster}
         (
             event_id      UUID,
             emission_time DateTime64(6),
             event_str     String
         )
-        engine = MergeTree
+        engine = {old_engine}
         PRIMARY KEY (emission_time)
         ORDER BY (emission_time, event_id);
         """
@@ -82,14 +88,15 @@ def downgrade():
     op.execute(
         f"""
         ALTER TABLE {TMP_TABLE_ORIG}
+        {on_cluster}
         ATTACH PARTITION tuple() FROM 
         {DESTINATION_TABLE};
         """
     )
     # 3. Swap both tables. We can't do this in a single statement because CH Cloud
     #    uses replicated tables and will error.
-    op.execute(f"RENAME TABLE {DESTINATION_TABLE} TO {TMP_TABLE_NEW}")
-    op.execute(f"RENAME TABLE {TMP_TABLE_ORIG} TO {DESTINATION_TABLE};")
+    op.execute(f"RENAME TABLE {DESTINATION_TABLE} TO {TMP_TABLE_NEW} {on_cluster}")
+    op.execute(f"RENAME TABLE {TMP_TABLE_ORIG} TO {DESTINATION_TABLE} {on_cluster}")
 
     # 4. Force deduplication of the existing data and may take a very long time
     #    on a larger dataset, but since Aspects isn't in production anywhere yet this
@@ -98,12 +105,13 @@ def downgrade():
     op.execute(
         f"""
         OPTIMIZE TABLE {DESTINATION_TABLE} 
+        {on_cluster}
         FINAL DEDUPLICATE;
         """
     )
     # 5. Drop the renamed version of the original table.
     op.execute(
         f"""
-        DROP TABLE {TMP_TABLE_NEW};
+        DROP TABLE {TMP_TABLE_NEW} {on_cluster}
         """
     )

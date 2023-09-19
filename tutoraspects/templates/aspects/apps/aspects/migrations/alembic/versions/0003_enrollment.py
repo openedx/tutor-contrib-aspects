@@ -5,6 +5,8 @@ revision = "0003"
 down_revision = "0002"
 branch_labels = None
 depends_on = None
+on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""
+engine = "ReplicatedMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "MergeTree"
 
 
 def upgrade():
@@ -14,9 +16,11 @@ def upgrade():
         """
     )
     op.execute(
-        """
+        f"""
         -- MV target table for enrollment xAPI events
-        CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_EVENTS_TABLE }} (
+        CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_EVENTS_TABLE }} 
+        {on_cluster}
+        (
             `event_id` UUID NOT NULL,
             `emission_time` DateTime64(6) NOT NULL,
             `actor_id` String NOT NULL,
@@ -25,18 +29,19 @@ def upgrade():
             `org` String NOT NULL,
             `verb_id` LowCardinality(String) NOT NULL,
             `enrollment_mode` LowCardinality(String)
-        ) ENGINE = MergeTree
+        ) ENGINE = {engine}
         PRIMARY KEY (org, course_id)
         ORDER BY (org, course_id, actor_id, enrollment_mode, emission_time);
         """
     )
     op.execute(
-        """
+        f"""
         -- Processed table that Superset reads from
         -- Materialized view that moves data from the processed xAPI table to
         -- the enrollment events table
         CREATE MATERIALIZED VIEW IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_TRANSFORM_MV }}
-            TO {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_EVENTS_TABLE }} AS
+        {on_cluster}
+        TO {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_EVENTS_TABLE }} AS
         SELECT
             event_id,
             emission_time,
@@ -57,8 +62,10 @@ def upgrade():
 
 def downgrade():
     op.execute(
-        "DROP TABLE IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_EVENTS_TABLE }};"
+        "DROP TABLE IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_EVENTS_TABLE }}"
+        f"{on_cluster}"
     )
     op.execute(
-        "DROP TABLE IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_TRANSFORM_MV }};"
+        "DROP TABLE IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_TRANSFORM_MV }}"
+        f"{on_cluster}"
     )

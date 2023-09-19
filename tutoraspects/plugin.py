@@ -86,6 +86,10 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Note! ClickHouse has several reserved ports, make sure you are not reusing
         # a taken port: https://clickhouse.com/docs/en/guides/sre/network-ports
         ("CLICKHOUSE_HOST", "clickhouse"),
+        # If you are using ClickHouse in a clustered environment, place the name of
+        # the cluster here. All objects will be created "ON CLUSTER" with replicated
+        # table types, otherwise a single server deployment will be assumed.
+        ("CLICKHOUSE_CLUSTER_NAME", ""),
         # Port for the native interface exposed on the host container in Docker Compose,
         # this is changed from 9000 to prevent conflicts with MinIO, which also listens
         # on 9000.
@@ -312,10 +316,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("EXTRA_DBT_PACKAGES", []),
         # This is the name of the database dbt will write to
         ("DBT_PROFILE_TARGET_DATABASE", "reporting"),
-        # If set, DDL/table operations will be executed with the `ON CLUSTER` clause
-        # using this cluster. This has not been tested with Aspects and is unlikely to
-        # work.
-        ("DBT_PROFILE_CLUSTER", ""),
         # Validate TLS certificate if using TLS/SSL
         ("DBT_PROFILE_VERIFY", "True"),
         # Use TLS (native protocol) or HTTPS (http protocol)

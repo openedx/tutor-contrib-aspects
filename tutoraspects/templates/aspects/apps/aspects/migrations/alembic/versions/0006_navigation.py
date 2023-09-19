@@ -5,13 +5,17 @@ revision = "0006"
 down_revision = "0005"
 branch_labels = None
 depends_on = None
+on_cluster = "ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}'" if ("{{CLICKHOUSE_CLUSTER_NAME}}") else ""
+engine = "ReplicatedMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "MergeTree"
 
 
 def upgrade():
     op.execute(
-        """
+        f"""
         -- MV target table for navigation xAPI events
-        CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_EVENTS_TABLE }} (
+        CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_EVENTS_TABLE }} 
+        {on_cluster}
+        (
             `event_id` UUID NOT NULL,
             `emission_time` DateTime64(6) NOT NULL,
             `actor_id` String NOT NULL,
@@ -22,16 +26,17 @@ def upgrade():
             `object_type` LowCardinality(String) NOT NULL,
             `starting_position` Int16,
             `ending_point` String
-        ) ENGINE = MergeTree
+        ) ENGINE = {engine}
         PRIMARY KEY (org, course_id, object_type)
         ORDER BY (org, course_id, object_type, actor_id);
         """
     )
     op.execute(
-        """
+        f"""
         -- Materialized view that moves data from the processed xAPI table to
         -- the enrollment events table
         CREATE MATERIALIZED VIEW IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_TRANSFORM_MV }}
+        {on_cluster}
         TO {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_EVENTS_TABLE }} AS
         SELECT
             event_id,
@@ -69,8 +74,10 @@ def upgrade():
 
 def downgrade():
     op.execute(
-        "DROP TABLE IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_EVENTS_TABLE }};"
+        "DROP TABLE IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_EVENTS_TABLE }}"
+        f"{on_cluster}"
     )
     op.execute(
-        "DROP TABLE IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_TRANSFORM_MV }};"
+        "DROP TABLE IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_TRANSFORM_MV }}"
+        f"{on_cluster}"
     )

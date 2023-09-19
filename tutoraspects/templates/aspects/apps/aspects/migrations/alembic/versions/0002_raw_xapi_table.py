@@ -5,6 +5,8 @@ revision = "0002"
 down_revision = "0001"
 branch_labels = None
 depends_on = None
+on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""
+engine = "ReplicatedMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "MergeTree"
 
 
 def upgrade():
@@ -14,22 +16,26 @@ def upgrade():
         """
     )
     op.execute(
-        """
+        f"""
         -- Raw table that Ralph writes to
-        CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}  (
+        CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
+        {on_cluster} 
+        (      
             event_id UUID NOT NULL,
             emission_time DateTime64(6) NOT NULL,
             event JSON NOT NULL,
             event_str String NOT NULL
-        ) ENGINE MergeTree
+        ) ENGINE {engine}
         ORDER BY (emission_time, event_id)
         PRIMARY KEY (emission_time, event_id);
         """
     )
     op.execute(
-        """
+        f"""
         -- Processed table that Superset reads from
-        CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_XAPI_TABLE }} (
+        CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_XAPI_TABLE }} 
+        {on_cluster}
+        (
             event_id UUID NOT NULL,
             verb_id String NOT NULL,
             actor_id String NOT NULL,
@@ -38,16 +44,18 @@ def upgrade():
             course_id String NOT NULL,
             emission_time DateTime64(6) NOT NULL,
             event_str String NOT NULL
-        ) ENGINE MergeTree
+        ) ENGINE {engine}
         ORDER BY (org, course_id, verb_id, actor_id, emission_time, event_id)
         PRIMARY KEY (org, course_id, verb_id, actor_id, emission_time, event_id);
         """
     )
     op.execute(
-        """
+        f"""
         -- Materialized view that moves data from the raw table to processed table
         CREATE MATERIALIZED VIEW IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_XAPI_TRANSFORM_MV }}
-        TO {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_XAPI_TABLE }} AS
+        {on_cluster}
+        TO {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_XAPI_TABLE }} 
+        AS
         SELECT
         event_id as event_id,
         JSON_VALUE(event_str, '$.verb.id') as verb_id,
@@ -76,11 +84,14 @@ def upgrade():
 
 def downgrade():
     op.execute(
-        "DROP TABLE IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }};"
+        "DROP TABLE IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}"
+        f"{on_cluster};"
     )
     op.execute(
-        "DROP TABLE IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_XAPI_TABLE }};"
+        "DROP TABLE IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_XAPI_TABLE }}"
+        f"{on_cluster};"
     )
     op.execute(
-        "DROP TABLE IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_XAPI_TRANSFORM_MV }};"
+        "DROP TABLE IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_XAPI_TRANSFORM_MV }}"
+        f"{on_cluster}"
     )
