@@ -8,11 +8,15 @@ revision = "0016"
 down_revision = "0015"
 branch_labels = None
 depends_on = None
+on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""
+engine = "ReplicatedReplacingMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "ReplacingMergeTree"
+
 
 def upgrade():
     op.execute(
-        """
+        f"""
         CREATE TABLE IF NOT EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_USER_PROFILE_TABLE }}
+        {on_cluster}
         (
             id Int32 NOT NULL,
             user_id Int32 NOT NULL,
@@ -34,7 +38,7 @@ def upgrade():
             phone_number String NOT NULL,
             dump_id UUID NOT NULL,
             time_last_dumped String NOT NULL
-        ) engine = MergeTree
+        ) engine = {engine}
         PRIMARY KEY (id, time_last_dumped)
         ORDER BY (id, time_last_dumped);
         """
@@ -43,5 +47,6 @@ def upgrade():
 
 def downgrade():
     op.execute(
-        "DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_USER_PROFILE_TABLE }};"
+        "DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_USER_PROFILE_TABLE }}"
+        f"{on_cluster}"
     )

@@ -8,6 +8,9 @@ depends_on = None
 DESTINATION_TABLE = "{{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_XAPI_TABLE }}"
 TMP_TABLE_NEW = f"{DESTINATION_TABLE}_tmp_{revision}"
 TMP_TABLE_ORIG = f"{DESTINATION_TABLE}_tmp_mergetree_{revision}"
+on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""
+old_engine = "ReplicatedMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "MergeTree"
+engine = "ReplicatedReplacingMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "ReplacingMergeTree"
 
 
 def upgrade():
@@ -15,6 +18,7 @@ def upgrade():
     op.execute(
         f"""
         CREATE OR REPLACE TABLE {TMP_TABLE_NEW}
+        {on_cluster}
         (
             event_id      UUID,
             verb_id       String,
@@ -25,15 +29,15 @@ def upgrade():
             emission_time DateTime,
             event_str     String
         )
-        ENGINE = ReplacingMergeTree 
+        ENGINE = {engine} 
         PRIMARY KEY (org, course_id, emission_time, verb_id, actor_id, event_id)
         ORDER BY (org, course_id, emission_time, verb_id, actor_id, event_id);
         """
     )
     # 2. Swap both tables in a single rename statement. New data will flow into
     #    the new table now and cascade through the MVs and downstream tables per normal.
-    op.execute(f"RENAME TABLE {DESTINATION_TABLE} TO {TMP_TABLE_ORIG};")
-    op.execute(f"RENAME TABLE {TMP_TABLE_NEW} TO {DESTINATION_TABLE};")
+    op.execute(f"RENAME TABLE {DESTINATION_TABLE} TO {TMP_TABLE_ORIG} {on_cluster}")
+    op.execute(f"RENAME TABLE {TMP_TABLE_NEW} TO {DESTINATION_TABLE} {on_cluster}")
 
     # 3. Copy in all existing rows from the parent raw table. This will cascade through
     #    the system and duplicate rows downstream, but the alternative is to potentially
@@ -78,7 +82,7 @@ def upgrade():
     # 6. Drop the renamed version of the original table.
     op.execute(
         f"""
-        DROP TABLE {TMP_TABLE_ORIG};
+        DROP TABLE {TMP_TABLE_ORIG} {on_cluster}
         """
     )
 
@@ -88,6 +92,7 @@ def downgrade():
     op.execute(
         f"""
         CREATE OR REPLACE TABLE {TMP_TABLE_ORIG}
+        {on_cluster}
         (
             event_id      UUID,
             verb_id       String,
@@ -98,7 +103,7 @@ def downgrade():
             emission_time DateTime64(6),
             event_str     String
         )
-        ENGINE = MergeTree 
+        ENGINE = {old_engine} 
         PRIMARY KEY (org, course_id, verb_id, actor_id, emission_time, event_id)
         ORDER BY (org, course_id, verb_id, actor_id, emission_time, event_id);
         """
@@ -106,8 +111,8 @@ def downgrade():
     # 2. Swap both tables. We can't do this in a single statement because CH Cloud
     #    uses replicated tables and will error. New data will flow into the new table
     #    now and cascade through the MVs and downstream tables per normal.
-    op.execute(f"RENAME TABLE {DESTINATION_TABLE} TO {TMP_TABLE_NEW};")
-    op.execute(f"RENAME TABLE {TMP_TABLE_ORIG} TO {DESTINATION_TABLE};")
+    op.execute(f"RENAME TABLE {DESTINATION_TABLE} TO {TMP_TABLE_NEW} {on_cluster}")
+    op.execute(f"RENAME TABLE {TMP_TABLE_ORIG} TO {DESTINATION_TABLE} {on_cluster}")
 
     # 3. Copy in all existing rows from the parent raw table. This will cascade through
     #    the system and duplicate rows downstream, but the alternative is to potentially
@@ -152,7 +157,7 @@ def downgrade():
     # 6. Drop the renamed version of the original table.
     op.execute(
         f"""
-        DROP TABLE {TMP_TABLE_NEW};
+        DROP TABLE {TMP_TABLE_NEW} {on_cluster}
         """
     )
 
@@ -160,31 +165,35 @@ def downgrade():
 def optimize():
     op.execute(
         f"""
-        OPTIMIZE TABLE {DESTINATION_TABLE} FINAL;
+        OPTIMIZE TABLE {DESTINATION_TABLE} {on_cluster} FINAL
         """
     )
     op.execute(
         f"""
         OPTIMIZE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_EVENTS_TABLE }}
-        FINAL;
+        {on_cluster}
+        FINAL
         """
     )
     op.execute(
         f"""
         OPTIMIZE TABLE 
         {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK_EVENTS_TABLE }}
-        FINAL;
+        {on_cluster}
+        FINAL
         """
     )
     op.execute(
         f"""
         OPTIMIZE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_PROBLEM_EVENTS_TABLE }}
-        FINAL;
+        {on_cluster}
+        FINAL
         """
     )
     op.execute(
         f"""
         OPTIMIZE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_EVENTS_TABLE }}
-        FINAL;
+        {on_cluster}
+        FINAL
         """
     )

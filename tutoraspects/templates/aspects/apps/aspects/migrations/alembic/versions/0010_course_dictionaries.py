@@ -5,27 +5,36 @@ revision = "0010"
 down_revision = "0009"
 branch_labels = None
 depends_on = None
+on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""
+engine = "ReplicatedReplacingMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "ReplacingMergeTree"
+
 
 def upgrade():
     # We include these drop statements here because "CREATE OR REPLACE DICTIONARY"
     # currently throws a file rename error and you can't drop a dictionary with a
     # table referring to it.
-    op.execute("""
-        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names;
+    op.execute(f"""
+        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names 
+        {on_cluster}
     """)
-    op.execute("""
-        DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict;
+    op.execute(f"""
+        DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict
+        {on_cluster}
     """)
-    op.execute("""
-        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names;
+    op.execute(f"""
+        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names
+        {on_cluster}
     """)
-    op.execute("""
+    op.execute(f"""
         DROP DICTIONARY IF EXISTS
-        {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict;
+        {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict
+        {on_cluster}
     """)
     op.execute(
-        """
-        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict (
+        f"""
+        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict 
+        {on_cluster}
+        (
             course_key String,
             course_name String
         )
@@ -54,8 +63,9 @@ def upgrade():
         """
     )
     op.execute(
-        """
+        f"""
         CREATE OR REPLACE TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names
+        {on_cluster}
         (
             course_key String,
             course_name String
@@ -63,8 +73,10 @@ def upgrade():
         """
     )
     op.execute(
-        """
-        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict (
+        f"""
+        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict 
+        {on_cluster}
+        (
             location String,
             block_name String
         )
@@ -94,8 +106,9 @@ def upgrade():
         """
     )
     op.execute(
-        """
+        f"""
         CREATE OR REPLACE TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names
+        {on_cluster}
         (
             location String,
             block_name String
@@ -107,17 +120,21 @@ def upgrade():
 
 def downgrade():
     op.execute(
-        "DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names;"
+        "DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names "
+        f"{on_cluster}"
     )
     op.execute(
-        "DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict;"
+        "DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict "
+        f"{on_cluster}"
     )
     op.execute(
-        "DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names;"
+        "DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names "
+        f"{on_cluster}"
     )
     op.execute(
-        """
+        f"""
         DROP DICTIONARY IF EXISTS 
-        {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict;
+        {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict
+        {on_cluster}
         """
     )

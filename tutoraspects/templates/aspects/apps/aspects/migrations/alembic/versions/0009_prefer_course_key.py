@@ -6,6 +6,8 @@ revision = "0009"
 down_revision = "0008"
 branch_labels = None
 depends_on = None
+on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""
+engine = "ReplicatedReplacingMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "ReplacingMergeTree"
 
 
 @dataclass
@@ -18,8 +20,10 @@ class MvMigration:
     new_mv_query: str
 
 
-OLD_ENROLLMENT_DDL = """
-CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_EVENTS_TABLE }} (
+OLD_ENROLLMENT_DDL = f"""
+CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_EVENTS_TABLE }} 
+    {on_cluster}
+    (
     `event_id` UUID NOT NULL,
     `emission_time` DateTime64(6) NOT NULL,
     `actor_id` String NOT NULL,
@@ -28,13 +32,15 @@ CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_EVENTS
     `org` String NOT NULL,
     `verb_id` LowCardinality(String) NOT NULL,
     `enrollment_mode` LowCardinality(String)
-) ENGINE = ReplacingMergeTree
+) ENGINE = {engine}
 PRIMARY KEY (org, course_id)
 ORDER BY (org, course_id, actor_id, enrollment_mode, emission_time);
 """
 
-NEW_ENROLLMENT_DDL = """
-CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_EVENTS_TABLE }} (
+NEW_ENROLLMENT_DDL = f"""
+CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_EVENTS_TABLE }}
+    {on_cluster} 
+    (
     `event_id` UUID NOT NULL,
     `emission_time` DateTime64(6) NOT NULL,
     `actor_id` String NOT NULL,
@@ -43,7 +49,7 @@ CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_ENROLLMENT_EVENTS
     `org` String NOT NULL,
     `verb_id` LowCardinality(String) NOT NULL,
     `enrollment_mode` LowCardinality(String)
-) ENGINE = ReplacingMergeTree
+) ENGINE = {engine}
 PRIMARY KEY (org, course_key)
 ORDER BY (org, course_key, actor_id, enrollment_mode, emission_time);
 """
@@ -82,8 +88,10 @@ WHERE verb_id IN (
 );
 """
 
-OLD_VIDEO_DDL = """
-CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK_EVENTS_TABLE }} (
+OLD_VIDEO_DDL = f"""
+CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK_EVENTS_TABLE }}
+{on_cluster}
+(
     `event_id` UUID NOT NULL,
     `emission_time` DateTime64(6) NOT NULL,
     `actor_id` String NOT NULL,
@@ -92,13 +100,15 @@ CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK_EV
     `org` String NOT NULL,
     `verb_id` LowCardinality(String) NOT NULL,
     `video_position` Float32 NOT NULL
-) ENGINE = ReplacingMergeTree
+) ENGINE = {engine}
 PRIMARY KEY (org, course_id, verb_id)
 ORDER BY (org, course_id, verb_id, actor_id);
 """
 
-NEW_VIDEO_DDL = """
-CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK_EVENTS_TABLE }} (
+NEW_VIDEO_DDL = f"""
+CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK_EVENTS_TABLE }} 
+{on_cluster}
+(
     `event_id` UUID NOT NULL,
     `emission_time` DateTime64(6) NOT NULL,
     `actor_id` String NOT NULL,
@@ -107,7 +117,7 @@ CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK_EV
     `org` String NOT NULL,
     `verb_id` LowCardinality(String) NOT NULL,
     `video_position` Float32 NOT NULL
-) ENGINE = ReplacingMergeTree
+) ENGINE = {engine}
 PRIMARY KEY (org, course_key, verb_id)
 ORDER BY (org, course_key, verb_id, actor_id);
 """
@@ -162,8 +172,10 @@ WHERE verb_id IN (
 );
 """
 
-OLD_PROBLEM_DDL = """
-CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_PROBLEM_EVENTS_TABLE }} (
+OLD_PROBLEM_DDL = f"""
+CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_PROBLEM_EVENTS_TABLE }} 
+{on_cluster}
+(
     `event_id` UUID NOT NULL,
     `emission_time` DateTime64(6) NOT NULL,
     `actor_id` String NOT NULL,
@@ -176,13 +188,15 @@ CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_PROBLEM_EVENTS_TA
     `success` Bool,
     `interaction_type` LowCardinality(String),
     `attempts` Int16
-) ENGINE = ReplacingMergeTree
+) ENGINE = {engine}
 PRIMARY KEY (org, course_id, verb_id)
 ORDER BY (org, course_id, verb_id, actor_id);
 """
 
-NEW_PROBLEM_DDL = """
-CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_PROBLEM_EVENTS_TABLE }} (
+NEW_PROBLEM_DDL = f"""
+CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_PROBLEM_EVENTS_TABLE }} 
+{on_cluster}
+(
     `event_id` UUID NOT NULL,
     `emission_time` DateTime64(6) NOT NULL,
     `actor_id` String NOT NULL,
@@ -195,7 +209,7 @@ CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_PROBLEM_EVENTS_TA
     `success` Bool,
     `interaction_type` LowCardinality(String),
     `attempts` Int16
-) ENGINE = ReplacingMergeTree
+) ENGINE = {engine}
 PRIMARY KEY (org, course_key, verb_id)
 ORDER BY (org, course_key, verb_id, actor_id);
 """
@@ -264,8 +278,10 @@ WHERE
     );
 """
 
-OLD_NAVIGATION_DDL = """
-CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_EVENTS_TABLE }} (
+OLD_NAVIGATION_DDL = f"""
+CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_EVENTS_TABLE }} 
+{on_cluster}
+(
     `event_id` UUID NOT NULL,
     `emission_time` DateTime64(6) NOT NULL,
     `actor_id` String NOT NULL,
@@ -276,13 +292,15 @@ CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_EVENTS
     `object_type` LowCardinality(String) NOT NULL,
     `starting_position` Int16,
     `ending_point` String
-) ENGINE = ReplacingMergeTree
+) ENGINE = {engine}
 PRIMARY KEY (org, course_id, object_type)
 ORDER BY (org, course_id, object_type, actor_id);
 """
 
-NEW_NAVIGATION_DDL = """
-CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_EVENTS_TABLE }} (
+NEW_NAVIGATION_DDL = f"""
+CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_EVENTS_TABLE }} 
+{on_cluster}
+(
     `event_id` UUID NOT NULL,
     `emission_time` DateTime64(6) NOT NULL,
     `actor_id` String NOT NULL,
@@ -293,7 +311,7 @@ CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_NAVIGATION_EVENTS
     `object_type` LowCardinality(String) NOT NULL,
     `starting_position` Int16,
     `ending_point` String
-) ENGINE = ReplacingMergeTree
+) ENGINE = {engine}
 PRIMARY KEY (org, course_key, object_type)
 ORDER BY (org, course_key, object_type, actor_id);
 """
@@ -406,12 +424,12 @@ def migrate(table_name, mv_name, table_ddl, mv_query):
     # - create the new table
     # - load data into the new table using the new MV query
     # - create the materialized view using the new query
-    op.execute(f"DROP TABLE IF EXISTS {table_name}")
-    op.execute(f"DROP VIEW IF EXISTS {mv_name}")
+    op.execute(f"DROP TABLE IF EXISTS {table_name} {on_cluster}")
+    op.execute(f"DROP VIEW IF EXISTS {mv_name} {on_cluster}")
     op.execute(table_ddl)
     op.execute(f"INSERT INTO {table_name} {mv_query}")
     mv_ddl = (
-        f"CREATE MATERIALIZED VIEW IF NOT EXISTS {mv_name} "
+        f"CREATE MATERIALIZED VIEW IF NOT EXISTS {mv_name} {on_cluster} "
         f"TO {table_name} AS {mv_query}"
     )
     op.execute(mv_ddl)

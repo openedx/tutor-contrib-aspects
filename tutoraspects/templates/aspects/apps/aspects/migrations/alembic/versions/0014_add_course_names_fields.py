@@ -8,6 +8,7 @@ revision = "0014"
 down_revision = "0013"
 branch_labels = None
 depends_on = None
+on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""
 
 
 def upgrade():
@@ -15,19 +16,23 @@ def upgrade():
     # currently throws a file rename error and you can't drop a dictionary with a
     # table referring to it.
     op.execute(
+        f"""
+        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names 
+        {on_cluster}
         """
-        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names;
-    """
     )
     op.execute(
+        f"""
+        DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict
+        {on_cluster} 
         """
-        DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict;
-    """
     )
 
     op.execute(
-        """
-        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict (
+        f"""
+        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict 
+        {on_cluster}
+        (
             course_key String,
             course_name String,
             course_run String,
@@ -60,8 +65,9 @@ def upgrade():
         """
     )
     op.execute(
-        """
+        f"""
         CREATE TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names
+        {on_cluster}
         (
             course_key String,
             course_name String,
@@ -74,19 +80,23 @@ def upgrade():
 
 def downgrade():
     op.execute(
+        f"""
+        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names
+        {on_cluster}
         """
-        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names;
-    """
     )
     op.execute(
+        f"""
+        DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict
+        {on_cluster}
         """
-        DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict;
-    """
     )
 
     op.execute(
-        """
-        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict (
+        f"""
+        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict 
+        {on_cluster}
+        (
             course_key String,
             course_name String
         )
@@ -115,8 +125,9 @@ def downgrade():
         """
     )
     op.execute(
-        """
+        f"""
         CREATE TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names
+        {on_cluster}
         (
             course_key String,
             course_name String

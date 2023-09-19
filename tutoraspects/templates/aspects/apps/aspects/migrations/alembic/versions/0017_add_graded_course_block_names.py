@@ -8,6 +8,7 @@ revision = "0017"
 down_revision = "0016"
 branch_labels = None
 depends_on = None
+on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""
 
 
 def drop_objects():
@@ -15,22 +16,26 @@ def drop_objects():
     # currently throws a file rename error and you can't drop a dictionary with a
     # table referring to it.
     op.execute(
+        f"""
+        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names
+        {on_cluster}
         """
-        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names;
-    """
     )
     op.execute(
+        f"""
+        DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict
+        {on_cluster}
         """
-        DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict;
-    """
     )
 
 
 def upgrade():
     drop_objects()
     op.execute(
-        """
-        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict (
+        f"""
+        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict 
+        {on_cluster}
+        (
             location String,
             block_name String,
             course_key String,
@@ -64,8 +69,9 @@ def upgrade():
         """
     )
     op.execute(
-        """
+        f"""
         CREATE OR REPLACE TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names
+        {on_cluster}
         (
             location String,
             block_name String,
@@ -80,8 +86,10 @@ def upgrade():
 def downgrade():
     drop_objects()
     op.execute(
-        """
-        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict (
+        f"""
+        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict 
+        {on_cluster}
+        (
             location String,
             block_name String,
             course_key String
@@ -113,8 +121,9 @@ def downgrade():
         """
     )
     op.execute(
-        """
+        f"""
         CREATE OR REPLACE TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names
+        {on_cluster}
         (
             location String,
             block_name String,

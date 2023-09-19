@@ -8,12 +8,16 @@ revision = "0018"
 down_revision = "0017"
 branch_labels = None
 depends_on = None
+on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""
+engine = "ReplicatedReplacingMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "ReplacingMergeTree"
 
 
 def upgrade():
     op.execute(
-        """
-        CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_GRADING_EVENTS_TABLE }} (
+        f"""
+        CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_GRADING_EVENTS_TABLE }} 
+        {on_cluster}
+        (
             `event_id` UUID NOT NULL,
             `emission_time` DateTime64 NOT NULL,
             `actor_id` String NOT NULL,
@@ -22,15 +26,16 @@ def upgrade():
             `org` String NOT NULL,
             `verb_id` LowCardinality(String) NOT NULL,
             `scaled_score` String
-        ) ENGINE = ReplacingMergeTree
+        ) ENGINE = {engine}
         PRIMARY KEY (org, course_key, verb_id)
         ORDER BY (org, course_key, verb_id, emission_time, actor_id, object_id, scaled_score, event_id);
         """
     )
 
     op.execute(
-        """
+        f"""
         CREATE MATERIALIZED VIEW IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_GRADING_TRANSFORM_MV }}
+        {on_cluster}
         TO {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_GRADING_EVENTS_TABLE }} AS
         SELECT
             event_id,
@@ -55,7 +60,9 @@ def upgrade():
 def downgrade():
     op.execute(
         "DROP TABLE IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_GRADING_EVENTS_TABLE }}"
+        f"{on_cluster}"
     )
     op.execute(
         "DROP VIEW IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_GRADING_TRANSFORM_MV }}"
+        f"{on_cluster}"
     )
