@@ -32,7 +32,7 @@ jobs:
       - name: Tutor config save
         run: tutor config save
       - name: Setup Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
       - name: Tutor build openedx
         run: tutor images build openedx aspects aspects-superset
       - name: Tutor start
@@ -60,7 +60,7 @@ jobs:
       - name: Tutor config save
         run: tutor config save
       - name: Setup Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
       - name: Tutor build openedx
         run: tutor images build openedx-dev aspects aspects-superset
       - name: Tutor start
@@ -96,7 +96,7 @@ jobs:
           command: |
             kustomize build $TUTOR_ROOT/env | kubeconform -strict -ignore-missing-schemas -kubernetes-version 1.22.0
       - name: Setup Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@4d9e71b726748f254fe64fa44d273194bd18ec91
         with:
