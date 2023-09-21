@@ -41,6 +41,10 @@ jobs:
         run: tutor local do init
       - name: Load test
         run: tutor local do load-xapi-test-data --num_batches=5 --batch_size=5
+      - name: Import demo course
+        run: tutor local do importdemocourse
+      - name: Test commands
+        run: tutor local do dump-courses-to-clickhouse --options "--force"
       - name: Tutor stop
         run: tutor local stop
 
@@ -69,6 +73,10 @@ jobs:
         run: tutor dev do init
       - name: Load test
         run: tutor dev do load-xapi-test-data --num_batches=5 --batch_size=5
+      - name: Import demo course
+        run: tutor dev do importdemocourse
+      - name: Test commands
+        run: tutor dev do dump-courses-to-clickhouse --options "--force"
       - name: Tutor stop
         run: tutor dev stop
 
@@ -112,13 +120,13 @@ jobs:
           large-packages: false
           swap-storage: true
       - name: Tutor build openedx
-        run: tutor images build openedx-dev aspects aspects-superset
+        run: tutor images build openedx aspects aspects-superset
       - name: Create k8s Kind Cluster
         uses: helm/kind-action@v1.8.0
       - name: Mount docker image
         run: |
           kind get clusters
-          kind load docker-image $(tutor images printtag openedx-dev) --name chart-testing
+          kind load docker-image $(tutor images printtag openedx) --name chart-testing
           kind load docker-image $(tutor images printtag aspects) --name chart-testing
           kind load docker-image $(tutor images printtag aspects-superset) --name chart-testing
       - name: Setup namespace
@@ -131,6 +139,10 @@ jobs:
           tutor k8s do init
       - name: Load test
         run: tutor k8s do load-xapi-test-data --num_batches=5 --batch_size=5
+      - name: Import demo course
+        run: tutor k8s do importdemocourse
+      - name: Test commands
+        run: tutor k8s do dump-courses-to-clickhouse --options "--force"
       - name: Check failure logs
         if: failure()
         run: |
