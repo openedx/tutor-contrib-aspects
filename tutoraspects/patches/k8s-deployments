@@ -505,15 +505,6 @@ spec:
               name: config
               subPath: k8s.toml
               readOnly: true
-            - mountPath: /var/lib
-              name: var-lib
-              readOnly: true
-            - mountPath: /host/proc
-              name: procfs
-              readOnly: true
-            - mountPath: /host/sys
-              name: sysfs
-              readOnly: true
           securityContext:
             allowPrivilegeEscalation: false
       terminationGracePeriodSeconds: 60
@@ -525,16 +516,7 @@ spec:
         - name: data
           hostPath:
             path: /var/lib/vector
-        - hostPath:
+        - name: var-log
+          hostPath:
             path: /var/log/
-          name: var-log
-        - hostPath:
-            path: /var/lib/
-          name: var-lib
-        - hostPath:
-            path: /proc
-          name: procfs
-        - hostPath:
-            path: /sys
-          name: sysfs
 {% endif %}
