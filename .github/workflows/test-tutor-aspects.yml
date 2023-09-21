@@ -39,6 +39,12 @@ jobs:
         run: tutor local start -d
       - name: Tutor init
         run: tutor local do init
+      - name: Test alembic
+        run: |
+          tutor local do alembic -c "downgrade base"
+          tutor local do alembic -c "upgrade head"
+      - name: Test DBT
+        run: tutor local do dbt -c "test"
       - name: Load test
         run: tutor local do load-xapi-test-data --num_batches=5 --batch_size=5
       - name: Import demo course
@@ -71,6 +77,12 @@ jobs:
         run: tutor dev start -d
       - name: Tutor init
         run: tutor dev do init
+      - name: Test alembic
+        run: |
+          tutor dev do alembic -c "downgrade base"
+          tutor dev do alembic -c "upgrade head"
+      - name: Test DBT
+        run: tutor dev do dbt -c "test"
       - name: Load test
         run: tutor dev do load-xapi-test-data --num_batches=5 --batch_size=5
       - name: Import demo course
@@ -137,6 +149,12 @@ jobs:
         run: |
           tutor k8s start
           tutor k8s do init
+      - name: Test alembic
+        run: |
+          tutor k8s do alembic -c "downgrade base"
+          tutor k8s do alembic -c "upgrade head"
+      - name: Test DBT
+        run: tutor k8s do dbt -c "test"
       - name: Load test
         run: tutor k8s do load-xapi-test-data --num_batches=5 --batch_size=5
       - name: Import demo course
