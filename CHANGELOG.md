@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.44.1 - 2023-09-21
+
+### [0.44.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.44.0...v0.44.1) (2023-09-21)
+
+### Bug Fixes
+
+- upgrade openedx-event-sink-clickhouse to 0.2.2 ([9fbd1f5](https://github.com/openedx/tutor-contrib-aspects/commit/9fbd1f5fb719e2be354e869f41da8bdffc7612d1))
+
+### Tests
+
+- add test for dump-courses command ([6ff7280](https://github.com/openedx/tutor-contrib-aspects/commit/6ff72806c21c013b7646baf60b5cb526ea337df3))
+- load the openedx image instead of openedx-dev ([29709ba](https://github.com/openedx/tutor-contrib-aspects/commit/29709ba737711e4bfea2739868604c9635534922))
+
 ## v0.44.0 - 2023-09-19
 
 ### [0.44.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.43.0...v0.44.0) (2023-09-19)
