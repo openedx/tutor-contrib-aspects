@@ -408,7 +408,7 @@ spec:
 ---
 # log collection
 # https://vector.dev/docs/setup/installation/platforms/kubernetes/
-# https://github.com/timberio/vector/blob/master/distribution/kubernetes/vector-agent/resources.yaml
+# https://github.com/timberio/vector/blob/master/distribution/kubernetes/vector-agent/
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -464,13 +464,16 @@ metadata:
 spec:
   selector:
     matchLabels:
-      name: vector
+      app.kubernetes.io/name: vector
+  minReadySeconds: 0
   template:
     metadata:
       labels:
-        name: vector
+        app.kubernetes.io/name: vector
+        vector.dev/exclude: "true"
     spec:
       serviceAccountName: vector
+      dnsPolicy: ClusterFirst
       containers:
         - name: vector
           image: {{ DOCKER_IMAGE_VECTOR }}
@@ -492,27 +495,28 @@ spec:
             - name: SYSFS_ROOT
               value: /host/sys
             - name: VECTOR_LOG
-              value: warn
+              value: info
           volumeMounts:
             - name: data
               mountPath: /vector-data-dir
             - name: var-log
               mountPath: /var/log/
-              readOnly: true
             - mountPath: /etc/vector/vector.toml
               name: config
               subPath: k8s.toml
               readOnly: true
           securityContext:
             allowPrivilegeEscalation: false
+      terminationGracePeriodSeconds: 60
       priorityClassName: vector-priority
       volumes:
-        - name: data
-          emptyDir: {}
-        - name: var-log
-          hostPath:
-            path: /var/log/
         - name: config
           configMap:
             name: vector-config
+        - name: data
+          hostPath:
+            path: /var/lib/vector
+        - name: var-log
+          hostPath:
+            path: /var/log/
 {% endif %}
