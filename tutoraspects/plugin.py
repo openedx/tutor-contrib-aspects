@@ -50,6 +50,11 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             ],
         ),
         ("EVENT_SINK_CLICKHOUSE_MODELS", ["course_overviews", "user_profile"]),
+        ("EVENT_SINK_CLICKHOUSE_PII_MODELS", ["user_profile", "external_id"]),
+        # Turning on this flag will store personally identifiable information
+        # in the ClickHouse database. Make sure that you understand the legal
+        # consequences of data storage and privacy before turning this on!
+        ("ASPECTS_ENABLE_PII", False),
         # ClickHouse xAPI settings
         ("ASPECTS_XAPI_DATABASE", "xapi"),
         ("ASPECTS_RAW_XAPI_TABLE", "xapi_events_all"),
