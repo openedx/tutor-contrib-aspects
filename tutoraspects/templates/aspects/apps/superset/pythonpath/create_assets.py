@@ -1,7 +1,6 @@
 """Import a list of assets from a yaml file and create them in the superset assets folder."""
 import os
 import uuid
-from zipfile import ZipFile
 
 import yaml
 from superset.app import create_app
@@ -10,10 +9,10 @@ app = create_app()
 app.app_context().push()
 
 from copy import deepcopy
+from pathlib import Path
 
 from superset import security_manager
-from superset.commands.importers.v1.assets import ImportAssetsCommand
-from superset.commands.importers.v1.utils import get_contents_from_bundle
+from superset.examples.utils import load_configs_from_directory
 from superset.extensions import db
 from superset.models.dashboard import Dashboard
 from superset.utils.database import get_or_create_db
@@ -36,7 +35,6 @@ FILE_NAME_ATTRIBUTE = "_file_name"
 
 TRANSLATIONS_FILE_PATH = "/app/pythonpath/locale.yaml"
 ASSETS_FILE_PATH = "/app/pythonpath/assets.yaml"
-ASSETS_ZIP_PATH = "/app/assets/assets.zip"
 
 merged_data = {}
 with open(TRANSLATIONS_FILE_PATH, "r") as file:
@@ -83,7 +81,7 @@ def create_assets():
                 write_asset_to_file(asset, asset_name, folder, file_name, roles)
                 break
 
-    create_zip_and_import_assets()
+    import_assets()
     update_dashboard_roles(roles)
 
 
@@ -210,20 +208,13 @@ def create_superset_db(database_name, uri) -> None:
     db.session.commit()
 
 
-def create_zip_and_import_assets():
-    """Create a zip file with all the assets and import them in superset"""
-    with ZipFile(ASSETS_ZIP_PATH, "w") as zip:
-        for folder in ASSET_FOLDER_MAPPING.values():
-            for file_name in os.listdir(f"{BASE_DIR}/{folder}"):
-                zip.write(
-                    f"{BASE_DIR}/{folder}/{file_name}", f"import/{folder}/{file_name}"
-                )
-        zip.write(f"{BASE_DIR}/metadata.yaml", "import/metadata.yaml")
-        contents = get_contents_from_bundle(zip)
-        command = ImportAssetsCommand(contents)
-        command.run()
-
-    os.remove(ASSETS_ZIP_PATH)
+def import_assets():
+    """Import the assets folder in superset"""
+    load_configs_from_directory(
+        root=Path(BASE_DIR),
+        overwrite=True,
+        force_data=False,
+    )
 
 
 def update_dashboard_roles(roles):

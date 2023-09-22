@@ -45,6 +45,8 @@ OAUTH_PROVIDERS = [
     }
 ]
 
+TALISMAN_ENABLED = False
+
 # Will allow user self registration, allowing to create Flask users from Authorized User
 AUTH_USER_REGISTRATION = True
 
