@@ -1,4 +1,6 @@
 _file_name: Operator_Dashboard.yaml
+_roles:
+- {{ SUPERSET_ROLES_MAPPING.operator }}
 css: ''
 dashboard_title: Operator Dashboard
 description: null
@@ -431,10 +433,31 @@ position:
     children: []
     id: MARKDOWN-EZXXAbo-Tg
     meta:
-      code: '# Instance information
+      code: "# Instance information Aspects: {{ ASPECTS_VERSION }}
 
-
-        Aspects Version'
+        {% if RUN_VECTOR %}
+        - **Vector Version**: {{ DOCKER_IMAGE_VECTOR }} \n 
+        {% endif %}
+        {% if RUN_CLICKHOUSE %}
+        - **Clickhouse Version**: {{ DOCKER_IMAGE_CLICKHOUSE }} \n
+        {% endif %}
+        {% if RUN_RALPH %}
+        - **Ralph Version**: {{ DOCKER_IMAGE_RALPH }} \n
+        {% endif %}
+        {% if RUN_SUPERSET %}
+        - **Superset Version**: {{ DOCKER_IMAGE_SUPERSET }} \n
+        {% endif %}
+        \n
+        
+        ## Dependencies: 
+        {% for requirement in OPENEDX_EXTRA_PIP_REQUIREMENTS %}
+         {% if 'openedx-event-sink-clickhouse' in requirement %}
+        - **Clickhouse Event Sink Version**: {{ requirement.split('==')[1] }} \n 
+         {% elif 'event-routing-backends' in requirement %}
+        - **Event Routing Backends Version**: {{ requirement.split('==')[1] }} \n
+         {% endif %}
+        {% endfor %}
+        "
       height: 50
       width: 4
     parents:
