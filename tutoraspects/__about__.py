@@ -2,4 +2,4 @@
 Expose some package metadata.
 """
 
-__version__ = "0.44.2"
+__version__ = "0.44.3"

@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.44.3 - 2023-09-22
+
+### [0.44.3](https://github.com/openedx/tutor-contrib-aspects/compare/v0.44.2...v0.44.3) (2023-09-22)
+
+### Bug Fixes
+
+- update ralph clickhouse database name ([e8a39cf](https://github.com/openedx/tutor-contrib-aspects/commit/e8a39cf0c02d35359035afb099fd15a7b239a569))
+
+### Tests
+
+- add test for custom commands in CI ([836a203](https://github.com/openedx/tutor-contrib-aspects/commit/836a2037e8b06e632ca64834a1e100a2efab0fd5))
+
 ## v0.44.2 - 2023-09-21
 
 ### [0.44.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.44.1...v0.44.2) (2023-09-21)
