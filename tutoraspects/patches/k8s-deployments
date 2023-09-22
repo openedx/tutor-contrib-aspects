@@ -92,7 +92,7 @@ spec:
               value: "clickhouse"
             - name: RALPH_BACKENDS__DATABASE__CLICKHOUSE__USERNAME
               value: "{{CLICKHOUSE_ADMIN_USER}}"
-            - name: RALPH_BACKENDS__DATABASE__CLICKHOUSE__XAPI_DATABASE
+            - name: RALPH_BACKENDS__DATABASE__CLICKHOUSE__DATABASE
               value: "{{ASPECTS_XAPI_DATABASE}}"
             - name: RALPH_RUNSERVER_BACKEND
               value: "clickhouse"
