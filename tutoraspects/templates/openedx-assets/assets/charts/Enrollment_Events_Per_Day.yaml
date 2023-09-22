@@ -49,6 +49,7 @@ params:
   y_axis_title: Number Of Events
   y_axis_title_margin: 15
   y_axis_title_position: Left
+query_context: null
 slice_name: Enrollment Events Per Day
 uuid: bb1147cc-b7bc-44b7-b06a-79b0db6626aa
 version: 1.0.0

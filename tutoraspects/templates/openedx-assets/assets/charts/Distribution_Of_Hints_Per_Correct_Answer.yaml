@@ -34,6 +34,7 @@ params:
   - null
   y_axis_format: SMART_NUMBER
   y_axis_label: Students
+query_context: null
 slice_name: Distribution Of Hints Per Correct Answer
 uuid: ee94be4c-6fdd-4295-b43c-40890d6c549d
 version: 1.0.0

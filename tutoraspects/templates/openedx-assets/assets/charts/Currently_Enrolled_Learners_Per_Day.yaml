@@ -38,6 +38,7 @@ params:
   time_range: No filter
   viz_type: big_number
   y_axis_format: SMART_NUMBER
+query_context: null
 slice_name: Currently Enrolled Learners Per Day
 uuid: ed2fe731-6544-422f-bc55-42f399f48b2c
 version: 1.0.0

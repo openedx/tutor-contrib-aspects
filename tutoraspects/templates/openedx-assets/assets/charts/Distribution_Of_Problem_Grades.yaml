@@ -35,6 +35,7 @@ params:
   - null
   y_axis_format: SMART_NUMBER
   y_axis_label: Students
+query_context: null
 slice_name: Distribution Of Problem Grades
 uuid: 4f7e3606-f5de-4643-97c0-bbb6340a3df2
 version: 1.0.0

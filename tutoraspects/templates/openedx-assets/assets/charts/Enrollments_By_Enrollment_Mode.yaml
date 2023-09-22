@@ -43,6 +43,7 @@ params:
   sort_by_metric: true
   time_range: 'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"), 1, day)'
   viz_type: pie
+query_context: null
 slice_name: Enrollments By Enrollment Mode
 uuid: 05ed7102-5464-4e2f-86ae-31700b787cc3
 version: 1.0.0

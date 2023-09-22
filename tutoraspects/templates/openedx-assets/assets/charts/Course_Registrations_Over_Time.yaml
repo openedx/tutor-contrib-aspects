@@ -1,6 +1,9 @@
 _file_name: Course_Registrations_Over_Time.yaml
 cache_timeout: null
+certification_details: null
+certified_by: null
 dataset_uuid: 352311fe-12f0-470c-8b8c-d4f6a3936b3d
+description: null
 params:
   adhoc_filters:
   - clause: WHERE
@@ -71,6 +74,7 @@ params:
   y_axis_title: Registrations
   y_axis_title_margin: 15
   y_axis_title_position: Left
+query_context: null
 slice_name: Course Registrations Over Time
 uuid: bf4f4671-c276-4185-9b9a-b10864efea6c
 version: 1.0.0

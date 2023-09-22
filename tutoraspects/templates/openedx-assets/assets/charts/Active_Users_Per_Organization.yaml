@@ -1,6 +1,9 @@
 _file_name: Active_Users_Per_Organization.yaml
 cache_timeout: null
+certification_details: null
+certified_by: null
 dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+description: null
 params:
   adhoc_filters: []
   color_scheme: supersetColors
@@ -49,6 +52,7 @@ params:
   sort_by_metric: true
   time_range: No filter
   viz_type: pie
+query_context: null
 slice_name: Active Users Per Organization
 uuid: 09a8a31c-c65f-452a-951f-dce6f0f03292
 version: 1.0.0

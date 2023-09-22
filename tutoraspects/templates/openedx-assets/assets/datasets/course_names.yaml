@@ -57,7 +57,8 @@ fetch_values_predicate: null
 filter_select_enabled: false
 main_dttm_col: null
 metrics:
-- d3format: null
+- currency: null
+  d3format: null
   description: null
   expression: COUNT(*)
   extra: null
@@ -65,6 +66,7 @@ metrics:
   metric_type: count
   verbose_name: COUNT(*)
   warning_text: null
+normalize_columns: true
 offset: 0
 params: null
 schema: {{ ASPECTS_EVENT_SINK_DATABASE }}

@@ -117,7 +117,8 @@ fetch_values_predicate: null
 filter_select_enabled: false
 main_dttm_col: null
 metrics:
-- d3format: null
+- currency: null
+  d3format: null
   description: null
   expression: count(*)
   extra: null
@@ -125,9 +126,10 @@ metrics:
   metric_type: null
   verbose_name: null
   warning_text: null
+normalize_columns: true
 offset: 0
 params: null
-schema: null
+schema: main
 sql: "{% include 'openedx-assets/queries/fact_problem_responses.sql' %}"
 table_name: fact_problem_responses
 template_params: null

@@ -1,6 +1,9 @@
 _file_name: Courses_Per_Organization.yaml
 cache_timeout: null
+certification_details: null
+certified_by: null
 dataset_uuid: 46183302-6fa6-41a3-b6a7-79ff6c1c8402
+description: null
 params:
   adhoc_filters: []
   color_scheme: supersetColors
@@ -49,6 +52,7 @@ params:
   sort_by_metric: true
   time_range: No filter
   viz_type: pie
+query_context: null
 slice_name: Courses Per Organization
 uuid: 7901d6ae-dea8-4d2c-9232-35c22571cfb7
 version: 1.0.0

@@ -1,6 +1,9 @@
 _file_name: xAPI_Events_Over_Time.yaml
 cache_timeout: null
+certification_details: null
+certified_by: null
 dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+description: null
 params:
   adhoc_filters: []
   color_picker:
@@ -24,6 +27,7 @@ params:
   time_range: No filter
   viz_type: big_number
   y_axis_format: SMART_NUMBER
+query_context: null
 slice_name: xAPI Events Over Time
 uuid: e6a30923-6382-413e-a1c7-2ac223fa5c5c
 version: 1.0.0

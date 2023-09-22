@@ -26,7 +26,7 @@ columns:
   type: String
   verbose_name: null
 - advanced_data_type: null
-  column_name: course_run
+  column_name: course_key
   description: null
   expression: null
   extra: null
@@ -38,7 +38,7 @@ columns:
   type: String
   verbose_name: null
 - advanced_data_type: null
-  column_name: course_key
+  column_name: course_run
   description: null
   expression: null
   extra: null
@@ -81,7 +81,8 @@ fetch_values_predicate: null
 filter_select_enabled: false
 main_dttm_col: null
 metrics:
-- d3format: null
+- currency: null
+  d3format: null
   description: null
   expression: count(*)
   extra: null
@@ -89,9 +90,10 @@ metrics:
   metric_type: null
   verbose_name: null
   warning_text: null
+normalize_columns: true
 offset: 0
 params: null
-schema: null
+schema: main
 sql: "{% include 'openedx-assets/queries/dim_course_videos.sql' %}"
 table_name: dim_course_videos
 template_params: {}

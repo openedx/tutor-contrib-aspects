@@ -1,6 +1,9 @@
 _file_name: Total_Organizations.yaml
 cache_timeout: null
+certification_details: null
+certified_by: null
 dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+description: null
 params:
   adhoc_filters: []
   datasource: 6__table
@@ -39,6 +42,7 @@ params:
   time_range: No filter
   viz_type: big_number_total
   y_axis_format: SMART_NUMBER
+query_context: null
 slice_name: Total Organizations
 uuid: e66b1cdb-6974-4fa2-a769-4908665118f6
 version: 1.0.0
