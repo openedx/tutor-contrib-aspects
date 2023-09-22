@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.44.4 - 2023-09-22
+
+### [0.44.4](https://github.com/openedx/tutor-contrib-aspects/compare/v0.44.3...v0.44.4) (2023-09-22)
+
+### Bug Fixes
+
+- remove unused PVC for vector ([06572a9](https://github.com/openedx/tutor-contrib-aspects/commit/06572a9c8b86cc64884d7038329e5b54f9a6e3fa))
+- use local volume instead of emtpy dir for vector data ([9fd3ad3](https://github.com/openedx/tutor-contrib-aspects/commit/9fd3ad35796262b181a5971f9b9fec3be4976384))
+
 ## v0.44.3 - 2023-09-22
 
 ### [0.44.3](https://github.com/openedx/tutor-contrib-aspects/compare/v0.44.2...v0.44.3) (2023-09-22)
