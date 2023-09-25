@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.47.0 - 2023-09-25
+
+### [0.47.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.46.2...v0.47.0) (2023-09-25)
+
+#### Features
+
+- add views for completion events ([e0b1daa](https://github.com/openedx/tutor-contrib-aspects/commit/e0b1daafc7d8d7763982b1e40c3cd441106f6c61))
+
 ## v0.46.2 - 2023-09-25
 
 ### [0.46.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.46.1...v0.46.2) (2023-09-25)
