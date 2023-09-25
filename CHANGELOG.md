@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.46.0 - 2023-09-25
+
+### [0.46.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.45.0...v0.46.0) (2023-09-25)
+
+#### Features
+
+- upgrade event-routing-backends to 6.2.0 ([bc8d8a7](https://github.com/openedx/tutor-contrib-aspects/commit/bc8d8a7d6b6af954bed4d11e88d97fad7a258fb3))
+
 ## v0.45.0 - 2023-09-22
 
 ### [0.45.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.44.4...v0.45.0) (2023-09-22)
