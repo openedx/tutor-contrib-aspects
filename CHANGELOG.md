@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.46.1 - 2023-09-25
+
+### [0.46.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.46.0...v0.46.1) (2023-09-25)
+
+### Bug Fixes
+
+- do not override openedx docker image ([57fa9a2](https://github.com/openedx/tutor-contrib-aspects/commit/57fa9a26d6e6a1c29d678d4a41acc1948edf53ac))
+
+### Tests
+
+- update docker image in CI ([1bd8f5d](https://github.com/openedx/tutor-contrib-aspects/commit/1bd8f5df92232faff6d508e7499f4b9984e522de))
+
 ## v0.46.0 - 2023-09-25
 
 ### [0.46.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.45.0...v0.46.0) (2023-09-25)
