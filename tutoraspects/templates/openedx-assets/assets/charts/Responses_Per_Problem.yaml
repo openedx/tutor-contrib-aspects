@@ -60,6 +60,7 @@ params:
   - null
   y_axis_format: SMART_NUMBER
   y_axis_label: Number Of Students
+query_context: null
 slice_name: Responses Per Problem
 uuid: a3e79162-4ace-4349-ab34-89aa60ae75ed
 version: 1.0.0

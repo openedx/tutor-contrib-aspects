@@ -7,6 +7,8 @@ description: null
 metadata:
   chart_configuration: {}
   color_scheme: ''
+  color_scheme_domain: []
+  cross_filters_enabled: false
   default_filters: '{}'
   expanded_slices: {}
   label_colors: {}
@@ -96,10 +98,10 @@ metadata:
     name: Course Key
     scope:
       excluded:
-      - 418
-      - 451
-      - 452
-      - 453
+      - 116
+      - 124
+      - 180
+      - 13
       rootPath:
       - ROOT_ID
     tabsInScope:
@@ -111,15 +113,18 @@ metadata:
       datasetUuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
     type: NATIVE_FILTER
   refresh_frequency: 0
-  shared_label_colors: {}
-  show_native_filters: true
+  shared_label_colors:
+    attempted: '#5AC189'
+    earned: '#1FA8C9'
+    evaluated: '#454E7C'
+    registered: '#FF7F44'
   timed_refresh_immune_slices: []
 position:
   CHART-8rDUkRBgv9:
     children: []
     id: CHART-8rDUkRBgv9
     meta:
-      chartId: 452
+      chartId: 180
       height: 50
       sliceName: Enrollments By Type
       uuid: 6c473b09-6a1a-4531-b71d-ab82e09721ef
@@ -135,7 +140,7 @@ position:
     children: []
     id: CHART-H4NTUWfMqH
     meta:
-      chartId: 451
+      chartId: 124
       height: 50
       sliceName: Course Registrations Over Time
       uuid: bf4f4671-c276-4185-9b9a-b10864efea6c
@@ -151,7 +156,7 @@ position:
     children: []
     id: CHART-QN5x3ibIzS
     meta:
-      chartId: 455
+      chartId: 313
       height: 50
       sliceName: Active Users Per Organization
       uuid: 09a8a31c-c65f-452a-951f-dce6f0f03292
@@ -167,7 +172,7 @@ position:
     children: []
     id: CHART-explore-15-1
     meta:
-      chartId: 430
+      chartId: 284
       height: 50
       sliceName: xAPI Events Over Time
       uuid: e6a30923-6382-413e-a1c7-2ac223fa5c5c
@@ -183,7 +188,7 @@ position:
     children: []
     id: CHART-explore-17-1
     meta:
-      chartId: 450
+      chartId: 12
       height: 16
       sliceName: Last Received Event
       uuid: ffdaabc5-8d01-47d7-8f29-66efa643befb
@@ -200,7 +205,7 @@ position:
     children: []
     id: CHART-explore-19-1
     meta:
-      chartId: 418
+      chartId: 116
       height: 16
       sliceName: Last course syncronized
       uuid: ca93f427-d021-476e-9a36-6ea0d99d30ea
@@ -217,7 +222,7 @@ position:
     children: []
     id: CHART-explore-20-1
     meta:
-      chartId: 445
+      chartId: 176
       height: 14
       sliceName: Total Organizations
       uuid: e66b1cdb-6974-4fa2-a769-4908665118f6
@@ -234,7 +239,7 @@ position:
     children: []
     id: CHART-explore-21-1
     meta:
-      chartId: 411
+      chartId: 316
       height: 16
       sliceName: Unique actors
       uuid: 071bf3d5-8b9d-4e26-83fb-7836db5a7ab6
@@ -251,7 +256,7 @@ position:
     children: []
     id: CHART-explore-22-1
     meta:
-      chartId: 413
+      chartId: 264
       height: 15
       sliceName: Courses
       uuid: 63f86926-3325-43cf-b075-ef37f5f60413
@@ -268,7 +273,7 @@ position:
     children: []
     id: CHART-explore-25-1
     meta:
-      chartId: 437
+      chartId: 162
       height: 50
       sliceName: Event type
       uuid: b4a9a10d-0e82-43e7-a619-3ef3f6bf57a5
@@ -284,7 +289,7 @@ position:
     children: []
     id: CHART-explore-26-1
     meta:
-      chartId: 438
+      chartId: 41
       height: 50
       sliceName: Events per course
       uuid: a445d9e5-ac98-411e-9a47-eda10081bd5b
@@ -300,7 +305,7 @@ position:
     children: []
     id: CHART-explore-27-1
     meta:
-      chartId: 427
+      chartId: 262
       height: 50
       sliceName: Actor IDs over time
       sliceNameOverride: Active Users Over Time
@@ -317,7 +322,7 @@ position:
     children: []
     id: CHART-o87Pu6wg5_
     meta:
-      chartId: 454
+      chartId: 22
       height: 50
       sliceName: Most Active Courses Per Day
       uuid: a19a7c6a-e2c9-4033-86b3-b2e5878b5b69
@@ -333,7 +338,7 @@ position:
     children: []
     id: CHART-wz1Y-JkV9-
     meta:
-      chartId: 453
+      chartId: 13
       height: 50
       sliceName: Courses Per Organization
       uuid: 7901d6ae-dea8-4d2c-9232-35c22571cfb7
@@ -424,6 +429,44 @@ position:
     meta:
       text: Operator Dashboard
     type: HEADER
+  MARKDOWN-EZXXAbo-Tg:
+    children: []
+    id: MARKDOWN-EZXXAbo-Tg
+    meta:
+      code: "# Instance information Aspects: {{ ASPECTS_VERSION }}
+
+        {% if RUN_VECTOR %}
+        - **Vector Version**: {{ DOCKER_IMAGE_VECTOR }} \n 
+        {% endif %}
+        {% if RUN_CLICKHOUSE %}
+        - **Clickhouse Version**: {{ DOCKER_IMAGE_CLICKHOUSE }} \n
+        {% endif %}
+        {% if RUN_RALPH %}
+        - **Ralph Version**: {{ DOCKER_IMAGE_RALPH }} \n
+        {% endif %}
+        {% if RUN_SUPERSET %}
+        - **Superset Version**: {{ DOCKER_IMAGE_SUPERSET }} \n
+        {% endif %}
+        \n
+        
+        ## Dependencies: 
+        {% for requirement in OPENEDX_EXTRA_PIP_REQUIREMENTS %}
+         {% if 'openedx-event-sink-clickhouse' in requirement %}
+        - **Clickhouse Event Sink Version**: {{ requirement.split('==')[1] }} \n 
+         {% elif 'event-routing-backends' in requirement %}
+        - **Event Routing Backends Version**: {{ requirement.split('==')[1] }} \n
+         {% endif %}
+        {% endfor %}
+        "
+      height: 50
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7nA6MwltSD
+    - TAB-DE73B5pXm
+    - ROW-fgCiGD7i8F
+    type: MARKDOWN
   ROOT_ID:
     children:
     - GRID_ID
@@ -481,6 +524,18 @@ position:
     - TABS-7nA6MwltSD
     - TAB-6Mdnw3FZh
     type: ROW
+  ROW-fgCiGD7i8F:
+    children:
+    - MARKDOWN-EZXXAbo-Tg
+    id: ROW-fgCiGD7i8F
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7nA6MwltSD
+    - TAB-DE73B5pXm
+    type: ROW
   ROW-mPSz65tZ7E:
     children:
     - CHART-explore-25-1
@@ -525,6 +580,7 @@ position:
     children:
     - ROW-7gxdpYV-y
     - ROW-mPSz65tZ7E
+    - ROW-fgCiGD7i8F
     id: TAB-DE73B5pXm
     meta:
       defaultText: Tab title

@@ -1,6 +1,9 @@
 _file_name: Courses.yaml
 cache_timeout: null
+certification_details: null
+certified_by: null
 dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+description: null
 params:
   adhoc_filters: []
   datasource: 4__table
@@ -38,6 +41,7 @@ params:
   time_range: No filter
   viz_type: big_number_total
   y_axis_format: SMART_NUMBER
+query_context: null
 slice_name: Courses
 uuid: 63f86926-3325-43cf-b075-ef37f5f60413
 version: 1.0.0

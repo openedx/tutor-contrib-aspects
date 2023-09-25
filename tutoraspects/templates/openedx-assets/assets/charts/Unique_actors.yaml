@@ -1,6 +1,9 @@
 _file_name: Unique_actors.yaml
 cache_timeout: null
+certification_details: null
+certified_by: null
 dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+description: null
 params:
   adhoc_filters: []
   datasource: 4__table
@@ -40,6 +43,7 @@ params:
   time_range: No filter
   viz_type: big_number_total
   y_axis_format: SMART_NUMBER
+query_context: null
 slice_name: Unique actors
 uuid: 071bf3d5-8b9d-4e26-83fb-7836db5a7ab6
 version: 1.0.0
