@@ -40,5 +40,10 @@ EOF
 {% endif %}
 
 {% for model in EVENT_SINK_CLICKHOUSE_MODELS %}
+{% if ASPECTS_ENABLE_PII %}
 (./manage.py lms waffle_flag --list | grep event_sink_clickhouse.{{model}}.enabled) || ./manage.py lms waffle_flag --create event_sink_clickhouse.{{model}}.enabled --everyone
+{% elif model not in EVENT_SINK_CLICKHOUSE_PII_MODELS %}
+(./manage.py lms waffle_flag --list | grep event_sink_clickhouse.{{model}}.enabled) || ./manage.py lms waffle_flag --create event_sink_clickhouse.{{model}}.enabled --everyone
+{% endif %}
+
 {% endfor %}
