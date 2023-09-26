@@ -2,3 +2,6 @@ authlib  # OAuth2
 clickhouse-connect>0.5,<0.6
 sentry-sdk[flask]
 urllib3>=1.26.15,<2
+prophet==1.1.4 # Facebook's time series forecasting library
+elasticsearch-dbapi # Elastic search client
+shillelagh[gsheetsapi] # Google Sheets API
