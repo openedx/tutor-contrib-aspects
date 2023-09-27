@@ -106,6 +106,8 @@ oauthlib==3.2.2
     #   -r requirements/base.txt
     #   kubernetes
     #   requests-oauthlib
+openedx-atlas==0.5.0
+    # via -r requirements/base.txt
 packaging==23.2
     # via
     #   black

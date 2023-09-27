@@ -1,0 +1,6 @@
+[main]
+host = https://www.transifex.com
+
+[o:open-edx:p:edx-platform:r:tutor-contrib-aspects]
+source_lang = en
+type = KEYVALUEJSON

@@ -1,4 +1,5 @@
 click
-tutor>=15
 bcrypt
+openedx-atlas
 transifex-python
+tutor>=15

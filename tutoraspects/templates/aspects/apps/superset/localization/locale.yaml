@@ -1,5 +1,11 @@
 ---
 de:
+  ? "# Instance information Aspects: 0.49.0\n\n- **Vector Version**: timberio/vector:0.30.0-alpine\
+    \ \n\n\n- **Clickhouse Version**: clickhouse/clickhouse-server:23.8 \n\n\n- **Ralph\
+    \ Version**: fundocker/ralph:3.9.0 \n\n\n- **Superset Version**: edunext/aspects-superset:0.49.0\
+    \ \n\n\n\n## Dependencies:\n\n- **Clickhouse Event Sink Version**: 0.2.2 \n\n\n\
+    \n- **Event Routing Backends Version**: 6.2.0 \n\n\n"
+  : ''
   ? '### Course Enrollment
 
 
@@ -152,6 +158,12 @@ de:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 es:
+  ? "# Instance information Aspects: 0.49.0\n\n- **Vector Version**: timberio/vector:0.30.0-alpine\
+    \ \n\n\n- **Clickhouse Version**: clickhouse/clickhouse-server:23.8 \n\n\n- **Ralph\
+    \ Version**: fundocker/ralph:3.9.0 \n\n\n- **Superset Version**: edunext/aspects-superset:0.49.0\
+    \ \n\n\n\n## Dependencies:\n\n- **Clickhouse Event Sink Version**: 0.2.2 \n\n\n\
+    \n- **Event Routing Backends Version**: 6.2.0 \n\n\n"
+  : ''
   ? '### Course Enrollment
 
 
@@ -209,7 +221,7 @@ es:
     unenrollment will be counted.
   : ''
   Active Users Per Organization: ''
-  Actor IDs over time: IDs de actores a lo largo del tiempo
+  Actor IDs over time: ''
   Answers Chosen: ''
   Coming Soon: ''
   Course Enrollment: ''
@@ -217,7 +229,7 @@ es:
   Course Grade Distribution: ''
   Course Registrations Over Time: ''
   Course Success: ''
-  Courses: Cursos
+  Courses: ''
   Courses Per Organization: ''
   Currently Enrolled Learners Per Day: ''
   Distribution Of Attempts: ''
@@ -228,13 +240,13 @@ es:
   Enrollments: ''
   Enrollments By Enrollment Mode: ''
   Enrollments By Type: ''
-  Event type: Tipo de evento
-  Events per course: Eventos por curso
+  Event type: ''
+  Events per course: ''
   Hints / Answer Displayed Before Correct Answer Chosen: ''
   Instance Health: ''
   Instructor Dashboard: ''
   Last Received Event: ''
-  Last course syncronized: "\xDAltimo curso sincronizado"
+  Last course syncronized: ''
   Learner Engagement: ''
   Most Active Courses Per Day: ''
   Number Of Attempts To Find Correct Answer: ''
@@ -242,8 +254,8 @@ es:
   Number Of Viewers / Views: ''
   Number of Users / Uses: ''
   Number of Views / Viewers: ''
-  Operator Dashboard: Panel de Operador
-  Organizations: Organizaciones
+  Operator Dashboard: ''
+  Organizations: ''
   Percentage Grade: ''
   Problem Engagement: ''
   Problem Performance: ''
@@ -296,7 +308,7 @@ es:
   : ''
   Total Organizations: ''
   Transcripts / Captions Per Video: ''
-  Unique actors: "Actores \xFAnicos"
+  Unique actors: ''
   Video Engagement: ''
   Video Performance: ''
   Video Title: ''
@@ -304,6 +316,12 @@ es:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 fr:
+  ? "# Instance information Aspects: 0.49.0\n\n- **Vector Version**: timberio/vector:0.30.0-alpine\
+    \ \n\n\n- **Clickhouse Version**: clickhouse/clickhouse-server:23.8 \n\n\n- **Ralph\
+    \ Version**: fundocker/ralph:3.9.0 \n\n\n- **Superset Version**: edunext/aspects-superset:0.49.0\
+    \ \n\n\n\n## Dependencies:\n\n- **Clickhouse Event Sink Version**: 0.2.2 \n\n\n\
+    \n- **Event Routing Backends Version**: 6.2.0 \n\n\n"
+  : ''
   ? '### Course Enrollment
 
 
@@ -456,6 +474,12 @@ fr:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 it:
+  ? "# Instance information Aspects: 0.49.0\n\n- **Vector Version**: timberio/vector:0.30.0-alpine\
+    \ \n\n\n- **Clickhouse Version**: clickhouse/clickhouse-server:23.8 \n\n\n- **Ralph\
+    \ Version**: fundocker/ralph:3.9.0 \n\n\n- **Superset Version**: edunext/aspects-superset:0.49.0\
+    \ \n\n\n\n## Dependencies:\n\n- **Clickhouse Event Sink Version**: 0.2.2 \n\n\n\
+    \n- **Event Routing Backends Version**: 6.2.0 \n\n\n"
+  : ''
   ? '### Course Enrollment
 
 
@@ -608,6 +632,12 @@ it:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 ja:
+  ? "# Instance information Aspects: 0.49.0\n\n- **Vector Version**: timberio/vector:0.30.0-alpine\
+    \ \n\n\n- **Clickhouse Version**: clickhouse/clickhouse-server:23.8 \n\n\n- **Ralph\
+    \ Version**: fundocker/ralph:3.9.0 \n\n\n- **Superset Version**: edunext/aspects-superset:0.49.0\
+    \ \n\n\n\n## Dependencies:\n\n- **Clickhouse Event Sink Version**: 0.2.2 \n\n\n\
+    \n- **Event Routing Backends Version**: 6.2.0 \n\n\n"
+  : ''
   ? '### Course Enrollment
 
 
@@ -760,6 +790,12 @@ ja:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 ko:
+  ? "# Instance information Aspects: 0.49.0\n\n- **Vector Version**: timberio/vector:0.30.0-alpine\
+    \ \n\n\n- **Clickhouse Version**: clickhouse/clickhouse-server:23.8 \n\n\n- **Ralph\
+    \ Version**: fundocker/ralph:3.9.0 \n\n\n- **Superset Version**: edunext/aspects-superset:0.49.0\
+    \ \n\n\n\n## Dependencies:\n\n- **Clickhouse Event Sink Version**: 0.2.2 \n\n\n\
+    \n- **Event Routing Backends Version**: 6.2.0 \n\n\n"
+  : ''
   ? '### Course Enrollment
 
 
@@ -912,6 +948,12 @@ ko:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 nl:
+  ? "# Instance information Aspects: 0.49.0\n\n- **Vector Version**: timberio/vector:0.30.0-alpine\
+    \ \n\n\n- **Clickhouse Version**: clickhouse/clickhouse-server:23.8 \n\n\n- **Ralph\
+    \ Version**: fundocker/ralph:3.9.0 \n\n\n- **Superset Version**: edunext/aspects-superset:0.49.0\
+    \ \n\n\n\n## Dependencies:\n\n- **Clickhouse Event Sink Version**: 0.2.2 \n\n\n\
+    \n- **Event Routing Backends Version**: 6.2.0 \n\n\n"
+  : ''
   ? '### Course Enrollment
 
 
@@ -1064,6 +1106,12 @@ nl:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 pt:
+  ? "# Instance information Aspects: 0.49.0\n\n- **Vector Version**: timberio/vector:0.30.0-alpine\
+    \ \n\n\n- **Clickhouse Version**: clickhouse/clickhouse-server:23.8 \n\n\n- **Ralph\
+    \ Version**: fundocker/ralph:3.9.0 \n\n\n- **Superset Version**: edunext/aspects-superset:0.49.0\
+    \ \n\n\n\n## Dependencies:\n\n- **Clickhouse Event Sink Version**: 0.2.2 \n\n\n\
+    \n- **Event Routing Backends Version**: 6.2.0 \n\n\n"
+  : ''
   ? '### Course Enrollment
 
 
@@ -1216,6 +1264,12 @@ pt:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 ru:
+  ? "# Instance information Aspects: 0.49.0\n\n- **Vector Version**: timberio/vector:0.30.0-alpine\
+    \ \n\n\n- **Clickhouse Version**: clickhouse/clickhouse-server:23.8 \n\n\n- **Ralph\
+    \ Version**: fundocker/ralph:3.9.0 \n\n\n- **Superset Version**: edunext/aspects-superset:0.49.0\
+    \ \n\n\n\n## Dependencies:\n\n- **Clickhouse Event Sink Version**: 0.2.2 \n\n\n\
+    \n- **Event Routing Backends Version**: 6.2.0 \n\n\n"
+  : ''
   ? '### Course Enrollment
 
 
@@ -1368,6 +1422,12 @@ ru:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 sk:
+  ? "# Instance information Aspects: 0.49.0\n\n- **Vector Version**: timberio/vector:0.30.0-alpine\
+    \ \n\n\n- **Clickhouse Version**: clickhouse/clickhouse-server:23.8 \n\n\n- **Ralph\
+    \ Version**: fundocker/ralph:3.9.0 \n\n\n- **Superset Version**: edunext/aspects-superset:0.49.0\
+    \ \n\n\n\n## Dependencies:\n\n- **Clickhouse Event Sink Version**: 0.2.2 \n\n\n\
+    \n- **Event Routing Backends Version**: 6.2.0 \n\n\n"
+  : ''
   ? '### Course Enrollment
 
 
@@ -1520,6 +1580,12 @@ sk:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 sl:
+  ? "# Instance information Aspects: 0.49.0\n\n- **Vector Version**: timberio/vector:0.30.0-alpine\
+    \ \n\n\n- **Clickhouse Version**: clickhouse/clickhouse-server:23.8 \n\n\n- **Ralph\
+    \ Version**: fundocker/ralph:3.9.0 \n\n\n- **Superset Version**: edunext/aspects-superset:0.49.0\
+    \ \n\n\n\n## Dependencies:\n\n- **Clickhouse Event Sink Version**: 0.2.2 \n\n\n\
+    \n- **Event Routing Backends Version**: 6.2.0 \n\n\n"
+  : ''
   ? '### Course Enrollment
 
 
@@ -1672,6 +1738,12 @@ sl:
   Watches Per Video: ''
   xAPI Events Over Time: ''
 zh:
+  ? "# Instance information Aspects: 0.49.0\n\n- **Vector Version**: timberio/vector:0.30.0-alpine\
+    \ \n\n\n- **Clickhouse Version**: clickhouse/clickhouse-server:23.8 \n\n\n- **Ralph\
+    \ Version**: fundocker/ralph:3.9.0 \n\n\n- **Superset Version**: edunext/aspects-superset:0.49.0\
+    \ \n\n\n\n## Dependencies:\n\n- **Clickhouse Event Sink Version**: 0.2.2 \n\n\n\
+    \n- **Event Routing Backends Version**: 6.2.0 \n\n\n"
+  : ''
   ? '### Course Enrollment
 
 

@@ -2,15 +2,7 @@ import os
 import sys
 
 import click
-from transifex.native import init
-from utils import (LANGUAGES, compile_translations, get_text_for_translations,
-                   push_translations)
-
-init(
-    os.getenv("TRANSIFEX_TOKEN"),
-    LANGUAGES,
-    os.getenv("TRANSIFEX_SECRET"),
-)
+from utils import compile_translations, extract_translations, get_text_for_translations
 
 
 @click.command()
@@ -18,8 +10,8 @@ init(
 @click.argument("action")
 def command(root, action):
     """Interface for the translations."""
-    if action == "push":
-        push_translations(root)
+    if action == "extract":
+        extract_translations(root)
     elif action == "compile":
         compile_translations(root)
     elif action == "list":

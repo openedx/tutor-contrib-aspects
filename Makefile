@@ -29,6 +29,7 @@ upgrade: $(COMMON_CONSTRAINTS_TXT)
 	pip install -r requirements/pip-tools.txt
 	$(UPGRADE) -o requirements/base.txt requirements/base.in
 	$(UPGRADE) -o requirements/dev.txt requirements/dev.in
+	$(UPGRADE) -o requirements/translations.txt requirements/translations.in
 
 requirements: ## Install packages from base requirement files
 	pip install -r requirements/pip.txt
@@ -41,6 +42,10 @@ dev-requirements: ## Install packages from developer requirement files
 	pip install -r requirements/dev.txt
 	pip uninstall --yes $(PROJECT)
 	pip install -e .
+
+translation-requirements: ## Install packages from translation requirements
+	pip install -r requirements/pip.txt
+	pip install -r requirements/translations.txt
 
 build-pythonpackage: ## Build Python packages ready to upload to pypi
 	python setup.py sdist bdist_wheel
@@ -78,17 +83,15 @@ release-push:
 	git push origin $(TAG)
 
 ###### Additional commands
-push_translations:
-	TUTOR_ROOT=$(TUTOR_ROOT) tutor config save
-	python scripts/translate.py $(TUTOR_ROOT) push
+pull_translations: translation-requirements
+	rm -rf tutoraspects/templates/aspects/apps/superset/conf/locale/*;
+	atlas pull $(OPENEDX_ATLAS_ARGS) translations/tutor-contrib-aspects/tutoraspects/templates/aspects/apps/superset/conf/locale/:tutoraspects/templates/aspects/apps/superset/conf/locale/
 
-compile_translations:
-	TUTOR_ROOT=$(TUTOR_ROOT) tutor config save
-	python scripts/translate.py $(TUTOR_ROOT) compile
+	@echo "Translations have been pulled via Atlas."
+	python scripts/translate.py . compile
 
-list_translations:
-	TUTOR_ROOT=$(TUTOR_ROOT) tutor config save
-	python scripts/translate.py $(TUTOR_ROOT) list
+extract_translations: translation-requirements
+	python scripts/translate.py . extract
 
 version: ## Print the current tutor version
 	@python -c 'import io, os; about = {}; exec(io.open(os.path.join("$(PACKAGE)", "__about__.py"), "rt", encoding="utf-8").read(), about); print(about["__version__"])'
