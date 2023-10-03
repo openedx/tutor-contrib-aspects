@@ -40,7 +40,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "OPENEDX_EXTRA_PIP_REQUIREMENTS",
             [
-                "openedx-event-sink-clickhouse==0.2.2",
+                "openedx-event-sink-clickhouse==0.4.0",
                 "edx-event-routing-backends==v7.0.0",
             ],
         ),
