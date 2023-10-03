@@ -190,7 +190,6 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         {{patch("superset-sso-assignment-rules") | indent(8)}}
         return None
 
-    @lru_cache(maxsize=LRU_CACHE_MAX_SIZE)
     def get_courses(self, username, permission="staff", next_url=None):
         """
         Returns the list of courses the current user has access to.
