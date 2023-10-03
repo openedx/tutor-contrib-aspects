@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.51.0 - 2023-10-03
+
+### [0.51.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.50.0...v0.51.0) (2023-10-03)
+
+#### Features
+
+- Bump event-sink-clickhouse to 0.4.0 ([269aa1e](https://github.com/openedx/tutor-contrib-aspects/commit/269aa1e063ac3df2ecc34515d6365f83aabd2209))
+
 ## v0.50.0 - 2023-09-26
 
 ### [0.50.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.49.0...v0.50.0) (2023-09-26)
