@@ -5,18 +5,159 @@ css: ''
 dashboard_title: Operator Dashboard
 description: null
 metadata:
-  chart_configuration: {}
-  color_scheme: ''
-  color_scheme_domain: []
+  chart_configuration:
+    '240':
+      crossFilters:
+        chartsInScope:
+        - 74
+        - 176
+        - 186
+        - 206
+        - 253
+        - 260
+        - 269
+        - 272
+        - 275
+        - 285
+        - 297
+        - 383
+        scope: global
+      id: 240
+    '253':
+      crossFilters:
+        chartsInScope:
+        - 74
+        - 176
+        - 186
+        - 206
+        - 240
+        - 260
+        - 269
+        - 272
+        - 275
+        - 285
+        - 297
+        - 383
+        scope: global
+      id: 253
+    '272':
+      crossFilters:
+        chartsInScope:
+        - 74
+        - 176
+        - 186
+        - 206
+        - 240
+        - 253
+        - 260
+        - 269
+        - 275
+        - 285
+        - 297
+        - 383
+        scope: global
+      id: 272
+    '275':
+      crossFilters:
+        chartsInScope:
+        - 74
+        - 176
+        - 186
+        - 206
+        - 240
+        - 253
+        - 260
+        - 269
+        - 272
+        - 285
+        - 297
+        - 383
+        scope: global
+      id: 275
+    '383':
+      crossFilters:
+        chartsInScope:
+        - 74
+        - 176
+        - 186
+        - 206
+        - 240
+        - 253
+        - 260
+        - 269
+        - 272
+        - 275
+        - 285
+        - 297
+        scope: global
+      id: 383
+    '74':
+      crossFilters:
+        chartsInScope:
+        - 176
+        - 186
+        - 206
+        - 240
+        - 253
+        - 260
+        - 269
+        - 272
+        - 275
+        - 285
+        - 297
+        - 383
+        scope: global
+      id: 74
+  color_scheme: supersetColors
+  color_scheme_domain:
+  - '#1FA8C9'
+  - '#454E7C'
+  - '#5AC189'
+  - '#FF7F44'
+  - '#666666'
+  - '#E04355'
+  - '#FCC700'
+  - '#A868B7'
+  - '#3CCCCB'
+  - '#A38F79'
+  - '#8FD3E4'
+  - '#A1A6BD'
+  - '#ACE1C4'
+  - '#FEC0A1'
+  - '#B2B2B2'
+  - '#EFA1AA'
+  - '#FDE380'
+  - '#D3B3DA'
+  - '#9EE5E5'
+  - '#D1C6BC'
   cross_filters_enabled: false
   default_filters: '{}'
   expanded_slices: {}
+  global_chart_configuration:
+    chartsInScope:
+    - 74
+    - 176
+    - 186
+    - 206
+    - 240
+    - 253
+    - 260
+    - 269
+    - 272
+    - 275
+    - 285
+    - 297
+    - 383
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
   label_colors: {}
   native_filter_configuration:
   - cascadeParentIds: []
     chartsInScope:
-    - 451
-    - 452
+    - 240
+    - 272
     controlValues:
       defaultToFirstItem: false
       enableEmptyFilter: false
@@ -44,8 +185,8 @@ metadata:
     type: NATIVE_FILTER
   - cascadeParentIds: []
     chartsInScope:
-    - 453
-    - 454
+    - 240
+    - 272
     controlValues:
       defaultToFirstItem: false
       enableEmptyFilter: false
@@ -65,7 +206,7 @@ metadata:
       rootPath:
       - TAB-uKjvZ62aJt
     tabsInScope:
-    - TAB-6Mdnw3FZh
+    - TAB-uKjvZ62aJt
     targets:
     - column:
         name: course_run
@@ -73,21 +214,22 @@ metadata:
     type: NATIVE_FILTER
   - cascadeParentIds: []
     chartsInScope:
-    - 411
-    - 413
-    - 427
-    - 430
-    - 437
-    - 438
-    - 445
-    - 450
-    - 454
+    - 74
+    - 176
+    - 186
+    - 206
+    - 260
+    - 269
+    - 275
+    - 285
+    - 383
     controlValues:
       defaultToFirstItem: false
       enableEmptyFilter: false
       inverseSelection: false
       multiSelect: false
       searchAllOptions: false
+      sortAscending: true
     defaultDataMask:
       extraFormData: {}
       filterState: {}
@@ -98,37 +240,35 @@ metadata:
     name: Course Key
     scope:
       excluded:
-      - 116
-      - 124
-      - 180
-      - 13
+      - 297
       rootPath:
-      - ROOT_ID
+      - TAB-DE73B5pXm
+      - TAB-6Mdnw3FZh
     tabsInScope:
     - TAB-6Mdnw3FZh
     - TAB-DE73B5pXm
+    - TAB-EygpebMa1
+    - TAB-gvqU89mvT
     targets:
     - column:
         name: course_key
-      datasetUuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+      datasetUuid: 41278a97-d0ff-4645-9514-d79f80d275df
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
-    attempted: '#5AC189'
-    earned: '#1FA8C9'
-    evaluated: '#454E7C'
-    registered: '#FF7F44'
+    course-v1:edX+DemoX+Demo_Course: '#1FA8C9'
+    edX: '#454E7C'
   timed_refresh_immune_slices: []
 position:
   CHART-8rDUkRBgv9:
     children: []
     id: CHART-8rDUkRBgv9
     meta:
-      chartId: 180
+      chartId: 240
       height: 50
       sliceName: Enrollments By Type
       uuid: 6c473b09-6a1a-4531-b71d-ab82e09721ef
-      width: 4
+      width: 6
     parents:
     - ROOT_ID
     - GRID_ID
@@ -140,11 +280,11 @@ position:
     children: []
     id: CHART-H4NTUWfMqH
     meta:
-      chartId: 124
+      chartId: 272
       height: 50
-      sliceName: Course Registrations Over Time
+      sliceName: Course Enrollments Over Time
       uuid: bf4f4671-c276-4185-9b9a-b10864efea6c
-      width: 4
+      width: 6
     parents:
     - ROOT_ID
     - GRID_ID
@@ -152,11 +292,27 @@ position:
     - TAB-uKjvZ62aJt
     - ROW-VQVoPfsLlS
     type: CHART
+  CHART-La3O2IbbVV:
+    children: []
+    id: CHART-La3O2IbbVV
+    meta:
+      chartId: 383
+      height: 50
+      sliceName: Slowest ClickHouse Queries
+      uuid: 953af3e5-8fc6-441e-bff1-22987735edf0
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7nA6MwltSD
+    - TAB-gvqU89mvT
+    - ROW-cpoIgMfQUZ
+    type: CHART
   CHART-QN5x3ibIzS:
     children: []
     id: CHART-QN5x3ibIzS
     meta:
-      chartId: 313
+      chartId: 74
       height: 50
       sliceName: Active Users Per Organization
       uuid: 09a8a31c-c65f-452a-951f-dce6f0f03292
@@ -172,57 +328,56 @@ position:
     children: []
     id: CHART-explore-15-1
     meta:
-      chartId: 284
+      chartId: 176
       height: 50
       sliceName: xAPI Events Over Time
       uuid: e6a30923-6382-413e-a1c7-2ac223fa5c5c
-      width: 4
+      width: 6
     parents:
     - ROOT_ID
     - GRID_ID
     - TABS-7nA6MwltSD
     - TAB-DE73B5pXm
-    - ROW-7gxdpYV-y
+    - ROW-X7WD5wVoP
     type: CHART
   CHART-explore-17-1:
     children: []
     id: CHART-explore-17-1
     meta:
-      chartId: 12
+      chartId: 285
       height: 16
       sliceName: Last Received Event
       uuid: ffdaabc5-8d01-47d7-8f29-66efa643befb
-      width: 2
+      width: 3
     parents:
     - ROOT_ID
     - GRID_ID
     - TABS-7nA6MwltSD
     - TAB-DE73B5pXm
     - ROW-mPSz65tZ7E
-    - COLUMN-eGzPLamIzw
     type: CHART
   CHART-explore-19-1:
     children: []
     id: CHART-explore-19-1
     meta:
-      chartId: 116
+      chartId: 297
       height: 16
       sliceName: Last course syncronized
+      sliceNameOverride: Last Course Published
       uuid: ca93f427-d021-476e-9a36-6ea0d99d30ea
-      width: 1
+      width: 3
     parents:
     - ROOT_ID
     - GRID_ID
     - TABS-7nA6MwltSD
     - TAB-DE73B5pXm
     - ROW-mPSz65tZ7E
-    - COLUMN-eGzPLamIzw
     type: CHART
   CHART-explore-20-1:
     children: []
     id: CHART-explore-20-1
     meta:
-      chartId: 176
+      chartId: 260
       height: 14
       sliceName: Total Organizations
       uuid: e66b1cdb-6974-4fa2-a769-4908665118f6
@@ -233,15 +388,16 @@ position:
     - TABS-7nA6MwltSD
     - TAB-DE73B5pXm
     - ROW-mPSz65tZ7E
-    - COLUMN-GDahqg06nQ
+    - COLUMN-eGzPLamIzw
     type: CHART
   CHART-explore-21-1:
     children: []
     id: CHART-explore-21-1
     meta:
-      chartId: 316
+      chartId: 186
       height: 16
       sliceName: Unique actors
+      sliceNameOverride: Total Unique Users
       uuid: 071bf3d5-8b9d-4e26-83fb-7836db5a7ab6
       width: 2
     parents:
@@ -250,15 +406,16 @@ position:
     - TABS-7nA6MwltSD
     - TAB-DE73B5pXm
     - ROW-mPSz65tZ7E
-    - COLUMN-GDahqg06nQ
+    - COLUMN-eGzPLamIzw
     type: CHART
   CHART-explore-22-1:
     children: []
     id: CHART-explore-22-1
     meta:
-      chartId: 264
+      chartId: 269
       height: 15
       sliceName: Courses
+      sliceNameOverride: Total Courses
       uuid: 63f86926-3325-43cf-b075-ef37f5f60413
       width: 2
     parents:
@@ -267,66 +424,34 @@ position:
     - TABS-7nA6MwltSD
     - TAB-DE73B5pXm
     - ROW-mPSz65tZ7E
-    - COLUMN-GDahqg06nQ
-    type: CHART
-  CHART-explore-25-1:
-    children: []
-    id: CHART-explore-25-1
-    meta:
-      chartId: 162
-      height: 50
-      sliceName: Event type
-      uuid: b4a9a10d-0e82-43e7-a619-3ef3f6bf57a5
-      width: 4
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - TABS-7nA6MwltSD
-    - TAB-DE73B5pXm
-    - ROW-mPSz65tZ7E
-    type: CHART
-  CHART-explore-26-1:
-    children: []
-    id: CHART-explore-26-1
-    meta:
-      chartId: 41
-      height: 50
-      sliceName: Events per course
-      uuid: a445d9e5-ac98-411e-9a47-eda10081bd5b
-      width: 4
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - TABS-7nA6MwltSD
-    - TAB-DE73B5pXm
-    - ROW-7gxdpYV-y
+    - COLUMN-eGzPLamIzw
     type: CHART
   CHART-explore-27-1:
     children: []
     id: CHART-explore-27-1
     meta:
-      chartId: 262
+      chartId: 206
       height: 50
       sliceName: Actor IDs over time
       sliceNameOverride: Active Users Over Time
       uuid: 6a8ded91-f9a6-45c2-9f9f-f85dc1ff7ed6
-      width: 4
+      width: 6
     parents:
     - ROOT_ID
     - GRID_ID
     - TABS-7nA6MwltSD
     - TAB-DE73B5pXm
-    - ROW-7gxdpYV-y
+    - ROW-X7WD5wVoP
     type: CHART
   CHART-o87Pu6wg5_:
     children: []
     id: CHART-o87Pu6wg5_
     meta:
-      chartId: 22
+      chartId: 275
       height: 50
       sliceName: Most Active Courses Per Day
       uuid: a19a7c6a-e2c9-4033-86b3-b2e5878b5b69
-      width: 4
+      width: 12
     parents:
     - ROOT_ID
     - GRID_ID
@@ -338,7 +463,7 @@ position:
     children: []
     id: CHART-wz1Y-JkV9-
     meta:
-      chartId: 13
+      chartId: 253
       height: 50
       sliceName: Courses Per Organization
       uuid: 7901d6ae-dea8-4d2c-9232-35c22571cfb7
@@ -352,9 +477,7 @@ position:
     type: CHART
   COLUMN-GDahqg06nQ:
     children:
-    - CHART-explore-21-1
-    - CHART-explore-22-1
-    - CHART-explore-20-1
+    - MARKDOWN-EZXXAbo-Tg
     id: COLUMN-GDahqg06nQ
     meta:
       background: BACKGROUND_TRANSPARENT
@@ -368,12 +491,13 @@ position:
     type: COLUMN
   COLUMN-eGzPLamIzw:
     children:
-    - CHART-explore-17-1
-    - CHART-explore-19-1
+    - CHART-explore-21-1
+    - CHART-explore-22-1
+    - CHART-explore-20-1
     id: COLUMN-eGzPLamIzw
     meta:
       background: BACKGROUND_TRANSPARENT
-      width: 4
+      width: 2
     parents:
     - ROOT_ID
     - GRID_ID
@@ -398,32 +522,6 @@ position:
     parents:
     - ROOT_ID
     type: GRID
-  HEADER-GcKR2Le6_Z:
-    children: []
-    id: HEADER-GcKR2Le6_Z
-    meta:
-      background: BACKGROUND_TRANSPARENT
-      headerSize: MEDIUM_HEADER
-      text: Coming Soon
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - TABS-7nA6MwltSD
-    - TAB-pkVFpoQC-
-    type: HEADER
-  HEADER-lsKtwx26sE:
-    children: []
-    id: HEADER-lsKtwx26sE
-    meta:
-      background: BACKGROUND_TRANSPARENT
-      headerSize: MEDIUM_HEADER
-      text: Coming Soon
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - TABS-7nA6MwltSD
-    - TAB-0QACRjilP
-    type: HEADER
   HEADER_ID:
     id: HEADER_ID
     meta:
@@ -458,14 +556,15 @@ position:
          {% endif %}
         {% endfor %}
         "
-      height: 50
+      height: 53
       width: 4
     parents:
     - ROOT_ID
     - GRID_ID
     - TABS-7nA6MwltSD
     - TAB-DE73B5pXm
-    - ROW-fgCiGD7i8F
+    - ROW-mPSz65tZ7E
+    - COLUMN-GDahqg06nQ
     type: MARKDOWN
   ROOT_ID:
     children:
@@ -485,20 +584,6 @@ position:
     - TABS-7nA6MwltSD
     - TAB-EygpebMa1
     type: ROW
-  ROW-7gxdpYV-y:
-    children:
-    - CHART-explore-15-1
-    - CHART-explore-27-1
-    - CHART-explore-26-1
-    id: ROW-7gxdpYV-y
-    meta:
-      background: BACKGROUND_TRANSPARENT
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - TABS-7nA6MwltSD
-    - TAB-DE73B5pXm
-    type: ROW
   ROW-VQVoPfsLlS:
     children:
     - CHART-H4NTUWfMqH
@@ -512,6 +597,19 @@ position:
     - TABS-7nA6MwltSD
     - TAB-uKjvZ62aJt
     type: ROW
+  ROW-X7WD5wVoP:
+    children:
+    - CHART-explore-27-1
+    - CHART-explore-15-1
+    id: ROW-X7WD5wVoP
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7nA6MwltSD
+    - TAB-DE73B5pXm
+    type: ROW
   ROW-Z0QlRyckta:
     children:
     - CHART-o87Pu6wg5_
@@ -524,23 +622,24 @@ position:
     - TABS-7nA6MwltSD
     - TAB-6Mdnw3FZh
     type: ROW
-  ROW-fgCiGD7i8F:
+  ROW-cpoIgMfQUZ:
     children:
-    - MARKDOWN-EZXXAbo-Tg
-    id: ROW-fgCiGD7i8F
+    - CHART-La3O2IbbVV
+    id: ROW-cpoIgMfQUZ
     meta:
       background: BACKGROUND_TRANSPARENT
     parents:
     - ROOT_ID
     - GRID_ID
     - TABS-7nA6MwltSD
-    - TAB-DE73B5pXm
+    - TAB-gvqU89mvT
     type: ROW
   ROW-mPSz65tZ7E:
     children:
-    - CHART-explore-25-1
     - COLUMN-GDahqg06nQ
     - COLUMN-eGzPLamIzw
+    - CHART-explore-17-1
+    - CHART-explore-19-1
     id: ROW-mPSz65tZ7E
     meta:
       background: BACKGROUND_TRANSPARENT
@@ -550,19 +649,6 @@ position:
     - TABS-7nA6MwltSD
     - TAB-DE73B5pXm
     type: ROW
-  TAB-0QACRjilP:
-    children:
-    - HEADER-lsKtwx26sE
-    id: TAB-0QACRjilP
-    meta:
-      defaultText: Tab title
-      placeholder: Tab title
-      text: Learner Engagement
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - TABS-7nA6MwltSD
-    type: TAB
   TAB-6Mdnw3FZh:
     children:
     - ROW-Z0QlRyckta
@@ -578,9 +664,8 @@ position:
     type: TAB
   TAB-DE73B5pXm:
     children:
-    - ROW-7gxdpYV-y
+    - ROW-X7WD5wVoP
     - ROW-mPSz65tZ7E
-    - ROW-fgCiGD7i8F
     id: TAB-DE73B5pXm
     meta:
       defaultText: Tab title
@@ -604,14 +689,14 @@ position:
     - GRID_ID
     - TABS-7nA6MwltSD
     type: TAB
-  TAB-pkVFpoQC-:
+  TAB-gvqU89mvT:
     children:
-    - HEADER-GcKR2Le6_Z
-    id: TAB-pkVFpoQC-
+    - ROW-cpoIgMfQUZ
+    id: TAB-gvqU89mvT
     meta:
       defaultText: Tab title
       placeholder: Tab title
-      text: Course Success
+      text: ClickHouse
     parents:
     - ROOT_ID
     - GRID_ID
@@ -635,9 +720,8 @@ position:
     - TAB-DE73B5pXm
     - TAB-uKjvZ62aJt
     - TAB-6Mdnw3FZh
-    - TAB-pkVFpoQC-
-    - TAB-0QACRjilP
     - TAB-EygpebMa1
+    - TAB-gvqU89mvT
     id: TABS-7nA6MwltSD
     meta: {}
     parents:
