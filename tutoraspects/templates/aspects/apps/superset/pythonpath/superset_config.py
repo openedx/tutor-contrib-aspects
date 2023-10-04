@@ -133,7 +133,6 @@ SMTP_PASSWORD = "{{SMTP_PASSWORD}}" # use the empty string "" if using an unauth
 SMTP_MAIL_FROM = "{{CONTACT_EMAIL}}"
 EMAIL_REPORTS_SUBJECT_PREFIX = "[{{PLATFORM_NAME}}] "
 
-FEATURE_FLAGS = {"ALERT_REPORTS": True}
 ALERT_REPORTS_NOTIFICATION_DRY_RUN = False
 WEBDRIVER_BASEURL = "http://superset:8088/"
 # The base URL for the email report hyperlinks.
