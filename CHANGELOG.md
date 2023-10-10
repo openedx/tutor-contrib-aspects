@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.52.0 - 2023-10-10
+
+### [0.52.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.51.1...v0.52.0) (2023-10-10)
+
+#### Features
+
+- enable embedded superset and charts ([b20c2dc](https://github.com/openedx/tutor-contrib-aspects/commit/b20c2dc4ebd55fc8ece3310300aa657a13c8921e))
+
 ## v0.51.1 - 2023-10-03
 
 ### [0.51.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.51.0...v0.51.1) (2023-10-03)
