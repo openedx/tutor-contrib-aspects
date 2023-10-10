@@ -1,4 +1,4 @@
-name: Pull Translations
+name: Compile Translations
 on:
   workflow_dispatch:
   schedule:
@@ -10,7 +10,7 @@ env:
   TRANSIFEX_SECRET: ${{ secrets.EDUNEXT_ASPECTS_ASSET_TRANSIFEX_SECRET }}
 
 jobs:
-  push_translations:
+  compile_translations:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -44,8 +44,10 @@ jobs:
           title: "chore(i18n): updating translations"
           commit-message: "chore(i18n): updating translations on ${{ steps.date.outputs.date }}"
           branch: "bot/translations/${{ steps.date.outputs.date }}"
+          add-paths: |
+            tutoraspects/
           base: main
           body: |
             Automated update of translations for assets on ${{ steps.date.outputs.date }}.
-          
+
             This pull request was automatically generated.
