@@ -81,8 +81,10 @@ CUSTOM_SECURITY_MANAGER = OpenEdxSsoSecurityManager
 # Enable use of variables in datasets/queries
 FEATURE_FLAGS = {
     "ALERT_REPORTS": True,
-    "ENABLE_TEMPLATE_PROCESSING": True,
     "DASHBOARD_RBAC": True,
+    "EMBEDDABLE_CHARTS": True,
+    "EMBEDDED_SUPERSET": True,
+    "ENABLE_TEMPLATE_PROCESSING": True,
 }
 
 # Add this custom template processor which returns the list of courses the current user can access
