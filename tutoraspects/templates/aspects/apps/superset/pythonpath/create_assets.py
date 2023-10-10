@@ -33,7 +33,7 @@ for folder in ASSET_FOLDER_MAPPING.values():
 
 FILE_NAME_ATTRIBUTE = "_file_name"
 
-TRANSLATIONS_FILE_PATH = "/app/pythonpath/locale.yaml"
+TRANSLATIONS_FILE_PATH = "/app/localization/locale.yaml"
 ASSETS_FILE_PATH = "/app/pythonpath/assets.yaml"
 
 merged_data = {}

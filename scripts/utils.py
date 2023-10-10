@@ -27,7 +27,7 @@ LANGUAGES = [
 
 def get_text_for_translations(root_path):
     assets_file = (
-        root_path + "/env/plugins/aspects/apps/superset/pythonpath/assets.yaml"
+        root_path + "/env/plugins/aspects/apps/superset/localization/assets.yaml"
     )
 
     strings = []
@@ -96,7 +96,7 @@ def compile_translations(root_path):
     tx.fetch_translations()
 
     translation_file = (
-        "tutoraspects/templates/aspects/apps/superset/pythonpath/locale.yaml"
+        "tutoraspects/templates/aspects/apps/superset/localization/locale.yaml"
     )
     file = open(translation_file, "w")
 
