@@ -3,6 +3,7 @@ image: {{ DOCKER_IMAGE_SUPERSET }}
   volumes:
     - ../../env/plugins/aspects/apps/superset/docker:/app/docker
     - ../../env/plugins/aspects/apps/superset/pythonpath:/app/pythonpath
+    - ../../env/plugins/aspects/apps/superset/localization:/app/localization
     - ../../env/plugins/aspects/apps/superset/security:/app/security
     - ../../env/plugins/aspects/apps/superset/superset_home:/app/superset_home
     - ../../env/plugins/aspects/apps/superset/assets:/app/assets

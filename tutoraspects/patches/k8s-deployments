@@ -211,6 +211,8 @@ spec:
               name: docker
             - mountPath: /app/pythonpath
               name: pythonpath
+            - mountPath: /app/localization
+              name: localization
             - mountPath: /app/security
               name: security
       volumes:
@@ -220,6 +222,9 @@ spec:
         - name: pythonpath
           configMap:
             name: superset-pythonpath
+        - name: localization
+          configMap:
+            name: superset-localization
         - name: security
           configMap:
             name: superset-security
@@ -300,6 +305,8 @@ spec:
               name: docker
             - mountPath: /app/pythonpath
               name: pythonpath
+            - mountPath: /app/localization
+              name: localization
             - mountPath: /app/security
               name: security
       volumes:
@@ -309,6 +316,9 @@ spec:
         - name: pythonpath
           configMap:
             name: superset-pythonpath
+        - name: localization
+          configMap:
+            name: superset-localization
         - name: security
           configMap:
             name: superset-security
@@ -389,6 +399,8 @@ spec:
               name: docker
             - mountPath: /app/pythonpath
               name: pythonpath
+            - mountPath: /app/localization
+              name: localization
             - mountPath: /app/security
               name: security
       volumes:
@@ -398,6 +410,9 @@ spec:
         - name: pythonpath
           configMap:
             name: superset-pythonpath
+        - name: localization
+          configMap:
+            name: superset-localization
         - name: security
           configMap:
             name: superset-security
