@@ -27,7 +27,7 @@ LANGUAGES = [
 
 def get_text_for_translations(root_path):
     assets_file = (
-        root_path + "/env/plugins/aspects/apps/superset/localization/assets.yaml"
+        root_path + "/env/plugins/aspects/apps/superset/pythonpath/assets.yaml"
     )
 
     strings = []
