@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.52.2 - 2023-10-11
+
+### [0.52.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.52.1...v0.52.2) (2023-10-11)
+
+### Bug Fixes
+
+- Make the Superset MySQL database utf8mb4 ([4e2f9e0](https://github.com/openedx/tutor-contrib-aspects/commit/4e2f9e035970cba2bb7e0c7ab9031013e6e064ae))
+
 ## v0.52.1 - 2023-10-11
 
 ### [0.52.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.52.0...v0.52.1) (2023-10-11)
