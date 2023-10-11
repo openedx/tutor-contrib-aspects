@@ -1,0 +1,47 @@
+_file_name: Posts_per_user.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: a2823d2e-54c4-4378-98c2-817f000c14ab
+description: null
+params:
+  adhoc_filters: []
+  bottom_margin: auto
+  color_scheme: supersetColors
+  columns: []
+  dashboards:
+    - 61
+  datasource: 58__table
+  extra_form_data: {}
+  granularity_sqla: null
+  groupby:
+    - num_posts
+  metrics:
+    - count
+  order_desc: true
+  rich_tooltip: true
+  row_limit: 10000
+  show_legend: true
+  slice_id: 922
+  time_range: No filter
+  timeseries_limit_metric:
+    aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: false
+    label: num_posts
+    optionName: metric_tdazpzouidq_76qbq0kf86v
+    sqlExpression: num_posts
+  viz_type: dist_bar
+  x_axis_label: Posts per user
+  x_ticks_layout: auto
+  y_axis_bounds:
+    - null
+    - null
+  y_axis_format: SMART_NUMBER
+  y_axis_label: Number of users
+slice_name: Posts per user
+uuid: bc191ce7-f39d-48db-86a9-d19949f4211d
+version: 1.0.0
+viz_type: dist_bar
