@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.53.0 - 2023-10-11
+
+### [0.53.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.52.2...v0.53.0) (2023-10-11)
+
+#### Features
+
+- add forum interaction tab ([e923a30](https://github.com/openedx/tutor-contrib-aspects/commit/e923a304c652843f137d3e7d1887da6f09bdf00d))
+
+#### Code Refactoring
+
+- remove unnecessary query_context from forum charts ([48cd3da](https://github.com/openedx/tutor-contrib-aspects/commit/48cd3dae28d5765da235c4a035d5971636d3cdfb))
+
 ## v0.52.2 - 2023-10-11
 
 ### [0.52.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.52.1...v0.52.2) (2023-10-11)
