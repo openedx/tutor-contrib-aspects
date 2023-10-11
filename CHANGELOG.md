@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.52.1 - 2023-10-11
+
+### [0.52.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.52.0...v0.52.1) (2023-10-11)
+
+### Bug Fixes
+
+- Incorrect path for assets introduced in the loc refactor ([d6858fe](https://github.com/openedx/tutor-contrib-aspects/commit/d6858fe19d7e8b8f7d4d1a692650ea564b576477))
+
+### Build Systems
+
+- Move locale.yaml to new mount location ([e93a095](https://github.com/openedx/tutor-contrib-aspects/commit/e93a0951adbafb283e7bfad05f655ba98b631554))
+
+### Code Refactoring
+
+- Tidy up Operator Dashboard ([6c9f957](https://github.com/openedx/tutor-contrib-aspects/commit/6c9f957290a2ffde73a8acacd496d1fe185f4451))
+
 ## v0.52.0 - 2023-10-10
 
 ### [0.52.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.51.1...v0.52.0) (2023-10-10)
