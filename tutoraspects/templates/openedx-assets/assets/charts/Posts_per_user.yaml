@@ -1,0 +1,65 @@
+_file_name: Posts_per_user.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: a2823d2e-54c4-4378-98c2-817f000c14ab
+description: null
+params:
+  adhoc_filters: []
+  bottom_margin: auto
+  color_scheme: supersetColors
+  columns: []
+  dashboards:
+  - 61
+  datasource: 58__table
+  extra_form_data: {}
+  granularity_sqla: null
+  groupby:
+  - num_posts
+  metrics:
+  - count
+  order_desc: true
+  rich_tooltip: true
+  row_limit: 10000
+  show_legend: true
+  slice_id: 922
+  time_range: No filter
+  timeseries_limit_metric:
+    aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: false
+    label: num_posts
+    optionName: metric_tdazpzouidq_76qbq0kf86v
+    sqlExpression: num_posts
+  viz_type: dist_bar
+  x_axis_label: Posts per user
+  x_ticks_layout: auto
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  y_axis_label: Number of users
+query_context: '{"datasource": {"id": 58, "type": "table"}, "force": false, "queries":
+  [{"time_range": "No filter", "filters": [], "extras": {"having": "", "where": ""},
+  "applied_time_extras": {}, "columns": ["num_posts"], "metrics": ["count"], "annotation_layers":
+  [], "row_limit": 10000, "series_limit": 0, "series_limit_metric": {"aggregate":
+  null, "column": null, "datasourceWarning": false, "expressionType": "SQL", "hasCustomLabel":
+  false, "label": "num_posts", "optionName": "metric_tdazpzouidq_76qbq0kf86v", "sqlExpression":
+  "num_posts"}, "order_desc": true, "url_params": {}, "custom_params": {}, "custom_form_data":
+  {}}], "form_data": {"datasource": "58__table", "viz_type": "dist_bar", "slice_id":
+  922, "granularity_sqla": null, "time_range": "No filter", "metrics": ["count"],
+  "adhoc_filters": [], "groupby": ["num_posts"], "columns": [], "row_limit": 10000,
+  "timeseries_limit_metric": {"aggregate": null, "column": null, "datasourceWarning":
+  false, "expressionType": "SQL", "hasCustomLabel": false, "label": "num_posts", "optionName":
+  "metric_tdazpzouidq_76qbq0kf86v", "sqlExpression": "num_posts"}, "order_desc": true,
+  "color_scheme": "supersetColors", "show_legend": true, "rich_tooltip": true, "y_axis_format":
+  "SMART_NUMBER", "y_axis_label": "Number of users", "y_axis_bounds": [null, null],
+  "x_axis_label": "Posts per user", "bottom_margin": "auto", "x_ticks_layout": "auto",
+  "extra_form_data": {}, "dashboards": [61], "force": false, "result_format": "json",
+  "result_type": "full"}, "result_format": "json", "result_type": "full"}'
+slice_name: Posts per user
+uuid: bc191ce7-f39d-48db-86a9-d19949f4211d
+version: 1.0.0
+viz_type: dist_bar
