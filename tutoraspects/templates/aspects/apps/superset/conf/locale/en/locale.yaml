@@ -1,22 +1,6 @@
 en:
-  ? "# Instance information Aspects: ' ASPECTS_VERSION '\n{% if RUN_VECTOR %} - **Vector\
-    \ Version**: ' DOCKER_IMAGE_VECTOR ' \n {% endif %} {% if RUN_CLICKHOUSE %} -\
-    \ **Clickhouse Version**: ' DOCKER_IMAGE_CLICKHOUSE ' \n {% endif %} {% if RUN_RALPH\
-    \ %} - **Ralph Version**: ' DOCKER_IMAGE_RALPH ' \n {% endif %} {% if RUN_SUPERSET\
-    \ %} - **Superset Version**: ' DOCKER_IMAGE_SUPERSET ' \n {% endif %} \n\n## Dependencies:\
-    \ {% for requirement in OPENEDX_EXTRA_PIP_REQUIREMENTS %} {% if 'openedx-event-sink-clickhouse'\
-    \ in requirement %} - **Clickhouse Event Sink Version**: ' requirement.split('==')[1]\
-    \ ' \n {% elif 'event-routing-backends' in requirement %} - **Event Routing Backends\
-    \ Version**: ' requirement.split('==')[1] ' \n {% endif %} {% endfor %} "
-  : "# Instance information Aspects: ' ASPECTS_VERSION '\n{% if RUN_VECTOR %} - **Vector\
-    \ Version**: ' DOCKER_IMAGE_VECTOR ' \n {% endif %} {% if RUN_CLICKHOUSE %} -\
-    \ **Clickhouse Version**: ' DOCKER_IMAGE_CLICKHOUSE ' \n {% endif %} {% if RUN_RALPH\
-    \ %} - **Ralph Version**: ' DOCKER_IMAGE_RALPH ' \n {% endif %} {% if RUN_SUPERSET\
-    \ %} - **Superset Version**: ' DOCKER_IMAGE_SUPERSET ' \n {% endif %} \n\n## Dependencies:\
-    \ {% for requirement in OPENEDX_EXTRA_PIP_REQUIREMENTS %} {% if 'openedx-event-sink-clickhouse'\
-    \ in requirement %} - **Clickhouse Event Sink Version**: ' requirement.split('==')[1]\
-    \ ' \n {% elif 'event-routing-backends' in requirement %} - **Event Routing Backends\
-    \ Version**: ' requirement.split('==')[1] ' \n {% endif %} {% endfor %} "
+  ? "# Instance information Aspects: "
+  : "# Instance information Aspects: "
   ? '### Course Enrollment
 
 
