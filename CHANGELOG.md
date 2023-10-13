@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.55.0 - 2023-10-13
+
+### [0.55.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.54.0...v0.55.0) (2023-10-13)
+
+#### Features
+
+- create embeddable UUID ([d272077](https://github.com/openedx/tutor-contrib-aspects/commit/d2720772fc146982785281c124bc65ced2bee8e0))
+- create Superset LMS admin user ([cef50fd](https://github.com/openedx/tutor-contrib-aspects/commit/cef50fd5efa1bea5879fc0531a7d7b03a6a2371e))
+- inject superset dashboards settings in LMS ([30cce25](https://github.com/openedx/tutor-contrib-aspects/commit/30cce25b23a41e42891f7c457341bbfe2edb0a78))
+
+#### Code Refactoring
+
+- define SUPERSET_EMBEDDABLE_DASHBOARDS setting ([6c8cb82](https://github.com/openedx/tutor-contrib-aspects/commit/6c8cb829ecafbdbf4f2e09292eaeedbbf35634a2))
+
 ## v0.54.0 - 2023-10-13
 
 ### [0.54.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.53.0...v0.54.0) (2023-10-13)
