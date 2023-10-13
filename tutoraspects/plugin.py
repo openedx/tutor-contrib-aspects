@@ -262,7 +262,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             },
         ),
         ("SUPERSET_ADMIN_EMAIL", "admin@openedx.org"),
-        ("SUPERSET_LMS_EMAIL", "lms@openedx.org"),
+        ("SUPERSET_LMS_EMAIL", "superset/lms-admin@aspects.invalid"),
         ("SUPERSET_OWNERS", []),
         # Set to 0 to have no row limit.
         ("SUPERSET_ROW_LIMIT", 100_000),
