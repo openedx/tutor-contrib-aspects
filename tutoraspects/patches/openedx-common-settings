@@ -6,10 +6,3 @@ EVENT_SINK_CLICKHOUSE_BACKEND_CONFIG = {
 	"database": "{{ ASPECTS_EVENT_SINK_DATABASE }}",
 	"timeout_secs": {{ ASPECTS_EVENT_SINK_CLICKHOUSE_TIMEOUT_SECS }}
 }
-SUPERSET_DASHBOARDS = {
-	{% for dashboard, body in SUPERSET_DASHBOARDS.items() %}"{{ dashboard }}": {
-		"uuid": "{{ body.uuid }}",
-		"slug": "{{ body.slug }}",
-		"title": "{{ body.title }}",
-	},{% endfor %}
-}

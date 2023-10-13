@@ -2,7 +2,7 @@ _file_name: Instructor_Dashboard.yaml
 _roles:
 - {{ SUPERSET_ROLES_MAPPING.instructor }}
 css: ''
-dashboard_title: {{ SUPERSET_DASHBOARDS.instructor_dashboard.title }}
+dashboard_title: Instructor Dashboard
 description: null
 metadata:
   chart_configuration:
@@ -908,6 +908,6 @@ position:
     parents:
     - ROOT_ID
     type: TABS
-slug: {{ SUPERSET_DASHBOARDS.instructor_dashboard.slug }}
-uuid: {{ SUPERSET_DASHBOARDS.instructor_dashboard.uuid }}
+slug: instructor-dashboard
+uuid: 1d6bf904-f53f-47fd-b1c9-6cd7e284d286
 version: 1.0.0

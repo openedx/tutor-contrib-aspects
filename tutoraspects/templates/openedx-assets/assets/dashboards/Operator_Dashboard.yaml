@@ -2,7 +2,7 @@ _file_name: Operator_Dashboard.yaml
 _roles:
 - {{ SUPERSET_ROLES_MAPPING.operator }}
 css: ''
-dashboard_title: {{ SUPERSET_DASHBOARDS.operator_dashboard.title }}
+dashboard_title: Operator Dashboard
 description: null
 metadata:
   chart_configuration:
@@ -728,6 +728,6 @@ position:
     - ROOT_ID
     - GRID_ID
     type: TABS
-slug: {{ SUPERSET_DASHBOARDS.operator_dashboard.slug }}
-uuid: {{ SUPERSET_DASHBOARDS.operator_dashboard.uuid }}
+slug: operator-dashboard
+uuid: 02c0121c-40e9-4d8a-b86a-6b996a1cc6fe
 version: 1.0.0

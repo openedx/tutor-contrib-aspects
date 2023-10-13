@@ -256,18 +256,9 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             },
         ),
         (
-            "SUPERSET_DASHBOARDS",
+            "SUPERSET_EMBEDDABLE_DASHBOARDS",
             {
-                "instructor_dashboard": {
-                    "uuid": "1d6bf904-f53f-47fd-b1c9-6cd7e284d286",
-                    "title": "Instructor Dashboard",
-                    "slug": "instructor-dashboard",
-                },
-                "operator_dashboard": {
-                    "uuid": "02c0121c-40e9-4d8a-b86a-6b996a1cc6fe",
-                    "title": "Operator Dashboard",
-                    "slug": "operator-dashboard",
-                },
+                "instructor-dashboard": "1d6bf904-f53f-47fd-b1c9-6cd7e284d286",
             },
         ),
         ("SUPERSET_ADMIN_EMAIL", "admin@openedx.org"),
