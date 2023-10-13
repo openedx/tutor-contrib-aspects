@@ -107,3 +107,6 @@ JINJA_CONTEXT_ADDONS = {
 # https://flask.palletsprojects.com/en/latest/deploying/proxy_fix/
 ENABLE_PROXY_FIX = True
 {% endif %}
+
+
+{{ patch('superset-config-docker')}}
