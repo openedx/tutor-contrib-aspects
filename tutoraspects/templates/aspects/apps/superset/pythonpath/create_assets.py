@@ -16,6 +16,7 @@ from superset.examples.utils import load_configs_from_directory
 from superset.extensions import db
 from superset.models.dashboard import Dashboard
 from superset.utils.database import get_or_create_db
+from superset.models.embedded_dashboard import EmbeddedDashboard
 
 BASE_DIR = "/app/assets/superset"
 
@@ -235,6 +236,15 @@ def update_dashboard_roles(roles):
         dashboard.published = True
         if owners:
             dashboard.owners = owners
+        db.session.commit()
+
+        embedded_dashboard = db.session.query(EmbeddedDashboard).filter_by(dashboard_id=dashboard.id).first()
+        if embedded_dashboard is None:
+            embedded_dashboard = EmbeddedDashboard()
+            embedded_dashboard.dashboard_id = dashboard.id
+        embedded_dashboard.uuid = dashboard_uuid
+
+        db.session.add(embedded_dashboard)
         db.session.commit()
 
 
