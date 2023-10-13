@@ -1,4 +1,4 @@
-name: Compile Translations
+name: Pull Translations
 on:
   workflow_dispatch:
   schedule:
@@ -6,8 +6,6 @@ on:
 
 env:
   TUTOR_ROOT: ./.ci/
-  TRANSIFEX_TOKEN: ${{ secrets.EDUNEXT_ASPECTS_ASSET_TRANSIFEX_TOKEN }}
-  TRANSIFEX_SECRET: ${{ secrets.EDUNEXT_ASPECTS_ASSET_TRANSIFEX_SECRET }}
 
 jobs:
   compile_translations:
@@ -24,7 +22,7 @@ jobs:
       - name: Install requirements
         run: make requirements
       - name: Mark for translation
-        run: make compile_translations
+        run: make pull_translations
       - name: Get current date
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
