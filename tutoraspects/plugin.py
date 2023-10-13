@@ -267,8 +267,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                     "uuid": "02c0121c-40e9-4d8a-b86a-6b996a1cc6fe",
                     "title": "Operator Dashboard",
                     "slug": "operator-dashboard",
-                }
-            }
+                },
+            },
         ),
         ("SUPERSET_ADMIN_EMAIL", "admin@openedx.org"),
         ("SUPERSET_OWNERS", []),
