@@ -16,6 +16,7 @@ from superset.examples.utils import load_configs_from_directory
 from superset.extensions import db
 from superset.models.dashboard import Dashboard
 from superset.utils.database import get_or_create_db
+from superset.models.embedded_dashboard import EmbeddedDashboard
 
 BASE_DIR = "/app/assets/superset"
 
@@ -83,6 +84,7 @@ def create_assets():
 
     import_assets()
     update_dashboard_roles(roles)
+    update_embeddable_uuids()
 
 
 def get_uuid5(base_uuid, name):
@@ -237,6 +239,23 @@ def update_dashboard_roles(roles):
             dashboard.owners = owners
         db.session.commit()
 
+
+def update_embeddable_uuids():
+    """Update the uuids of the embeddable dashboards"""
+    for dashboard_slug, embeddable_uuid in {{SUPERSET_EMBEDDABLE_DASHBOARDS}}.items():
+        dashboard = db.session.query(Dashboard).filter_by(slug=dashboard_slug).first()
+        if dashboard is None:
+            print(f"WARNING: Dashboard {dashboard_slug} not found")
+            continue
+
+        embedded_dashboard = db.session.query(EmbeddedDashboard).filter_by(dashboard_id=dashboard.id).first()
+        if embedded_dashboard is None:
+            embedded_dashboard = EmbeddedDashboard()
+            embedded_dashboard.dashboard_id = dashboard.id
+        embedded_dashboard.uuid = embeddable_uuid
+
+        db.session.add(embedded_dashboard)
+        db.session.commit()
 
 def get_translation(text, language):
     """Get a translation for a text in a language"""

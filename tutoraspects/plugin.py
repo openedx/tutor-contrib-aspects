@@ -255,7 +255,14 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "student": "Student",
             },
         ),
+        (
+            "SUPERSET_EMBEDDABLE_DASHBOARDS",
+            {
+                "instructor-dashboard": "1d6bf904-f53f-47fd-b1c9-6cd7e284d286",
+            },
+        ),
         ("SUPERSET_ADMIN_EMAIL", "admin@openedx.org"),
+        ("SUPERSET_LMS_EMAIL", "superset/lms-admin@aspects.invalid"),
         ("SUPERSET_OWNERS", []),
         # Set to 0 to have no row limit.
         ("SUPERSET_ROW_LIMIT", 100_000),
@@ -403,6 +410,8 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         ("SUPERSET_OAUTH2_CLIENT_SECRET", "{{ 16|random_string }}"),
         ("SUPERSET_ADMIN_USERNAME", "{{ 12|random_string }}"),
         ("SUPERSET_ADMIN_PASSWORD", "{{ 24|random_string }}"),
+        ("SUPERSET_LMS_USERNAME", "{{ 12|random_string }}"),
+        ("SUPERSET_LMS_PASSWORD", "{{ 24|random_string }}"),
     ]
 )
 

@@ -1,8 +1,15 @@
 # Configuration needed for openedx-event-sink-clickhouse
 EVENT_SINK_CLICKHOUSE_BACKEND_CONFIG = {
-        "url": "{% if CLICKHOUSE_SECURE_CONNECTION %}https{% else %}http{% endif %}://{{ CLICKHOUSE_HOST }}:{{ CLICKHOUSE_INTERNAL_HTTP_PORT }}",
-        "username": "{{ ASPECTS_CLICKHOUSE_CMS_USER }}",
-        "password": "{{ ASPECTS_CLICKHOUSE_CMS_PASSWORD }}",
-        "database": "{{ ASPECTS_EVENT_SINK_DATABASE }}",
-        "timeout_secs": {{ ASPECTS_EVENT_SINK_CLICKHOUSE_TIMEOUT_SECS }}
+	"url": "{% if CLICKHOUSE_SECURE_CONNECTION %}https{% else %}http{% endif %}://{{ CLICKHOUSE_HOST }}:{{ CLICKHOUSE_INTERNAL_HTTP_PORT }}",
+	"username": "{{ ASPECTS_CLICKHOUSE_CMS_USER }}",
+	"password": "{{ ASPECTS_CLICKHOUSE_CMS_PASSWORD }}",
+	"database": "{{ ASPECTS_EVENT_SINK_DATABASE }}",
+	"timeout_secs": {{ ASPECTS_EVENT_SINK_CLICKHOUSE_TIMEOUT_SECS }}
+}
+SUPERSET_CONFIG = {
+	"service_url": "http://superset:{{ SUPERSET_PORT }}/",
+	"host": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ SUPERSET_HOST }}",
+	"username": "{{ SUPERSET_LMS_USERNAME }}",
+	"password": "{{ SUPERSET_LMS_PASSWORD }}",
+	"email": "{{ SUPERSET_LMS_EMAIL }}",
 }

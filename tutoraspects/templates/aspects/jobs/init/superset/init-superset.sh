@@ -52,6 +52,13 @@ superset fab create-admin \
   --lastname Admin \
   --email "{{ SUPERSET_ADMIN_EMAIL }}"
 
+superset fab create-admin \
+  --username "{{ SUPERSET_LMS_USERNAME }}" \
+  --password "{{ SUPERSET_LMS_PASSWORD }}" \
+  --firstname LMS \
+  --lastname Admin \
+  --email "{{ SUPERSET_LMS_EMAIL }}"
+
 # Update the password of the Admin user
 # (in case it changed since the user was created)
 superset fab reset-password \
