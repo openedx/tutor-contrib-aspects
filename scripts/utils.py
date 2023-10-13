@@ -131,9 +131,10 @@ def extract_translations(root_path):
     An English locale file is created, which openedx-translations will send to
     Transifex for translation.
     """
-    translation_file = (
-        "tutoraspects/templates/aspects/apps/superset/conf/locale/en/locale.yaml"
-    )
+    # The expectation is that this will end up at the site root, which should
+    # be cwd for make targets. This is a temporary file used only in the Github
+    # action in openedx-translations.
+    translation_file = "transifex_input.yaml"
 
     print("Gathering text for translations...")
     STRINGS = set(get_text_for_translations(root_path))

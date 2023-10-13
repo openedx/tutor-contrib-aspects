@@ -9,3 +9,4 @@ __pycache__
 /.idea/
 venv/
 env/
+transifex_input.yaml
