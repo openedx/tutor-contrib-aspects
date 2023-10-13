@@ -1,0 +1,225 @@
+en:
+  ? "# Instance information Aspects: "
+  : "# Instance information Aspects: "
+  ? '### Course Enrollment
+
+
+
+    These charts can help you understand how many students are enrolled in your course
+    by showing how enrollments have changed over time and which enrollment modes students
+    are choosing. More details about each chart can be found by clicking the "3 dot"
+    menu at the top right of the chart and selecting "Show chart description".
+
+
+    You can filter these results by choosing selecting various options from the filters
+    on the left.'
+  : '### Course Enrollment
+
+
+
+    These charts can help you understand how many students are enrolled in your course
+    by showing how enrollments have changed over time and which enrollment modes students
+    are choosing. More details about each chart can be found by clicking the "3 dot"
+    menu at the top right of the chart and selecting "Show chart description".
+
+
+    You can filter these results by choosing selecting various options from the filters
+    on the left.'
+  ? '### Problem Engagement
+
+
+    These charts can help you learn which problems your students have engaged with
+    or skipped, and the relative difficulty of problems across your course. More details
+    about each chart can be found by clicking the "3 dot" menu at the top right of
+    the chart and selecting "Show chart description".
+
+
+    **Select a course from the filters on the left to populate these charts.**'
+  : '### Problem Engagement
+
+
+    These charts can help you learn which problems your students have engaged with
+    or skipped, and the relative difficulty of problems across your course. More details
+    about each chart can be found by clicking the "3 dot" menu at the top right of
+    the chart and selecting "Show chart description".
+
+
+    **Select a course from the filters on the left to populate these charts.**'
+  ? '### Problem Performance
+
+
+    These charts help show the difficulty of your problems by showing you which answers
+    your students choose and which require many tries or hints to complete successfully.
+
+
+    **Select a problem from the filters on the left to populate the charts.**'
+  : '### Problem Performance
+
+
+    These charts help show the difficulty of your problems by showing you which answers
+    your students choose and which require many tries or hints to complete successfully.
+
+
+    **Select a problem from the filters on the left to populate the charts.**'
+  ? '### Video Engagement
+
+
+    These charts can help understand which videos are watched, and rewatched, most
+    often. It can also show how many users use the closed captions and transcript
+    features on your videos, and how often.
+
+
+    **Select a course from the filters on the left to populate these charts.**'
+  : '### Video Engagement
+
+
+    These charts can help understand which videos are watched, and rewatched, most
+    often. It can also show how many users use the closed captions and transcript
+    features on your videos, and how often.
+
+
+    **Select a course from the filters on the left to populate these charts.**'
+  ? '### Video Performance
+
+
+    This section allows you to see which parts of a particular video are most watched
+    or skipped.
+
+
+    **Select a video from the filters on the left to populate these charts.**'
+  : '### Video Performance
+
+
+    This section allows you to see which parts of a particular video are most watched
+    or skipped.
+
+
+    **Select a video from the filters on the left to populate these charts.**'
+  ? A count of the number of enrollments and un-enrollments per day. Learners can
+    enroll and unenroll multiple times, in this chart each individual enrollment and
+    unenrollment will be counted.
+  : A count of the number of enrollments and un-enrollments per day. Learners can
+    enroll and unenroll multiple times, in this chart each individual enrollment and
+    unenrollment will be counted.
+  Active Users Per Organization: Active Users Per Organization
+  Actor IDs over time: Actor IDs over time
+  Answers Chosen: Answers Chosen
+  ClickHouse: ClickHouse
+  Course Enrollment: Course Enrollment
+  Course Enrollments Over Time: Course Enrollments Over Time
+  Course Grade (out of 100%): Course Grade (out of 100%)
+  Course Grade Distribution: Course Grade Distribution
+  Courses: Courses
+  Courses Per Organization: Courses Per Organization
+  Currently Enrolled Learners Per Day: Currently Enrolled Learners Per Day
+  Distinct forum users: Distinct forum users
+  Distribution Of Attempts: Distribution Of Attempts
+  Distribution Of Hints Per Correct Answer: Distribution Of Hints Per Correct Answer
+  Distribution Of Problem Grades: Distribution Of Problem Grades
+  Distribution Of Responses: Distribution Of Responses
+  Enrollment Events Per Day: Enrollment Events Per Day
+  Enrollments: Enrollments
+  Enrollments By Enrollment Mode: Enrollments By Enrollment Mode
+  Enrollments By Type: Enrollments By Type
+  Event type: Event type
+  Events per course: Events per course
+  Forum Interaction: Forum Interaction
+  Hints / Answer Displayed Before Correct Answer Chosen: Hints / Answer Displayed
+    Before Correct Answer Chosen
+  Instance Health: Instance Health
+  Instructor Dashboard: Instructor Dashboard
+  Last Received Event: Last Received Event
+  Last course syncronized: Last course syncronized
+  Most Active Courses Per Day: Most Active Courses Per Day
+  Number Of Attempts To Find Correct Answer: Number Of Attempts To Find Correct Answer
+  Number Of Students: Number Of Students
+  Number Of Viewers / Views: Number Of Viewers / Views
+  Number of Users / Uses: Number of Users / Uses
+  Number of Views / Viewers: Number of Views / Viewers
+  Number of users: Number of users
+  Operator Dashboard: Operator Dashboard
+  Organizations: Organizations
+  Percentage Grade: Percentage Grade
+  Posts per user: Posts per user
+  Problem Engagement: Problem Engagement
+  Problem Performance: Problem Performance
+  Question Title: Question Title
+  Responses: Responses
+  Responses Per Problem: Responses Per Problem
+  Seconds Of Video: Seconds Of Video
+  Slowest ClickHouse Queries: Slowest ClickHouse Queries
+  Students: Students
+  ? The cumulative total of unique enrolled learners based on their enrollment state
+    at the end of each day. If a learner was enrolled previously, but has left the
+    course since, they are not counted as of the date they left. If they re-enroll
+    in the course they will be counted again.
+  : The cumulative total of unique enrolled learners based on their enrollment state
+    at the end of each day. If a learner was enrolled previously, but has left the
+    course since, they are not counted as of the date they left. If they re-enroll
+    in the course they will be counted again.
+  ? The current count of active enrollments by their most recent enrollment type,
+    so if a learner upgraded from Audit to Verified they will only be counted once
+    as Verified. Learners who have un-enrolled in the course are not counted.
+  : The current count of active enrollments by their most recent enrollment type,
+    so if a learner upgraded from Audit to Verified they will only be counted once
+    as Verified. Learners who have un-enrolled in the course are not counted.
+  The distribution of grades for a course, out of 100%. Grades are grouped in ranges of 10%.: The
+    distribution of grades for a course, out of 100%. Grades are grouped in ranges
+    of 10%.
+  ? The number of students who have responded to a question, and whether they have
+    ever answered correctly. Students can answer some questions multiple times, but
+    this chart counts each student only once per question.
+  : The number of students who have responded to a question, and whether they have
+    ever answered correctly. Students can answer some questions multiple times, but
+    this chart counts each student only once per question.
+  ? This chart displays counts of the number of times hints (including displaying
+    the answer itself) were displayed for each learner who eventually answered the
+    problem correctly. If the problem had no hint or answer display configured this
+    chart will group everyone into "0".
+  : This chart displays counts of the number of times hints (including displaying
+    the answer itself) were displayed for each learner who eventually answered the
+    problem correctly. If the problem had no hint or answer display configured this
+    chart will group everyone into "0".
+  ? This chart helps understand how many learners are using the video's transcripts
+    or closed captions. If the video has not transcripts or captions the chart will
+    be empty.
+  : This chart helps understand how many learners are using the video's transcripts
+    or closed captions. If the video has not transcripts or captions the chart will
+    be empty.
+  ? This chart shows how many unique learners have watched each video, and how many
+    repeat views each has gotten. If a video has never been played it will not appear
+    in this chart.
+  : This chart shows how many unique learners have watched each video, and how many
+    repeat views each has gotten. If a video has never been played it will not appear
+    in this chart.
+  ? This chart shows how often an answer or combination of answers (for multi-select)
+    is selected by learners. Some problems allow learners to submit a response more
+    than once, this chart will include all of the responses in that case.
+  : This chart shows how often an answer or combination of answers (for multi-select)
+    is selected by learners. Some problems allow learners to submit a response more
+    than once, this chart will include all of the responses in that case.
+  ? This chart shows the number of attempts that students needed to make before getting
+    the problem's answer correct. This only counts students who eventually answered
+    correctly.
+  : This chart shows the number of attempts that students needed to make before getting
+    the problem's answer correct. This only counts students who eventually answered
+    correctly.
+  ? 'This chart shows the number of students who scored within a certain percentage
+    of points for this problem. For problems that are pass/fail it will only show
+    the lowest and highest percentage ranges. '
+  : 'This chart shows the number of students who scored within a certain percentage
+    of points for this problem. For problems that are pass/fail it will only show
+    the lowest and highest percentage ranges. '
+  ? This chart shows which parts of a video are most watched, and which are most re-watched.
+    Each segment represents 5 seconds of the video.
+  : This chart shows which parts of a video are most watched, and which are most re-watched.
+    Each segment represents 5 seconds of the video.
+  Total Organizations: Total Organizations
+  Transcripts / Captions Per Video: Transcripts / Captions Per Video
+  Unique actors: Unique actors
+  Video Engagement: Video Engagement
+  Video Performance: Video Performance
+  Video Title: Video Title
+  Watched Video Segments: Watched Video Segments
+  Watches Per Video: Watches Per Video
+  xAPI Events Over Time: xAPI Events Over Time

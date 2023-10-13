@@ -1,50 +1,46 @@
+import os
 import yaml
-from transifex.native import tx
-from transifex.native.parsing import SourceString
 
 ASSET_FOLDER_MAPPING = {
     "dashboard_title": "dashboards",
     "slice_name": "charts",
-    "database_name": "databases",
-    "table_name": "datasets",
 }
-
-LANGUAGES = [
-    "es",
-    "it",
-    "fr",
-    "zh",
-    "ja",
-    "de",
-    "pt",
-    "ru",
-    "ko",
-    "sk",
-    "sl",
-    "nl",
-]
 
 
 def get_text_for_translations(root_path):
-    assets_file = (
-        root_path + "/env/plugins/aspects/apps/superset/pythonpath/assets.yaml"
+    assets_path = (
+        os.path.join(root_path, "tutoraspects/templates/openedx-assets/assets/")
     )
+
+    print(f"Assets path: {assets_path}")
 
     strings = []
 
-    file = yaml.load(open(assets_file, "r"), Loader=yaml.FullLoader)
+    for root, dirs, files in os.walk(assets_path):
+        for file in files:
+            if not file.endswith(".yaml"):
+                continue
+            path = os.path.join(root, file)
+            print(f"Reading {path}")
+            with open(path, 'r') as asset_file:
+                asset_str = asset_file.read().replace("{{", "'")
+                asset_str = asset_str.replace("}}", "'")
 
-    for asset in file:
-        strings.extend(mark_text_for_translation(asset))
+            asset = yaml.safe_load(asset_str)
+            strings.extend(mark_text_for_translation(asset))
 
     return strings
 
 
 def mark_text_for_translation(asset):
-    """For every asset extract the text and mark it for translation"""
+    """
+    For every asset extract the text and mark it for translation
+    """
 
     def extract_text(asset, type):
-        """Extract text from an asset"""
+        """
+        Extract text from an asset
+        """
         strings = []
         if type == "dashboards":
             strings.append(asset["dashboard_title"])
@@ -73,64 +69,82 @@ def mark_text_for_translation(asset):
             if asset["params"].get("y_axis_label"):
                 strings.append(asset["params"]["y_axis_label"])
 
-        elif type == "databases":
-            # WARNING: Databases are not translated
-            pass
-        elif type == "datasets":
-            # WARNING: Datasets are not translated
-            pass
         return strings
 
     for key, value in ASSET_FOLDER_MAPPING.items():
         if key in asset:
             strings = extract_text(asset, value)
             print(
-                f"Extracting text from {value} {asset.get('uuid')}",
-                strings,
+                f"Extracted {len(strings)} strings from {value} {asset.get('uuid')}"
             )
             return strings
 
+    # If we get here it's a type of asset that we don't translate, return nothing.
+    return []
+
 
 def compile_translations(root_path):
-    print("Fetching translations...")
-    tx.fetch_translations()
+    """
+    Combine translated files into the single file we use for translation.
 
-    translation_file = (
-        "tutoraspects/templates/aspects/apps/superset/localization/locale.yaml"
-    )
-    file = open(translation_file, "w")
-
-    STRINGS = get_text_for_translations(root_path)
-
-    translations = {}
-
-    print("Compiling translations...")
-
-    for language in LANGUAGES:
-        print("Processing language", language)
-        translations[language] = {}
-        for string in STRINGS:
-            if not translations[language].get(string):
-                translation = tx.get_translation(string, language, None)
-                translations[language][string] = translation if translation else ""
-
-    file.write("---\n")
-    file.write(yaml.dump(translations))
-
-    file.write("\n{{ patch('superset-extra-asset-translations')}}\n")
-
-
-def push_translations(root_path):
-    print("Publishing translation strings...")
-
-    STRINGS = get_text_for_translations(root_path)
-
-    source_strings = []
-    for text in STRINGS:
-        source_string = SourceString(
-            text,
+    This should be called after we pull translations using Atlas, see the
+    pull_translations make target.
+    """
+    translations_path = (
+        os.path.join(
+            root_path,
+            "tutoraspects/templates/aspects/apps/superset/conf/locale"
         )
-        source_strings.append(source_string)
+    )
 
-    response_code, response_content = tx.push_source_strings(source_strings, purge=True)
-    print(response_code, response_content)
+    all_translations = {}
+    for root, dirs, files in os.walk(translations_path):
+        for file in files:
+            if not file.endswith(".yaml"):
+                continue
+
+            lang = root.split(os.sep)[-1]
+            path = os.path.join(root, file)
+            with open(path, 'r') as asset_file:
+                loc_str = asset_file.read()
+            all_translations[lang] = yaml.safe_load(loc_str)[lang]
+
+    out_path = (
+        os.path.join(
+            root_path,
+            "tutoraspects/templates/aspects/apps/superset/localization/locale.yaml"
+        )
+    )
+
+    print(f"Writing all translations out to {out_path}")
+    with open(out_path, 'w') as outfile:
+        outfile.write("---\n")
+        yaml.safe_dump(all_translations, outfile)
+        outfile.write("\n{{ patch('superset-extra-asset-translations')}}\n")
+
+
+
+def extract_translations(root_path):
+    """
+    This gathers all translatable text from the Superset assets.
+
+    An English locale file is created, which openedx-translations will send to
+    Transifex for translation.
+    """
+    # The expectation is that this will end up at the site root, which should
+    # be cwd for make targets. This is a temporary file used only in the Github
+    # action in openedx-translations.
+    translation_file = "transifex_input.yaml"
+
+    print("Gathering text for translations...")
+    STRINGS = set(get_text_for_translations(root_path))
+    translations = {'en': {}}
+
+    for string in STRINGS:
+        translations['en'][string] = string
+
+    print(f"Writing English strings to {translation_file}")
+    with open(translation_file, "w") as file:
+        file.write(yaml.dump(translations))
+
+    print("Done compiling translations.")
