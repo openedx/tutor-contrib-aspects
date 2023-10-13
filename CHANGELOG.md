@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.54.0 - 2023-10-13
+
+### [0.54.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.53.0...v0.54.0) (2023-10-13)
+
+#### Features
+
+- add tutor patches for superset config ([b05a198](https://github.com/openedx/tutor-contrib-aspects/commit/b05a198dbd7b2503fec6a7bff7e0d9cdc5d641b6))
+
+#### Bug Fixes
+
+- Remove Jinja from localized files ([6249248](https://github.com/openedx/tutor-contrib-aspects/commit/6249248ae1ce84483d5b2230eb543f486b30ced9))
+
+#### Build Systems
+
+- Add free disk space to dev and local tests ([3d8eb9f](https://github.com/openedx/tutor-contrib-aspects/commit/3d8eb9f3970cd23623dd7ae79395d4d21da2d16c))
+- Update workflows for new translations ([43a967c](https://github.com/openedx/tutor-contrib-aspects/commit/43a967c1cb2d700302156790c9a3ff97a20d05a1))
+
+#### Code Refactoring
+
+- Change where transifex input generates ([f2216b1](https://github.com/openedx/tutor-contrib-aspects/commit/f2216b105697b3ee5860d45fffe0a2d65f5176fc))
+- Move translations to the openedx Transifex project ([c12fdcf](https://github.com/openedx/tutor-contrib-aspects/commit/c12fdcf810980799583ab09ee0746ee9a1f291c5))
+
 ## v0.53.1 - 2023-10-13
 
 ### [0.53.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.53.0...v0.53.1) (2023-10-13)
