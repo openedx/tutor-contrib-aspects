@@ -5,9 +5,7 @@
 #    make upgrade
 #
 altgraph==0.17.4
-    # via
-    #   macholib
-    #   pyinstaller
+    # via pyinstaller
 appdirs==1.4.4
     # via
     #   -r requirements/base.txt
@@ -31,6 +29,8 @@ certifi==2023.7.22
     #   -r requirements/base.txt
     #   kubernetes
     #   requests
+cffi==1.16.0
+    # via cryptography
 charset-normalizer==3.3.0
     # via
     #   -r requirements/base.txt
@@ -41,6 +41,8 @@ click==8.1.7
     #   black
     #   transifex-python
     #   tutor
+cryptography==41.0.4
+    # via secretstorage
 dill==0.3.7
     # via pylint
 docutils==0.20.1
@@ -62,10 +64,16 @@ importlib-metadata==6.8.0
     #   keyring
     #   pyinstaller
     #   twine
+importlib-resources==6.1.0
+    # via keyring
 isort==5.12.0
     # via pylint
 jaraco-classes==3.3.0
     # via keyring
+jeepney==0.8.0
+    # via
+    #   keyring
+    #   secretstorage
 jinja2==3.1.2
     # via
     #   -r requirements/base.txt
@@ -76,8 +84,6 @@ kubernetes==28.1.0
     # via
     #   -r requirements/base.txt
     #   tutor
-macholib==1.16.3
-    # via pyinstaller
 markdown-it-py==3.0.0
     # via rich
 markupsafe==2.1.3
@@ -133,6 +139,8 @@ pyasn1-modules==0.3.0
     # via
     #   -r requirements/base.txt
     #   google-auth
+pycparser==2.21
+    # via cffi
 pycryptodome==3.19.0
     # via
     #   -r requirements/base.txt
@@ -141,9 +149,9 @@ pygments==2.16.1
     # via
     #   readme-renderer
     #   rich
-pyinstaller==6.0.0
+pyinstaller==6.1.0
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2023.9
+pyinstaller-hooks-contrib==2023.10
     # via pyinstaller
 pylint==3.0.1
     # via -r requirements/dev.in
@@ -192,6 +200,8 @@ rsa==4.9
     # via
     #   -r requirements/base.txt
     #   google-auth
+secretstorage==3.3.3
+    # via keyring
 six==1.16.0
     # via
     #   -r requirements/base.txt
@@ -212,7 +222,7 @@ toolz==0.12.0
     #   pyseeyou
 transifex-python==3.4.0
     # via -r requirements/base.txt
-tutor==16.1.3
+tutor==16.1.4
     # via -r requirements/base.txt
 twine==4.0.2
     # via -r requirements/dev.in
@@ -223,6 +233,7 @@ typing-extensions==4.8.0
     #   black
     #   mypy
     #   pylint
+    #   rich
     #   tutor
 urllib3==1.26.17
     # via
@@ -235,7 +246,9 @@ websocket-client==1.6.4
     #   -r requirements/base.txt
     #   kubernetes
 zipp==3.17.0
-    # via importlib-metadata
+    # via
+    #   importlib-metadata
+    #   importlib-resources
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
