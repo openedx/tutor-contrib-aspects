@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.56.0 - 2023-10-16
+
+### [0.56.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.55.0...v0.56.0) (2023-10-16)
+
+#### Features
+
+- add location to block display names ([6b634ba](https://github.com/openedx/tutor-contrib-aspects/commit/6b634baa0ab59c4c44b30569d9a7fd91c55d107e))
+
 ## v0.55.0 - 2023-10-13
 
 ### [0.55.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.54.0...v0.55.0) (2023-10-13)
