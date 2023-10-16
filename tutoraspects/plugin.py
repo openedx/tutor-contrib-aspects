@@ -77,6 +77,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_EVENT_SINK_OVERVIEWS_TABLE", "course_overviews"),
         ("ASPECTS_EVENT_SINK_USER_PROFILE_TABLE", "user_profile"),
         ("ASPECTS_EVENT_SINK_CLICKHOUSE_TIMEOUT_SECS", "5"),
+        ("ASPECTS_EVENT_SINK_RECENT_BLOCKS_TABLE", "most_recent_course_blocks"),
+        ("ASPECTS_EVENT_SINK_RECENT_BLOCKS_MV", "most_recent_course_blocks_mv"),
         # Vector settings
         ("ASPECTS_DOCKER_HOST_SOCK_PATH", "/var/run/docker.sock"),
         ("ASPECTS_VECTOR_DATABASE", "openedx"),
