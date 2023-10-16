@@ -82,6 +82,15 @@ WITH problem_responses AS (
         0 AS num_hints_displayed,
         0 AS num_answers_displayed
     FROM int_problem_results
+    WHERE 1=1
+    {% raw %}
+    {% if from_dttm is not none %}
+    and emission_time > '{{ from_dttm }}'
+    {% endif %}
+    {% if to_dttm is not none %}
+    and emission_time < '{{ to_dttm }}'
+    {% endif %}
+    {% endraw %}
     UNION ALL
     SELECT
         org,
@@ -96,6 +105,14 @@ WITH problem_responses AS (
         caseWithExpression(help_type, 'answer', 1, 0) AS num_answers_displayed
     FROM {{ DBT_PROFILE_TARGET_DATABASE }}.int_problem_hints
     WHERE 1=1
+    {% raw %}
+    {% if from_dttm is not none %}
+    and emission_time > '{{ from_dttm }}'
+    {% endif %}
+    {% if to_dttm is not none %}
+    and emission_time < '{{ to_dttm }}'
+    {% endif %}
+    {% endraw %}
     {% include 'openedx-assets/queries/common_filters.sql' %}
 )
 
