@@ -63,6 +63,7 @@ WITH problem_responses AS (
         course_run,
         problem_id,
         problem_name,
+        problem_name_with_location,
         actor_id,
         responses,
         success,
@@ -76,6 +77,7 @@ WITH problem_responses AS (
         course_name,
         course_run,
         problem_name,
+        problem_name_with_location,
         actor_id,
         success,
         attempts,
@@ -89,6 +91,7 @@ WITH problem_responses AS (
         course_name,
         course_run,
         problem_name,
+        problem_name_with_location,
         actor_id,
         NULL AS success,
         NULL AS attempts,
@@ -106,6 +109,7 @@ SELECT
     course_name,
     course_run,
     problem_name,
+    problem_name_with_location,
     actor_id,
     coalesce(any(success), false) AS success,
     coalesce(any(attempts), 0) AS attempts,
@@ -114,8 +118,8 @@ SELECT
 FROM summary
 where
     {% raw %}
-    {% if filter_values('problem_name') != [] %}
-    problem_name in {{ filter_values('problem_name') | where_in }}
+    {% if filter_values('problem_name_with_location') != [] %}
+    problem_name_with_location in {{ filter_values('problem_name_with_location') | where_in }}
     {% else %}
     1=0
     {% endif %}
@@ -126,4 +130,5 @@ GROUP BY
     course_name,
     course_run,
     problem_name,
+    problem_name_with_location,
     actor_id

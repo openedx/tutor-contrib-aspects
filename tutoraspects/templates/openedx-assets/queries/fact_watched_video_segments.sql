@@ -50,6 +50,7 @@ with video_events as (
         blocks.course_name as course_name,
         blocks.course_run as course_run,
         blocks.block_name as video_name,
+        blocks.display_name_with_location as video_name_with_location,
         segments.actor_id as actor_id,
         segments.started_at as started_at,
         segments.start_position - (segments.start_position % 5) as start_position,
@@ -67,14 +68,15 @@ select
     course_name,
     course_run,
     video_name,
+    video_name_with_location,
     actor_id,
     started_at,
     arrayJoin(range(start_position, end_position, 5)) as segment_start
 from enriched_segments
 where
     {% raw %}
-    {% if filter_values('video_name') != [] %}
-    video_name in {{ filter_values('video_name') | where_in }}
+    {% if filter_values('video_name_with_location') != [] %}
+    video_name_with_location in {{ filter_values('video_name_with_location') | where_in }}
     {% else %}
     1=0
     {% endif %}

@@ -71,18 +71,20 @@ metadata:
   native_filter_configuration:
   - cascadeParentIds: []
     chartsInScope:
+    - 24
     - 25
-    - 30
-    - 40
+    - 32
+    - 34
+    - 37
+    - 45
+    - 46
     - 47
-    - 87
-    - 111
-    - 166
-    - 204
-    - 262
-    - 314
-    - 345
-    - 352
+    - 52
+    - 865
+    - 879
+    - 894
+    - 908
+    - 922
     controlValues:
       enableEmptyFilter: false
     defaultDataMask:
@@ -106,6 +108,7 @@ metadata:
     - TAB-pOd4znTAV
     - TAB-7PGDduCA7
     - TAB-CLiLC4zxo
+    - TAB-eE0OQxuju
     targets:
     - {}
     type: NATIVE_FILTER
@@ -269,7 +272,7 @@ metadata:
     - TAB-pOd4znTAV
     targets:
     - column:
-        name: problem_name
+        name: problem_name_with_location
       datasetUuid: 008e2907-fc6b-45ef-bf85-73a04c5791ff
     type: NATIVE_FILTER
   - cascadeParentIds:
@@ -300,7 +303,7 @@ metadata:
     - TAB-CLiLC4zxo
     targets:
     - column:
-        name: video_name
+        name: video_name_with_location
       datasetUuid: 417b2035-8fa1-4c60-a405-4b1947c3c966
     type: NATIVE_FILTER
   refresh_frequency: 0

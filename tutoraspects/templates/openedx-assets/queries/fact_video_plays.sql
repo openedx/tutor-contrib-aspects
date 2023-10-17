@@ -19,5 +19,6 @@ select
     course_name,
     course_run,
     video_name,
+    video_name_with_location,
     actor_id
 from plays

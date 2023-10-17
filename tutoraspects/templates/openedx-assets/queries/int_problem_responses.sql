@@ -13,6 +13,7 @@ select
     course_run,
     problem_id,
     problem_name,
+    problem_name_with_location,
     actor_id,
     attempts,
     success,

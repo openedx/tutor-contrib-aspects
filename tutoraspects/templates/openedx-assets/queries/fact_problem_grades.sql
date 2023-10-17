@@ -5,8 +5,8 @@ with grades as (
         grade_type = 'problem'
 
         {% raw %}
-        {% if filter_values('problem_name') != [] %}
-        and entity_name in {{ filter_values('problem_name', remove_filter=True) | where_in }}
+        {% if filter_values('problem_name_with_location') != [] %}
+        and entity_name_with_location in {{ filter_values('problem_name_with_location', remove_filter=True) | where_in }}
         {% else %}
         and 1=0
         {% endif %}
@@ -37,6 +37,7 @@ select
     grades.course_name as course_name,
     grades.course_run as course_run,
     grades.entity_name as entity_name,
+    grades.entity_name_with_location as entity_name_with_location,
     grades.actor_id as actor_id,
     grades.grade_type as grade_type,
     grades.scaled_score as scaled_score,

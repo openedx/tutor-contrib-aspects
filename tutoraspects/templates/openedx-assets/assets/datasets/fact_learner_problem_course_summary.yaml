@@ -50,6 +50,18 @@ columns:
   type: Bool
   verbose_name: null
 - advanced_data_type: null
+  column_name: problem_name_with_location
+  description: null
+  expression: null
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: null
+- advanced_data_type: null
   column_name: problem_name
   description: null
   expression: null
