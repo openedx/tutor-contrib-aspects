@@ -8,6 +8,7 @@ select
     course_name,
     course_run,
     problem_name,
+    problem_name_with_location,
     actor_id,
     sum(num_hints_displayed) + sum(num_answers_displayed) as total_hints
 from
@@ -19,4 +20,5 @@ group by
     course_name,
     course_run,
     problem_name,
+    problem_name_with_location,
     actor_id
