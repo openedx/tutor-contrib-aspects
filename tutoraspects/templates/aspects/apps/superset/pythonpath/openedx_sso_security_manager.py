@@ -1,13 +1,11 @@
 import logging
 import time
-from functools import lru_cache
 
 import jwt
 import requests
 from authlib.common.urls import add_params_to_qs, add_params_to_uri
 from authlib.integrations.flask_client import OAuthError
 from flask import current_app, session
-from superset.constants import LRU_CACHE_MAX_SIZE
 from superset.security import SupersetSecurityManager
 
 log = logging.getLogger(__name__)
@@ -69,16 +67,16 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
             oauth_remote = self.oauth_remotes.get(provider)
 
             response = oauth_remote.get(url).json()
-            language_preference = response.get("pref-lang", "en").replace("-", "_")[0:2]
+            locale_preference = response.get("pref-lang", "en").replace("-", "_")
 
-            if language_preference not in current_app.config["LANGUAGES"]:
+            if locale_preference not in current_app.config["DASHBOARD_LOCALES"]:
                 log.warning(
-                    f"Language {language_preference} is not supported by Superset"
+                    f"Language {locale_preference} is not supported by Superset"
                 )
-                language_preference = "en"
+                locale_preference = "en"
 
             user_roles = self._get_user_roles(
-                user_profile.get("preferred_username"), language_preference
+                user_profile.get("preferred_username"), locale_preference
             )
 
             return {
@@ -156,32 +154,32 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         """
         return self.get_oauth_token().get("access_token")
 
-    def _get_user_roles(self, username, language):
+    def _get_user_roles(self, username, locale):
         """
         Returns the Superset roles that should be associated with the given user.
         """
         decoded_access_token = self.decoded_user_info()
 
         if decoded_access_token.get("superuser", False):
-            return ["admin", "admin-{language}"]
+            return ["admin", "admin-{locale}"]
         elif decoded_access_token.get("administrator", False):
-            return ["alpha", "operator", "operator-{language}"]
+            return ["alpha", "operator", "operator-{locale}"]
         else:
             # User has to have staff access to one or more courses to view any content here.
             courses = self.get_courses(username)
             if courses:
-                return ["instructor", f"instructor-{language}"]
+                return ["instructor", f"instructor-{locale}"]
             else:
                 roles = self.extra_get_user_roles(username, decoded_access_token)
                 if roles:
                     if {{SUPERSET_BLOCK_STUDENT_ACCESS}} and 'student' in roles:
                         raise Exception(f"Student access not allowed for {username} due to SUPERSET_BLOCK_STUDENT_ACCESS setting.")
                     return roles
-                
+
                 if {{SUPERSET_BLOCK_STUDENT_ACCESS}}:
                     raise Exception(f"Student {username} tried to access Superset")
                 else:
-                    return ["student", f"student-{language}"]
+                    return ["student", f"student-{locale}"]
 
     def extra_get_user_roles(self, username, decoded_access_token):
         """

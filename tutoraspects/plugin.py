@@ -286,6 +286,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             },
         ),
         ("SUPERSET_TALISMAN_ENABLED", True),
+        # These are languages that Superset itself supports, it does not currently
+        # support different locales for a language.
         ("SUPERSET_DEFAULT_LOCALE", "en"),
         (
             "SUPERSET_SUPPORTED_LANGUAGES",
@@ -304,6 +306,31 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "sl": {"flag": "si", "name": "Slovenian"},
                 "nl": {"flag": "nl", "name": "Dutch"},
             },
+        ),
+        # These are the locales that Open edX supports according to:
+        # https://openedx.atlassian.net/wiki/spaces/COMM/pages/3157524644/Translation+Working+Group
+        (
+            "SUPERSET_DASHBOARD_LOCALES",
+            [
+                "ar",
+                "da",
+                "de_DE",
+                "el",
+                "es_419",
+                "es_ES",
+                "fr_CA",
+                "he",
+                "hi",
+                "id",
+                "it_IT",
+                "pt_BR",
+                "pt_PT",
+                "ru",
+                "th",
+                "tr_TR",
+                "uk",
+                "zh_CN",
+            ],
         ),
         ("SUPERSET_EXTRA_JINJA_FILTERS", {}),
         ("SUPERSET_BLOCK_STUDENT_ACCESS", True),

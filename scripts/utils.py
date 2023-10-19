@@ -107,7 +107,14 @@ def compile_translations(root_path):
             path = os.path.join(root, file)
             with open(path, 'r') as asset_file:
                 loc_str = asset_file.read()
-            all_translations[lang] = yaml.safe_load(loc_str)[lang]
+            loaded_strings = yaml.safe_load(loc_str)
+
+            # Sometimes translated files come back with "en" as the top level
+            # key, but still translated correctly.
+            try:
+                all_translations[lang] = loaded_strings[lang]
+            except KeyError:
+                all_translations[lang] = loaded_strings["en"]
 
     out_path = (
         os.path.join(
