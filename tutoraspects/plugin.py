@@ -330,7 +330,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "tr_TR",
                 "uk",
                 "zh_CN",
-            ]
+            ],
         ),
         ("SUPERSET_EXTRA_JINJA_FILTERS", {}),
         ("SUPERSET_BLOCK_STUDENT_ACCESS", True),
