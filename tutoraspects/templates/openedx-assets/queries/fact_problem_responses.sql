@@ -14,7 +14,12 @@ select
     actor_id,
     attempts,
     success,
-    responses
+    arrayJoin(
+        if(
+            startsWith(responses, '['),
+            cast(responses as Array(String)),
+            [responses]
+    )) as responses
 from
     problem_responses
 where

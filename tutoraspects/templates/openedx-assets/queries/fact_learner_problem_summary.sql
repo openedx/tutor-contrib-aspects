@@ -8,7 +8,7 @@ WITH problem_responses AS (
         problem_id,
         actor_id,
         success,
-        first_value(success) OVER (PARTITION BY course_key, problem_id, actor_id ORDER BY success DESC) AS was_successful
+        first_value(success) OVER (PARTITION BY course_key, problem_id, actor_id ORDER BY success ASC) AS was_successful
     FROM problem_responses
 ), successful_responses AS (
     SELECT
