@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.57.1 - 2023-10-19
+
+### [0.57.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.57.0...v0.57.1) (2023-10-19)
+
+### Bug Fixes
+
+- Lint issue ([36ba791](https://github.com/openedx/tutor-contrib-aspects/commit/36ba791020b2ada47df7e2eea28de1e47f814068))
+
+### Code Refactoring
+
+- Use new Transifex / Atlas pipeline to pull loc ([bf45e35](https://github.com/openedx/tutor-contrib-aspects/commit/bf45e35f977107a94c303916c26a67dc9b212fe4))
+
 ## v0.57.0 - 2023-10-19
 
 ### [0.57.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.56.1...v0.57.0) (2023-10-19)
