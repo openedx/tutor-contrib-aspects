@@ -27,7 +27,7 @@ def upgrade():
             course_run String,
             actor_id String,
             enrollment_mode LowCardinality(String),
-            enrollment_status String
+            enrollment_status LowCardinality(String)
         ) ENGINE = {engine}
         PRIMARY KEY (org, course_key)
         ORDER BY (org, course_key, actor_id, enrollment_mode, enrollment_status, emission_time)
