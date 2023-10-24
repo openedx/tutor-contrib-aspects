@@ -1,0 +1,192 @@
+_file_name: monitoring.superset_action_log.yaml
+table_name: superset_action_log
+main_dttm_col: null
+description: null
+default_endpoint: null
+offset: 0
+cache_timeout: null
+schema: {{SUPERSET_DB_METADATA_NAME}}
+sql: "select\nl.dttm as action_date,\ncase \n  when lower(l.action)\
+  \ = 'queries' then 'query from sqllab'\n  when lower(l.action) = 'chartrestapi.data'\
+  \ then 'query from charts'\n  when lower(l.action) = 'count' then 'dashboard view'\n\
+  \  when lower(l.action) like 'annotation%' then 'annotations'\n  when lower(l.action)\
+  \ like 'css%' then 'CSS'\n  else lower(l.action)\nend as action,\nl.user_id,\nu.username\
+  \ as user_name,\nu.created_on as user_registration_date,\nl.dashboard_id,\nd.dashboard_title,\n\
+  case \n  when d.published = true then 'published'\n  else 'draft'\nend as dashboard_status,\n\
+  l.slice_id,\ns.slice_name,\ns.datasource_type,\ns.datasource_name,\ns.datasource_id,\n\
+  count(1) as action_count\nfrom logs as l\nleft join ab_user as u on u.id = l.user_id\n\
+  left join dashboards as d on d.id = l.dashboard_id\nleft join slices as s on s.id\
+  \ = l.slice_id\nwhere 1=1\nand l.action != 'log'\ngroup by 1,2,3,4,5,6,7,8,9,10,11,12,13"
+params: null
+template_params: null
+filter_select_enabled: false
+fetch_values_predicate: null
+extra: null
+uuid: c33517b3-daa5-4fac-b7f2-ae012b999d12
+metrics:
+- metric_name: count
+  verbose_name: null
+  metric_type: null
+  expression: count(*)
+  description: null
+  d3format: null
+  extra:
+    warning_markdown: ''
+  warning_text: null
+columns:
+- column_name: user_registration_date
+  verbose_name: null
+  is_dttm: true
+  is_active: true
+  type: DATETIME
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: '{}'
+- column_name: action_date
+  verbose_name: null
+  is_dttm: true
+  is_active: true
+  type: DATETIME
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: '{}'
+- column_name: dashboard_status
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: STRING
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: '{}'
+- column_name: dashboard_title
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: STRING
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: '{}'
+- column_name: user_name
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: STRING
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: '{}'
+- column_name: action
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: STRING
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: '{}'
+- column_name: dashboard_id
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: INT
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: '{}'
+- column_name: action_count
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: INT
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: '{}'
+- column_name: slice_id
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: INT
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: '{}'
+- column_name: user_id
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: INT
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: '{}'
+- column_name: datasource_id
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: '{}'
+- column_name: datasource_name
+  verbose_name: null
+  is_dttm: null
+  is_active: true
+  type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: '{}'
+- column_name: datasource_type
+  verbose_name: null
+  is_dttm: null
+  is_active: true
+  type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: '{}'
+- column_name: slice_name
+  verbose_name: null
+  is_dttm: null
+  is_active: true
+  type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: '{}'
+version: 1.0.0
+database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0

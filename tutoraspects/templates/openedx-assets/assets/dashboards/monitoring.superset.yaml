@@ -1,0 +1,454 @@
+_file_name: monitoring.superset.yaml
+_roles:
+- {{ SUPERSET_ROLES_MAPPING.admin }}
+- {{ SUPERSET_ROLES_MAPPING.operator }}
+dashboard_title: Superset Usage
+description: null
+css: ''
+slug: null
+uuid: 2b97d688-2f42-4e24-a2ab-111f7594cfec
+position:
+  CHART-RhGZahacVK:
+    children: []
+    id: CHART-RhGZahacVK
+    meta:
+      chartId: 605
+      height: 39
+      sliceName: monitoring.superset_charts_by_type
+      uuid: 84393abe-04ab-4084-a195-116ad568badd
+      width: 8
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    - TAB-4eeLv-Y4_
+    - ROW-hy1TP2JVW
+    type: CHART
+  CHART-SG5jU4pQPt:
+    children: []
+    id: CHART-SG5jU4pQPt
+    meta:
+      chartId: 368
+      height: 33
+      sliceName: monitoring.superset_registered_users
+      uuid: 68011361-ea45-4875-9165-c84ddbcd1fc5
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    - TAB-z7LunkNp63
+    - ROW-A2SHf-1fx6
+    type: CHART
+  CHART-Yv5sneg3nD:
+    children: []
+    id: CHART-Yv5sneg3nD
+    meta:
+      chartId: 590
+      height: 31
+      sliceName: monitoring.superset_active_users
+      uuid: bc5f7a27-670c-4794-963b-8082b258566f
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    - TAB-z7LunkNp63
+    - ROW-A2SHf-1fx6
+    - COLUMN-85pvSdbZT8
+    type: CHART
+  CHART-dV984MpOZE:
+    children: []
+    id: CHART-dV984MpOZE
+    meta:
+      chartId: 606
+      height: 39
+      sliceName: monitoring.superset_charts_by_time
+      uuid: a5e0f18b-fb83-4d65-81e0-5f0e620fa05b
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    - TAB-4eeLv-Y4_
+    - ROW-hy1TP2JVW
+    type: CHART
+  CHART-kpQQbyTGzF:
+    children: []
+    id: CHART-kpQQbyTGzF
+    meta:
+      chartId: 594
+      height: 38
+      sliceName: monitoring.superset_top_dashboards_by_action_count
+      uuid: 36842ef1-d4e9-4cb6-83f7-cb9b34eaab77
+      width: 8
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    - TAB-eBeph21mb
+    - ROW-dfAo_HEg3
+    type: CHART
+  CHART-o3DU3d8aMU:
+    children: []
+    id: CHART-o3DU3d8aMU
+    meta:
+      chartId: 365
+      height: 57
+      sliceName: monitoring.superset_top_users_by_action_count
+      uuid: 8059fd82-efae-47a1-9c23-0b74f2707aa5
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    - TAB-z7LunkNp63
+    - ROW-XrudxPkfS
+    type: CHART
+  CHART-xvs7803MHR:
+    children: []
+    id: CHART-xvs7803MHR
+    meta:
+      chartId: 611
+      height: 38
+      sliceName: monitoring.superset_dashboards_over_time
+      uuid: 8368fe0b-5e64-4ad5-b93b-93f8a6f848af
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    - TAB-eBeph21mb
+    - ROW-dfAo_HEg3
+    type: CHART
+  CHART-y5hLpxR1mP:
+    children: []
+    id: CHART-y5hLpxR1mP
+    meta:
+      chartId: 592
+      height: 33
+      sliceName: monitoring.superset_active_users_rolling
+      uuid: 66ef96e7-9616-4f28-90b6-68f13ce58b0a
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    - TAB-z7LunkNp63
+    - ROW-A2SHf-1fx6
+    type: CHART
+  COLUMN-85pvSdbZT8:
+    children:
+    - CHART-Yv5sneg3nD
+    id: COLUMN-85pvSdbZT8
+    meta:
+      background: BACKGROUND_TRANSPARENT
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    - TAB-z7LunkNp63
+    - ROW-A2SHf-1fx6
+    type: COLUMN
+  DASHBOARD_VERSION_KEY: v2
+  DIVIDER-1KkpeYC6zi:
+    children: []
+    id: DIVIDER-1KkpeYC6zi
+    meta: {}
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    - TAB-z7LunkNp63
+    type: DIVIDER
+  DIVIDER-zSyKaFeRPk:
+    children: []
+    id: DIVIDER-zSyKaFeRPk
+    meta: {}
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    - TAB-eBeph21mb
+    type: DIVIDER
+  GRID_ID:
+    children:
+    - TABS-y6hV6lvRWK
+    id: GRID_ID
+    parents:
+    - ROOT_ID
+    type: GRID
+  HEADER_ID:
+    id: HEADER_ID
+    meta:
+      text: monitoring.superset
+    type: HEADER
+  ROOT_ID:
+    children:
+    - GRID_ID
+    id: ROOT_ID
+    type: ROOT
+  ROW-A2SHf-1fx6:
+    children:
+    - COLUMN-85pvSdbZT8
+    - CHART-y5hLpxR1mP
+    - CHART-SG5jU4pQPt
+    id: ROW-A2SHf-1fx6
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    - TAB-z7LunkNp63
+    type: ROW
+  ROW-XrudxPkfS:
+    children:
+    - CHART-o3DU3d8aMU
+    id: ROW-XrudxPkfS
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    - TAB-z7LunkNp63
+    type: ROW
+  ROW-dfAo_HEg3:
+    children:
+    - CHART-xvs7803MHR
+    - CHART-kpQQbyTGzF
+    id: ROW-dfAo_HEg3
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    - TAB-eBeph21mb
+    type: ROW
+  ROW-hy1TP2JVW:
+    children:
+    - CHART-dV984MpOZE
+    - CHART-RhGZahacVK
+    id: ROW-hy1TP2JVW
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    - TAB-4eeLv-Y4_
+    type: ROW
+  TAB-4eeLv-Y4_:
+    children:
+    - ROW-hy1TP2JVW
+    id: TAB-4eeLv-Y4_
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Chart Overview
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    type: TAB
+  TAB-eBeph21mb:
+    children:
+    - ROW-dfAo_HEg3
+    - DIVIDER-zSyKaFeRPk
+    id: TAB-eBeph21mb
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Dashboard Overview
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    type: TAB
+  TAB-z7LunkNp63:
+    children:
+    - ROW-A2SHf-1fx6
+    - DIVIDER-1KkpeYC6zi
+    - ROW-XrudxPkfS
+    id: TAB-z7LunkNp63
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: User Overview
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    type: TAB
+  TABS-y6hV6lvRWK:
+    children:
+    - TAB-z7LunkNp63
+    - TAB-eBeph21mb
+    - TAB-4eeLv-Y4_
+    id: TABS-y6hV6lvRWK
+    meta: {}
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: TABS
+metadata:
+  timed_refresh_immune_slices: []
+  expanded_slices: {}
+  refresh_frequency: 0
+  default_filters: '{}'
+  color_scheme: ''
+  show_native_filters: true
+  native_filter_configuration:
+  - id: NATIVE_FILTER-lwhMfb2ES
+    controlValues:
+      enableEmptyFilter: false
+    name: TIME_RANGE
+    filterType: filter_time
+    targets:
+    - {}
+    defaultDataMask:
+      extraFormData:
+        time_range: Last quarter
+      filterState:
+        value: Last quarter
+    cascadeParentIds: []
+    scope:
+      rootPath:
+      - ROOT_ID
+      excluded: []
+    type: NATIVE_FILTER
+    chartsInScope:
+    - 368
+    - 366
+    - 365
+    - 369
+    - 426
+    - 428
+    - 429
+    - 430
+    tabsInScope:
+    - TAB-z7LunkNp63
+  - id: NATIVE_FILTER-u8W0xXEiK
+    controlValues:
+      multiSelect: true
+      enableEmptyFilter: false
+      defaultToFirstItem: false
+      inverseSelection: false
+      searchAllOptions: false
+    name: ACTION CLUSTER
+    filterType: filter_select
+    targets:
+    - column:
+        name: action
+      datasetUuid: c33517b3-daa5-4fac-b7f2-ae012b999d12
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    cascadeParentIds: []
+    scope:
+      rootPath:
+      - ROOT_ID
+      excluded:
+      - 366
+      - 368
+      - 369
+      - 426
+      - 428
+      - 429
+      - 430
+    type: NATIVE_FILTER
+    chartsInScope:
+    - 590
+    - 592
+    - 365
+    - 594
+    - 600
+    - 602
+    tabsInScope:
+    - TAB-BzQoA3wNk
+    - TAB-eBeph21mb
+    - TAB-tcKGcKL2O
+    - TAB-z7LunkNp63
+  - id: NATIVE_FILTER-aaX2VucWK
+    controlValues:
+      multiSelect: true
+      enableEmptyFilter: false
+      defaultToFirstItem: false
+      inverseSelection: false
+      searchAllOptions: false
+    name: DASHBOARD STATUS
+    filterType: filter_select
+    targets:
+    - column:
+        name: dashboard_status
+      datasetUuid: c33517b3-daa5-4fac-b7f2-ae012b999d12
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    cascadeParentIds: []
+    scope:
+      rootPath:
+      - ROOT_ID
+      excluded:
+      - 366
+      - 368
+      - 369
+      - 426
+      - 428
+      - 429
+      - 430
+    type: NATIVE_FILTER
+    chartsInScope:
+    - 590
+    - 592
+    - 365
+    tabsInScope:
+    - TAB-z7LunkNp63
+  - id: NATIVE_FILTER-hKxRFWL3N
+    controlValues:
+      enableEmptyFilter: false
+    name: TIME_GRAIN
+    filterType: filter_timegrain
+    targets:
+    - datasetUuid: c33517b3-daa5-4fac-b7f2-ae012b999d12
+    defaultDataMask:
+      extraFormData:
+        time_grain_sqla: P1D
+      filterState:
+        label: Day
+        value:
+        - P1D
+    cascadeParentIds: []
+    scope:
+      rootPath:
+      - ROOT_ID
+      excluded:
+      - 368
+      - 600
+      - 602
+      - 605
+      - 606
+      - 607
+      - 608
+      - 609
+      - 610
+      - 611
+      - 634
+      - 635
+    type: NATIVE_FILTER
+    chartsInScope:
+    - 590
+    - 592
+    - 365
+    - 594
+    tabsInScope:
+    - TAB-eBeph21mb
+    - TAB-z7LunkNp63
+  label_colors: {}
+  chart_configuration: {}
+version: 1.0.0

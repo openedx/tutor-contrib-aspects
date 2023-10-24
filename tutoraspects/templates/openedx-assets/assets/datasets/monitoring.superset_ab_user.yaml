@@ -1,0 +1,182 @@
+_file_name: monitoring.superset_ab_user.yaml
+table_name: ab_user
+main_dttm_col: last_login
+description: null
+default_endpoint: null
+offset: 0
+cache_timeout: null
+schema: {{SUPERSET_DB_METADATA_NAME}}
+sql: null
+params: null
+template_params: null
+filter_select_enabled: false
+fetch_values_predicate: null
+extra: "{\"certification\": \n  {\"certified_by\": \"Data Analytics Team\", \n   \"\
+  details\": \"This table is the source of truth.\" \n    \n  }\n}"
+uuid: 304a5d6d-c589-483a-8e8d-3fadbccef648
+metrics:
+- metric_name: count
+  verbose_name: COUNT(*)
+  metric_type: count
+  expression: COUNT(*)
+  description: null
+  d3format: null
+  extra: null
+  warning_text: null
+columns:
+- column_name: created_on
+  verbose_name: null
+  is_dttm: true
+  is_active: true
+  type: TIMESTAMP WITHOUT TIME ZONE
+  groupby: true
+  filterable: true
+  expression: ''
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: changed_on
+  verbose_name: null
+  is_dttm: true
+  is_active: true
+  type: TIMESTAMP WITHOUT TIME ZONE
+  groupby: true
+  filterable: true
+  expression: ''
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: last_login
+  verbose_name: null
+  is_dttm: true
+  is_active: true
+  type: TIMESTAMP WITHOUT TIME ZONE
+  groupby: true
+  filterable: true
+  expression: ''
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: password
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(256)
+  groupby: true
+  filterable: true
+  expression: ''
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: last_name
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(64)
+  groupby: true
+  filterable: true
+  expression: ''
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: first_name
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(64)
+  groupby: true
+  filterable: true
+  expression: ''
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: username
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(64)
+  groupby: true
+  filterable: true
+  expression: ''
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: email
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(64)
+  groupby: true
+  filterable: true
+  expression: ''
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: active
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: BOOLEAN
+  groupby: true
+  filterable: true
+  expression: ''
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: created_by_fk
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: INTEGER
+  groupby: true
+  filterable: true
+  expression: ''
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: changed_by_fk
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: INTEGER
+  groupby: true
+  filterable: true
+  expression: ''
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: fail_login_count
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: INTEGER
+  groupby: true
+  filterable: true
+  expression: ''
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: login_count
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: INTEGER
+  groupby: true
+  filterable: true
+  expression: ''
+  description: null
+  python_date_format: null
+  extra: null
+- column_name: id
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: INTEGER
+  groupby: true
+  filterable: true
+  expression: ''
+  description: null
+  python_date_format: null
+  extra: null
+version: 1.0.0
+database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0

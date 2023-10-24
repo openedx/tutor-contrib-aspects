@@ -240,6 +240,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("SUPERSET_DB_PORT", "{{ MYSQL_PORT }}"),
         ("SUPERSET_DB_NAME", "superset"),
         ("SUPERSET_DB_USERNAME", "superset"),
+        ("SUPERSET_DB_METADATA_NAME", "superset"),
+        ("SUPERSET_DB_METADATA_USERNAME", "superset_meta"),
         ("SUPERSET_EXTRA_REQUIREMENTS", []),
         ("SUPERSET_OAUTH2_ACCESS_TOKEN_PATH", "/oauth2/access_token/"),
         ("SUPERSET_OAUTH2_AUTHORIZE_PATH", "/oauth2/authorize/"),
@@ -268,6 +270,11 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("SUPERSET_OWNERS", []),
         # Set to 0 to have no row limit.
         ("SUPERSET_ROW_LIMIT", 100_000),
+        (
+            "SUPERSET_METADATA_SQLALCHEMY_URI",
+            "mysql://{{SUPERSET_DB_METADATA_USERNAME}}:{{SUPERSET_DB_METADATA_PASSWORD}}"
+            "@{{SUPERSET_DB_HOST}}/{{SUPERSET_DB_NAME}}",
+        ),
         ("SUPERSET_SENTRY_DSN", ""),
         (
             "SUPERSET_TALISMAN_CONFIG",
@@ -407,6 +414,7 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         # Superset Settings
         ("SUPERSET_SECRET_KEY", "{{ 24|random_string }}"),
         ("SUPERSET_DB_PASSWORD", "{{ 24|random_string }}"),
+        ("SUPERSET_DB_METADATA_PASSWORD", "{{ 24|random_string }}"),
         ("SUPERSET_OAUTH2_CLIENT_ID", "{{ 16|random_string }}"),
         ("SUPERSET_OAUTH2_CLIENT_ID_DEV", "{{ 16|random_string }}"),
         ("SUPERSET_OAUTH2_CLIENT_SECRET", "{{ 16|random_string }}"),
