@@ -97,10 +97,13 @@ FEATURE_FLAGS = {
 from openedx_jinja_filters import *
 
 def can_view_courses_wrapper(*args, **kwargs):
+    """
+    Wraps the can_view_courses call in a cache for performance.
+    """
     from superset.utils.cache import memoized_func
-    from superset.extensions import cache_manager
 
-    return memoized_func(key="{username}", cache=cache_manager.cache)(can_view_courses)(*args, **kwargs)
+    kwargs["cache_timeout"] = {{ SUPERSET_USER_PERMISSIONS_CACHE_TIMEOUT }}
+    return memoized_func()(can_view_courses)(*args, **kwargs)
 
 
 JINJA_CONTEXT_ADDONS = {

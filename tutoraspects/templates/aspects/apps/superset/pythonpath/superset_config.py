@@ -69,8 +69,9 @@ SQLALCHEMY_DATABASE_URI = "%s://%s:%s@%s:%s/%s" % (
 
 REDIS_HOST = get_env_variable("REDIS_HOST")
 REDIS_PORT = get_env_variable("REDIS_PORT")
-REDIS_CELERY_DB = get_env_variable("REDIS_CELERY_DB", "0")
-REDIS_RESULTS_DB = get_env_variable("REDIS_RESULTS_DB", "1")
+REDIS_CELERY_DB = get_env_variable("REDIS_CELERY_DB", "3")
+REDIS_RESULTS_DB = get_env_variable("REDIS_RESULTS_DB", "4")
+REDIS_CACHE_DB = get_env_variable("REDIS_CACHE_DB", "5")
 REDIS_PASSWORD = get_env_variable("REDIS_PASSWORD", "")
 
 RESULTS_BACKEND = RedisCache(host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD, db=REDIS_RESULTS_DB, key_prefix='superset_results')
@@ -88,9 +89,9 @@ DATA_CACHE_CONFIG = CACHE_CONFIG
 
 # Cache for dashboard filter state
 FILTER_STATE_CACHE_CONFIG: CacheConfig = {
-    "CACHE_DEFAULT_TIMEOUT": int(timedelta(days=90).total_seconds()),
+    "CACHE_DEFAULT_TIMEOUT": 1200,
     # should the timeout be reset when retrieving a cached value
-    "REFRESH_TIMEOUT_ON_RETRIEVAL": True,
+    "REFRESH_TIMEOUT_ON_RETRIEVAL": False,
     **CACHE_CONFIG,
 }
 
