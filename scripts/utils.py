@@ -44,6 +44,11 @@ def mark_text_for_translation(asset):
         if type == "dashboards":
             strings.append(asset["dashboard_title"])
 
+            # Gets translatable fields from filters
+            for filter in asset["metadata"]["native_filter_configuration"]:
+                strings.append(filter["name"])
+
+            # Gets translatable fields from charts
             for element in asset.get("position", {}).values():
                 if not isinstance(element, dict):
                     continue
