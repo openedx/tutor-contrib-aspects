@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.57.2 - 2023-10-24
+
+### [0.57.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.57.1...v0.57.2) (2023-10-24)
+
+### Bug Fixes
+
+- Allow Jinja in templates again ([22f8d80](https://github.com/openedx/tutor-contrib-aspects/commit/22f8d807b31bc380752c3d1c77b77b6b5b2b80bb))
+- Correctly cache user permissions ([4d793e3](https://github.com/openedx/tutor-contrib-aspects/commit/4d793e3376521a9e14ba5627b0b46f22a9288ba0))
+
 ## v0.57.1 - 2023-10-19
 
 ### [0.57.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.57.0...v0.57.1) (2023-10-19)
