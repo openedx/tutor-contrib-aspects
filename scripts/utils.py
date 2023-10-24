@@ -20,11 +20,10 @@ def get_text_for_translations(root_path):
         for file in files:
             if not file.endswith(".yaml"):
                 continue
+
             path = os.path.join(root, file)
-            print(f"Reading {path}")
             with open(path, 'r') as asset_file:
-                asset_str = asset_file.read().replace("{{", "'")
-                asset_str = asset_str.replace("}}", "'")
+                asset_str = asset_file.read()
 
             asset = yaml.safe_load(asset_str)
             strings.extend(mark_text_for_translation(asset))
