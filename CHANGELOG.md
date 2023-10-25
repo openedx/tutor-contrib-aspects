@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.58.0 - 2023-10-25
+
+### [0.58.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.57.3...v0.58.0) (2023-10-25)
+
+#### Features
+
+- Upgrade Superset to 3.0.1 ([549e015](https://github.com/openedx/tutor-contrib-aspects/commit/549e0157b11592c7c04f26399f2774b1d4f96d2c))
+
+#### Documentation
+
+- Fix duplicate https in doc links ([323cc21](https://github.com/openedx/tutor-contrib-aspects/commit/323cc21055f17262875fdb448a3e414c6e044c03))
+
 ## v0.57.3 - 2023-10-25
 
 ### [0.57.3](https://github.com/openedx/tutor-contrib-aspects/compare/v0.57.2...v0.57.3) (2023-10-25)
