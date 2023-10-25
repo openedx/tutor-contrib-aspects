@@ -1,6 +1,7 @@
 _file_name: monitoring.superset_registered_users_368.yaml
 slice_name: Registered Users Over Time
 viz_type: echarts_timeseries_line
+description: Chart showing the number of registered users over the selected time period.
 params:
   adhoc_filters: []
   annotation_layers: []

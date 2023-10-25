@@ -1,5 +1,6 @@
 _file_name: monitoring.superset_charts_by_type_605.yaml
 slice_name: Charts by Type
+description: Count of the various types of charts created in Superset over the selected time period.
 viz_type: treemap_v2
 params:
   adhoc_filters: []

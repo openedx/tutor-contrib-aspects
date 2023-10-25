@@ -1,5 +1,6 @@
 _file_name: monitoring.superset_active_users_590.yaml
 slice_name: Active Users
+description: Count of unique users who performed an action in Superset over the selected time period.
 viz_type: big_number
 params:
   adhoc_filters: []

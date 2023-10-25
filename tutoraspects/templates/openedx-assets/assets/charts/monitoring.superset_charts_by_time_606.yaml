@@ -1,6 +1,7 @@
 _file_name: monitoring.superset_charts_by_time_606.yaml
 slice_name: Chart Count
 viz_type: big_number
+description: Count of charts created in Superset over the selected time period.
 params:
   adhoc_filters: []
   color_picker:

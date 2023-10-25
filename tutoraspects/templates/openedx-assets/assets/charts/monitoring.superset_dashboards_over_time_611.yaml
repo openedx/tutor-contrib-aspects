@@ -1,6 +1,7 @@
 _file_name: monitoring.superset_dashboards_over_time_611.yaml
 slice_name: Dashboard Count
 viz_type: big_number
+description: Count of dashboards created in Superset over the selected time period.
 params:
   adhoc_filters: []
   color_picker:

@@ -1,6 +1,7 @@
 _file_name: monitoring.superset_top_users_by_action_count_365.yaml
 slice_name: User Actions
 viz_type: table
+description: Chart showing the number of Superset actions taken by each user over the selected time period.
 params:
   adhoc_filters: []
   all_columns: []
