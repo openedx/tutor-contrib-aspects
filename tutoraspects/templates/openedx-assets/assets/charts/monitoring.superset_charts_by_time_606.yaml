@@ -29,8 +29,7 @@ params:
   url_params: {}
   viz_type: big_number
   y_axis_format: SMART_NUMBER
-query_context: '{"datasource":{"id":482,"type":"table"},"force":false,"queries":[{"time_range":"Last
-  quarter","granularity":"created_on","filters":[],"extras":{"time_grain_sqla":"P1D","time_range_endpoints":["inclusive","exclusive"],"having":"","having_druid":[],"where":""},"applied_time_extras":{},"columns":[],"metrics":["count"],"annotation_layers":[],"timeseries_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"result_format":"json","result_type":"full"}'
+query_context: null
 cache_timeout: null
 uuid: a5e0f18b-fb83-4d65-81e0-5f0e620fa05b
 version: 1.0.0

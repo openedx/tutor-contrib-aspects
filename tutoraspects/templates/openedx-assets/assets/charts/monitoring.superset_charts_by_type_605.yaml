@@ -23,8 +23,7 @@ params:
   - exclusive
   url_params: {}
   viz_type: treemap_v2
-query_context: '{"datasource":{"id":482,"type":"table"},"force":false,"queries":[{"time_range":"Last
-  quarter","granularity":"created_on","filters":[],"extras":{"time_range_endpoints":["inclusive","exclusive"],"having":"","having_druid":[],"where":""},"applied_time_extras":{},"columns":["viz_type"],"metrics":["count"],"annotation_layers":[],"row_limit":10000,"timeseries_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"result_format":"json","result_type":"full"}'
+query_context: null
 cache_timeout: null
 uuid: 84393abe-04ab-4084-a195-116ad568badd
 version: 1.0.0
