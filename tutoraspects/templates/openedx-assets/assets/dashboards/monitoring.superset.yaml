@@ -320,15 +320,7 @@ metadata:
       - ROOT_ID
       excluded: []
     type: NATIVE_FILTER
-    chartsInScope:
-    - 368
-    - 366
-    - 365
-    - 369
-    - 426
-    - 428
-    - 429
-    - 430
+    chartsInScope: []
     tabsInScope:
     - TAB-z7LunkNp63
   - id: NATIVE_FILTER-u8W0xXEiK
@@ -361,53 +353,11 @@ metadata:
       - 429
       - 430
     type: NATIVE_FILTER
-    chartsInScope:
-    - 590
-    - 592
-    - 365
-    - 594
-    - 600
-    - 602
+    chartsInScope: []
     tabsInScope:
     - TAB-BzQoA3wNk
     - TAB-eBeph21mb
     - TAB-tcKGcKL2O
-    - TAB-z7LunkNp63
-  - id: NATIVE_FILTER-aaX2VucWK
-    controlValues:
-      multiSelect: true
-      enableEmptyFilter: false
-      defaultToFirstItem: false
-      inverseSelection: false
-      searchAllOptions: false
-    name: DASHBOARD STATUS
-    filterType: filter_select
-    targets:
-    - column:
-        name: dashboard_status
-      datasetUuid: c33517b3-daa5-4fac-b7f2-ae012b999d12
-    defaultDataMask:
-      extraFormData: {}
-      filterState: {}
-      ownState: {}
-    cascadeParentIds: []
-    scope:
-      rootPath:
-      - ROOT_ID
-      excluded:
-      - 366
-      - 368
-      - 369
-      - 426
-      - 428
-      - 429
-      - 430
-    type: NATIVE_FILTER
-    chartsInScope:
-    - 590
-    - 592
-    - 365
-    tabsInScope:
     - TAB-z7LunkNp63
   - id: NATIVE_FILTER-hKxRFWL3N
     controlValues:
@@ -441,11 +391,7 @@ metadata:
       - 634
       - 635
     type: NATIVE_FILTER
-    chartsInScope:
-    - 590
-    - 592
-    - 365
-    - 594
+    chartsInScope: []
     tabsInScope:
     - TAB-eBeph21mb
     - TAB-z7LunkNp63
