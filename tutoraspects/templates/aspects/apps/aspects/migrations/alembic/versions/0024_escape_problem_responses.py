@@ -90,7 +90,7 @@ SELECT
     replaceAll(
         replaceAll(
             JSON_VALUE(event_str, '$.result.response'),
-            '\\\'', '\\\\\''
+            '\\\'', '\\\\\\\''
          ), '"', '\\\'') as responses,
     JSON_VALUE(event_str, '$.result.score.scaled') as scaled_score,
     if(
