@@ -1,6 +1,1 @@
-{% for file in "openedx-assets/assets/"|walk_templates %}
-- {% filter indent(width=2) %}{% include file %}{% endfilter %}
-{% endfor %}
-
-
 {{ patch("superset-extra-assets") }}
