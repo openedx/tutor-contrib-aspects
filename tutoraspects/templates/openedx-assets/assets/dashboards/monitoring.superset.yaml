@@ -16,7 +16,7 @@ position:
       height: 39
       sliceName: monitoring.superset_charts_by_type
       uuid: 84393abe-04ab-4084-a195-116ad568badd
-      width: 8
+      width: 12
     parents:
     - ROOT_ID
     - GRID_ID
@@ -66,6 +66,22 @@ position:
       sliceName: monitoring.superset_charts_by_time
       uuid: a5e0f18b-fb83-4d65-81e0-5f0e620fa05b
       width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    - TAB-4eeLv-Y4_
+    - ROW-hy1TP2JVW
+    type: CHART
+  CHART-hmqz07XRxF:
+    children: []
+    id: CHART-hmqz07XRxF
+    meta:
+      chartId: 635
+      height: 50
+      sliceName: monitoring.superset_top_charts_by_action_count
+      uuid: 9d5f69e8-f335-42a0-bbfa-272f43d74ad0
+      width: 8
     parents:
     - ROOT_ID
     - GRID_ID
@@ -189,6 +205,18 @@ position:
     - GRID_ID
     id: ROOT_ID
     type: ROOT
+  ROW-3IsAIVz071:
+    children:
+    - CHART-RhGZahacVK
+    id: ROW-3IsAIVz071
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-y6hV6lvRWK
+    - TAB-4eeLv-Y4_
+    type: ROW
   ROW-A2SHf-1fx6:
     children:
     - COLUMN-85pvSdbZT8
@@ -231,7 +259,7 @@ position:
   ROW-hy1TP2JVW:
     children:
     - CHART-dV984MpOZE
-    - CHART-RhGZahacVK
+    - CHART-hmqz07XRxF
     id: ROW-hy1TP2JVW
     meta:
       background: BACKGROUND_TRANSPARENT
@@ -244,6 +272,7 @@ position:
   TAB-4eeLv-Y4_:
     children:
     - ROW-hy1TP2JVW
+    - ROW-3IsAIVz071
     id: TAB-4eeLv-Y4_
     meta:
       defaultText: Tab title
