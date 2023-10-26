@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.59.0 - 2023-10-26
+
+### [0.59.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.58.0...v0.59.0) (2023-10-26)
+
+#### Features
+
+- replace double quotes in problem responses ([c56a9d6](https://github.com/openedx/tutor-contrib-aspects/commit/c56a9d696e543b310e9d44c02fa5e961bac2f933))
+
+#### Bug Fixes
+
+- properly escape characters in migration ([e9a6157](https://github.com/openedx/tutor-contrib-aspects/commit/e9a6157ec0173b62b83bf9b2e7accd2e1c1c8da8))
+
 ## v0.58.0 - 2023-10-25
 
 ### [0.58.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.57.3...v0.58.0) (2023-10-25)
