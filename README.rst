@@ -149,7 +149,7 @@ To contribute assets to Aspects:
    their actual SQL. If you haven't changed the SQL of these queries (stored in
    `tutoraspects/templates/openedx-assets/queries` you can just revert that change back
    to their `include` values such as:
-   `sql: "{% include 'aspects/build/aspects-superset/openedx-assets/queries/fact_enrollments_by_day.sql' %}"`
+   `sql: "{% include 'openedx-assets/queries/fact_enrollments_by_day.sql' %}"`
 #. The script will also warn about missing `_roles` in dashboards. Superset does not export
    these, so you will need to manually add this key with the roles that are necessary to
    view the dashboard. See the existing dashboards for how this is done.
@@ -172,7 +172,7 @@ To make it easier for developers to manage virtual datasets, there is an extra s
 
 .. code-block:: yaml
 
-   sql: "{% include 'aspects/build/aspects-superset/openedx-assets/queries/query.sql' %}"
+   sql: "{% include 'openedx-assets/queries/query.sql' %}"
 
 
 However, please keep in mind that the assets declaration is itself a jinja template. That means that any jinja used in the dataset definition should be escaped. There are examples of how to handle this in the existing queries, such as `dim_courses.sql`_.

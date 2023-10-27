@@ -75,14 +75,15 @@ def create_assets():
                     continue
 
                 # Process the asset directly
-                if FILE_NAME_ATTRIBUTE in asset:
-                    file_name = asset.pop(FILE_NAME_ATTRIBUTE)
+                if FILE_NAME_ATTRIBUTE not in asset:
+                    raise Exception(f"Asset {asset} has no {FILE_NAME_ATTRIBUTE}")
+                file_name = asset.pop(FILE_NAME_ATTRIBUTE)
 
-                    # Find the right folder to create the asset in
-                    for asset_name, folder in ASSET_FOLDER_MAPPING.items():
-                        if asset_name in asset:
-                            write_asset_to_file(asset, asset_name, folder, file_name, roles)
-                            break
+                # Find the right folder to create the asset in
+                for asset_name, folder in ASSET_FOLDER_MAPPING.items():
+                    if asset_name in asset:
+                        write_asset_to_file(asset, asset_name, folder, file_name, roles)
+                        break
 
     with open(ASSETS_FILE_PATH, "r") as file:
         extra_assets = yaml.safe_load(file)
