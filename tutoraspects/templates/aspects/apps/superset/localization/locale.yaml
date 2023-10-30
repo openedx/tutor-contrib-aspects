@@ -224,7 +224,26 @@ en:
   Watches Per Video: Watches Per Video
   xAPI Events Over Time: xAPI Events Over Time
 fr_CA:
-  '# Instance information Aspects: ': '# Instance information Aspects: '
+  ? "# Instance information Aspects: {{ ASPECTS_VERSION }}\n{% if RUN_VECTOR %} -\
+    \ **Vector Version**: {{ DOCKER_IMAGE_VECTOR }} \n {% endif %} {% if RUN_CLICKHOUSE\
+    \ %} - **Clickhouse Version**: {{ DOCKER_IMAGE_CLICKHOUSE }} \n {% endif %} {%\
+    \ if RUN_RALPH %} - **Ralph Version**: {{ DOCKER_IMAGE_RALPH }} \n {% endif %}\
+    \ {% if RUN_SUPERSET %} - **Superset Version**: {{ DOCKER_IMAGE_SUPERSET }} \n\
+    \ {% endif %} \n\n## Dependencies: {% for requirement in OPENEDX_EXTRA_PIP_REQUIREMENTS\
+    \ %} {% if 'openedx-event-sink-clickhouse' in requirement %} - **Clickhouse Event\
+    \ Sink Version**: {{ requirement.split('==')[1] }} \n {% elif 'event-routing-backends'\
+    \ in requirement %} - **Event Routing Backends Version**: {{ requirement.split('==')[1]\
+    \ }} \n {% endif %} {% endfor %} "
+  : "# Instance information Aspects: {{ ASPECTS_VERSION }}\n{% if RUN_VECTOR %} -\
+    \ **Vector Version**: {{ DOCKER_IMAGE_VECTOR }} \n {% endif %} {% if RUN_CLICKHOUSE\
+    \ %} - **Clickhouse Version**: {{ DOCKER_IMAGE_CLICKHOUSE }} \n {% endif %} {%\
+    \ if RUN_RALPH %} - **Ralph Version**: {{ DOCKER_IMAGE_RALPH }} \n {% endif %}\
+    \ {% if RUN_SUPERSET %} - **Superset Version**: {{ DOCKER_IMAGE_SUPERSET }} \n\
+    \ {% endif %} \n\n## Dependencies: {% for requirement in OPENEDX_EXTRA_PIP_REQUIREMENTS\
+    \ %} {% if 'openedx-event-sink-clickhouse' in requirement %} - **Clickhouse Event\
+    \ Sink Version**: {{ requirement.split('==')[1] }} \n {% elif 'event-routing-backends'\
+    \ in requirement %} - **Event Routing Backends Version**: {{ requirement.split('==')[1]\
+    \ }} \n {% endif %} {% endfor %} "
   ? '### Course Enrollment
 
 
@@ -310,10 +329,15 @@ fr_CA:
   Actor IDs over time: ID des acteurs au fil du temps
   Answers Chosen: "R\xE9ponses choisies"
   ClickHouse: ClickHouse
+  Course: Cours
   Course Enrollment: Inscription aux cours
   Course Enrollments Over Time: Inscriptions aux cours au fil du temps
   Course Grade (out of 100%): Note du cours (sur 100 %)
   Course Grade Distribution: "R\xE9partition des notes du cours"
+  Course Key: "Cl\xE9 de cours"
+  Course Run: Session de cours
+  Course name: Nom du cours
+  Course run: Session de cours
   Courses: Cours
   Courses Per Organization: Cours par organisation
   Currently Enrolled Learners Per Day: Apprenants actuellement inscrits par jour
@@ -345,11 +369,13 @@ fr_CA:
   Number of Views / Viewers: Nombre de vues / d'observateurs
   Number of users: Nombre d'utilisateurs
   Operator Dashboard: "Tableau de bord de l'op\xE9rateur"
+  Organization: Organisation
   Organizations: Organisations
   Percentage Grade: Note en pourcentage
   Posts per user: Publications par utilisateur
   Problem Engagement: "Engagement des probl\xE8mes"
   Problem Performance: "Performance des probl\xE8mes"
+  Problem name: "Donn\xE9es du probl\xE8me"
   Question Title: Titre de question
   Responses: "R\xE9ponses"
   Responses Per Problem: "R\xE9ponses par probl\xE8me"
@@ -429,12 +455,14 @@ fr_CA:
   : "Ce graphique montre quelles parties d'une vid\xE9o sont les plus regard\xE9es\
     \ et lesquelles sont les plus regard\xE9es de nouveau. Chaque segment repr\xE9\
     sente 5 secondes de la vid\xE9o."
+  Time range: Intervalle de temps
   Total Organizations: Total des organisations
   Transcripts / Captions Per Video: "Transcriptions / sous-titres par vid\xE9o"
   Unique actors: Acteurs uniques
   Video Engagement: "Engagement vid\xE9o"
   Video Performance: "Performance vid\xE9o"
   Video Title: "Titre de vid\xE9o"
+  Video name: "Nom de la vid\xE9o"
   Watched Video Segments: "Segments vid\xE9o regard\xE9s"
   Watches Per Video: "Vues par vid\xE9o"
   xAPI Events Over Time: "\xC9v\xE9nements xAPI au fil du temps"

@@ -1,5 +1,15 @@
 en:
-  '# Instance information Aspects: ': '# Instance information Aspects: '
+  ? "# Instance information Aspects: {{ ASPECTS_VERSION }}\n{% if RUN_VECTOR %} -\
+    \ **Vector Version**: {{ DOCKER_IMAGE_VECTOR }} \n {% endif %} {% if RUN_CLICKHOUSE\
+    \ %} - **Clickhouse Version**: {{ DOCKER_IMAGE_CLICKHOUSE }} \n {% endif %} {%\
+    \ if RUN_RALPH %} - **Ralph Version**: {{ DOCKER_IMAGE_RALPH }} \n {% endif %}\
+    \ {% if RUN_SUPERSET %} - **Superset Version**: {{ DOCKER_IMAGE_SUPERSET }} \n\
+    \ {% endif %} \n\n## Dependencies: {% for requirement in OPENEDX_EXTRA_PIP_REQUIREMENTS\
+    \ %} {% if 'openedx-event-sink-clickhouse' in requirement %} - **Clickhouse Event\
+    \ Sink Version**: {{ requirement.split('==')[1] }} \n {% elif 'event-routing-backends'\
+    \ in requirement %} - **Event Routing Backends Version**: {{ requirement.split('==')[1]\
+    \ }} \n {% endif %} {% endfor %} "
+  : "# Instance information Aspects: {{ ASPECTS_VERSION }}\n{% if RUN_VECTOR %} - **Vector Version**: {{ DOCKER_IMAGE_VECTOR }} \n {% endif %} {% if RUN_CLICKHOUSE %} - **Clickhouse Version**: {{ DOCKER_IMAGE_CLICKHOUSE }} \n {% endif %} {% if RUN_RALPH %} - **Ralph Version**: {{ DOCKER_IMAGE_RALPH }} \n {% endif %} {% if RUN_SUPERSET %} - **Superset Version**: {{ DOCKER_IMAGE_SUPERSET }} \n {% endif %} \n\n## Dependencies: {% for requirement in OPENEDX_EXTRA_PIP_REQUIREMENTS %} {% if 'openedx-event-sink-clickhouse' in requirement %} - **Clickhouse Event Sink Version**: {{ requirement.split('==')[1] }} \n {% elif 'event-routing-backends' in requirement %} - **Event Routing Backends Version**: {{ requirement.split('==')[1] }} \n {% endif %} {% endfor %} "
   ? '### Course Enrollment
 
 
@@ -91,10 +101,15 @@ en:
   Actor IDs over time: ID des acteurs au fil du temps
   Answers Chosen: Réponses choisies
   ClickHouse: ClickHouse
+  Course: Cours
   Course Enrollment: Inscription aux cours
   Course Enrollments Over Time: Inscriptions aux cours au fil du temps
   Course Grade (out of 100%): Note du cours (sur 100 %)
   Course Grade Distribution: Répartition des notes du cours
+  Course Key: Clé de cours
+  Course Run: Session de cours
+  Course name: Nom du cours
+  Course run: Session de cours
   Courses: Cours
   Courses Per Organization: Cours par organisation
   Currently Enrolled Learners Per Day: Apprenants actuellement inscrits par jour
@@ -123,11 +138,13 @@ en:
   Number of Views / Viewers: Nombre de vues / d'observateurs
   Number of users: Nombre d'utilisateurs
   Operator Dashboard: Tableau de bord de l'opérateur
+  Organization: Organisation
   Organizations: Organisations
   Percentage Grade: Note en pourcentage
   Posts per user: Publications par utilisateur
   Problem Engagement: Engagement des problèmes
   Problem Performance: Performance des problèmes
+  Problem name: Données du problème
   Question Title: Titre de question
   Responses: Réponses
   Responses Per Problem: Réponses par problème
@@ -176,12 +193,14 @@ en:
   ? This chart shows which parts of a video are most watched, and which are most re-watched.
     Each segment represents 5 seconds of the video.
   : Ce graphique montre quelles parties d'une vidéo sont les plus regardées et lesquelles sont les plus regardées de nouveau. Chaque segment représente 5 secondes de la vidéo.
+  Time range: Intervalle de temps
   Total Organizations: Total des organisations
   Transcripts / Captions Per Video: Transcriptions / sous-titres par vidéo
   Unique actors: Acteurs uniques
   Video Engagement: Engagement vidéo
   Video Performance: Performance vidéo
   Video Title: Titre de vidéo
+  Video name: Nom de la vidéo
   Watched Video Segments: Segments vidéo regardés
   Watches Per Video: Vues par vidéo
   xAPI Events Over Time: Événements xAPI au fil du temps
