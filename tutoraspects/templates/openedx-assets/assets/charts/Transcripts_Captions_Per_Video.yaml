@@ -17,7 +17,7 @@ params:
   extra_form_data: {}
   granularity_sqla: emission_time
   groupby:
-  - video_name
+  - video_name_with_location
   metrics:
   - count
   - aggregate: COUNT_DISTINCT

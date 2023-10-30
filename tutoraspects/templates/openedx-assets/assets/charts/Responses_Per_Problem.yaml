@@ -18,7 +18,7 @@ params:
   datasource: 2__table
   extra_form_data: {}
   groupby:
-  - problem_name
+  - problem_name_with_location
   metrics:
   - aggregate: COUNT_DISTINCT
     column:

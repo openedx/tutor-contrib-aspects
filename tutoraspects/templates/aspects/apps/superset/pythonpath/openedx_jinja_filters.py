@@ -9,9 +9,13 @@ ALL_COURSES = "1 = 1"
 NO_COURSES = "1 = 0"
 
 
-def can_view_courses(username, field_name="course_id"):
+def can_view_courses(username, field_name="course_id", **kwargs):
     """
-    Returns SQL WHERE clause which restricts access to the courses the current user has staff access to.
+    Returns SQL WHERE clause which restricts access to the courses the current user has
+    staff access to.
+
+    We accept kwargs for optional caching args, since this is memoized in
+    can_view_courses_wrapper.
     """
     user = security_manager.get_user_by_username(username)
     if user:

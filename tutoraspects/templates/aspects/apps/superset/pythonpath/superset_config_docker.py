@@ -53,8 +53,14 @@ AUTH_USER_REGISTRATION = True
 # Should we replace ALL the user's roles each login, or only on registration?
 AUTH_ROLES_SYNC_AT_LOGIN = True
 
-
+# These are the language dict for Superset configuration, it only supports
+# a language, not different locales per language.
 LANGUAGES = {{ SUPERSET_SUPPORTED_LANGUAGES }}
+
+# This is a list of Open edX supported locales, some of which are not supported
+# by Superset at this time.
+DASHBOARD_LOCALES = {{ SUPERSET_DASHBOARD_LOCALES }}
+
 # map from the values of `userinfo["role_keys"]` to a list of Superset roles
 # cf https://superset.apache.org/docs/security/#roles
 AUTH_ROLES_MAPPING = {
@@ -67,10 +73,10 @@ AUTH_ROLES_MAPPING = {
     "public": ["Public"],    # AKA anonymous users
 }
 
-for language in LANGUAGES.keys():
-    AUTH_ROLES_MAPPING[f"instructor-{language}"] = [f"{{SUPERSET_ROLES_MAPPING.instructor}} - {language}"]
-    AUTH_ROLES_MAPPING[f"student-{language}"] = [f"{{SUPERSET_ROLES_MAPPING.student}} - {language}"]
-    AUTH_ROLES_MAPPING[f"operator-{language}"] = [f"{{SUPERSET_ROLES_MAPPING.operator}} - {language}"]
+for locale in DASHBOARD_LOCALES:
+    AUTH_ROLES_MAPPING[f"instructor-{locale}"] = [f"{{SUPERSET_ROLES_MAPPING.instructor}} - {locale}"]
+    AUTH_ROLES_MAPPING[f"student-{locale}"] = [f"{{SUPERSET_ROLES_MAPPING.student}} - {locale}"]
+    AUTH_ROLES_MAPPING[f"operator-{locale}"] = [f"{{SUPERSET_ROLES_MAPPING.operator}} - {locale}"]
 
 
 from openedx_sso_security_manager import OpenEdxSsoSecurityManager
@@ -91,10 +97,13 @@ FEATURE_FLAGS = {
 from openedx_jinja_filters import *
 
 def can_view_courses_wrapper(*args, **kwargs):
+    """
+    Wraps the can_view_courses call in a cache for performance.
+    """
     from superset.utils.cache import memoized_func
-    from superset.extensions import cache_manager
 
-    return memoized_func(key="{username}", cache=cache_manager.cache)(can_view_courses)(*args, **kwargs)
+    kwargs["cache_timeout"] = {{ SUPERSET_USER_PERMISSIONS_CACHE_TIMEOUT }}
+    return memoized_func()(can_view_courses)(*args, **kwargs)
 
 
 JINJA_CONTEXT_ADDONS = {

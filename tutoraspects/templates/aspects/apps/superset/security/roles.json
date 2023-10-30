@@ -3974,7 +3974,7 @@
   {
     "name":"Public",
     "permissions":[
-      
+
     ]
   },
   {
@@ -4083,7 +4083,7 @@
     "permissions": {% include "aspects/apps/superset/security/partials/read_only_permissions.json" | indent(4) %}
   }
 
-  {% for role in SUPERSET_SUPPORTED_LANGUAGES %},{
+  {% for role in SUPERSET_DASHBOARD_LOCALES %},{
     "name": "{{SUPERSET_ROLES_MAPPING.student}} - {{role}}",
     "permissions": []
   },{

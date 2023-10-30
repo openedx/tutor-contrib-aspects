@@ -1,0 +1,187 @@
+en:
+  '# Instance information Aspects: ': '# Instance information Aspects: '
+  ? '### Course Enrollment
+
+
+
+    These charts can help you understand how many students are enrolled in your course
+    by showing how enrollments have changed over time and which enrollment modes students
+    are choosing. More details about each chart can be found by clicking the "3 dot"
+    menu at the top right of the chart and selecting "Show chart description".
+
+
+    You can filter these results by choosing selecting various options from the filters
+    on the left.'
+  : '### Inscriptions au cours
+
+
+
+    Ces graphiques peuvent vous aider à comprendre combien d''étudiants sont inscrits à votre cours en montrant comment les inscriptions ont changé au fil du temps et quels modes d''inscription choisissent les étudiants. Plus de détails sur chaque graphique peuvent être trouvés en cliquant sur le menu "3 points" en haut à droite du graphique et en sélectionnant "Afficher la description du graphique".
+
+
+    Vous pouvez filtrer ces résultats en sélectionnant diverses options parmi les filtres de gauche.'
+  ? '### Problem Engagement
+
+
+    These charts can help you learn which problems your students have engaged with
+    or skipped, and the relative difficulty of problems across your course. More details
+    about each chart can be found by clicking the "3 dot" menu at the top right of
+    the chart and selecting "Show chart description".
+
+
+    **Select a course from the filters on the left to populate these charts.**'
+  : '### Engagement des problèmes
+
+
+    Ces graphiques peuvent vous aider à découvrir quels problèmes vos élèves ont abordés ou ignorés, ainsi que la difficulté relative des problèmes tout au long de votre cours. Plus de détails sur chaque graphique peuvent être trouvés en cliquant sur le menu "3 points" en haut à droite du graphique et en sélectionnant "Afficher la description du graphique".
+
+
+    **Sélectionnez un cours parmi les filtres sur la gauche pour remplir ces graphiques.**'
+  ? '### Problem Performance
+
+
+    These charts help show the difficulty of your problems by showing you which answers
+    your students choose and which require many tries or hints to complete successfully.
+
+
+    **Select a problem from the filters on the left to populate the charts.**'
+  : '### Performance des problèmes
+
+
+    Ces graphiques aident à montrer la difficulté de vos problèmes en vous montrant quelles réponses choisissent vos élèves et lesquelles nécessitent de nombreux essais ou indices pour réussir.
+
+
+    **Sélectionnez un problème parmi les filtres de gauche pour remplir les graphiques.**'
+  ? '### Video Engagement
+
+
+    These charts can help understand which videos are watched, and rewatched, most
+    often. It can also show how many users use the closed captions and transcript
+    features on your videos, and how often.
+
+
+    **Select a course from the filters on the left to populate these charts.**'
+  : '### Engagement vidéo
+
+
+    Ces graphiques peuvent aider à comprendre quelles vidéos sont regardées et revues le plus souvent. Il peut également montrer combien d''utilisateurs utilisent les fonctionnalités de sous-titres et de transcription sur vos vidéos, et à quelle fréquence.
+
+
+    **Sélectionnez un cours parmi les filtres de gauche pour remplir ces graphiques.**'
+  ? '### Video Performance
+
+
+    This section allows you to see which parts of a particular video are most watched
+    or skipped.
+
+
+    **Select a video from the filters on the left to populate these charts.**'
+  : '### Performance vidéo
+
+
+    Cette section vous permet de voir quelles parties d''une vidéo particulière sont les plus regardées ou ignorées.
+
+
+    **Sélectionnez une vidéo parmi les filtres de gauche pour remplir ces graphiques.**'
+  ? A count of the number of enrollments and un-enrollments per day. Learners can
+    enroll and unenroll multiple times, in this chart each individual enrollment and
+    unenrollment will be counted.
+  : "Un décompte du nombre d’inscriptions et de désinscriptions par jour. Les apprenants peuvent s'inscrire et se désinscrire plusieurs fois. Dans ce graphique, chaque inscription et désinscription individuelle sera comptabilisée."
+  Active Users Per Organization: Utilisateurs actifs par organisation
+  Actor IDs over time: ID des acteurs au fil du temps
+  Answers Chosen: Réponses choisies
+  ClickHouse: ClickHouse
+  Course Enrollment: Inscription aux cours
+  Course Enrollments Over Time: Inscriptions aux cours au fil du temps
+  Course Grade (out of 100%): Note du cours (sur 100 %)
+  Course Grade Distribution: Répartition des notes du cours
+  Courses: Cours
+  Courses Per Organization: Cours par organisation
+  Currently Enrolled Learners Per Day: Apprenants actuellement inscrits par jour
+  Distinct forum users: Utilisateurs distincts du forum
+  Distribution Of Attempts: Répartition des tentatives
+  Distribution Of Hints Per Correct Answer: Répartition des indices par bonne réponse
+  Distribution Of Problem Grades: Répartition des notes de problèmes
+  Distribution Of Responses: Répartition des réponses
+  Enrollment Events Per Day: Événements d'inscription par jour
+  Enrollments: Inscriptions
+  Enrollments By Enrollment Mode: Inscriptions par mode d'inscription
+  Enrollments By Type: Inscriptions par type
+  Event type: Type d'événement
+  Events per course: Événements par cours
+  Forum Interaction: Interactions sur les forums
+  Hints / Answer Displayed Before Correct Answer Chosen: Conseils / réponses affichés avant que la bonne réponse soit choisie
+  Instance Health: État de santé de l'instance
+  Instructor Dashboard: Tableau de bord de l'instructeur
+  Last Received Event: Dernier événement reçu
+  Last course syncronized: Dernier cours synchronisé
+  Most Active Courses Per Day: Cours les plus actifs par jour
+  Number Of Attempts To Find Correct Answer: Nombre de tentatives pour trouver la bonne réponse
+  Number Of Students: Nombre d'étudiants
+  Number Of Viewers / Views: Nombre d'observateurs / de vues
+  Number of Users / Uses: Nombre d'utilisateurs / d'utilisations
+  Number of Views / Viewers: Nombre de vues / d'observateurs
+  Number of users: Nombre d'utilisateurs
+  Operator Dashboard: Tableau de bord de l'opérateur
+  Organizations: Organisations
+  Percentage Grade: Note en pourcentage
+  Posts per user: Publications par utilisateur
+  Problem Engagement: Engagement des problèmes
+  Problem Performance: Performance des problèmes
+  Question Title: Titre de question
+  Responses: Réponses
+  Responses Per Problem: Réponses par problème
+  Seconds Of Video: Secondes de vidéo
+  Slowest ClickHouse Queries: Requêtes ClickHouse les plus lentes
+  Students: Étudiants
+  ? The cumulative total of unique enrolled learners based on their enrollment state
+    at the end of each day. If a learner was enrolled previously, but has left the
+    course since, they are not counted as of the date they left. If they re-enroll
+    in the course they will be counted again.
+  : "Total cumulé des apprenants inscrits uniques en fonction de leur état d'inscription à la fin de chaque journée. Si un apprenant a été inscrit précédemment, mais a quitté le cours depuis, il n'est pas comptabilisé à compter de la date de son départ. S'ils se réinscrivent au cours, ils seront à nouveau comptés."
+  ? The current count of active enrollments by their most recent enrollment type,
+    so if a learner upgraded from Audit to Verified they will only be counted once
+    as Verified. Learners who have un-enrolled in the course are not counted.
+  : "Le nombre actuel d'inscriptions actives par type d'inscription le plus récent. Ainsi, si un apprenant passe d'Audit à Vérifié, il ne sera compté qu'une seule fois comme Vérifié. Les apprenants désinscrits au cours ne sont pas comptabilisés."
+  The distribution of grades for a course, out of 100%. Grades are grouped in ranges of 10%.: "La répartition des notes d'un cours, sur 100 %. Les notes sont regroupées par tranches de 10 %."
+  ? The number of students who have responded to a question, and whether they have
+    ever answered correctly. Students can answer some questions multiple times, but
+    this chart counts each student only once per question.
+  : "Le nombre d'étudiants qui ont répondu à une question et s'ils ont déjà répondu correctement. Les élèves peuvent répondre plusieurs fois à certaines questions, mais ce tableau ne compte chaque élève qu'une seule fois par question."
+  ? This chart displays counts of the number of times hints (including displaying
+    the answer itself) were displayed for each learner who eventually answered the
+    problem correctly. If the problem had no hint or answer display configured this
+    chart will group everyone into "0".
+  : "Ce graphique affiche le nombre de fois où des indices (y compris l'affichage de la réponse elle-même) ont été affichés pour chaque apprenant qui a finalement répondu correctement au problème. Si le problème n'avait pas d'affichage d'indice ou de réponse configuré, ce tableau regroupera tout le monde sous \"0\"."
+  ? This chart helps understand how many learners are using the video's transcripts
+    or closed captions. If the video has not transcripts or captions the chart will
+    be empty.
+  : "Ce graphique permet de comprendre combien d'apprenants utilisent les transcriptions ou les sous-titres de la vidéo. Si la vidéo n'a pas de transcriptions ou de sous-titres, le graphique sera vide."
+  ? This chart shows how many unique learners have watched each video, and how many
+    repeat views each has gotten. If a video has never been played it will not appear
+    in this chart.
+  : "Ce graphique montre combien d'apprenants uniques ont regardé chaque vidéo et combien de vues répétées chacun a obtenu. Si une vidéo n'a jamais été regardée, elle n'apparaîtra pas dans ce graphique."
+  ? This chart shows how often an answer or combination of answers (for multi-select)
+    is selected by learners. Some problems allow learners to submit a response more
+    than once, this chart will include all of the responses in that case.
+  : Ce graphique montre la fréquence à laquelle une réponse ou une combinaison de réponses (pour la sélection multiple) est sélectionnée par les apprenants. Certains problèmes permettent aux apprenants de soumettre une réponse plus d'une fois. Ce graphique inclura toutes les réponses dans ce cas.
+  ? This chart shows the number of attempts that students needed to make before getting
+    the problem's answer correct. This only counts students who eventually answered
+    correctly.
+  : Ce graphique montre le nombre de tentatives que les étudiants doivent faire avant d'obtenir la bonne réponse au problème. Seuls les étudiants ayant répondu correctement sont pris en compte.
+  ? 'This chart shows the number of students who scored within a certain percentage
+    of points for this problem. For problems that are pass/fail it will only show
+    the lowest and highest percentage ranges. '
+  : 'Ce graphique montre le nombre d''étudiants qui ont obtenu un certain pourcentage de points pour ce problème. Pour les problèmes de type réussite/échec, seuls les pourcentages les plus bas et les plus élevés seront affichés.'
+  ? This chart shows which parts of a video are most watched, and which are most re-watched.
+    Each segment represents 5 seconds of the video.
+  : Ce graphique montre quelles parties d'une vidéo sont les plus regardées et lesquelles sont les plus regardées de nouveau. Chaque segment représente 5 secondes de la vidéo.
+  Total Organizations: Total des organisations
+  Transcripts / Captions Per Video: Transcriptions / sous-titres par vidéo
+  Unique actors: Acteurs uniques
+  Video Engagement: Engagement vidéo
+  Video Performance: Performance vidéo
+  Video Title: Titre de vidéo
+  Watched Video Segments: Segments vidéo regardés
+  Watches Per Video: Vues par vidéo
+  xAPI Events Over Time: Événements xAPI au fil du temps

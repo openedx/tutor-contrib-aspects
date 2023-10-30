@@ -84,8 +84,7 @@ release-push:
 
 ###### Additional commands
 pull_translations: translation-requirements
-	rm -rf tutoraspects/templates/aspects/apps/superset/conf/locale/*;
-	atlas pull $(OPENEDX_ATLAS_ARGS) translations/tutor-contrib-aspects/tutoraspects/templates/aspects/apps/superset/conf/locale/:tutoraspects/templates/aspects/apps/superset/conf/locale/
+	atlas pull -g $(OPENEDX_ATLAS_ARGS) translations/tutor-contrib-aspects/tutoraspects/*:tutoraspects/templates/
 
 	@echo "Translations have been pulled via Atlas."
 	python scripts/translate.py . compile

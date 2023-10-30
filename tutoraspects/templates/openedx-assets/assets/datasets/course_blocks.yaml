@@ -127,9 +127,9 @@ metrics:
   warning_text: null
 offset: 0
 params: null
-schema: {{ ASPECTS_EVENT_SINK_DATABASE }}
+schema: "{{ ASPECTS_EVENT_SINK_DATABASE }}"
 sql: null
-table_name: {{ ASPECTS_EVENT_SINK_NODES_TABLE }}
+table_name: "{{ ASPECTS_EVENT_SINK_NODES_TABLE }}"
 template_params: null
 uuid: 1b73d066-fd6c-411d-a99d-fc585f9474b1
 version: 1.0.0

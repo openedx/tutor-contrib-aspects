@@ -20,11 +20,10 @@ def get_text_for_translations(root_path):
         for file in files:
             if not file.endswith(".yaml"):
                 continue
+
             path = os.path.join(root, file)
-            print(f"Reading {path}")
             with open(path, 'r') as asset_file:
-                asset_str = asset_file.read().replace("{{", "'")
-                asset_str = asset_str.replace("}}", "'")
+                asset_str = asset_file.read()
 
             asset = yaml.safe_load(asset_str)
             strings.extend(mark_text_for_translation(asset))
@@ -45,6 +44,11 @@ def mark_text_for_translation(asset):
         if type == "dashboards":
             strings.append(asset["dashboard_title"])
 
+            # Gets translatable fields from filters
+            for filter in asset["metadata"]["native_filter_configuration"]:
+                strings.append(filter["name"])
+
+            # Gets translatable fields from charts
             for element in asset.get("position", {}).values():
                 if not isinstance(element, dict):
                     continue
@@ -107,7 +111,14 @@ def compile_translations(root_path):
             path = os.path.join(root, file)
             with open(path, 'r') as asset_file:
                 loc_str = asset_file.read()
-            all_translations[lang] = yaml.safe_load(loc_str)[lang]
+            loaded_strings = yaml.safe_load(loc_str)
+
+            # Sometimes translated files come back with "en" as the top level
+            # key, but still translated correctly.
+            try:
+                all_translations[lang] = loaded_strings[lang]
+            except KeyError:
+                all_translations[lang] = loaded_strings["en"]
 
     out_path = (
         os.path.join(

@@ -293,6 +293,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             },
         ),
         ("SUPERSET_TALISMAN_ENABLED", True),
+        # These are languages that Superset itself supports, it does not currently
+        # support different locales for a language.
         ("SUPERSET_DEFAULT_LOCALE", "en"),
         (
             "SUPERSET_SUPPORTED_LANGUAGES",
@@ -312,7 +314,44 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "nl": {"flag": "nl", "name": "Dutch"},
             },
         ),
+        # These are the locales that Open edX supports according to:
+        # https://openedx.atlassian.net/wiki/spaces/COMM/pages/3157524644/Translation+Working+Group
+        (
+            "SUPERSET_DASHBOARD_LOCALES",
+            [
+                "ar",
+                "da",
+                "de_DE",
+                "el",
+                "en",
+                "es_419",
+                "es_ES",
+                "fr_CA",
+                "he",
+                "hi",
+                "id",
+                "it_IT",
+                "pt_BR",
+                "pt_PT",
+                "ru",
+                "th",
+                "tr_TR",
+                "uk",
+                "zh_CN",
+            ],
+        ),
         ("SUPERSET_EXTRA_JINJA_FILTERS", {}),
+        # This controls the cache time of the can_view_courses
+        # wrapper, which controls the course-based permissions.
+        # This includes the user roles and course list. This
+        # does not get cleared on login, and so should be kept
+        # short since mostly most of the savings comes from the
+        # course cache anyway.
+        ("SUPERSET_USER_PERMISSIONS_CACHE_TIMEOUT", 120),
+        # This controls the cache time of the user's course list
+        # only, limiting the number of LMS calls since they are
+        # rate limited. This can be cleared by logging back in.
+        ("SUPERSET_USER_COURSES_CACHE_TIMEOUT", 300),
         ("SUPERSET_BLOCK_STUDENT_ACCESS", True),
         # This setting allows Superset to run behind a reverse proxy in HTTPS and
         # redirect to the correct http/s based on the headers sent from the proxy.
@@ -326,7 +365,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
-        ("DBT_BRANCH", "v2.5"),
+        ("DBT_BRANCH", "v2.7"),
         # Path to the dbt project inside the repository
         ("DBT_REPOSITORY_PATH", "aspects-dbt"),
         # This is a pip compliant list of Python packages to install to run dbt

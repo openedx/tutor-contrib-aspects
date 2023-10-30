@@ -27,7 +27,7 @@ ASSET_FOLDER_MAPPING = {
     "table_name": "datasets",
 }
 
-ENABLED_LANGUAGES = {{SUPERSET_SUPPORTED_LANGUAGES}}
+DASHBOARD_LOCALES = {{SUPERSET_DASHBOARD_LOCALES}}
 
 for folder in ASSET_FOLDER_MAPPING.values():
     os.makedirs(f"{BASE_DIR}/{folder}", exist_ok=True)
@@ -101,12 +101,12 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
         create_superset_db(asset["database_name"], asset["sqlalchemy_uri"])
 
     if folder in ["charts", "dashboards"]:
-        for language in ENABLED_LANGUAGES.keys():
+        for locale in DASHBOARD_LOCALES:
             updated_asset = generate_translated_asset(
-                asset, asset_name, folder, language, roles
+                asset, asset_name, folder, locale, roles
             )
 
-            path = f"{BASE_DIR}/{folder}/{file_name}-{language}.yaml"
+            path = f"{BASE_DIR}/{folder}/{file_name}-{locale}.yaml"
             with open(path, "w") as file:
                 yaml.dump(updated_asset, file)
 

@@ -5,6 +5,71 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.59.0 - 2023-10-26
+
+### [0.59.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.58.0...v0.59.0) (2023-10-26)
+
+#### Features
+
+- replace double quotes in problem responses ([c56a9d6](https://github.com/openedx/tutor-contrib-aspects/commit/c56a9d696e543b310e9d44c02fa5e961bac2f933))
+
+#### Bug Fixes
+
+- properly escape characters in migration ([e9a6157](https://github.com/openedx/tutor-contrib-aspects/commit/e9a6157ec0173b62b83bf9b2e7accd2e1c1c8da8))
+
+## v0.58.0 - 2023-10-25
+
+### [0.58.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.57.3...v0.58.0) (2023-10-25)
+
+#### Features
+
+- Upgrade Superset to 3.0.1 ([549e015](https://github.com/openedx/tutor-contrib-aspects/commit/549e0157b11592c7c04f26399f2774b1d4f96d2c))
+
+#### Documentation
+
+- Fix duplicate https in doc links ([323cc21](https://github.com/openedx/tutor-contrib-aspects/commit/323cc21055f17262875fdb448a3e414c6e044c03))
+
+## v0.57.3 - 2023-10-25
+
+### [0.57.3](https://github.com/openedx/tutor-contrib-aspects/compare/v0.57.2...v0.57.3) (2023-10-25)
+
+### Bug Fixes
+
+- Pull filter names as translatable strings ([50be682](https://github.com/openedx/tutor-contrib-aspects/commit/50be682d99ad44528af2964b0cd7135390ab9ef8))
+
+## v0.57.2 - 2023-10-24
+
+### [0.57.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.57.1...v0.57.2) (2023-10-24)
+
+### Bug Fixes
+
+- Allow Jinja in templates again ([22f8d80](https://github.com/openedx/tutor-contrib-aspects/commit/22f8d807b31bc380752c3d1c77b77b6b5b2b80bb))
+- Correctly cache user permissions ([4d793e3](https://github.com/openedx/tutor-contrib-aspects/commit/4d793e3376521a9e14ba5627b0b46f22a9288ba0))
+
+## v0.57.1 - 2023-10-19
+
+### [0.57.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.57.0...v0.57.1) (2023-10-19)
+
+### Bug Fixes
+
+- Lint issue ([36ba791](https://github.com/openedx/tutor-contrib-aspects/commit/36ba791020b2ada47df7e2eea28de1e47f814068))
+
+### Code Refactoring
+
+- Use new Transifex / Atlas pipeline to pull loc ([bf45e35](https://github.com/openedx/tutor-contrib-aspects/commit/bf45e35f977107a94c303916c26a67dc9b212fe4))
+
+## v0.57.0 - 2023-10-19
+
+### [0.57.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.56.1...v0.57.0) (2023-10-19)
+
+#### Features
+
+- display multiple-choice answers separately ([4ea65d6](https://github.com/openedx/tutor-contrib-aspects/commit/4ea65d69307b53e5da96cedb46296c785fe3a259))
+
+#### Code Refactoring
+
+- use extended block names in dashboard ([d2145f0](https://github.com/openedx/tutor-contrib-aspects/commit/d2145f02c6679b101b0ed18ac953321c598b750b))
+
 ## v0.56.1 - 2023-10-16
 
 ### [0.56.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.56.0...v0.56.1) (2023-10-16)

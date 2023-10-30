@@ -10,16 +10,22 @@ select
     course_run,
     problem_id,
     problem_name,
+    problem_name_with_location,
     actor_id,
     attempts,
     success,
-    responses
+    arrayJoin(
+        if(
+            startsWith(responses, '['),
+            cast(responses as Array(String)),
+            [responses]
+    )) as responses
 from
     problem_responses
 where
     {% raw %}
-    {% if filter_values('problem_name') != [] %}
-    problem_name in {{ filter_values('problem_name') | where_in }}
+    {% if filter_values('problem_name_with_location') != [] %}
+    problem_name_with_location in {{ filter_values('problem_name_with_location') | where_in }}
     {% else %}
     1=0
     {% endif %}
