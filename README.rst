@@ -153,6 +153,7 @@ To contribute assets to Aspects:
 #. The script will also warn about missing `_roles` in dashboards. Superset does not export
    these, so you will need to manually add this key with the roles that are necessary to
    view the dashboard. See the existing dashboards for how this is done.
+#. Re-build your ``aspects-superset`` image with `tutor images build aspects-superset --no-cache`
 #. Run the command `tutor aspects check_superset_assets` to confirm there are no
    duplicate assets, which can happen when you rename an asset, and will cause import
    to fail. The command will automatically delete the older file if it finds a duplicate.
