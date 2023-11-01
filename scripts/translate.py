@@ -2,7 +2,7 @@ import os
 import sys
 
 import click
-from utils import compile_translations, extract_translations, get_text_for_translations
+from translate_utils import compile_translations, extract_translations, get_text_for_translations
 
 
 @click.command()

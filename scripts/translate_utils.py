@@ -1,4 +1,6 @@
+import math
 import os
+import shutil
 import yaml
 
 ASSET_FOLDER_MAPPING = {
@@ -130,9 +132,16 @@ def compile_translations(root_path):
     print(f"Writing all translations out to {out_path}")
     with open(out_path, 'w') as outfile:
         outfile.write("---\n")
-        yaml.safe_dump(all_translations, outfile)
+        # If we don't use an extremely large width, the jinja in our translations
+        # can be broken by newlines. So we use the largest number there is.
+        yaml.dump(all_translations, outfile, width=math.inf)
         outfile.write("\n{{ patch('superset-extra-asset-translations')}}\n")
 
+    # We remove these files to avoid confusion about where translations are coming
+    # from, and because otherwise we will need to re-save them with the large
+    # width as above to avoid Jinja parsing errors.
+    print("Removing downloaded translations files... ")
+    shutil.rmtree(translations_path)
 
 
 def extract_translations(root_path):
