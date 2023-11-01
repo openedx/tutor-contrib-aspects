@@ -306,7 +306,7 @@ position:
     - GRID_ID
     - TABS-7nA6MwltSD
     - TAB-gvqU89mvT
-    - ROW-cpoIgMfQUZ
+    - COLUMN-cpoIgMfQUZ
     type: CHART
   CHART-QN5x3ibIzS:
     children: []
@@ -475,6 +475,36 @@ position:
     - TAB-EygpebMa1
     - ROW-06Qh5Kxfn
     type: CHART
+  CHART-4xInxcau02:
+    children: []
+    id: CHART-4xInxcau02
+    meta:
+      chartId: 647
+      height: 50
+      sliceName: ClickHouse Metrics
+      uuid: 2f84cbc3-4068-4d4d-bd40-ae348e4be95d
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7nA6MwltSD
+    - TAB-gvqU89mvT
+    - COLUMN-cpoIgMfQUZ
+    type: CHART
+  COLUMN-cpoIgMfQUZ:
+    children:
+    - CHART-La3O2IbbVV
+    - CHART-4xInxcau02
+    id: COLUMN-cpoIgMfQUZ
+    meta:
+      background: BACKGROUND_TRANSPARENT
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7nA6MwltSD
+    - TAB-gvqU89mvT
+    type: COLUMN
   COLUMN-GDahqg06nQ:
     children:
     - MARKDOWN-EZXXAbo-Tg
@@ -488,6 +518,22 @@ position:
     - TABS-7nA6MwltSD
     - TAB-DE73B5pXm
     - ROW-mPSz65tZ7E
+    type: COLUMN
+  COLUMN-cZHAXyMjrZ:
+    children:
+    - CHART-YIks0931LR
+    - DIVIDER-Cjn1gzHg1Z
+    - CHART-z56xnjjWTf
+    id: COLUMN-cZHAXyMjrZ
+    meta:
+      background: BACKGROUND_TRANSPARENT
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7nA6MwltSD
+    - TAB-gvqU89mvT
+    - ROW-npo-Vvh-xu
     type: COLUMN
   COLUMN-eGzPLamIzw:
     children:
@@ -506,6 +552,18 @@ position:
     - ROW-mPSz65tZ7E
     type: COLUMN
   DASHBOARD_VERSION_KEY: v2
+  DIVIDER-Cjn1gzHg1Z:
+    children: []
+    id: DIVIDER-Cjn1gzHg1Z
+    meta: {}
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7nA6MwltSD
+    - TAB-gvqU89mvT
+    - ROW-npo-Vvh-xu
+    - COLUMN-cZHAXyMjrZ
+    type: DIVIDER
   DIVIDER-erPdret3HB:
     children: []
     id: DIVIDER-erPdret3HB
@@ -622,18 +680,6 @@ position:
     - TABS-7nA6MwltSD
     - TAB-6Mdnw3FZh
     type: ROW
-  ROW-cpoIgMfQUZ:
-    children:
-    - CHART-La3O2IbbVV
-    id: ROW-cpoIgMfQUZ
-    meta:
-      background: BACKGROUND_TRANSPARENT
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - TABS-7nA6MwltSD
-    - TAB-gvqU89mvT
-    type: ROW
   ROW-mPSz65tZ7E:
     children:
     - COLUMN-GDahqg06nQ
@@ -691,7 +737,7 @@ position:
     type: TAB
   TAB-gvqU89mvT:
     children:
-    - ROW-cpoIgMfQUZ
+    - COLUMN-cpoIgMfQUZ
     id: TAB-gvqU89mvT
     meta:
       defaultText: Tab title
