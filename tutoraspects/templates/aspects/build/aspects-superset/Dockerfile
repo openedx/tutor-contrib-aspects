@@ -32,4 +32,6 @@ RUN apt-get update -q \
     && ln -s /opt/firefox/firefox /usr/local/bin/firefox \
     && apt-get autoremove -yqq --purge wget && rm -rf /var/lib/apt/lists/* /var/[log,tmp]/* /tmp/* && apt-get clean
 
+COPY ./openedx-assets /app/openedx-assets
+
 USER superset
