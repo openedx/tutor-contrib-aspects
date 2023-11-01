@@ -12,15 +12,15 @@ appdirs==1.4.4
     #   tutor
 astroid==3.0.1
     # via pylint
-asttokens==2.4.0
+asttokens==2.4.1
     # via
     #   -r requirements/base.txt
     #   transifex-python
 bcrypt==4.0.1
     # via -r requirements/base.txt
-black==23.10.0
+black==23.10.1
     # via -r requirements/dev.in
-cachetools==5.3.1
+cachetools==5.3.2
     # via
     #   -r requirements/base.txt
     #   google-auth
@@ -41,7 +41,7 @@ click==8.1.7
     #   black
     #   transifex-python
     #   tutor
-cryptography==41.0.4
+cryptography==41.0.5
     # via secretstorage
 dill==0.3.7
     # via pylint
