@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.61.0 - 2023-11-01
+
+### [0.61.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.60.0...v0.61.0) (2023-11-01)
+
+#### Features
+
+- load default assets from image instead of a larger assets file ([5fc6de2](https://github.com/openedx/tutor-contrib-aspects/commit/5fc6de2a4746b547e079a12ffa40005dfad6997f))
+
+#### Bug Fixes
+
+- address suggestions ([532c9d5](https://github.com/openedx/tutor-contrib-aspects/commit/532c9d583d0af80967b3724ecf6eda06d21c4451))
+
+#### Documentation
+
+- add rebuild step to docs ([62939d4](https://github.com/openedx/tutor-contrib-aspects/commit/62939d4db417e2f0b4917be3ca5a855a978e4bc7))
+
+## v0.60.0 - 2023-11-01
+
+### [0.60.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.59.0...v0.60.0) (2023-11-01)
+
+#### Features
+
+- adds Clickhouse metrics to Operator / Clickhouse tab ([5af67af](https://github.com/openedx/tutor-contrib-aspects/commit/5af67af8f0820cb25471c42910c2bf573b47b015))
+
 ## v0.59.0 - 2023-10-26
 
 ### [0.59.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.58.0...v0.59.0) (2023-10-26)

@@ -36,6 +36,7 @@ FILE_NAME_ATTRIBUTE = "_file_name"
 
 TRANSLATIONS_FILE_PATH = "/app/localization/locale.yaml"
 ASSETS_FILE_PATH = "/app/pythonpath/assets.yaml"
+ASSETS_PATH = "/app/openedx-assets"
 
 merged_data = {}
 with open(TRANSLATIONS_FILE_PATH, "r") as file:
@@ -61,26 +62,46 @@ def main():
 def create_assets():
     """Create assets from a yaml file."""
     roles = {}
+
+    for root, dirs, files in os.walk(ASSETS_PATH):
+        for file in files:
+            if not file.endswith(".yaml"):
+                continue
+
+            path = os.path.join(root, file)
+            with open(path, "r") as file:
+                asset = yaml.safe_load(file)
+                if not asset:
+                    continue
+
+                # Process the asset directly
+                if FILE_NAME_ATTRIBUTE not in asset:
+                    raise Exception(f"Asset {asset} has no {FILE_NAME_ATTRIBUTE}")
+                file_name = asset.pop(FILE_NAME_ATTRIBUTE)
+
+                # Find the right folder to create the asset in
+                for asset_name, folder in ASSET_FOLDER_MAPPING.items():
+                    if asset_name in asset:
+                        write_asset_to_file(asset, asset_name, folder, file_name, roles)
+                        break
+
     with open(ASSETS_FILE_PATH, "r") as file:
         extra_assets = yaml.safe_load(file)
 
-        if not extra_assets:
-            print("No extra assets to create")
-            return
+        if extra_assets:
+            # For each asset, create a file in the right folder
+            for asset in extra_assets:
+                if FILE_NAME_ATTRIBUTE not in asset:
+                    raise Exception(f"Asset {asset} has no {FILE_NAME_ATTRIBUTE}")
+                file_name = asset.pop(FILE_NAME_ATTRIBUTE)
 
-        # For each asset, create a file in the right folder
-        for asset in extra_assets:
-            if FILE_NAME_ATTRIBUTE not in asset:
-                raise Exception(f"Asset {asset} has no {FILE_NAME_ATTRIBUTE}")
-            file_name = asset.pop(FILE_NAME_ATTRIBUTE)
+                # Find the right folder to create the asset in
+                for asset_name, folder in ASSET_FOLDER_MAPPING.items():
+                    if not asset_name in asset:
+                        continue
 
-            # Find the right folder to create the asset in
-            for asset_name, folder in ASSET_FOLDER_MAPPING.items():
-                if not asset_name in asset:
-                    continue
-
-                write_asset_to_file(asset, asset_name, folder, file_name, roles)
-                break
+                    write_asset_to_file(asset, asset_name, folder, file_name, roles)
+                    break
 
     import_assets()
     update_dashboard_roles(roles)

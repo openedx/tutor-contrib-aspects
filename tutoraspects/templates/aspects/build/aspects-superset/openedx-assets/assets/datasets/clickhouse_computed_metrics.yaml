@@ -1,0 +1,117 @@
+_file_name: clickhouse_computed_metrics.yaml
+table_name: clickhouse_computed_metrics
+main_dttm_col: null
+description: null
+default_endpoint: null
+offset: 0
+cache_timeout: null
+schema: system
+sql: |
+    SELECT
+      name,
+      toFloat64(value) AS value,
+      description
+    FROM system.metrics
+    WHERE metric IN (
+      'Query',
+      'DelayedInserts',
+      'DistributedFilesToInsert'
+    )
+
+    UNION ALL
+
+    SELECT
+      metric AS name,
+      round(toFloat64(value), 2) AS value,
+      description
+    FROM system.asynchronous_metrics
+    WHERE metric IN ('MaxPartCountForPartition', 'Uptime')
+
+    UNION ALL
+
+    SELECT
+      name,
+      toFloat64(value) AS value,
+      description
+    FROM system.events
+    WHERE event IN (
+      'RejectedInserts',
+      'ReplicatedDataLoss',
+      'DataAfterMergeDiffersFromReplica',
+      'DataAfterMutationDiffersFromReplica'
+    )
+
+    UNION All
+
+    SELECT
+      'StuckReplicationTasks' AS name,
+      toFloat64(count()) AS value,
+      'Replication tasks that were retried or postponed over 100 times.' AS description
+    FROM system.replication_queue
+    WHERE num_tries > 100 OR num_postponed > 100
+
+    UNION ALL
+
+    SELECT
+      CONCAT('cluster ', name) AS name,
+      ROUND(SUM(free_space) / SUM(total_space), 3) * 100 AS value,
+     'Free space per cluster node, as percent' AS description
+    FROM system.disks
+    GROUP BY name
+params: null
+template_params: null
+filter_select_enabled: true
+fetch_values_predicate: null
+extra: null
+normalize_columns: false
+uuid: 9eee1df8-ad25-4d0f-8e53-90c277cf28e4
+metrics:
+- metric_name: count
+  verbose_name: COUNT(*)
+  metric_type: count
+  expression: COUNT(*)
+  description: null
+  d3format: null
+  currency: null
+  extra:
+    warning_markdown: ''
+  warning_text: null
+columns:
+- column_name: value
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: Float64
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
+- column_name: name
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: String
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
+- column_name: description
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: String
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  extra: {}
+version: 1.0.0
+database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
