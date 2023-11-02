@@ -1,0 +1,16 @@
+_file_name: Superset_Metadata.yaml
+database_name: Superset Metadata
+sqlalchemy_uri: {{SUPERSET_METADATA_SQLALCHEMY_URI}}
+cache_timeout: 86400
+expose_in_sqllab: true
+allow_run_async: false
+allow_ctas: false
+allow_cvas: false
+allow_csv_upload: false
+extra:
+  metadata_params: {}
+  engine_params: {}
+  schemas_allowed_for_csv_upload: []
+  cancel_query_on_windows_unload: true
+uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
+version: 1.0.0

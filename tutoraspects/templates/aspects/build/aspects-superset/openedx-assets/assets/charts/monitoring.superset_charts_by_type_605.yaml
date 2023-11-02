@@ -1,0 +1,31 @@
+_file_name: monitoring.superset_charts_by_type_605.yaml
+slice_name: Charts by Type
+description: Count of the various types of charts created in Superset over the selected time period.
+viz_type: treemap_v2
+params:
+  adhoc_filters: []
+  color_scheme: htg_color_scheme
+  datasource: 482__table
+  date_format: smart_date
+  extra_form_data: {}
+  granularity_sqla: created_on
+  groupby:
+  - viz_type
+  label_type: key_value
+  metric: count
+  number_format: SMART_NUMBER
+  row_limit: 10000
+  show_labels: true
+  show_upper_labels: true
+  slice_id: 605
+  time_range: Last quarter
+  time_range_endpoints:
+  - inclusive
+  - exclusive
+  url_params: {}
+  viz_type: treemap_v2
+query_context: null
+cache_timeout: null
+uuid: 84393abe-04ab-4084-a195-116ad568badd
+version: 1.0.0
+dataset_uuid: aaf1ae12-73c1-4b88-b07d-7a8988333018
