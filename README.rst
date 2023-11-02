@@ -120,7 +120,7 @@ Contributing Charts and Dashboards to Aspects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Superset assets provided by Aspects can be found in the templated
-`tutoraspects/templates/openedx-assets/assets` directory. For the most part,
+`tutoraspects/templates/aspects/build/aspects-superset/openedx-assets/assets/` directory. For the most part,
 these files are what Superset exports, but with some crucial differences
 which make these assets usable across all Tutor deployments.
 
