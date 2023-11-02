@@ -241,7 +241,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("SUPERSET_DB_NAME", "superset"),
         ("SUPERSET_DB_USERNAME", "superset"),
         ("SUPERSET_DB_METADATA_NAME", "superset"),
-        ("SUPERSET_DB_METADATA_USERNAME", "superset_meta"),
         ("SUPERSET_EXTRA_REQUIREMENTS", []),
         ("SUPERSET_OAUTH2_ACCESS_TOKEN_PATH", "/oauth2/access_token/"),
         ("SUPERSET_OAUTH2_AUTHORIZE_PATH", "/oauth2/authorize/"),
@@ -272,8 +271,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("SUPERSET_ROW_LIMIT", 100_000),
         (
             "SUPERSET_METADATA_SQLALCHEMY_URI",
-            "mysql://{{SUPERSET_DB_METADATA_USERNAME}}:{{SUPERSET_DB_METADATA_PASSWORD}}"
-            "@{{SUPERSET_DB_HOST}}/{{SUPERSET_DB_NAME}}",
+            "mysql://{{SUPERSET_DB_USERNAME}}:{{SUPERSET_DB_PASSWORD}}"
+            "@{{SUPERSET_DB_HOST}}/{{SUPERSET_DB_METADATA_NAME}}",
         ),
         ("SUPERSET_SENTRY_DSN", ""),
         (
@@ -453,7 +452,6 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         # Superset Settings
         ("SUPERSET_SECRET_KEY", "{{ 24|random_string }}"),
         ("SUPERSET_DB_PASSWORD", "{{ 24|random_string }}"),
-        ("SUPERSET_DB_METADATA_PASSWORD", "{{ 24|random_string }}"),
         ("SUPERSET_OAUTH2_CLIENT_ID", "{{ 16|random_string }}"),
         ("SUPERSET_OAUTH2_CLIENT_ID_DEV", "{{ 16|random_string }}"),
         ("SUPERSET_OAUTH2_CLIENT_SECRET", "{{ 16|random_string }}"),
@@ -484,11 +482,12 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 # and then add it to the MY_INIT_TASKS list. Each task is in the format:
 # ("<service>", ("<path>", "<to>", "<script>", "<template>"))
 MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
-    ("mysql", ("aspects", "jobs", "init", "init-mysql.sh"), 92),
+    ("mysql", ("aspects", "jobs", "init", "mysql", "init-mysql.sh"), 92),
     ("clickhouse", ("aspects", "jobs", "init", "clickhouse", "init-clickhouse.sh"), 93),
     ("aspects", ("aspects", "jobs", "init", "aspects", "init-aspects.sh"), 94),
     ("superset", ("aspects", "jobs", "init", "superset", "init-superset.sh"), 95),
-    ("lms", ("aspects", "jobs", "init", "init-lms.sh"), 96),
+    ("mysql", ("aspects", "jobs", "init", "mysql", "init-mysql-post-migration.sh"), 96),
+    ("lms", ("aspects", "jobs", "init", "init-lms.sh"), 97),
 ]
 
 # For each task added to MY_INIT_TASKS, we load the task template
