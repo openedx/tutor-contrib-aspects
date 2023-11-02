@@ -280,7 +280,7 @@ def update_embeddable_uuids():
 
 def get_translation(text, language):
     """Get a translation for a text in a language"""
-    default_text = f"{text} - {language}"
+    default_text = f"{text}"
     LANGUAGE = ASSETS_TRANSLATIONS.get(language, {})
     if not LANGUAGE:
         return default_text
