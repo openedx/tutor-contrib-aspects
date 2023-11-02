@@ -11,7 +11,11 @@ ASSET_FOLDER_MAPPING = {
 
 def get_text_for_translations(root_path):
     assets_path = (
-        os.path.join(root_path, "tutoraspects/templates/openedx-assets/assets/")
+        os.path.join(
+            root_path,
+            "tutoraspects/templates/aspects/build/aspects-superset/"
+            "openedx-assets/assets/"
+        )
     )
 
     print(f"Assets path: {assets_path}")
