@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.62.0 - 2023-11-02
+
+### [0.62.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.61.0...v0.62.0) (2023-11-02)
+
+#### Features
+
+- adds "Most-used Charts" to Superset Usage dashboard ([cc86114](https://github.com/openedx/tutor-contrib-aspects/commit/cc8611454688e7baeac66d577956edc24ad68fe7))
+- adds description field to Superset Usage charts ([f0db289](https://github.com/openedx/tutor-contrib-aspects/commit/f0db2893f6c53e48056190c62907a786eab972bc))
+- adds Superset Metadata ([0586ee6](https://github.com/openedx/tutor-contrib-aspects/commit/0586ee6bc774bc75fde8ec8503940b9e5b31d533))
+
+#### Bug Fixes
+
+- grant SELECT access to a subset of superset metadata tables ([60d0f37](https://github.com/openedx/tutor-contrib-aspects/commit/60d0f37a981090333e852c0a32d71493506e45f5))
+- nulls unneeded query_context field in charts ([8d71dfc](https://github.com/openedx/tutor-contrib-aspects/commit/8d71dfc9b9ad2cdf3968310af6ac2b4427e06563))
+
+#### Code Refactoring
+
+- moves Superset Metadata dashboard into a tab on the Operator dashboard ([9ad42bf](https://github.com/openedx/tutor-contrib-aspects/commit/9ad42bf8759d0ebd7eda9985d938d4e87f607d1c))
+- splits mysql init into two steps ([ba89145](https://github.com/openedx/tutor-contrib-aspects/commit/ba891451499de2a37698fe822c1ac7a5b240614f))
+
 ## v0.61.0 - 2023-11-01
 
 ### [0.61.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.60.0...v0.61.0) (2023-11-01)
