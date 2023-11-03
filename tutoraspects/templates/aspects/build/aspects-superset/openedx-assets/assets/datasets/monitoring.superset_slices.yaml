@@ -5,7 +5,7 @@ description: null
 default_endpoint: null
 offset: 0
 cache_timeout: null
-schema: {{SUPERSET_DB_METADATA_NAME}}
+schema: "{{SUPERSET_DB_METADATA_NAME}}"
 sql: null
 params: null
 template_params: null

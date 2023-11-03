@@ -64,7 +64,9 @@ jobs:
       - name: Import demo course
         run: tutor local do importdemocourse
       - name: Test commands
-        run: tutor local do dump-courses-to-clickhouse --options "--force"
+        run: |
+          tutor local do dump-courses-to-clickhouse --options "--force"
+          make extract_translations
       - name: Tutor stop
         run: tutor local stop
 

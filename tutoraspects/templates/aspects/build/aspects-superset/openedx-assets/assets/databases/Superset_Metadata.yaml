@@ -1,6 +1,6 @@
 _file_name: Superset_Metadata.yaml
 database_name: Superset Metadata
-sqlalchemy_uri: {{SUPERSET_METADATA_SQLALCHEMY_URI}}
+sqlalchemy_uri: "{{SUPERSET_METADATA_SQLALCHEMY_URI}}"
 cache_timeout: 86400
 expose_in_sqllab: true
 allow_run_async: false
