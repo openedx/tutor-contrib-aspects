@@ -5,7 +5,7 @@ description: null
 default_endpoint: null
 offset: 0
 cache_timeout: null
-schema: {{SUPERSET_DB_METADATA_NAME}}
+schema: "{{SUPERSET_DB_METADATA_NAME}}"
 sql: "select\nl.dttm as action_date,\ncase \n  when lower(l.action)\
   \ = 'queries' then 'query from sqllab'\n  when lower(l.action) = 'chartrestapi.data'\
   \ then 'query from charts'\n  when lower(l.action) = 'count' then 'dashboard view'\n\
