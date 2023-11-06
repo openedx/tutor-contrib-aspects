@@ -16,7 +16,7 @@ certifi==2023.7.22
     # via
     #   kubernetes
     #   requests
-charset-normalizer==3.3.1
+charset-normalizer==3.3.2
     # via requests
 click==8.1.7
     # via
@@ -25,7 +25,7 @@ click==8.1.7
     #   tutor
 future==0.18.3
     # via pyseeyou
-google-auth==2.23.3
+google-auth==2.23.4
     # via kubernetes
 idna==3.4
     # via requests
@@ -87,7 +87,7 @@ toolz==0.12.0
     # via pyseeyou
 transifex-python==3.4.0
     # via -r requirements/base.in
-tutor==16.1.4
+tutor==16.1.5
     # via -r requirements/base.in
 typing-extensions==4.8.0
     # via

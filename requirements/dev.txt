@@ -31,7 +31,7 @@ certifi==2023.7.22
     #   requests
 cffi==1.16.0
     # via cryptography
-charset-normalizer==3.3.1
+charset-normalizer==3.3.2
     # via
     #   -r requirements/base.txt
     #   requests
@@ -51,7 +51,7 @@ future==0.18.3
     # via
     #   -r requirements/base.txt
     #   pyseeyou
-google-auth==2.23.3
+google-auth==2.23.4
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -214,7 +214,7 @@ tomli==2.0.1
     #   black
     #   mypy
     #   pylint
-tomlkit==0.12.1
+tomlkit==0.12.2
     # via pylint
 toolz==0.12.0
     # via
@@ -222,7 +222,7 @@ toolz==0.12.0
     #   pyseeyou
 transifex-python==3.4.0
     # via -r requirements/base.txt
-tutor==16.1.4
+tutor==16.1.5
     # via -r requirements/base.txt
 twine==4.0.2
     # via -r requirements/dev.in
