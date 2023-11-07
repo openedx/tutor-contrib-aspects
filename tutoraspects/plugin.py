@@ -50,6 +50,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # in the ClickHouse database. Make sure that you understand the legal
         # consequences of data storage and privacy before turning this on!
         ("ASPECTS_ENABLE_PII", False),
+        ("ASPECTS_DOCS_ROOT_URL", "https://docs.openedx.org/projects/openedx-aspects/en/latest/"),
         # ClickHouse xAPI settings
         ("ASPECTS_XAPI_DATABASE", "xapi"),
         ("ASPECTS_RAW_XAPI_TABLE", "xapi_events_all"),
