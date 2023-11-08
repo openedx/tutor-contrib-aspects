@@ -546,9 +546,7 @@ position:
     children: []
     id: MARKDOWN-904VlyNSAd
     meta:
-      code: '<div align="right">
-        <a href="{{ASPECTS_DOCS_ROOT_URL}}/reference/intructor_reports.html#course-enrollment-tab">Reference</a>
-        </div>'
+      code: <div>Filter these results by selecting various options from the filters panel.</div>
       height: 7
       width: 12
     parents:
@@ -561,9 +559,7 @@ position:
     children: []
     id: MARKDOWN-Cs_pVxjPWd
     meta:
-      code: '<div align="right">
-        <a href="{{ASPECTS_DOCS_ROOT_URL}}/reference/intructor_reports.html#problem-performance-tab">Reference</a>
-        </div>'
+      code: <div>Select a problem from the Filters panel to populate the charts.</div>
       height: 7
       width: 12
     parents:
@@ -576,9 +572,7 @@ position:
     children: []
     id: MARKDOWN-EVIRENCcGc
     meta:
-      code: '<div align="right">
-        <a href="{{ASPECTS_DOCS_ROOT_URL}}/reference/intructor_reports.html#video-performance-tab">Reference</a>
-        </div>'
+      code: <div>Select a video from the Filters panel to populate these charts.</div>
       height: 7
       width: 12
     parents:
@@ -591,9 +585,7 @@ position:
     children: []
     id: MARKDOWN-FhaKADKFSa
     meta:
-      code: '<div align="right">
-        <a href="{{ASPECTS_DOCS_ROOT_URL}}/reference/intructor_reports.html#problem-engagement-tab">Reference</a>
-        </div>'
+      code: <div>Select a course from the Filters panel to populate these charts.</div>
       height: 7
       width: 12
     parents:
@@ -606,9 +598,7 @@ position:
     children: []
     id: MARKDOWN-NaNsE4EBKf
     meta:
-      code: '<div align="right">
-        <a href="{{ASPECTS_DOCS_ROOT_URL}}/reference/intructor_reports.html#video-engagement-tab">Reference</a>
-        </div>'
+      code: <div>Select a course from the Filters panel to populate these charts.</div>
       height: 7
       width: 12
     parents:
@@ -617,37 +607,24 @@ position:
     - TAB-7PGDduCA7
     - ROW-nNEywSG0jX
     type: MARKDOWN
-  MARKDOWN-vv8ZKwGrlB:
+  MARKDOWN-LGvs7A8_15:
     children: []
-    id: MARKDOWN-vv8ZKwGrlB
+    id: MARKDOWN-LGvs7A8_15
     meta:
-      code: '<div align="right">
-        <a href="{{ASPECTS_DOCS_ROOT_URL}}/reference/intructor_reports.html#forum-interaction-tab">Reference</a>
-        </div>'
-      height: 7
+      code: "{{ASPECTS_HELP_MARKDOWN}}"
+      height: 60
       width: 12
     parents:
     - ROOT_ID
     - TABS-SNeKAJcjhd
-    - TAB-eE0OQxuju
-    - ROW-1cVixUyTcv
+    - TAB-nXpinnLEX
+    - ROW-0rN_IHNT9-
     type: MARKDOWN
   ROOT_ID:
     children:
     - TABS-SNeKAJcjhd
     id: ROOT_ID
     type: ROOT
-  ROW-1cVixUyTcv:
-    children:
-    - MARKDOWN-vv8ZKwGrlB
-    id: ROW-1cVixUyTcv
-    meta:
-      background: BACKGROUND_TRANSPARENT
-    parents:
-    - ROOT_ID
-    - TABS-SNeKAJcjhd
-    - TAB-eE0OQxuju
-    type: ROW
   ROW-7H84y2hXCn:
     children:
     - MARKDOWN-Cs_pVxjPWd
@@ -807,6 +784,17 @@ position:
     - TABS-SNeKAJcjhd
     - TAB-NR4UTAs9K
     type: ROW
+  ROW-0rN_IHNT9-:
+    children:
+    - MARKDOWN-LGvs7A8_15
+    id: ROW-0rN_IHNT9-
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-nXpinnLEX
+    type: ROW
   TAB-7PGDduCA7:
     children:
     - ROW-nNEywSG0jX
@@ -866,7 +854,6 @@ position:
     type: TAB
   TAB-eE0OQxuju:
     children:
-    - ROW-1cVixUyTcv
     - ROW-la1XxBueHN
     id: TAB-eE0OQxuju
     meta:
@@ -891,6 +878,18 @@ position:
     - ROOT_ID
     - TABS-SNeKAJcjhd
     type: TAB
+  TAB-nXpinnLEX:
+    children:
+    - ROW-0rN_IHNT9-
+    id: TAB-nXpinnLEX
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Help
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    type: TAB
   TABS-SNeKAJcjhd:
     children:
     - TAB-8BxDuJd9Jb
@@ -899,6 +898,7 @@ position:
     - TAB-7PGDduCA7
     - TAB-CLiLC4zxo
     - TAB-eE0OQxuju
+    {% if ASPECTS_HELP_MARKDOWN %}- TAB-nXpinnLEX{% endif %}
     id: TABS-SNeKAJcjhd
     meta: {}
     parents:
