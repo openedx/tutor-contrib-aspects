@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.62.4 - 2023-11-09
+
+### [0.62.4](https://github.com/openedx/tutor-contrib-aspects/compare/v0.62.3...v0.62.4) (2023-11-09)
+
+### Bug Fixes
+
+- Bump ERB to 7.0.1 for problem result fixes ([9b98699](https://github.com/openedx/tutor-contrib-aspects/commit/9b9869908bbb7a6b1203a77b4cf5ade1a0d76f74))
+- Remove split on requirements in versions chart ([24dc754](https://github.com/openedx/tutor-contrib-aspects/commit/24dc7547e7ab1770cb20ad61cc37d4ad11d0c9e5))
+
 ## v0.62.3 - 2023-11-03
 
 ### [0.62.3](https://github.com/openedx/tutor-contrib-aspects/compare/v0.62.2...v0.62.3) (2023-11-03)
