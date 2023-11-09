@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.63.0 - 2023-11-09
+
+### [0.63.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.62.4...v0.63.0) (2023-11-09)
+
+#### Features
+
+- Adds Help tab to Instructor Dashboard ([2d931f8](https://github.com/openedx/tutor-contrib-aspects/commit/2d931f83fe8a5c649a53eb2ad1e2a787a025115b))
+- Adds Help tab to Operator Dashboard ([a11a0e0](https://github.com/openedx/tutor-contrib-aspects/commit/a11a0e0729f54e1370efe9d5e9947830729cd361))
+
+#### Bug Fixes
+
+- link to Aspects References page ([1d17283](https://github.com/openedx/tutor-contrib-aspects/commit/1d172832492d038e2f8e30ea39d8591df8785a23))
+- lint ([b92c80c](https://github.com/openedx/tutor-contrib-aspects/commit/b92c80c53b529833f65da1308cd99b643730f253))
+
+#### Code Refactoring
+
+- replaces dashboard tab docs with link to openedx-aspects docs ([994d8a0](https://github.com/openedx/tutor-contrib-aspects/commit/994d8a0d04f08d873ab1da74ed6689d9b3d4a79b))
+
 ## v0.62.4 - 2023-11-09
 
 ### [0.62.4](https://github.com/openedx/tutor-contrib-aspects/compare/v0.62.3...v0.62.4) (2023-11-09)
