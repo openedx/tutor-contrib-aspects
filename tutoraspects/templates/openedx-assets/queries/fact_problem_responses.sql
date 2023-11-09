@@ -16,10 +16,11 @@ select
     success,
     arrayJoin(
         if(
-            startsWith(responses, '['),
-            cast(responses as Array(String)),
+            JSONArrayLength(responses) > 0,
+            JSONExtractArrayRaw(responses),
             [responses]
-    )) as responses
+        )
+    ) as responses
 from
     problem_responses
 where

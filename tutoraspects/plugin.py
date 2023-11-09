@@ -41,7 +41,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "OPENEDX_EXTRA_PIP_REQUIREMENTS",
             [
                 "openedx-event-sink-clickhouse==0.4.0",
-                "edx-event-routing-backends==v7.0.0",
+                "edx-event-routing-backends==v7.0.1",
             ],
         ),
         ("EVENT_SINK_CLICKHOUSE_MODELS", ["course_overviews", "user_profile"]),

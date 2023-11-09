@@ -878,9 +878,9 @@ position:
         ## Dependencies: 
         {% for requirement in OPENEDX_EXTRA_PIP_REQUIREMENTS %}
          {% if 'openedx-event-sink-clickhouse' in requirement %}
-        - **Clickhouse Event Sink Version**: {{ requirement.split('==')[1] }} \n 
+        - **Clickhouse Event Sink Version**: {{ requirement }} \n 
          {% elif 'event-routing-backends' in requirement %}
-        - **Event Routing Backends Version**: {{ requirement.split('==')[1] }} \n
+        - **Event Routing Backends Version**: {{ requirement }} \n
          {% endif %}
         {% endfor %}
         "
