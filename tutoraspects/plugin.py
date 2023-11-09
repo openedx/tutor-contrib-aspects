@@ -50,12 +50,21 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # in the ClickHouse database. Make sure that you understand the legal
         # consequences of data storage and privacy before turning this on!
         ("ASPECTS_ENABLE_PII", False),
-        # Set this to empty string/False to omit Help tabs from the dashboard.
+        # Markdown comprising the Help tab for the Operator and Instructor dashboards.
+        # Set to empty string/False to omit Help tab entirely from the dashboard.
         # Newlines and double-quotes must be escaped.
         (
-            "ASPECTS_HELP_MARKDOWN",
+            "ASPECTS_INSTRUCTOR_HELP_MARKDOWN",
             "## Help\\n"
-            "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/reference/)\\n"
+            "* [Aspects Reference]"
+            "(https://docs.openedx.org/projects/openedx-aspects/page/reference/instructor_reports.html)\\n"
+            "* [Superset Resources](https://github.com/apache/superset#resources)\\n",
+        ),
+        (
+            "ASPECTS_OPERATOR_HELP_MARKDOWN",
+            "## Help\\n"
+            "* [Aspects Reference]"
+            "(https://docs.openedx.org/projects/openedx-aspects/page/reference/operator_reports.html)\\n"
             "* [Superset Resources](https://github.com/apache/superset#resources)\\n",
         ),
         # ClickHouse xAPI settings

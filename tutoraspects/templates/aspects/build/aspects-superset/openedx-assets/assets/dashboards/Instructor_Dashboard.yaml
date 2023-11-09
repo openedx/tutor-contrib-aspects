@@ -611,7 +611,7 @@ position:
     children: []
     id: MARKDOWN-LGvs7A8_15
     meta:
-      code: "{{ASPECTS_HELP_MARKDOWN}}"
+      code: "{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}"
       height: 60
       width: 12
     parents:
@@ -898,7 +898,9 @@ position:
     - TAB-7PGDduCA7
     - TAB-CLiLC4zxo
     - TAB-eE0OQxuju
-    {% if ASPECTS_HELP_MARKDOWN %}- TAB-nXpinnLEX{% endif %}
+    # {% if ASPECTS_INSTRUCTOR_HELP_MARKDOWN %}
+    - TAB-nXpinnLEX
+    # {% endif %}
     id: TABS-SNeKAJcjhd
     meta: {}
     parents:

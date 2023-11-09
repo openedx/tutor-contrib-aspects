@@ -894,6 +894,18 @@ position:
     - ROW-mPSz65tZ7E
     - COLUMN-GDahqg06nQ
     type: MARKDOWN
+  MARKDOWN-fLG7yz1R1t:
+    children: []
+    id: MARKDOWN-fLG7yz1R1t
+    meta:
+      code: "{{ASPECTS_OPERATOR_HELP_MARKDOWN}}"
+      height: 50
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-yuEVxRJ4Of
+    type: MARKDOWN
   ROOT_ID:
     children:
     - GRID_ID
@@ -1029,6 +1041,18 @@ position:
     - TABS-7nA6MwltSD
     - TAB-z7LunkNp63
     type: ROW
+  ROW-lcH-BIR2I:
+    children:
+    - MARKDOWN-fLG7yz1R1t
+    id: ROW-lcH-BIR2I
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7nA6MwltSD
+    - TAB-RtC9PHwXy
+    type: ROW
   TAB-6Mdnw3FZh:
     children:
     - ROW-Z0QlRyckta
@@ -1114,6 +1138,19 @@ position:
     - GRID_ID
     - TABS-7nA6MwltSD
     type: TAB
+  TAB-RtC9PHwXy:
+    children:
+    - ROW-lcH-BIR2I
+    id: TAB-RtC9PHwXy
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Help
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7nA6MwltSD
+    type: TAB
   TABS-7nA6MwltSD:
     children:
     - TAB-DE73B5pXm
@@ -1122,6 +1159,9 @@ position:
     - TAB-EygpebMa1
     - TAB-gvqU89mvT
     - TAB-z7LunkNp63
+    # {% if ASPECTS_OPERATOR_HELP_MARKDOWN %}
+    - TAB-RtC9PHwXy
+    # {% endif %}
     id: TABS-7nA6MwltSD
     meta: {}
     parents:
