@@ -546,20 +546,8 @@ position:
     children: []
     id: MARKDOWN-904VlyNSAd
     meta:
-      code: '### Course Enrollment
-
-
-
-        These charts can help you understand how many students are enrolled in your
-        course by showing how enrollments have changed over time and which enrollment
-        modes students are choosing. More details about each chart can be found by
-        clicking the "3 dot" menu at the top right of the chart and selecting "Show
-        chart description".
-
-
-        You can filter these results by choosing selecting various options from the
-        filters on the left.'
-      height: 20
+      code: <div>Filter these results by selecting various options from the filters panel.</div>
+      height: 7
       width: 12
     parents:
     - ROOT_ID
@@ -571,16 +559,8 @@ position:
     children: []
     id: MARKDOWN-Cs_pVxjPWd
     meta:
-      code: '### Problem Performance
-
-
-        These charts help show the difficulty of your problems by showing you which
-        answers your students choose and which require many tries or hints to complete
-        successfully.
-
-
-        **Select a problem from the filters on the left to populate the charts.**'
-      height: 19
+      code: <div>Select a problem from the Filters panel to populate the charts.</div>
+      height: 7
       width: 12
     parents:
     - ROOT_ID
@@ -592,15 +572,8 @@ position:
     children: []
     id: MARKDOWN-EVIRENCcGc
     meta:
-      code: '### Video Performance
-
-
-        This section allows you to see which parts of a particular video are most
-        watched or skipped.
-
-
-        **Select a video from the filters on the left to populate these charts.**'
-      height: 15
+      code: <div>Select a video from the Filters panel to populate these charts.</div>
+      height: 7
       width: 12
     parents:
     - ROOT_ID
@@ -612,17 +585,8 @@ position:
     children: []
     id: MARKDOWN-FhaKADKFSa
     meta:
-      code: '### Problem Engagement
-
-
-        These charts can help you learn which problems your students have engaged
-        with or skipped, and the relative difficulty of problems across your course.
-        More details about each chart can be found by clicking the "3 dot" menu at
-        the top right of the chart and selecting "Show chart description".
-
-
-        **Select a course from the filters on the left to populate these charts.**'
-      height: 19
+      code: <div>Select a course from the Filters panel to populate these charts.</div>
+      height: 7
       width: 12
     parents:
     - ROOT_ID
@@ -634,22 +598,27 @@ position:
     children: []
     id: MARKDOWN-NaNsE4EBKf
     meta:
-      code: '### Video Engagement
-
-
-        These charts can help understand which videos are watched, and rewatched,
-        most often. It can also show how many users use the closed captions and transcript
-        features on your videos, and how often.
-
-
-        **Select a course from the filters on the left to populate these charts.**'
-      height: 18
+      code: <div>Select a course from the Filters panel to populate these charts.</div>
+      height: 7
       width: 12
     parents:
     - ROOT_ID
     - TABS-SNeKAJcjhd
     - TAB-7PGDduCA7
     - ROW-nNEywSG0jX
+    type: MARKDOWN
+  MARKDOWN-LGvs7A8_15:
+    children: []
+    id: MARKDOWN-LGvs7A8_15
+    meta:
+      code: "{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}"
+      height: 60
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-nXpinnLEX
+    - ROW-0rN_IHNT9-
     type: MARKDOWN
   ROOT_ID:
     children:
@@ -815,6 +784,17 @@ position:
     - TABS-SNeKAJcjhd
     - TAB-NR4UTAs9K
     type: ROW
+  ROW-0rN_IHNT9-:
+    children:
+    - MARKDOWN-LGvs7A8_15
+    id: ROW-0rN_IHNT9-
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-nXpinnLEX
+    type: ROW
   TAB-7PGDduCA7:
     children:
     - ROW-nNEywSG0jX
@@ -898,6 +878,18 @@ position:
     - ROOT_ID
     - TABS-SNeKAJcjhd
     type: TAB
+  TAB-nXpinnLEX:
+    children:
+    - ROW-0rN_IHNT9-
+    id: TAB-nXpinnLEX
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Help
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    type: TAB
   TABS-SNeKAJcjhd:
     children:
     - TAB-8BxDuJd9Jb
@@ -906,6 +898,9 @@ position:
     - TAB-7PGDduCA7
     - TAB-CLiLC4zxo
     - TAB-eE0OQxuju
+    # {% if ASPECTS_INSTRUCTOR_HELP_MARKDOWN %}
+    - TAB-nXpinnLEX
+    # {% endif %}
     id: TABS-SNeKAJcjhd
     meta: {}
     parents:
