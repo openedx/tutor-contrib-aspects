@@ -56,15 +56,15 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "ASPECTS_INSTRUCTOR_HELP_MARKDOWN",
             "## Help\\n"
-            "* [Aspects Reference]"
-            "(https://docs.openedx.org/projects/openedx-aspects/page/reference/instructor_reports.html)\\n"
+            "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
+            "reference/instructor_reports.html)\\n"
             "* [Superset Resources](https://github.com/apache/superset#resources)\\n",
         ),
         (
             "ASPECTS_OPERATOR_HELP_MARKDOWN",
             "## Help\\n"
-            "* [Aspects Reference]"
-            "(https://docs.openedx.org/projects/openedx-aspects/page/reference/operator_reports.html)\\n"
+            "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
+            "reference/operator_reports.html)\\n"
             "* [Superset Resources](https://github.com/apache/superset#resources)\\n",
         ),
         # ClickHouse xAPI settings
