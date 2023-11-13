@@ -18,7 +18,7 @@ asttokens==2.4.1
     #   transifex-python
 bcrypt==4.0.1
     # via -r requirements/base.txt
-black==23.10.1
+black==23.11.0
     # via -r requirements/dev.in
 cachetools==5.3.2
     # via
@@ -64,7 +64,7 @@ importlib-metadata==6.8.0
     #   keyring
     #   pyinstaller
     #   twine
-importlib-resources==6.1.0
+importlib-resources==6.1.1
     # via keyring
 isort==5.12.0
     # via pylint
@@ -78,7 +78,7 @@ jinja2==3.1.2
     # via
     #   -r requirements/base.txt
     #   tutor
-keyring==24.2.0
+keyring==24.3.0
     # via twine
 kubernetes==28.1.0
     # via
@@ -96,7 +96,7 @@ mdurl==0.1.2
     # via markdown-it-py
 more-itertools==10.1.0
     # via jaraco-classes
-mypy==1.6.1
+mypy==1.7.0
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -126,7 +126,7 @@ pathspec==0.11.2
     # via black
 pkginfo==1.9.6
     # via twine
-platformdirs==3.11.0
+platformdirs==4.0.0
     # via
     #   black
     #   pylint
@@ -149,7 +149,7 @@ pygments==2.16.1
     # via
     #   readme-renderer
     #   rich
-pyinstaller==6.1.0
+pyinstaller==6.2.0
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2023.10
     # via pyinstaller
@@ -163,10 +163,6 @@ python-dateutil==2.8.2
     # via
     #   -r requirements/base.txt
     #   kubernetes
-pytz==2023.3.post1
-    # via
-    #   -r requirements/base.txt
-    #   transifex-python
 pyyaml==6.0.1
     # via
     #   -r requirements/base.txt
@@ -220,7 +216,7 @@ toolz==0.12.0
     # via
     #   -r requirements/base.txt
     #   pyseeyou
-transifex-python==3.4.0
+transifex-python==3.5.0
     # via -r requirements/base.txt
 tutor==16.1.5
     # via -r requirements/base.txt
