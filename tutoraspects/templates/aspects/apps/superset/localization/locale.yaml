@@ -1,7 +1,7 @@
 ---
 fr_CA:
   ? "# Instance information Aspects: {{ ASPECTS_VERSION }}\n{% if RUN_VECTOR %} - **Vector Version**: {{ DOCKER_IMAGE_VECTOR }} \n {% endif %} {% if RUN_CLICKHOUSE %} - **Clickhouse Version**: {{ DOCKER_IMAGE_CLICKHOUSE }} \n {% endif %} {% if RUN_RALPH %} - **Ralph Version**: {{ DOCKER_IMAGE_RALPH }} \n {% endif %} {% if RUN_SUPERSET %} - **Superset Version**: {{ DOCKER_IMAGE_SUPERSET }} \n {% endif %} \n\n## Dependencies: {% for requirement in OPENEDX_EXTRA_PIP_REQUIREMENTS %} {% if 'openedx-event-sink-clickhouse' in requirement %} - **Clickhouse Event Sink Version**: {{ requirement.split('==')[1] }} \n {% elif 'event-routing-backends' in requirement %} - **Event Routing Backends Version**: {{ requirement.split('==')[1] }} \n {% endif %} {% endfor %} "
-  : "# Instance information Aspects: {{ ASPECTS_VERSION }}\n{% if RUN_VECTOR %} - **Vector Version**: {{ DOCKER_IMAGE_VECTOR }} \n {% endif %} \n{% if RUN_CLICKHOUSE %} - **Clickhouse Version**: {{ DOCKER_IMAGE_CLICKHOUSE }} \n {% endif %}\n {% if RUN_RALPH %} - **Ralph Version**: {{ DOCKER_IMAGE_RALPH }} \n {% endif %} \n{% if RUN_SUPERSET %} - **Superset Version**: {{ DOCKER_IMAGE_SUPERSET }} \n {% endif %} \n\n## Dependencies: {% for requirement in OPENEDX_EXTRA_PIP_REQUIREMENTS %} {% if 'openedx-event-sink-clickhouse' in requirement %} - **Clickhouse Event Sink Version**: {{ requirement.split('==')[1] }} \n {% elif 'event-routing-backends' in requirement %} - **Event Routing Backends Version**: {{ requirement.split('==')[1] }} \n {% endif %} {% endfor %} "
+  : ''
   ? '### Course Enrollment
 
 
@@ -45,10 +45,25 @@ fr_CA:
   : "### Performance vid\xE9o\n\nCette section vous permet de voir quelles parties d'une vid\xE9o particuli\xE8re sont les plus regard\xE9es ou ignor\xE9es.\n\n**S\xE9lectionnez une vid\xE9o parmi les filtres de gauche pour remplir ces graphiques.**"
   ? A count of the number of enrollments and un-enrollments per day. Learners can enroll and unenroll multiple times, in this chart each individual enrollment and unenrollment will be counted.
   : "Un d\xE9compte du nombre d\u2019inscriptions et de d\xE9sinscriptions par jour. Les apprenants peuvent s'inscrire et se d\xE9sinscrire plusieurs fois. Dans ce graphique, chaque inscription et d\xE9sinscription individuelle sera comptabilis\xE9e."
+  Action Cluster: ''
+  Active Users: ''
+  Active Users Over Time: ''
   Active Users Per Organization: Utilisateurs actifs par organisation
   Actor IDs over time: ID des acteurs au fil du temps
   Answers Chosen: "R\xE9ponses choisies"
+  Chart Count: ''
+  Chart showing the number of Superset actions taken by each user over the selected time period.: ''
+  Chart showing the number of Superset actions taken on each chart in the selected time period.: ''
+  Chart showing the number of Superset actions taken on each dashboard in the selected time period.: ''
+  Chart showing the number of registered users over the selected time period.: ''
+  Charts by Type: ''
   ClickHouse: ClickHouse
+  ClickHouse metrics: ''
+  Count of charts created in Superset over the selected time period.: ''
+  Count of dashboards created in Superset over the selected time period.: ''
+  Count of the various types of charts created in Superset over the selected time period.: ''
+  Count of unique users who performed an action in Superset over the selected time period.: ''
+  Count over time of unique users who performed an action in Superset over the selected time period.: ''
   Course: Cours
   Course Enrollment: Inscription aux cours
   Course Enrollments Over Time: Inscriptions aux cours au fil du temps
@@ -61,6 +76,7 @@ fr_CA:
   Courses: Cours
   Courses Per Organization: Cours par organisation
   Currently Enrolled Learners Per Day: Apprenants actuellement inscrits par jour
+  Dashboard Count: ''
   Distinct forum users: Utilisateurs distincts du forum
   Distribution Of Attempts: "R\xE9partition des tentatives"
   Distribution Of Hints Per Correct Answer: "R\xE9partition des indices par bonne r\xE9ponse"
@@ -79,6 +95,8 @@ fr_CA:
   Last Received Event: "Dernier \xE9v\xE9nement re\xE7u"
   Last course syncronized: "Dernier cours synchronis\xE9"
   Most Active Courses Per Day: Cours les plus actifs par jour
+  Most-used Charts: ''
+  Most-used Dashboards: ''
   Number Of Attempts To Find Correct Answer: "Nombre de tentatives pour trouver la bonne r\xE9ponse"
   Number Of Students: "Nombre d'\xE9tudiants"
   Number Of Viewers / Views: Nombre d'observateurs / de vues
@@ -94,11 +112,13 @@ fr_CA:
   Problem Performance: "Performance des probl\xE8mes"
   Problem name: "Donn\xE9es du probl\xE8me"
   Question Title: Titre de question
+  Registered Users Over Time: ''
   Responses: "R\xE9ponses"
   Responses Per Problem: "R\xE9ponses par probl\xE8me"
   Seconds Of Video: "Secondes de vid\xE9o"
   Slowest ClickHouse Queries: "Requ\xEAtes ClickHouse les plus lentes"
   Students: "\xC9tudiants"
+  Superset: ''
   ? The cumulative total of unique enrolled learners based on their enrollment state at the end of each day. If a learner was enrolled previously, but has left the course since, they are not counted as of the date they left. If they re-enroll in the course they will be counted again.
   : "Total cumul\xE9 des apprenants inscrits uniques en fonction de leur \xE9tat d'inscription \xE0 la fin de chaque journ\xE9e. Si un apprenant a \xE9t\xE9 inscrit pr\xE9c\xE9demment, mais a quitt\xE9 le cours depuis, il n'est pas comptabilis\xE9 \xE0 compter de la date de son d\xE9part. S'ils se r\xE9inscrivent au cours, ils seront \xE0 nouveau compt\xE9s."
   ? The current count of active enrollments by their most recent enrollment type, so if a learner upgraded from Audit to Verified they will only be counted once as Verified. Learners who have un-enrolled in the course are not counted.
@@ -120,10 +140,13 @@ fr_CA:
   : "Ce graphique montre le nombre d'\xE9tudiants qui ont obtenu un certain pourcentage de points pour ce probl\xE8me. Pour les probl\xE8mes de type r\xE9ussite/\xE9chec, seuls les pourcentages les plus bas et les plus \xE9lev\xE9s seront affich\xE9s."
   ? This chart shows which parts of a video are most watched, and which are most re-watched. Each segment represents 5 seconds of the video.
   : "Ce graphique montre quelles parties d'une vid\xE9o sont les plus regard\xE9es et lesquelles sont les plus regard\xE9es de nouveau. Chaque segment repr\xE9sente 5 secondes de la vid\xE9o."
+  Time Grain: ''
+  Time Range: Intervalle de temps
   Time range: Intervalle de temps
   Total Organizations: Total des organisations
   Transcripts / Captions Per Video: "Transcriptions / sous-titres par vid\xE9o"
   Unique actors: Acteurs uniques
+  User Actions: ''
   Video Engagement: "Engagement vid\xE9o"
   Video Performance: "Performance vid\xE9o"
   Video Title: "Titre de vid\xE9o"
