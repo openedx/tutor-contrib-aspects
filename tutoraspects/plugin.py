@@ -44,7 +44,10 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "edx-event-routing-backends==v7.0.1",
             ],
         ),
-        ("EVENT_SINK_CLICKHOUSE_MODELS", ["course_overviews", "user_profile"]),
+        (
+            "EVENT_SINK_CLICKHOUSE_MODELS",
+            ["course_overviews", "user_profile", "external_id"],
+        ),
         ("EVENT_SINK_CLICKHOUSE_PII_MODELS", ["user_profile", "external_id"]),
         # Turning on this flag will store personally identifiable information
         # in the ClickHouse database. Make sure that you understand the legal
@@ -93,6 +96,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_EVENT_SINK_RELATIONSHIPS_TABLE", "course_relationships"),
         ("ASPECTS_EVENT_SINK_OVERVIEWS_TABLE", "course_overviews"),
         ("ASPECTS_EVENT_SINK_USER_PROFILE_TABLE", "user_profile"),
+        ("ASPECTS_EVENT_SINK_EXTERNAL_ID_TABLE", "external_id"),
         ("ASPECTS_EVENT_SINK_CLICKHOUSE_TIMEOUT_SECS", "5"),
         ("ASPECTS_EVENT_SINK_RECENT_BLOCKS_TABLE", "most_recent_course_blocks"),
         ("ASPECTS_EVENT_SINK_RECENT_BLOCKS_MV", "most_recent_course_blocks_mv"),
