@@ -12,7 +12,7 @@ bcrypt==4.0.1
     # via -r requirements/base.in
 cachetools==5.3.2
     # via google-auth
-certifi==2023.7.22
+certifi==2023.11.17
     # via
     #   kubernetes
     #   requests
@@ -85,7 +85,7 @@ toolz==0.12.0
     # via pyseeyou
 transifex-python==3.5.0
     # via -r requirements/base.in
-tutor==16.1.5
+tutor==16.1.7
     # via -r requirements/base.in
 typing-extensions==4.8.0
     # via

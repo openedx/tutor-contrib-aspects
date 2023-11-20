@@ -24,7 +24,7 @@ cachetools==5.3.2
     # via
     #   -r requirements/base.txt
     #   google-auth
-certifi==2023.7.22
+certifi==2023.11.17
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -145,7 +145,7 @@ pycryptodome==3.19.0
     # via
     #   -r requirements/base.txt
     #   tutor
-pygments==2.16.1
+pygments==2.17.1
     # via
     #   readme-renderer
     #   rich
@@ -190,7 +190,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.6.0
+rich==13.7.0
     # via twine
 rsa==4.9
     # via
@@ -210,7 +210,7 @@ tomli==2.0.1
     #   black
     #   mypy
     #   pylint
-tomlkit==0.12.2
+tomlkit==0.12.3
     # via pylint
 toolz==0.12.0
     # via
@@ -218,7 +218,7 @@ toolz==0.12.0
     #   pyseeyou
 transifex-python==3.5.0
     # via -r requirements/base.txt
-tutor==16.1.5
+tutor==16.1.7
     # via -r requirements/base.txt
 twine==4.0.2
     # via -r requirements/dev.in
