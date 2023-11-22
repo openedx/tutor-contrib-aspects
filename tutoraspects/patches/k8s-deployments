@@ -30,9 +30,9 @@ spec:
           image: {{ DOCKER_IMAGE_CLICKHOUSE }}
           name: clickhouse
           ports:
-            - containerPort: "{{ CLICKHOUSE_HOST_INSECURE_HTTP_PORT }}"
-            - containerPort: "{{ CLICKHOUSE_HOST_INSECURE_NATIVE_PORT }}"
-            - containerPort: "{{ CLICKHOUSE_HOST_TLS_NATIVE_PORT }}"
+            - containerPort: {{ CLICKHOUSE_HOST_INSECURE_HTTP_PORT }}
+            - containerPort: {{ CLICKHOUSE_HOST_INSECURE_NATIVE_PORT }}
+            - containerPort: {{ CLICKHOUSE_HOST_TLS_NATIVE_PORT }}
           volumeMounts:
             - mountPath: /var/lib/clickhouse/
               name: data
