@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.63.1 - 2023-11-23
+
+### [0.63.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.63.0...v0.63.1) (2023-11-23)
+
+### Bug Fixes
+
+- containerPort values must be numeric ([332e79b](https://github.com/openedx/tutor-contrib-aspects/commit/332e79b4d7b7ae8e11ed7845dad4676bc8c040a4))
+- use tutor variables to expose clickhouse container ports in k8s ([8c1720f](https://github.com/openedx/tutor-contrib-aspects/commit/8c1720fd35209d062fee8dad6b0b99cc1c764ea7))
+
 ## v0.63.0 - 2023-11-09
 
 ### [0.63.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.62.4...v0.63.0) (2023-11-09)
