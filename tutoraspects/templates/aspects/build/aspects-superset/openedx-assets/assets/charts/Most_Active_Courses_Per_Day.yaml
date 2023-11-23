@@ -15,7 +15,7 @@ params:
   forecastPeriods: 10
   granularity_sqla: emission_time
   groupby:
-  - course_key
+  - course_key_short
   legendOrientation: top
   legendType: scroll
   limit: 50
