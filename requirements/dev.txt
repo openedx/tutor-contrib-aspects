@@ -55,7 +55,7 @@ google-auth==2.23.4
     # via
     #   -r requirements/base.txt
     #   kubernetes
-idna==3.4
+idna==3.6
     # via
     #   -r requirements/base.txt
     #   requests
@@ -96,7 +96,7 @@ mdurl==0.1.2
     # via markdown-it-py
 more-itertools==10.1.0
     # via jaraco-classes
-mypy==1.7.0
+mypy==1.7.1
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -130,7 +130,7 @@ platformdirs==4.0.0
     # via
     #   black
     #   pylint
-pyasn1==0.5.0
+pyasn1==0.5.1
     # via
     #   -r requirements/base.txt
     #   pyasn1-modules
@@ -145,7 +145,7 @@ pycryptodome==3.19.0
     # via
     #   -r requirements/base.txt
     #   tutor
-pygments==2.17.1
+pygments==2.17.2
     # via
     #   readme-renderer
     #   rich
