@@ -25,7 +25,8 @@ def upgrade():
             `dump_id` UUID NOT NULL,
             `time_last_dumped` String NOT NULL
         )
-        ENGINE = MergeTree
+        ENGINE = {engine}
+        PARTITION BY user_id MOD 100
         PRIMARY KEY (external_user_id, time_last_dumped)
         ORDER BY (external_user_id, time_last_dumped)
         """
