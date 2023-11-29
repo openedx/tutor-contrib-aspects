@@ -12,7 +12,7 @@ params:
   extra_form_data: {}
   granularity_sqla: emission_time
   groupby:
-  - course_key
+  - course_key_short
   innerRadius: 30
   label_type: key
   labels_outside: true

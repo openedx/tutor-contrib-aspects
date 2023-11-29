@@ -50,6 +50,18 @@ columns:
   type: null
   verbose_name: course_key
 - advanced_data_type: null
+  column_name: course_key_short
+  description: "Course key without the course-v1: prefix"
+  expression: "splitByChar(':', splitByChar('/', course_id)[-1])[-1]"
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: null
+  verbose_name: course_key
+- advanced_data_type: null
   column_name: event_id
   description: null
   expression: null
