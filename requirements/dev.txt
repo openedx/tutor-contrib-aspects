@@ -16,7 +16,7 @@ asttokens==2.4.1
     # via
     #   -r requirements/base.txt
     #   transifex-python
-bcrypt==4.0.1
+bcrypt==4.1.1
     # via -r requirements/base.txt
 black==23.11.0
     # via -r requirements/dev.in
@@ -41,7 +41,7 @@ click==8.1.7
     #   black
     #   transifex-python
     #   tutor
-cryptography==41.0.5
+cryptography==41.0.7
     # via secretstorage
 dill==0.3.7
     # via pylint
@@ -51,7 +51,7 @@ future==0.18.3
     # via
     #   -r requirements/base.txt
     #   pyseeyou
-google-auth==2.23.4
+google-auth==2.24.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -59,7 +59,7 @@ idna==3.6
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==6.8.0
+importlib-metadata==7.0.0
     # via
     #   keyring
     #   pyinstaller
@@ -237,7 +237,7 @@ urllib3==1.26.18
     #   kubernetes
     #   requests
     #   twine
-websocket-client==1.6.4
+websocket-client==1.7.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
