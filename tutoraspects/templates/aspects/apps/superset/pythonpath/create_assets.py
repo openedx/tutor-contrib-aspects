@@ -197,16 +197,8 @@ def generate_translated_dashboard_elements(copy, language):
             if not meta or not meta.get(text_key):
                 continue
 
-            element_type = element.get("type")
-            element_id = chart_body_id
             translation = get_translation(meta[text_key], language)
-
             meta[text_key] = translation
-
-        if translation and element_type and element_id:
-            print(
-                f"Generating {element_type} {element_id} for language {language} {translation}"
-            )
 
 
 def generate_translated_dashboard_filters(copy, language):
@@ -214,14 +206,9 @@ def generate_translated_dashboard_filters(copy, language):
     metadata = copy.get("metadata", {})
 
     for filter in metadata.get("native_filter_configuration", []):
-        element_type = "Filter"
-        element_id = filter["id"]
         translation = get_translation(filter["name"], language)
 
         filter["name"] = translation
-        print(
-            f"Generating {element_type} {element_id} for language {language} {translation}"
-        )
 
 
 def create_superset_db(database_name, uri) -> None:
