@@ -26,8 +26,8 @@ def upgrade():
             `time_last_dumped` String NOT NULL
         )
         ENGINE = {engine}
-        PARTITION BY user_id MOD 100
         PRIMARY KEY (external_user_id, time_last_dumped)
+        PARTITION BY user_id MOD 100
         ORDER BY (external_user_id, time_last_dumped)
         """
     )

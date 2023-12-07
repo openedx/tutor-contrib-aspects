@@ -136,7 +136,11 @@ for security_filter in SECURITY_FILTERS:
         .first()
     )
 
-    assert table, f"{schema}.{table_name} table doesn't exist yet?"
+    assert table, (f"{schema}.{table_name} table doesn't exist. If you have changed "
+                   "your database (schema) name, you will need to update the database "
+                   "connection and dataset schema entries in the Superset UI or "
+                   "database. You may also need to rebuild your aspects-superset "
+                   "image after changes.")
 
     role = session.query(Role).filter(Role.name == role_name).first()
     assert role, f"{role_name} role doesn't exist yet?"

@@ -16,7 +16,7 @@ asttokens==2.4.1
     # via
     #   -r requirements/base.txt
     #   transifex-python
-bcrypt==4.0.1
+bcrypt==4.1.1
     # via -r requirements/base.txt
 black==23.11.0
     # via -r requirements/dev.in
@@ -24,7 +24,7 @@ cachetools==5.3.2
     # via
     #   -r requirements/base.txt
     #   google-auth
-certifi==2023.7.22
+certifi==2023.11.17
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -41,7 +41,7 @@ click==8.1.7
     #   black
     #   transifex-python
     #   tutor
-cryptography==41.0.5
+cryptography==41.0.7
     # via secretstorage
 dill==0.3.7
     # via pylint
@@ -51,15 +51,15 @@ future==0.18.3
     # via
     #   -r requirements/base.txt
     #   pyseeyou
-google-auth==2.23.4
+google-auth==2.24.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-idna==3.4
+idna==3.6
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==6.8.0
+importlib-metadata==7.0.0
     # via
     #   keyring
     #   pyinstaller
@@ -96,7 +96,7 @@ mdurl==0.1.2
     # via markdown-it-py
 more-itertools==10.1.0
     # via jaraco-classes
-mypy==1.7.0
+mypy==1.7.1
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -130,7 +130,7 @@ platformdirs==4.0.0
     # via
     #   black
     #   pylint
-pyasn1==0.5.0
+pyasn1==0.5.1
     # via
     #   -r requirements/base.txt
     #   pyasn1-modules
@@ -145,7 +145,7 @@ pycryptodome==3.19.0
     # via
     #   -r requirements/base.txt
     #   tutor
-pygments==2.16.1
+pygments==2.17.2
     # via
     #   readme-renderer
     #   rich
@@ -190,7 +190,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.6.0
+rich==13.7.0
     # via twine
 rsa==4.9
     # via
@@ -210,7 +210,7 @@ tomli==2.0.1
     #   black
     #   mypy
     #   pylint
-tomlkit==0.12.2
+tomlkit==0.12.3
     # via pylint
 toolz==0.12.0
     # via
@@ -218,7 +218,7 @@ toolz==0.12.0
     #   pyseeyou
 transifex-python==3.5.0
     # via -r requirements/base.txt
-tutor==16.1.5
+tutor==16.1.7
     # via -r requirements/base.txt
 twine==4.0.2
     # via -r requirements/dev.in
@@ -237,7 +237,7 @@ urllib3==1.26.18
     #   kubernetes
     #   requests
     #   twine
-websocket-client==1.6.4
+websocket-client==1.7.0
     # via
     #   -r requirements/base.txt
     #   kubernetes

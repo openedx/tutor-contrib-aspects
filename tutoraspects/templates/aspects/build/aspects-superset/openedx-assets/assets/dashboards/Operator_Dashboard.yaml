@@ -549,6 +549,22 @@ position:
     - TAB-DE73B5pXm
     - ROW-X7WD5wVoP
     type: CHART
+  CHART-wg5_o87Pu6:
+    children: []
+    id: CHART-wg5_o87Pu6
+    meta:
+      chartId: 276
+      height: 50
+      sliceName: Events per course
+      uuid: a445d9e5-ac98-411e-9a47-eda10081bd5b
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7nA6MwltSD
+    - TAB-6Mdnw3FZh
+    - ROW-Z0QlRyckta
+    type: CHART
   CHART-o87Pu6wg5_:
     children: []
     id: CHART-o87Pu6wg5_
@@ -557,7 +573,7 @@ position:
       height: 50
       sliceName: Most Active Courses Per Day
       uuid: a19a7c6a-e2c9-4033-86b3-b2e5878b5b69
-      width: 12
+      width: 8
     parents:
     - ROOT_ID
     - GRID_ID
@@ -904,7 +920,7 @@ position:
     parents:
     - ROOT_ID
     - GRID_ID
-    - ROW-yuEVxRJ4Of
+    - TAB-RtC9PHwXy
     type: MARKDOWN
   ROOT_ID:
     children:
@@ -952,6 +968,7 @@ position:
     type: ROW
   ROW-Z0QlRyckta:
     children:
+    - CHART-wg5_o87Pu6
     - CHART-o87Pu6wg5_
     id: ROW-Z0QlRyckta
     meta:
