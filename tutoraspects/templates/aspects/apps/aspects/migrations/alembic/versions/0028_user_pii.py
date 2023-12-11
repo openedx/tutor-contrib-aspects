@@ -103,9 +103,12 @@ def upgrade():
                     bio,
                     profile_image_uploaded_at,
                     phone_number
-                from {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_EXTERNAL_ID_TABLE }} ex
-                right outer join most_recent_user_profile mrup on
-                    mrup.user_id = ex.user_id
+                FROM {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_EXTERNAL_ID_TABLE }} ex
+                RIGHT OUTER JOIN most_recent_user_profile mrup ON
+                    mrup.user_id = ex.user_id and (
+                       ex.external_id_type = 'xapi' OR
+                       ex.external_id_type is NULL
+                    )
                 WHERE mrup.rn = 1
             "
         ))
