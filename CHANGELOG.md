@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.66.0 - 2023-12-11
+
+### [0.66.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.65.1...v0.66.0) (2023-12-11)
+
+#### Features
+
+* add external id table ([bcd308f](https://github.com/openedx/tutor-contrib-aspects/commit/bcd308fa41073a62a4c68ac237fa3db8d396b604))
+* adds event_sink.user_pii table ([7ced3f7](https://github.com/openedx/tutor-contrib-aspects/commit/7ced3f703073bc8e1ecadacfe0e204a0bf358f5a))
+* adds user_pii dataset ([9ceb57b](https://github.com/openedx/tutor-contrib-aspects/commit/9ceb57b7840a6712786768097be146d224e602d1))
+* partition the event_sink.external_id table by user_id % 100 ([c45aefe](https://github.com/openedx/tutor-contrib-aspects/commit/c45aefe74c435debc2fde438757f983af31b41a2))
+* partition the event_sink.user_profile table by user_id % 100 ([24db8d1](https://github.com/openedx/tutor-contrib-aspects/commit/24db8d115c55e1c5b4d8a0b3809109324d49ff0a))
+* pass EVENT_SINK_CLICKHOUSE_PII_MODELS to the openedx settings ([defb3f1](https://github.com/openedx/tutor-contrib-aspects/commit/defb3f19cd06a790ab5c837bc34aa87cdc0e54a4))
+
+#### Bug Fixes
+
+* grant DELETE access to the CMS Clickhouse user on the event_sink db ([b97a690](https://github.com/openedx/tutor-contrib-aspects/commit/b97a6909a1790eaadbe171fb908711ce5e0004e5))
+* user_pii uses external_id_type=xapi ([57a4f56](https://github.com/openedx/tutor-contrib-aspects/commit/57a4f563abf38c446b01417a2e3fc10b36aa63a5))
+
 ## v0.65.1 - 2023-12-06
 
 ### [0.65.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.65.0...v0.65.1) (2023-12-06)
