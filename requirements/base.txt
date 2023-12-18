@@ -8,7 +8,7 @@ appdirs==1.4.4
     # via tutor
 asttokens==2.4.1
     # via transifex-python
-bcrypt==4.1.1
+bcrypt==4.1.2
     # via -r requirements/base.in
 cachetools==5.3.2
     # via google-auth
@@ -85,7 +85,7 @@ toolz==0.12.0
     # via pyseeyou
 transifex-python==3.5.0
     # via -r requirements/base.in
-tutor==16.1.7
+tutor==17.0.0
     # via -r requirements/base.in
 typing-extensions==4.9.0
     # via
