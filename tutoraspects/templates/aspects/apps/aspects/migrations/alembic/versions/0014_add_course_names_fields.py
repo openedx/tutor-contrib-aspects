@@ -5,7 +5,7 @@ from alembic import op
 
 
 revision = "0014"
-down_revision = "0013"
+down_revision = "0011"
 branch_labels = None
 depends_on = None
 on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""

@@ -2,7 +2,7 @@ from alembic import op
 import sqlalchemy as sa
 
 revision = "0007"
-down_revision = "0006"
+down_revision = "0002"
 branch_labels = None
 depends_on = None
 on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""

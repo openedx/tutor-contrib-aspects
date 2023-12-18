@@ -2,6 +2,6 @@
 alembic==1.11.1
 clickhouse-sqlalchemy==0.1.9
 # dbt packages
-dbt-core==1.4.0
-dbt-clickhouse==1.4.1
+dbt-core==1.7.0
+dbt-clickhouse==1.7.1
 git+https://github.com/openedx/xapi-db-load@0.8#egg=xapi-db-load==0.8
