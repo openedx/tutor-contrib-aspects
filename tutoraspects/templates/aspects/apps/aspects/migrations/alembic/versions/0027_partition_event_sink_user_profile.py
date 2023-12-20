@@ -53,10 +53,16 @@ def upgrade():
         PARTITION BY user_id MOD 100
         PRIMARY KEY (id, time_last_dumped)
         ORDER BY (id, time_last_dumped)
-        AS SELECT * FROM {old_user_profile_table}
         """
     )
-    # 3. Drop the old table
+    # 3. Insert data from the old table into the new one
+    op.execute(
+        f"""
+        INSERT INTO {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_USER_PROFILE_TABLE }}
+        SELECT * FROM {old_user_profile_table}
+        """
+    )
+    # 4. Drop the old table
     op.execute(
         f"""
         DROP TABLE {old_user_profile_table}
@@ -105,11 +111,17 @@ def downgrade():
         ) engine = {engine}
         PRIMARY KEY (id, time_last_dumped)
         ORDER BY (id, time_last_dumped)
-        AS SELECT * FROM {old_user_profile_table}
         """
     )
+    # 3. Insert into new table from old one
+    op.execute(
+        f"""
+        INSERT INTO {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_USER_PROFILE_TABLE }}
+        SELECT * FROM {old_user_profile_table}
+        """
 
-    # 3. Drop the old table
+    )
+    # 4. Drop the old table
     op.execute(
         f"""
         DROP TABLE {old_user_profile_table}
