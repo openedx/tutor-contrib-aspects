@@ -1,0 +1,74 @@
+# Ralph / ClickHouse backend configuration
+# ########################################
+backend: ralph_clickhouse
+db_host: {{ CLICKHOUSE_HOST }}
+db_port: {{ CLICKHOUSE_INTERNAL_HTTP_PORT }}
+db_name: {{ ASPECTS_XAPI_DATABASE }}
+db_username: {{ CLICKHOUSE_ADMIN_USER }}
+db_password: {{ CLICKHOUSE_ADMIN_PASSWORD }}
+lrs_url: "{% if RUN_RALPH %}http://ralph:{{ RALPH_PORT }}{% else %}{% if RALPH_RUN_HTTPS %}https://{% else %}http://{% endif %}{{ RALPH_HOST }}{% endif %}/xAPI/statements/"
+lrs_username: "{{RALPH_LMS_USERNAME}}"
+lrs_password: "{{RALPH_LMS_PASSWORD}}"
+
+# Run options
+log_dir:
+num_batches: 3
+batch_size: 100
+
+# Overall start and end date for the entire run
+start_date: 2014-01-01
+end_date: 2023-11-27
+
+# All courses will be this long, and be fit into the start / end dates
+# This must be less than end_date - start_date days.
+course_length_days: 120
+
+# The size of the test
+num_organizations: 3
+num_actors: 10
+
+# How many of each size course to create. The sum of these is the total number
+# of courses created for the test.
+num_course_sizes:
+  small: 1
+  medium: 1
+  large: 1
+  huge: 1
+
+# Course size configurations, how many of each type of object are created for
+# each course of this size. "actors" must be less than or equal to "num_actors".
+# For a course of this size to be created it needs to exist both here and in
+# "num_course_sizes".
+course_size_makeup:
+  small:
+    actors: 5
+    problems: 20
+    videos: 10
+    chapters: 3
+    sequences: 10
+    verticals: 20
+    forum_posts: 20
+  medium:
+    actors: 7
+    problems: 40
+    videos: 20
+    chapters: 4
+    sequences: 20
+    verticals: 30
+    forum_posts: 40
+  large:
+    actors: 10
+    problems: 80
+    videos: 30
+    chapters: 5
+    sequences: 40
+    verticals: 80
+    forum_posts: 200
+  huge:
+    actors: 10
+    problems: 160
+    videos: 40
+    chapters: 10
+    sequences: 50
+    verticals: 100
+    forum_posts: 1000

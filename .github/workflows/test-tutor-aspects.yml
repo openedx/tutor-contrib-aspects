@@ -60,7 +60,7 @@ jobs:
       - name: Test DBT
         run: tutor local do dbt -c "test"
       - name: Load test
-        run: tutor local do load-xapi-test-data --num_batches=5 --batch_size=5
+        run: tutor local do load-xapi-test-data
       - name: Import demo course
         run: tutor local do importdemocourse
       - name: Test commands
@@ -114,7 +114,7 @@ jobs:
       - name: Test DBT
         run: tutor dev do dbt -c "test"
       - name: Load test
-        run: tutor dev do load-xapi-test-data --num_batches=5 --batch_size=5
+        run: tutor dev do load-xapi-test-data
       - name: Import demo course
         run: tutor dev do importdemocourse
       - name: Test commands
@@ -186,7 +186,7 @@ jobs:
       - name: Test DBT
         run: tutor k8s do dbt -c "test"
       - name: Load test
-        run: tutor k8s do load-xapi-test-data --num_batches=5 --batch_size=5
+        run: tutor k8s do load-xapi-test-data
       - name: Import demo course
         run: tutor k8s do importdemocourse
       - name: Test commands

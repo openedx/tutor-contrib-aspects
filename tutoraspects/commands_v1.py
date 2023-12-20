@@ -17,19 +17,17 @@ from tutoraspects.asset_command_helpers import (
 
 
 @click.command()
-@click.option("-n", "--num_batches", default=100)
-@click.option("-s", "--batch_size", default=100)
-def load_xapi_test_data(num_batches: int, batch_size: int) -> list[tuple[str, str]]:
+@click.option("-c", "--config_file", default="./xapi-db-load-config.yaml")
+def load_xapi_test_data(config_file) -> list[tuple[str, str]]:
     """
     Job that loads bogus test xAPI data to ClickHouse via Ralph.
     """
     return [
         (
             "aspects",
-            "echo 'Making demo xapi script executable...' && "
-            "echo 'Done. Running script...' && "
-            f"bash /app/aspects/scripts/clickhouse-demo-xapi-data.sh {num_batches}"
-            f" {batch_size} && "
+            "echo 'Running script...' && "
+            "cd /app/aspects/scripts/ && "
+            f"bash clickhouse-demo-xapi-data.sh {config_file} && "
             "echo 'Done!';",
         ),
     ]
