@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.66.1 - 2023-12-20
+
+### [0.66.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.66.0...v0.66.1) (2023-12-20)
+
+### ⚠ BREAKING CHANGES
+
+* Move materialized views to dbt
+
+### Bug Fixes
+
+* Upgrade aspects-dbt to 3.1.1 to get bug fixes ([cb990e3](https://github.com/openedx/tutor-contrib-aspects/commit/cb990e3dba68f9ca7a834babe002d146bd078321))
+
+### Code Refactoring
+
+* Move materialized views to dbt ([d2d9b88](https://github.com/openedx/tutor-contrib-aspects/commit/d2d9b88c5d9f9f6f9bc38fc14505735e83b7d8b4))
+
 ## v0.66.0 - 2023-12-11
 
 ### [0.66.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.65.1...v0.66.0) (2023-12-11)
