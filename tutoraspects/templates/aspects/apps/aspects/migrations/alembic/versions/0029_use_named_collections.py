@@ -1,21 +1,31 @@
 """
-create user_pii table sourced from an in-memory dictionary joining the PII tables.
+Update all existing dictionaries to use named collections.
+
+In Jan 2024 we updated old Alembic migrations to use these, but any database
+created before that will need these changes. This allowed us to get the
+database credentials out of the migrations (and therefore not break everything
+when changing the ClickHouse admin password). For databases created after 2024
+these should change nothing.
 """
+
 from alembic import op
 
 
-revision = "0028"
-down_revision = "0027"
+revision = "0029"
+down_revision = "0028"
 branch_labels = None
 depends_on = None
 on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""
 engine = "ReplicatedReplacingMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "ReplacingMergeTree"
 
-def upgrade():
 
+def upgrade():
     # We include these drop statements here because "CREATE OR REPLACE DICTIONARY"
     # currently throws a file rename error and you can't drop a dictionary with a
     # table referring to it.
+
+    #######################
+    # user_pii_dict changes
     op.execute(
         f"""
         DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.user_pii
@@ -143,13 +153,130 @@ def upgrade():
         """
     )
 
+    # course_names_dict changes
+    ###########################
+    op.execute(
+        f"""
+        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names 
+        {on_cluster}
+        """
+    )
+    op.execute(
+        f"""
+        DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict
+        {on_cluster} 
+        """
+    )
+    op.execute(
+        f"""
+        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict 
+        {on_cluster}
+        (
+            course_key String,
+            course_name String,
+            course_run String,
+            org String
+        )
+        PRIMARY KEY course_key
+        SOURCE(CLICKHOUSE(
+            name local_ch_event_sink
+            query 'with most_recent_overviews as (
+                    select org, course_key, max(modified) as last_modified
+                    from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_overviews
+                    group by org, course_key
+            )
+            select
+                course_key,
+                display_name,
+                splitByString(\\'+\\', course_key)[-1] as course_run,
+                org
+            from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_overviews co
+            inner join most_recent_overviews mro on
+                co.org = mro.org and
+                co.course_key = mro.course_key and
+                co.modified = mro.last_modified
+            '
+        ))
+        LAYOUT(COMPLEX_KEY_HASHED())
+        LIFETIME(120);
+        """
+    )
+    op.execute(
+        f"""
+        CREATE TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names
+        {on_cluster}
+        (
+            course_key String,
+            course_name String,
+            course_run String,
+            org String
+        ) engine = Dictionary({{ ASPECTS_EVENT_SINK_DATABASE }}.course_names_dict);
+        """
+    )
+
+    # course_block_names_dict changes
+    ##################################
+    op.execute(
+        f"""
+        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names
+        {on_cluster}
+        """
+    )
+    op.execute(
+        f"""
+        DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict
+        {on_cluster}
+        """
+    )
+    op.execute(
+        f"""
+        CREATE DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict
+        {on_cluster}
+        (
+            location String,
+            block_name String,
+            course_key String,
+            graded Bool,
+            display_name_with_location String
+        )
+        PRIMARY KEY location
+        SOURCE(CLICKHOUSE(
+            name local_ch_event_sink
+            query "
+                select
+                    location,
+                    display_name,
+                    course_key,
+                    graded,
+                    display_name_with_location
+                from {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_RECENT_BLOCKS_TABLE }}
+                final
+            "
+        ))
+        LAYOUT(COMPLEX_KEY_SPARSE_HASHED())
+        LIFETIME(120);
+        """
+    )
+
+    op.execute(
+        f"""
+        CREATE OR REPLACE TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names
+        {on_cluster}
+        (
+            location String,
+            block_name String,
+            course_key String,
+            graded Bool,
+            display_name_with_location String
+        ) engine = Dictionary({{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict)
+        ;
+        """
+    )
+
 
 def downgrade():
-    op.execute(
-        "DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.user_pii"
-        f"{on_cluster}"
-    )
-    op.execute(
-        "DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.user_pii_dict"
-        f"{on_cluster}"
-    )
+    """
+    We can't downgrade these without adding the credentials back, so right now
+    we do nothing. Earlier migrations will drop these as appropriate.
+    """
+    pass

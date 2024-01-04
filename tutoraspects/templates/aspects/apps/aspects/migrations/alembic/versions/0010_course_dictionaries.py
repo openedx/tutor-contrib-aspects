@@ -40,9 +40,7 @@ def upgrade():
         )
         PRIMARY KEY course_key
         SOURCE(CLICKHOUSE(
-            user '{{ CLICKHOUSE_ADMIN_USER }}'
-            password '{{ CLICKHOUSE_ADMIN_PASSWORD }}'
-            db '{{ ASPECTS_EVENT_SINK_DATABASE }}'
+            name local_ch_event_sink
             query 'with most_recent_overviews as (
                     select org, course_key, max(modified) as last_modified
                     from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_overviews
@@ -82,9 +80,7 @@ def upgrade():
         )
         PRIMARY KEY location
         SOURCE(CLICKHOUSE(
-            user '{{ CLICKHOUSE_ADMIN_USER }}'
-            password '{{ CLICKHOUSE_ADMIN_PASSWORD }}'
-            db '{{ ASPECTS_EVENT_SINK_DATABASE }}'
+            name local_ch_event_sink
             query 'with most_recent_blocks as (
                     select org, course_key, location, max(edited_on) as last_modified
                     from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_blocks
