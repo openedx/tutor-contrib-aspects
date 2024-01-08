@@ -1,6 +1,4 @@
-with enrollments as (
-    {% include 'openedx-assets/queries/fact_enrollments.sql' %}
-), enrollments_ranked as (
+with enrollments_ranked as (
   select
     emission_time,
     org,
@@ -11,8 +9,10 @@ with enrollments as (
     enrollment_mode,
     enrollment_status,
     rank() over (partition by date(emission_time), org, course_name, course_run, actor_id order by emission_time desc) as event_rank
-  from
-    enrollments
+  from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_enrollments
+  where
+    1=1
+    {% include 'openedx-assets/queries/common_filters.sql' %}
 ), enrollment_windows as (
   select
     org,
@@ -22,24 +22,12 @@ with enrollments as (
     actor_id,
     enrollment_status,
     enrollment_mode,
-    emission_time as window_start_at,
-    lagInFrame(emission_time, 1, now() + interval '1' day) over (partition by org, course_name, course_run, actor_id order by emission_time desc) as window_end_at
+    date_trunc('day', emission_time) as window_start_date,
+    date_trunc('day', lagInFrame(emission_time, 1, now() + interval '1' day) over (partition by org, course_name, course_run, actor_id order by emission_time desc)) as window_end_date
   from
     enrollments_ranked
   where
     event_rank = 1
-), enrollment_window_dates as (
-    select
-        org,
-        course_key,
-        course_name,
-        course_run,
-        actor_id,
-        enrollment_status,
-        enrollment_mode,
-        date_trunc('day', window_start_at) as window_start_date,
-        date_trunc('day', window_end_at) as window_end_date
-    from enrollment_windows
 )
 select
     date(fromUnixTimestamp(
@@ -58,4 +46,4 @@ select
     actor_id,
     enrollment_status,
     enrollment_mode
-from enrollment_window_dates
+from enrollment_windows
