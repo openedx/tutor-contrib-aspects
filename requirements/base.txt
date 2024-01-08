@@ -25,7 +25,7 @@ click==8.1.7
     #   tutor
 future==0.18.3
     # via pyseeyou
-google-auth==2.25.2
+google-auth==2.26.1
     # via kubernetes
 idna==3.6
     # via requests
