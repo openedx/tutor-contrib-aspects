@@ -45,11 +45,11 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             ],
         ),
         (
-            "EVENT_SINK_CLICKHOUSE_MODELS",
-            ["course_overviews", "user_profile", "external_id", "auth_user"],
+            "EVENT_SINK_MODELS_ENABLED",
+            ["course_overviews"],
         ),
         (
-            "EVENT_SINK_CLICKHOUSE_PII_MODELS",
+            "EVENT_SINK_PII_MODELS",
             ["user_profile", "external_id", "auth_user"],
         ),
         # Turning on this flag will store personally identifiable information

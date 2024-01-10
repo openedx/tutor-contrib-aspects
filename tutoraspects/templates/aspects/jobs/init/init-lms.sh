@@ -39,11 +39,12 @@ EOF
 ./manage.py lms populate_model -f /tmp/erb_config.json -u tutor-contrib-aspects
 {% endif %}
 
-{% for model in EVENT_SINK_CLICKHOUSE_MODELS %}
-{% if ASPECTS_ENABLE_PII %}
+{% for model in EVENT_SINK_MODELS_ENABLED %}
 (./manage.py lms waffle_flag --list | grep event_sink_clickhouse.{{model}}.enabled) || ./manage.py lms waffle_flag --create event_sink_clickhouse.{{model}}.enabled --everyone
-{% elif model not in EVENT_SINK_CLICKHOUSE_PII_MODELS %}
-(./manage.py lms waffle_flag --list | grep event_sink_clickhouse.{{model}}.enabled) || ./manage.py lms waffle_flag --create event_sink_clickhouse.{{model}}.enabled --everyone
-{% endif %}
-
 {% endfor %}
+
+{% if ASPECTS_ENABLE_PII %}
+  {% for model in EVENT_SINK_PII_MODELS %}
+(./manage.py lms waffle_flag --list | grep event_sink_clickhouse.{{model}}.enabled) || ./manage.py lms waffle_flag --create event_sink_clickhouse.{{model}}.enabled --everyone
+  {% endfor %}
+{% endif %}
