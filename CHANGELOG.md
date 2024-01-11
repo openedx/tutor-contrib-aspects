@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.67.1 - 2024-01-11
+
+### [0.67.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.67.0...v0.67.1) (2024-01-11)
+
+### Bug Fixes
+
+* enable user retirement sink ([5e39b03](https://github.com/openedx/tutor-contrib-aspects/commit/5e39b03ba5c633dcbbfd5e7e4430b0423ee689a3))
+
+### Code Refactoring
+
+* separate event sink models from PII models ([4332e05](https://github.com/openedx/tutor-contrib-aspects/commit/4332e05ec3c7c1e12fdeea17fca54909acd5d5ee))
+
 ## v0.67.0 - 2024-01-10
 
 ### [0.67.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.66.1...v0.67.0) (2024-01-10)
