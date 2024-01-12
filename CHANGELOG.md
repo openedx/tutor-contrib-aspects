@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.68.0 - 2024-01-12
+
+### [0.68.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.67.2...v0.68.0) (2024-01-12)
+
+#### Features
+
+* prefer course_names in operator dashboard ([ff2e3fc](https://github.com/openedx/tutor-contrib-aspects/commit/ff2e3fc503c5472d971f0d0239c9d8360043b6bd))
+
 ## v0.67.2 - 2024-01-12
 
 ### [0.67.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.67.1...v0.67.2) (2024-01-12)
