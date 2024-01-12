@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.67.2 - 2024-01-12
+
+### [0.67.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.67.1...v0.67.2) (2024-01-12)
+
+### Bug Fixes
+
+* write MVs to xapi schema ([be279d7](https://github.com/openedx/tutor-contrib-aspects/commit/be279d7d30cfb49cd9f17cd37b0cb7508510959e))
+
 ## v0.67.1 - 2024-01-11
 
 ### [0.67.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.67.0...v0.67.1) (2024-01-11)
