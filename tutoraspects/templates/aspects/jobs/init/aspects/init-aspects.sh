@@ -25,6 +25,7 @@ git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }}
 cd {{ DBT_REPOSITORY_PATH }} || exit
 
 export ASPECTS_EVENT_SINK_DATABASE={{ASPECTS_EVENT_SINK_DATABASE}}
+export ASPECTS_XAPI_DATABASE={{ASPECTS_XAPI_DATABASE}}
 
 echo "Installing dbt dependencies"
 dbt deps --profiles-dir /app/aspects/dbt/
