@@ -86,9 +86,8 @@ def alembic(context, command) -> None:
     runner = context.job_runner(config)
 
     command = f"""echo 'Making demo xapi script executable...'
-    echo 'Done. Running script...'
+    echo 'Running script...'
     bash /app/aspects/scripts/alembic.sh {command}
-    echo 'Done!';
     """
     runner.run_job("aspects", command)
 
