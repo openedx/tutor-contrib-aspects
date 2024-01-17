@@ -513,7 +513,7 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
     ("aspects", ("aspects", "jobs", "init", "aspects", "init-aspects.sh"), 94),
     ("superset", ("aspects", "jobs", "init", "superset", "init-superset.sh"), 95),
     ("mysql", ("aspects", "jobs", "init", "mysql", "init-mysql-post-migration.sh"), 96),
-    ("lms", ("aspects", "jobs", "init", "init-lms.sh"), 97),
+    ("lms", ("aspects", "jobs", "init", "lms", "init-lms.sh"), 97),
 ]
 
 # For each task added to MY_INIT_TASKS, we load the task template
