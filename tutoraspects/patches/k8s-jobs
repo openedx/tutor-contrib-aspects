@@ -44,8 +44,7 @@ spec:
           configMap:
             name: aspects-dbt
         - name: app
-          persistentVolumeClaim:
-            claimName: aspects-app
+          emptyDir: {}
         - name: migrations
           configMap:
             name: aspects-migrations
@@ -236,8 +235,7 @@ spec:
           configMap:
             name: superset-security
         - name: assets
-          persistentVolumeClaim:
-            claimName: superset-assets
+          emptyDir: {}
 
 ---
 apiVersion: batch/v1
@@ -321,6 +319,5 @@ spec:
           configMap:
             name: superset-security
         - name: assets
-          persistentVolumeClaim:
-            claimName: superset-assets
+          emptyDir: {}
 {% endif %}
