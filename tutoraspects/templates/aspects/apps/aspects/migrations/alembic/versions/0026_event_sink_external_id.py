@@ -1,5 +1,11 @@
 """
 create external_id sink table
+
+This table is always created, but it will only be populated if ASPECTS_ENABLE_PII.
+
+.. pii: Stores a mapping between an Open edX user and their external_id values stored in Open edX.
+.. pii_types: user_id, username
+.. pii_retirement: local_api, consumer_api
 """
 from alembic import op
 

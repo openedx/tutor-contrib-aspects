@@ -1,5 +1,12 @@
 """
 create user_pii table sourced from an in-memory dictionary joining the PII tables.
+
+This table is always created, but it will only be populated if ASPECTS_ENABLE_PII.
+Once accessed, data from this dictionary is cached in-memory for ASPECTS_PII_CACHE_LIFETIME seconds.
+
+.. pii: Stores Open edX user and profile data in a dictionary for use by Superset charts.
+.. pii_types: user_id, name, username, location, phone_number, email_address, birth_date, biography, gender
+.. pii_retirement: local_api, consumer_api
 """
 from alembic import op
 
