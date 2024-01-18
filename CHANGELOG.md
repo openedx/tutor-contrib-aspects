@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.68.1 - 2024-01-18
+
+### [0.68.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.68.0...v0.68.1) (2024-01-18)
+
+### Bug Fixes
+
+* change jobs PVC by emptyDir volume ([2ff1a44](https://github.com/openedx/tutor-contrib-aspects/commit/2ff1a442ae87ddf90fe64376de598dc2ce8d9d3b))
+
+### Code Refactoring
+
+* moves the LMS init script under its own dir ([44e8a2f](https://github.com/openedx/tutor-contrib-aspects/commit/44e8a2f0596a5942bc40661c4da9ace18bbda2e5))
+
 ## v0.68.0 - 2024-01-12
 
 ### [0.68.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.67.2...v0.68.0) (2024-01-12)
