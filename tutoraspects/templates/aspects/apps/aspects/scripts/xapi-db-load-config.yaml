@@ -1,0 +1,1 @@
+{{ patch('xapi-db-load-config-yaml') }}

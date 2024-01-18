@@ -39,19 +39,18 @@ def dbt(context, command) -> None:
 
 
 @click.command(help="Load generated fake xAPI test data to ClickHouse.")
-@click.option("-n", "--num_batches", default=100)
-@click.option("-s", "--batch_size", default=100)
+@click.option("-c", "--config_file", default="./xapi-db-load-config.yaml")
 @click.pass_obj
-def load_xapi_test_data(context, num_batches, batch_size) -> None:
+def load_xapi_test_data(context, config_file) -> None:
     """
     Job that loads bogus test xAPI data to ClickHouse via Ralph.
     """
     config = tutor_config.load(context.root)
     runner = context.job_runner(config)
 
-    command = f"""echo 'Making demo xapi script executable...'
-    echo 'Done. Running script...'
-    bash /app/aspects/scripts/clickhouse-demo-xapi-data.sh {num_batches} {batch_size}
+    command = f"""echo 'Running script...'
+    cd /app/aspects/scripts/
+    bash clickhouse-demo-xapi-data.sh {config_file}
     echo 'Done!';
     """
     runner.run_job("aspects", command)
@@ -87,9 +86,8 @@ def alembic(context, command) -> None:
     runner = context.job_runner(config)
 
     command = f"""echo 'Making demo xapi script executable...'
-    echo 'Done. Running script...'
+    echo 'Running script...'
     bash /app/aspects/scripts/alembic.sh {command}
-    echo 'Done!';
     """
     runner.run_job("aspects", command)
 
