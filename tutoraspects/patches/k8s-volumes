@@ -14,33 +14,3 @@ spec:
     requests:
       storage: {{ CLICKHOUSE_K8S_VOLUME_SIZE }}
 {% endif %}
-{% if RUN_SUPERSET %}
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: superset-assets
-  labels:
-    app.kubernetes.io/component: volume
-    app.kubernetes.io/name: superset
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 5Mi
-{% endif %}
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: aspects-app
-  labels:
-    app.kubernetes.io/component: volume
-    app.kubernetes.io/name: aspects-app
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 100Mi
