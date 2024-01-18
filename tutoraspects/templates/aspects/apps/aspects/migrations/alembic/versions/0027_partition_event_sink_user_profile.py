@@ -1,5 +1,9 @@
 """
 Partition the event_sink.user_profile table
+
+.. pii: Stores Open edX user profile data.
+.. pii_types: user_id, name, username, location, phone_number, email_address, birth_date, biography, gender
+.. pii_retirement: local_api, consumer_api
 """
 from alembic import op
 
