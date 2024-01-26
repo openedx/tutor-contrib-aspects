@@ -177,53 +177,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "{% endif %}",
         ),
         ("CLICKHOUSE_K8S_VOLUME_SIZE", "10Gi"),
-        # This can be used to override some configuration values in
-        # via "docker_config.xml" file, which will be read from a
-        # mount on /etc/clickhouse-server/config.d/ on startup.
-        # See https://clickhouse.com/docs/en/operations/configuration-files
-        #
-        # This default allows connecting to Clickhouse when run as a
-        # standalone docker container, instead of through docker-compose.
-        (
-            "CLICKHOUSE_EXTRA_XML_CONFIG",
-            """
-    <!-- Port for HTTP API. See also 'https_port' for secure connections.
-         This interface is also used by ODBC and JDBC drivers (DataGrip, Dbeaver, ...)
-         and by most of web interfaces (embedded UI, Grafana, Redash, ...).
-    -->
-    <http_port>{{CLICKHOUSE_INTERNAL_HTTP_PORT}}</http_port>
-
-    <!-- Port for interaction by native protocol with:
-         - clickhouse-client and other native ClickHouse tools (clickhouse-benchmark,
-           clickhouse-copier);
-         - clickhouse-server with other clickhouse-servers for distributed query processing;
-         - ClickHouse drivers and applications supporting native protocol
-         (this protocol is also informally called as "the TCP protocol");
-         See also 'tcp_port_secure' for secure connections.
-    -->
-    <tcp_port>{{CLICKHOUSE_INTERNAL_NATIVE_PORT}}</tcp_port>
-
-    <listen_host>::</listen_host>
-    <listen_host>0.0.0.0</listen_host>
-    <listen_try>1</listen_try>
-        """,
-        ),
-        # Override configuration in users.xml. Similar to CLICKHOUSE_EXTRA_XML_CONFIG,
-        # this will be read from a mount on /etc/clickhouse-server/users.d/
-        # on startup
-        # The http settings revert back to the value from versions pre-23.6,
-        # when the default was changed from 1Mb to 128Kb
-        (
-            "CLICKHOUSE_EXTRA_USERS_XML_CONFIG",
-            """
-    <profiles>
-        <default>
-            <http_max_field_value_size>1048576</http_max_field_value_size>
-            <http_max_field_name_size>1048576</http_max_field_name_size>
-        </default>
-    </profiles>
-            """,
-        ),
         (
             "CLICKHOUSE_URL",
             "{{CLICKHOUSE_HOST}}:{{CLICKHOUSE_INTERNAL_HTTP_PORT}}",

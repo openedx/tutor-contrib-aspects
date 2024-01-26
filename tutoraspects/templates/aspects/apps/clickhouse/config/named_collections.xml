@@ -1,0 +1,5 @@
+<clickhouse>
+     <named_collections>
+         {{patch("clickhouse-named-collection-config")}}
+     </named_collections>
+</clickhouse>
