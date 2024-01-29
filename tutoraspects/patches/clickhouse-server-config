@@ -1,0 +1,34 @@
+<!--
+IMPORTANT: This patch is not applied to Clickhouse Cloud Providers.
+           make sure to contact your cloud provider support to apply this patch.
+
+These are miscellaneous ClickHouse server settings, which get mounted to
+/etc/clickhouse-server/config.d/docker_config.xml
+
+See https://clickhouse.com/docs/en/operations/configuration-files for details.
+
+These default settings allow connecting to Clickhouse when run as a
+standalone docker container, instead of through docker-compose.
+-->
+
+<!--
+Port for HTTP API. See also 'https_port' for secure connections.
+This interface is also used by ODBC and JDBC drivers (DataGrip, Dbeaver, ...)
+and by most of web interfaces (embedded UI, Grafana, Redash, ...).
+-->
+<http_port>{{CLICKHOUSE_INTERNAL_HTTP_PORT}}</http_port>
+
+<!--
+Port for interaction by native protocol with:
+ - clickhouse-client and other native ClickHouse tools (clickhouse-benchmark,
+   clickhouse-copier);
+ - clickhouse-server with other clickhouse-servers for distributed query processing;
+ - ClickHouse drivers and applications supporting native protocol
+ (this protocol is also informally called as "the TCP protocol");
+See also 'tcp_port_secure' for secure connections.
+-->
+<tcp_port>{{CLICKHOUSE_INTERNAL_NATIVE_PORT}}</tcp_port>
+
+<listen_host>::</listen_host>
+<listen_host>0.0.0.0</listen_host>
+<listen_try>1</listen_try>

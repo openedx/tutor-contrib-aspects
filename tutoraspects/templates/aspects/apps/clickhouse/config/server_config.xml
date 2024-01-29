@@ -1,0 +1,3 @@
+<clickhouse>
+    {{patch("clickhouse-server-config")}}
+</clickhouse>

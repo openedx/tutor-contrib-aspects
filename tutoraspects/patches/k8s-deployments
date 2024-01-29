@@ -36,16 +36,23 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/clickhouse/
               name: data
-            - mountPath: /etc/clickhouse-server/config.d/
-              name: settings
+            - mountPath: /etc/clickhouse-server/config.d/server_config.xml
+              name: server-settings
+              subPath: server_config.xml
+            - mountPath: /etc/clickhouse-server/users.d/user_config.xml
+              name: user-settings
+              subPath: user_config.xml
       restartPolicy: Always
       volumes:
         - name: data
           persistentVolumeClaim:
             claimName: clickhouse
-        - name: settings
+        - name: user-settings
           configMap:
-            name: clickhouse-settings
+            name: clickhouse-user-settings
+        - name: server-settings
+          configMap:
+            name: clickhouse-server-settings
 {% endif %}
 
 {% if RUN_RALPH %}

@@ -1,0 +1,21 @@
+<!--
+IMPORTANT: This patch is not applied to Clickhouse Cloud Providers.
+           make sure to contact your cloud provider support to apply this patch.
+
+Override configuration in users.xml. ClickHouse will read this from a mount on
+/etc/clickhouse-server/users.d/ on startup.
+
+The http settings revert back to the value from versions pre-23.6,
+when the default was changed from 1Mb to 128Kb. This allows larger POSTs such
+as the event sink sends from the LMS.
+
+NOTE: Currently this patch does not impact Kubernetes deployments. ClickHouse
+writes to the user directory that we want to override causing errors if we try
+to mount this file there:
+-->
+<profiles>
+    <default>
+        <http_max_field_value_size>1048576</http_max_field_value_size>
+        <http_max_field_name_size>1048576</http_max_field_name_size>
+    </default>
+</profiles>
