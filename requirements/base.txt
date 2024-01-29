@@ -25,7 +25,7 @@ click==8.1.7
     #   tutor
 future==0.18.3
     # via pyseeyou
-google-auth==2.26.2
+google-auth==2.27.0
     # via kubernetes
 idna==3.6
     # via requests
@@ -81,11 +81,11 @@ six==1.16.0
     #   python-dateutil
 tomli==2.0.1
     # via mypy
-toolz==0.12.0
+toolz==0.12.1
     # via pyseeyou
 transifex-python==3.5.0
     # via -r requirements/base.in
-tutor==17.0.0
+tutor==17.0.1
     # via -r requirements/base.in
 typing-extensions==4.9.0
     # via
