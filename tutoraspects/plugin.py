@@ -35,7 +35,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("RUN_SUPERSET", True),
         ("DOCKER_IMAGE_ASPECTS", "edunext/aspects:{{ ASPECTS_VERSION }}"),
         ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:23.8"),
-        ("DOCKER_IMAGE_RALPH", "fundocker/ralph:3.9.0"),
+        ("DOCKER_IMAGE_RALPH", "fundocker/ralph:4.0.0"),
         ("DOCKER_IMAGE_SUPERSET", "edunext/aspects-superset:{{ ASPECTS_VERSION }}"),
         ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.30.0-alpine"),
         (
@@ -344,7 +344,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
-        ("DBT_BRANCH", "v3.1.2"),
+        ("DBT_BRANCH", "v3.3.0"),
         # Path to the dbt project inside the repository
         ("DBT_REPOSITORY_PATH", "aspects-dbt"),
         # This is a pip compliant list of Python packages to install to run dbt

@@ -1,4 +1,4 @@
-name: Test Tutor Aspects
+name: Tutor Integration Test
 
 on:
   pull_request:
@@ -208,7 +208,8 @@ jobs:
               # Job is not in Running or Succeeded state, consider it as failed
               failed_jobs="$failed_jobs $pod_name"
               # Print the logs for the failing pod
-              echo "hi $pod_name"
+              echo "Failure logs for pod: $pod_name"
+              kubectl logs "$pod_name"
             fi
           done
 
@@ -218,7 +219,19 @@ jobs:
           else
             echo "All jobs succeeded."
           fi
-      - name: Check all the logs
+      - name: Check service logs
+        if: failure()
+        run: |
+          # Use an array to store service names
+          service_list=($(kubectl get services -o jsonpath='{.items[*].metadata.name}'))
+
+          # Loop through each service and print logs
+          for service_name in "${service_list[@]}"; do
+            echo "Logs for service: $service_name"
+            kubectl logs "svc/$service_name"
+            echo "------------------------"
+          done
+      - name: Check jobs logs
         if: '!cancelled()'
         run: |
           job_list=($(kubectl get jobs | grep job | awk '{print $1}'))
@@ -230,12 +243,12 @@ jobs:
             kubectl logs "$pod_name"
             echo "------------------------"
           }
-          
+
           # Loop through each job-related pod and print logs
           for job_name in "${job_list[@]}"; do
             # Get the pods related to the current job
             job_pod_list=($(kubectl get pods | grep -E "${job_name}-.*" | awk '{print $1}'))
-          
+
             for pod_name in "${job_pod_list[@]}"; do
               print_pod_logs "$pod_name"
             done
