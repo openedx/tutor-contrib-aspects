@@ -1,4 +1,7 @@
 <!--
+IMPORTANT: This patch is not applied to Clickhouse Cloud Providers.
+           make sure to contact your cloud provider support to apply this patch.
+
 Override configuration in users.xml. ClickHouse will read this from a mount on
 /etc/clickhouse-server/users.d/ on startup.
 

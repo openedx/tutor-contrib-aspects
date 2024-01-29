@@ -1,4 +1,7 @@
 <!--
+IMPORTANT: This patch is not applied to Clickhouse Cloud Providers.
+           make sure to contact your cloud provider support to apply this patch.
+
 These are miscellaneous ClickHouse server settings, which get mounted to
 /etc/clickhouse-server/config.d/docker_config.xml
 
