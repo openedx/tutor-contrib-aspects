@@ -1,4 +1,5 @@
-# Configuration
+# Configuration for local / dev. K8s configuration is handled via the env
+# vars in /patches/k8s-deployments and /patches/k8s-jobs
 RALPH_APP_DIR=/app/.ralph
 
 # ClickHouse database backend
