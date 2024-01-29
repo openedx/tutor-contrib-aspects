@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.68.2 - 2024-01-29
+
+### [0.68.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.68.1...v0.68.2) (2024-01-29)
+
+### Bug Fixes
+
+* mount clickhouse settings by individual files ([1b572a5](https://github.com/openedx/tutor-contrib-aspects/commit/1b572a51471ea34c2fcd688022fca975bad54684))
+
+### Styles
+
+* Update style for black v24 ([9f0a4b9](https://github.com/openedx/tutor-contrib-aspects/commit/9f0a4b965c546be2240bffd052d2a3170a20ef6b))
+
+### Documentation
+
+* annotates the PII tables in Aspects ([b5138dc](https://github.com/openedx/tutor-contrib-aspects/commit/b5138dc2bd3efbf9933c22a5d9a396ae55222382))
+
+### Code Refactoring
+
+* Make config file a patch ([f9b0e01](https://github.com/openedx/tutor-contrib-aspects/commit/f9b0e01364fe327ff37a078a746440c8fe32bd76))
+* use patch for clickhouse settings ([a1069db](https://github.com/openedx/tutor-contrib-aspects/commit/a1069db985846f2edb22e8038037bdd5cdeb4588))
+
 ## v0.68.1 - 2024-01-18
 
 ### [0.68.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.68.0...v0.68.1) (2024-01-18)
