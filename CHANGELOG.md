@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.69.0 - 2024-01-29
+
+### [0.69.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.68.2...v0.69.0) (2024-01-29)
+
+#### ⚠ BREAKING CHANGES
+
+* Upgrade to Ralph 4.0
+
+#### Features
+
+* Upgrade xapi-db-load to 1.1 ([8a81a3b](https://github.com/openedx/tutor-contrib-aspects/commit/8a81a3bef4b5a3485d73ee2b5a76ad18603c42a8))
+* Use official versions of Ralph 4 and aspects-dbt ([fded401](https://github.com/openedx/tutor-contrib-aspects/commit/fded40145d6a20ea5040d900a96bb3ad895e0aaa))
+
+#### Bug Fixes
+
+* Use new Ralph config vars in k8s ([30816c5](https://github.com/openedx/tutor-contrib-aspects/commit/30816c582ae0f7746765cdb19839737df97033a0))
+
+#### Code Refactoring
+
+* Upgrade to Ralph 4.0 ([885c33f](https://github.com/openedx/tutor-contrib-aspects/commit/885c33f56b710b74a4548b4ff4bdbdb8babcc107))
+
+#### Documentation
+
+* Update readme to include building Superset image ([dbe1736](https://github.com/openedx/tutor-contrib-aspects/commit/dbe17366eb13329d9bb1c3a74fd19be58656ae43))
+
 ## v0.68.2 - 2024-01-29
 
 ### [0.68.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.68.1...v0.68.2) (2024-01-29)
