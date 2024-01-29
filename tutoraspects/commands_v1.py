@@ -1,4 +1,5 @@
 """Aspects module for tutor v1 commands"""
+
 from __future__ import annotations
 
 import string

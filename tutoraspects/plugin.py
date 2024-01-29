@@ -1,4 +1,5 @@
 """Implements Aspects plugin via Tutor Plugin API v1."""
+
 from __future__ import annotations
 
 import os.path

@@ -18,7 +18,7 @@ asttokens==2.4.1
     #   transifex-python
 bcrypt==4.1.2
     # via -r requirements/base.txt
-black==23.12.1
+black==24.1.1
     # via -r requirements/dev.in
 cachetools==5.3.2
     # via
@@ -41,9 +41,9 @@ click==8.1.7
     #   black
     #   transifex-python
     #   tutor
-cryptography==41.0.7
+cryptography==42.0.1
     # via secretstorage
-dill==0.3.7
+dill==0.3.8
     # via pylint
 docutils==0.20.1
     # via readme-renderer
@@ -51,7 +51,7 @@ future==0.18.3
     # via
     #   -r requirements/base.txt
     #   pyseeyou
-google-auth==2.26.2
+google-auth==2.27.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -214,13 +214,13 @@ tomli==2.0.1
     #   pylint
 tomlkit==0.12.3
     # via pylint
-toolz==0.12.0
+toolz==0.12.1
     # via
     #   -r requirements/base.txt
     #   pyseeyou
 transifex-python==3.5.0
     # via -r requirements/base.txt
-tutor==17.0.0
+tutor==17.0.1
     # via -r requirements/base.txt
 twine==4.0.2
     # via -r requirements/dev.in
