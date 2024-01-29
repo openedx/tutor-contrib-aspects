@@ -103,9 +103,17 @@ def create_assets():
                     write_asset_to_file(asset, asset_name, folder, file_name, roles)
                     break
 
+    import_databases()
     import_assets()
     update_dashboard_roles(roles)
     update_embeddable_uuids()
+
+
+def import_databases():
+    """Import databases from settings"""
+    databases = {{SUPERSET_DATABASES}}
+    for database_name, uri in databases.items():
+        create_superset_db(database_name, uri)
 
 
 def get_uuid5(base_uuid, name):
@@ -118,7 +126,6 @@ def get_uuid5(base_uuid, name):
 def write_asset_to_file(asset, asset_name, folder, file_name, roles):
     """Write an asset to a file and generated translated assets"""
     if folder == "databases":
-        # This will fix the URI connection string by setting the right password.
         create_superset_db(asset["database_name"], asset["sqlalchemy_uri"])
 
     if folder in ["charts", "dashboards"]:
