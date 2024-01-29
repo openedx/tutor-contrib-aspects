@@ -219,7 +219,19 @@ jobs:
           else
             echo "All jobs succeeded."
           fi
-      - name: Check all the logs
+      - name: Check service logs
+        if: failure()
+        run: |
+          # Use an array to store service names
+          service_list=($(kubectl get services -o jsonpath='{.items[*].metadata.name}'))
+
+          # Loop through each service and print logs
+          for service_name in "${service_list[@]}"; do
+            echo "Logs for service: $service_name"
+            kubectl logs "svc/$service_name"
+            echo "------------------------"
+          done
+      - name: Check jobs logs
         if: '!cancelled()'
         run: |
           job_list=($(kubectl get jobs | grep job | awk '{print $1}'))
