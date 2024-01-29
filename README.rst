@@ -47,6 +47,10 @@ Aspects is implemented as a Tutor plugin. Documentation will be coming soon to c
 
     tutor images build openedx --no-cache
 
+#. Because we need to bake the Aspects assets (charts, datasets, dashboards) into the Superset image you will need to rebuild it::
+
+    tutor images build aspects-superset --no-cache
+
 #. Run the initialization scripts::
 
     tutor local do init
