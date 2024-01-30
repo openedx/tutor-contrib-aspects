@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.69.1 - 2024-01-30
+
+### [0.69.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.69.0...v0.69.1) (2024-01-30)
+
+### Bug Fixes
+
+* import databases from settings ([be5d76d](https://github.com/openedx/tutor-contrib-aspects/commit/be5d76d39d512c775f0722ad21536b28e360f2d6))
+
+### Documentation
+
+* add superset build information ([a971529](https://github.com/openedx/tutor-contrib-aspects/commit/a971529e2a28ca9128cc411877593be37867f406))
+
 ## v0.69.0 - 2024-01-29
 
 ### [0.69.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.68.2...v0.69.0) (2024-01-29)
