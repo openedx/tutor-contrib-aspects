@@ -254,6 +254,13 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "mysql://{{SUPERSET_DB_USERNAME}}:{{SUPERSET_DB_PASSWORD}}"
             "@{{SUPERSET_DB_HOST}}/{{SUPERSET_DB_METADATA_NAME}}",
         ),
+        (
+            "SUPERSET_DATABASES",
+            {
+                "OpenedX Clickhouse": "{{CLICKHOUSE_REPORT_SQLALCHEMY_URI}}",
+                "Superset Metadata": "{{SUPERSET_METADATA_SQLALCHEMY_URI}}",
+            },
+        ),
         ("SUPERSET_SENTRY_DSN", ""),
         (
             "SUPERSET_TALISMAN_CONFIG",

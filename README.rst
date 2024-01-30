@@ -47,10 +47,6 @@ Aspects is implemented as a Tutor plugin. Documentation will be coming soon to c
 
     tutor images build openedx --no-cache
 
-#. Because we need to bake the Aspects assets (charts, datasets, dashboards) into the Superset image you will need to rebuild it::
-
-    tutor images build aspects-superset --no-cache
-
 #. Run the initialization scripts::
 
     tutor local do init
@@ -99,6 +95,8 @@ when you update your deployment. To prevent your local changes from being overwr
 please create new assets and make your changes there instead. You can copy an existing
 asset by editing the asset in Superset and selecting "Save As" to save it to a new name.
 
+# Note: If you are using custom assets you will need to rebuild your aspects-superset
+# image on your local machine with `tutor images build aspects-superset --no-cache`.
 
 Sharing Charts and Dashboards
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
