@@ -21,6 +21,5 @@ aspects: # this needs to match the profile in your dbt_project.yml file
       use_lw_deletes: {{ DBT_PROFILE_USE_LW_DELETES }}
       check_exchange: {{ DBT_PROFILE_CHECK_EXCHANGE }}
       custom_settings: {{ DBT_PROFILE_CUSTOM_SETTINGS }}
-      allow_experimental_object_type: {{ DBT_PROFILE_ALLOW_EXPERIMENTAL_OBJECT_TYPE }}
       sync_request_timeout: {{ DBT_PROFILE_SYNC_REQUEST_TIMEOUT }}
       compress_block_size: {{ DBT_PROFILE_COMPRESS_BLOCK_SIZE }}

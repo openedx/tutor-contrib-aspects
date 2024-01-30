@@ -384,8 +384,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # A dictionary/mapping of custom ClickHouse settings for the connection -
         # default is empty.
         ("DBT_PROFILE_CUSTOM_SETTINGS", ""),
-        # Allows the connection to understand the JSON type
-        ("DBT_PROFILE_ALLOW_EXPERIMENTAL_OBJECT_TYPE", "True"),
         # Timeout for server ping
         ("DBT_PROFILE_SYNC_REQUEST_TIMEOUT", "5"),
         # Compression block size if compression is enabled, this is the default value
