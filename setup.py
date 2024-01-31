@@ -32,10 +32,10 @@ ABOUT = load_about()
 setup(
     name="tutor-contrib-aspects",
     version=ABOUT["__version__"],
-    url="https://github.com/open-craft/tutor-contrib-aspects",
+    url="https://github.com/openedx/tutor-contrib-aspects",
     project_urls={
-        "Code": "https://github.com/open-craft/tutor-contrib-aspects",
-        "Issue tracker": "https://github.com/open-craft/tutor-contrib-aspects/issues",
+        "Code": "https://github.com/openedx/tutor-contrib-aspects",
+        "Issue tracker": "https://github.com/openedx/tutor-contrib-aspects/issues",
     },
     license="AGPLv3",
     author="The Open edX Community",
