@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.70.1 - 2024-02-02
+
+### [0.70.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.70.0...v0.70.1) (2024-02-02)
+
+### Bug Fixes
+
+* Bump aspects-dbt to 3.4.1 ([e07a4ab](https://github.com/openedx/tutor-contrib-aspects/commit/e07a4aba6db7556365a65857723e9519374a361b))
+
+### Documentation
+
+* Update opencraft URLs to openedx ([22ae778](https://github.com/openedx/tutor-contrib-aspects/commit/22ae778d73429da7d1578bd8a393b03473379cd2))
+
+### Code Refactoring
+
+* Remove refs to ClickHouse allow_experimental_object_type ([56f6d96](https://github.com/openedx/tutor-contrib-aspects/commit/56f6d96cbf745702ab1d89fa5706a5b479153980))
+
 ## v0.70.0 - 2024-01-30
 
 ### [0.70.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.69.1...v0.70.0) (2024-01-30)
