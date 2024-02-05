@@ -36,7 +36,7 @@ jobs:
           git checkout -b $branch_name || git checkout $branch_name
           git push origin $branch_name
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.EDX_TRANSIFEX_BOT_GITHUB_TOKEN }}
           title: "chore(i18n): updating translations"
