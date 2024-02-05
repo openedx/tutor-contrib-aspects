@@ -16,6 +16,15 @@ echo "Installing dbt packages..."
 
 pip install -r /app/aspects/dbt/requirements.txt
 
+{% if DBT_SSH_KEY %}
+mkdir -p /root/.ssh
+echo "{{ DBT_SSH_KEY}}" | tr -d '\r' > /root/.ssh/id_rsa
+chmod 600 /root/.ssh/id_rsa
+eval `ssh-agent -s`
+ssh -o StrictHostKeyChecking=no git@github.com || true
+ssh-add /root/.ssh/id_rsa
+{% endif %}
+
 rm -rf {{ DBT_REPOSITORY_PATH }}
 
 echo "Installing aspects-dbt"
