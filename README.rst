@@ -67,8 +67,7 @@ At this point you should have a working Tutor / Aspects environment, but with no
 
    #. Sink course data from the LMS to clickhouse (see https://github.com/openedx/openedx-event-sink-clickhouse for more information)::
 
-       tutor local do dump-courses-to-clickhouse --options "--force"
-
+       tutor local do dump-data-to-clickhouse --options "--object course_overviews"
 
    #. Sink Historical event data to ClickHouse::
 

@@ -93,20 +93,21 @@ def alembic(context, command) -> None:
     runner.run_job("aspects", command)
 
 
-@click.command(help="Dump courses to ClickHouse.")
+@click.command(help="Dump data to ClickHouse.")
+@click.option("--service", default="lms", help="The service to run the command on.")
 @click.option("--options", default="")
 @click.pass_obj
-def dump_courses_to_clickhouse(context, options) -> None:
+def dump_data_to_clickhouse(context, service, options) -> None:
     """
-    Job that proxies the dump_courses_to_clickhouse commands.
+    Job that proxies the dump_data_to_clickhouse commands.
     """
     config = tutor_config.load(context.root)
     runner = context.job_runner(config)
 
     command = f"""
-    ./manage.py cms dump_courses_to_clickhouse {options}
+    ./manage.py {service} dump_data_to_clickhouse {options}
     """
-    runner.run_job("cms", command)
+    runner.run_job(f"{service}", command)
 
 
 # pylint: disable=line-too-long
@@ -175,7 +176,7 @@ def dump_courses_to_clickhouse(context, options) -> None:
 @click.pass_obj
 def transform_tracking_logs(context, deduplicate, **kwargs) -> None:
     """
-    Job that proxies the dump_courses_to_clickhouse commands.
+    Job that proxies the transform_tracking_logs commands.
     """
     config = tutor_config.load(context.root)
     runner = context.job_runner(config)
@@ -210,6 +211,6 @@ COMMANDS = (
     load_xapi_test_data,
     dbt,
     alembic,
-    dump_courses_to_clickhouse,
+    dump_data_to_clickhouse,
     transform_tracking_logs,
 )
