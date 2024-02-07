@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.71.0 - 2024-02-07
+
+### [0.71.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.70.2...v0.71.0) (2024-02-07)
+
+#### Features
+
+* patition xapi_events_all table ([bce56de](https://github.com/openedx/tutor-contrib-aspects/commit/bce56de9554cc6985ae734836dd118ea6db173cf))
+
 ## v0.70.2 - 2024-02-07
 
 ### [0.70.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.70.1...v0.70.2) (2024-02-07)
