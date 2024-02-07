@@ -7,13 +7,13 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: 'tutor-contrib-aspects'
-  description: "Tutor plugin for the Open Analytics Reference System."
+  description: "Tutor plugin for the Aspects analytics system."
   annotations:
     # (Optional) Annotation keys and values can be whatever you want.
     # We use it in Open edX repos to have a comma-separated list of GitHub user
     # names that might be interested in changes to the architecture of this
     # component.
-    openedx.org/arch-interest-groups: "bmtcril,"
+    openedx.org/arch-interest-groups: "group:openedx/tutor-contrib-aspects-maintainers,"
 spec:
 
   # (Required) This can be a group (`group:<github_group_name>`) or a user (`user:<github_username>`).
@@ -22,7 +22,7 @@ spec:
   #
   # If you need a new team created, create an issue with tCRIL engineering:
   # https://github.com/openedx/tcril-engineering/issues/new/choose
-  owner: group:openedx/cc-analytics
+  owner: "bmtcril"
 
   # (Required) Acceptable Type Values: service, website, library
   type: 'library'
