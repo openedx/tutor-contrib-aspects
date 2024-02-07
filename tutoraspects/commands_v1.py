@@ -102,7 +102,12 @@ def alembic(command: string) -> list[tuple[str, str]]:
 
 # Ex: "tutor local do dump_data_to_clickhouse "
 @click.command(context_settings={"ignore_unknown_options": True})
-@click.option("--service", default="lms", type=click.UNPROCESSED, help="The service to run the command on.")
+@click.option(
+    "--service",
+    default="lms",
+    type=click.UNPROCESSED,
+    help="The service to run the command on.",
+)
 @click.option("--options", default="", type=click.UNPROCESSED)
 def dump_data_to_clickhouse(service, options) -> list[tuple[str, str]]:
     """
