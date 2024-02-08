@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.72.0 - 2024-02-08
+
+### [0.72.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.71.0...v0.72.0) (2024-02-08)
+
+#### Features
+
+* deploy ralph with uvicorn ([f1e005c](https://github.com/openedx/tutor-contrib-aspects/commit/f1e005c45ba70426be859f4b0febc6144555dee6))
+
 ## v0.71.0 - 2024-02-07
 
 ### [0.71.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.70.2...v0.71.0) (2024-02-07)
