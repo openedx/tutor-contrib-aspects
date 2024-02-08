@@ -76,14 +76,15 @@ spec:
     spec:
       containers:
         - args:
-            - python
-            - -m
-            - ralph
-            - -v
-            - DEBUG
-            - runserver
-            - -b
-            - clickhouse
+            - "uvicorn"
+            - "ralph.api:app"
+            - "--proxy-headers"
+            - "--log-config"
+            - "/etc/ralph/logging.yaml"
+            - "--port"
+            - "{{ RALPH_PORT }}"
+            - "--host"
+            - "0.0.0.0"
           env:
             - name: RALPH_APP_DIR
               value: "/app/.ralph"
@@ -135,11 +136,16 @@ spec:
           volumeMounts:
             - mountPath: /app/.ralph
               name: auth
+            - mountPath: /etc/ralph
+              name: ralph-logging
       restartPolicy: Always
       volumes:
         - name: auth
           configMap:
             name: ralph-settings
+        - name: ralph-logging
+          configMap:
+            name: ralph-logging
 {% endif %}
 
 {% if RUN_SUPERSET %}

@@ -29,16 +29,18 @@ ralph:
     ports:
       - "{{ RALPH_PORT }}:{{ RALPH_PORT }}"
     command:
-      - python
-      - "-m"
-      - ralph
-      - "-v"
-      - DEBUG
-      - runserver
-      - "-b"
-      - "clickhouse"
+      - "uvicorn"
+      - "ralph.api:app"
+      - "--proxy-headers"
+      - "--log-config"
+      - "/etc/ralph/logging.yaml"
+      - "--port"
+      - "{{ RALPH_PORT }}"
+      - "--host"
+      - "0.0.0.0"
     volumes:
       - ../../env/plugins/aspects/apps/ralph/config/ralph_auth/:/app/.ralph
+      - ../../env/plugins/aspects/apps/ralph/config/logging.yaml:/etc/ralph/logging.yaml:ro
 {% endif %}
 
 {% if RUN_SUPERSET %}
