@@ -55,6 +55,13 @@
   options:
     labels:
         app.kubernetes.io/name: ralph
+
+- name: ralph-logging
+  files:
+    - plugins/aspects/apps/ralph/config/logging.yaml
+  options:
+    labels:
+        app.kubernetes.io/name: ralph
 {% endif %}
 
 {% if RUN_SUPERSET %}
