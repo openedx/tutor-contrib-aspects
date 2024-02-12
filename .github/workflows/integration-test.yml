@@ -65,7 +65,7 @@ jobs:
         run: tutor local do importdemocourse
       - name: Test commands
         run: |
-          tutor local do dump-courses-to-clickhouse --options "--force"
+          tutor local do dump-data-to-clickhouse --options "--object course_overviews"
           make extract_translations
       - name: Tutor stop
         run: tutor local stop
@@ -118,7 +118,7 @@ jobs:
       - name: Import demo course
         run: tutor dev do importdemocourse
       - name: Test commands
-        run: tutor dev do dump-courses-to-clickhouse --options "--force"
+        run: tutor dev do dump-data-to-clickhouse --options "--object course_overviews"
       - name: Tutor stop
         run: tutor dev stop
 
@@ -190,7 +190,7 @@ jobs:
       - name: Import demo course
         run: tutor k8s do importdemocourse
       - name: Test commands
-        run: tutor k8s do dump-courses-to-clickhouse --options "--force"
+        run: tutor k8s do dump-data-to-clickhouse --options "--object course_overviews"
       - name: Check failure logs
         if: failure()
         run: |

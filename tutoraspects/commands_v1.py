@@ -100,14 +100,20 @@ def alembic(command: string) -> list[tuple[str, str]]:
     ]
 
 
-# Ex: "tutor local do dump_courses_to_clickhouse "
+# Ex: "tutor local do dump_data_to_clickhouse "
 @click.command(context_settings={"ignore_unknown_options": True})
+@click.option(
+    "--service",
+    default="lms",
+    type=click.UNPROCESSED,
+    help="The service to run the command on.",
+)
 @click.option("--options", default="", type=click.UNPROCESSED)
-def dump_courses_to_clickhouse(options) -> list[tuple[str, str]]:
+def dump_data_to_clickhouse(service, options) -> list[tuple[str, str]]:
     """
-    Job that proxies the dump_courses_to_clickhouse commands.
+    Job that proxies the dump_data_to_clickhouse commands.
     """
-    return [("cms", f"./manage.py cms dump_courses_to_clickhouse {options}")]
+    return [(f"{service}", f"./manage.py {service} dump_data_to_clickhouse {options}")]
 
 
 # pylint: disable=line-too-long
@@ -272,7 +278,7 @@ DO_COMMANDS = (
     load_xapi_test_data,
     dbt,
     alembic,
-    dump_courses_to_clickhouse,
+    dump_data_to_clickhouse,
     transform_tracking_logs,
 )
 
