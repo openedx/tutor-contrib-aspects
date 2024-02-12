@@ -61,15 +61,20 @@ idna==3.6
     #   requests
 importlib-metadata==7.0.1
     # via
+    #   -r requirements/base.txt
     #   keyring
     #   pyinstaller
     #   pyinstaller-hooks-contrib
+    #   tutor
     #   twine
 importlib-resources==6.1.1
-    # via keyring
+    # via
+    #   -r requirements/base.txt
+    #   keyring
+    #   tutor
 isort==5.13.2
     # via pylint
-jaraco-classes==3.3.0
+jaraco-classes==3.3.1
     # via keyring
 jeepney==0.8.0
     # via
@@ -151,9 +156,9 @@ pygments==2.17.2
     # via
     #   readme-renderer
     #   rich
-pyinstaller==6.3.0
+pyinstaller==6.4.0
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2024.0
+pyinstaller-hooks-contrib==2024.1
     # via pyinstaller
 pylint==3.0.3
     # via -r requirements/dev.in
@@ -220,9 +225,9 @@ toolz==0.12.1
     #   pyseeyou
 transifex-python==3.5.0
     # via -r requirements/base.txt
-tutor==17.0.1
+tutor==17.0.2
     # via -r requirements/base.txt
-twine==4.0.2
+twine==5.0.0
     # via -r requirements/dev.in
 typing-extensions==4.9.0
     # via
@@ -245,6 +250,7 @@ websocket-client==1.7.0
     #   kubernetes
 zipp==3.17.0
     # via
+    #   -r requirements/base.txt
     #   importlib-metadata
     #   importlib-resources
 
