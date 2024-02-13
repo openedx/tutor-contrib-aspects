@@ -24,10 +24,10 @@ jobs:
           default_bump: false
           default_prerelease_bump: false
           dry_run: true
-      - name: Set up Python 3.8
+      - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: "3.8"
+          python-version: "3.12"
       - name: Create bumpversion
         if: steps.tag_version.outputs.new_version
         run: |

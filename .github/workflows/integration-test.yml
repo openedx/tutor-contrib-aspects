@@ -24,7 +24,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.9
+          python-version: 3.12
       - name: Install python reqs
         run: pip install -r requirements/dev.txt
       - name: Install aspects
@@ -78,7 +78,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.9
+          python-version: 3.12
       - name: Install python reqs
         run: pip install -r requirements/dev.txt
       - name: Install aspects
@@ -130,7 +130,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.9
+          python-version: 3.12
       - name: Generate env
         run: |
           pip install -r requirements/dev.txt

@@ -32,7 +32,7 @@ def dbt(context, command) -> None:
     runner = context.job_runner(config)
 
     command = f"""echo 'Making dbt script executable...'
-    echo 'Running dbt {command}' 
+    echo 'Running dbt {command}'
     bash /app/aspects/scripts/dbt.sh {command}
     echo 'Done!';
     """
