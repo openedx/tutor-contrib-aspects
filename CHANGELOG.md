@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.73.1 - 2024-02-15
+
+### [0.73.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.73.0...v0.73.1) (2024-02-15)
+
+### Bug Fixes
+
+* Upgrade dbt-clickhouse to 1.7.2 ([4d63f79](https://github.com/openedx/tutor-contrib-aspects/commit/4d63f79e0f6fbfc5ad2a19042205284e9eb088c9))
+
 ## v0.73.0 - 2024-02-12
 
 ### [0.73.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.72.0...v0.73.0) (2024-02-12)
