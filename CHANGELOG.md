@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.73.2 - 2024-02-16
+
+### [0.73.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.73.1...v0.73.2) (2024-02-16)
+
+### Bug Fixes
+
+* Fix Python 3.12 support, image building ([dc4d792](https://github.com/openedx/tutor-contrib-aspects/commit/dc4d792b9349c5aac502053d16cfc37652cc50db))
+
+### Code Refactoring
+
+* removes duplicated code in favour of using script files ([6337ef0](https://github.com/openedx/tutor-contrib-aspects/commit/6337ef001194aaebe1e297613aa30605d4276c4d))
+* removes the DBT_REPOSITORY_PATH variable ([7ed7362](https://github.com/openedx/tutor-contrib-aspects/commit/7ed7362e03e776ebe66fa60ca14b96e79629be03))
+
 ## v0.73.1 - 2024-02-15
 
 ### [0.73.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.73.0...v0.73.1) (2024-02-15)
