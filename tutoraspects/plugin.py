@@ -8,7 +8,7 @@ import string
 from glob import glob
 
 import bcrypt
-import pkg_resources
+import importlib_resources
 from tutor import hooks
 
 from .__about__ import __version__
@@ -486,8 +486,8 @@ try:
         )  # pylint: disable=no-member
 except AttributeError as e:
     for service, template_path, priority in MY_INIT_TASKS:
-        full_path: str = pkg_resources.resource_filename(
-            "tutoraspects", os.path.join("templates", *template_path)
+        full_path = os.path.join(
+            str(importlib_resources.files("tutoraspects") / "templates"), *template_path
         )
         with open(full_path, encoding="utf-8") as init_task_file:
             init_task: str = init_task_file.read()
@@ -561,7 +561,7 @@ hooks.Filters.IMAGES_PUSH.add_items(
 hooks.Filters.ENV_TEMPLATE_ROOTS.add_items(
     # Root paths for template files, relative to the project root.
     [
-        pkg_resources.resource_filename("tutoraspects", "templates"),
+        str(importlib_resources.files("tutoraspects") / "templates"),
     ]
 )
 
@@ -587,7 +587,7 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
 # apply a patch based on the file's name and contents.
 for path in glob(
     os.path.join(
-        pkg_resources.resource_filename("tutoraspects", "patches"),
+        str(importlib_resources.files("tutoraspects") / "patches"),
         "*",
     )
 ):
