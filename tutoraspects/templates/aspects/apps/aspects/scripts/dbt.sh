@@ -16,13 +16,13 @@ ssh -o StrictHostKeyChecking=no git@github.com || true
 ssh-add /root/.ssh/id_rsa
 {% endif %}
 
-rm -rf {{ DBT_REPOSITORY_PATH }}
+rm -rf aspects-dbt
 
 echo "Installing aspects-dbt"
 echo "git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }}"
-git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }}
+git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }} aspects-dbt
 
-cd {{ DBT_REPOSITORY_PATH }} || exit
+cd aspects-dbt || exit
 
 export ASPECTS_EVENT_SINK_DATABASE={{ASPECTS_EVENT_SINK_DATABASE}}
 export ASPECTS_XAPI_DATABASE={{ASPECTS_XAPI_DATABASE}}
@@ -33,4 +33,4 @@ dbt deps --profiles-dir /app/aspects/dbt/
 echo "Running dbt $*"
 dbt "$@" --profiles-dir /app/aspects/dbt/
 
-rm -rf {{ DBT_REPOSITORY_PATH }}
+rm -rf aspects-dbt
