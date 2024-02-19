@@ -25,7 +25,7 @@ click==8.1.7
     #   tutor
 future==0.18.3
     # via pyseeyou
-google-auth==2.27.0
+google-auth==2.28.0
     # via kubernetes
 idna==3.6
     # via requests
@@ -95,7 +95,7 @@ typing-extensions==4.9.0
     # via
     #   mypy
     #   tutor
-urllib3==2.2.0
+urllib3==2.2.1
     # via
     #   kubernetes
     #   requests
