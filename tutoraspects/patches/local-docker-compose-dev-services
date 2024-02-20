@@ -45,3 +45,12 @@ clickhouse:
         - ../../env/plugins/aspects/apps/clickhouse/dev_config:/etc/clickhouse-server/config.d/
         - ../../env/plugins/aspects/apps/clickhouse/users:/etc/clickhouse-server/users.d/
 {% endif %}
+
+{% if ASPECTS_ENABLE_EVENT_BUS_CONSUMER %}
+aspects-consumer:
+  <<: *openedx-service
+  environment:
+      DJANGO_SETTINGS_MODULE: lms.envs.tutor.development
+  command: |
+    ./manage.py lms consume_events -t analytics -g event_routing_backends --extra '{"consumer_name": "aspects"}'
+{% endif %}
