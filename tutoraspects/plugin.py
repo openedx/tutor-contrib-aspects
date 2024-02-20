@@ -51,6 +51,9 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # in the ClickHouse database. Make sure that you understand the legal
         # consequences of data storage and privacy before turning this on!
         ("ASPECTS_ENABLE_PII", False),
+        ("ASPECTS_ENABLE_EVENT_BUS_CONSUMER", False),
+        ("ASPECTS_ENABLE_EVENT_BUS_PRODUCER", False),
+        ("ASPECTS_EVENT_BUS_CONSUMER_REPLICAS", 1),
         # User PII is cached in an in-memory dictionary for this many seconds.
         ("ASPECTS_PII_CACHE_LIFETIME", 900),
         # Markdown comprising the Help tab for the Operator and Instructor dashboards.
