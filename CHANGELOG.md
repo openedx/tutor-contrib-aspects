@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.75.0 - 2024-02-21
+
+### [0.75.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.74.0...v0.75.0) (2024-02-21)
+
+#### Features
+
+* grant permissions to embed dashboard to Public role ([239ad7f](https://github.com/openedx/tutor-contrib-aspects/commit/239ad7fe30cc940d4d67b03e0818415c94f9dace))
+
 ## v0.74.0 - 2024-02-20
 
 ### [0.74.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.73.2...v0.74.0) (2024-02-20)
