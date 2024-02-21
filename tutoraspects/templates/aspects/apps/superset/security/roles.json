@@ -3972,9 +3972,56 @@
     ]
   },
   {
-    "name":"Public",
-    "permissions":[
-
+    "name": "Public",
+    "permissions": [
+      {
+        "permission": {
+          "name": "can_read"
+        },
+        "view_menu": {
+          "name": "Chart"
+        }
+      },
+      {
+        "permission": {
+          "name": "can_read"
+        },
+        "view_menu": {
+          "name": "Dashboard"
+        }
+      },
+      {
+        "permission": {
+          "name": "can_time_range"
+        },
+        "view_menu": {
+          "name": "Api"
+        }
+      },
+      {
+        "permission": {
+          "name": "can_filter"
+        },
+        "view_menu": {
+          "name": "Superset"
+        }
+      },
+      {
+        "permission": {
+          "name": "can_csv"
+        },
+        "view_menu": {
+          "name": "Superset"
+        }
+      },
+      {
+        "permission": {
+          "name": "can_explore_json"
+        },
+        "view_menu": {
+          "name": "Superset"
+        }
+      }
     ]
   },
   {
