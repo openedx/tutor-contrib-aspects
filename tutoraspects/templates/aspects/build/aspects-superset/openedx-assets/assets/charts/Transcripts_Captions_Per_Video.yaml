@@ -3,9 +3,8 @@ cache_timeout: null
 certification_details: null
 certified_by: null
 dataset_uuid: a96a4b13-a429-442d-83ca-5d6f94010909
-description: This chart helps understand how many learners are using the video's transcripts
-  or closed captions. If the video has not transcripts or captions the chart will
-  be empty.
+description: |-
+  This chart helps understand how many learners are using the video's transcripts or closed captions. If the video has not transcripts or captions the chart will be empty.
 params:
   adhoc_filters: []
   bottom_margin: auto

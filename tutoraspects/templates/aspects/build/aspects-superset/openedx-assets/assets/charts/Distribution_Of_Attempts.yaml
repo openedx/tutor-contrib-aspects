@@ -3,9 +3,8 @@ cache_timeout: null
 certification_details: null
 certified_by: null
 dataset_uuid: 9362354c-1541-43c2-b769-da9818236298
-description: This chart shows the number of attempts that students needed to make
-  before getting the problem's answer correct. This only counts students who eventually
-  answered correctly.
+description: |-
+  This chart shows the number of attempts that students needed to make before getting the problem's answer correct. This only counts students who eventually answered correctly.
 params:
   adhoc_filters:
   - clause: WHERE

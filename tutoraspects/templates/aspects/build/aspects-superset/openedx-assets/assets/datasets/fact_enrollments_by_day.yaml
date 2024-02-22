@@ -118,7 +118,8 @@ normalize_columns: true
 offset: 0
 params: null
 schema: main
-sql: "{% include 'openedx-assets/queries/fact_enrollments_by_day.sql' %}"
+sql: |-
+  {% include 'openedx-assets/queries/fact_enrollments_by_day.sql' %}
 table_name: fact_enrollments_by_day
 template_params: {}
 uuid: 352311fe-12f0-470c-8b8c-d4f6a3936b3d

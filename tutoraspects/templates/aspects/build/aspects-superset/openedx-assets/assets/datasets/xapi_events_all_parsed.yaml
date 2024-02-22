@@ -4,7 +4,8 @@ columns:
 - advanced_data_type: null
   column_name: verb
   description: Short name for the verb; the final word in the verb_id path.
-  expression: splitByChar('/', verb_id)[-1]
+  expression: |-
+    splitByChar('/', verb_id)[-1]
   extra: {}
   filterable: true
   groupby: true
@@ -16,7 +17,8 @@ columns:
 - advanced_data_type: null
   column_name: video_event
   description: Set to true when the event is a video event.
-  expression: verb_id LIKE '%video%'
+  expression: |-
+    verb_id LIKE '%video%'
   extra: {}
   filterable: true
   groupby: true
@@ -28,7 +30,8 @@ columns:
 - advanced_data_type: null
   column_name: object_type
   description: 'Parsed JSON: last word in the event.object.definition.type field'
-  expression: splitByChar('/', event.object.definition.type)[-1]
+  expression: |-
+    splitByChar('/', event.object.definition.type)[-1]
   extra: {}
   filterable: true
   groupby: true
@@ -38,9 +41,10 @@ columns:
   type: null
   verbose_name: object_type
 - advanced_data_type: null
-  column_name: course_key
-  description: Course key part of the course_id URL
-  expression: splitByChar('/', course_id)[-1]
+  column_name: course_key_short
+  description: 'Course key without the course-v1: prefix'
+  expression: |-
+    splitByChar(':', splitByChar('/', course_id)[-1])[-1]
   extra: {}
   filterable: true
   groupby: true
@@ -50,9 +54,10 @@ columns:
   type: null
   verbose_name: course_key
 - advanced_data_type: null
-  column_name: course_key_short
-  description: "Course key without the course-v1: prefix"
-  expression: "splitByChar(':', splitByChar('/', course_id)[-1])[-1]"
+  column_name: course_key
+  description: Course key part of the course_id URL
+  expression: |-
+    splitByChar('/', course_id)[-1]
   extra: {}
   filterable: true
   groupby: true
@@ -178,7 +183,7 @@ metrics:
 normalize_columns: true
 offset: 0
 params: null
-schema: "{{ASPECTS_XAPI_DATABASE}}"
+schema: '{{ASPECTS_XAPI_DATABASE}}'
 sql: ''
 table_name: xapi_events_all_parsed
 template_params: null

@@ -130,7 +130,8 @@ normalize_columns: true
 offset: 0
 params: null
 schema: main
-sql: "{% include 'openedx-assets/queries/fact_forum_interactions.sql' %}"
+sql: |-
+  {% include 'openedx-assets/queries/fact_forum_interactions.sql' %}
 table_name: fact_forum_interactions
 template_params: {}
 uuid: 39d1e786-c0c8-4c56-81c8-56fb0df88001

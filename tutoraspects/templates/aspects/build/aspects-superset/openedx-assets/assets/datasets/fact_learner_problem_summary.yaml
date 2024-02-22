@@ -154,7 +154,8 @@ normalize_columns: true
 offset: 0
 params: null
 schema: main
-sql: "{% include 'openedx-assets/queries/fact_learner_problem_summary.sql' %}"
+sql: |-
+  {% include 'openedx-assets/queries/fact_learner_problem_summary.sql' %}
 table_name: fact_learner_problem_summary
 template_params: null
 uuid: 9362354c-1541-43c2-b769-da9818236298
