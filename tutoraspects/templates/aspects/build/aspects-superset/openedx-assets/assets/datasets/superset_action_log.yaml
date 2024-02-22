@@ -1,0 +1,208 @@
+_file_name: superset_action_log.yaml
+cache_timeout: null
+columns:
+- advanced_data_type: null
+  column_name: user_registration_date
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DATETIME
+  verbose_name: null
+- advanced_data_type: null
+  column_name: action_date
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DATETIME
+  verbose_name: null
+- advanced_data_type: null
+  column_name: dashboard_status
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: null
+- advanced_data_type: null
+  column_name: dashboard_title
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: null
+- advanced_data_type: null
+  column_name: user_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: null
+- advanced_data_type: null
+  column_name: action
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: null
+- advanced_data_type: null
+  column_name: dashboard_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INT
+  verbose_name: null
+- advanced_data_type: null
+  column_name: action_count
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INT
+  verbose_name: null
+- advanced_data_type: null
+  column_name: slice_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INT
+  verbose_name: null
+- advanced_data_type: null
+  column_name: user_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INT
+  verbose_name: null
+- advanced_data_type: null
+  column_name: datasource_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: null
+  verbose_name: null
+- advanced_data_type: null
+  column_name: datasource_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: null
+  python_date_format: null
+  type: null
+  verbose_name: null
+- advanced_data_type: null
+  column_name: datasource_type
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: null
+  python_date_format: null
+  type: null
+  verbose_name: null
+- advanced_data_type: null
+  column_name: slice_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: null
+  python_date_format: null
+  type: null
+  verbose_name: null
+database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
+default_endpoint: null
+description: null
+extra: null
+fetch_values_predicate: null
+filter_select_enabled: false
+main_dttm_col: null
+metrics:
+- currency: null
+  d3format: null
+  description: null
+  expression: count(*)
+  extra:
+    warning_markdown: ''
+  metric_name: count
+  metric_type: null
+  verbose_name: null
+  warning_text: null
+normalize_columns: false
+offset: 0
+params: null
+schema: superset
+sql: "select\nl.dttm as action_date,\ncase \n  when lower(l.action) = 'queries' then\
+  \ 'query from sqllab'\n  when lower(l.action) = 'chartrestapi.data' then 'query\
+  \ from charts'\n  when lower(l.action) = 'count' then 'dashboard view'\n  when lower(l.action)\
+  \ like 'annotation%' then 'annotations'\n  when lower(l.action) like 'css%' then\
+  \ 'CSS'\n  else lower(l.action)\nend as action,\nl.user_id,\nu.username as user_name,\n\
+  u.created_on as user_registration_date,\nl.dashboard_id,\nd.dashboard_title,\ncase\
+  \ \n  when d.published = true then 'published'\n  else 'draft'\nend as dashboard_status,\n\
+  l.slice_id,\ns.slice_name,\ns.datasource_type,\ns.datasource_name,\ns.datasource_id,\n\
+  count(1) as action_count\nfrom logs as l\nleft join ab_user as u on u.id = l.user_id\n\
+  left join dashboards as d on d.id = l.dashboard_id\nleft join slices as s on s.id\
+  \ = l.slice_id\nwhere 1=1\nand l.action != 'log'\ngroup by 1,2,3,4,5,6,7,8,9,10,11,12,13"
+table_name: superset_action_log
+template_params: null
+uuid: c33517b3-daa5-4fac-b7f2-ae012b999d12
+version: 1.0.0

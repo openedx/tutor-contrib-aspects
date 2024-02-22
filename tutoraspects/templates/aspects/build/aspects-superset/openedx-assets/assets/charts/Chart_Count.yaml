@@ -1,6 +1,8 @@
-_file_name: monitoring.superset_charts_by_time_606.yaml
-slice_name: Chart Count
-viz_type: big_number
+_file_name: Chart_Count.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: aaf1ae12-73c1-4b88-b07d-7a8988333018
 description: Count of charts created in Superset over the selected time period.
 params:
   adhoc_filters: []
@@ -31,7 +33,7 @@ params:
   viz_type: big_number
   y_axis_format: SMART_NUMBER
 query_context: null
-cache_timeout: null
+slice_name: Chart Count
 uuid: a5e0f18b-fb83-4d65-81e0-5f0e620fa05b
 version: 1.0.0
-dataset_uuid: aaf1ae12-73c1-4b88-b07d-7a8988333018
+viz_type: big_number

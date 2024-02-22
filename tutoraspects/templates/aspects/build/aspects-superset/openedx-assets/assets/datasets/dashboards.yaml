@@ -1,0 +1,212 @@
+_file_name: dashboards.yaml
+cache_timeout: null
+columns:
+- advanced_data_type: null
+  column_name: created_on
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: TIMESTAMP WITHOUT TIME ZONE
+  verbose_name: null
+- advanced_data_type: null
+  column_name: changed_on
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: TIMESTAMP WITHOUT TIME ZONE
+  verbose_name: null
+- advanced_data_type: null
+  column_name: dashboard_title
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: VARCHAR(500)
+  verbose_name: null
+- advanced_data_type: null
+  column_name: slug
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: VARCHAR(255)
+  verbose_name: null
+- advanced_data_type: null
+  column_name: published
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: BOOLEAN
+  verbose_name: null
+- advanced_data_type: null
+  column_name: uuid
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: UUID
+  verbose_name: null
+- advanced_data_type: null
+  column_name: created_by_fk
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INTEGER
+  verbose_name: null
+- advanced_data_type: null
+  column_name: changed_by_fk
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INTEGER
+  verbose_name: null
+- advanced_data_type: null
+  column_name: id
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INTEGER
+  verbose_name: null
+- advanced_data_type: null
+  column_name: json_metadata
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: TEXT
+  verbose_name: null
+- advanced_data_type: null
+  column_name: certification_details
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: TEXT
+  verbose_name: null
+- advanced_data_type: null
+  column_name: certified_by
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: TEXT
+  verbose_name: null
+- advanced_data_type: null
+  column_name: position_json
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: TEXT
+  verbose_name: null
+- advanced_data_type: null
+  column_name: description
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: TEXT
+  verbose_name: null
+- advanced_data_type: null
+  column_name: css
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: TEXT
+  verbose_name: null
+database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
+default_endpoint: null
+description: null
+extra:
+  certification:
+    certified_by: Data Analytics Team
+    details: This table is the source of truth.
+fetch_values_predicate: null
+filter_select_enabled: false
+main_dttm_col: created_on
+metrics:
+- currency: null
+  d3format: null
+  description: null
+  expression: COUNT(*)
+  extra: null
+  metric_name: count
+  metric_type: count
+  verbose_name: COUNT(*)
+  warning_text: null
+normalize_columns: false
+offset: 0
+params: null
+schema: superset
+sql: null
+table_name: dashboards
+template_params: null
+uuid: 3dee777a-3dd4-4fcb-a749-4d13651b3444
+version: 1.0.0

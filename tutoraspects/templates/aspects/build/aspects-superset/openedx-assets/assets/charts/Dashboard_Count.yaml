@@ -1,6 +1,8 @@
-_file_name: monitoring.superset_dashboards_over_time_611.yaml
-slice_name: Dashboard Count
-viz_type: big_number
+_file_name: Dashboard_Count.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 3dee777a-3dd4-4fcb-a749-4d13651b3444
 description: Count of dashboards created in Superset over the selected time period.
 params:
   adhoc_filters: []
@@ -30,7 +32,7 @@ params:
   viz_type: big_number
   y_axis_format: SMART_NUMBER
 query_context: null
-cache_timeout: null
+slice_name: Dashboard Count
 uuid: 8368fe0b-5e64-4ad5-b93b-93f8a6f848af
 version: 1.0.0
-dataset_uuid: 3dee777a-3dd4-4fcb-a749-4d13651b3444
+viz_type: big_number

@@ -1,7 +1,10 @@
-_file_name: monitoring.superset_top_users_by_action_count_365.yaml
-slice_name: User Actions
-viz_type: table
-description: Chart showing the number of Superset actions taken by each user over the selected time period.
+_file_name: User_Actions.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: c33517b3-daa5-4fac-b7f2-ae012b999d12
+description: Chart showing the number of Superset actions taken by each user over
+  the selected time period.
 params:
   adhoc_filters: []
   all_columns: []
@@ -81,7 +84,7 @@ params:
   url_params: {}
   viz_type: table
 query_context: null
-cache_timeout: null
+slice_name: User Actions
 uuid: 8059fd82-efae-47a1-9c23-0b74f2707aa5
 version: 1.0.0
-dataset_uuid: c33517b3-daa5-4fac-b7f2-ae012b999d12
+viz_type: table
