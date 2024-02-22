@@ -13,7 +13,28 @@ import click
 FILE_NAME_ATTRIBUTE = "_file_name"
 
 PLUGIN_PATH = os.path.dirname(os.path.abspath(__file__))
-ASSETS_PATH = os.path.join(PLUGIN_PATH, "templates", "aspects", "build", "aspects-superset", "openedx-assets", "assets")
+ASSETS_PATH = os.path.join(
+    PLUGIN_PATH,
+    "templates",
+    "aspects",
+    "build",
+    "aspects-superset",
+    "openedx-assets",
+    "assets",
+)
+
+
+def str_presenter(dumper, data):
+    """configures yaml for dumping multiline strings
+    Ref: https://stackoverflow.com/questions/8640959/how-can-i-control-what-scalar-form-pyyaml-uses-for-my-data
+    """
+    if len(data.splitlines()) > 1 or "\'" in data:  # check for multiline string
+        return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="|")
+    return dumper.represent_scalar("tag:yaml.org,2002:str", data)
+
+
+yaml.add_representer(str, str_presenter)
+yaml.representer.SafeRepresenter.add_representer(str, str_presenter)
 
 
 class SupersetCommandError(Exception):
@@ -63,6 +84,21 @@ class Asset:
         Since those do not export.
         """
         return self.required_vars or []
+    
+    def omit_templated_vars(self, content: dict, existing: dict):
+        """
+        Omit templated variables from the content if they are not present in the existing file content.
+        """
+        if existing:
+            for key in content.keys():
+                # If it's templated
+                if type(existing[key]) == str:
+                    if "{{" in existing.get(key, ""):
+                        content[key] = existing[key]
+                if type(existing[key]) == dict:
+                    self.omit_templated_vars(content[key], existing[key])
+
+
 
 
 class ChartAsset(Asset):
@@ -124,6 +160,14 @@ def validate_asset_file(asset_path, content, echo):
         if key in content:
             out_path = cls.get_path()
 
+            existing = None
+            print("Curent file",os.path.join(out_path, out_filename))
+
+            # Check if the file already exists
+            if os.path.exists(os.path.join(out_path, out_filename)):
+                with open(os.path.join(out_path, out_filename)) as stream:
+                    existing = yaml.safe_load(stream)
+
             for var in cls.get_templated_vars():
                 # If this is a variable we expect to be templated,
                 # check that it is.
@@ -132,6 +176,10 @@ def validate_asset_file(asset_path, content, echo):
                     and not content[var].startswith("{{")
                     and not content[var].startswith("{%")
                 ):
+                    needs_review = True
+                    if existing:
+                        content[var] = existing[var]
+                        needs_review = False
                     echo(
                         click.style(
                             f"WARN: {orig_filename} has "
@@ -140,11 +188,12 @@ def validate_asset_file(asset_path, content, echo):
                             fg="yellow",
                         )
                     )
-                    needs_review = True
 
             for var in cls.get_required_vars():
                 # If this variable is required and doesn't exist, warn.
                 if var not in content:
+                    if existing:
+                        content[var] = existing[var]
                     echo(
                         click.style(
                             f"WARN: {orig_filename} is missing required "
@@ -153,6 +202,8 @@ def validate_asset_file(asset_path, content, echo):
                         )
                     )
                     needs_review = True
+            
+            cls.omit_templated_vars(content, existing)
             # We found the correct class, we can stop looking.
             break
     return out_path, needs_review
@@ -185,7 +236,7 @@ def import_superset_assets(file, echo):
                 written_assets.append(out_path)
 
                 with open(out_path, "w", encoding="utf-8") as out_f:
-                    yaml.dump(content, out_f, encoding="utf-8")
+                    yaml.safe_dump(content, out_f, encoding="utf-8")
 
     if review_files:
         echo()
