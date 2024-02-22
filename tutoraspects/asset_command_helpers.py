@@ -13,7 +13,7 @@ import click
 FILE_NAME_ATTRIBUTE = "_file_name"
 
 PLUGIN_PATH = os.path.dirname(os.path.abspath(__file__))
-ASSETS_PATH = os.path.join(PLUGIN_PATH, "templates", "openedx-assets", "assets")
+ASSETS_PATH = os.path.join(PLUGIN_PATH, "templates", "aspects", "build", "aspects-superset", "openedx-assets", "assets")
 
 
 class SupersetCommandError(Exception):
