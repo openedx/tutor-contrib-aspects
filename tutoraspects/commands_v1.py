@@ -116,8 +116,8 @@ def import_assets(command: string) -> list[tuple[str, str]]:
     return [
         (
             "superset",
-            "echo 'Making dbt script executable...' && "
-            f"bash /app/aspects/scripts/import-assets.sh {command} && "
+            "echo 'Importing assets...' && "
+            f"bash /app/scripts/import-assets.sh {command} && "
             "echo 'Done!';",
         ),
     ]
