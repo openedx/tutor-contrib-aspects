@@ -155,7 +155,7 @@ offset: 0
 params: null
 schema: main
 sql: |-
-  {% include 'openedx-assets/queries/fact_learner_problem_course_summary.sql' %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_learner_problem_course_summary.sql' %}{% endfilter %}
 table_name: fact_learner_problem_course_summary
 template_params: null
 uuid: 981f30d9-b2f0-4a0b-9e95-0ee0e06db806

@@ -107,7 +107,7 @@ offset: 0
 params: null
 schema: main
 sql: |-
-  {% include 'openedx-assets/queries/dim_course_problems.sql' %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/dim_course_problems.sql' %}{% endfilter %}
 table_name: dim_course_problems
 template_params: {}
 uuid: 008e2907-fc6b-45ef-bf85-73a04c5791ff

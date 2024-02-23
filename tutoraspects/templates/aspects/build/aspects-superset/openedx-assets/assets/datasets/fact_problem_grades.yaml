@@ -143,7 +143,7 @@ offset: 0
 params: null
 schema: main
 sql: |-
-  {% include 'openedx-assets/queries/fact_problem_grades.sql' %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_problem_grades.sql' %}{% endfilter %}
 table_name: fact_problem_grades
 template_params: {}
 uuid: b31154e0-afed-4445-b90d-a501d555784e

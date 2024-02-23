@@ -120,7 +120,7 @@ offset: 0
 params: null
 schema: main
 sql: |-
-  {% include 'openedx-assets/queries/fact_transcript_usage.sql' %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_transcript_usage.sql' %}{% endfilter %}
 table_name: fact_transcript_usage
 template_params: {}
 uuid: a96a4b13-a429-442d-83ca-5d6f94010909

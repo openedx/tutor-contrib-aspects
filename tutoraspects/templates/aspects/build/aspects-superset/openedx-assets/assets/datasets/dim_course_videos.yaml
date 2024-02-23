@@ -107,7 +107,7 @@ offset: 0
 params: null
 schema: main
 sql: |-
-  {% include 'openedx-assets/queries/dim_course_videos.sql' %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/dim_course_videos.sql' %}{% endfilter %}
 table_name: dim_course_videos
 template_params: {}
 uuid: 417b2035-8fa1-4c60-a405-4b1947c3c966

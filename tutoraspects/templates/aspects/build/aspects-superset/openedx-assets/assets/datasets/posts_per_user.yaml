@@ -95,7 +95,7 @@ offset: 0
 params: null
 schema: main
 sql: |-
-  {% include 'openedx-assets/queries/posts_per_user.sql' %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/posts_per_user.sql' %}{% endfilter %}
 table_name: posts_per_user
 template_params: {}
 uuid: a2823d2e-54c4-4378-98c2-817f000c14ab
