@@ -25,10 +25,10 @@ ASSETS_PATH = os.path.join(
 
 
 def str_presenter(dumper, data):
-    """configures yaml for dumping multiline strings
-    Ref: https://stackoverflow.com/questions/8640959/how-can-i-control-what-scalar-form-pyyaml-uses-for-my-data
     """
-    if len(data.splitlines()) > 1 or "\'" in data:  # check for multiline string
+    Configures yaml for dumping multiline strings
+    """
+    if len(data.splitlines()) > 1 or "'" in data:  # check for multiline string
         return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="|")
     return dumper.represent_scalar("tag:yaml.org,2002:str", data)
 
@@ -84,23 +84,22 @@ class Asset:
         Since those do not export.
         """
         return self.required_vars or []
-    
+
     def omit_templated_vars(self, content: dict, existing: dict):
         """
-        Omit templated variables from the content if they are not present in the existing file content.
+        Omit templated variables from the content if they are not present in
+        the existing file content.
         """
         if existing:
             for key in content.keys():
                 # If it's templated
                 if key not in existing.keys():
                     continue
-                if type(existing[key]) == str:
+                if isinstance(existing[key], str):
                     if "{{" in existing.get(key, ""):
                         content[key] = existing[key]
-                if type(existing[key]) == dict:
+                if isinstance(existing[key], dict):
                     self.omit_templated_vars(content[key], existing[key])
-
-
 
 
 class ChartAsset(Asset):
@@ -163,11 +162,13 @@ def validate_asset_file(asset_path, content, echo):
             out_path = cls.get_path()
 
             existing = None
-            print("Curent file",os.path.join(out_path, out_filename))
+            print("Curent file", os.path.join(out_path, out_filename))
 
             # Check if the file already exists
             if os.path.exists(os.path.join(out_path, out_filename)):
-                with open(os.path.join(out_path, out_filename)) as stream:
+                with open(
+                    os.path.join(out_path, out_filename), encoding="utf-8"
+                ) as stream:
                     existing = yaml.safe_load(stream)
 
             for var in cls.get_templated_vars():
@@ -204,7 +205,7 @@ def validate_asset_file(asset_path, content, echo):
                         )
                     )
                     needs_review = True
-            
+
             cls.omit_templated_vars(content, existing)
             # We found the correct class, we can stop looking.
             break

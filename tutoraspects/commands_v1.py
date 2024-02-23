@@ -99,6 +99,7 @@ def alembic(command: string) -> list[tuple[str, str]]:
         ),
     ]
 
+
 # Ex: "tutor local do import_assets "
 @click.command(context_settings={"ignore_unknown_options": True})
 @click.option(
@@ -121,6 +122,7 @@ def import_assets(command: string) -> list[tuple[str, str]]:
             "echo 'Done!';",
         ),
     ]
+
 
 # Ex: "tutor local do dump_data_to_clickhouse "
 @click.command(context_settings={"ignore_unknown_options": True})
