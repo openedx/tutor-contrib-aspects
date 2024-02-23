@@ -55,6 +55,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Update ASPECTS_VERSION
+        if: github.event.action == 'opened' || github.event.action == 'synchronize'
         run: |
           ASPECTS_VERSION=pr-${{ github.event.pull_request.number }}
           sed -i "s/ASPECTS_VERSION: .*/ASPECTS_VERSION: $ASPECTS_VERSION/" .ci/config.yml
@@ -84,6 +85,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Update ASPECTS_VERSION
+        if: github.event.action == 'opened' || github.event.action == 'synchronize'
         run: |
           ASPECTS_VERSION=pr-${{ github.event.pull_request.number }}
           sed -i "s/ASPECTS_VERSION: .*/ASPECTS_VERSION: $ASPECTS_VERSION/" .ci/config.yml
@@ -113,6 +115,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Update ASPECTS_VERSION
+        if: github.event.action == 'opened' || github.event.action == 'synchronize'
         run: |
           ASPECTS_VERSION=pr-${{ github.event.pull_request.number }}
           sed -i "s/ASPECTS_VERSION: .*/ASPECTS_VERSION: $ASPECTS_VERSION/" .ci/config.yml
@@ -142,6 +145,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Update ASPECTS_VERSION
+        if: github.event.action == 'opened' || github.event.action == 'synchronize'
         run: |
           ASPECTS_VERSION=pr-${{ github.event.pull_request.number }}
           sed -i "s/ASPECTS_VERSION: .*/ASPECTS_VERSION: $ASPECTS_VERSION/" .ci/config.yml
