@@ -99,6 +99,28 @@ def alembic(command: string) -> list[tuple[str, str]]:
         ),
     ]
 
+# Ex: "tutor local do import_assets "
+@click.command(context_settings={"ignore_unknown_options": True})
+@click.option(
+    "-c",
+    "--command",
+    default="run",
+    type=click.UNPROCESSED,
+    help="""Import assets from a zip file to the assets.yaml file.
+         """,
+)
+def import_assets(command: string) -> list[tuple[str, str]]:
+    """
+    Job that proxies alembic commands to a container which runs them against ClickHouse.
+    """
+    return [
+        (
+            "superset",
+            "echo 'Making dbt script executable...' && "
+            f"bash /app/aspects/scripts/import-assets.sh {command} && "
+            "echo 'Done!';",
+        ),
+    ]
 
 # Ex: "tutor local do dump_data_to_clickhouse "
 @click.command(context_settings={"ignore_unknown_options": True})
@@ -280,6 +302,7 @@ DO_COMMANDS = (
     alembic,
     dump_data_to_clickhouse,
     transform_tracking_logs,
+    import_assets,
 )
 
 COMMANDS = (aspects,)

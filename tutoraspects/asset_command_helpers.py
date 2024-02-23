@@ -92,6 +92,8 @@ class Asset:
         if existing:
             for key in content.keys():
                 # If it's templated
+                if key not in existing.keys():
+                    continue
                 if type(existing[key]) == str:
                     if "{{" in existing.get(key, ""):
                         content[key] = existing[key]
