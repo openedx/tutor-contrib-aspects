@@ -41,8 +41,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "OPENEDX_EXTRA_PIP_REQUIREMENTS",
             [
-                "openedx-event-sink-clickhouse==1.1.0",
-                "edx-event-routing-backends==v7.2.0",
+                "openedx-event-sink-clickhouse==1.1.1",
+                "edx-event-routing-backends==v8.1.1",
             ],
         ),
         (
@@ -351,7 +351,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
-        ("DBT_BRANCH", "v3.4.1"),
+        ("DBT_BRANCH", "v3.5.0"),
         ("DBT_SSH_KEY", ""),
         # This is a pip compliant list of Python packages to install to run dbt
         # make sure packages with versions are enclosed in double quotes
