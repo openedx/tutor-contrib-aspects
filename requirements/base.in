@@ -1,5 +1,6 @@
 click
 bcrypt
+importlib-resources
 openedx-atlas
 transifex-python
 tutor>=15
