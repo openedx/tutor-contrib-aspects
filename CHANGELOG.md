@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.77.1 - 2024-02-26
+
+### [0.77.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.77.0...v0.77.1) (2024-02-26)
+
+### Bug Fixes
+
+* Add importlib-resources to base requirements ([ad2c195](https://github.com/openedx/tutor-contrib-aspects/commit/ad2c1951d87aafc24a617a43c2123470bec0b3e4))
+
+### Build Systems
+
+* Replace old github token for creating PRs ([6806e13](https://github.com/openedx/tutor-contrib-aspects/commit/6806e137f8de7d0b1a0e90f6f76449d6b142f6cd))
+
 ## v0.77.0 - 2024-02-23
 
 ### [0.77.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.76.0...v0.77.0) (2024-02-23)
