@@ -38,7 +38,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.EDX_TRANSIFEX_BOT_GITHUB_TOKEN }}
+          token: ${{ secrets.OPENEDX_SEMANTIC_RELEASE_GITHUB_TOKEN }}
           title: "chore(i18n): updating translations"
           commit-message: "chore(i18n): updating translations on ${{ steps.date.outputs.date }}"
           branch: "bot/translations/${{ steps.date.outputs.date }}"
