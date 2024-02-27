@@ -110,7 +110,7 @@ def import_assets() -> list[tuple[str, str]]:
         (
             "superset",
             "echo 'Importing assets...' && "
-            f"bash /app/scripts/import-assets.sh && "
+            "bash /app/scripts/import-assets.sh && "
             "echo 'Done!';",
         ),
     ]
