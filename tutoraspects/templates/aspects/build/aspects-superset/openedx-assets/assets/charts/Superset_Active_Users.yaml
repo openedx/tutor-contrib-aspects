@@ -1,4 +1,4 @@
-_file_name: Active_Users.yaml
+_file_name: Superset_Active_Users.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
@@ -55,7 +55,7 @@ params:
   url_params: {}
   viz_type: big_number
   y_axis_format: SMART_NUMBER
-slice_name: Active Users
+slice_name: Superset Active Users
 uuid: bc5f7a27-670c-4794-963b-8082b258566f
 version: 1.0.0
 viz_type: big_number
