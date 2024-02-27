@@ -140,7 +140,6 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
                 dashboard = db.session.query(Dashboard).filter_by(slug=dashboard_slug).first()
                 if dashboard:
                     db.session.delete(dashboard)
-                    db.session.commit()
 
             path = f"{BASE_DIR}/{folder}/{file_name}-{locale}.yaml"
             with open(path, "w") as file:
@@ -157,10 +156,11 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
         dashboard = db.session.query(Dashboard).filter_by(slug=dashboard_slug).first()
         if dashboard:
             db.session.delete(dashboard)
-            db.session.commit()
     path = f"{BASE_DIR}/{folder}/{file_name}.yaml"
     with open(path, "w") as file:
         yaml.dump(asset, file)
+
+    db.session.commit()
 
 
 def generate_translated_asset(asset, asset_name, folder, language, roles):
