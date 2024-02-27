@@ -92,11 +92,10 @@ class Asset:
         """
         if existing:
             for key in content.keys():
-                # If it's templated
                 if key not in existing.keys():
                     continue
                 if isinstance(existing[key], str):
-                    if "{{" in existing.get(key, ""):
+                    if "{{" in existing.get(key, "") or "{%" in existing.get(key, ""):
                         content[key] = existing[key]
                 if isinstance(existing[key], dict):
                     self.omit_templated_vars(content[key], existing[key])
@@ -162,7 +161,6 @@ def validate_asset_file(asset_path, content, echo):
             out_path = cls.get_path()
 
             existing = None
-            print("Curent file", os.path.join(out_path, out_filename))
 
             # Check if the file already exists
             if os.path.exists(os.path.join(out_path, out_filename)):
@@ -179,32 +177,35 @@ def validate_asset_file(asset_path, content, echo):
                     and not content[var].startswith("{{")
                     and not content[var].startswith("{%")
                 ):
-                    needs_review = True
                     if existing:
                         content[var] = existing[var]
                         needs_review = False
-                    echo(
-                        click.style(
-                            f"WARN: {orig_filename} has "
-                            f"{var} set to {content[var]} instead of a "
-                            f"setting.",
-                            fg="yellow",
+                    else:
+                        echo(
+                            click.style(
+                                f"WARN: {orig_filename} has "
+                                f"{var} set to {content[var]} instead of a "
+                                f"setting.",
+                                fg="yellow",
+                            )
                         )
-                    )
+                        needs_review = True
 
             for var in cls.get_required_vars():
                 # If this variable is required and doesn't exist, warn.
                 if var not in content:
                     if existing:
                         content[var] = existing[var]
-                    echo(
-                        click.style(
-                            f"WARN: {orig_filename} is missing required "
-                            f"item '{var}'!",
-                            fg="red",
+                        needs_review = False
+                    else:
+                        echo(
+                            click.style(
+                                f"WARN: {orig_filename} is missing required "
+                                f"item '{var}'!",
+                                fg="red",
+                            )
                         )
-                    )
-                    needs_review = True
+                        needs_review = True
 
             cls.omit_templated_vars(content, existing)
             # We found the correct class, we can stop looking.
@@ -239,7 +240,7 @@ def import_superset_assets(file, echo):
                 written_assets.append(out_path)
 
                 with open(out_path, "w", encoding="utf-8") as out_f:
-                    yaml.safe_dump(content, out_f, encoding="utf-8")
+                    yaml.dump(content, out_f, encoding="utf-8")
 
     if review_files:
         echo()

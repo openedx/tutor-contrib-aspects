@@ -191,17 +191,8 @@ normalize_columns: false
 offset: 0
 params: null
 schema: superset
-sql: "select\nl.dttm as action_date,\ncase \n  when lower(l.action) = 'queries' then\
-  \ 'query from sqllab'\n  when lower(l.action) = 'chartrestapi.data' then 'query\
-  \ from charts'\n  when lower(l.action) = 'count' then 'dashboard view'\n  when lower(l.action)\
-  \ like 'annotation%' then 'annotations'\n  when lower(l.action) like 'css%' then\
-  \ 'CSS'\n  else lower(l.action)\nend as action,\nl.user_id,\nu.username as user_name,\n\
-  u.created_on as user_registration_date,\nl.dashboard_id,\nd.dashboard_title,\ncase\
-  \ \n  when d.published = true then 'published'\n  else 'draft'\nend as dashboard_status,\n\
-  l.slice_id,\ns.slice_name,\ns.datasource_type,\ns.datasource_name,\ns.datasource_id,\n\
-  count(1) as action_count\nfrom logs as l\nleft join ab_user as u on u.id = l.user_id\n\
-  left join dashboards as d on d.id = l.dashboard_id\nleft join slices as s on s.id\
-  \ = l.slice_id\nwhere 1=1\nand l.action != 'log'\ngroup by 1,2,3,4,5,6,7,8,9,10,11,12,13"
+sql: |-
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/superset_action_log.sql' %}{% endfilter %}
 table_name: superset_action_log
 template_params: null
 uuid: c33517b3-daa5-4fac-b7f2-ae012b999d12
