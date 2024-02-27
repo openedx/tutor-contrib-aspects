@@ -32,7 +32,6 @@ params:
   url_params: {}
   viz_type: big_number
   y_axis_format: SMART_NUMBER
-query_context: null
 slice_name: Chart Count
 uuid: a5e0f18b-fb83-4d65-81e0-5f0e620fa05b
 version: 1.0.0

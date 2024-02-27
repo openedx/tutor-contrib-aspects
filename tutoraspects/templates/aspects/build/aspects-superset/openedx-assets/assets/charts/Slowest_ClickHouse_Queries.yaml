@@ -36,7 +36,6 @@ params:
     event_time: true
   time_grain_sqla: P1D
   viz_type: table
-query_context: null
 slice_name: Slowest ClickHouse Queries
 uuid: 953af3e5-8fc6-441e-bff1-22987735edf0
 version: 1.0.0

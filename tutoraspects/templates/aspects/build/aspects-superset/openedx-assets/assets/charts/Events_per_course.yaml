@@ -35,9 +35,6 @@ params:
   slice_id: 698
   sort_by_metric: true
   viz_type: pie
-query_context: '{"datasource":{"id":28,"type":"table"},"force":false,"queries":[{"filters":[{"col":"emission_time","op":"TEMPORAL_RANGE","val":"No
-  filter"}],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":["course_name","course_key"],"metrics":["count"],"orderby":[["count",false]],"annotation_layers":[],"row_limit":100,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"form_data":{"datasource":"28__table","viz_type":"pie","slice_id":698,"groupby":["course_name","course_key"],"metric":"count","adhoc_filters":[{"clause":"WHERE","subject":"emission_time","operator":"TEMPORAL_RANGE","comparator":"No
-  filter","expressionType":"SIMPLE"}],"row_limit":100,"sort_by_metric":true,"color_scheme":"supersetColors","show_labels_threshold":5,"show_legend":true,"legendType":"scroll","legendOrientation":"top","label_type":"key","number_format":"SMART_NUMBER","date_format":"smart_date","show_labels":true,"labels_outside":true,"outerRadius":70,"innerRadius":30,"extra_form_data":{},"dashboards":[29],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
 slice_name: Events per course
 uuid: 269c5919-2d2e-493d-8c29-14e7b8222ee4
 version: 1.0.0

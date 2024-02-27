@@ -52,6 +52,7 @@ class Asset:
     assets_path = None
     templated_vars = None
     required_vars = None
+    omitted_vars = None
 
     def __init__(self):
         if not self.path:
@@ -85,6 +86,31 @@ class Asset:
         """
         return self.required_vars or []
 
+    def get_omitted_vars(self):
+        """
+        Returns a list of variables which should be omitted from the content.
+        """
+        return self.omitted_vars or []
+
+    def remove_content(self, content: dict):
+        """
+        Remove any variables from the content which should be omitted.
+        """
+        for var_path in self.get_omitted_vars():
+            self._remove_content(content, var_path.split("."))
+
+    def _remove_content(self, content: dict, var_path: list):
+        """
+        Helper method to remove content from the content dict.
+        """
+        if content is None:
+            return
+        if len(var_path) == 1:
+            content.pop(var_path[0], None)
+            return
+        if var_path[0] in content:
+            self._remove_content(content[var_path[0]], var_path[1:])
+
     def omit_templated_vars(self, content: dict, existing: dict):
         """
         Omit templated variables from the content if they are not present in
@@ -107,6 +133,7 @@ class ChartAsset(Asset):
     """
 
     path = "charts"
+    omitted_vars = ["query_context"]
 
 
 class DashboardAsset(Asset):
@@ -125,6 +152,7 @@ class DatasetAsset(Asset):
 
     path = "datasets"
     templated_vars = ["schema", "table_name", "sql"]
+    omitted_vars = ["extra.certification"]
 
 
 class DatabaseAsset(Asset):
@@ -207,6 +235,7 @@ def validate_asset_file(asset_path, content, echo):
                         )
                         needs_review = True
 
+            cls.remove_content(content)
             cls.omit_templated_vars(content, existing)
             # We found the correct class, we can stop looking.
             break

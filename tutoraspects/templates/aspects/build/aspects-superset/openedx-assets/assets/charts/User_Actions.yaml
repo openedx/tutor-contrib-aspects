@@ -83,7 +83,6 @@ params:
     sqlExpression: null
   url_params: {}
   viz_type: table
-query_context: null
 slice_name: User Actions
 uuid: 8059fd82-efae-47a1-9c23-0b74f2707aa5
 version: 1.0.0

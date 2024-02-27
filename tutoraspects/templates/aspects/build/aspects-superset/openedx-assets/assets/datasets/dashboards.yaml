@@ -184,10 +184,7 @@ columns:
 database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
 default_endpoint: null
 description: null
-extra:
-  certification:
-    certified_by: Data Analytics Team
-    details: This table is the source of truth.
+extra: {}
 fetch_values_predicate: null
 filter_select_enabled: false
 main_dttm_col: created_on

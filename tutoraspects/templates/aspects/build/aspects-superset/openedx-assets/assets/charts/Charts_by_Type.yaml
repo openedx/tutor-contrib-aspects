@@ -27,7 +27,6 @@ params:
   - exclusive
   url_params: {}
   viz_type: treemap_v2
-query_context: null
 slice_name: Charts by Type
 uuid: 84393abe-04ab-4084-a195-116ad568badd
 version: 1.0.0

@@ -71,7 +71,6 @@ params:
   y_axis_format: SMART_NUMBER
   y_axis_title_margin: 15
   y_axis_title_position: Left
-query_context: null
 slice_name: Registered Users Over Time
 uuid: 68011361-ea45-4875-9165-c84ddbcd1fc5
 version: 1.0.0

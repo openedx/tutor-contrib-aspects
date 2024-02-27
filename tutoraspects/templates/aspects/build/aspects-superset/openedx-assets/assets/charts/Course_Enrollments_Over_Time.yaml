@@ -87,7 +87,6 @@ params:
   y_axis_title: Registrations
   y_axis_title_margin: 15
   y_axis_title_position: Left
-query_context: null
 slice_name: Course Enrollments Over Time
 uuid: bf4f4671-c276-4185-9b9a-b10864efea6c
 version: 1.0.0

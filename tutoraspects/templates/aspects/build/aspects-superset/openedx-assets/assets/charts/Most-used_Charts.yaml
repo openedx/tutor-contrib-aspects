@@ -67,7 +67,6 @@ params:
   - exclusive
   url_params: {}
   viz_type: table
-query_context: null
 slice_name: Most-used Charts
 uuid: 9d5f69e8-f335-42a0-bbfa-272f43d74ad0
 version: 1.0.0

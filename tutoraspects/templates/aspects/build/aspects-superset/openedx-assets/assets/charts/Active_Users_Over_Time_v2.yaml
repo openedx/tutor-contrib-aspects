@@ -38,9 +38,6 @@ params:
   viz_type: big_number
   x_axis: emission_time
   y_axis_format: SMART_NUMBER
-query_context: '{"datasource":{"id":28,"type":"table"},"force":false,"queries":[{"filters":[{"col":"emission_time","op":"TEMPORAL_RANGE","val":"No
-  filter"}],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":[{"timeGrain":"P1D","columnType":"BASE_AXIS","sqlExpression":"emission_time","label":"emission_time","expressionType":"SQL"}],"metrics":[{"expressionType":"SQL","sqlExpression":"COUNT(DISTINCT(actor_id))","column":null,"aggregate":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"COUNT(DISTINCT(actor_id))","optionName":"metric_jr2csy4rpa_fjv7oznbfn"}],"annotation_layers":[],"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[{"operation":"pivot","options":{"index":["emission_time"],"columns":[],"aggregates":{"COUNT(DISTINCT(actor_id))":{"operator":"mean"}},"drop_missing_columns":true}},{"operation":"flatten"}]}],"form_data":{"datasource":"28__table","viz_type":"big_number","x_axis":"emission_time","time_grain_sqla":"P1D","metric":{"expressionType":"SQL","sqlExpression":"COUNT(DISTINCT(actor_id))","column":null,"aggregate":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"COUNT(DISTINCT(actor_id))","optionName":"metric_jr2csy4rpa_fjv7oznbfn"},"adhoc_filters":[{"clause":"WHERE","subject":"emission_time","operator":"TEMPORAL_RANGE","comparator":"No
-  filter","expressionType":"SIMPLE"}],"show_trend_line":true,"start_y_axis_at_zero":true,"color_picker":{"r":0,"g":122,"b":135,"a":1},"header_font_size":0.4,"subheader_font_size":0.15,"y_axis_format":"SMART_NUMBER","time_format":"smart_date","rolling_type":"None","extra_form_data":{},"dashboards":[],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
 slice_name: Active Users Over Time v2
 uuid: e1d619a2-6238-4264-a000-6b6856027edd
 version: 1.0.0

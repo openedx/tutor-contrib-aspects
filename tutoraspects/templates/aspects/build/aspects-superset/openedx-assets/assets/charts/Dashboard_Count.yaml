@@ -31,7 +31,6 @@ params:
   url_params: {}
   viz_type: big_number
   y_axis_format: SMART_NUMBER
-query_context: null
 slice_name: Dashboard Count
 uuid: 8368fe0b-5e64-4ad5-b93b-93f8a6f848af
 version: 1.0.0
