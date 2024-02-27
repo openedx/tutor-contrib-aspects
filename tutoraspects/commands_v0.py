@@ -93,6 +93,23 @@ def alembic(context, command) -> None:
     runner.run_job("aspects", command)
 
 
+# Ex: "tutor local do import_assets "
+@click.command(context_settings={"ignore_unknown_options": True})
+@click.pass_obj
+def import_assets(context) -> None:
+    """
+    Job to import Superset assets.
+    """
+    config = tutor_config.load(context.root)
+    runner = context.job_runner(config)
+
+    command = """echo 'Importing assets...' &&
+    bash /app/scripts/import-assets.sh &&
+    echo 'Done!';
+    """
+    runner.run_job("superset", command)
+
+
 @click.command(help="Dump data to ClickHouse.")
 @click.option("--service", default="lms", help="The service to run the command on.")
 @click.option("--options", default="")
@@ -213,4 +230,5 @@ COMMANDS = (
     alembic,
     dump_data_to_clickhouse,
     transform_tracking_logs,
+    import_assets,
 )

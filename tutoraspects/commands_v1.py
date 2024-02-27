@@ -102,23 +102,15 @@ def alembic(command: string) -> list[tuple[str, str]]:
 
 # Ex: "tutor local do import_assets "
 @click.command(context_settings={"ignore_unknown_options": True})
-@click.option(
-    "-c",
-    "--command",
-    default="run",
-    type=click.UNPROCESSED,
-    help="""Import assets from a zip file to the assets.yaml file.
-         """,
-)
-def import_assets(command: string) -> list[tuple[str, str]]:
+def import_assets() -> list[tuple[str, str]]:
     """
-    Job that proxies alembic commands to a container which runs them against ClickHouse.
+    Job to import Superset assets.
     """
     return [
         (
             "superset",
             "echo 'Importing assets...' && "
-            f"bash /app/scripts/import-assets.sh {command} && "
+            f"bash /app/scripts/import-assets.sh && "
             "echo 'Done!';",
         ),
     ]
