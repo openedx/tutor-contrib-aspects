@@ -10,3 +10,5 @@ type: assets
 timestamp: '$date'" > superset/metadata.yaml
 
 python /app/pythonpath/create_assets.py
+
+rm -rf /app/assets/superset
