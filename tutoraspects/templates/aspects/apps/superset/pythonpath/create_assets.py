@@ -227,9 +227,9 @@ def generate_translated_dashboard_filters(copy, language):
     metadata = copy.get("metadata", {})
 
     for filter in metadata.get("native_filter_configuration", []):
-        translation = get_translation(filter["name"], language)
-
-        filter["name"] = translation
+        for k in ("name", "description"):
+            if k in filter:
+                filter[k] = get_translation(filter[k], language)
 
 
 def create_superset_db(database_name, uri) -> None:
