@@ -119,7 +119,8 @@ normalize_columns: true
 offset: 0
 params: null
 schema: main
-sql: "{% include 'openedx-assets/queries/fact_video_plays.sql' %}"
+sql: |-
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_video_plays.sql' %}{% endfilter %}
 table_name: fact_video_plays
 template_params: {}
 uuid: 6ec360a5-e247-42e7-b301-fa8275fc93f9

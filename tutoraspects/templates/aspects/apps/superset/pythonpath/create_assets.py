@@ -134,6 +134,13 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
                 asset, asset_name, folder, locale, roles
             )
 
+            # Clean up old dashboard
+            if folder == "dashboards":
+                dashboard_slug = updated_asset["slug"]
+                dashboard = db.session.query(Dashboard).filter_by(slug=dashboard_slug).first()
+                if dashboard:
+                    db.session.delete(dashboard)
+
             path = f"{BASE_DIR}/{folder}/{file_name}-{locale}.yaml"
             with open(path, "w") as file:
                 yaml.dump(updated_asset, file)
@@ -144,9 +151,16 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
     if dashboard_roles:
         roles[asset["uuid"]] = [security_manager.find_role("Admin")]
 
+    dashboard_slug = asset.get("slug")
+    if dashboard_slug:
+        dashboard = db.session.query(Dashboard).filter_by(slug=dashboard_slug).first()
+        if dashboard:
+            db.session.delete(dashboard)
     path = f"{BASE_DIR}/{folder}/{file_name}.yaml"
     with open(path, "w") as file:
         yaml.dump(asset, file)
+
+    db.session.commit()
 
 
 def generate_translated_asset(asset, asset_name, folder, language, roles):

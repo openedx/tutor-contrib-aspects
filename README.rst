@@ -79,6 +79,11 @@ At this point you should have a working Tutor / Aspects environment, but with no
        # Note that this will work only for default tutor installation. If you store your tracking logs any other way, you need to change the source_config option accordingly.
        # See https://event-routing-backends.readthedocs.io/en/latest/howto/how_to_bulk_transform.html#sources-and-destinations for details on how to change the source_config option.
 
+#. If your assets have changed since the last time you ran init, you will need to rebuild the aspects-superset image and re-import the assets::
+
+    tutor images build aspects-superset --no-cache
+    tutor local do import-assets
+
 
 You should now have data to look at in Superset! Log in to https://superset.local.overhang.io/ with your admin account and you should see charts with your data.
 
@@ -158,7 +163,7 @@ To contribute assets to Aspects:
 #. Run the command `tutor aspects check_superset_assets` to confirm there are no
    duplicate assets, which can happen when you rename an asset, and will cause import
    to fail. The command will automatically delete the older file if it finds a duplicate.
-#. Check that everything imports correctly by running `tutor local do init -l aspects`
+#. Check that everything imports correctly by running `tutor local do import-assets`
    and confirming there are no errors.
 #. Double check that your database password did not get exported before committing!
 #. Commit and submit a PR with screenshots of your new chart or dashboards, along with an

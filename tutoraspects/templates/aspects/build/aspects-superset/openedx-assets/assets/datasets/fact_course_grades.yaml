@@ -142,7 +142,8 @@ normalize_columns: true
 offset: 0
 params: null
 schema: main
-sql: "{% include 'openedx-assets/queries/fact_course_grades.sql' %}"
+sql: |-
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_course_grades.sql' %}{% endfilter %}
 table_name: fact_course_grades
 template_params: {}
 uuid: d777bd95-2110-46db-a1c4-8358be81a85a

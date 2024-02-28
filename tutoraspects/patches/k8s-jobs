@@ -152,6 +152,8 @@ spec:
             name: security
           - mountPath: /app/assets
             name: assets
+          - mountPath: /app/scripts
+            name: scripts
       volumes:
         - name: docker
           configMap:
@@ -167,6 +169,9 @@ spec:
             name: superset-security
         - name: assets
           emptyDir: {}
+        - name: scripts
+          configMap:
+            name: superset-scripts
 
 ---
 apiVersion: batch/v1

@@ -100,6 +100,22 @@ def alembic(command: string) -> list[tuple[str, str]]:
     ]
 
 
+# Ex: "tutor local do import_assets "
+@click.command(context_settings={"ignore_unknown_options": True})
+def import_assets() -> list[tuple[str, str]]:
+    """
+    Job to import Superset assets.
+    """
+    return [
+        (
+            "superset",
+            "echo 'Importing assets...' && "
+            "bash /app/scripts/import-assets.sh && "
+            "echo 'Done!';",
+        ),
+    ]
+
+
 # Ex: "tutor local do dump_data_to_clickhouse "
 @click.command(context_settings={"ignore_unknown_options": True})
 @click.option(
@@ -280,6 +296,7 @@ DO_COMMANDS = (
     alembic,
     dump_data_to_clickhouse,
     transform_tracking_logs,
+    import_assets,
 )
 
 COMMANDS = (aspects,)

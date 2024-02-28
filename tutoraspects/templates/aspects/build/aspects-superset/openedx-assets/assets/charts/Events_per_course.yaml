@@ -2,17 +2,24 @@ _file_name: Events_per_course.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+dataset_uuid: d6b1402a-393b-4595-9fbc-86aa9beacae9
 description: null
 params:
-  adhoc_filters: []
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_time
   color_scheme: supersetColors
-  datasource: 4__table
+  dashboards:
+  - 29
+  datasource: 28__table
   date_format: smart_date
   extra_form_data: {}
-  granularity_sqla: emission_time
   groupby:
-  - course_key_short
+  - course_name
+  - course_key
   innerRadius: 30
   label_type: key
   labels_outside: true
@@ -25,12 +32,10 @@ params:
   show_labels: true
   show_labels_threshold: 5
   show_legend: true
-  slice_id: 26
+  slice_id: 698
   sort_by_metric: true
-  time_range: No filter
   viz_type: pie
-query_context: null
 slice_name: Events per course
-uuid: a445d9e5-ac98-411e-9a47-eda10081bd5b
+uuid: 269c5919-2d2e-493d-8c29-14e7b8222ee4
 version: 1.0.0
 viz_type: pie

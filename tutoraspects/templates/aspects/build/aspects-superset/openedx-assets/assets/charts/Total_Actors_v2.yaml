@@ -1,0 +1,39 @@
+_file_name: Total_Actors_v2.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: d6b1402a-393b-4595-9fbc-86aa9beacae9
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_time
+  conditional_formatting: []
+  dashboards:
+  - 29
+  datasource: 28__table
+  extra_form_data: {}
+  force_timestamp_formatting: false
+  header_font_size: 0.4
+  metric:
+    aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: false
+    label: COUNT(DISTINCT(actor_id))
+    optionName: metric_kvpvmgti3sq_43fw3621oyf
+    sqlExpression: COUNT(DISTINCT(actor_id))
+  slice_id: 783
+  subheader: ''
+  subheader_font_size: 0.15
+  time_format: smart_date
+  viz_type: big_number_total
+  y_axis_format: SMART_NUMBER
+slice_name: Total Actors v2
+uuid: 15620ae6-5452-4a11-bc7e-56c7e5987a4d
+version: 1.0.0
+viz_type: big_number_total

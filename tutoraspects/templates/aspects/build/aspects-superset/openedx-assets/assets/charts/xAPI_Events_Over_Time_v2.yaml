@@ -1,0 +1,44 @@
+_file_name: xAPI_Events_Over_Time_v2.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: d6b1402a-393b-4595-9fbc-86aa9beacae9
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_time
+  color_picker:
+    a: 1
+    b: 135
+    g: 122
+    r: 0
+  dashboards: []
+  datasource: 28__table
+  extra_form_data: {}
+  header_font_size: 0.4
+  metric:
+    aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: false
+    label: COUNT(event_id)
+    optionName: metric_3sbjg8e20cg_36c5gmbqgw
+    sqlExpression: COUNT(event_id)
+  rolling_type: None
+  show_trend_line: true
+  start_y_axis_at_zero: true
+  subheader_font_size: 0.15
+  time_format: smart_date
+  time_grain_sqla: P1D
+  viz_type: big_number
+  x_axis: emission_time
+  y_axis_format: SMART_NUMBER
+slice_name: xAPI Events Over Time v2
+uuid: 8a81d381-7c40-4902-8bb9-bcbe50aa8780
+version: 1.0.0
+viz_type: big_number

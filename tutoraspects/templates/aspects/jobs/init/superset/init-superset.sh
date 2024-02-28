@@ -73,18 +73,7 @@ echo_step "3" "Complete" "Setting up roles and perms"
 
 echo_step "4" "Starting" "Importing assets"
 
-cd /app/assets/
-rm -rf superset
-
-mkdir superset
-
-date=$(date -u +"%Y-%m-%dT%H:%M:%S.%6N+00:00") 
-echo "version: 1.0.0
-type: assets
-timestamp: '$date'" > superset/metadata.yaml
-
-python /app/pythonpath/create_assets.py
-rm -rf /app/assets/superset
+bash /app/scripts/import-assets.sh
 
 echo_step "4" "Complete" "Importing assets"
 

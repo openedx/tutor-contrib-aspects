@@ -13,7 +13,28 @@ import click
 FILE_NAME_ATTRIBUTE = "_file_name"
 
 PLUGIN_PATH = os.path.dirname(os.path.abspath(__file__))
-ASSETS_PATH = os.path.join(PLUGIN_PATH, "templates", "openedx-assets", "assets")
+ASSETS_PATH = os.path.join(
+    PLUGIN_PATH,
+    "templates",
+    "aspects",
+    "build",
+    "aspects-superset",
+    "openedx-assets",
+    "assets",
+)
+
+
+def str_presenter(dumper, data):
+    """
+    Configures yaml for dumping multiline strings
+    """
+    if len(data.splitlines()) > 1 or "'" in data:  # check for multiline string
+        return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="|")
+    return dumper.represent_scalar("tag:yaml.org,2002:str", data)
+
+
+yaml.add_representer(str, str_presenter)
+yaml.representer.SafeRepresenter.add_representer(str, str_presenter)
 
 
 class SupersetCommandError(Exception):
@@ -31,6 +52,7 @@ class Asset:
     assets_path = None
     templated_vars = None
     required_vars = None
+    omitted_vars = None
 
     def __init__(self):
         if not self.path:
@@ -64,6 +86,46 @@ class Asset:
         """
         return self.required_vars or []
 
+    def get_omitted_vars(self):
+        """
+        Returns a list of variables which should be omitted from the content.
+        """
+        return self.omitted_vars or []
+
+    def remove_content(self, content: dict):
+        """
+        Remove any variables from the content which should be omitted.
+        """
+        for var_path in self.get_omitted_vars():
+            self._remove_content(content, var_path.split("."))
+
+    def _remove_content(self, content: dict, var_path: list):
+        """
+        Helper method to remove content from the content dict.
+        """
+        if content is None:
+            return
+        if len(var_path) == 1:
+            content.pop(var_path[0], None)
+            return
+        if var_path[0] in content:
+            self._remove_content(content[var_path[0]], var_path[1:])
+
+    def omit_templated_vars(self, content: dict, existing: dict):
+        """
+        Omit templated variables from the content if they are not present in
+        the existing file content.
+        """
+        if existing:
+            for key in content.keys():
+                if key not in existing.keys():
+                    continue
+                if isinstance(existing[key], str):
+                    if "{{" in existing.get(key, "") or "{%" in existing.get(key, ""):
+                        content[key] = existing[key]
+                if isinstance(existing[key], dict):
+                    self.omit_templated_vars(content[key], existing[key])
+
 
 class ChartAsset(Asset):
     """
@@ -71,6 +133,7 @@ class ChartAsset(Asset):
     """
 
     path = "charts"
+    omitted_vars = ["query_context"]
 
 
 class DashboardAsset(Asset):
@@ -89,6 +152,7 @@ class DatasetAsset(Asset):
 
     path = "datasets"
     templated_vars = ["schema", "table_name", "sql"]
+    omitted_vars = ["extra.certification"]
 
 
 class DatabaseAsset(Asset):
@@ -124,6 +188,15 @@ def validate_asset_file(asset_path, content, echo):
         if key in content:
             out_path = cls.get_path()
 
+            existing = None
+
+            # Check if the file already exists
+            if os.path.exists(os.path.join(out_path, out_filename)):
+                with open(
+                    os.path.join(out_path, out_filename), encoding="utf-8"
+                ) as stream:
+                    existing = yaml.safe_load(stream)
+
             for var in cls.get_templated_vars():
                 # If this is a variable we expect to be templated,
                 # check that it is.
@@ -132,27 +205,38 @@ def validate_asset_file(asset_path, content, echo):
                     and not content[var].startswith("{{")
                     and not content[var].startswith("{%")
                 ):
-                    echo(
-                        click.style(
-                            f"WARN: {orig_filename} has "
-                            f"{var} set to {content[var]} instead of a "
-                            f"setting.",
-                            fg="yellow",
+                    if existing:
+                        content[var] = existing[var]
+                        needs_review = False
+                    else:
+                        echo(
+                            click.style(
+                                f"WARN: {orig_filename} has "
+                                f"{var} set to {content[var]} instead of a "
+                                f"setting.",
+                                fg="yellow",
+                            )
                         )
-                    )
-                    needs_review = True
+                        needs_review = True
 
             for var in cls.get_required_vars():
                 # If this variable is required and doesn't exist, warn.
                 if var not in content:
-                    echo(
-                        click.style(
-                            f"WARN: {orig_filename} is missing required "
-                            f"item '{var}'!",
-                            fg="red",
+                    if existing:
+                        content[var] = existing[var]
+                        needs_review = False
+                    else:
+                        echo(
+                            click.style(
+                                f"WARN: {orig_filename} is missing required "
+                                f"item '{var}'!",
+                                fg="red",
+                            )
                         )
-                    )
-                    needs_review = True
+                        needs_review = True
+
+            cls.remove_content(content)
+            cls.omit_templated_vars(content, existing)
             # We found the correct class, we can stop looking.
             break
     return out_path, needs_review

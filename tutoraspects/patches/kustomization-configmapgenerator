@@ -94,6 +94,13 @@
     labels:
         app.kubernetes.io/name: superset
 
+- name: superset-scripts
+  files:{% for file in "aspects/apps/superset/scripts"|walk_templates %}
+  - plugins/{{ file }}{% endfor %}
+  options:
+    labels:
+        app.kubernetes.io/name: superset
+
 {% endif %}
 {% if RUN_VECTOR %}
 - name: vector-config

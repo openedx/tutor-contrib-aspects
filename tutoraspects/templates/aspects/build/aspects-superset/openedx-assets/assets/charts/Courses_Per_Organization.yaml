@@ -2,12 +2,14 @@ _file_name: Courses_Per_Organization.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: 46183302-6fa6-41a3-b6a7-79ff6c1c8402
+dataset_uuid: 41278a97-d0ff-4645-9514-d79f80d275df
 description: null
 params:
   adhoc_filters: []
   color_scheme: supersetColors
-  datasource: 8__table
+  dashboards:
+  - 29
+  datasource: 21__table
   date_format: smart_date
   extra_form_data: {}
   groupby:
@@ -48,12 +50,10 @@ params:
   show_labels: true
   show_labels_threshold: 5
   show_legend: true
-  slice_id: 453
+  slice_id: 748
   sort_by_metric: true
-  time_range: No filter
   viz_type: pie
-query_context: null
 slice_name: Courses Per Organization
-uuid: 7901d6ae-dea8-4d2c-9232-35c22571cfb7
+uuid: 12fc799d-5d02-4861-892c-4e04cbc1f87a
 version: 1.0.0
 viz_type: pie

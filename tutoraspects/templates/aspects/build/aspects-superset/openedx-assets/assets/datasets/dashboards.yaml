@@ -1,76 +1,71 @@
-_file_name: xapi_events_all_parsed.yaml
+_file_name: dashboards.yaml
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: verb
-  description: Short name for the verb; the final word in the verb_id path.
-  expression: |-
-    splitByChar('/', verb_id)[-1]
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: null
-  verbose_name: verb
-- advanced_data_type: null
-  column_name: video_event
-  description: Set to true when the event is a video event.
-  expression: |-
-    verb_id LIKE '%video%'
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: null
-  verbose_name: video_event
-- advanced_data_type: null
-  column_name: object_type
-  description: 'Parsed JSON: last word in the event.object.definition.type field'
-  expression: |-
-    splitByChar('/', event.object.definition.type)[-1]
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: null
-  verbose_name: object_type
-- advanced_data_type: null
-  column_name: course_key_short
-  description: 'Course key without the course-v1: prefix'
-  expression: |-
-    splitByChar(':', splitByChar('/', course_id)[-1])[-1]
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: null
-  verbose_name: course_key
-- advanced_data_type: null
-  column_name: course_key
-  description: Course key part of the course_id URL
-  expression: |-
-    splitByChar('/', course_id)[-1]
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: null
-  verbose_name: course_key
-- advanced_data_type: null
-  column_name: event_id
+  column_name: created_on
   description: null
-  expression: null
-  extra: {}
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: TIMESTAMP WITHOUT TIME ZONE
+  verbose_name: null
+- advanced_data_type: null
+  column_name: changed_on
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: TIMESTAMP WITHOUT TIME ZONE
+  verbose_name: null
+- advanced_data_type: null
+  column_name: dashboard_title
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: VARCHAR(500)
+  verbose_name: null
+- advanced_data_type: null
+  column_name: slug
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: VARCHAR(255)
+  verbose_name: null
+- advanced_data_type: null
+  column_name: published
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: BOOLEAN
+  verbose_name: null
+- advanced_data_type: null
+  column_name: uuid
+  description: null
+  expression: ''
+  extra: null
   filterable: true
   groupby: true
   is_active: true
@@ -79,113 +74,136 @@ columns:
   type: UUID
   verbose_name: null
 - advanced_data_type: null
-  column_name: emission_time
+  column_name: created_by_fk
   description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: DateTime
-  verbose_name: null
-- advanced_data_type: null
-  column_name: object_id
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: null
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: null
-- advanced_data_type: null
-  column_name: actor_id
-  description: null
-  expression: null
-  extra: {}
+  expression: ''
+  extra: null
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: INTEGER
   verbose_name: null
 - advanced_data_type: null
-  column_name: verb_id
+  column_name: changed_by_fk
   description: null
-  expression: null
-  extra: {}
+  expression: ''
+  extra: null
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: INTEGER
   verbose_name: null
 - advanced_data_type: null
-  column_name: course_id
+  column_name: id
   description: null
-  expression: null
-  extra: {}
+  expression: ''
+  extra: null
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: INTEGER
   verbose_name: null
 - advanced_data_type: null
-  column_name: event_str
+  column_name: json_metadata
   description: null
-  expression: null
-  extra: {}
+  expression: ''
+  extra: null
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: TEXT
   verbose_name: null
 - advanced_data_type: null
-  column_name: org
+  column_name: certification_details
   description: null
-  expression: null
-  extra: {}
+  expression: ''
+  extra: null
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: TEXT
   verbose_name: null
-database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+- advanced_data_type: null
+  column_name: certified_by
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: TEXT
+  verbose_name: null
+- advanced_data_type: null
+  column_name: position_json
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: TEXT
+  verbose_name: null
+- advanced_data_type: null
+  column_name: description
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: TEXT
+  verbose_name: null
+- advanced_data_type: null
+  column_name: css
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: TEXT
+  verbose_name: null
+database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
 default_endpoint: null
 description: null
-extra: null
+extra: {}
 fetch_values_predicate: null
 filter_select_enabled: false
-main_dttm_col: emission_time
+main_dttm_col: created_on
 metrics:
 - currency: null
   d3format: null
   description: null
   expression: COUNT(*)
-  extra:
-    warning_markdown: ''
+  extra: null
   metric_name: count
   metric_type: count
   verbose_name: COUNT(*)
   warning_text: null
-normalize_columns: true
+normalize_columns: false
 offset: 0
 params: null
-schema: '{{ASPECTS_XAPI_DATABASE}}'
-sql: ''
-table_name: xapi_events_all_parsed
+schema: superset
+sql: null
+table_name: dashboards
 template_params: null
-uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
+uuid: 3dee777a-3dd4-4fcb-a749-4d13651b3444
 version: 1.0.0

@@ -82,9 +82,8 @@ normalize_columns: false
 offset: 0
 params: null
 schema: xapi
-sql: "SELECT event_time, query_duration_ms / 1000 as duration_secs, read_rows, memory_usage\
-  \ / 1024 AS memory_usage_kb, query\nFROM system.query_log\nWHERE type = 'QueryFinish'\
-  \ \nORDER BY query_duration_ms DESC;\n"
+sql: |-
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/superset_action_log.sql' %}{% endfilter %}
 table_name: slowest_clickhouse_queries
 template_params: null
 uuid: e8748c23-6220-413d-bd61-de8306163e10

@@ -1,7 +1,9 @@
-_file_name: monitoring.superset_charts_by_time_606.yaml
-slice_name: Chart Count
-viz_type: big_number
-description: Count of charts created in Superset over the selected time period.
+_file_name: Dashboard_Count.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 3dee777a-3dd4-4fcb-a749-4d13651b3444
+description: Count of dashboards created in Superset over the selected time period.
 params:
   adhoc_filters: []
   color_picker:
@@ -11,15 +13,14 @@ params:
     r: 68
   compare_lag: 1
   compare_suffix: period over period
-  datasource: 482__table
+  datasource: 476__table
   extra_form_data: {}
   granularity_sqla: created_on
   header_font_size: 0.4
   metric: count
-  rolling_periods: ''
   rolling_type: cumsum
   show_trend_line: true
-  slice_id: 606
+  slice_id: 611
   start_y_axis_at_zero: true
   subheader_font_size: 0.15
   time_grain_sqla: P1D
@@ -30,8 +31,7 @@ params:
   url_params: {}
   viz_type: big_number
   y_axis_format: SMART_NUMBER
-query_context: null
-cache_timeout: null
-uuid: a5e0f18b-fb83-4d65-81e0-5f0e620fa05b
+slice_name: Dashboard Count
+uuid: 8368fe0b-5e64-4ad5-b93b-93f8a6f848af
 version: 1.0.0
-dataset_uuid: aaf1ae12-73c1-4b88-b07d-7a8988333018
+viz_type: big_number

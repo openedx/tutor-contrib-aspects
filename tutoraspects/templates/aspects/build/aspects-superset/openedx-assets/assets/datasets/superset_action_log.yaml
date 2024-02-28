@@ -1,127 +1,175 @@
-_file_name: fact_problem_responses.yaml
+_file_name: superset_action_log.yaml
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: attempts
+  column_name: user_registration_date
   description: null
   expression: null
-  extra: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Int16
-  verbose_name: null
-- advanced_data_type: null
-  column_name: success
-  description: null
-  expression: null
-  extra: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Bool
-  verbose_name: null
-- advanced_data_type: null
-  column_name: emission_time
-  description: null
-  expression: null
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: true
   python_date_format: null
-  type: DateTime
+  type: DATETIME
   verbose_name: null
 - advanced_data_type: null
-  column_name: problem_name_with_location
+  column_name: action_date
   description: null
   expression: null
-  extra: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DATETIME
+  verbose_name: null
+- advanced_data_type: null
+  column_name: dashboard_status
+  description: null
+  expression: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: STRING
   verbose_name: null
 - advanced_data_type: null
-  column_name: problem_name
+  column_name: dashboard_title
   description: null
   expression: null
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: STRING
   verbose_name: null
 - advanced_data_type: null
-  column_name: actor_id
+  column_name: user_name
   description: null
   expression: null
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: STRING
   verbose_name: null
 - advanced_data_type: null
-  column_name: course_name
+  column_name: action
   description: null
   expression: null
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: STRING
   verbose_name: null
 - advanced_data_type: null
-  column_name: course_run
+  column_name: dashboard_id
   description: null
   expression: null
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: INT
   verbose_name: null
 - advanced_data_type: null
-  column_name: responses
+  column_name: action_count
   description: null
   expression: null
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: INT
   verbose_name: null
 - advanced_data_type: null
-  column_name: org
+  column_name: slice_id
   description: null
   expression: null
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: INT
   verbose_name: null
-database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+- advanced_data_type: null
+  column_name: user_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INT
+  verbose_name: null
+- advanced_data_type: null
+  column_name: datasource_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: null
+  verbose_name: null
+- advanced_data_type: null
+  column_name: datasource_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: null
+  python_date_format: null
+  type: null
+  verbose_name: null
+- advanced_data_type: null
+  column_name: datasource_type
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: null
+  python_date_format: null
+  type: null
+  verbose_name: null
+- advanced_data_type: null
+  column_name: slice_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: null
+  python_date_format: null
+  type: null
+  verbose_name: null
+database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
 default_endpoint: null
 description: null
 extra: null
@@ -133,18 +181,19 @@ metrics:
   d3format: null
   description: null
   expression: count(*)
-  extra: null
+  extra:
+    warning_markdown: ''
   metric_name: count
   metric_type: null
   verbose_name: null
   warning_text: null
-normalize_columns: true
+normalize_columns: false
 offset: 0
 params: null
-schema: main
+schema: superset
 sql: |-
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_problem_responses.sql' %}{% endfilter %}
-table_name: fact_problem_responses
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/superset_action_log.sql' %}{% endfilter %}
+table_name: superset_action_log
 template_params: null
-uuid: 511dd5f1-3925-4e9e-ad8a-a227b5680047
+uuid: c33517b3-daa5-4fac-b7f2-ae012b999d12
 version: 1.0.0
