@@ -23,8 +23,22 @@ from tutor import env
          tutor local do dbt -c "run -m enrollments_by_day --threads 4"
          """,
 )
+@click.option(
+    "--only_changed",
+    default=True,
+    type=click.UNPROCESSED,
+    help="""Whether to only run models that have changed since the last dbt run. Since
+         re-running materialized views will recreate potentially huge datasets and 
+         incur downtime, this defaults to true.
+
+         If no prior state is found, the command will run as if this was False.
+
+         If your command fails due to an issue with "state:modified", you may need to 
+         set this to False.
+         """,
+)
 @click.pass_obj
-def dbt(context, command) -> None:
+def dbt(context, only_changed, command) -> None:
     """
     Job that proxies dbt commands to a container which runs them against ClickHouse.
     """
@@ -33,7 +47,7 @@ def dbt(context, command) -> None:
 
     command = f"""echo 'Making dbt script executable...'
     echo 'Running dbt {command}'
-    bash /app/aspects/scripts/dbt.sh {command}
+    bash /app/aspects/scripts/dbt.sh {only_changed} {command}
     echo 'Done!';
     """
     runner.run_job("aspects", command)

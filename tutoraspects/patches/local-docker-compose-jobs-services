@@ -7,6 +7,7 @@ aspects-job:
   volumes:
     - ../../env/plugins/aspects/apps/aspects:/app/aspects
     - ../../env/plugins/aspects/apps/aspects/scripts/:/app/aspects/scripts:ro
+    - ../../data/aspects-dbt:{{ DBT_STATE_DIR }}
   {% if RUN_SUPERSET or RUN_CLICKHOUSE or RUN_RALPH %}depends_on:{% if RUN_SUPERSET %}
     - superset{% endif %}{% if RUN_CLICKHOUSE%}
     - clickhouse{% endif %}{% if RUN_RALPH %}

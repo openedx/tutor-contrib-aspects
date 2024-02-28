@@ -52,7 +52,21 @@ def load_xapi_test_data(config_file) -> list[tuple[str, str]]:
          tutor local do dbt -c "run -m enrollments_by_day --threads 4"
          """,
 )
-def dbt(command: string) -> list[tuple[str, str]]:
+@click.option(
+    "--only_changed",
+    default=True,
+    type=click.UNPROCESSED,
+    help="""Whether to only run models that have changed since the last dbt run. Since
+         re-running materialized views will recreate potentially huge datasets and 
+         incur downtime, this defaults to true.
+         
+         If no prior state is found, the command will run as if this was False.
+         
+         If your command fails due to an issue with "state:modified", you may need to 
+         set this to False.
+         """,
+)
+def dbt(only_changed: bool, command: string) -> list[tuple[str, str]]:
     """
     Job that proxies dbt commands to a container which runs them against ClickHouse.
     """
@@ -60,8 +74,8 @@ def dbt(command: string) -> list[tuple[str, str]]:
         (
             "aspects",
             "echo 'Making dbt script executable...' && "
-            f"echo 'Running dbt {command}' && "
-            f"bash /app/aspects/scripts/dbt.sh {command} && "
+            f"echo 'Running dbt, only_changed: {only_changed} command: {command}' && "
+            f"bash /app/aspects/scripts/dbt.sh {only_changed} {command} && "
             "echo 'Done!';",
         ),
     ]

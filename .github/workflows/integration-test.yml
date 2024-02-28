@@ -57,8 +57,15 @@ jobs:
         run: |
           tutor local do alembic -c "downgrade base"
           tutor local do alembic -c "upgrade head"
-      - name: Test DBT
-        run: tutor local do dbt -c "test"
+      # This should:
+      # 1. Find no models on the first run, since state should be up to date
+      # 2. Force run all models
+      # 3. Successfully run tests
+      - name: Test dbt
+        run: |
+          tutor local do dbt -c "run"
+          tutor local do dbt --only_changed False -c "run"
+          tutor local do dbt --only_changed False -c "test"
       - name: Load test
         run: tutor local do load-xapi-test-data
       - name: Import demo course
@@ -111,8 +118,15 @@ jobs:
         run: |
           tutor dev do alembic -c "downgrade base"
           tutor dev do alembic -c "upgrade head"
-      - name: Test DBT
-        run: tutor dev do dbt -c "test"
+      # This should:
+      # 1. Find no models on the first run, since state should be up to date
+      # 2. Force run all models
+      # 3. Successfully run tests
+      - name: Test dbt
+        run: |
+          tutor dev do dbt -c "run"
+          tutor dev do dbt --only_changed False -c "run"
+          tutor dev do dbt --only_changed False -c "test"
       - name: Load test
         run: tutor dev do load-xapi-test-data
       - name: Import demo course
@@ -183,8 +197,15 @@ jobs:
         run: |
           tutor k8s do alembic -c "downgrade base"
           tutor k8s do alembic -c "upgrade head"
+      # This should:
+      # 1. Find no models on the first run, since state should be up to date
+      # 2. Force run all models
+      # 3. Successfully run tests
       - name: Test DBT
-        run: tutor k8s do dbt -c "test"
+        run: |
+          tutor k8s do dbt -c "run"
+          tutor k8s do dbt --only_changed False -c "run"
+          tutor k8s do dbt --only_changed False -c "test"
       - name: Load test
         run: tutor k8s do load-xapi-test-data
       - name: Import demo course

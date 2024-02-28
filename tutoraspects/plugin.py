@@ -353,6 +353,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
         ("DBT_BRANCH", "v3.5.0"),
         ("DBT_SSH_KEY", ""),
+        ("DBT_STATE_DIR", "/app/aspects/dbt_state/"),
         # This is a pip compliant list of Python packages to install to run dbt
         # make sure packages with versions are enclosed in double quotes
         ("EXTRA_DBT_PACKAGES", []),

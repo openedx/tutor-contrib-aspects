@@ -26,11 +26,28 @@ cd aspects-dbt || exit
 
 export ASPECTS_EVENT_SINK_DATABASE={{ASPECTS_EVENT_SINK_DATABASE}}
 export ASPECTS_XAPI_DATABASE={{ASPECTS_XAPI_DATABASE}}
+export DBT_STATE={{ DBT_STATE_DIR }}
 
 echo "Installing dbt dependencies"
 dbt deps --profiles-dir /app/aspects/dbt/
 
-echo "Running dbt $*"
-dbt "$@" --profiles-dir /app/aspects/dbt/
+echo "Running dbt ${@:2}"
 
+if [ "$1" == "True" ]
+then
+  echo "Requested to only run modified state, checking for ${DBT_STATE}/manifest.json"
+fi
+
+# If state exists and we've asked to only run changed files, add the flag
+if [ "$1" == "True" ] && [ -e "${DBT_STATE}/manifest.json" ]
+then
+  echo "Found {{DBT_STATE_DIR}}/manifest.json so only running modified items and their downstreams"
+  dbt "${@:2}" --profiles-dir /app/aspects/dbt/ -s state:modified+
+else
+  echo "Running command *without* state:modified+ this may take a long time."
+  dbt "${@:2}" --profiles-dir /app/aspects/dbt/
+fi
+
+rm -rf ${DBT_STATE}/*
+cp -r ./target/manifest.json ${DBT_STATE}
 rm -rf aspects-dbt
