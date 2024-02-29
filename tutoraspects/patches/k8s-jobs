@@ -18,6 +18,8 @@ spec:
             value: {{ ASPECTS_XAPI_DATABASE }}
           - name: ASPECTS_ENROLLMENT_EVENTS_TABLE
             value: {{ ASPECTS_ENROLLMENT_EVENTS_TABLE }}
+          - name: DBT_STATE
+            value: {{ DBT_STATE_DIR }}
         image: {{ DOCKER_IMAGE_ASPECTS }}
         securityContext:
           allowPrivilegeEscalation: false
@@ -35,7 +37,12 @@ spec:
             name: alembic
           - mountPath: /app/aspects/migrations/alembic/versions
             name: versions
+          - mountPath: {{ DBT_STATE_DIR }}
+            name: dbt-state
       volumes:
+        - name: dbt-state
+          persistentVolumeClaim:
+            claimName: aspects-dbt
         - name: scripts
           configMap:
             name: aspects-scripts
