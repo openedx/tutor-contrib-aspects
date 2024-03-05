@@ -70,8 +70,14 @@ jobs:
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Build Aspects Docker Images
+        if: github.event.action == 'opened' || github.event.action == 'synchronize'
         run: |
           tutor images build aspects --cache-to-registry
+          tutor images push aspects
+      - name: Build Aspects Docker Images
+        if: github.event.action == 'closed'
+        run: |
+          tutor images build aspects --cache-to-registry -d '--tag=edunext/aspects:latest'
           tutor images push aspects
 
   build-superset:
@@ -100,8 +106,14 @@ jobs:
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Build Superset Docker Image
+        if: github.event.action == 'opened' || github.event.action == 'synchronize'
         run: |
           tutor images build aspects-superset --cache-to-registry
+          tutor images push aspects-superset
+      - name: Build Superset Docker Image
+        if: github.event.action == 'closed'
+        run: |
+          tutor images build aspects-superset --cache-to-registry -d '--tag=edunext/aspects-superset:latest'
           tutor images push aspects-superset
 
   build-openedx:
@@ -130,8 +142,14 @@ jobs:
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Build Open edX Docker Images
+        if: github.event.action == 'opened' || github.event.action == 'synchronize'
         run: |
           tutor images build openedx --cache-to-registry
+          tutor images push openedx
+      - name: Build Open edX Docker Images
+        if: github.event.action == 'closed'
+        run: |
+          tutor images build openedx --cache-to-registry -d '--tag=edunext/openedx:latest'
           tutor images push openedx
 
   build-openedx-dev:
