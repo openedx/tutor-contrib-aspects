@@ -84,6 +84,12 @@ At this point you should have a working Tutor / Aspects environment, but with no
     tutor images build aspects-superset --no-cache
     tutor local do import-assets
 
+#. Make sure to build and push your Superset image in the following cases:
+
+   #. If you have made changes to the Superset assets.
+   #. If you have made changes to the Clickhouse/DBT schema.
+   #. If you are using custom translations.
+
 
 You should now have data to look at in Superset! Log in to https://superset.local.overhang.io/ with your admin account and you should see charts with your data.
 
