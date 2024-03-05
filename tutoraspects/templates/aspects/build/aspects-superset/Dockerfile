@@ -33,5 +33,6 @@ RUN apt-get update -q \
     && apt-get autoremove -yqq --purge wget && rm -rf /var/lib/apt/lists/* /var/[log,tmp]/* /tmp/* && apt-get clean
 
 COPY ./openedx-assets /app/openedx-assets
+COPY ./localization/ /app/localization/
 
 USER superset

@@ -129,7 +129,7 @@ def compile_translations(root_path):
     out_path = (
         os.path.join(
             root_path,
-            "tutoraspects/templates/aspects/apps/superset/localization/locale.yaml"
+            "tutoraspects/templates/aspects/build/aspects-superset/localization/locale.yaml"
         )
     )
 

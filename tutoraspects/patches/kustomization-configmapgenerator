@@ -80,13 +80,6 @@
     labels:
         app.kubernetes.io/name: superset
 
-- name: superset-localization
-  files:{% for file in "aspects/apps/superset/localization"|walk_templates %}
-  - plugins/{{ file }}{% endfor %}
-  options:
-    labels:
-        app.kubernetes.io/name: superset
-
 - name: superset-security
   files:
     - plugins/aspects/apps/superset/security/roles.json
