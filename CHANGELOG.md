@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.82.0 - 2024-03-06
+
+### [0.82.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.81.0...v0.82.0) (2024-03-06)
+
+#### Features
+
+* upgrade dbt to v3.9.0 ([3904283](https://github.com/openedx/tutor-contrib-aspects/commit/39042830b43eea55db60ee8f06cd9875ba3d761d))
+
 ## v0.81.0 - 2024-03-06
 
 ### [0.81.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.80.0...v0.81.0) (2024-03-06)
