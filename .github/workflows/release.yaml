@@ -53,7 +53,7 @@ jobs:
           - name: aspects-superset
             repository: edunext/aspects-superset
           - name: openedx
-            repository: edunext/openedx
+            repository: edunext/openedx-aspects
     runs-on: ubuntu-latest
     steps:
       - name: Log in to Docker Hub
