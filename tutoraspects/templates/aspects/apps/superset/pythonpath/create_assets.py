@@ -128,7 +128,7 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
     if folder == "databases":
         create_superset_db(asset["database_name"], asset["sqlalchemy_uri"])
 
-    if folder in ["charts", "dashboards"]:
+    if folder in ["charts", "dashboards", "datasets"]:
         for locale in DASHBOARD_LOCALES:
             updated_asset = generate_translated_asset(
                 asset, asset_name, folder, locale, roles
@@ -184,6 +184,20 @@ def generate_translated_asset(asset, asset_name, folder, language, roles):
 
         generate_translated_dashboard_elements(copy, language)
         generate_translated_dashboard_filters(copy, language)
+
+    if folder == "datasets" and copy.get("schema") == "main":
+        # Only virtual datasets can be translated
+        for column in copy.get("columns", []):
+            column["verbose_name"] = get_translation(column["verbose_name"], language)
+
+        for metric in copy.get("metrics", []):
+            metric["verbose_name"] = get_translation(metric["verbose_name"], language)
+
+        copy["table_name"] = f"{copy['table_name']}_{language}"
+
+    if folder == "charts":
+        copy["dataset_uuid"] = str(get_uuid5(copy["dataset_uuid"], language))
+
     return copy
 
 
@@ -200,12 +214,9 @@ def generate_translated_dashboard_elements(copy, language):
         meta = element.get("meta", {})
         original_uuid = meta.get("uuid", None)
 
-        element_type = element.get("type", "Unknown")
-
-        translation, element_type, element_id = None, None, None
+        translation, element_id = None, None
 
         if original_uuid:
-            element_type = "Chart"
             element_id = str(get_uuid5(original_uuid, language))
             translation = get_translation(meta["sliceName"], language)
 
@@ -214,7 +225,6 @@ def generate_translated_dashboard_elements(copy, language):
 
         elif element.get("type") in SUPPORTED_TYPES.keys():
             text_key = SUPPORTED_TYPES.get(element["type"])
-            chart_body_id = element.get("id")
             if not meta or not meta.get(text_key):
                 continue
 

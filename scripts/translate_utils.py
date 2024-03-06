@@ -6,6 +6,7 @@ import yaml
 ASSET_FOLDER_MAPPING = {
     "dashboard_title": "dashboards",
     "slice_name": "charts",
+    "table_name": "datasets",
 }
 
 
@@ -78,6 +79,12 @@ def mark_text_for_translation(asset):
 
             if asset["params"].get("y_axis_label"):
                 strings.append(asset["params"]["y_axis_label"])
+
+        elif type == "datasets":
+            for metric in asset.get("metrics", []):
+                strings.append(metric["verbose_name"])
+            for column in asset.get("columns", []):
+                strings.append(column["verbose_name"])
 
         return strings
 
