@@ -83,7 +83,7 @@ offset: 0
 params: null
 schema: xapi
 sql: |-
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/superset_action_log.sql' %}{% endfilter %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/slowest_clickhouse_queries.sql' %}{% endfilter %}
 table_name: slowest_clickhouse_queries
 template_params: null
 uuid: e8748c23-6220-413d-bd61-de8306163e10
