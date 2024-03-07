@@ -11,7 +11,7 @@ params: null
 template_params: null
 filter_select_enabled: true
 fetch_values_predicate: null
-extra: null
+extra: {}
 normalize_columns: false
 uuid: 5f3d28a1-ebb4-4e4a-95ea-2930623d774d
 metrics:
@@ -22,11 +22,11 @@ metrics:
   description: null
   d3format: null
   currency: null
-  extra: null
+  extra: {}
   warning_text: null
 columns:
 - column_name: user_id
-  verbose_name: null
+  verbose_name: User ID
   is_dttm: false
   is_active: true
   type: INT32
@@ -36,9 +36,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: external_user_id
-  verbose_name: null
+  verbose_name: External User ID
   is_dttm: false
   is_active: true
   type: UUID
@@ -48,9 +48,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: profile_image_uploaded_at
-  verbose_name: null
+  verbose_name: Profile Image Uploaded At
   is_dttm: false
   is_active: true
   type: STRING
@@ -60,9 +60,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: year_of_birth
-  verbose_name: null
+  verbose_name: Year of Birth
   is_dttm: false
   is_active: true
   type: STRING
@@ -72,9 +72,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: level_of_education
-  verbose_name: null
+  verbose_name: Level of Education
   is_dttm: false
   is_active: true
   type: STRING
@@ -84,9 +84,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: external_id_type
-  verbose_name: null
+  verbose_name: External ID Type
   is_dttm: false
   is_active: true
   type: STRING
@@ -96,9 +96,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: mailing_address
-  verbose_name: null
+  verbose_name: Mailing Address
   is_dttm: false
   is_active: true
   type: STRING
@@ -108,9 +108,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: phone_number
-  verbose_name: null
+  verbose_name: Phone Number
   is_dttm: false
   is_active: true
   type: STRING
@@ -120,9 +120,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: language
-  verbose_name: null
+  verbose_name: Language
   is_dttm: false
   is_active: true
   type: STRING
@@ -132,9 +132,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: courseware
-  verbose_name: null
+  verbose_name: Courseware
   is_dttm: false
   is_active: true
   type: STRING
@@ -144,9 +144,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: location
-  verbose_name: null
+  verbose_name: Location
   is_dttm: false
   is_active: true
   type: STRING
@@ -156,9 +156,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: username
-  verbose_name: null
+  verbose_name: Username
   is_dttm: false
   is_active: true
   type: STRING
@@ -168,9 +168,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: name
-  verbose_name: null
+  verbose_name: Name
   is_dttm: false
   is_active: true
   type: STRING
@@ -180,9 +180,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: meta
-  verbose_name: null
+  verbose_name: Meta
   is_dttm: false
   is_active: true
   type: STRING
@@ -192,9 +192,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: state
-  verbose_name: null
+  verbose_name: State
   is_dttm: false
   is_active: true
   type: STRING
@@ -204,9 +204,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: goals
-  verbose_name: null
+  verbose_name: Goals
   is_dttm: false
   is_active: true
   type: STRING
@@ -216,9 +216,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: bio
-  verbose_name: null
+  verbose_name: Bio
   is_dttm: false
   is_active: true
   type: STRING
@@ -228,9 +228,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: city
-  verbose_name: null
+  verbose_name: City
   is_dttm: false
   is_active: true
   type: STRING
@@ -240,9 +240,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: country
-  verbose_name: null
+  verbose_name: Country
   is_dttm: false
   is_active: true
   type: STRING
@@ -252,9 +252,9 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 - column_name: gender
-  verbose_name: null
+  verbose_name: Gender
   is_dttm: false
   is_active: true
   type: STRING
@@ -264,6 +264,6 @@ columns:
   expression: null
   description: null
   python_date_format: null
-  extra: null
+  extra: {}
 version: 1.0.0
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
