@@ -66,7 +66,9 @@ class TranslatableAsset:
 class DashboardAsset(TranslatableAsset):
     translatable_attributes = [
         "dashboard_title",
+        "description",
         "metadata.native_filter_configuration.name",
+        "metadata.native_filter_configuration.description",
         "position.*.meta.text",
         "position.*.meta.code",
     ]

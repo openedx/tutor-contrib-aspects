@@ -171,6 +171,7 @@ def generate_translated_asset(asset, asset_name, folder, language, roles):
 
     if folder == "dashboards":
         copy["slug"] = f"{copy['slug']}-{language}"
+        copy["description"] = get_translation(copy["description"], language)
 
         dashboard_roles = copy.pop("_roles", [])
         translated_dashboard_roles = []
