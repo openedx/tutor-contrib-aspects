@@ -28,24 +28,21 @@ class TranslatableAsset:
 
         return strings
 
-    def translate_var(self, content, var_path: list):
+    def translate_var(self, content, var_path):
         """
         Helper method to remove content from the content dict.
         """
         if not content:
             return []
         if len(var_path) == 1:
-            # If the content is a list, we need to iterate over each item in the list
             if isinstance(content, list):
                  strings = []
                  for item in content:
                      strings.append(item.get(var_path[0], ""))
                  return strings
-             # print("Translating asset: ", self.asset_type, "var_path: ", var_path)
             string = [content.get(var_path[0], "")]
             return string or []
         else:
-            # If the content is a list, we need to iterate over each item in the list
             if isinstance(content, list):
                 strings = []
                 for item in content:
