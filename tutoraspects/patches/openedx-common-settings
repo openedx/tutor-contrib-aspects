@@ -16,3 +16,13 @@ EVENT_SINK_CLICKHOUSE_PII_MODELS = {{ EVENT_SINK_PII_MODELS }}
 
 ASPECTS_INSTRUCTOR_DASHBOARD_UUID = "{{ ASPECTS_INSTRUCTOR_DASHBOARD_UUID }}"
 SUPERSET_EXTRA_FILTERS_FORMAT = {{ ASPECTS_SUPERSET_EXTRA_FILTERS_FORMAT }}
+{% if ASPECTS_ENABLE_INSTRUCTOR_DASHBOARD_PLUGIN %}
+OPEN_EDX_FILTERS_CONFIG = {
+   "org.openedx.learning.instructor.dashboard.render.started.v1": {
+     "fail_silently": False,
+     "pipeline": [
+       "platform_plugin_aspects.extensions.filters.AddSupersetTab",
+     ]
+   },
+}
+{% endif %}
