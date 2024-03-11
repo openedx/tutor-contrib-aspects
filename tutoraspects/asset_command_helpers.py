@@ -53,6 +53,7 @@ class Asset:
     templated_vars = None
     required_vars = None
     omitted_vars = None
+    raw_vars = None
 
     def __init__(self):
         if not self.path:
@@ -92,6 +93,12 @@ class Asset:
         """
         return self.omitted_vars or []
 
+    def get_raw_vars(self):
+        """
+        Returns a list of variables which should be omitted from the content.
+        """
+        return self.raw_vars or []
+
     def remove_content(self, content: dict):
         """
         Remove any variables from the content which should be omitted.
@@ -122,10 +129,23 @@ class Asset:
                     continue
                 if isinstance(existing[key], str):
                     if "{{" in existing.get(key, "") or "{%" in existing.get(key, ""):
-                        content[key] = existing[key]
+                        if key in self.get_raw_vars():
+                            raw_expression = "{% raw %}" + content[key] + "{% endraw %}"
+                            content[key] = raw_expression
+                        else:
+                            content[key] = existing[key]
+
                 if isinstance(existing[key], dict):
                     self.omit_templated_vars(content[key], existing[key])
 
+                if isinstance(existing[key], list):
+                    for i, item in enumerate(content[key]):
+                        if isinstance(item, dict):
+                            try:
+                                existing[key][i]
+                                self.omit_templated_vars(item, existing[key][i] or None)
+                            except IndexError:
+                                pass
 
 class ChartAsset(Asset):
     """
@@ -133,7 +153,8 @@ class ChartAsset(Asset):
     """
 
     path = "charts"
-    omitted_vars = ["query_context"]
+    omitted_vars = ["query_context", "params.dashboards", "params.datasource", "params.slice_id"]
+    raw_vars = ["sqlExpression"]
 
 
 class DashboardAsset(Asset):
