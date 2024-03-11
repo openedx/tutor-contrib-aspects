@@ -3,7 +3,7 @@ superset:
   {% include 'base-docker-compose-services' %}
     OPENEDX_LMS_ROOT_URL: "http://{{ LMS_HOST }}:8000"
     OAUTH2_CLIENT_ID: {{ SUPERSET_OAUTH2_CLIENT_ID_DEV }}
-  command: ["bash", "/app/docker/docker-bootstrap.sh", "app-gunicorn"]
+  command: ["bash", "/app/docker/docker-bootstrap.sh", "app"]
   ports:
     - 8088:{{ SUPERSET_PORT }}
   depends_on:
