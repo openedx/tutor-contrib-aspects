@@ -57,24 +57,26 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
             self.access_token, algorithms=["HS256"], options={"verify_signature": False}
         )
 
-    def oauth_user_info(self, provider, response=None):
-        if provider == "openedxsso":
-            user_profile = self.decoded_user_info()
+    def get_preferences(self, username):
+        openedx_apis = current_app.config["OPENEDX_API_URLS"]
+        url = openedx_apis["get_preference"].format(username=username)
+        oauth_remote = self.oauth_remotes.get("openedxsso")
+        response = oauth_remote.get(url, token=self.get_oauth_token()).json()
+        locale_preference = response.get("pref-lang", "en").replace("-", "_")
 
-            openedx_apis = current_app.config["OPENEDX_API_URLS"]
-            url = openedx_apis["get_preference"].format(
-                username=user_profile["preferred_username"]
-            )
-            oauth_remote = self.oauth_remotes.get(provider)
-
-            response = oauth_remote.get(url).json()
-            locale_preference = response.get("pref-lang", "en").replace("-", "_")
-
-            if locale_preference not in current_app.config["DASHBOARD_LOCALES"]:
+        if locale_preference not in current_app.config["DASHBOARD_LOCALES"]:
                 log.warning(
                     f"Language {locale_preference} is not supported by Superset"
                 )
                 locale_preference = "en"
+
+        return locale_preference
+
+    def oauth_user_info(self, provider, response=None):
+        if provider == "openedxsso":
+            user_profile = self.decoded_user_info()
+
+            locale_preference = self.get_preferences(user_profile["preferred_username"])
 
             user_roles = self._get_user_roles(
                 user_profile.get("preferred_username"), locale_preference

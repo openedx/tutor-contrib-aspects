@@ -7,6 +7,7 @@ from superset.extensions import security_manager
 from pythonpath.localization import get_translation, DATASET_STRINGS
 from superset import security_manager
 import logging
+from flask import g
 
 log = logging.getLogger(__name__)
 ALL_COURSES = "1 = 1"
@@ -52,14 +53,7 @@ def translate_column(column_name):
     """
     Translate a string to the given language.
     """
-    roles = security_manager.get_user_roles()
-    lang = "en"
-    if roles:
-        for role in roles:
-            role_str = role.name.split(" - ")
-            if len(role_str) > 1:
-                lang = role_str[1]
-                break
+    lang = security_manager.get_preferences(g.user.username)
 
     strings = DATASET_STRINGS.get(column_name, [])
     case_format = """CASE \n {cases} \n ELSE {column_name} \n END"""
