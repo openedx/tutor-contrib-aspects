@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.83.0 - 2024-03-11
+
+### [0.83.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.82.0...v0.83.0) (2024-03-11)
+
+#### Features
+
+* add metrics and column translation support ([a81e552](https://github.com/openedx/tutor-contrib-aspects/commit/a81e55226e05595b24777196cf68c9bf4b98fc26))
+* allow to translate dashboard description ([c147697](https://github.com/openedx/tutor-contrib-aspects/commit/c147697dd1dfd73f03286110355d7380a9d0d119))
+
+#### Bug Fixes
+
+* slowest clickhouse queries sql ([6b56b91](https://github.com/openedx/tutor-contrib-aspects/commit/6b56b91bfb8363fd7fc2ce3a9c18b9cff6d2ab41))
+
+#### Build Systems
+
+* Fix translation pull action ([3ab9874](https://github.com/openedx/tutor-contrib-aspects/commit/3ab9874a0c6780742ce069ea41a94e78dce449da))
+* Fix translation pull action ([05be246](https://github.com/openedx/tutor-contrib-aspects/commit/05be246566da738151f49a220512f3526fe722c0))
+
 ## v0.82.0 - 2024-03-06
 
 ### [0.82.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.81.0...v0.82.0) (2024-03-06)
