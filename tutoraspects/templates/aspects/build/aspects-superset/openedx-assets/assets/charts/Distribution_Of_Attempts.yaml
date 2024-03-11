@@ -34,7 +34,6 @@ params:
   row_limit: 10000
   show_legend: false
   slice_id: 30
-  time_range: 'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"), 1, day)'
   viz_type: dist_bar
   x_axis_label: Number Of Attempts To Find Correct Answer
   x_ticks_layout: auto

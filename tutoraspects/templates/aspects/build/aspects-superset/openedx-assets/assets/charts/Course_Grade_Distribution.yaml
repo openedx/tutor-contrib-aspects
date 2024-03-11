@@ -25,7 +25,6 @@ params:
   row_limit: 10000
   show_legend: false
   slice_id: 352
-  time_range: 'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"), 1, day)'
   viz_type: dist_bar
   x_axis_label: Course Grade (out of 100%)
   x_ticks_layout: auto

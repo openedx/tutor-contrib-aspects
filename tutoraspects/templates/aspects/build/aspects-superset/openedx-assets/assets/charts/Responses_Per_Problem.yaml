@@ -51,7 +51,6 @@ params:
   show_controls: false
   show_legend: false
   slice_id: 262
-  time_range: 'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"), 1, day)'
   viz_type: dist_bar
   x_axis_label: Question Title
   x_ticks_layout: auto

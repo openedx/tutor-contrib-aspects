@@ -48,7 +48,6 @@ params:
   row_limit: 10000
   show_legend: true
   slice_id: 47
-  time_range: 'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"), 1, day)'
   viz_type: dist_bar
   x_axis_label: Video Title
   x_ticks_layout: auto
