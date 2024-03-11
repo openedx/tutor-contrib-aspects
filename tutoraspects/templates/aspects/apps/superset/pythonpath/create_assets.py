@@ -17,6 +17,7 @@ from superset.extensions import db
 from superset.models.dashboard import Dashboard
 from superset.utils.database import get_or_create_db
 from superset.models.embedded_dashboard import EmbeddedDashboard
+from pythonpath.localization import get_translation
 
 BASE_DIR = "/app/assets/superset"
 
@@ -34,25 +35,8 @@ for folder in ASSET_FOLDER_MAPPING.values():
 
 FILE_NAME_ATTRIBUTE = "_file_name"
 
-TRANSLATIONS_FILE_PATH = "/app/localization/locale.yaml"
 ASSETS_FILE_PATH = "/app/pythonpath/assets.yaml"
 ASSETS_PATH = "/app/openedx-assets"
-
-merged_data = {}
-with open(TRANSLATIONS_FILE_PATH, "r") as file:
-    yaml_content = file.read()
-    yaml_documents = yaml_content.split("\n---\n")
-
-    for doc in yaml_documents:
-        data = yaml.safe_load(doc)
-        if data is not None:
-            for lang, translations in data.items():
-                if lang not in merged_data:
-                    merged_data[lang] = {}
-                merged_data[lang].update(translations)
-
-
-ASSETS_TRANSLATIONS = merged_data
 
 
 def main():
@@ -296,14 +280,6 @@ def update_embeddable_uuids():
 
         db.session.add(embedded_dashboard)
         db.session.commit()
-
-def get_translation(text, language):
-    """Get a translation for a text in a language"""
-    default_text = f"{text}"
-    LANGUAGE = ASSETS_TRANSLATIONS.get(language, {})
-    if not LANGUAGE:
-        return default_text
-    return ASSETS_TRANSLATIONS.get(language, {}).get(text) or default_text
 
 
 if __name__ == "__main__":

@@ -4,7 +4,11 @@ Custom Jinja template filters that can be used in Superset queries.
 cf https://superset.apache.org/docs/installation/sql-templating/
 """
 from superset.extensions import security_manager
+from pythonpath.localization import get_translation, DATASET_STRINGS
+from superset import security_manager
+import logging
 
+log = logging.getLogger(__name__)
 ALL_COURSES = "1 = 1"
 NO_COURSES = "1 = 0"
 
@@ -43,5 +47,32 @@ def can_view_courses(username, field_name="course_id", **kwargs):
         # If you're not course staff on any courses, you don't get to see any.
         return NO_COURSES
 
+
+def translate_column(column_name):
+    """
+    Translate a string to the given language.
+    """
+    roles = security_manager.get_user_roles()
+    log.info(f"Roles: {roles}")
+    lang = "en"
+    if roles:
+        for role in roles:
+            role_str = role.name.split(" - ")
+            if len(role_str) > 1:
+                lang = role_str[1]
+                break
+
+    strings = DATASET_STRINGS.get(column_name, [])
+    case_format = """CASE \n {cases} \n ELSE {column_name} \n END"""
+    single_case_format = "WHEN {column_name} = '{string}' THEN '{translation}'"
+    cases = "\n".join(
+        single_case_format.format(column_name=column_name, string=string, translation=get_translation(string, lang))
+        for string in strings
+    )
+
+    log.info(f"Translating {column_name} to {lang}")
+    log.info(case_format.format(column_name=column_name, cases=cases))
+
+    return case_format.format(column_name=column_name, cases=cases)
 
 {{patch("superset-jinja-filters")}}

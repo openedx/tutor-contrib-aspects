@@ -12,6 +12,6 @@ extra:
   engine_params: {}
   metadata_params: {}
   schemas_allowed_for_file_upload: []
-sqlalchemy_uri: '{{CLICKHOUSE_REPORT_SQLALCHEMY_URI}}'
+sqlalchemy_uri: '{% raw %}{{CLICKHOUSE_REPORT_SQLALCHEMY_URI}}{% endraw %}'
 uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 version: 1.0.0
