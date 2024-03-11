@@ -53,7 +53,6 @@ def translate_column(column_name):
     Translate a string to the given language.
     """
     roles = security_manager.get_user_roles()
-    log.info(f"Roles: {roles}")
     lang = "en"
     if roles:
         for role in roles:
@@ -69,9 +68,6 @@ def translate_column(column_name):
         single_case_format.format(column_name=column_name, string=string, translation=get_translation(string, lang))
         for string in strings
     )
-
-    log.info(f"Translating {column_name} to {lang}")
-    log.info(case_format.format(column_name=column_name, cases=cases))
 
     return case_format.format(column_name=column_name, cases=cases)
 
