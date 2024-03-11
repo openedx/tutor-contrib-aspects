@@ -17,11 +17,6 @@ class TranslatableAsset:
         """
         Extract text from an asset.
         """
-
-    def extract_text(self):
-        """
-        Remove any variables from the content which should be omitted.
-        """
         strings = []
         for var_path in self.translatable_attributes:
             strings.extend(self.translate_var(self.asset, var_path.split(".")))
