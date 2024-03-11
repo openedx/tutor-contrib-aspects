@@ -12,7 +12,7 @@ columns:
   is_dttm: true
   python_date_format: null
   type: DATETIME
-  verbose_name: null
+  verbose_name: User Registration Date
 - advanced_data_type: null
   column_name: action_date
   description: null
@@ -24,7 +24,7 @@ columns:
   is_dttm: true
   python_date_format: null
   type: DATETIME
-  verbose_name: null
+  verbose_name: Action Date
 - advanced_data_type: null
   column_name: dashboard_status
   description: null
@@ -36,7 +36,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: STRING
-  verbose_name: null
+  verbose_name: Dashboard Status
 - advanced_data_type: null
   column_name: dashboard_title
   description: null
@@ -48,7 +48,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: STRING
-  verbose_name: null
+  verbose_name: Dashboard Title
 - advanced_data_type: null
   column_name: user_name
   description: null
@@ -60,7 +60,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: STRING
-  verbose_name: null
+  verbose_name: User Name
 - advanced_data_type: null
   column_name: action
   description: null
@@ -72,7 +72,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: STRING
-  verbose_name: null
+  verbose_name: Action
 - advanced_data_type: null
   column_name: dashboard_id
   description: null
@@ -84,7 +84,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: INT
-  verbose_name: null
+  verbose_name: Dashboard ID
 - advanced_data_type: null
   column_name: action_count
   description: null
@@ -96,7 +96,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: INT
-  verbose_name: null
+  verbose_name: Action Count
 - advanced_data_type: null
   column_name: slice_id
   description: null
@@ -108,7 +108,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: INT
-  verbose_name: null
+  verbose_name: Slice ID
 - advanced_data_type: null
   column_name: user_id
   description: null
@@ -120,7 +120,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: INT
-  verbose_name: null
+  verbose_name: User ID
 - advanced_data_type: null
   column_name: datasource_id
   description: null
@@ -132,7 +132,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: null
-  verbose_name: null
+  verbose_name: Datasource ID
 - advanced_data_type: null
   column_name: datasource_name
   description: null
@@ -144,7 +144,7 @@ columns:
   is_dttm: null
   python_date_format: null
   type: null
-  verbose_name: null
+  verbose_name: Datasource Name
 - advanced_data_type: null
   column_name: datasource_type
   description: null
@@ -156,7 +156,7 @@ columns:
   is_dttm: null
   python_date_format: null
   type: null
-  verbose_name: null
+  verbose_name: Datasource Type
 - advanced_data_type: null
   column_name: slice_name
   description: null
@@ -168,11 +168,11 @@ columns:
   is_dttm: null
   python_date_format: null
   type: null
-  verbose_name: null
+  verbose_name: Slice Name
 database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
 default_endpoint: null
 description: null
-extra: null
+extra: {}
 fetch_values_predicate: null
 filter_select_enabled: false
 main_dttm_col: null

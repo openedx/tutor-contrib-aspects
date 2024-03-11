@@ -3,9 +3,87 @@ import os
 import shutil
 import yaml
 
+class TranslatableAsset:
+    translatable_attributes = []
+
+    def __init__(self, asset: dict):
+        self.asset = asset
+        for key in ASSET_FOLDER_MAPPING:
+            if key in asset:
+                self.asset_type = ASSET_FOLDER_MAPPING[key]
+                break
+
+    def extract_text(self):
+        """
+        Extract text from an asset.
+        """
+        strings = []
+        for var_path in self.translatable_attributes:
+            strings.extend(self.translate_var(self.asset, var_path.split(".")))
+
+        return strings
+
+    def translate_var(self, content, var_path):
+        """
+        Helper method to remove content from the content dict.
+        """
+        if not content:
+            return []
+        if len(var_path) == 1:
+            if isinstance(content, list):
+                 strings = []
+                 for item in content:
+                     strings.append(item.get(var_path[0], ""))
+                 return strings
+            string = [content.get(var_path[0], "")]
+            return string or []
+        else:
+            if isinstance(content, list):
+                strings = []
+                for item in content:
+                    strings.extend(self.translate_var(item, var_path[1:]))
+                return strings
+            if isinstance(content, dict):
+                if var_path[0] == "*":
+                    strings = []
+                    for key, value in content.items():
+                        strings.extend(self.translate_var(value, var_path[1:]))
+                    return strings
+                return self.translate_var(content.get(var_path[0]), var_path[1:])
+            else:
+                print("Could not translate var_path: ", var_path, content)
+                return []
+
+
+class DashboardAsset(TranslatableAsset):
+    translatable_attributes = [
+        "dashboard_title",
+        "description",
+        "metadata.native_filter_configuration.name",
+        "metadata.native_filter_configuration.description",
+        "position.*.meta.text",
+        "position.*.meta.code",
+    ]
+
+class ChartAsset(TranslatableAsset):
+    translatable_attributes = [
+        "slice_name",
+        "description",
+        "params.x_axis_label",
+        "params.y_axis_label",
+    ]
+
+class DatasetAsset(TranslatableAsset):
+    translatable_attributes = [
+        "metrics.verbose_name",
+        "columns.verbose_name",
+    ]
+
+
 ASSET_FOLDER_MAPPING = {
-    "dashboard_title": "dashboards",
-    "slice_name": "charts",
+    "dashboard_title": ("dashboards", DashboardAsset),
+    "slice_name": ("charts", ChartAsset),
+    "table_name": ("datasets", DatasetAsset),
 }
 
 
@@ -42,50 +120,11 @@ def mark_text_for_translation(asset):
     For every asset extract the text and mark it for translation
     """
 
-    def extract_text(asset, type):
-        """
-        Extract text from an asset
-        """
-        strings = []
-        if type == "dashboards":
-            strings.append(asset["dashboard_title"])
-
-            # Gets translatable fields from filters
-            for filter in asset["metadata"]["native_filter_configuration"]:
-                strings.append(filter["name"])
-
-            # Gets translatable fields from charts
-            for element in asset.get("position", {}).values():
-                if not isinstance(element, dict):
-                    continue
-
-                meta = element.get("meta", {})
-
-                if meta.get("text"):
-                    strings.append(meta["text"])
-
-                if meta.get("code"):
-                    strings.append(meta["code"])
-
-        elif type == "charts":
-            strings.append(asset["slice_name"])
-
-            if asset.get("description"):
-                strings.append(asset["description"])
-
-            if asset["params"].get("x_axis_label"):
-                strings.append(asset["params"]["x_axis_label"])
-
-            if asset["params"].get("y_axis_label"):
-                strings.append(asset["params"]["y_axis_label"])
-
-        return strings
-
-    for key, value in ASSET_FOLDER_MAPPING.items():
+    for key, (asset_type, Asset) in ASSET_FOLDER_MAPPING.items():
         if key in asset:
-            strings = extract_text(asset, value)
+            strings = Asset(asset).extract_text()
             print(
-                f"Extracted {len(strings)} strings from {value} {asset.get('uuid')}"
+                f"Extracted {len(strings)} strings from {asset_type} {asset.get('uuid')}"
             )
             return strings
 
@@ -138,7 +177,7 @@ def compile_translations(root_path):
         outfile.write("---\n")
         # If we don't use an extremely large width, the jinja in our translations
         # can be broken by newlines. So we use the largest number there is.
-        yaml.dump(all_translations, outfile, width=math.inf)
+        yaml.dump(all_translations, outfile, width=math.inf, sort_keys=True)
         outfile.write("\n{{ patch('superset-extra-asset-translations')}}\n")
 
     # We remove these files to avoid confusion about where translations are coming
@@ -162,6 +201,7 @@ def extract_translations(root_path):
 
     print("Gathering text for translations...")
     STRINGS = set(get_text_for_translations(root_path))
+    print(f"Extracted {len(STRINGS)} strings for translation.")
     translations = {'en': {}}
 
     for string in STRINGS:

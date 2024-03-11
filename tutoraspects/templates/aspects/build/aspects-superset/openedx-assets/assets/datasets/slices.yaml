@@ -5,254 +5,254 @@ columns:
   column_name: last_saved_at
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: true
   python_date_format: null
   type: TIMESTAMP WITHOUT TIME ZONE
-  verbose_name: null
+  verbose_name: Last Saved At
 - advanced_data_type: null
   column_name: created_on
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: true
   python_date_format: null
   type: TIMESTAMP WITHOUT TIME ZONE
-  verbose_name: null
+  verbose_name: Created On
 - advanced_data_type: null
   column_name: changed_on
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: true
   python_date_format: null
   type: TIMESTAMP WITHOUT TIME ZONE
-  verbose_name: null
+  verbose_name: Changed On
 - advanced_data_type: null
   column_name: schema_perm
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: VARCHAR(1000)
-  verbose_name: null
+  verbose_name: Schema Perm
 - advanced_data_type: null
   column_name: datasource_name
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: VARCHAR(2000)
-  verbose_name: null
+  verbose_name: Datasource Name
 - advanced_data_type: null
   column_name: perm
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: VARCHAR(2000)
-  verbose_name: null
+  verbose_name: Perm
 - advanced_data_type: null
   column_name: datasource_type
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: VARCHAR(200)
-  verbose_name: null
+  verbose_name: Datasource Type
 - advanced_data_type: null
   column_name: slice_name
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: VARCHAR(250)
-  verbose_name: null
+  verbose_name: Slice Name
 - advanced_data_type: null
   column_name: viz_type
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: VARCHAR(250)
-  verbose_name: null
+  verbose_name: Viz Type
 - advanced_data_type: null
   column_name: uuid
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: UUID
-  verbose_name: null
+  verbose_name: UUID
 - advanced_data_type: null
   column_name: last_saved_by_fk
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: INTEGER
-  verbose_name: null
+  verbose_name: Last Saved By Fk
 - advanced_data_type: null
   column_name: created_by_fk
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: INTEGER
-  verbose_name: null
+  verbose_name: Created By Fk
 - advanced_data_type: null
   column_name: changed_by_fk
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: INTEGER
-  verbose_name: null
+  verbose_name: Changed By Fk
 - advanced_data_type: null
   column_name: datasource_id
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: INTEGER
-  verbose_name: null
+  verbose_name: Datasource ID
 - advanced_data_type: null
   column_name: cache_timeout
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: INTEGER
-  verbose_name: null
+  verbose_name: Cache Timeout
 - advanced_data_type: null
   column_name: id
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: INTEGER
-  verbose_name: null
+  verbose_name: ID
 - advanced_data_type: null
   column_name: certification_details
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: TEXT
-  verbose_name: null
+  verbose_name: Certification Details
 - advanced_data_type: null
   column_name: certified_by
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: TEXT
-  verbose_name: null
+  verbose_name: Certified By
 - advanced_data_type: null
   column_name: query_context
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: TEXT
-  verbose_name: null
+  verbose_name: Query Context
 - advanced_data_type: null
   column_name: params
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: TEXT
-  verbose_name: null
+  verbose_name: Parameters
 - advanced_data_type: null
   column_name: description
   description: null
   expression: ''
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: TEXT
-  verbose_name: null
+  verbose_name: Description
 database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
 default_endpoint: null
 description: null
@@ -265,7 +265,7 @@ metrics:
   d3format: null
   description: null
   expression: COUNT(*)
-  extra: null
+  extra: {}
   metric_name: count
   metric_type: count
   verbose_name: COUNT(*)
