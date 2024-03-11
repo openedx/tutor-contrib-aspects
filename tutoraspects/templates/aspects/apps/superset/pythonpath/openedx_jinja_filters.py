@@ -3,6 +3,7 @@ Custom Jinja template filters that can be used in Superset queries.
 
 cf https://superset.apache.org/docs/installation/sql-templating/
 """
+
 from superset.extensions import security_manager
 from pythonpath.localization import get_translation, DATASET_STRINGS
 from superset import security_manager
@@ -59,10 +60,15 @@ def translate_column(column_name):
     case_format = """CASE \n {cases} \n ELSE {column_name} \n END"""
     single_case_format = "WHEN {column_name} = '{string}' THEN '{translation}'"
     cases = "\n".join(
-        single_case_format.format(column_name=column_name, string=string, translation=get_translation(string, lang))
+        single_case_format.format(
+            column_name=column_name,
+            string=string,
+            translation=get_translation(string, lang),
+        )
         for string in strings
     )
 
     return case_format.format(column_name=column_name, cases=cases)
+
 
 {{patch("superset-jinja-filters")}}

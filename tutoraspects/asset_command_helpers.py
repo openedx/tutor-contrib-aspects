@@ -123,29 +123,32 @@ class Asset:
         Omit templated variables from the content if they are not present in
         the existing file content.
         """
-        if existing:
-            for key in content.keys():
-                if key not in existing.keys():
-                    continue
-                if isinstance(existing[key], str):
-                    if "{{" in existing.get(key, "") or "{%" in existing.get(key, ""):
-                        if key in self.get_raw_vars():
-                            raw_expression = "{% raw %}" + content[key] + "{% endraw %}"
-                            content[key] = raw_expression
-                        else:
-                            content[key] = existing[key]
+        if not existing:
+            return
 
-                if isinstance(existing[key], dict):
-                    self.omit_templated_vars(content[key], existing[key])
+        for key in content.keys():
+            if key not in existing.keys():
+                continue
+            if isinstance(existing[key], str):
+                if "{{" in existing.get(key, "") or "{%" in existing.get(key, ""):
+                    if key in self.get_raw_vars():
+                        raw_expression = "{% raw %}" + content[key] + "{% endraw %}"
+                        content[key] = raw_expression
+                    else:
+                        content[key] = existing[key]
 
-                if isinstance(existing[key], list):
-                    for i, item in enumerate(content[key]):
-                        if isinstance(item, dict):
-                            try:
-                                existing[key][i]
-                                self.omit_templated_vars(item, existing[key][i] or None)
-                            except IndexError:
-                                pass
+            if isinstance(existing[key], dict):
+                self.omit_templated_vars(content[key], existing[key])
+
+            if isinstance(existing[key], list):
+                for i, item in enumerate(content[key]):
+                    if isinstance(item, dict):
+                        try:
+                            tmp = existing[key][i]
+                            self.omit_templated_vars(item, tmp or None)
+                        except IndexError:
+                            pass
+
 
 class ChartAsset(Asset):
     """
@@ -153,7 +156,12 @@ class ChartAsset(Asset):
     """
 
     path = "charts"
-    omitted_vars = ["query_context", "params.dashboards", "params.datasource", "params.slice_id"]
+    omitted_vars = [
+        "query_context",
+        "params.dashboards",
+        "params.datasource",
+        "params.slice_id",
+    ]
     raw_vars = ["sqlExpression"]
 
 
