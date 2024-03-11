@@ -37,8 +37,9 @@ jobs:
           git push origin $branch_name
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ secrets.OPENEDX_SEMANTIC_RELEASE_GITHUB_TOKEN }}
           title: "chore(i18n): updating translations"
           commit-message: "chore(i18n): updating translations on ${{ steps.date.outputs.date }}"
           branch: "bot/translations/${{ steps.date.outputs.date }}"
