@@ -76,7 +76,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "reference/operator_reports.html)\\n"
             "* [Superset Resources](https://github.com/apache/superset#resources)\\n",
         ),
-        ("ASPECTS_ENABLE_INSTRUCTOR_DASHBOARD_PLUGIN", False),
+        ("ASPECTS_ENABLE_INSTRUCTOR_DASHBOARD_PLUGIN", True),
         # Use the base Instructor Dashboard uuid by default. TODO use locale
         ("ASPECTS_INSTRUCTOR_DASHBOARD_UUID", "1d6bf904-f53f-47fd-b1c9-6cd7e284d286"),
         ("ASPECTS_SUPERSET_EXTRA_FILTERS_FORMAT", []),
