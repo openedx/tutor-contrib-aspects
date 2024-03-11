@@ -86,12 +86,13 @@ ASSET_FOLDER_MAPPING = {
     "table_name": ("datasets", DatasetAsset),
 }
 
+BASE_PATH = "tutoraspects/templates/aspects/build/aspects-superset/"
 
 def get_text_for_translations(root_path):
     assets_path = (
         os.path.join(
             root_path,
-            "tutoraspects/templates/aspects/build/aspects-superset/"
+            BASE_PATH,
             "openedx-assets/assets/"
         )
     )
@@ -112,6 +113,11 @@ def get_text_for_translations(root_path):
             asset = yaml.safe_load(asset_str)
             strings.extend(mark_text_for_translation(asset))
 
+    with open(BASE_PATH + "localization/datasets_strings.yaml", 'r') as file:
+        dataset_strings = yaml.safe_load(file.read())
+        for key in dataset_strings:
+            strings.extend(dataset_strings[key])
+            print(f"Extracted {len(dataset_strings[key])} strings for dataset {key}")
     return strings
 
 
