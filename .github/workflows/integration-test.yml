@@ -2,7 +2,6 @@ name: Tutor Integration Test
 
 on:
   pull_request:
-    branches: [ main ]
     paths-ignore:
       - .github/**
       - .ci/**
