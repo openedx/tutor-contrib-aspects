@@ -36,7 +36,7 @@ for folder in ASSET_FOLDER_MAPPING.values():
 FILE_NAME_ATTRIBUTE = "_file_name"
 
 ASSETS_FILE_PATH = "/app/pythonpath/assets.yaml"
-ASSETS_PATH = "/app/openedx-assets"
+ASSETS_PATH = "/app/openedx-assets/assets"
 
 
 def main():
