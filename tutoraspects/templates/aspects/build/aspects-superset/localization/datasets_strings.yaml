@@ -2,3 +2,6 @@ enrollment_mode:
 - audit
 - verified
 - honor
+enrollment_status:
+- registered
+- unregistered
