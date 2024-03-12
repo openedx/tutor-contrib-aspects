@@ -19,7 +19,7 @@ params:
   groupby:
   - total_hints
   metrics:
-  - count
+  - students
   order_desc: true
   rich_tooltip: true
   row_limit: 10000

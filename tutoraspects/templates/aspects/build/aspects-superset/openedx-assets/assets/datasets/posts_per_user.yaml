@@ -86,9 +86,9 @@ metrics:
   description: null
   expression: count(*)
   extra: {}
-  metric_name: count
+  metric_name: users
   metric_type: null
-  verbose_name: null
+  verbose_name: Number Of Users
   warning_text: null
 normalize_columns: true
 offset: 0

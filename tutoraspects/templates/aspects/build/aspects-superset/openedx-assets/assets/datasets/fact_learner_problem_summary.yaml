@@ -146,9 +146,9 @@ metrics:
   description: null
   expression: count(*)
   extra: {}
-  metric_name: count
+  metric_name: students
   metric_type: null
-  verbose_name: null
+  verbose_name: Students
   warning_text: null
 normalize_columns: true
 offset: 0

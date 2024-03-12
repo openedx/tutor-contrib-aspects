@@ -19,7 +19,7 @@ params:
   groupby:
   - responses
   metrics:
-  - count
+  - total_responses
   order_desc: true
   rich_tooltip: true
   row_limit: 10000

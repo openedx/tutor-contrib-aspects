@@ -17,7 +17,7 @@ params:
   groupby:
   - num_posts
   metrics:
-  - count
+  - users
   order_desc: true
   rich_tooltip: true
   row_limit: 10000

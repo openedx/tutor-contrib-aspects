@@ -19,7 +19,7 @@ params:
   groupby:
   - grade_bucket
   metrics:
-  - count
+  - students
   order_bars: true
   order_desc: true
   rich_tooltip: true
