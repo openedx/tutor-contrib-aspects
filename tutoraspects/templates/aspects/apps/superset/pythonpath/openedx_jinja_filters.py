@@ -57,6 +57,8 @@ def translate_column(column_name):
     lang = security_manager.get_preferences(g.user.username)
 
     strings = DATASET_STRINGS.get(column_name, [])
+    if not strings:
+        return column_name
     case_format = """CASE \n {cases} \n ELSE {column_name} \n END"""
     single_case_format = "WHEN {column_name} = '{string}' THEN '{translation}'"
     cases = "\n".join(
