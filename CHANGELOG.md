@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.86.0 - 2024-03-13
+
+### [0.86.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.85.0...v0.86.0) (2024-03-13)
+
+#### Features
+
+* adds ASPECTS_ENABLE_INSTRUCTOR_DASHBOARD_PLUGIN ([082a6c4](https://github.com/openedx/tutor-contrib-aspects/commit/082a6c4d8137fc731559c57d864eb687aa93911f))
+* uses platform-plugin-aspects 0.3.0 ([eed3f66](https://github.com/openedx/tutor-contrib-aspects/commit/eed3f667ffbde6b5ed16cd49725dc943ee1a008d))
+
+#### Bug Fixes
+
+* ASPECTS_ENABLE_INSTRUCTOR_DASHBOARD_PLUGIN config ([1d8bec1](https://github.com/openedx/tutor-contrib-aspects/commit/1d8bec16f9c8a6ed2cfc5edb83fd2479bb641720))
+* quality ([7648807](https://github.com/openedx/tutor-contrib-aspects/commit/7648807c7f5112efa368cb10137d54a42ff605a0))
+
+#### Build Systems
+
+* don't cache PR images to registry ([8bf4076](https://github.com/openedx/tutor-contrib-aspects/commit/8bf4076db7cfee7dfb124609381f9f9cdaa91891))
+
 ## v0.85.0 - 2024-03-13
 
 ### [0.85.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.84.0...v0.85.0) (2024-03-13)
