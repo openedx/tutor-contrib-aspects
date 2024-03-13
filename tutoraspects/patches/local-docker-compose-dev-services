@@ -3,7 +3,8 @@ superset:
   {% include 'base-docker-compose-services' %}
     OPENEDX_LMS_ROOT_URL: "http://{{ LMS_HOST }}:8000"
     OAUTH2_CLIENT_ID: {{ SUPERSET_OAUTH2_CLIENT_ID_DEV }}
-  command: ["bash", "/app/docker/docker-bootstrap.sh", "app-gunicorn"]
+    SUPERSET_ENV: development
+  command: ["bash", "/app/docker/docker-bootstrap.sh", "app"]
   ports:
     - 8088:{{ SUPERSET_PORT }}
   depends_on:
@@ -16,6 +17,7 @@ superset-worker:
   {% include 'base-docker-compose-services' %}
     OPENEDX_LMS_ROOT_URL: "http://{{ LMS_HOST }}:8000"
     OAUTH2_CLIENT_ID: {{ SUPERSET_OAUTH2_CLIENT_ID_DEV }}
+    SUPERSET_ENV: development
   command: ["bash", "/app/docker/docker-bootstrap.sh", "worker"]
   healthcheck:
     test: ["CMD-SHELL", "celery inspect ping -A superset.tasks.celery_app:app -d celery@$$HOSTNAME"]
@@ -27,6 +29,7 @@ superset-worker-beat:
   {% include 'base-docker-compose-services' %}
     OPENEDX_LMS_ROOT_URL: "http://{{ LMS_HOST }}:8000"
     OAUTH2_CLIENT_ID: {{ SUPERSET_OAUTH2_CLIENT_ID_DEV }}
+    SUPERSET_ENV: development
   command: ["bash", "/app/docker/docker-bootstrap.sh", "beat"]
   healthcheck:
     disable: true

@@ -19,7 +19,10 @@ params:
   forecastPeriods: 10
   granularity_sqla: emission_time
   groupby:
-  - enrollment_status
+  - expressionType: SQL
+    label: Enrollment Status
+    sqlExpression: |-
+      {% raw %}{{translate_column('enrollment_status')}}{% endraw %}
   legendMargin: null
   legendOrientation: top
   legendType: scroll

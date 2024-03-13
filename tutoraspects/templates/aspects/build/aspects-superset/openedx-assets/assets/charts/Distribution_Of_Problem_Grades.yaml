@@ -19,14 +19,13 @@ params:
   groupby:
   - grade_bucket
   metrics:
-  - count
+  - students
   order_bars: true
   order_desc: true
   rich_tooltip: true
   row_limit: 10000
   show_legend: false
   slice_id: 345
-  time_range: 'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"), 1, day)'
   viz_type: dist_bar
   x_axis_label: Percentage Grade
   x_ticks_layout: auto

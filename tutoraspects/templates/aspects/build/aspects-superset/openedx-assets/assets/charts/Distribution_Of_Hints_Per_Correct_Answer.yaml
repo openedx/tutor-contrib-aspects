@@ -19,13 +19,12 @@ params:
   groupby:
   - total_hints
   metrics:
-  - count
+  - students
   order_desc: true
   rich_tooltip: true
   row_limit: 10000
   show_legend: false
   slice_id: 166
-  time_range: 'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"), 1, day)'
   viz_type: dist_bar
   x_axis_label: Hints / Answer Displayed Before Correct Answer Chosen
   x_ticks_layout: auto

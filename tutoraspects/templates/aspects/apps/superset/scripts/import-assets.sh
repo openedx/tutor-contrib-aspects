@@ -1,4 +1,4 @@
-
+mkdir -p /app/assets/
 cd /app/assets/
 rm -rf superset
 

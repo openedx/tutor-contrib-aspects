@@ -111,9 +111,19 @@ metrics:
   expression: count(*)
   extra:
     warning_markdown: ''
-  metric_name: count
+  metric_name: total_transcript_usage
   metric_type: null
   verbose_name: Total transcript usage
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: count(distinct actor_id)
+  extra:
+    warning_markdown: ''
+  metric_name: unique_transcript_users
+  metric_type: null
+  verbose_name: Unique Transcript Users
   warning_text: null
 normalize_columns: true
 offset: 0

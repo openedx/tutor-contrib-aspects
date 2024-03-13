@@ -134,9 +134,9 @@ metrics:
   description: null
   expression: count(*)
   extra: {}
-  metric_name: count
+  metric_name: total_responses
   metric_type: null
-  verbose_name: null
+  verbose_name: Responses
   warning_text: null
 normalize_columns: true
 offset: 0

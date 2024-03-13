@@ -111,9 +111,19 @@ metrics:
   expression: count(*)
   extra:
     warning_markdown: ''
-  metric_name: count
+  metric_name: total_plays
   metric_type: null
   verbose_name: Total plays
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: count(distinct actor_id)
+  extra:
+    warning_markdown: ''
+  metric_name: unique_watchers
+  metric_type: null
+  verbose_name: Unique Watchers
   warning_text: null
 normalize_columns: true
 offset: 0

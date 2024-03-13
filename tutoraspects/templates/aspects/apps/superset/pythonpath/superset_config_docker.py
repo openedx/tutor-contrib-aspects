@@ -108,6 +108,7 @@ def can_view_courses_wrapper(*args, **kwargs):
 
 JINJA_CONTEXT_ADDONS = {
     'can_view_courses': can_view_courses_wrapper,
+    'translate_column': translate_column,
     {% for filter in SUPERSET_EXTRA_JINJA_FILTERS %}'{{ filter }}': {{filter}},{% endfor %}
 }
 

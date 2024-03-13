@@ -19,14 +19,13 @@ params:
     sqlExpression: null
     subject: enrollment_status
   color_scheme: supersetColors
-  dashboards:
-  - 23
-  datasource: 11__table
   date_format: smart_date
   extra_form_data: {}
-  granularity_sqla: emission_time
   groupby:
-  - enrollment_mode
+  - expressionType: SQL
+    label: Enrollment Mode
+    sqlExpression: |-
+      {% raw %}{{translate_column('enrollment_mode')}}{% endraw %}
   innerRadius: 30
   label_type: key
   labels_outside: true
@@ -39,11 +38,8 @@ params:
   show_labels: true
   show_labels_threshold: 5
   show_legend: true
-  slice_id: 40
   sort_by_metric: true
-  time_range: 'DATEADD(DATETIME("now"), -1, month) : DATEADD(DATETIME("now"), 1, day)'
   viz_type: pie
-query_context: null
 slice_name: Enrollments By Enrollment Mode
 uuid: 05ed7102-5464-4e2f-86ae-31700b787cc3
 version: 1.0.0
