@@ -41,10 +41,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "OPENEDX_EXTRA_PIP_REQUIREMENTS",
             [
-                (
-                    "git+https://github.com/openedx/platform-plugin-aspects.git@jill/migrate-xblock"
-                    "#egg=platform-plugin-aspects==0.3.0"
-                ),
+                "platform-plugin-aspects==0.3.0",
                 "edx-event-routing-backends==v8.1.1",
             ],
         ),
