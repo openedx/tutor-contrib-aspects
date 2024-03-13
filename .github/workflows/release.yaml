@@ -81,7 +81,7 @@ jobs:
       - name: Build Aspects Docker Images
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         run: |
-          tutor images build ${{ matrix.service.name }} --cache-to-registry
+          tutor images build ${{ matrix.service.name }}
           tutor images push ${{ matrix.service.name }}
       - name: Build Aspects Docker Images Latest
         if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'bot/v')

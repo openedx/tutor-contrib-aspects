@@ -41,7 +41,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "OPENEDX_EXTRA_PIP_REQUIREMENTS",
             [
-                "platform-plugin-aspects==0.2.0",
+                "platform-plugin-aspects==0.3.0",
                 "edx-event-routing-backends==v8.1.1",
             ],
         ),
@@ -76,6 +76,10 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "reference/operator_reports.html)\\n"
             "* [Superset Resources](https://github.com/apache/superset#resources)\\n",
         ),
+        ("ASPECTS_ENABLE_INSTRUCTOR_DASHBOARD_PLUGIN", True),
+        # Use the base Instructor Dashboard uuid by default. TODO use locale
+        ("ASPECTS_INSTRUCTOR_DASHBOARD_UUID", "1d6bf904-f53f-47fd-b1c9-6cd7e284d286"),
+        ("ASPECTS_SUPERSET_EXTRA_FILTERS_FORMAT", []),
         # ClickHouse xAPI settings
         ("ASPECTS_XAPI_DATABASE", "xapi"),
         ("ASPECTS_RAW_XAPI_TABLE", "xapi_events_all"),
