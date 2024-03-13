@@ -10,7 +10,6 @@ params:
   annotation_layers: []
   color_scheme: htg_color_scheme
   comparison_type: values
-  datasource: 473__table
   extra_form_data: {}
   forecastInterval: 0.8
   forecastPeriods: 10

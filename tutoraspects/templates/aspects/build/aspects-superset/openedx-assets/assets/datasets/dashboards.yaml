@@ -12,7 +12,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: VARCHAR(500)
-  verbose_name: null
+  verbose_name: Dashboard Title
 - advanced_data_type: null
   column_name: uuid
   description: null
@@ -24,7 +24,7 @@ columns:
   is_dttm: null
   python_date_format: null
   type: BINARY(16)
-  verbose_name: null
+  verbose_name: UUID
 - advanced_data_type: null
   column_name: published
   description: null
@@ -36,7 +36,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: TINYINT(1)
-  verbose_name: null
+  verbose_name: Published
 - advanced_data_type: null
   column_name: slug
   description: null
@@ -48,7 +48,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: VARCHAR(255)
-  verbose_name: null
+  verbose_name: Slug
 - advanced_data_type: null
   column_name: created_on
   description: null
@@ -60,7 +60,7 @@ columns:
   is_dttm: true
   python_date_format: null
   type: DATETIME
-  verbose_name: null
+  verbose_name: Created On
 - advanced_data_type: null
   column_name: changed_on
   description: null
@@ -72,7 +72,7 @@ columns:
   is_dttm: true
   python_date_format: null
   type: DATETIME
-  verbose_name: null
+  verbose_name: Changed On
 - advanced_data_type: null
   column_name: json_metadata
   description: null
@@ -84,7 +84,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: MEDIUMTEXT
-  verbose_name: null
+  verbose_name: JSON Metadata
 - advanced_data_type: null
   column_name: position_json
   description: null
@@ -96,7 +96,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: MEDIUMTEXT
-  verbose_name: null
+  verbose_name: Position Json
 - advanced_data_type: null
   column_name: created_by_fk
   description: null
@@ -108,7 +108,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: INTEGER
-  verbose_name: null
+  verbose_name: Created By Fk
 - advanced_data_type: null
   column_name: changed_by_fk
   description: null
@@ -120,7 +120,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: INTEGER
-  verbose_name: null
+  verbose_name: Changed By Fk
 - advanced_data_type: null
   column_name: id
   description: null
@@ -132,7 +132,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: INTEGER
-  verbose_name: null
+  verbose_name: ID
 - advanced_data_type: null
   column_name: certification_details
   description: null
@@ -144,7 +144,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: TEXT
-  verbose_name: null
+  verbose_name: Certification Details
 - advanced_data_type: null
   column_name: certified_by
   description: null
@@ -156,7 +156,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: TEXT
-  verbose_name: null
+  verbose_name: Certified By
 - advanced_data_type: null
   column_name: description
   description: null
@@ -168,7 +168,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: TEXT
-  verbose_name: null
+  verbose_name: Description
 - advanced_data_type: null
   column_name: css
   description: null
@@ -180,7 +180,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: TEXT
-  verbose_name: null
+  verbose_name: CSS
 - advanced_data_type: null
   column_name: is_managed_externally
   description: null
@@ -192,7 +192,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: TINYINT(1)
-  verbose_name: null
+  verbose_name: Is Managed Externally
 - advanced_data_type: null
   column_name: external_url
   description: null
@@ -204,7 +204,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: TEXT
-  verbose_name: null
+  verbose_name: External Url
 database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
 default_endpoint: null
 description: null

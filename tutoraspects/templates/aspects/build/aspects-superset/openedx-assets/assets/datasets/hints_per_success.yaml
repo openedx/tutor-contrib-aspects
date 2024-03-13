@@ -2,18 +2,6 @@ _file_name: hints_per_success.yaml
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: total_hints
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: UInt64
-  verbose_name: Total Hints
-- advanced_data_type: null
   column_name: problem_name_with_location
   description: null
   expression: null
@@ -26,7 +14,7 @@ columns:
   type: String
   verbose_name: Problem Name With Location
 - advanced_data_type: null
-  column_name: problem_name
+  column_name: total_hints
   description: null
   expression: null
   extra: {}
@@ -35,8 +23,8 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
-  verbose_name: Problem Name
+  type: UInt64
+  verbose_name: Total Hints
 - advanced_data_type: null
   column_name: actor_id
   description: null
@@ -50,18 +38,6 @@ columns:
   type: String
   verbose_name: Actor ID
 - advanced_data_type: null
-  column_name: course_name
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Name
-- advanced_data_type: null
   column_name: course_key
   description: null
   expression: null
@@ -74,6 +50,18 @@ columns:
   type: String
   verbose_name: Course Key
 - advanced_data_type: null
+  column_name: course_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Name
+- advanced_data_type: null
   column_name: course_run
   description: null
   expression: null
@@ -85,6 +73,18 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Course Run
+- advanced_data_type: null
+  column_name: problem_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Problem Name
 - advanced_data_type: null
   column_name: org
   description: null

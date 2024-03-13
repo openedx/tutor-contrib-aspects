@@ -7,9 +7,6 @@ description: null
 params:
   adhoc_filters: []
   color_scheme: supersetColors
-  dashboards:
-  - 29
-  datasource: 21__table
   date_format: smart_date
   extra_form_data: {}
   groupby:
@@ -50,7 +47,6 @@ params:
   show_labels: true
   show_labels_threshold: 5
   show_legend: true
-  slice_id: 748
   sort_by_metric: true
   viz_type: pie
 slice_name: Courses Per Organization

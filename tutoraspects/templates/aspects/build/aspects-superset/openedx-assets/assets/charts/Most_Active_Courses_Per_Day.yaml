@@ -14,9 +14,6 @@ params:
   annotation_layers: []
   color_scheme: supersetColors
   comparison_type: values
-  dashboards:
-  - 29
-  datasource: 28__table
   extra_form_data: {}
   forecastInterval: 0.8
   forecastPeriods: 10
@@ -60,7 +57,6 @@ params:
   seriesType: line
   show_empty_columns: true
   show_legend: true
-  slice_id: 786
   sort_series_type: sum
   time_grain_sqla: P1D
   tooltipTimeFormat: smart_date

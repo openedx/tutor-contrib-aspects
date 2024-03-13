@@ -2,19 +2,6 @@ _file_name: xapi_events_all_parsed.yaml
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: verb
-  description: Short name for the verb; the final word in the verb_id path.
-  expression: |-
-    splitByChar('/', verb_id)[-1]
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: null
-  verbose_name: Verb
-- advanced_data_type: null
   column_name: video_event
   description: Set to true when the event is a video event.
   expression: |-
@@ -28,10 +15,10 @@ columns:
   type: null
   verbose_name: Video Event
 - advanced_data_type: null
-  column_name: object_type
-  description: 'Parsed JSON: last word in the event.object.definition.type field'
+  column_name: verb
+  description: Short name for the verb; the final word in the verb_id path.
   expression: |-
-    splitByChar('/', event.object.definition.type)[-1]
+    splitByChar('/', verb_id)[-1]
   extra: {}
   filterable: true
   groupby: true
@@ -39,7 +26,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: null
-  verbose_name: Object Type
+  verbose_name: Verb
 - advanced_data_type: null
   column_name: course_key_short
   description: 'Course key without the course-v1: prefix'
@@ -54,6 +41,19 @@ columns:
   type: null
   verbose_name: Course Key Short
 - advanced_data_type: null
+  column_name: object_type
+  description: 'Parsed JSON: last word in the event.object.definition.type field'
+  expression: |-
+    splitByChar('/', event.object.definition.type)[-1]
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: null
+  verbose_name: Object Type
+- advanced_data_type: null
   column_name: course_key
   description: Course key part of the course_id URL
   expression: |-
@@ -66,6 +66,30 @@ columns:
   python_date_format: null
   type: null
   verbose_name: Course Key
+- advanced_data_type: null
+  column_name: actor_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Actor ID
+- advanced_data_type: null
+  column_name: course_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course ID
 - advanced_data_type: null
   column_name: event_id
   description: null
@@ -103,18 +127,6 @@ columns:
   type: String
   verbose_name: Object ID
 - advanced_data_type: null
-  column_name: actor_id
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Actor ID
-- advanced_data_type: null
   column_name: verb_id
   description: null
   expression: null
@@ -126,18 +138,6 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Verb ID
-- advanced_data_type: null
-  column_name: course_id
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course ID
 - advanced_data_type: null
   column_name: event_str
   description: null
@@ -184,7 +184,7 @@ normalize_columns: true
 offset: 0
 params: null
 schema: main
-sql: 'SELECT * FROM {{ASPECTS_XAPI_DATABASE}}.xapi_events_all_parsed'
+sql: SELECT * FROM {{ASPECTS_XAPI_DATABASE}}.xapi_events_all_parsed
 table_name: xapi_events_all_parsed
 template_params: null
 uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6

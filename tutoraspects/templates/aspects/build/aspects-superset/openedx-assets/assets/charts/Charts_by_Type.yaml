@@ -8,7 +8,6 @@ description: Count of the various types of charts created in Superset over the s
 params:
   adhoc_filters: []
   color_scheme: htg_color_scheme
-  datasource: 482__table
   date_format: smart_date
   extra_form_data: {}
   granularity_sqla: created_on
@@ -20,7 +19,6 @@ params:
   row_limit: 10000
   show_labels: true
   show_upper_labels: true
-  slice_id: 605
   time_range: Last quarter
   time_range_endpoints:
   - inclusive

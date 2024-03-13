@@ -6,9 +6,6 @@ dataset_uuid: 39d1e786-c0c8-4c56-81c8-56fb0df88001
 description: null
 params:
   adhoc_filters: []
-  dashboards:
-  - 61
-  datasource: 57__table
   extra_form_data: {}
   granularity_sqla: emission_time
   header_font_size: 0.4
@@ -42,7 +39,6 @@ params:
   time_range: No filter
   viz_type: big_number_total
   y_axis_format: SMART_NUMBER
-query_context: null
 slice_name: Distinct forum users
 uuid: feb323ad-c819-49ca-a336-584bd9ff1a2e
 version: 1.0.0

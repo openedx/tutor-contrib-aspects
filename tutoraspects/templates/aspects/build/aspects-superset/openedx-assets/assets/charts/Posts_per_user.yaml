@@ -9,9 +9,6 @@ params:
   bottom_margin: auto
   color_scheme: supersetColors
   columns: []
-  dashboards:
-  - 61
-  datasource: 58__table
   extra_form_data: {}
   granularity_sqla: null
   groupby:
@@ -22,7 +19,6 @@ params:
   rich_tooltip: true
   row_limit: 10000
   show_legend: true
-  slice_id: 922
   time_range: No filter
   timeseries_limit_metric:
     aggregate: null
@@ -41,7 +37,6 @@ params:
   - null
   y_axis_format: SMART_NUMBER
   y_axis_label: Number of users
-query_context: null
 slice_name: Posts per user
 uuid: bc191ce7-f39d-48db-86a9-d19949f4211d
 version: 1.0.0

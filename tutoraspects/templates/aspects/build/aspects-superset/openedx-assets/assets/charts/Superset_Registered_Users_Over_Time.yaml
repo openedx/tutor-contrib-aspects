@@ -9,7 +9,6 @@ params:
   annotation_layers: []
   color_scheme: htg_color_scheme
   comparison_type: values
-  datasource: 472__table
   extra_form_data: {}
   forecastInterval: 0.8
   forecastPeriods: 10
@@ -52,7 +51,6 @@ params:
   row_limit: 10000
   show_legend: false
   show_value: false
-  slice_id: 368
   stack: false
   time_grain_sqla: P1D
   time_range: Last quarter

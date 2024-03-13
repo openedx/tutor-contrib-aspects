@@ -20,9 +20,6 @@ params:
   bottom_margin: auto
   color_scheme: supersetColors
   columns: []
-  dashboards:
-  - 23
-  datasource: 2__table
   extra_form_data: {}
   groupby:
   - attempts
@@ -33,7 +30,6 @@ params:
   rich_tooltip: true
   row_limit: 10000
   show_legend: false
-  slice_id: 30
   viz_type: dist_bar
   x_axis_label: Number Of Attempts To Find Correct Answer
   x_ticks_layout: auto
@@ -42,7 +38,6 @@ params:
   - null
   y_axis_format: SMART_NUMBER
   y_axis_label: Students
-query_context: null
 slice_name: Distribution Of Attempts
 uuid: db90930f-f16e-4c32-8050-0e4abae28f4c
 version: 1.0.0

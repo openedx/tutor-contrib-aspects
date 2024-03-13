@@ -26,6 +26,30 @@ columns:
   type: DATETIME
   verbose_name: Action Date
 - advanced_data_type: null
+  column_name: action_count
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INT
+  verbose_name: Action Count
+- advanced_data_type: null
+  column_name: dashboard_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INT
+  verbose_name: Dashboard ID
+- advanced_data_type: null
   column_name: dashboard_status
   description: null
   expression: null
@@ -50,54 +74,6 @@ columns:
   type: STRING
   verbose_name: Dashboard Title
 - advanced_data_type: null
-  column_name: user_name
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: STRING
-  verbose_name: User Name
-- advanced_data_type: null
-  column_name: action
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: STRING
-  verbose_name: Action
-- advanced_data_type: null
-  column_name: dashboard_id
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: INT
-  verbose_name: Dashboard ID
-- advanced_data_type: null
-  column_name: action_count
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: INT
-  verbose_name: Action Count
-- advanced_data_type: null
   column_name: slice_id
   description: null
   expression: null
@@ -121,6 +97,18 @@ columns:
   python_date_format: null
   type: INT
   verbose_name: User ID
+- advanced_data_type: null
+  column_name: user_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: User Name
 - advanced_data_type: null
   column_name: datasource_id
   description: null
@@ -169,6 +157,18 @@ columns:
   python_date_format: null
   type: null
   verbose_name: Slice Name
+- advanced_data_type: null
+  column_name: action
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: Action
 database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
 default_endpoint: null
 description: null

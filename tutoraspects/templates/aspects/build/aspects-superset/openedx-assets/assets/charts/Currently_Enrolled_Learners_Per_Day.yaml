@@ -24,7 +24,6 @@ params:
     b: 135
     g: 122
     r: 0
-  datasource: 40__table
   extra_form_data: {}
   granularity_sqla: enrollment_status_date
   header_font_size: 0.4
@@ -38,7 +37,6 @@ params:
   time_range: No filter
   viz_type: big_number
   y_axis_format: SMART_NUMBER
-query_context: null
 slice_name: Currently Enrolled Learners Per Day
 uuid: ed2fe731-6544-422f-bc55-42f399f48b2c
 version: 1.0.0
