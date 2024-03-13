@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.85.0 - 2024-03-13
+
+### [0.85.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.84.0...v0.85.0) (2024-03-13)
+
+#### Features
+
+* turn datasets into virtual ([d4432b5](https://github.com/openedx/tutor-contrib-aspects/commit/d4432b5ee27ba8b324b5e9ba5b40de34464e3188))
+
 ## v0.84.0 - 2024-03-13
 
 ### [0.84.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.83.0...v0.84.0) (2024-03-13)
