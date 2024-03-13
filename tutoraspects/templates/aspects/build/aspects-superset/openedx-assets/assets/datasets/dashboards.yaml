@@ -2,30 +2,6 @@ _file_name: dashboards.yaml
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: created_on
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: TIMESTAMP WITHOUT TIME ZONE
-  verbose_name: Created On
-- advanced_data_type: null
-  column_name: changed_on
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: TIMESTAMP WITHOUT TIME ZONE
-  verbose_name: Changed On
-- advanced_data_type: null
   column_name: dashboard_title
   description: null
   expression: ''
@@ -36,7 +12,31 @@ columns:
   is_dttm: false
   python_date_format: null
   type: VARCHAR(500)
-  verbose_name: Dashboard Title
+  verbose_name: null
+- advanced_data_type: null
+  column_name: uuid
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: null
+  python_date_format: null
+  type: BINARY(16)
+  verbose_name: null
+- advanced_data_type: null
+  column_name: published
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: TINYINT(1)
+  verbose_name: null
 - advanced_data_type: null
   column_name: slug
   description: null
@@ -48,9 +48,33 @@ columns:
   is_dttm: false
   python_date_format: null
   type: VARCHAR(255)
-  verbose_name: Slug
+  verbose_name: null
 - advanced_data_type: null
-  column_name: published
+  column_name: created_on
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DATETIME
+  verbose_name: null
+- advanced_data_type: null
+  column_name: changed_on
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DATETIME
+  verbose_name: null
+- advanced_data_type: null
+  column_name: json_metadata
   description: null
   expression: ''
   extra: {}
@@ -59,10 +83,10 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: BOOLEAN
-  verbose_name: Published
+  type: MEDIUMTEXT
+  verbose_name: null
 - advanced_data_type: null
-  column_name: uuid
+  column_name: position_json
   description: null
   expression: ''
   extra: {}
@@ -71,8 +95,8 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: UUID
-  verbose_name: UUID
+  type: MEDIUMTEXT
+  verbose_name: null
 - advanced_data_type: null
   column_name: created_by_fk
   description: null
@@ -84,7 +108,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: INTEGER
-  verbose_name: Created By FK
+  verbose_name: null
 - advanced_data_type: null
   column_name: changed_by_fk
   description: null
@@ -96,7 +120,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: INTEGER
-  verbose_name: Changed By FK
+  verbose_name: null
 - advanced_data_type: null
   column_name: id
   description: null
@@ -108,19 +132,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: INTEGER
-  verbose_name: ID
-- advanced_data_type: null
-  column_name: json_metadata
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: TEXT
-  verbose_name: JSON Metadata
+  verbose_name: null
 - advanced_data_type: null
   column_name: certification_details
   description: null
@@ -132,7 +144,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: TEXT
-  verbose_name: Certification Details
+  verbose_name: null
 - advanced_data_type: null
   column_name: certified_by
   description: null
@@ -144,19 +156,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: TEXT
-  verbose_name: Certified By
-- advanced_data_type: null
-  column_name: position_json
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: TEXT
-  verbose_name: Position JSON
+  verbose_name: null
 - advanced_data_type: null
   column_name: description
   description: null
@@ -168,7 +168,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: TEXT
-  verbose_name: Description
+  verbose_name: null
 - advanced_data_type: null
   column_name: css
   description: null
@@ -180,7 +180,31 @@ columns:
   is_dttm: false
   python_date_format: null
   type: TEXT
-  verbose_name: CSS
+  verbose_name: null
+- advanced_data_type: null
+  column_name: is_managed_externally
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: TINYINT(1)
+  verbose_name: null
+- advanced_data_type: null
+  column_name: external_url
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: TEXT
+  verbose_name: null
 database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
 default_endpoint: null
 description: null
@@ -193,16 +217,17 @@ metrics:
   d3format: null
   description: null
   expression: COUNT(*)
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: count
   metric_type: count
   verbose_name: COUNT(*)
   warning_text: null
-normalize_columns: false
+normalize_columns: true
 offset: 0
 params: null
 schema: superset
-sql: null
+sql: 'select * from '
 table_name: dashboards
 template_params: null
 uuid: 3dee777a-3dd4-4fcb-a749-4d13651b3444

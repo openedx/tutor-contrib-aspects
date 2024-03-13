@@ -69,8 +69,8 @@ metrics:
 normalize_columns: true
 offset: 0
 params: null
-schema: '{{ ASPECTS_EVENT_SINK_DATABASE }}'
-sql: null
+schema: main
+sql: "select * from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names"
 table_name: course_names
 template_params: null
 uuid: 41278a97-d0ff-4645-9514-d79f80d275df
