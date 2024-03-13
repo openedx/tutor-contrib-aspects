@@ -19,7 +19,7 @@ VIRTUAL_TABLE_SCHEMA = "main"
 
 SECURITY_FILTERS = [
     {
-        "schema": "{{ASPECTS_XAPI_DATABASE}}",
+        "schema": VIRTUAL_TABLE_SCHEMA,
         "table_name": "{{ASPECTS_XAPI_TABLE}}",
         "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
         "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
@@ -91,7 +91,7 @@ SECURITY_FILTERS = [
         "filter_type": "Regular"
     },
     {
-        "schema": "{{ASPECTS_EVENT_SINK_DATABASE}}",
+        "schema": VIRTUAL_TABLE_SCHEMA,
         "table_name": "course_names",
         "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
         "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
@@ -99,7 +99,7 @@ SECURITY_FILTERS = [
         "filter_type": "Regular"
     },
     {
-        "schema": "{{ASPECTS_EVENT_SINK_DATABASE}}",
+        "schema": VIRTUAL_TABLE_SCHEMA,
         "table_name": "course_overviews",
         "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
         "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",
@@ -107,7 +107,7 @@ SECURITY_FILTERS = [
         "filter_type": "Regular"
     },
     {
-        "schema": "{{ASPECTS_EVENT_SINK_DATABASE}}",
+        "schema": VIRTUAL_TABLE_SCHEMA,
         "table_name": "course_blocks",
         "role_name": "{{SUPERSET_ROLES_MAPPING.instructor}}",
         "group_key": "{{SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY}}",

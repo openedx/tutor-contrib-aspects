@@ -2,18 +2,6 @@ _file_name: fact_transcript_usage.yaml
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: emission_time
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: DateTime
-  verbose_name: Emission Time
-- advanced_data_type: null
   column_name: video_name_with_location
   description: null
   expression: null
@@ -38,6 +26,18 @@ columns:
   type: String
   verbose_name: Actor ID
 - advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Key
+- advanced_data_type: null
   column_name: course_name
   description: null
   expression: null
@@ -49,18 +49,6 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Course Name
-- advanced_data_type: null
-  column_name: video_name
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Video Name
 - advanced_data_type: null
   column_name: course_run
   description: null
@@ -74,6 +62,30 @@ columns:
   type: String
   verbose_name: Course Run
 - advanced_data_type: null
+  column_name: emission_time
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DateTime
+  verbose_name: Emission Time
+- advanced_data_type: null
+  column_name: video_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Video Name
+- advanced_data_type: null
   column_name: org
   description: null
   expression: null
@@ -85,18 +97,6 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Organization
-- advanced_data_type: null
-  column_name: course_key
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Key
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
@@ -108,22 +108,22 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: count(*)
-  extra:
-    warning_markdown: ''
-  metric_name: total_transcript_usage
-  metric_type: null
-  verbose_name: Total transcript usage
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
   expression: count(distinct actor_id)
   extra:
     warning_markdown: ''
   metric_name: unique_transcript_users
   metric_type: null
   verbose_name: Unique Transcript Users
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: count(*)
+  extra:
+    warning_markdown: ''
+  metric_name: total_transcript_usage
+  metric_type: null
+  verbose_name: Total transcript usage
   warning_text: null
 normalize_columns: true
 offset: 0

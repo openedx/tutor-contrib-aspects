@@ -6,7 +6,6 @@ dataset_uuid: 46183302-6fa6-41a3-b6a7-79ff6c1c8402
 description: null
 params:
   adhoc_filters: []
-  datasource: 2__table
   extra_form_data: {}
   header_font_size: 0.4
   metric:

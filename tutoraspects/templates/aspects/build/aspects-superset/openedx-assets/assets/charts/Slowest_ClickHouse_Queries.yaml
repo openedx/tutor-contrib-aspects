@@ -18,8 +18,6 @@ params:
   - memory_usage_kb
   - query
   color_pn: true
-  dashboards: []
-  datasource: 21__table
   extra_form_data: {}
   groupby: []
   metrics: []

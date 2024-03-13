@@ -11,9 +11,6 @@ params:
   annotation_layers: []
   color_scheme: supersetColors
   comparison_type: values
-  dashboards:
-  - 23
-  datasource: 11__table
   extra_form_data: {}
   forecastInterval: 0.8
   forecastPeriods: 10
@@ -35,7 +32,6 @@ params:
   row_limit: 10000
   show_empty_columns: true
   show_legend: false
-  slice_id: 111
   stack: true
   time_grain_sqla: P1D
   time_range: No filter
@@ -52,7 +48,6 @@ params:
   y_axis_title: Number Of Events
   y_axis_title_margin: 15
   y_axis_title_position: Left
-query_context: null
 slice_name: Enrollment Events Per Day
 uuid: bb1147cc-b7bc-44b7-b06a-79b0db6626aa
 version: 1.0.0

@@ -38,78 +38,6 @@ columns:
   type: TIMESTAMP WITHOUT TIME ZONE
   verbose_name: Last Login
 - advanced_data_type: null
-  column_name: password
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: VARCHAR(256)
-  verbose_name: Password
-- advanced_data_type: null
-  column_name: last_name
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: VARCHAR(64)
-  verbose_name: Last Name
-- advanced_data_type: null
-  column_name: first_name
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: VARCHAR(64)
-  verbose_name: First Name
-- advanced_data_type: null
-  column_name: username
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: VARCHAR(64)
-  verbose_name: Username
-- advanced_data_type: null
-  column_name: email
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: VARCHAR(64)
-  verbose_name: Email
-- advanced_data_type: null
-  column_name: active
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: BOOLEAN
-  verbose_name: Active
-- advanced_data_type: null
   column_name: created_by_fk
   description: null
   expression: ''
@@ -146,6 +74,30 @@ columns:
   type: INTEGER
   verbose_name: Fail Login Count
 - advanced_data_type: null
+  column_name: first_name
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: VARCHAR(64)
+  verbose_name: First Name
+- advanced_data_type: null
+  column_name: last_name
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: VARCHAR(64)
+  verbose_name: Last Name
+- advanced_data_type: null
   column_name: login_count
   description: null
   expression: ''
@@ -157,6 +109,54 @@ columns:
   python_date_format: null
   type: INTEGER
   verbose_name: Login Count
+- advanced_data_type: null
+  column_name: password
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: VARCHAR(256)
+  verbose_name: Password
+- advanced_data_type: null
+  column_name: email
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: VARCHAR(64)
+  verbose_name: Email
+- advanced_data_type: null
+  column_name: username
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: VARCHAR(64)
+  verbose_name: Username
+- advanced_data_type: null
+  column_name: active
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: BOOLEAN
+  verbose_name: Active
 - advanced_data_type: null
   column_name: id
   description: null
@@ -191,7 +191,7 @@ normalize_columns: false
 offset: 0
 params: null
 schema: superset
-sql: ''
+sql: select * from superset.ab_user
 table_name: ab_user
 template_params: null
 uuid: 304a5d6d-c589-483a-8e8d-3fadbccef648

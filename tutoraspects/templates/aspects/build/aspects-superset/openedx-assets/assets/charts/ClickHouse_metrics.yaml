@@ -11,8 +11,6 @@ params:
   - value
   - description
   color_pn: true
-  dashboards: []
-  datasource: 30__table
   extra_form_data: {}
   groupby: []
   order_by_cols: []

@@ -11,9 +11,6 @@ params:
   bottom_margin: auto
   color_scheme: supersetColors
   columns: []
-  dashboards:
-  - 23
-  datasource: 8__table
   extra_form_data: {}
   granularity_sqla: started_at
   groupby:
@@ -26,7 +23,6 @@ params:
   rich_tooltip: true
   row_limit: 10000
   show_legend: true
-  slice_id: 204
   viz_type: dist_bar
   x_axis_label: Seconds Of Video
   x_ticks_layout: auto
@@ -35,7 +31,6 @@ params:
   - null
   y_axis_format: SMART_NUMBER
   y_axis_label: Number Of Viewers / Views
-query_context: null
 slice_name: Watched Video Segments
 uuid: 2985a9db-c338-4008-af52-2930b81ee2e5
 version: 1.0.0

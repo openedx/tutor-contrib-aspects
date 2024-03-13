@@ -13,7 +13,6 @@ params:
     r: 68
   compare_lag: 1
   compare_suffix: period over period
-  datasource: 482__table
   extra_form_data: {}
   granularity_sqla: created_on
   header_font_size: 0.4
@@ -21,7 +20,6 @@ params:
   rolling_periods: ''
   rolling_type: cumsum
   show_trend_line: true
-  slice_id: 606
   start_y_axis_at_zero: true
   subheader_font_size: 0.15
   time_grain_sqla: P1D

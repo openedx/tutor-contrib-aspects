@@ -38,6 +38,42 @@ columns:
   type: TIMESTAMP WITHOUT TIME ZONE
   verbose_name: Changed On
 - advanced_data_type: null
+  column_name: last_saved_by_fk
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INTEGER
+  verbose_name: Last Saved By Fk
+- advanced_data_type: null
+  column_name: created_by_fk
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INTEGER
+  verbose_name: Created By Fk
+- advanced_data_type: null
+  column_name: changed_by_fk
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INTEGER
+  verbose_name: Changed By Fk
+- advanced_data_type: null
   column_name: schema_perm
   description: null
   expression: ''
@@ -61,18 +97,6 @@ columns:
   python_date_format: null
   type: VARCHAR(2000)
   verbose_name: Datasource Name
-- advanced_data_type: null
-  column_name: perm
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: VARCHAR(2000)
-  verbose_name: Perm
 - advanced_data_type: null
   column_name: datasource_type
   description: null
@@ -110,7 +134,7 @@ columns:
   type: VARCHAR(250)
   verbose_name: Viz Type
 - advanced_data_type: null
-  column_name: uuid
+  column_name: certified_by
   description: null
   expression: ''
   extra: {}
@@ -119,80 +143,8 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: UUID
-  verbose_name: UUID
-- advanced_data_type: null
-  column_name: last_saved_by_fk
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: INTEGER
-  verbose_name: Last Saved By Fk
-- advanced_data_type: null
-  column_name: created_by_fk
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: INTEGER
-  verbose_name: Created By Fk
-- advanced_data_type: null
-  column_name: changed_by_fk
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: INTEGER
-  verbose_name: Changed By Fk
-- advanced_data_type: null
-  column_name: datasource_id
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: INTEGER
-  verbose_name: Datasource ID
-- advanced_data_type: null
-  column_name: cache_timeout
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: INTEGER
-  verbose_name: Cache Timeout
-- advanced_data_type: null
-  column_name: id
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: INTEGER
-  verbose_name: ID
+  type: TEXT
+  verbose_name: Certified By
 - advanced_data_type: null
   column_name: certification_details
   description: null
@@ -206,7 +158,7 @@ columns:
   type: TEXT
   verbose_name: Certification Details
 - advanced_data_type: null
-  column_name: certified_by
+  column_name: cache_timeout
   description: null
   expression: ''
   extra: {}
@@ -215,8 +167,8 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: TEXT
-  verbose_name: Certified By
+  type: INTEGER
+  verbose_name: Cache Timeout
 - advanced_data_type: null
   column_name: query_context
   description: null
@@ -230,7 +182,7 @@ columns:
   type: TEXT
   verbose_name: Query Context
 - advanced_data_type: null
-  column_name: params
+  column_name: datasource_id
   description: null
   expression: ''
   extra: {}
@@ -239,8 +191,44 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: TEXT
-  verbose_name: Parameters
+  type: INTEGER
+  verbose_name: Datasource ID
+- advanced_data_type: null
+  column_name: perm
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: VARCHAR(2000)
+  verbose_name: Perm
+- advanced_data_type: null
+  column_name: uuid
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: UUID
+  verbose_name: UUID
+- advanced_data_type: null
+  column_name: id
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INTEGER
+  verbose_name: ID
 - advanced_data_type: null
   column_name: description
   description: null
@@ -253,6 +241,18 @@ columns:
   python_date_format: null
   type: TEXT
   verbose_name: Description
+- advanced_data_type: null
+  column_name: params
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: TEXT
+  verbose_name: Parameters
 database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
 default_endpoint: null
 description: null
@@ -270,11 +270,11 @@ metrics:
   metric_type: count
   verbose_name: COUNT(*)
   warning_text: null
-normalize_columns: false
+normalize_columns: true
 offset: 0
 params: null
 schema: superset
-sql: null
+sql: select * from superset.slices
 table_name: slices
 template_params: null
 uuid: aaf1ae12-73c1-4b88-b07d-7a8988333018

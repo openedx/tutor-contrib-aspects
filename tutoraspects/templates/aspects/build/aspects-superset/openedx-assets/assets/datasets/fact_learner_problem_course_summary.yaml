@@ -2,18 +2,6 @@ _file_name: fact_learner_problem_course_summary.yaml
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: attempts
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Int16
-  verbose_name: Attempts
-- advanced_data_type: null
   column_name: num_answers_displayed
   description: null
   expression: null
@@ -38,18 +26,6 @@ columns:
   type: UInt64
   verbose_name: Number of Hints Displayed
 - advanced_data_type: null
-  column_name: success
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Bool
-  verbose_name: Success
-- advanced_data_type: null
   column_name: problem_name_with_location
   description: null
   expression: null
@@ -61,18 +37,6 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Problem Name With Location
-- advanced_data_type: null
-  column_name: problem_name
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Problem Name
 - advanced_data_type: null
   column_name: actor_id
   description: null
@@ -86,18 +50,6 @@ columns:
   type: String
   verbose_name: Actor ID
 - advanced_data_type: null
-  column_name: course_name
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Name
-- advanced_data_type: null
   column_name: course_key
   description: null
   expression: null
@@ -110,6 +62,18 @@ columns:
   type: String
   verbose_name: Course Key
 - advanced_data_type: null
+  column_name: course_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Name
+- advanced_data_type: null
   column_name: course_run
   description: null
   expression: null
@@ -121,6 +85,42 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Course Run
+- advanced_data_type: null
+  column_name: problem_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Problem Name
+- advanced_data_type: null
+  column_name: attempts
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int16
+  verbose_name: Attempts
+- advanced_data_type: null
+  column_name: success
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Bool
+  verbose_name: Success
 - advanced_data_type: null
   column_name: org
   description: null

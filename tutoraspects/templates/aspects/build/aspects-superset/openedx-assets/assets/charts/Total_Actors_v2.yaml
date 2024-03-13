@@ -12,9 +12,6 @@ params:
     operator: TEMPORAL_RANGE
     subject: emission_time
   conditional_formatting: []
-  dashboards:
-  - 29
-  datasource: 28__table
   extra_form_data: {}
   force_timestamp_formatting: false
   header_font_size: 0.4
@@ -27,7 +24,6 @@ params:
     label: COUNT(DISTINCT(actor_id))
     optionName: metric_kvpvmgti3sq_43fw3621oyf
     sqlExpression: COUNT(DISTINCT(actor_id))
-  slice_id: 783
   subheader: ''
   subheader_font_size: 0.15
   time_format: smart_date

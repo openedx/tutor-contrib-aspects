@@ -6,7 +6,6 @@ dataset_uuid: 41278a97-d0ff-4645-9514-d79f80d275df
 description: null
 params:
   adhoc_filters: []
-  datasource: 50__table
   extra_form_data: {}
   granularity_sqla: emission_time
   header_font_size: 0.4

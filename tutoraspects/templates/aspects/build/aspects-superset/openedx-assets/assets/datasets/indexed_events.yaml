@@ -2,6 +2,54 @@ _file_name: indexed_events.yaml
 cache_timeout: null
 columns:
 - advanced_data_type: null
+  column_name: actor_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Actor ID
+- advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Key
+- advanced_data_type: null
+  column_name: course_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Name
+- advanced_data_type: null
+  column_name: course_run
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Run
+- advanced_data_type: null
   column_name: event_id
   description: null
   expression: null
@@ -26,30 +74,6 @@ columns:
   type: DateTime
   verbose_name: Emission Time
 - advanced_data_type: null
-  column_name: actor_id
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Actor ID
-- advanced_data_type: null
-  column_name: course_name
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Name
-- advanced_data_type: null
   column_name: object_id
   description: null
   expression: null
@@ -73,30 +97,6 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Verb ID
-- advanced_data_type: null
-  column_name: course_key
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Key
-- advanced_data_type: null
-  column_name: course_run
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Run
 - advanced_data_type: null
   column_name: org
   description: null
@@ -129,7 +129,7 @@ metrics:
 normalize_columns: false
 offset: 0
 params: null
-schema: event_sink
+schema: main
 sql: |-
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/indexed_events.sql' %}{% endfilter %}
 table_name: indexed_events

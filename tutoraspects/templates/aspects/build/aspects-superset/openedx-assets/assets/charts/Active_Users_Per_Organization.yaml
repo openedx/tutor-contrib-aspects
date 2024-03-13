@@ -12,9 +12,6 @@ params:
     operator: TEMPORAL_RANGE
     subject: emission_time
   color_scheme: supersetColors
-  dashboards:
-  - 29
-  datasource: 28__table
   date_format: smart_date
   extra_form_data: {}
   groupby:
@@ -55,7 +52,6 @@ params:
   show_labels: true
   show_labels_threshold: 5
   show_legend: true
-  slice_id: 59
   sort_by_metric: true
   viz_type: pie
 slice_name: Active Users Per Organization

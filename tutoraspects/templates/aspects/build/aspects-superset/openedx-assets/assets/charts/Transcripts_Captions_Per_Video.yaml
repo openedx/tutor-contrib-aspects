@@ -10,9 +10,6 @@ params:
   bottom_margin: auto
   color_scheme: supersetColors
   columns: []
-  dashboards:
-  - 23
-  datasource: 3__table
   extra_form_data: {}
   granularity_sqla: emission_time
   groupby:
@@ -24,7 +21,6 @@ params:
   rich_tooltip: true
   row_limit: 10000
   show_legend: true
-  slice_id: 47
   viz_type: dist_bar
   x_axis_label: Video Title
   x_ticks_layout: auto
@@ -33,7 +29,6 @@ params:
   - null
   y_axis_format: SMART_NUMBER
   y_axis_label: Number of Users / Uses
-query_context: null
 slice_name: Transcripts / Captions Per Video
 uuid: 6b830def-f3ca-4b4c-9455-7a7b7354bce8
 version: 1.0.0

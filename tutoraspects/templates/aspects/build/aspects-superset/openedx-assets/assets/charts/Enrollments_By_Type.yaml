@@ -26,7 +26,6 @@ params:
     sqlExpression: enrollment_status_date = today()
     subject: null
   color_scheme: supersetColors
-  datasource: 2__table
   date_format: smart_date
   extra_form_data: {}
   granularity_sqla: enrollment_status_date
