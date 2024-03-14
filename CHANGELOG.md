@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.86.1 - 2024-03-14
+
+### [0.86.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.86.0...v0.86.1) (2024-03-14)
+
+### Bug Fixes
+
+* enable clickhouse console logging ([daa7698](https://github.com/openedx/tutor-contrib-aspects/commit/daa7698ff7956e524dc25ac8d3fe0a18501f7674))
+
 ## v0.86.0 - 2024-03-13
 
 ### [0.86.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.85.0...v0.86.0) (2024-03-13)
