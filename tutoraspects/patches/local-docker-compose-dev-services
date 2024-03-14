@@ -37,3 +37,11 @@ superset-worker-beat:
     - mysql
     - redis
 {% endif %}
+
+{% if RUN_CLICKHOUSE %}
+clickhouse:
+    volumes:
+        - ../../data/clickhouse:/var/lib/clickhouse/
+        - ../../env/plugins/aspects/apps/clickhouse/dev_config:/etc/clickhouse-server/config.d/
+        - ../../env/plugins/aspects/apps/clickhouse/users:/etc/clickhouse-server/users.d/
+{% endif %}
