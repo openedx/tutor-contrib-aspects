@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.86.2 - 2024-03-15
+
+### [0.86.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.86.1...v0.86.2) (2024-03-15)
+
+### Bug Fixes
+
+* remove internal_service_url from production settings ([554f562](https://github.com/openedx/tutor-contrib-aspects/commit/554f562ac9614d2e764a458f26176d4c3ea5a351))
+
 ## v0.86.1 - 2024-03-14
 
 ### [0.86.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.86.0...v0.86.1) (2024-03-14)
