@@ -129,7 +129,7 @@ def import_assets() -> list[tuple[str, str]]:
         ),
     ]
 
-# Ex: "tutor local do import_assets "
+# Ex: "tutor local do performance-metrics "
 @click.command(context_settings={"ignore_unknown_options": True})
 def performance_metrics() -> list[tuple[str, str]]:
     """
