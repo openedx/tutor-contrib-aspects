@@ -1,36 +1,27 @@
 from superset.app import create_app
+
 app = create_app()
 app.app_context().push()
 
-"""
-The plan
 
-1. Load the instructor dashboard
-2. Load the instructor dashboard datasets
-3. Perform the following operations for every dataset:
-    a. Load the dataset
-    b. Perform queries on the dataset with/without filters
-    c. Perform aggregations on the dataset
-    d. Measure the time taken for each operation
-    e. Repeat 5 times and take metrics such as average, median, max, min, etc.
-"""
-from superset.extensions import db
+import json
+import time
+import uuid
+from datetime import datetime
+from unittest.mock import patch
+
+import sqlparse
 from flask import g
+from superset import security_manager
+from superset.charts.data.commands.get_data_command import ChartDataCommand
+from superset.charts.schemas import ChartDataQueryContextSchema
+from superset.extensions import db
 from superset.models.dashboard import Dashboard
 from superset.models.slice import Slice
-from superset.charts.schemas import ChartDataQueryContextSchema
-from superset.charts.data.commands.get_data_command import ChartDataCommand
-from superset import security_manager
-import json
-from datetime import datetime
-import sqlparse
-from unittest.mock import patch
-import uuid
-import time
 
 ASPECTS_VERSION = "{{ASPECTS_VERSION}}"
 UUID = str(uuid.uuid4())[0:6]
-RUN_ID = f'aspects-{ASPECTS_VERSION}-{UUID}'
+RUN_ID = f"aspects-{ASPECTS_VERSION}-{UUID}"
 
 report_format = """
     {i}. {slice}
@@ -45,10 +36,14 @@ query_format = """    Query duration: {query_duration_ms} s.
 
 def performance_metrics():
     """Measure the performance of the dashboard."""
-    with patch('clickhouse_connect.common.build_client_name') as mock_build_client_name:
+    with patch("clickhouse_connect.common.build_client_name") as mock_build_client_name:
         mock_build_client_name.return_value = RUN_ID
-        embedable_dashboards = {{ SUPERSET_EMBEDDABLE_DASHBOARDS }}
-        dashboards = db.session.query(Dashboard).filter(Dashboard.slug.in_(embedable_dashboards)).all()
+        embedable_dashboards = {{SUPERSET_EMBEDDABLE_DASHBOARDS}}
+        dashboards = (
+            db.session.query(Dashboard)
+            .filter(Dashboard.slug.in_(embedable_dashboards))
+            .all()
+        )
         report = []
         for dashboard in dashboards:
             print("Dashboard:", dashboard.slug)
@@ -63,11 +58,13 @@ def meassure_chart(slice, extra_filters=[]):
     """
     print("Fetching slice data:", slice)
     query_context = json.loads(slice.query_context)
-    query_context.update({
-        "result_format": "json",
-        "result_type": "full",
-        "force": True,
-    })
+    query_context.update(
+        {
+            "result_format": "json",
+            "result_type": "full",
+            "force": True,
+        }
+    )
 
     if extra_filters:
         query_context["filters"].extend(extra_filters)
@@ -80,9 +77,10 @@ def meassure_chart(slice, extra_filters=[]):
     result = command.run()
     end_time = datetime.now()
 
-    result["time_elapsed"] = '{} s.'.format((end_time-start_time).total_seconds())
+    result["time_elapsed"] = "{} s.".format((end_time - start_time).total_seconds())
     result["slice"] = slice
     return result
+
 
 def get_query_log_from_clickhouse(report):
     """
@@ -94,9 +92,7 @@ def get_query_log_from_clickhouse(report):
 
     query_context = json.loads(slice.query_context)
     query_context["queries"][0]["filters"].append(
-        {
-            'col': 'http_user_agent', 'op': '==', 'val': RUN_ID
-        }
+        {"col": "http_user_agent", "op": "==", "val": RUN_ID}
     )
     slice.query_context = json.dumps(query_context)
 
@@ -108,26 +104,28 @@ def get_query_log_from_clickhouse(report):
             parsed_sql = str(sqlparse.parse(row.pop("query"))[0])
             clickhouse_queries[parsed_sql] = row
 
-
     print(f"\nSuperset Reports: {RUN_ID}")
     for i, result in enumerate(report):
-        print(report_format.format(
-            i=(i+1),
-            slice=result["slice"],
-            superset_time=result["time_elapsed"]
-        ))
+        print(
+            report_format.format(
+                i=(i + 1), slice=result["slice"], superset_time=result["time_elapsed"]
+            )
+        )
         for i, query in enumerate(result["queries"]):
-            parsed_sql = str(sqlparse.parse(query["query"])[0]).replace(";", "") + "\n FORMAT Native"
+            parsed_sql = (
+                str(sqlparse.parse(query["query"])[0]).replace(";", "")
+                + "\n FORMAT Native"
+            )
             clickhouse_report = clickhouse_queries.get(parsed_sql, {})
-            print(query_format.format(
-                query_duration_ms=clickhouse_report.get("query_duration_ms") / 1000,
-                memory_usage_mb =clickhouse_report.get("memory_usage_mb"),
-                result_rows=clickhouse_report.get("result_rows"),
-                rowcount=query["rowcount"],
-                filters=query["applied_filters"],
-            ))
-
-
+            print(
+                query_format.format(
+                    query_duration_ms=clickhouse_report.get("query_duration_ms") / 1000,
+                    memory_usage_mb=clickhouse_report.get("memory_usage_mb"),
+                    result_rows=clickhouse_report.get("result_rows"),
+                    rowcount=query["rowcount"],
+                    filters=query["applied_filters"],
+                )
+            )
 
 
 if __name__ == "__main__":

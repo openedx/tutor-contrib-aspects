@@ -106,6 +106,7 @@ def alembic(context, command) -> None:
     """
     runner.run_job("aspects", command)
 
+
 # Ex: "tutor local do performance-metrics "
 @click.command(context_settings={"ignore_unknown_options": True})
 @click.pass_obj
@@ -121,6 +122,7 @@ def performance_metrics(context) -> None:
     echo 'Done!';
     """
     runner.run_job("superset", command)
+
 
 # Ex: "tutor local do import_assets "
 @click.command(context_settings={"ignore_unknown_options": True})
