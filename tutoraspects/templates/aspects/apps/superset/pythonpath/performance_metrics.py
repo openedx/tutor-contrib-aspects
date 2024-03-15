@@ -5,6 +5,7 @@ app.app_context().push()
 
 
 import json
+import logging
 import time
 import uuid
 from datetime import datetime
@@ -19,19 +20,22 @@ from superset.extensions import db
 from superset.models.dashboard import Dashboard
 from superset.models.slice import Slice
 
+logger = logging.getLogger("performance_metrics")
+
 ASPECTS_VERSION = "{{ASPECTS_VERSION}}"
 UUID = str(uuid.uuid4())[0:6]
 RUN_ID = f"aspects-{ASPECTS_VERSION}-{UUID}"
 
-report_format = """
-    {i}. {slice}
-    Superset time: {superset_time}"""
+report_format = "{i}. {slice}\n" "Superset time: {superset_time}\n"
 
-query_format = """    Query duration: {query_duration_ms} s.
-    Result rows: {result_rows}
-    Memory Usage (MB): {memory_usage_mb}
-    Row count Clickhouse {rowcount:}
-    Filters: {filters}"""
+query_format = (
+    "-----------------------------------\n"
+    "Query duration: {query_duration_ms} s.\n"
+    "Result rows: {result_rows}\n"
+    "Memory Usage (MB): {memory_usage_mb}\n"
+    "Row count (superset) {rowcount:}\n"
+    "Filters: {filters}\n\n"
+)
 
 
 def performance_metrics():
@@ -46,9 +50,13 @@ def performance_metrics():
         )
         report = []
         for dashboard in dashboards:
-            print("Dashboard:", dashboard.slug)
+            logger.info(f"Dashboard: {dashboard.slug}")
             for slice in dashboard.slices:
-                report.append(meassure_chart(slice))
+                result = meassure_chart(slice)
+                for query in result["queries"]:
+                    # Remove the data from the query to avoid memory issues on large datasets.
+                    query.pop("data")
+                report.append(result)
         return report
 
 
@@ -56,7 +64,7 @@ def meassure_chart(slice, extra_filters=[]):
     """
     Meassure the performance of a chart and return the results.
     """
-    print("Fetching slice data:", slice)
+    logger.info(f"Fetching slice data: {slice}")
     query_context = json.loads(slice.query_context)
     query_context.update(
         {
@@ -104,9 +112,9 @@ def get_query_log_from_clickhouse(report):
             parsed_sql = str(sqlparse.parse(row.pop("query"))[0])
             clickhouse_queries[parsed_sql] = row
 
-    print(f"\nSuperset Reports: {RUN_ID}")
+    report_str = f"\nSuperset Reports: {RUN_ID}\n\n"
     for i, result in enumerate(report):
-        print(
+        report_str+=(
             report_format.format(
                 i=(i + 1), slice=result["slice"], superset_time=result["time_elapsed"]
             )
@@ -117,7 +125,7 @@ def get_query_log_from_clickhouse(report):
                 + "\n FORMAT Native"
             )
             clickhouse_report = clickhouse_queries.get(parsed_sql, {})
-            print(
+            report_str+=(
                 query_format.format(
                     query_duration_ms=clickhouse_report.get("query_duration_ms") / 1000,
                     memory_usage_mb=clickhouse_report.get("memory_usage_mb"),
@@ -126,12 +134,13 @@ def get_query_log_from_clickhouse(report):
                     filters=query["applied_filters"],
                 )
             )
+    logger.info(report_str)
 
 
 if __name__ == "__main__":
-    print("Running performance metrics. RUN ID:", RUN_ID)
+    logger.info(f"Running performance metrics. RUN ID: {RUN_ID}")
     report = performance_metrics()
     # Clickhouse query log takes some seconds to log queries.
-    print("Waiting for clickhouse log...")
+    logger.info("Waiting for clickhouse log...")
     time.sleep(10)
     get_query_log_from_clickhouse(report)
