@@ -26,11 +26,10 @@ ASPECTS_VERSION = "{{ASPECTS_VERSION}}"
 UUID = str(uuid.uuid4())[0:6]
 RUN_ID = f"aspects-{ASPECTS_VERSION}-{UUID}"
 
-report_format = "{i}. {slice}\n" "Superset time: {superset_time}\n"
+report_format = "{i}. {slice}\n" "Superset time: {superset_time} (s).\n"
 
 query_format = (
-    "-----------------------------------\n"
-    "Query duration: {query_duration_ms} s.\n"
+    "Query duration: {query_duration_ms} (s).\n"
     "Result rows: {result_rows}\n"
     "Memory Usage (MB): {memory_usage_mb}\n"
     "Row count (superset) {rowcount:}\n"
@@ -85,7 +84,7 @@ def meassure_chart(slice, extra_filters=[]):
     result = command.run()
     end_time = datetime.now()
 
-    result["time_elapsed"] = "{} s.".format((end_time - start_time).total_seconds())
+    result["time_elapsed"] = (end_time - start_time).total_seconds()
     result["slice"] = slice
     return result
 
@@ -111,6 +110,9 @@ def get_query_log_from_clickhouse(report):
         for row in query["data"]:
             parsed_sql = str(sqlparse.parse(row.pop("query"))[0])
             clickhouse_queries[parsed_sql] = row
+
+    # Sort report by slowest queries
+    report = sorted(report, key=lambda x: x["time_elapsed"], reverse=True)
 
     report_str = f"\nSuperset Reports: {RUN_ID}\n\n"
     for i, result in enumerate(report):
