@@ -5,7 +5,7 @@ with grades as (
         grade_type = 'problem'
 
         {% raw %}
-        {% if filter_values('problem_name_with_location') != [] %}
+        {% if get_filters('problem_name_with_location', remove_filter=True) != [] && filter_values('problem_name_with_location') != [] %}
         and entity_name_with_location in {{ filter_values('problem_name_with_location', remove_filter=True) | where_in }}
         {% else %}
         and 1=0
