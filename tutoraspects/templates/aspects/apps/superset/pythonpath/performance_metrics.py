@@ -70,6 +70,10 @@ def meassure_chart(slice, extra_filters=[]):
             "result_format": "json",
             "result_type": "full",
             "force": True,
+            "datasource": {
+                "type": "table",
+                "id": slice.datasource_id,
+            },
         }
     )
 
