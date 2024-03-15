@@ -18,6 +18,11 @@ params:
     operatorId: EQUALS
     sqlExpression: null
     subject: enrollment_status
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_time
   color_scheme: supersetColors
   date_format: smart_date
   extra_form_data: {}
@@ -40,6 +45,8 @@ params:
   show_legend: true
   sort_by_metric: true
   viz_type: pie
+query_context: |-
+  {% raw %}{"datasource":{"id":224,"type":"table"},"force":false,"queries":[{"filters":[{"col":"enrollment_status","op":"==","val":"registered"},{"col":"emission_time","op":"TEMPORAL_RANGE","val":"No filter"}],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":[{"expressionType":"SQL","label":"Enrollment Mode","sqlExpression":"{{translate_column('enrollment_mode')}}"}],"metrics":["count"],"orderby":[["count",false]],"annotation_layers":[],"row_limit":100,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"form_data":{"datasource":"224__table","viz_type":"pie","slice_id":411,"groupby":[{"expressionType":"SQL","label":"Enrollment Mode","sqlExpression":"{{translate_column('enrollment_mode')}}"}],"metric":"count","adhoc_filters":[{"clause":"WHERE","comparator":"registered","expressionType":"SIMPLE","filterOptionName":"filter_itrvc9c0jxb_g4qd4b18na4","isExtra":false,"isNew":false,"operator":"==","operatorId":"EQUALS","sqlExpression":null,"subject":"enrollment_status"},{"clause":"WHERE","subject":"emission_time","operator":"TEMPORAL_RANGE","comparator":"No filter","expressionType":"SIMPLE"}],"row_limit":100,"sort_by_metric":true,"color_scheme":"supersetColors","show_labels_threshold":5,"show_legend":true,"legendType":"scroll","legendOrientation":"top","label_type":"key","number_format":"SMART_NUMBER","date_format":"smart_date","show_labels":true,"labels_outside":true,"outerRadius":70,"innerRadius":30,"extra_form_data":{},"dashboards":[148],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}{% endraw %}
 slice_name: Enrollments By Enrollment Mode
 uuid: 05ed7102-5464-4e2f-86ae-31700b787cc3
 version: 1.0.0

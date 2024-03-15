@@ -6,12 +6,16 @@ dataset_uuid: d777bd95-2110-46db-a1c4-8358be81a85a
 description: The distribution of grades for a course, out of 100%. Grades are grouped
   in ranges of 10%.
 params:
-  adhoc_filters: []
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_time
   bottom_margin: auto
   color_scheme: supersetColors
   columns: []
   extra_form_data: {}
-  granularity_sqla: emission_time
   groupby:
   - grade_bucket
   metrics:
@@ -29,6 +33,10 @@ params:
   - null
   y_axis_format: SMART_NUMBER
   y_axis_label: Number Of Students
+query_context: '{"datasource":{"id":236,"type":"table"},"force":false,"queries":[{"filters":[{"col":"emission_time","op":"TEMPORAL_RANGE","val":"No
+  filter"}],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":["grade_bucket"],"metrics":["students"],"annotation_layers":[],"row_limit":10000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"form_data":{"datasource":"236__table","viz_type":"dist_bar","slice_id":298,"metrics":["students"],"adhoc_filters":[{"clause":"WHERE","subject":"emission_time","operator":"TEMPORAL_RANGE","comparator":"No
+  filter","expressionType":"SIMPLE"}],"groupby":["grade_bucket"],"columns":[],"row_limit":10000,"order_desc":true,"color_scheme":"supersetColors","show_legend":false,"rich_tooltip":true,"order_bars":true,"y_axis_format":"SMART_NUMBER","y_axis_label":"Number
+  Of Students","y_axis_bounds":[null,null],"x_axis_label":"Course Grade (out of 100%)","bottom_margin":"auto","x_ticks_layout":"auto","extra_form_data":{},"dashboards":[148],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
 slice_name: Course Grade Distribution
 uuid: f9adbc85-1f50-4c04-ace3-31ba7390de5e
 version: 1.0.0

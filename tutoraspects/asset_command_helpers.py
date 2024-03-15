@@ -157,12 +157,11 @@ class ChartAsset(Asset):
 
     path = "charts"
     omitted_vars = [
-        "query_context",
         "params.dashboards",
         "params.datasource",
         "params.slice_id",
     ]
-    raw_vars = ["sqlExpression"]
+    raw_vars = ["sqlExpression", "query_context"]
 
 
 class DashboardAsset(Asset):
