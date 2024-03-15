@@ -7,7 +7,6 @@ EVENT_SINK_CLICKHOUSE_BACKEND_CONFIG = {
 	"timeout_secs": {{ ASPECTS_EVENT_SINK_CLICKHOUSE_TIMEOUT_SECS }}
 }
 SUPERSET_CONFIG = {
-	"internal_service_url": "http://superset:{{ SUPERSET_PORT }}/",
 	"service_url": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ SUPERSET_HOST }}",
 	"username": "{{ SUPERSET_LMS_USERNAME }}",
 	"password": "{{ SUPERSET_LMS_PASSWORD }}",
