@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.87.1 - 2024-03-18
+
+### [0.87.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.87.0...v0.87.1) (2024-03-18)
+
+### Bug Fixes
+
+* send event as str from vector to the 'event' field ([7a9d7e8](https://github.com/openedx/tutor-contrib-aspects/commit/7a9d7e8f5ef565d66579b5006e8735b718db3ece))
+
+### Build Systems
+
+* do not build images on bot PRs ([7b0cb69](https://github.com/openedx/tutor-contrib-aspects/commit/7b0cb699ea3f82ea7dccafc035ea8e8f47c54e63))
+* **deps:** bump dbt-core ([77bfd93](https://github.com/openedx/tutor-contrib-aspects/commit/77bfd93a7d5e0a06e4dab99ff08d97fef3cbf117))
+* **deps:** bump docker/login-action from 3.0.0 to 3.1.0 ([e507e93](https://github.com/openedx/tutor-contrib-aspects/commit/e507e93fd5cefdf1b133f607f2a2e6d5719feba6))
+
 ## v0.87.0 - 2024-03-18
 
 ### [0.87.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.86.2...v0.87.0) (2024-03-18)
