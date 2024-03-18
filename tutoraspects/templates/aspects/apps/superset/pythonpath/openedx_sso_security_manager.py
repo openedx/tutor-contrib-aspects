@@ -61,14 +61,18 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         openedx_apis = current_app.config["OPENEDX_API_URLS"]
         url = openedx_apis["get_preference"].format(username=username)
         oauth_remote = self.oauth_remotes.get("openedxsso")
-        response = oauth_remote.get(url, token=self.get_oauth_token()).json()
-        locale_preference = response.get("pref-lang", "en").replace("-", "_")
+        locale_preference = "en"
+        try:
+            response = oauth_remote.get(url, token=self.get_oauth_token()).json()
+            locale_preference = response.get("pref-lang", "en").replace("-", "_")
+        except Exception as e:
+            return locale_preference
 
         if locale_preference not in current_app.config["DASHBOARD_LOCALES"]:
-                log.warning(
-                    f"Language {locale_preference} is not supported by Superset"
-                )
-                locale_preference = "en"
+            log.warning(
+                f"Language {locale_preference} is not supported by Superset"
+            )
+            return locale_preference
 
         return locale_preference
 

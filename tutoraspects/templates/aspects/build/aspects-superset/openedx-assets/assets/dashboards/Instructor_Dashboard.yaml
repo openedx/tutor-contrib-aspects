@@ -307,8 +307,7 @@ metadata:
       datasetUuid: 417b2035-8fa1-4c60-a405-4b1947c3c966
     type: NATIVE_FILTER
   refresh_frequency: 0
-  shared_label_colors:
-    count: '#454E7C'
+  shared_label_colors: {}
   timed_refresh_immune_slices: []
 position:
   CHART-AZZnl_lpMv:

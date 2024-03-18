@@ -7,12 +7,16 @@ description: This chart shows how often an answer or combination of answers (for
   is selected by learners. Some problems allow learners to submit a response more
   than once, this chart will include all of the responses in that case.
 params:
-  adhoc_filters: []
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_time
   bottom_margin: auto
   color_scheme: supersetColors
   columns: []
   extra_form_data: {}
-  granularity_sqla: emission_time
   groupby:
   - responses
   metrics:
@@ -29,6 +33,10 @@ params:
   - null
   y_axis_format: SMART_NUMBER
   y_axis_label: Responses
+query_context: '{"datasource":{"id":225,"type":"table"},"force":false,"queries":[{"filters":[{"col":"emission_time","op":"TEMPORAL_RANGE","val":"No
+  filter"}],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":["responses"],"metrics":["total_responses"],"annotation_layers":[],"row_limit":10000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"form_data":{"datasource":"225__table","viz_type":"dist_bar","slice_id":352,"metrics":["total_responses"],"adhoc_filters":[{"clause":"WHERE","subject":"emission_time","operator":"TEMPORAL_RANGE","comparator":"No
+  filter","expressionType":"SIMPLE"}],"groupby":["responses"],"columns":[],"row_limit":10000,"order_desc":true,"color_scheme":"supersetColors","show_legend":false,"rich_tooltip":true,"y_axis_format":"SMART_NUMBER","y_axis_label":"Responses","y_axis_bounds":[null,null],"x_axis_label":"Answers
+  Chosen","bottom_margin":"auto","x_ticks_layout":"auto","extra_form_data":{},"dashboards":[148],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
 slice_name: Distribution Of Responses
 uuid: f1651c44-a8f4-4b44-ad49-962823009319
 version: 1.0.0

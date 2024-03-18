@@ -7,6 +7,6 @@ SELECT
 FROM
     system.query_log
 WHERE
-    TYPE = 'QueryFinish'
+    type = 'QueryFinish'
 ORDER BY
     query_duration_ms DESC;

@@ -107,6 +107,23 @@ def alembic(context, command) -> None:
     runner.run_job("aspects", command)
 
 
+# Ex: "tutor local do performance-metrics "
+@click.command(context_settings={"ignore_unknown_options": True})
+@click.pass_obj
+def performance_metrics(context) -> None:
+    """
+    Job to measure performance metrics of charts and its queries in Superset and ClickHouse.
+    """
+    config = tutor_config.load(context.root)
+    runner = context.job_runner(config)
+
+    command = """echo 'Performance...' &&
+    python /app/pythonpath/performance_metrics.py &&
+    echo 'Done!';
+    """
+    runner.run_job("superset", command)
+
+
 # Ex: "tutor local do import_assets "
 @click.command(context_settings={"ignore_unknown_options": True})
 @click.pass_obj
