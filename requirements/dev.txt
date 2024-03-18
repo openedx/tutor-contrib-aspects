@@ -18,7 +18,7 @@ asttokens==2.4.1
     #   transifex-python
 bcrypt==4.1.2
     # via -r requirements/base.txt
-black==24.2.0
+black==24.3.0
     # via -r requirements/dev.in
 cachetools==5.3.3
     # via
@@ -67,7 +67,7 @@ importlib-metadata==7.0.2
     #   pyinstaller-hooks-contrib
     #   tutor
     #   twine
-importlib-resources==6.1.3
+importlib-resources==6.3.1
     # via
     #   -r requirements/base.txt
     #   keyring
@@ -248,7 +248,7 @@ websocket-client==1.7.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-zipp==3.17.0
+zipp==3.18.1
     # via
     #   -r requirements/base.txt
     #   importlib-metadata
