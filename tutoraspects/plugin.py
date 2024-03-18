@@ -71,7 +71,19 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ),
         ("ASPECTS_ENABLE_INSTRUCTOR_DASHBOARD_PLUGIN", True),
         # Use the base Instructor Dashboard uuid by default. TODO use locale
-        ("ASPECTS_INSTRUCTOR_DASHBOARD_UUID", "1d6bf904-f53f-47fd-b1c9-6cd7e284d286"),
+        (
+            "ASPECTS_INSTRUCTOR_DASHBOARDS",
+            [
+                {
+                    "name": "Instructor Dashboard",
+                    "uuid": "1d6bf904-f53f-47fd-b1c9-6cd7e284d286",
+                },
+                {
+                    "name": "Operator Dashboard",
+                    "uuid": "02c0121c-40e9-4d8a-b86a-6b996a1cc6fe",
+                }
+            ],
+        ),
         ("ASPECTS_SUPERSET_EXTRA_FILTERS_FORMAT", []),
         # ClickHouse xAPI settings
         ("ASPECTS_XAPI_DATABASE", "xapi"),
@@ -239,6 +251,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "SUPERSET_EMBEDDABLE_DASHBOARDS",
             {
                 "instructor-dashboard": "1d6bf904-f53f-47fd-b1c9-6cd7e284d286",
+                "operator-dashboard": "02c0121c-40e9-4d8a-b86a-6b996a1cc6fe",
             },
         ),
         ("SUPERSET_ADMIN_EMAIL", "admin@openedx.org"),
