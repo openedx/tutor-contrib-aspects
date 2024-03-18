@@ -67,7 +67,7 @@ if err_timestamp != null {
   }
 }
 event_id = parsed_json.id
-. = {"event_id": event_id, "emission_time": format_timestamp!(time, format: "%+"), "event_str": encode_json(parsed_json)}
+. = {"event_id": event_id, "emission_time": format_timestamp!(time, format: "%+"), "event": encode_json(parsed_json)}
 '''
 drop_on_error = true
 drop_on_abort = true
@@ -77,7 +77,7 @@ type = "remap"
 inputs = ["xapi"]
 # Time formats: https://docs.rs/chrono/0.4.19/chrono/format/strftime/index.html#specifiers
 source = '''
-.message = parse_json!(.event_str)
+.message = parse_json!(.event)
 '''
 
 ### Sinks
@@ -93,7 +93,7 @@ encoding.only_fields = ["time", "message.context.course_id", "message.context.us
 type = "console"
 inputs = ["xapi_debug"]
 encoding.codec = "json"
-encoding.only_fields = ["event_id", "emission_time", "message.verb.id"]
+encoding.only_fields = ["event_id", "emission_time", "event"]
 
 # # Send logs to clickhouse
 [sinks.clickhouse]
