@@ -1,9 +1,5 @@
 """
-Partition the event_sink.user_profile table
-
-.. pii: Stores Open edX user profile data.
-.. pii_types: user_id, name, username, location, phone_number, email_address, birth_date, biography, gender
-.. pii_retirement: local_api, consumer_api
+Partition the xapi table by year and month
 """
 from alembic import op
 
@@ -15,7 +11,7 @@ depends_on = None
 on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""
 engine = "ReplicatedReplacingMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "ReplacingMergeTree"
 
-old_user_profile_table = "{{ASPECTS_XAPI_DATABASE}}.old_{{ASPECTS_RAW_XAPI_TABLE}}"
+old_xapi_table = "{{ASPECTS_XAPI_DATABASE}}.old_{{ASPECTS_RAW_XAPI_TABLE}}"
 
 def upgrade():
     # Partition event_sink.user_profile table
@@ -23,7 +19,7 @@ def upgrade():
     op.execute(
         f"""
         RENAME TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
-        TO {old_user_profile_table}
+        TO {old_xapi_table}
         {on_cluster}
         """
     )
@@ -46,13 +42,13 @@ def upgrade():
     op.execute(
         f"""
         INSERT INTO {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
-        SELECT * FROM {old_user_profile_table}
+        SELECT event_id, emission_time, event FROM {old_xapi_table}
         """
     )
     # 4. Drop the old table
     op.execute(
         f"""
-        DROP TABLE {old_user_profile_table}
+        DROP TABLE {old_xapi_table}
         {on_cluster}
         """
     )
@@ -64,7 +60,7 @@ def downgrade():
     op.execute(
         f"""
         RENAME TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
-        TO {old_user_profile_table}
+        TO {old_xapi_table}
         {on_cluster}
         """
     )
@@ -87,14 +83,14 @@ def downgrade():
     op.execute(
         f"""
         INSERT INTO {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
-        SELECT * FROM {old_user_profile_table}
+        SELECT * FROM {old_xapi_table}
         """
 
     )
     # 4. Drop the old table
     op.execute(
         f"""
-        DROP TABLE {old_user_profile_table}
+        DROP TABLE {old_xapi_table}
         {on_cluster}
         """
     )
