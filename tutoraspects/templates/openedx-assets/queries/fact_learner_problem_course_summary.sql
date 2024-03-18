@@ -135,6 +135,7 @@ FROM summary
 WHERE
     {% raw %}
     {% if get_filters('course_name', remove_filter=True) == [] %}
+    1=1
     {% elif filter_values('course_name') != [] %}
     course_name in {{ filter_values('course_name') | where_in }}
     {% else %}

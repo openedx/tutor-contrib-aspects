@@ -112,7 +112,7 @@ def alembic(context, command) -> None:
 @click.pass_obj
 def performance_metrics(context) -> None:
     """
-    Job to import Superset assets.
+    Job to measure performance metrics of charts and its queries in Superset and ClickHouse.
     """
     config = tutor_config.load(context.root)
     runner = context.job_runner(config)

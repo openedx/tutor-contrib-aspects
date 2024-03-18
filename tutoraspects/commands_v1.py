@@ -134,7 +134,7 @@ def import_assets() -> list[tuple[str, str]]:
 @click.command(context_settings={"ignore_unknown_options": True})
 def performance_metrics() -> list[tuple[str, str]]:
     """
-    Job to import Superset assets.
+    Job to measure performance metrics of charts and its queries in Superset and ClickHouse.
     """
     return [
         (

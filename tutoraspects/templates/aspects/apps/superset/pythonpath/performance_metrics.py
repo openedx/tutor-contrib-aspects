@@ -39,6 +39,8 @@ query_format = (
 
 def performance_metrics():
     """Measure the performance of the dashboard."""
+    # Mock the client name to identify the queries in the clickhouse system.query_log table by
+    # by the http_user_agent field.
     with patch("clickhouse_connect.common.build_client_name") as mock_build_client_name:
         mock_build_client_name.return_value = RUN_ID
         embedable_dashboards = {{SUPERSET_EMBEDDABLE_DASHBOARDS}}
@@ -51,7 +53,7 @@ def performance_metrics():
         for dashboard in dashboards:
             logger.info(f"Dashboard: {dashboard.slug}")
             for slice in dashboard.slices:
-                result = meassure_chart(slice)
+                result = measure_chart(slice)
                 for query in result["queries"]:
                     # Remove the data from the query to avoid memory issues on large datasets.
                     query.pop("data")
@@ -59,9 +61,9 @@ def performance_metrics():
         return report
 
 
-def meassure_chart(slice, extra_filters=[]):
+def measure_chart(slice, extra_filters=[]):
     """
-    Meassure the performance of a chart and return the results.
+    Measure the performance of a chart and return the results.
     """
     logger.info(f"Fetching slice data: {slice}")
     query_context = json.loads(slice.query_context)
@@ -107,7 +109,7 @@ def get_query_log_from_clickhouse(report):
     )
     slice.query_context = json.dumps(query_context)
 
-    result = meassure_chart(slice)
+    result = measure_chart(slice)
 
     clickhouse_queries = {}
     for query in result["queries"]:
