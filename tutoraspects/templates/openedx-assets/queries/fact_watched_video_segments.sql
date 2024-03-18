@@ -75,7 +75,8 @@ select
 from enriched_segments
 where
     {% raw %}
-    {% if get_filters('video_name_with_location', remove_filter=True) != [] and filter_values('video_name_with_location') != [] %}
+    {% if get_filters('video_name_with_location', remove_filter=True) == [] %}
+    {% elif filter_values('video_name_with_location') != [] %}
     video_name_with_location in {{ filter_values('video_name_with_location') | where_in }}
     {% else %}
     1=0

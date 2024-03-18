@@ -118,7 +118,8 @@ SELECT
 FROM summary
 where
     {% raw %}
-    {% if get_filters('problem_name_with_location', remove_filter=True) != [] and filter_values('problem_name_with_location') != [] %}
+    {% if get_filters('problem_name_with_location', remove_filter=True) == [] %}
+    {% elif filter_values('problem_name_with_location') != [] %}
     problem_name_with_location in {{ filter_values('problem_name_with_location') | where_in }}
     {% else %}
     1=0
