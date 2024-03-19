@@ -1,2 +1,4 @@
 RUN --mount=type=cache,target=/openedx/.cache/pip,sharing=shared \
-    pip install "platform-plugin-aspects==0.3.1" "edx-event-routing-backends==v8.1.1"
+    pip install "platform-plugin-aspects==0.3.1"
+RUN --mount=type=cache,target=/openedx/.cache/pip,sharing=shared \
+    pip install "edx-event-routing-backends==v8.1.1"
