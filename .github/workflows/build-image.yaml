@@ -18,7 +18,7 @@ jobs:
           - name: openedx
             repository: edunext/openedx-aspects
     runs-on: ubuntu-latest
-    if: "!startsWith(github.head_ref, 'bot/') && !startsWith(github.head_ref, 'dependabot/')"
+    if: "!startsWith(github.head_ref, 'dependabot/')"
     steps:
       - name: Checkout
         run:
