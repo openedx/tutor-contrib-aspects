@@ -86,8 +86,12 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                     "uuid": "1d6bf904-f53f-47fd-b1c9-6cd7e284d286",
                 },
                 {
-                    "name": "Operator Dashboard",
-                    "uuid": "02c0121c-40e9-4d8a-b86a-6b996a1cc6fe",
+                    "name": "Learner Groups Dashboard",
+                    "uuid": "8661d20c-cee6-4245-9fcc-610daea5fd24",
+                },
+                {
+                    "name": "Individual Learner Dashboard",
+                    "uuid": "abae8a25-1ba4-4653-81bd-d3937a162a11",
                 }
             ],
         ),
