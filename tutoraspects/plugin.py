@@ -64,17 +64,17 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Newlines and double-quotes must be escaped.
         (
             "ASPECTS_INSTRUCTOR_HELP_MARKDOWN",
-            "## Help\\n"
+            "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
-            "reference/instructor_reports.html)\\n"
-            "* [Superset Resources](https://github.com/apache/superset#resources)\\n",
+            "reference/instructor_reports.html)<br>"
+            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
         ),
         (
             "ASPECTS_OPERATOR_HELP_MARKDOWN",
-            "## Help\\n"
+            "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
-            "reference/operator_reports.html)\\n"
-            "* [Superset Resources](https://github.com/apache/superset#resources)\\n",
+            "reference/operator_reports.html)<br>"
+            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
         ),
         ("ASPECTS_ENABLE_INSTRUCTOR_DASHBOARD_PLUGIN", True),
         # Use the base Instructor Dashboard uuid by default. TODO use locale

@@ -1491,7 +1491,10 @@ position:
     - TAB-EygpebMa1
     - TAB-gvqU89mvT
     - TAB-z7LunkNp63
+    # {% if ASPECTS_OPERATOR_HELP_MARKDOWN %}
     - TAB-RtC9PHwXy
+    # {% endif %}
+    - TAB-nXpinnLEX
     id: TABS-7nA6MwltSD
     meta: {}
     parents:
