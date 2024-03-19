@@ -8,6 +8,9 @@ image: {{ DOCKER_IMAGE_SUPERSET }}
     - ../../env/plugins/aspects/apps/superset/scripts:/app/scripts
     - ../../env/plugins/aspects/build/aspects-superset/localization:/app/localization
     - ../../env/plugins/aspects/build/aspects-superset/openedx-assets:/app/openedx-assets
+    {% if SUPERSET_DEV_MOUNT %}
+    - ../../superset:/app/superset
+    {% endif %}
   restart: unless-stopped
   environment:
     DATABASE_DIALECT: {{ SUPERSET_DB_DIALECT }}
