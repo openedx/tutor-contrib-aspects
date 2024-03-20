@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.88.0 - 2024-03-20
+
+### [0.88.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.87.1...v0.88.0) (2024-03-20)
+
+#### Features
+
+* create new dashboards ([ae0a990](https://github.com/openedx/tutor-contrib-aspects/commit/ae0a99028096a669d6111c22ee49468ea1a057c7))
+
+#### Code Refactoring
+
+* moves the openedx pip requirements into a patch ([df65fd6](https://github.com/openedx/tutor-contrib-aspects/commit/df65fd6cf576f33bf5d632ae2e2f9bfdd8116c69))
+* split requirements into separate lines ([e84ff53](https://github.com/openedx/tutor-contrib-aspects/commit/e84ff531046ba3b13f6043e0c2412b01fca671a0))
+
+#### Build Systems
+
+* build images on bot PRs ([1ea9b0a](https://github.com/openedx/tutor-contrib-aspects/commit/1ea9b0aa5d6c2423b59eaaaaebc5d9307334f1a0))
+* push latest image on CI ([04f4929](https://github.com/openedx/tutor-contrib-aspects/commit/04f4929b2408267da91aa831ce3444630a089dbf))
+
 ## v0.87.1 - 2024-03-18
 
 ### [0.87.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.87.0...v0.87.1) (2024-03-18)
