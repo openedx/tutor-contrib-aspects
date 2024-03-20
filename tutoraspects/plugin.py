@@ -39,13 +39,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DOCKER_IMAGE_SUPERSET", "edunext/aspects-superset:{{ ASPECTS_VERSION }}"),
         ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.30.0-alpine"),
         (
-            "OPENEDX_EXTRA_PIP_REQUIREMENTS",
-            [
-                "platform-plugin-aspects==0.3.1",
-                "edx-event-routing-backends==v8.1.1",
-            ],
-        ),
-        (
             "EVENT_SINK_MODELS_ENABLED",
             ["course_overviews"],
         ),
