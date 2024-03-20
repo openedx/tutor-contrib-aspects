@@ -57,21 +57,52 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Newlines and double-quotes must be escaped.
         (
             "ASPECTS_INSTRUCTOR_HELP_MARKDOWN",
-            "## Help\\n"
+            "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
-            "reference/instructor_reports.html)\\n"
-            "* [Superset Resources](https://github.com/apache/superset#resources)\\n",
+            "reference/instructor_reports.html)<br>"
+            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
         ),
         (
             "ASPECTS_OPERATOR_HELP_MARKDOWN",
-            "## Help\\n"
+            "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
-            "reference/operator_reports.html)\\n"
-            "* [Superset Resources](https://github.com/apache/superset#resources)\\n",
+            "reference/operator_reports.html)<br>"
+            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
         ),
         ("ASPECTS_ENABLE_INSTRUCTOR_DASHBOARD_PLUGIN", True),
-        # Use the base Instructor Dashboard uuid by default. TODO use locale
-        ("ASPECTS_INSTRUCTOR_DASHBOARD_UUID", "1d6bf904-f53f-47fd-b1c9-6cd7e284d286"),
+        # The following settings are used to configure the Superset dashboards
+        # in the LMS Instructor Dashboard.
+        (
+            "ASPECTS_INSTRUCTOR_DASHBOARDS",
+            [
+                {
+                    "name": "Instructor Dashboard",
+                    "slug": "instructor-dashboard",
+                    "uuid": "1d6bf904-f53f-47fd-b1c9-6cd7e284d286",
+                },
+                {
+                    "name": "Learner Groups Dashboard",
+                    "slug": "learner-groups",
+                    "uuid": "8661d20c-cee6-4245-9fcc-610daea5fd24",
+                },
+                {
+                    "name": "Individual Learner Dashboard",
+                    "slug": "individual-learner",
+                    "uuid": "abae8a25-1ba4-4653-81bd-d3937a162a11",
+                },
+            ],
+        ),
+        # The following settings are used to configure the Superset dashboards
+        # that can be embedded. Keeping separate settings as these may not be
+        # directly used in the LMS Instructor Dashboard.
+        (
+            "SUPERSET_EMBEDDABLE_DASHBOARDS",
+            {
+                "instructor-dashboard": "1d6bf904-f53f-47fd-b1c9-6cd7e284d286",
+                "learner-groups": "8661d20c-cee6-4245-9fcc-610daea5fd24",
+                "individual-learner": "abae8a25-1ba4-4653-81bd-d3937a162a11",
+            },
+        ),
         ("ASPECTS_SUPERSET_EXTRA_FILTERS_FORMAT", []),
         # ClickHouse xAPI settings
         ("ASPECTS_XAPI_DATABASE", "xapi"),
@@ -233,12 +264,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "operator": "Operator",
                 "admin": "Admin",
                 "student": "Student",
-            },
-        ),
-        (
-            "SUPERSET_EMBEDDABLE_DASHBOARDS",
-            {
-                "instructor-dashboard": "1d6bf904-f53f-47fd-b1c9-6cd7e284d286",
             },
         ),
         ("SUPERSET_ADMIN_EMAIL", "admin@openedx.org"),
