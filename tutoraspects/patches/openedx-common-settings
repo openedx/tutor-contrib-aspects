@@ -27,3 +27,26 @@ if not OPEN_EDX_FILTERS_CONFIG.get("org.openedx.learning.instructor.dashboard.re
     }
 OPEN_EDX_FILTERS_CONFIG["org.openedx.learning.instructor.dashboard.render.started.v1"]["pipeline"].append("platform_plugin_aspects.extensions.filters.AddSupersetTab")
 {% endif %}
+
+{% if ASPECTS_ENABLE_EVENT_BUS_PRODUCER %}
+# Update the backends to use the event bus
+EVENT_TRACKING_BACKENDS["xapi"]["ENGINE"] = "eventtracking.backends.event_bus.EventBusRoutingBackend"
+EVENT_TRACKING_BACKENDS["caliper"]["ENGINE"] = "eventtracking.backends.event_bus.EventBusRoutingBackend"
+# Update backend to send events in sync mode
+EVENT_TRACKING_BACKENDS["xapi"]["OPTIONS"]["backends"]["xapi"]["ENGINE"] = "event_routing_backends.backends.sync_events_router.SyncEventsRouter"
+EVENT_TRACKING_BACKENDS["caliper"]["OPTIONS"]["backends"]["caliper"]["ENGINE"] = "event_routing_backends.backends.sync_events_router.SyncEventsRouter"
+# Enable the event bus producer
+SEND_TRACKING_EVENT_EMITTED_SIGNAL = True
+# Update the event bus producer config
+EVENT_BUS_PRODUCER_CONFIG.update(
+	{
+    	"org.openedx.analytics.tracking.event.emitted.v1": {
+        	"analytics": {
+            	"event_key_field": "tracking_log.name", "enabled": True
+         	}
+       }
+    }
+)
+
+INSTALLED_APPS.append("openedx_events")
+{% endif %}
