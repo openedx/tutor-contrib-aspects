@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.89.0 - 2024-03-25
+
+### [0.89.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.88.0...v0.89.0) (2024-03-25)
+
+#### Features
+
+* add dataset for pageview engagement charts ([f62ecb9](https://github.com/openedx/tutor-contrib-aspects/commit/f62ecb99df238e71c1d99615cae0ea6ae2b67d90))
+
+#### Build Systems
+
+* only push cache on latest ([acba540](https://github.com/openedx/tutor-contrib-aspects/commit/acba540a58fa741ce6f65c0067a16d1e67458014))
+* skip login to docker hub and push step on error ([2726e4a](https://github.com/openedx/tutor-contrib-aspects/commit/2726e4abaa911d260f6bbdf010cb79ae1e5cb16f))
+
 ## v0.88.0 - 2024-03-20
 
 ### [0.88.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.87.1...v0.88.0) (2024-03-20)
