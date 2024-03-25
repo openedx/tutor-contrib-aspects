@@ -25,13 +25,13 @@ click==8.1.7
     #   tutor
 future==1.0.0
     # via pyseeyou
-google-auth==2.28.2
+google-auth==2.29.0
     # via kubernetes
 idna==3.6
     # via requests
-importlib-metadata==7.0.2
+importlib-metadata==7.1.0
     # via tutor
-importlib-resources==6.3.1
+importlib-resources==6.4.0
     # via
     #   -r requirements/base.in
     #   tutor
@@ -76,7 +76,7 @@ requests==2.31.0
     #   kubernetes
     #   requests-oauthlib
     #   transifex-python
-requests-oauthlib==1.4.0
+requests-oauthlib==2.0.0
     # via kubernetes
 rsa==4.9
     # via google-auth
