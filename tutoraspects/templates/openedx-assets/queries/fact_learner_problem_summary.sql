@@ -70,7 +70,7 @@ WITH problem_responses AS (
         attempts
     FROM problem_responses
     INNER JOIN final_responses USING (org, course_key, problem_id, actor_id, emission_time)
-), summary AS (
+), summary_base AS (
     SELECT
         org,
         course_key,
@@ -115,7 +115,7 @@ SELECT
     coalesce(any(attempts), 0) AS attempts,
     sum(num_hints_displayed) AS num_hints_displayed,
     sum(num_answers_displayed) AS num_answers_displayed
-FROM summary
+FROM summary_base
 where
     {% raw %}
     {% if get_filters('problem_name_with_location', remove_filter=True) == [] %}

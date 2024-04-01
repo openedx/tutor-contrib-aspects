@@ -1,4 +1,4 @@
-with enrollments as (
+with enrollments_base as (
 select *
 from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_enrollments
 where
@@ -15,4 +15,4 @@ select
     actor_id,
     enrollment_mode,
     enrollment_status
-from enrollments
+from enrollments_base
