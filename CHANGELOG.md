@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.90.0 - 2024-04-02
+
+### [0.90.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.89.2...v0.90.0) (2024-04-02)
+
+#### Features
+
+* Add support for data pipeline load testing ([a5906fe](https://github.com/openedx/tutor-contrib-aspects/commit/a5906feb41f62e2703b7f9f0cfb0fba66aefc201))
+
+#### Code Refactoring
+
+* Remove ERB batching settings ([f6f5235](https://github.com/openedx/tutor-contrib-aspects/commit/f6f5235fe8dabf6c95ad0023f2351f853b38b0db))
+
 ## v0.89.2 - 2024-04-02
 
 ### [0.89.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.89.1...v0.89.2) (2024-04-02)
