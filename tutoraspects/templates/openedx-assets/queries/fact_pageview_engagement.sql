@@ -3,11 +3,12 @@ with
         select
             org,
             course_key,
+            course_run,
             section_with_name,
             subsection_with_name,
             actor_id,
             page_count,
-            countdistinct(block_id) as pages_visited,
+            COUNT(DISTINCT block_id) as pages_visited,
             case
                 when pages_visited = 0
                 then 'No pages viewed yet'
@@ -30,6 +31,7 @@ with
         group by
             org,
             course_key,
+            course_run,
             section_with_name,
             subsection_with_name,
             actor_id,
@@ -39,6 +41,7 @@ with
         select
             org,
             course_key,
+            course_run,
             section_with_name,
             actor_id,
             sum(page_count) as page_count,
@@ -51,12 +54,13 @@ with
                 else 'At least one page viewed'
             end as engagement_level
         from subsection_counts
-        group by org, course_key, section_with_name, actor_id
+        group by org, course_key, course_run, section_with_name, actor_id
     )
 
 select
     org,
     course_key,
+    course_run,
     subsection_with_name as `section/subsection name`,
     'subsection' as `content level`,
     actor_id as actor_id,
@@ -66,6 +70,7 @@ union all
 select
     org,
     course_key,
+    course_run,
     section_with_name as `section/subsection name`,
     'section' as `content level`,
     actor_id as actor_id,

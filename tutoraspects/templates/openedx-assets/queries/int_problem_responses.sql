@@ -1,4 +1,4 @@
-with problem_responses as (
+with problem_responses_base as (
 select *
 from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_problem_responses
 where 1=1
@@ -19,4 +19,4 @@ select
     success,
     responses
 from
-    problem_responses
+    problem_responses_base

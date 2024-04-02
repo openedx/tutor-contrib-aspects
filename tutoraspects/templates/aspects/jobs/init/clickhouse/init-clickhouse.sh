@@ -60,6 +60,7 @@ GRANT {{ ON_CLUSTER }} SELECT ON system.disks TO '{{ ASPECTS_CLICKHOUSE_REPORT_U
 GRANT {{ ON_CLUSTER }} SELECT ON system.events TO '{{ ASPECTS_CLICKHOUSE_REPORT_USER }}';
 GRANT {{ ON_CLUSTER }} SELECT ON system.metrics TO '{{ ASPECTS_CLICKHOUSE_REPORT_USER }}';
 GRANT {{ ON_CLUSTER }} SELECT ON system.replication_queue TO '{{ ASPECTS_CLICKHOUSE_REPORT_USER }}';
+GRANT {{ ON_CLUSTER }} SELECT ON system.query_log TO '{{ ASPECTS_CLICKHOUSE_REPORT_USER }}';
 
 -- Patch from clickhouse-extra-sql follows...
 {{ patch("clickhouse-extra-sql") }}
