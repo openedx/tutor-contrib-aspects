@@ -5,7 +5,7 @@ aspects: # this needs to match the profile in your dbt_project.yml file
       type: clickhouse
       schema: {{ DBT_PROFILE_TARGET_DATABASE }}
       host: {{ CLICKHOUSE_HOST }}
-      port: {{ CLICKHOUSE_INTERNAL_HTTP_PORT }}
+      port: {{ CLICKHOUSE_INTERNAL_NATIVE_PORT }}
       user: {{ CLICKHOUSE_ADMIN_USER }}
       password: '{{ CLICKHOUSE_ADMIN_PASSWORD }}'
       cluster: {{ CLICKHOUSE_CLUSTER_NAME }}
