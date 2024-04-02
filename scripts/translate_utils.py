@@ -183,7 +183,7 @@ def compile_translations(root_path):
         outfile.write("---\n")
         # If we don't use an extremely large width, the jinja in our translations
         # can be broken by newlines. So we use the largest number there is.
-        yaml.dump(all_translations, outfile, width=math.inf, sort_keys=True)
+        yaml.dump(all_translations, outfile, width=math.inf, sort_keys=True, allow_unicode=True)
         outfile.write("\n{{ patch('superset-extra-asset-translations')}}\n")
 
     # We remove these files to avoid confusion about where translations are coming
