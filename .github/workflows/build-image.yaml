@@ -20,9 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     if: "!startsWith(github.head_ref, 'dependabot/')"
     steps:
-      - name: Checkout
-        run:
-            echo ${{github.head_ref}}
       - name: Log in to Docker Hub
         continue-on-error: true
         uses: docker/login-action@e92390c5fb421da1463c202d546fed0ec5c39f20
@@ -31,10 +28,13 @@ jobs:
           password: ${{ secrets.EDUNEXT_DOCKER_PASSWORD }}
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Set outputs
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - name: Update ASPECTS_VERSION
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         run: |
-          ASPECTS_VERSION=pr-${{ github.event.pull_request.number }}
+          ASPECTS_VERSION=pr-${{ github.event.pull_request.number }}-${{ steps.vars.outputs.sha_short }}
           sed -i "s/ASPECTS_VERSION: .*/ASPECTS_VERSION: $ASPECTS_VERSION/" .ci/config.yml
       - name: setup python
         uses: actions/setup-python@v5

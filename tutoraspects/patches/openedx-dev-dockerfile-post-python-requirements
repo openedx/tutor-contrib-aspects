@@ -1,0 +1,1 @@
+RUN pip install event-tracking>=2.3.2

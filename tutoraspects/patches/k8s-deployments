@@ -574,13 +574,18 @@ spec:
               name: settings-cms
             - mountPath: /openedx/config
               name: config
-            - mountPath: /openedx/edx-platform/uwsgi.ini
-              name: uwsgi-config
-              subPath: uwsgi.ini
           securityContext:
             allowPrivilegeEscalation: false
-          command: |
-            ./manage.py lms consume_events -t analytics -g event_routing_backends --extra '{"consumer_name": "aspects"}'
+          command:
+            - "./manage.py"
+            - "lms"
+            - "consume_events"
+            - "-t"
+            - "analytics"
+            - "-g"
+            - "event_routing_backends"
+            - "--extra"
+            - '{"consumer_name": "aspects"}'
       volumes:
         - name: settings-lms
           configMap:
