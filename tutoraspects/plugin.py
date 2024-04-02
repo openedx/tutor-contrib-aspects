@@ -28,8 +28,9 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Each new setting is a pair: (setting_name, default_value).
         # Prefix your setting names with 'ASPECTS_'.
         ("ASPECTS_VERSION", __version__),
-        # General tutor specific settings
-        ("RUN_VECTOR", True),
+        # For out default deployment we currently use Celery -> Ralph for transport,
+        # so Vector is off by default.
+        ("RUN_VECTOR", False),
         ("RUN_CLICKHOUSE", True),
         ("RUN_RALPH", True),
         ("RUN_SUPERSET", True),
@@ -136,6 +137,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_EVENT_SINK_RECENT_BLOCKS_MV", "most_recent_course_blocks_mv"),
         # Vector settings
         ("ASPECTS_DOCKER_HOST_SOCK_PATH", "/var/run/docker.sock"),
+        ("ASPECTS_VECTOR_STORE_TRACKING_LOGS", False),
+        ("ASPECTS_VECTOR_STORE_XAPI", True),
         ("ASPECTS_VECTOR_DATABASE", "openedx"),
         ("ASPECTS_VECTOR_RAW_TRACKING_LOGS_TABLE", "_tracking"),
         ("ASPECTS_VECTOR_RAW_XAPI_TABLE", "xapi_events_all"),
