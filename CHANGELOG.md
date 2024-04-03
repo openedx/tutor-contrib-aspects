@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.92.0 - 2024-04-03
+
+### [0.92.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.91.0...v0.92.0) (2024-04-03)
+
+#### Features
+
+* create aspects-consumer deployment ([e17ae39](https://github.com/openedx/tutor-contrib-aspects/commit/e17ae3979a12857f8c04d4a6923bd2d2460eb514))
+* use new ERB settings model ([9a42807](https://github.com/openedx/tutor-contrib-aspects/commit/9a42807e4e420d6379dfec017149cb4833503ecc))
+
+#### Bug Fixes
+
+* install plugins after dev requirements ([1601f8f](https://github.com/openedx/tutor-contrib-aspects/commit/1601f8f134bb5854186e0dda2ec4fe9a45dec1f6))
+
 ## v0.91.0 - 2024-04-02
 
 ### [0.91.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.90.0...v0.91.0) (2024-04-02)
