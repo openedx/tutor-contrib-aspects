@@ -538,3 +538,62 @@ spec:
           hostPath:
             path: /var/log/
 {% endif %}
+
+{% if ASPECTS_ENABLE_EVENT_BUS_CONSUMER %}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aspects-consumer
+  labels:
+    app.kubernetes.io/name: aspects-consumer
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: aspects-consumer
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: aspects-consumer
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+      containers:
+        - name: aspects-consumer
+          image: {{ DOCKER_IMAGE_OPENEDX }}
+          env:
+          - name: SERVICE_VARIANT
+            value: lms
+          - name: DJANGO_SETTINGS_MODULE
+            value: lms.envs.tutor.production
+          volumeMounts:
+            - mountPath: /openedx/edx-platform/lms/envs/tutor/
+              name: settings-lms
+            - mountPath: /openedx/edx-platform/cms/envs/tutor/
+              name: settings-cms
+            - mountPath: /openedx/config
+              name: config
+          securityContext:
+            allowPrivilegeEscalation: false
+          command:
+            - "./manage.py"
+            - "lms"
+            - "consume_events"
+            - "-t"
+            - "analytics"
+            - "-g"
+            - "event_routing_backends"
+            - "--extra"
+            - '{"consumer_name": "aspects"}'
+      volumes:
+        - name: settings-lms
+          configMap:
+            name: openedx-settings-lms
+        - name: settings-cms
+          configMap:
+            name: openedx-settings-cms
+        - name: config
+          configMap:
+            name: openedx-config
+{% endif %}
