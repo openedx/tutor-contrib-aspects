@@ -1,10 +1,11 @@
 _file_name: posts_per_user.yaml
+always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
   column_name: num_posts
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -16,7 +17,7 @@ columns:
 - advanced_data_type: null
   column_name: actor_id
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -28,7 +29,7 @@ columns:
 - advanced_data_type: null
   column_name: course_key
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -40,7 +41,7 @@ columns:
 - advanced_data_type: null
   column_name: course_name
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -52,7 +53,7 @@ columns:
 - advanced_data_type: null
   column_name: course_run
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -64,7 +65,7 @@ columns:
 - advanced_data_type: null
   column_name: org
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -89,6 +90,15 @@ metrics:
   metric_name: users
   metric_type: null
   verbose_name: Number Of Users
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: COUNT(*)
+  extra: null
+  metric_name: count
+  metric_type: count
+  verbose_name: COUNT(*)
   warning_text: null
 normalize_columns: true
 offset: 0

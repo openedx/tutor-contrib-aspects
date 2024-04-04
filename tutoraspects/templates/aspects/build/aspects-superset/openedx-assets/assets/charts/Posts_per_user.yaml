@@ -6,6 +6,7 @@ dataset_uuid: a2823d2e-54c4-4378-98c2-817f000c14ab
 description: null
 params:
   adhoc_filters: []
+  annotation_layers: []
   bottom_margin: auto
   color_scheme: supersetColors
   columns: []

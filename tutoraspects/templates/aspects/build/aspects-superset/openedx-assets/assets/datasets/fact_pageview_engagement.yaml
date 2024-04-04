@@ -1,4 +1,5 @@
 _file_name: fact_pageview_engagement.yaml
+always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null

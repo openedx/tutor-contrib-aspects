@@ -8,6 +8,7 @@ description: The number of students who have responded to a question, and whethe
   but this chart counts each student only once per question.
 params:
   adhoc_filters: []
+  annotation_layers: []
   bar_stacked: true
   bottom_margin: auto
   color_scheme: supersetColors

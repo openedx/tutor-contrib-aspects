@@ -263,7 +263,6 @@ def update_dashboard_roles(roles):
         dashboard = db.session.query(Dashboard).filter_by(uuid=dashboard_uuid).one()
         print("Importing dashboard roles", dashboard_uuid, role_ids)
         dashboard.roles = role_ids
-        dashboard.published = True
         if owners:
             dashboard.owners = owners
         db.session.commit()

@@ -1,6 +1,8 @@
 _file_name: Instructor_Dashboard.yaml
 _roles:
 - '{{ SUPERSET_ROLES_MAPPING.instructor }}'
+certification_details: null
+certified_by: null
 css: ''
 dashboard_title: Instructor Dashboard
 description: null
@@ -420,7 +422,7 @@ position:
     children: []
     id: CHART-AZZnl_lpMv
     meta:
-      chartId: 229
+      chartId: 21
       height: 50
       sliceName: Watches Per Video
       uuid: 829c1d5b-2844-4115-876a-34ad3b3cad64
@@ -435,7 +437,7 @@ position:
     children: []
     id: CHART-GFCO8s2cxv
     meta:
-      chartId: 625
+      chartId: 19
       height: 50
       sliceName: Distribution Of Responses
       uuid: f1651c44-a8f4-4b44-ad49-962823009319
@@ -450,7 +452,7 @@ position:
     children: []
     id: CHART-GJJ8VYQ03v
     meta:
-      chartId: 783
+      chartId: 6
       height: 50
       sliceName: Posts per user
       uuid: bc191ce7-f39d-48db-86a9-d19949f4211d
@@ -465,7 +467,7 @@ position:
     children: []
     id: CHART-Jr-gNVms2Q
     meta:
-      chartId: 114
+      chartId: 12
       height: 50
       sliceName: Enrollment Events Per Day
       uuid: bb1147cc-b7bc-44b7-b06a-79b0db6626aa
@@ -480,7 +482,7 @@ position:
     children: []
     id: CHART-OMy4wjRBWt
     meta:
-      chartId: 682
+      chartId: 27
       height: 50
       sliceName: Watched Video Segments
       uuid: 2985a9db-c338-4008-af52-2930b81ee2e5
@@ -495,7 +497,7 @@ position:
     children: []
     id: CHART-RTO33WE9FH
     meta:
-      chartId: 597
+      chartId: 15
       height: 50
       sliceName: Responses Per Problem
       uuid: a3e79162-4ace-4349-ab34-89aa60ae75ed
@@ -510,7 +512,7 @@ position:
     children: []
     id: CHART-Tej2oLPBAl
     meta:
-      chartId: 701
+      chartId: 37
       height: 50
       sliceName: Transcripts / Captions Per Video
       uuid: 6b830def-f3ca-4b4c-9455-7a7b7354bce8
@@ -555,7 +557,7 @@ position:
     children: []
     id: CHART-evjVO-ZSSd
     meta:
-      chartId: 156
+      chartId: 38
       height: 50
       sliceName: Enrollments By Enrollment Mode
       uuid: 05ed7102-5464-4e2f-86ae-31700b787cc3
@@ -570,7 +572,7 @@ position:
     children: []
     id: CHART-j3trfNh8_p
     meta:
-      chartId: 325
+      chartId: 29
       height: 50
       sliceName: Pageview engagement by section/subsection
       uuid: 366a8193-30c3-4aaf-a1ac-360609dfa0ed
@@ -600,7 +602,7 @@ position:
     children: []
     id: CHART-lTr8DL3XuI
     meta:
-      chartId: 695
+      chartId: 4
       height: 50
       sliceName: Distribution Of Hints Per Correct Answer
       uuid: ee94be4c-6fdd-4295-b43c-40890d6c549d
@@ -615,7 +617,7 @@ position:
     children: []
     id: CHART-o56v9yEe2I
     meta:
-      chartId: 770
+      chartId: 31
       height: 50
       sliceName: Distribution Of Problem Grades
       uuid: 4f7e3606-f5de-4643-97c0-bbb6340a3df2
@@ -630,7 +632,7 @@ position:
     children: []
     id: CHART-qG1WaGKl_b
     meta:
-      chartId: 154
+      chartId: 34
       height: 50
       sliceName: Distinct forum users
       uuid: feb323ad-c819-49ca-a336-584bd9ff1a2e
@@ -645,7 +647,7 @@ position:
     children: []
     id: CHART-rnb6PSwCOS
     meta:
-      chartId: 339
+      chartId: 16
       height: 50
       sliceName: Currently Enrolled Learners Per Day
       uuid: ed2fe731-6544-422f-bc55-42f399f48b2c
@@ -660,7 +662,7 @@ position:
     children: []
     id: CHART-tWnaoVNNTH
     meta:
-      chartId: 327
+      chartId: 11
       height: 50
       sliceName: Distribution Of Attempts
       uuid: db90930f-f16e-4c32-8050-0e4abae28f4c
@@ -675,7 +677,7 @@ position:
     children: []
     id: CHART-w-k4N2T_L8
     meta:
-      chartId: 516
+      chartId: 2
       height: 50
       sliceName: Course Grade Distribution
       uuid: f9adbc85-1f50-4c04-ace3-31ba7390de5e
@@ -1130,6 +1132,7 @@ position:
     parents:
     - ROOT_ID
     type: TABS
+published: true
 slug: instructor-dashboard
 uuid: 1d6bf904-f53f-47fd-b1c9-6cd7e284d286
 version: 1.0.0

@@ -12,6 +12,7 @@ params:
     expressionType: SIMPLE
     operator: TEMPORAL_RANGE
     subject: emission_time
+  annotation_layers: []
   bottom_margin: auto
   color_scheme: supersetColors
   columns: []
