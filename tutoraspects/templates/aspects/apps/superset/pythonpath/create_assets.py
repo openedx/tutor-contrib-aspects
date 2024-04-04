@@ -12,12 +12,15 @@ from copy import deepcopy
 from pathlib import Path
 
 from superset import security_manager
+from superset.commands.dataset.refresh import RefreshDatasetCommand
 from superset.examples.utils import load_configs_from_directory
 from superset.extensions import db
 from superset.models.dashboard import Dashboard
+from superset.connectors.sqla.models import SqlaTable
 from superset.utils.database import get_or_create_db
 from superset.models.embedded_dashboard import EmbeddedDashboard
 from pythonpath.localization import get_translation
+from flask import g
 
 BASE_DIR = "/app/assets/superset"
 
@@ -91,6 +94,7 @@ def create_assets():
     import_assets()
     update_dashboard_roles(roles)
     update_embeddable_uuids()
+    update_datasets()
 
 
 def import_databases():
@@ -280,6 +284,21 @@ def update_embeddable_uuids():
 
         db.session.add(embedded_dashboard)
         db.session.commit()
+
+
+def update_datasets():
+    """Update the datasets"""
+    print("Refreshing datasets")
+    g.user = security_manager.find_user(username="{{SUPERSET_ADMIN_USERNAME}}")
+    datasets = (
+        db.session.query(SqlaTable).all()
+    )
+    for dataset in datasets:
+        print(f"Refreshing dataset {dataset.table_name}")
+        try:
+            RefreshDatasetCommand(dataset.id).run()
+        except Exception as e:
+            print(f"Failed to refresh dataset {dataset.table_name}")
 
 
 if __name__ == "__main__":
