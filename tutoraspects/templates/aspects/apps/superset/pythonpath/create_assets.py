@@ -286,7 +286,6 @@ def update_embeddable_uuids():
 def update_datasets():
     """Update the datasets"""
     print("Refreshing datasets")
-    g.user = security_manager.find_user(username="{{SUPERSET_ADMIN_USERNAME}}")
     datasets = (
         db.session.query(SqlaTable).all()
     )
