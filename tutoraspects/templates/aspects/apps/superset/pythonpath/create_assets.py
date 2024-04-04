@@ -12,7 +12,6 @@ from copy import deepcopy
 from pathlib import Path
 
 from superset import security_manager
-from superset.commands.dataset.refresh import RefreshDatasetCommand
 from superset.examples.utils import load_configs_from_directory
 from superset.extensions import db
 from superset.models.dashboard import Dashboard
@@ -20,7 +19,6 @@ from superset.connectors.sqla.models import SqlaTable
 from superset.utils.database import get_or_create_db
 from superset.models.embedded_dashboard import EmbeddedDashboard
 from pythonpath.localization import get_translation
-from flask import g
 from superset.connectors.sqla.utils import get_columns_description
 
 BASE_DIR = "/app/assets/superset"
@@ -294,14 +292,8 @@ def update_datasets():
         db.session.query(SqlaTable).all()
     )
     for dataset in datasets:
-        try:
-            if dataset_is_empty(dataset):
-                print(f"Dataset {dataset.table_name} is empty")
-                continue
-            RefreshDatasetCommand(dataset.id).run()
-            print(f"Refreshing dataset {dataset.table_name}")
-        except Exception as e:
-            print(f"Failed to refresh dataset {dataset.table_name}")
+        print(f"Refreshing dataset {dataset.table_name}")
+        dataset.fetch_metadata(commit=True)
 
 
 def dataset_is_empty(dataset):
