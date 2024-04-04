@@ -10,10 +10,10 @@ from
 where
     1=1
     {% raw %}
-    {% if from_dttm is not none %}
+    {% if from_dttm %}
     and emission_time > '{{ from_dttm }}'
     {% endif %}
-    {% if to_dttm is not none %}
+    {% if to_dttm %}
     and emission_time < '{{ to_dttm }}'
     {% endif %}
     {% endraw %}

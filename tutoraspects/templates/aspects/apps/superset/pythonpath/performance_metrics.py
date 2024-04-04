@@ -14,7 +14,7 @@ from unittest.mock import patch
 import sqlparse
 from flask import g
 from superset import security_manager
-from superset.charts.data.commands.get_data_command import ChartDataCommand
+from superset.commands.chart.data.get_data_command import ChartDataCommand
 from superset.charts.schemas import ChartDataQueryContextSchema
 from superset.extensions import db
 from superset.models.dashboard import Dashboard

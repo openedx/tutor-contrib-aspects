@@ -86,10 +86,10 @@ WITH problem_responses AS (
     FROM int_problem_results
     WHERE 1=1
     {% raw %}
-    {% if from_dttm is not none %}
+    {% if from_dttm %}
     and emission_time > '{{ from_dttm }}'
     {% endif %}
-    {% if to_dttm is not none %}
+    {% if to_dttm %}
     and emission_time < '{{ to_dttm }}'
     {% endif %}
     {% endraw %}
@@ -109,10 +109,10 @@ WITH problem_responses AS (
     FROM {{ DBT_PROFILE_TARGET_DATABASE }}.int_problem_hints
     WHERE 1=1
     {% raw %}
-    {% if from_dttm is not none %}
+    {% if from_dttm %}
     and emission_time > '{{ from_dttm }}'
     {% endif %}
-    {% if to_dttm is not none %}
+    {% if to_dttm %}
     and emission_time < '{{ to_dttm }}'
     {% endif %}
     {% endraw %}
