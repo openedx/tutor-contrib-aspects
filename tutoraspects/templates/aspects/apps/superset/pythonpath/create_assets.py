@@ -19,7 +19,6 @@ from superset.connectors.sqla.models import SqlaTable
 from superset.utils.database import get_or_create_db
 from superset.models.embedded_dashboard import EmbeddedDashboard
 from pythonpath.localization import get_translation
-from superset.connectors.sqla.utils import get_columns_description
 
 BASE_DIR = "/app/assets/superset"
 
@@ -295,18 +294,6 @@ def update_datasets():
         print(f"Refreshing dataset {dataset.table_name}")
         dataset.fetch_metadata(commit=True)
 
-
-def dataset_is_empty(dataset):
-    """Check if a dataset is empty"""
-    sql = dataset.get_template_processor().process_template(
-        dataset.sql, **dataset.template_params_dict
-    )
-    try:
-        columns = get_columns_description(dataset.database, dataset.schema, sql)
-    except Exception as e:
-        print(f"Failed to get columns for dataset {dataset.table_name}: {e}")
-        return True
-    return columns == []
 
 if __name__ == "__main__":
     main()
