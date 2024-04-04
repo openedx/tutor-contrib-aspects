@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.93.0 - 2024-04-04
+
+### [0.93.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.92.0...v0.93.0) (2024-04-04)
+
+#### Features
+
+* add dataset and chart for video engagement dropoff ([bdd20bb](https://github.com/openedx/tutor-contrib-aspects/commit/bdd20bb773b390e8003035ef1c6e66407601518f))
+* bump aspects-dbt version to include video engagement model ([0b6dd28](https://github.com/openedx/tutor-contrib-aspects/commit/0b6dd28aee9954887089859e963cf69ebd07779d))
+
+#### Bug Fixes
+
+* update chart aggregation to count video views ([9216579](https://github.com/openedx/tutor-contrib-aspects/commit/921657938cf8806a6d12731158634e463d788c9a))
+
 ## v0.92.0 - 2024-04-03
 
 ### [0.92.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.91.0...v0.92.0) (2024-04-03)
