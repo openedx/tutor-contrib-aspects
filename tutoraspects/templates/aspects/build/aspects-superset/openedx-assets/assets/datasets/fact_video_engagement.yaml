@@ -1,4 +1,4 @@
-_file_name: fact_pageview_engagement.yaml
+_file_name: fact_video_engagement.yaml
 cache_timeout: null
 columns:
 - advanced_data_type: null
@@ -107,8 +107,8 @@ offset: 0
 params: null
 schema: main
 sql: |-
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_pageview_engagement.sql' %}{% endfilter %}
-table_name: fact_pageview_engagement
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_video_engagement.sql' %}{% endfilter %}
+table_name: fact_video_engagement
 template_params: {}
-uuid: 9febd6be-5102-4dbf-86b9-45ebd3cbbc45
+uuid: 247a55b3-d44e-442e-ba92-71bf7976b192
 version: 1.0.0
