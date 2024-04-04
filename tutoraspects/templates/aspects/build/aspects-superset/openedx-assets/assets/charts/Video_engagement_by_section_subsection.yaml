@@ -33,7 +33,7 @@ params:
     label: At least one video viewed
     optionName: metric_uly1n6wzzl_t4av1e6urzi
     sqlExpression: |-
-      countIf("section/subsection video engagement" = 'All pages viewed' or "section/subsection video engagement" = 'At least one video viewed')
+      countIf("section/subsection video engagement" = 'All videos viewed' or "section/subsection video engagement" = 'At least one video viewed')
   only_total: true
   order_desc: true
   orientation: vertical

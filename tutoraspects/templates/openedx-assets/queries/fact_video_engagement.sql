@@ -7,7 +7,7 @@ with
             subsection_with_name,
             actor_id,
             item_count,
-            countdistinct(video_id) as videos_viewed,
+            countDistinct(video_id) as videos_viewed,
             case
                 when videos_viewed = 0
                 then 'No videos viewed yet'
