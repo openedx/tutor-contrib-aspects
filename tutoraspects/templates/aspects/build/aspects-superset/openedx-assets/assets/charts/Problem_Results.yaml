@@ -1,0 +1,76 @@
+_file_name: Problem_Results.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: c0c8b8a3-b18a-4c17-a69b-e6befea0159d
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_time
+  aggregateFunction: Sum
+  colOrder: key_a_to_z
+  conditional_formatting: []
+  date_format: smart_date
+  extra_form_data: {}
+  groupbyColumns:
+  - success
+  groupbyRows:
+  - problem_name_with_location
+  metrics:
+  - aggregate: SUM
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: attempts
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 701
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: INT16
+      type_generic: 0
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: Number of Attempts
+    optionName: metric_v4jssil92q_9ajhtgt7xwt
+    sqlExpression: null
+  - aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: true
+    label: Avg Attempts
+    optionName: metric_vv08p5p9y98_ydc7swlypm
+    sqlExpression: SUM(attempts)/COUNT(actor_id)
+  metricsLayout: COLUMNS
+  order_desc: true
+  rowOrder: key_a_to_z
+  row_limit: 1000
+  temporal_columns_lookup:
+    emission_time: true
+  time_grain_sqla: P1D
+  valueFormat: SMART_NUMBER
+  viz_type: pivot_table_v2
+query_context: '{"datasource":{"id":66,"type":"table"},"force":false,"queries":[{"filters":[{"col":"emission_time","op":"TEMPORAL_RANGE","val":"No
+  filter"}],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":["success","problem_name_with_location"],"metrics":[{"expressionType":"SIMPLE","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"attempts","description":null,"expression":null,"filterable":true,"groupby":true,"id":701,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"INT16","type_generic":0,"verbose_name":null,"warning_markdown":null},"aggregate":"SUM","sqlExpression":null,"datasourceWarning":false,"hasCustomLabel":true,"label":"Number
+  of Attempts","optionName":"metric_v4jssil92q_9ajhtgt7xwt"},{"expressionType":"SQL","sqlExpression":"SUM(attempts)/COUNT(actor_id)","column":null,"aggregate":null,"datasourceWarning":false,"hasCustomLabel":true,"label":"Avg
+  Attempts","optionName":"metric_vv08p5p9y98_ydc7swlypm"}],"orderby":[[{"expressionType":"SIMPLE","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"attempts","description":null,"expression":null,"filterable":true,"groupby":true,"id":701,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"INT16","type_generic":0,"verbose_name":null,"warning_markdown":null},"aggregate":"SUM","sqlExpression":null,"datasourceWarning":false,"hasCustomLabel":true,"label":"Number
+  of Attempts","optionName":"metric_v4jssil92q_9ajhtgt7xwt"},false]],"annotation_layers":[],"row_limit":1000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"form_data":{"datasource":"66__table","viz_type":"pivot_table_v2","slice_id":199,"groupbyColumns":["success"],"groupbyRows":["problem_name_with_location"],"time_grain_sqla":"P1D","temporal_columns_lookup":{"emission_time":true},"metrics":[{"expressionType":"SIMPLE","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"attempts","description":null,"expression":null,"filterable":true,"groupby":true,"id":701,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"INT16","type_generic":0,"verbose_name":null,"warning_markdown":null},"aggregate":"SUM","sqlExpression":null,"datasourceWarning":false,"hasCustomLabel":true,"label":"Number
+  of Attempts","optionName":"metric_v4jssil92q_9ajhtgt7xwt"},{"expressionType":"SQL","sqlExpression":"SUM(attempts)/COUNT(actor_id)","column":null,"aggregate":null,"datasourceWarning":false,"hasCustomLabel":true,"label":"Avg
+  Attempts","optionName":"metric_vv08p5p9y98_ydc7swlypm"}],"metricsLayout":"COLUMNS","adhoc_filters":[{"clause":"WHERE","comparator":"No
+  filter","expressionType":"SIMPLE","operator":"TEMPORAL_RANGE","subject":"emission_time"}],"row_limit":1000,"order_desc":true,"aggregateFunction":"Sum","valueFormat":"SMART_NUMBER","date_format":"smart_date","rowOrder":"key_a_to_z","colOrder":"key_a_to_z","conditional_formatting":[],"extra_form_data":{},"dashboards":[16],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+slice_name: Problem Results
+uuid: 2d7e5995-922e-44f4-be34-18f553dbcd21
+version: 1.0.0
+viz_type: pivot_table_v2
