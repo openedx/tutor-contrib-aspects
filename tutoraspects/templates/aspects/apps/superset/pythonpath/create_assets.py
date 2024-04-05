@@ -19,7 +19,7 @@ from superset.connectors.sqla.models import SqlaTable
 from superset.utils.database import get_or_create_db
 from superset.models.embedded_dashboard import EmbeddedDashboard
 from pythonpath.localization import get_translation
-
+from pythonpath.create_row_level_security import create_rls_filters
 BASE_DIR = "/app/assets/superset"
 
 ASSET_FOLDER_MAPPING = {
@@ -94,6 +94,7 @@ def create_assets():
     update_dashboard_roles(roles)
     update_embeddable_uuids()
     update_datasets()
+    create_rls_filters()
 
 
 def import_databases():

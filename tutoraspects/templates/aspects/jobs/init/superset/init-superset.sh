@@ -76,10 +76,3 @@ echo_step "4" "Starting" "Importing assets"
 bash /app/scripts/import-assets.sh
 
 echo_step "4" "Complete" "Importing assets"
-
-# Set up a Row-Level Security filter to enforce course-based access restrictions.
-# Note: there are no cli commands or REST API endpoints to help us with this,
-# so we have to pipe python code directly into the superset shell. Yuck!
-echo_step "5" "Starting" "Setup row level security filters"
-python /app/pythonpath/create_row_level_security.py
-echo_step "5" "Complete" "Setup row level security filters"
