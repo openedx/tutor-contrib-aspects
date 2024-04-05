@@ -175,7 +175,7 @@ metrics:
 normalize_columns: true
 offset: 0
 params: null
-schema: main
+schema: {{ DBT_PROFILE_TARGET_DATABASE }}
 sql: |-
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_problem_responses.sql' %}{% endfilter %}
 table_name: fact_problem_responses

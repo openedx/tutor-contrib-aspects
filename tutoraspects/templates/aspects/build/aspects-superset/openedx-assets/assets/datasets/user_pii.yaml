@@ -5,8 +5,8 @@ description: null
 default_endpoint: null
 offset: 0
 cache_timeout: null
-schema: main
-sql: 'select * from event_sink.user_pii'
+schema: {{ ASPECTS_EVENT_SINK_DATABASE }}
+sql: 'select * from {{ ASPECTS_EVENT_SINK_DATABASE }}.user_pii'
 params: null
 template_params: null
 filter_select_enabled: true
