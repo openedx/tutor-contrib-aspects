@@ -273,7 +273,7 @@ metrics:
 normalize_columns: true
 offset: 0
 params: null
-schema: {{ SUPERSET_DB_NAME }}
+schema: '{{ SUPERSET_DB_NAME }}'
 sql: select * from slices
 table_name: slices
 template_params: null

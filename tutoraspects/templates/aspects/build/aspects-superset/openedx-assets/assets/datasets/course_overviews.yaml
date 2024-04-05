@@ -177,7 +177,7 @@ metrics:
 normalize_columns: true
 offset: 0
 params: null
-schema: {{ ASPECTS_EVENT_SINK_DATABASE }}
+schema: '{{ ASPECTS_EVENT_SINK_DATABASE }}'
 sql: select * from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_overviews
 table_name: course_overviews
 template_params: null

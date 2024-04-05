@@ -7,6 +7,7 @@ description: This chart shows which parts of a video are most watched, and which
   most re-watched. Each segment represents 5 seconds of the video.
 params:
   adhoc_filters: []
+  annotation_layers: []
   bar_stacked: true
   bottom_margin: auto
   color_scheme: supersetColors

@@ -138,7 +138,7 @@ metrics:
 normalize_columns: true
 offset: 0
 params: null
-schema: {{ DBT_PROFILE_TARGET_DATABASE }}
+schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |-
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_transcript_usage.sql' %}{% endfilter %}
 table_name: fact_transcript_usage
