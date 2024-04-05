@@ -5,7 +5,7 @@ columns:
 - advanced_data_type: null
   column_name: section/subsection page engagement
   description: null
-  expression: null
+  expression: ''
   extra: null
   filterable: true
   groupby: true
@@ -17,7 +17,7 @@ columns:
 - advanced_data_type: null
   column_name: section/subsection name
   description: null
-  expression: null
+  expression: ''
   extra: null
   filterable: true
   groupby: true
@@ -29,7 +29,7 @@ columns:
 - advanced_data_type: null
   column_name: content level
   description: null
-  expression: null
+  expression: ''
   extra: null
   filterable: true
   groupby: true
@@ -41,7 +41,7 @@ columns:
 - advanced_data_type: null
   column_name: actor_id
   description: null
-  expression: null
+  expression: ''
   extra: null
   filterable: true
   groupby: true
@@ -53,7 +53,7 @@ columns:
 - advanced_data_type: null
   column_name: course_key
   description: null
-  expression: null
+  expression: ''
   extra: null
   filterable: true
   groupby: true
@@ -65,7 +65,7 @@ columns:
 - advanced_data_type: null
   column_name: course_run
   description: null
-  expression: null
+  expression: ''
   extra: null
   filterable: true
   groupby: true
@@ -77,7 +77,7 @@ columns:
 - advanced_data_type: null
   column_name: org
   description: null
-  expression: null
+  expression: ''
   extra: null
   filterable: true
   groupby: true
