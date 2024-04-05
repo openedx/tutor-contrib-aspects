@@ -190,7 +190,7 @@ metrics:
 normalize_columns: false
 offset: 0
 params: null
-schema: superset
+schema: {{ SUPERSET_DB_NAME }}
 sql: select * from ab_user
 table_name: ab_user
 template_params: null

@@ -22,6 +22,6 @@ SELECT
   emission_time
 FROM events
 JOIN
-   event_sink.course_names courses
+   {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names courses
 ON
   (events.course_key = courses.course_key)

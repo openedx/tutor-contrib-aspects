@@ -106,7 +106,7 @@ metrics:
 normalize_columns: false
 offset: 0
 params: null
-schema: main
+schema: system
 sql: |
   SELECT
       query_duration_ms,

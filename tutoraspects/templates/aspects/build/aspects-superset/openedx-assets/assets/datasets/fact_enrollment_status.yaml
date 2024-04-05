@@ -100,7 +100,7 @@ metrics:
 normalize_columns: false
 offset: 0
 params: null
-schema: main
+schema: {{ DBT_PROFILE_TARGET_DATABASE }}
 sql: select * from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_enrollment_status
 table_name: fact_enrollment_status
 template_params: null

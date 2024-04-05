@@ -129,7 +129,7 @@ metrics:
 normalize_columns: false
 offset: 0
 params: null
-schema: main
+schema: {{ ASPECTS_XAPI_DATABASE }}
 sql: |-
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/indexed_events.sql' %}{% endfilter %}
 table_name: indexed_events

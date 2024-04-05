@@ -127,7 +127,7 @@ metrics:
   warning_text: null
 offset: 0
 params: null
-schema: main
+schema: {{ASPECTS_EVENT_SINK_DATABASE}}
 sql: "select * from {{ASPECTS_EVENT_SINK_DATABASE}}.{{ ASPECTS_EVENT_SINK_NODES_TABLE }}"
 table_name: "{{ ASPECTS_EVENT_SINK_NODES_TABLE }}"
 template_params: null

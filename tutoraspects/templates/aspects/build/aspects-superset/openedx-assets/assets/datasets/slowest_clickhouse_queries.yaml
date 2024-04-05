@@ -81,7 +81,7 @@ metrics:
 normalize_columns: false
 offset: 0
 params: null
-schema: main
+schema: system
 sql: |-
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/slowest_clickhouse_queries.sql' %}{% endfilter %}
 table_name: slowest_clickhouse_queries
