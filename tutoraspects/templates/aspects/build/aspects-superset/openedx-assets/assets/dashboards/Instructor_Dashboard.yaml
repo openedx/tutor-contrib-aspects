@@ -118,30 +118,28 @@ metadata:
         - 921
         scope: global
       id: 901
-    '921':
-      crossFilters:
-        chartsInScope:
-        - 114
-        - 154
-        - 156
-        - 229
-        - 325
-        - 327
-        - 339
-        - 516
-        - 597
-        - 625
-        - 682
-        - 695
-        - 701
-        - 770
-        - 783
-        - 816
-        - 901
-        scope: global
-      id: 921
-  color_scheme: ''
-  color_scheme_domain: []
+  color_scheme: supersetColors
+  color_scheme_domain:
+  - '#1FA8C9'
+  - '#454E7C'
+  - '#5AC189'
+  - '#FF7F44'
+  - '#666666'
+  - '#E04355'
+  - '#FCC700'
+  - '#A868B7'
+  - '#3CCCCB'
+  - '#A38F79'
+  - '#8FD3E4'
+  - '#A1A6BD'
+  - '#ACE1C4'
+  - '#FEC0A1'
+  - '#B2B2B2'
+  - '#EFA1AA'
+  - '#FDE380'
+  - '#D3B3DA'
+  - '#9EE5E5'
+  - '#D1C6BC'
   cross_filters_enabled: false
   default_filters: '{}'
   expanded_slices: {}

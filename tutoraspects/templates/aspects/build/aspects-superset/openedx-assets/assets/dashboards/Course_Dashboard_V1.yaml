@@ -281,8 +281,28 @@ metadata:
         - 203
         scope: global
       id: 204
-  color_scheme: ''
-  color_scheme_domain: []
+  color_scheme: supersetColors
+  color_scheme_domain:
+  - '#1FA8C9'
+  - '#454E7C'
+  - '#5AC189'
+  - '#FF7F44'
+  - '#666666'
+  - '#E04355'
+  - '#FCC700'
+  - '#A868B7'
+  - '#3CCCCB'
+  - '#A38F79'
+  - '#8FD3E4'
+  - '#A1A6BD'
+  - '#ACE1C4'
+  - '#FEC0A1'
+  - '#B2B2B2'
+  - '#EFA1AA'
+  - '#FDE380'
+  - '#D3B3DA'
+  - '#9EE5E5'
+  - '#D1C6BC'
   cross_filters_enabled: true
   default_filters: '{}'
   expanded_slices: {}
@@ -550,17 +570,7 @@ metadata:
       datasetUuid: 6ec360a5-e247-42e7-b301-fa8275fc93f9
     type: NATIVE_FILTER
   refresh_frequency: 0
-  shared_label_colors:
-    All pages viewed: '#3CCCCB'
-    All videos viewed: '#8FD3E4'
-    At least one page viewed: '#666666'
-    At least one video viewed: '#A868B7'
-    Number of Learners: '#1FA8C9'
-    Total Learners: '#5AC189'
-    Total Views: '#FCC700'
-    audit: '#FF7F44'
-    honor: '#454E7C'
-    verified: '#E04355'
+  shared_label_colors: {}
   timed_refresh_immune_slices: []
 position:
   CHART-8p_tmmvFsY:
@@ -1224,6 +1234,6 @@ position:
     - TAB-_Ey4nPhFr
     type: TABS
 published: true
-slug: null
+slug: course-dashboard-v1
 uuid: c0e64194-33d1-4d5a-8c10-4f51530c5ee9
 version: 1.0.0

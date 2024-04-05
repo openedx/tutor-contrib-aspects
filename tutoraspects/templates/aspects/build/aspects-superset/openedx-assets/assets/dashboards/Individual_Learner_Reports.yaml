@@ -1,13 +1,35 @@
 _file_name: Individual_Learner_Reports.yaml
 _roles:
 - '{{ SUPERSET_ROLES_MAPPING.instructor }}'
+certification_details: null
+certified_by: null
 css: ''
 dashboard_title: Individual Learner Reports
 description: null
 metadata:
   chart_configuration: {}
-  color_scheme: ''
-  color_scheme_domain: []
+  color_scheme: supersetColors
+  color_scheme_domain:
+  - '#1FA8C9'
+  - '#454E7C'
+  - '#5AC189'
+  - '#FF7F44'
+  - '#666666'
+  - '#E04355'
+  - '#FCC700'
+  - '#A868B7'
+  - '#3CCCCB'
+  - '#A38F79'
+  - '#8FD3E4'
+  - '#A1A6BD'
+  - '#ACE1C4'
+  - '#FEC0A1'
+  - '#B2B2B2'
+  - '#EFA1AA'
+  - '#FDE380'
+  - '#D3B3DA'
+  - '#9EE5E5'
+  - '#D1C6BC'
   cross_filters_enabled: true
   default_filters: '{}'
   expanded_slices: {}
@@ -39,6 +61,7 @@ position:
     - GRID_ID
     id: ROOT_ID
     type: ROOT
+published: true
 slug: individual-learner
 uuid: abae8a25-1ba4-4653-81bd-d3937a162a11
 version: 1.0.0
