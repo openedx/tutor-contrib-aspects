@@ -117,8 +117,8 @@ metrics:
 normalize_columns: false
 offset: 0
 params: null
-schema: reporting
-sql: null
+schema: main
+sql: select * from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_navigation_completion
 table_name: fact_navigation_completion
 template_params: null
 uuid: 1b1cbf0a-1193-4251-ad52-724c2f0190ae
