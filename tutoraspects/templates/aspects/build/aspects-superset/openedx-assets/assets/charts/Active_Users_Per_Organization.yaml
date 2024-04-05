@@ -11,6 +11,7 @@ params:
     expressionType: SIMPLE
     operator: TEMPORAL_RANGE
     subject: emission_time
+  annotation_layers: []
   color_scheme: supersetColors
   date_format: smart_date
   extra_form_data: {}
@@ -54,6 +55,7 @@ params:
   show_legend: true
   sort_by_metric: true
   viz_type: pie
+query_context: null
 slice_name: Active Users Per Organization
 uuid: 02af00f5-6539-428f-b3ab-632997de7528
 version: 1.0.0

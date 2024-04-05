@@ -11,6 +11,7 @@ params:
     expressionType: SIMPLE
     operator: TEMPORAL_RANGE
     subject: emission_time
+  annotation_layers: []
   color_picker:
     a: 1
     b: 135
@@ -36,6 +37,7 @@ params:
   viz_type: big_number
   x_axis: emission_time
   y_axis_format: SMART_NUMBER
+query_context: null
 slice_name: Active Users Over Time v2
 uuid: e1d619a2-6238-4264-a000-6b6856027edd
 version: 1.0.0

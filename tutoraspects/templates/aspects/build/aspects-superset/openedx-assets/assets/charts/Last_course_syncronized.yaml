@@ -6,6 +6,7 @@ dataset_uuid: 46183302-6fa6-41a3-b6a7-79ff6c1c8402
 description: null
 params:
   adhoc_filters: []
+  annotation_layers: []
   extra_form_data: {}
   header_font_size: 0.4
   metric:
@@ -39,6 +40,7 @@ params:
   time_range: No filter
   viz_type: big_number_total
   y_axis_format: SMART_NUMBER
+query_context: null
 slice_name: Last course syncronized
 uuid: ca93f427-d021-476e-9a36-6ea0d99d30ea
 version: 1.0.0

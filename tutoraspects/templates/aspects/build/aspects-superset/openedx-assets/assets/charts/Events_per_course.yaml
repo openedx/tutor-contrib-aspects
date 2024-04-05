@@ -11,6 +11,7 @@ params:
     expressionType: SIMPLE
     operator: TEMPORAL_RANGE
     subject: emission_time
+  annotation_layers: []
   color_scheme: supersetColors
   date_format: smart_date
   extra_form_data: {}
@@ -31,6 +32,7 @@ params:
   show_legend: true
   sort_by_metric: true
   viz_type: pie
+query_context: null
 slice_name: Events per course
 uuid: 269c5919-2d2e-493d-8c29-14e7b8222ee4
 version: 1.0.0

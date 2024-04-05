@@ -1,8 +1,9 @@
 _file_name: dashboards.yaml
+always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: dashboard_title
+  column_name: created_by_fk
   description: null
   expression: ''
   extra: {}
@@ -11,22 +12,10 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: VARCHAR(500)
-  verbose_name: Dashboard Title
+  type: LONG
+  verbose_name: Created By Fk
 - advanced_data_type: null
-  column_name: uuid
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: null
-  python_date_format: null
-  type: BINARY(16)
-  verbose_name: UUID
-- advanced_data_type: null
-  column_name: published
+  column_name: changed_by_fk
   description: null
   expression: ''
   extra: {}
@@ -35,10 +24,10 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: TINYINT(1)
-  verbose_name: Published
+  type: LONG
+  verbose_name: Changed By Fk
 - advanced_data_type: null
-  column_name: slug
+  column_name: is_managed_externally
   description: null
   expression: ''
   extra: {}
@@ -47,8 +36,8 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: VARCHAR(255)
-  verbose_name: Slug
+  type: TINY
+  verbose_name: Is Managed Externally
 - advanced_data_type: null
   column_name: created_on
   description: null
@@ -74,6 +63,54 @@ columns:
   type: DATETIME
   verbose_name: Changed On
 - advanced_data_type: null
+  column_name: dashboard_title
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: VAR_STRING
+  verbose_name: Dashboard Title
+- advanced_data_type: null
+  column_name: certified_by
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: BLOB
+  verbose_name: Certified By
+- advanced_data_type: null
+  column_name: certification_details
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: BLOB
+  verbose_name: Certification Details
+- advanced_data_type: null
+  column_name: external_url
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: BLOB
+  verbose_name: External Url
+- advanced_data_type: null
   column_name: json_metadata
   description: null
   expression: ''
@@ -83,7 +120,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: MEDIUMTEXT
+  type: BLOB
   verbose_name: JSON Metadata
 - advanced_data_type: null
   column_name: position_json
@@ -95,10 +132,10 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: MEDIUMTEXT
+  type: BLOB
   verbose_name: Position Json
 - advanced_data_type: null
-  column_name: created_by_fk
+  column_name: slug
   description: null
   expression: ''
   extra: {}
@@ -107,68 +144,8 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: INTEGER
-  verbose_name: Created By Fk
-- advanced_data_type: null
-  column_name: changed_by_fk
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: INTEGER
-  verbose_name: Changed By Fk
-- advanced_data_type: null
-  column_name: id
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: INTEGER
-  verbose_name: ID
-- advanced_data_type: null
-  column_name: certification_details
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: TEXT
-  verbose_name: Certification Details
-- advanced_data_type: null
-  column_name: certified_by
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: TEXT
-  verbose_name: Certified By
-- advanced_data_type: null
-  column_name: description
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: TEXT
-  verbose_name: Description
+  type: VAR_STRING
+  verbose_name: Slug
 - advanced_data_type: null
   column_name: css
   description: null
@@ -179,32 +156,56 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: TEXT
+  type: BLOB
   verbose_name: CSS
 - advanced_data_type: null
-  column_name: is_managed_externally
+  column_name: description
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: TINYINT(1)
-  verbose_name: Is Managed Externally
+  type: BLOB
+  verbose_name: Description
 - advanced_data_type: null
-  column_name: external_url
+  column_name: id
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: TEXT
-  verbose_name: External Url
+  type: LONG
+  verbose_name: ID
+- advanced_data_type: null
+  column_name: uuid
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: null
+  python_date_format: null
+  type: STRING
+  verbose_name: UUID
+- advanced_data_type: null
+  column_name: published
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: TINY
+  verbose_name: Published
 database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
 default_endpoint: null
 description: null
@@ -227,7 +228,7 @@ normalize_columns: true
 offset: 0
 params: null
 schema: '{{ SUPERSET_DB_NAME }}'
-sql: 'select * from dashboards'
+sql: select * from dashboards
 table_name: dashboards
 template_params: null
 uuid: 3dee777a-3dd4-4fcb-a749-4d13651b3444

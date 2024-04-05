@@ -25,6 +25,7 @@ params:
     operator: null
     sqlExpression: enrollment_status_date = today()
     subject: null
+  annotation_layers: []
   color_scheme: supersetColors
   date_format: smart_date
   extra_form_data: {}
@@ -46,6 +47,7 @@ params:
   sort_by_metric: true
   time_range: No filter
   viz_type: pie
+query_context: null
 slice_name: Enrollments By Type
 uuid: 6c473b09-6a1a-4531-b71d-ab82e09721ef
 version: 1.0.0

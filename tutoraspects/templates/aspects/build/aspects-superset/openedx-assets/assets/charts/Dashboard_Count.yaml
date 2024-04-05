@@ -6,6 +6,7 @@ dataset_uuid: 3dee777a-3dd4-4fcb-a749-4d13651b3444
 description: Count of dashboards created in Superset over the selected time period.
 params:
   adhoc_filters: []
+  annotation_layers: []
   color_picker:
     a: 1
     b: 150
@@ -29,6 +30,7 @@ params:
   url_params: {}
   viz_type: big_number
   y_axis_format: SMART_NUMBER
+query_context: null
 slice_name: Dashboard Count
 uuid: 8368fe0b-5e64-4ad5-b93b-93f8a6f848af
 version: 1.0.0

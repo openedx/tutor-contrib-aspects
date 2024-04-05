@@ -74,6 +74,7 @@ params:
   y_axis_format: SMART_NUMBER
   y_axis_title_margin: 15
   y_axis_title_position: Left
+query_context: null
 slice_name: Most Active Courses Per Day
 uuid: 0c377fa6-6a0b-4b07-8de4-c828915d4aa6
 version: 1.0.0

@@ -11,6 +11,7 @@ params:
     expressionType: SIMPLE
     operator: TEMPORAL_RANGE
     subject: emission_time
+  annotation_layers: []
   color_picker:
     a: 1
     b: 135
@@ -36,6 +37,7 @@ params:
   viz_type: big_number
   x_axis: emission_time
   y_axis_format: SMART_NUMBER
+query_context: null
 slice_name: xAPI Events Over Time v2
 uuid: 8a81d381-7c40-4902-8bb9-bcbe50aa8780
 version: 1.0.0

@@ -6,6 +6,7 @@ dataset_uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
 description: null
 params:
   adhoc_filters: []
+  annotation_layers: []
   extra_form_data: {}
   granularity_sqla: emission_time
   header_font_size: 0.4
@@ -24,6 +25,7 @@ params:
   time_range: No filter
   viz_type: big_number_total
   y_axis_format: ~g
+query_context: null
 slice_name: Last Received Event
 uuid: ffdaabc5-8d01-47d7-8f29-66efa643befb
 version: 1.0.0

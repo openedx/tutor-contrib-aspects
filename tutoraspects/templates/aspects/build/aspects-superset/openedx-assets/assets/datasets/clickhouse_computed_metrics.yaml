@@ -1,10 +1,11 @@
 _file_name: clickhouse_computed_metrics.yaml
+always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
   column_name: value
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -16,7 +17,7 @@ columns:
 - advanced_data_type: null
   column_name: description
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -28,7 +29,7 @@ columns:
 - advanced_data_type: null
   column_name: name
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true

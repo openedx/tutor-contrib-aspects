@@ -1,42 +1,7 @@
 _file_name: slices.yaml
+always_filter_main_dttm: false
 cache_timeout: null
 columns:
-- advanced_data_type: null
-  column_name: last_saved_at
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: TIMESTAMP WITHOUT TIME ZONE
-  verbose_name: Last Saved At
-- advanced_data_type: null
-  column_name: created_on
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: TIMESTAMP WITHOUT TIME ZONE
-  verbose_name: Created On
-- advanced_data_type: null
-  column_name: changed_on
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: TIMESTAMP WITHOUT TIME ZONE
-  verbose_name: Changed On
 - advanced_data_type: null
   column_name: last_saved_by_fk
   description: null
@@ -47,8 +12,20 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: INTEGER
+  type: LONG
   verbose_name: Last Saved By Fk
+- advanced_data_type: null
+  column_name: last_saved_at
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DATETIME
+  verbose_name: Last Saved At
 - advanced_data_type: null
   column_name: created_by_fk
   description: null
@@ -59,7 +36,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: INTEGER
+  type: LONG
   verbose_name: Created By Fk
 - advanced_data_type: null
   column_name: changed_by_fk
@@ -71,20 +48,32 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: INTEGER
+  type: LONG
   verbose_name: Changed By Fk
 - advanced_data_type: null
-  column_name: schema_perm
+  column_name: created_on
   description: null
   expression: ''
   extra: {}
   filterable: true
   groupby: true
   is_active: true
-  is_dttm: false
+  is_dttm: true
   python_date_format: null
-  type: VARCHAR(1000)
-  verbose_name: Schema Perm
+  type: DATETIME
+  verbose_name: Created On
+- advanced_data_type: null
+  column_name: changed_on
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DATETIME
+  verbose_name: Changed On
 - advanced_data_type: null
   column_name: datasource_name
   description: null
@@ -95,7 +84,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: VARCHAR(2000)
+  type: VAR_STRING
   verbose_name: Datasource Name
 - advanced_data_type: null
   column_name: datasource_type
@@ -107,7 +96,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: VARCHAR(200)
+  type: VAR_STRING
   verbose_name: Datasource Type
 - advanced_data_type: null
   column_name: slice_name
@@ -119,8 +108,20 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: VARCHAR(250)
+  type: VAR_STRING
   verbose_name: Slice Name
+- advanced_data_type: null
+  column_name: schema_perm
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: VAR_STRING
+  verbose_name: Schema Perm
 - advanced_data_type: null
   column_name: viz_type
   description: null
@@ -131,7 +132,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: VARCHAR(250)
+  type: VAR_STRING
   verbose_name: Viz Type
 - advanced_data_type: null
   column_name: certified_by
@@ -143,7 +144,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: TEXT
+  type: BLOB
   verbose_name: Certified By
 - advanced_data_type: null
   column_name: certification_details
@@ -155,20 +156,8 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: TEXT
+  type: BLOB
   verbose_name: Certification Details
-- advanced_data_type: null
-  column_name: cache_timeout
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: INTEGER
-  verbose_name: Cache Timeout
 - advanced_data_type: null
   column_name: query_context
   description: null
@@ -179,8 +168,20 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: TEXT
+  type: BLOB
   verbose_name: Query Context
+- advanced_data_type: null
+  column_name: cache_timeout
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LONG
+  verbose_name: Cache Timeout
 - advanced_data_type: null
   column_name: datasource_id
   description: null
@@ -191,7 +192,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: INTEGER
+  type: LONG
   verbose_name: Datasource ID
 - advanced_data_type: null
   column_name: perm
@@ -203,32 +204,8 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: VARCHAR(2000)
+  type: VAR_STRING
   verbose_name: Perm
-- advanced_data_type: null
-  column_name: uuid
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: UUID
-  verbose_name: UUID
-- advanced_data_type: null
-  column_name: id
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: INTEGER
-  verbose_name: ID
 - advanced_data_type: null
   column_name: description
   description: null
@@ -239,7 +216,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: TEXT
+  type: BLOB
   verbose_name: Description
 - advanced_data_type: null
   column_name: params
@@ -251,8 +228,80 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: TEXT
+  type: BLOB
   verbose_name: Parameters
+- advanced_data_type: null
+  column_name: uuid
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: UUID
+- advanced_data_type: null
+  column_name: id
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LONG
+  verbose_name: ID
+- advanced_data_type: null
+  column_name: external_url
+  description: null
+  expression: null
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: BLOB
+  verbose_name: null
+- advanced_data_type: null
+  column_name: druid_datasource_id
+  description: null
+  expression: null
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LONG
+  verbose_name: null
+- advanced_data_type: null
+  column_name: table_id
+  description: null
+  expression: null
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LONG
+  verbose_name: null
+- advanced_data_type: null
+  column_name: is_managed_externally
+  description: null
+  expression: null
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: TINY
+  verbose_name: null
 database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
 default_endpoint: null
 description: null

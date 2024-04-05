@@ -65,6 +65,7 @@ params:
   y_axis_format: SMART_NUMBER
   y_axis_title_margin: 15
   y_axis_title_position: Left
+query_context: null
 slice_name: Superset Active Users Over Time
 uuid: 66ef96e7-9616-4f28-90b6-68f13ce58b0a
 version: 1.0.0

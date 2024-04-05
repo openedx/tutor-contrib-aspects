@@ -10,6 +10,7 @@ params:
   - name
   - value
   - description
+  annotation_layers: []
   color_pn: true
   extra_form_data: {}
   groupby: []
@@ -24,6 +25,7 @@ params:
   temporal_columns_lookup: {}
   time_grain_sqla: P1D
   viz_type: table
+query_context: null
 slice_name: ClickHouse metrics
 uuid: 2f84cbc3-4068-4d4d-bd40-ae348e4be95d
 version: 1.0.0

@@ -11,6 +11,7 @@ params:
     expressionType: SIMPLE
     operator: TEMPORAL_RANGE
     subject: emission_time
+  annotation_layers: []
   conditional_formatting: []
   extra_form_data: {}
   force_timestamp_formatting: false
@@ -29,6 +30,7 @@ params:
   time_format: smart_date
   viz_type: big_number_total
   y_axis_format: SMART_NUMBER
+query_context: null
 slice_name: Total Actors v2
 uuid: 15620ae6-5452-4a11-bc7e-56c7e5987a4d
 version: 1.0.0

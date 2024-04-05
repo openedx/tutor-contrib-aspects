@@ -6,6 +6,7 @@ dataset_uuid: 41278a97-d0ff-4645-9514-d79f80d275df
 description: null
 params:
   adhoc_filters: []
+  annotation_layers: []
   color_scheme: supersetColors
   date_format: smart_date
   extra_form_data: {}
@@ -49,6 +50,7 @@ params:
   show_legend: true
   sort_by_metric: true
   viz_type: pie
+query_context: null
 slice_name: Courses Per Organization
 uuid: 12fc799d-5d02-4861-892c-4e04cbc1f87a
 version: 1.0.0

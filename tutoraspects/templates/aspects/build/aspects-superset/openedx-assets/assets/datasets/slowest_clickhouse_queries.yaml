@@ -1,10 +1,11 @@
 _file_name: slowest_clickhouse_queries.yaml
+always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
   column_name: memory_usage_kb
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -16,7 +17,7 @@ columns:
 - advanced_data_type: null
   column_name: duration_secs
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -28,7 +29,7 @@ columns:
 - advanced_data_type: null
   column_name: read_rows
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -40,7 +41,7 @@ columns:
 - advanced_data_type: null
   column_name: event_time
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -52,7 +53,7 @@ columns:
 - advanced_data_type: null
   column_name: query
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true

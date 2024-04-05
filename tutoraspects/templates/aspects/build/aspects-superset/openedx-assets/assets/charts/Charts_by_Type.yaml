@@ -7,6 +7,7 @@ description: Count of the various types of charts created in Superset over the s
   time period.
 params:
   adhoc_filters: []
+  annotation_layers: []
   color_scheme: htg_color_scheme
   date_format: smart_date
   extra_form_data: {}
@@ -25,6 +26,7 @@ params:
   - exclusive
   url_params: {}
   viz_type: treemap_v2
+query_context: null
 slice_name: Charts by Type
 uuid: 84393abe-04ab-4084-a195-116ad568badd
 version: 1.0.0

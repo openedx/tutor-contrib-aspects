@@ -1,6 +1,8 @@
 _file_name: Operator_Dashboard.yaml
 _roles:
 - '{{ SUPERSET_ROLES_MAPPING.operator }}'
+certification_details: null
+certified_by: null
 css: ''
 dashboard_title: Operator Dashboard
 description: null
@@ -711,10 +713,10 @@ metadata:
     name: Action Cluster
     scope:
       excluded:
-      - 662
-      - 3
-      - 566
-      - 235
+      - 34
+      - 29
+      - 18
+      - 45
       rootPath:
       - TAB-z7LunkNp63
     tabsInScope:
@@ -737,7 +739,7 @@ position:
     children: []
     id: CHART-4xInxcau02
     meta:
-      chartId: 469
+      chartId: 44
       height: 50
       sliceName: ClickHouse metrics
       uuid: 2f84cbc3-4068-4d4d-bd40-ae348e4be95d
@@ -753,7 +755,7 @@ position:
     children: []
     id: CHART-5vkH5rVBW4
     meta:
-      chartId: 566
+      chartId: 18
       height: 50
       sliceName: Chart Count
       uuid: a5e0f18b-fb83-4d65-81e0-5f0e620fa05b
@@ -769,7 +771,7 @@ position:
     children: []
     id: CHART-6LMXcXxaaa
     meta:
-      chartId: 3
+      chartId: 29
       height: 50
       sliceName: Dashboard Count
       uuid: 8368fe0b-5e64-4ad5-b93b-93f8a6f848af
@@ -785,7 +787,7 @@ position:
     children: []
     id: CHART-6cANA_o-Ss
     meta:
-      chartId: 783
+      chartId: 26
       height: 17
       sliceName: Total Actors v2
       uuid: 15620ae6-5452-4a11-bc7e-56c7e5987a4d
@@ -802,7 +804,7 @@ position:
     children: []
     id: CHART-8MbVYXA12V
     meta:
-      chartId: 349
+      chartId: 7
       height: 50
       sliceName: Most-used Dashboards
       uuid: 36842ef1-d4e9-4cb6-83f7-cb9b34eaab77
@@ -818,7 +820,7 @@ position:
     children: []
     id: CHART-8rDUkRBgv9
     meta:
-      chartId: 351
+      chartId: 23
       height: 50
       sliceName: Enrollments By Type
       uuid: 6c473b09-6a1a-4531-b71d-ab82e09721ef
@@ -834,7 +836,7 @@ position:
     children: []
     id: CHART-H4NTUWfMqH
     meta:
-      chartId: 22
+      chartId: 1
       height: 50
       sliceName: Course Enrollments Over Time
       uuid: bf4f4671-c276-4185-9b9a-b10864efea6c
@@ -850,7 +852,7 @@ position:
     children: []
     id: CHART-La3O2IbbVV
     meta:
-      chartId: 245
+      chartId: 19
       height: 50
       sliceName: Slowest ClickHouse Queries
       uuid: 953af3e5-8fc6-441e-bff1-22987735edf0
@@ -866,7 +868,7 @@ position:
     children: []
     id: CHART-SG5jU4pQPt
     meta:
-      chartId: 235
+      chartId: 45
       height: 36
       sliceName: Registered Users Over Time
       uuid: 68011361-ea45-4875-9165-c84ddbcd1fc5
@@ -882,7 +884,7 @@ position:
     children: []
     id: CHART-Yv5sneg3nD
     meta:
-      chartId: 526
+      chartId: 15
       height: 36
       sliceName: Active Users
       uuid: bc5f7a27-670c-4794-963b-8082b258566f
@@ -898,7 +900,7 @@ position:
     children: []
     id: CHART-ZUWwFA9-Gd
     meta:
-      chartId: 782
+      chartId: 31
       height: 50
       sliceName: xAPI Events Over Time v2
       uuid: 8a81d381-7c40-4902-8bb9-bcbe50aa8780
@@ -914,7 +916,7 @@ position:
     children: []
     id: CHART-dLbZ-a2Mj1
     meta:
-      chartId: 393
+      chartId: 14
       height: 36
       sliceName: Active Users Over Time
       uuid: 66ef96e7-9616-4f28-90b6-68f13ce58b0a
@@ -930,7 +932,7 @@ position:
     children: []
     id: CHART-eOEkWVWOcd
     meta:
-      chartId: 54
+      chartId: 36
       height: 50
       sliceName: Most-used Charts
       uuid: 9d5f69e8-f335-42a0-bbfa-272f43d74ad0
@@ -946,7 +948,7 @@ position:
     children: []
     id: CHART-explore-17-1
     meta:
-      chartId: 749
+      chartId: 43
       height: 16
       sliceName: Last Received Event
       uuid: ffdaabc5-8d01-47d7-8f29-66efa643befb
@@ -962,7 +964,7 @@ position:
     children: []
     id: CHART-explore-19-1
     meta:
-      chartId: 513
+      chartId: 33
       height: 16
       sliceName: Last course syncronized
       sliceNameOverride: Last Course Published
@@ -979,7 +981,7 @@ position:
     children: []
     id: CHART-explore-20-1
     meta:
-      chartId: 358
+      chartId: 24
       height: 14
       sliceName: Total Organizations
       uuid: e66b1cdb-6974-4fa2-a769-4908665118f6
@@ -996,7 +998,7 @@ position:
     children: []
     id: CHART-explore-22-1
     meta:
-      chartId: 149
+      chartId: 9
       height: 15
       sliceName: Courses
       sliceNameOverride: Total Courses
@@ -1014,7 +1016,7 @@ position:
     children: []
     id: CHART-explore-784-1
     meta:
-      chartId: 784
+      chartId: 37
       height: 50
       sliceName: Events per course
       uuid: 269c5919-2d2e-493d-8c29-14e7b8222ee4
@@ -1030,7 +1032,7 @@ position:
     children: []
     id: CHART-explore-786-1
     meta:
-      chartId: 786
+      chartId: 41
       height: 50
       sliceName: Most Active Courses Per Day
       uuid: 0c377fa6-6a0b-4b07-8de4-c828915d4aa6
@@ -1046,7 +1048,7 @@ position:
     children: []
     id: CHART-explore-787-1
     meta:
-      chartId: 787
+      chartId: 42
       height: 50
       sliceName: Courses Per Organization
       uuid: 12fc799d-5d02-4861-892c-4e04cbc1f87a
@@ -1062,7 +1064,7 @@ position:
     children: []
     id: CHART-explore-788-1
     meta:
-      chartId: 788
+      chartId: 5
       height: 50
       sliceName: Active Users Per Organization
       uuid: 02af00f5-6539-428f-b3ab-632997de7528
@@ -1078,7 +1080,7 @@ position:
     children: []
     id: CHART-o3DU3d8aMU
     meta:
-      chartId: 486
+      chartId: 21
       height: 38
       sliceName: User Actions
       uuid: 8059fd82-efae-47a1-9c23-0b74f2707aa5
@@ -1094,7 +1096,7 @@ position:
     children: []
     id: CHART-sCnLhdyOJf
     meta:
-      chartId: 662
+      chartId: 34
       height: 50
       sliceName: Charts by Type
       uuid: 84393abe-04ab-4084-a195-116ad568badd
@@ -1110,7 +1112,7 @@ position:
     children: []
     id: CHART-s_HCV-cTCd
     meta:
-      chartId: 781
+      chartId: 40
       height: 50
       sliceName: Active Users Over Time v2
       uuid: e1d619a2-6238-4264-a000-6b6856027edd
@@ -1491,9 +1493,7 @@ position:
     - TAB-EygpebMa1
     - TAB-gvqU89mvT
     - TAB-z7LunkNp63
-    # {% if ASPECTS_OPERATOR_HELP_MARKDOWN %}
     - TAB-RtC9PHwXy
-    # {% endif %}
     - TAB-nXpinnLEX
     id: TABS-7nA6MwltSD
     meta: {}
@@ -1501,6 +1501,7 @@ position:
     - ROOT_ID
     - GRID_ID
     type: TABS
+published: true
 slug: operator-dashboard
 uuid: 02c0121c-40e9-4d8a-b86a-6b996a1cc6fe
 version: 1.0.0
