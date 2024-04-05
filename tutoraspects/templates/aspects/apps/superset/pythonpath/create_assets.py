@@ -29,6 +29,7 @@ ASSET_FOLDER_MAPPING = {
 }
 
 DASHBOARD_LOCALES = {{SUPERSET_DASHBOARD_LOCALES}}
+EMBEDDABLE_DASHBOARDS = {{SUPERSET_EMBEDDABLE_DASHBOARDS}}
 
 for folder in ASSET_FOLDER_MAPPING.values():
     os.makedirs(f"{BASE_DIR}/{folder}", exist_ok=True)
@@ -266,21 +267,32 @@ def update_dashboard_roles(roles):
 
 def update_embeddable_uuids():
     """Update the uuids of the embeddable dashboards"""
-    for dashboard_slug, embeddable_uuid in {{SUPERSET_EMBEDDABLE_DASHBOARDS}}.items():
-        dashboard = db.session.query(Dashboard).filter_by(slug=dashboard_slug).first()
-        if dashboard is None:
-            print(f"WARNING: Dashboard {dashboard_slug} not found")
-            continue
+    for dashboard_slug, embeddable_uuid in EMBEDDABLE_DASHBOARDS.items():
+        create_embeddable_dashboard_by_slug(dashboard_slug, embeddable_uuid)
 
-        embedded_dashboard = db.session.query(EmbeddedDashboard).filter_by(dashboard_id=dashboard.id).first()
-        if embedded_dashboard is None:
-            embedded_dashboard = EmbeddedDashboard()
-            embedded_dashboard.dashboard_id = dashboard.id
-        embedded_dashboard.uuid = embeddable_uuid
+    for locale in DASHBOARD_LOCALES:
+        for dashboard_slug, embeddable_uuid in EMBEDDABLE_DASHBOARDS.items():
+            slug = f"{dashboard_slug}-{locale}"
+            current_uuid = get_uuid5(embeddable_uuid, locale)
+            create_embeddable_dashboard_by_slug(slug, current_uuid)
 
-        db.session.add(embedded_dashboard)
-        db.session.commit()
 
+def create_embeddable_dashboard_by_slug(dashboard_slug, embeddable_uuid):
+    """Create an embeddable dashboard by slug"""
+    print(f"Creating embeddable dashboard {dashboard_slug}, {embeddable_uuid}")
+    dashboard = db.session.query(Dashboard).filter_by(slug=dashboard_slug).first()
+    if dashboard is None:
+        print(f"WARNING: Dashboard {dashboard_slug} not found")
+        return
+
+    embedded_dashboard = db.session.query(EmbeddedDashboard).filter_by(dashboard_id=dashboard.id).first()
+    if embedded_dashboard is None:
+        embedded_dashboard = EmbeddedDashboard()
+        embedded_dashboard.dashboard_id = dashboard.id
+    embedded_dashboard.uuid = embeddable_uuid
+
+    db.session.add(embedded_dashboard)
+    db.session.commit()
 
 if __name__ == "__main__":
     main()
