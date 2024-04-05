@@ -24,6 +24,7 @@ metadata:
         - 770
         - 783
         - 816
+        - 901
         scope: global
       id: 114
     '156':
@@ -44,6 +45,7 @@ metadata:
         - 770
         - 783
         - 816
+        - 901
         scope: global
       id: 156
     '325':
@@ -64,6 +66,7 @@ metadata:
         - 770
         - 783
         - 816
+        - 901
         scope: global
       id: 325
     '816':
@@ -84,8 +87,30 @@ metadata:
         - 701
         - 770
         - 783
+        - 901
         scope: global
       id: 816
+    '901':
+      crossFilters:
+        chartsInScope:
+        - 114
+        - 154
+        - 156
+        - 229
+        - 325
+        - 327
+        - 339
+        - 516
+        - 597
+        - 625
+        - 682
+        - 695
+        - 701
+        - 770
+        - 783
+        - 816
+        scope: global
+      id: 901
   color_scheme: ''
   color_scheme_domain: []
   cross_filters_enabled: false
@@ -109,6 +134,7 @@ metadata:
     - 770
     - 783
     - 816
+    - 901
     scope:
       excluded: []
       rootPath:
@@ -353,7 +379,9 @@ metadata:
       datasetUuid: 417b2035-8fa1-4c60-a405-4b1947c3c966
     type: NATIVE_FILTER
   refresh_frequency: 0
-  shared_label_colors: {}
+  shared_label_colors:
+    audit: '#454E7C'
+    registered: '#1FA8C9'
   timed_refresh_immune_slices: []
 position:
   CHART-AZZnl_lpMv:
@@ -460,6 +488,21 @@ position:
     - TABS-SNeKAJcjhd
     - TAB-7PGDduCA7
     - ROW-BO2IHCiYF8
+    type: CHART
+  CHART-VOn-xTBbI5:
+    children: []
+    id: CHART-VOn-xTBbI5
+    meta:
+      chartId: 901
+      height: 50
+      sliceName: Problem engagement by section/subsection
+      uuid: 158b1b84-0784-4cc7-8e67-3ee3be7460c2
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    - ROW-GWTTmZ2jDJ
     type: CHART
   CHART-evjVO-ZSSd:
     children: []
@@ -780,6 +823,17 @@ position:
     - TABS-SNeKAJcjhd
     - TAB-pOd4znTAV
     type: ROW
+  ROW-GWTTmZ2jDJ:
+    children:
+    - CHART-VOn-xTBbI5
+    id: ROW-GWTTmZ2jDJ
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-NR4UTAs9K
+    type: ROW
   ROW-HPGIhOIs65:
     children:
     - CHART-jfm-20qPKn
@@ -953,6 +1007,7 @@ position:
     - HEADER-v9QDHi2Dxm
     - ROW-87X0ypdHH_
     - ROW-AG2xAOM044
+    - ROW-GWTTmZ2jDJ
     - DIVIDER-G6rO0La8YT
     id: TAB-NR4UTAs9K
     meta:
