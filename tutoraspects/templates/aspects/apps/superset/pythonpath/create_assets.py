@@ -286,12 +286,13 @@ def update_embeddable_uuids():
 def update_datasets():
     """Update the datasets"""
     print("Refreshing datasets")
-    datasets = (
-        db.session.query(SqlaTable).all()
-    )
-    for dataset in datasets:
-        print(f"Refreshing dataset {dataset.table_name}")
-        dataset.fetch_metadata(commit=True)
+    if {{SUPERSET_REFRESH_DATASETS}}:
+        datasets = (
+            db.session.query(SqlaTable).all()
+        )
+        for dataset in datasets:
+            print(f"Refreshing dataset {dataset.table_name}")
+            dataset.fetch_metadata(commit=True)
 
 
 if __name__ == "__main__":

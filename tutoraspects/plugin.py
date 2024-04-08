@@ -372,6 +372,10 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # By default it is on if Caddy is enabled, but it can be set separately in
         # case you are running a different proxy or otherwise have different needs.
         ("SUPERSET_ENABLE_PROXY_FIX", "{{ENABLE_WEB_PROXY}}"),
+        # This setting allows operators to automatically refresh the datasets
+        # in the Superset database. This is useful for keeping the columns up to
+        # date with the latest changes in DBT.
+        ("SUPERSET_REFRESH_DATASETS", False),
         ######################
         # dbt Settings
         # For the most part you shouldn't have to touch these
