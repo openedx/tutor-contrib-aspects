@@ -25,6 +25,7 @@ metadata:
         - 783
         - 816
         - 901
+        - 921
         scope: global
       id: 114
     '156':
@@ -46,6 +47,7 @@ metadata:
         - 783
         - 816
         - 901
+        - 921
         scope: global
       id: 156
     '325':
@@ -67,6 +69,7 @@ metadata:
         - 783
         - 816
         - 901
+        - 921
         scope: global
       id: 325
     '816':
@@ -88,6 +91,7 @@ metadata:
         - 770
         - 783
         - 901
+        - 921
         scope: global
       id: 816
     '901':
@@ -109,8 +113,31 @@ metadata:
         - 770
         - 783
         - 816
+        - 921
         scope: global
       id: 901
+    '921':
+      crossFilters:
+        chartsInScope:
+        - 114
+        - 154
+        - 156
+        - 229
+        - 325
+        - 327
+        - 339
+        - 516
+        - 597
+        - 625
+        - 682
+        - 695
+        - 701
+        - 770
+        - 783
+        - 816
+        - 901
+        scope: global
+      id: 921
   color_scheme: ''
   color_scheme_domain: []
   cross_filters_enabled: false
@@ -135,6 +162,7 @@ metadata:
     - 783
     - 816
     - 901
+    - 921
     scope:
       excluded: []
       rootPath:
@@ -380,8 +408,12 @@ metadata:
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
-    audit: '#454E7C'
-    registered: '#1FA8C9'
+    All videos viewed: '#E04355'
+    At least one video viewed: '#3CCCCB'
+    Full view: '#A868B7'
+    Partial view: '#8FD3E4'
+    Total plays: '#FF7F44'
+    Unique Watchers: '#FCC700'
   timed_refresh_immune_slices: []
 position:
   CHART-AZZnl_lpMv:
@@ -504,6 +536,21 @@ position:
     - TAB-NR4UTAs9K
     - ROW-GWTTmZ2jDJ
     type: CHART
+  CHART-VwIFwB80km:
+    children: []
+    id: CHART-VwIFwB80km
+    meta:
+      chartId: 921
+      height: 64
+      sliceName: Partial and full views per video
+      uuid: 5052449a-424c-41bf-b8b0-d920424c4784
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-7PGDduCA7
+    - ROW-lnHZ40DjeR
+    type: CHART
   CHART-evjVO-ZSSd:
     children: []
     id: CHART-evjVO-ZSSd
@@ -539,7 +586,7 @@ position:
     id: CHART-jfm-20qPKn
     meta:
       chartId: 816
-      height: 50
+      height: 55
       sliceName: Video engagement by section/subsection
       uuid: 21861f47-9e8b-4715-b1ff-e7f4aa595c14
       width: 12
@@ -925,6 +972,17 @@ position:
     - TABS-SNeKAJcjhd
     - TAB-eE0OQxuju
     type: ROW
+  ROW-lnHZ40DjeR:
+    children:
+    - CHART-VwIFwB80km
+    id: ROW-lnHZ40DjeR
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-SNeKAJcjhd
+    - TAB-7PGDduCA7
+    type: ROW
   ROW-nNEywSG0jX:
     children:
     - MARKDOWN-NaNsE4EBKf
@@ -964,6 +1022,7 @@ position:
     - ROW-nNEywSG0jX
     - ROW-BO2IHCiYF8
     - ROW-HPGIhOIs65
+    - ROW-lnHZ40DjeR
     id: TAB-7PGDduCA7
     meta:
       defaultText: Tab title

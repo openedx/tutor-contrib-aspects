@@ -6,7 +6,8 @@ with video_events as (
         splitByString('/xblock/', object_id)[-1] as video_id,
         actor_id,
         verb_id,
-        video_position
+        video_position,
+        video_duration
     from {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK_EVENTS_TABLE }}
     where 1=1
     {% include 'openedx-assets/queries/common_filters.sql' %}
@@ -34,7 +35,8 @@ with video_events as (
         cast(ends.video_position as Int32) as end_position,
         starts.emission_time as started_at,
         ends.emission_time as ended_at,
-        ends.verb_id as end_type
+        ends.verb_id as end_type,
+        starts.video_duration as video_duration
     from
         starts
         left asof join ends
@@ -54,7 +56,8 @@ with video_events as (
         segments.actor_id as actor_id,
         segments.started_at as started_at,
         segments.start_position - (segments.start_position % 5) as start_position,
-        segments.end_position - (segments.end_position % 5) as end_position
+        segments.end_position - (segments.end_position % 5) as end_position,
+        segments.video_duration as video_duration
     from
         segments
         join {{ DBT_PROFILE_TARGET_DATABASE }}.dim_course_blocks blocks
@@ -71,7 +74,8 @@ select
     video_name_with_location,
     actor_id,
     started_at,
-    arrayJoin(range(start_position, end_position, 5)) as segment_start
+    arrayJoin(range(start_position, end_position, 5)) as segment_start,
+    video_duration
 from enriched_segments
 where
     {% raw %}
