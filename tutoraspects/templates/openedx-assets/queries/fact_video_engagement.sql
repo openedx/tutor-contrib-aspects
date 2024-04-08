@@ -19,10 +19,10 @@ with
         where
             1 = 1
             {% raw %}
-            {% if from_dttm is not none %}
+            {% if from_dttm %}
                 and viewed_on > date('{{ from_dttm }}')
             {% endif %}
-            {% if to_dttm is not none %}
+            {% if to_dttm %}
                 and viewed_on < date('{{ to_dttm }}')
             {% endif %}
             {% endraw %}
