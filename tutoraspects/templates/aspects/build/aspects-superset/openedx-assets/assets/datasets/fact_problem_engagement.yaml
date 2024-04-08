@@ -105,7 +105,7 @@ metrics:
 normalize_columns: true
 offset: 0
 params: null
-schema: main
+schema: reporting
 sql: |-
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_problem_engagement.sql' %}{% endfilter %}
 table_name: fact_problem_engagement

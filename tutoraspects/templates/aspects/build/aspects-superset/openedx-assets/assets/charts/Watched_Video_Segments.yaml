@@ -32,7 +32,10 @@ params:
   - null
   y_axis_format: SMART_NUMBER
   y_axis_label: Number Of Viewers / Views
-query_context: null
+query_context: '{"datasource":{"id":183,"type":"table"},"force":false,"queries":[{"filters":[{"col":"started_at","op":"TEMPORAL_RANGE","val":"No
+  filter"}],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":["segment_start"],"metrics":["unique_viewers","repeat_views"],"annotation_layers":[],"row_limit":10000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"form_data":{"datasource":"183__table","viz_type":"dist_bar","slice_id":371,"metrics":["unique_viewers","repeat_views"],"adhoc_filters":[{"clause":"WHERE","subject":"started_at","operator":"TEMPORAL_RANGE","comparator":"No
+  filter","expressionType":"SIMPLE"}],"groupby":["segment_start"],"columns":[],"row_limit":10000,"order_desc":true,"color_scheme":"supersetColors","show_legend":true,"rich_tooltip":true,"bar_stacked":true,"order_bars":true,"y_axis_format":"SMART_NUMBER","y_axis_label":"Number
+  Of Viewers / Views","y_axis_bounds":[null,null],"x_axis_label":"Seconds Of Video","bottom_margin":"auto","x_ticks_layout":"auto","extra_form_data":{},"dashboards":[148],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
 slice_name: Watched Video Segments
 uuid: 2985a9db-c338-4008-af52-2930b81ee2e5
 version: 1.0.0
