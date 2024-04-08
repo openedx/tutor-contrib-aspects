@@ -93,7 +93,7 @@ transifex-python==3.5.0
     # via -r requirements/base.in
 tutor==17.0.3
     # via -r requirements/base.in
-typing-extensions==4.10.0
+typing-extensions==4.11.0
     # via
     #   mypy
     #   tutor
