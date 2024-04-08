@@ -148,7 +148,7 @@ def downgrade():
     ## Course Block Names
     op.execute(
         f"""
-        CREATE TABLE IF NOT EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_RECENT_BLOCKS_TABLE }}
+        CREATE TABLE IF NOT EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_course_blocks
         {on_cluster}
         (
             location String NOT NULL,
@@ -168,9 +168,9 @@ def downgrade():
 
     op.execute(
         f"""
-        create materialized view if not exists {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_RECENT_BLOCKS_MV }}
+        create materialized view if not exists {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_course_blocks_mv
         {on_cluster}
-        to {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_RECENT_BLOCKS_TABLE }} as
+        to {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_course_blocks as
         select
             location,
             display_name,
@@ -182,13 +182,13 @@ def downgrade():
             course_key,
             dump_id,
             time_last_dumped
-        from {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_NODES_TABLE }}
+        from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_blocks
         """
     )
 
     op.execute(
         """
-        insert into {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_RECENT_BLOCKS_TABLE }} (
+        insert into {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_course_blocks (
             location, display_name, display_name_with_location, section, subsection, unit, graded, course_key, dump_id, time_last_dumped
         )
         select
@@ -202,7 +202,7 @@ def downgrade():
             course_key,
             dump_id,
             time_last_dumped
-        from {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_NODES_TABLE }};
+        from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_blocks;
         """
     )
 
@@ -229,7 +229,7 @@ def downgrade():
                     course_key,
                     graded,
                     display_name_with_location
-                from {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_RECENT_BLOCKS_TABLE }}
+                from {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_course_blocks
                 final
             "
         ))
@@ -306,7 +306,7 @@ def downgrade():
                         profile_image_uploaded_at,
                         phone_number,
                     ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY (id, time_last_dumped) DESC) as rn
-                    from {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_USER_PROFILE_TABLE }}
+                    from {{ ASPECTS_EVENT_SINK_DATABASE }}.user_profile
                 )
                 select
                     mrup.user_id as user_id,
@@ -329,7 +329,7 @@ def downgrade():
                     bio,
                     profile_image_uploaded_at,
                     phone_number
-                FROM {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_EXTERNAL_ID_TABLE }} ex
+                FROM {{ ASPECTS_EVENT_SINK_DATABASE }}.external_id ex
                 RIGHT OUTER JOIN most_recent_user_profile mrup ON
                     mrup.user_id = ex.user_id and (
                        ex.external_id_type = 'xapi' OR
