@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.94.0 - 2024-04-08
+
+### [0.94.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.93.0...v0.94.0) (2024-04-08)
+
+#### Features
+
+* add problem engagement dropoff chart to instructor dashboard ([d6796ce](https://github.com/openedx/tutor-contrib-aspects/commit/d6796ce5d80226e4930c74d5d2cb1df6ef77732c))
+
+#### Bug Fixes
+
+* bump aspects-dbt version ([791e372](https://github.com/openedx/tutor-contrib-aspects/commit/791e37291e5d315c76ae18a1cb2b64949738f70d))
+
 ## v0.93.0 - 2024-04-04
 
 ### [0.93.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.92.0...v0.93.0) (2024-04-04)
