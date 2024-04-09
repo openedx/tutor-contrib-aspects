@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.96.3 - 2024-04-09
+
+### [0.96.3](https://github.com/openedx/tutor-contrib-aspects/compare/v0.96.2...v0.96.3) (2024-04-09)
+
+### Bug Fixes
+
+* set dashboard color_schema to supersetColors ([99e4aed](https://github.com/openedx/tutor-contrib-aspects/commit/99e4aed88f07fce6d21f7698077a973669547b81))
+
 ## v0.96.2 - 2024-04-09
 
 ### [0.96.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.96.1...v0.96.2) (2024-04-09)
