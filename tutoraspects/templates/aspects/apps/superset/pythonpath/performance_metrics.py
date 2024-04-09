@@ -54,6 +54,8 @@ def performance_metrics():
             logger.info(f"Dashboard: {dashboard.slug}")
             for slice in dashboard.slices:
                 result = measure_chart(slice)
+                if not result:
+                    continue
                 for query in result["queries"]:
                     # Remove the data from the query to avoid memory issues on large datasets.
                     query.pop("data")
@@ -87,7 +89,11 @@ def measure_chart(slice, extra_filters=[]):
     command = ChartDataCommand(query_context)
 
     start_time = datetime.now()
-    result = command.run()
+    try:
+        result = command.run()
+    except Exception as e:
+        logger.error(f"Error fetching slice data: {slice}. Error: {e}")
+        return
     end_time = datetime.now()
 
     result["time_elapsed"] = (end_time - start_time).total_seconds()
