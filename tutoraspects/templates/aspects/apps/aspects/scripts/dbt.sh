@@ -21,7 +21,6 @@ git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }} aspects-dbt
 cd aspects-dbt || exit
 
 echo "Installing dbt python requirements"
-pip install -r ./requirements.txt
 pip install -r /app/aspects/dbt/requirements.txt
 
 export ASPECTS_EVENT_SINK_DATABASE={{ASPECTS_EVENT_SINK_DATABASE}}

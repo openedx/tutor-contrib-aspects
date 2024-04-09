@@ -11,15 +11,15 @@ aspects: # this needs to match the profile in your dbt_project.yml file
       cluster: {{ CLICKHOUSE_CLUSTER_NAME }}
 
       # These are ClickHouse provider values and map directly to ClickHouse connection settings.
-      verify: {{ DBT_PROFILE_VERIFY }}
-      secure: {{ DBT_PROFILE_SECURE }}
-      retries: {{ DBT_PROFILE_RETRIES }}
-      compression: {{ DBT_PROFILE_COMPRESSION }}
-      connect_timeout: {{ DBT_PROFILE_CONNECT_TIMEOUT }}
-      send_receive_timeout: {{ DBT_PROFILE_SEND_RECEIVE_TIMEOUT }}
-      cluster_mode: {{ DBT_PROFILE_CLUSTER_MODE }}
-      use_lw_deletes: {{ DBT_PROFILE_USE_LW_DELETES }}
-      check_exchange: {{ DBT_PROFILE_CHECK_EXCHANGE }}
-      custom_settings: {{ DBT_PROFILE_CUSTOM_SETTINGS }}
-      sync_request_timeout: {{ DBT_PROFILE_SYNC_REQUEST_TIMEOUT }}
-      compress_block_size: {{ DBT_PROFILE_COMPRESS_BLOCK_SIZE }}
+      verify: True
+      secure: {{ CLICKHOUSE_SECURE_CONNECTION }}
+      retries: 3
+      compression: lz4
+      connect_timeout: 10
+      send_receive_timeout: 300
+      cluster_mode: false
+      use_lw_deletes: false
+      check_exchange: false
+      sync_request_timeout: 5
+      compress_block_size: 1048576
+      {{ patch("dbt-profiles") | indent(6)}}

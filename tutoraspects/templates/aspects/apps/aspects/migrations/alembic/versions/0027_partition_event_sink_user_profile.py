@@ -15,14 +15,14 @@ depends_on = None
 on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""
 engine = "ReplicatedReplacingMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "ReplacingMergeTree"
 
-old_user_profile_table = "{{ASPECTS_EVENT_SINK_DATABASE}}.old_{{ASPECTS_EVENT_SINK_USER_PROFILE_TABLE}}"
+old_user_profile_table = "{{ASPECTS_EVENT_SINK_DATABASE}}.old_user_profile"
 
 def upgrade():
     # Partition event_sink.user_profile table
     # 1. Rename old table
     op.execute(
         f"""
-        RENAME TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_USER_PROFILE_TABLE }}
+        RENAME TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.user_profile
         TO {old_user_profile_table}
         {on_cluster}
         """
@@ -30,7 +30,7 @@ def upgrade():
     # 2. Create partitioned table from old data
     op.execute(
         f"""
-        CREATE OR REPLACE TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_USER_PROFILE_TABLE }}
+        CREATE OR REPLACE TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.user_profile
         {on_cluster}
         (
             id Int32 NOT NULL,
@@ -62,7 +62,7 @@ def upgrade():
     # 3. Insert data from the old table into the new one
     op.execute(
         f"""
-        INSERT INTO {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_USER_PROFILE_TABLE }}
+        INSERT INTO {{ ASPECTS_EVENT_SINK_DATABASE }}.user_profile
         SELECT * FROM {old_user_profile_table}
         """
     )
@@ -80,7 +80,7 @@ def downgrade():
     # 1a. Rename old table
     op.execute(
         f"""
-        RENAME TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_USER_PROFILE_TABLE }}
+        RENAME TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.user_profile
         TO {old_user_profile_table}
         {on_cluster}
         """
@@ -89,7 +89,7 @@ def downgrade():
     # 2. Create un-partitioned table from old data
     op.execute(
         f"""
-        CREATE OR REPLACE TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_USER_PROFILE_TABLE }}
+        CREATE OR REPLACE TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.user_profile
         {on_cluster}
         (
             id Int32 NOT NULL,
@@ -120,7 +120,7 @@ def downgrade():
     # 3. Insert into new table from old one
     op.execute(
         f"""
-        INSERT INTO {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_USER_PROFILE_TABLE }}
+        INSERT INTO {{ ASPECTS_EVENT_SINK_DATABASE }}.user_profile
         SELECT * FROM {old_user_profile_table}
         """
 

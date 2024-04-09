@@ -14,7 +14,7 @@ on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUST
 def upgrade():
     op.execute(
         f"""
-        ALTER TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_USER_PROFILE_TABLE }} 
+        ALTER TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.user_profile
         {on_cluster}
         ADD COLUMN IF NOT EXISTS email String DEFAULT '' 
         AFTER name;
@@ -25,7 +25,7 @@ def upgrade():
 def downgrade():
     op.execute(
         f"""
-        ALTER TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_USER_PROFILE_TABLE }} 
+        ALTER TABLE {{ ASPECTS_EVENT_SINK_DATABASE }}.user_profile
         {on_cluster}
         DROP COLUMN IF EXISTS email;
         """

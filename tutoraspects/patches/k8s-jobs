@@ -16,8 +16,6 @@ spec:
             value: /opt/venv
           - name: XAPI_SCHEMA
             value: {{ ASPECTS_XAPI_DATABASE }}
-          - name: ASPECTS_ENROLLMENT_EVENTS_TABLE
-            value: {{ ASPECTS_ENROLLMENT_EVENTS_TABLE }}
           - name: DBT_STATE
             value: {{ DBT_STATE_DIR }}
         image: {{ DOCKER_IMAGE_ASPECTS }}

@@ -8,7 +8,7 @@ with video_events as (
         verb_id,
         video_position,
         video_duration
-    from {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_VIDEO_PLAYBACK_EVENTS_TABLE }}
+    from {{ ASPECTS_XAPI_DATABASE }}.video_playback_events
     where 1=1
     {% include 'openedx-assets/queries/common_filters.sql' %}
 ), starts as (

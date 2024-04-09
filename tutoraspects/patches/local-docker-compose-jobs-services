@@ -3,7 +3,6 @@ aspects-job:
   image: {{ DOCKER_IMAGE_ASPECTS }}
   environment:
     - XAPI_SCHEMA={{ ASPECTS_XAPI_DATABASE }}
-    - ASPECTS_ENROLLMENT_EVENTS_TABLE={{ ASPECTS_ENROLLMENT_EVENTS_TABLE }}
   volumes:
     - ../../env/plugins/aspects/apps/aspects:/app/aspects
     - ../../env/plugins/aspects/apps/aspects/scripts/:/app/aspects/scripts:ro

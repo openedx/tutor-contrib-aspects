@@ -8,7 +8,7 @@ from flask_appbuilder.security.manager import AUTH_OAUTH
 SECRET_KEY = os.environ["SECRET_KEY"]
 
 # Don't limit the number of rows that can be used in queries
-ROW_LIMIT = int("{{ SUPERSET_ROW_LIMIT }}")
+ROW_LIMIT = 100_000
 SQL_MAX_ROW = ROW_LIMIT
 
 OPENEDX_LMS_ROOT_URL = os.environ["OPENEDX_LMS_ROOT_URL"]
