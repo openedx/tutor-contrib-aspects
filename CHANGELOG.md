@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.96.0 - 2024-04-09
+
+### [0.96.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.95.0...v0.96.0) (2024-04-09)
+
+#### Features
+
+* upgrade superset to 3.1.2 ([32510b6](https://github.com/openedx/tutor-contrib-aspects/commit/32510b653b12e41b896caa8cd96fb8a158f58582))
+
+#### Bug Fixes
+
+* add * for select video plays ([fe9c7eb](https://github.com/openedx/tutor-contrib-aspects/commit/fe9c7ebcea54e7b19f486bdcb2e29704015bfa13))
+* refresh datasets that are not empty ([2bd5fd7](https://github.com/openedx/tutor-contrib-aspects/commit/2bd5fd7864af8b38567d973f1a3244ccb656d923))
+* use dataset fetch_metadata method ([7fd2fba](https://github.com/openedx/tutor-contrib-aspects/commit/7fd2fba1b76d452f353271c54a8541ecae936056))
+* use dataset fetch_metadata method ([9f5d2bd](https://github.com/openedx/tutor-contrib-aspects/commit/9f5d2bd804403a7c7bb7bc723f4d4fc550e19155))
+
 ## v0.95.0 - 2024-04-09
 
 ### [0.95.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.94.0...v0.95.0) (2024-04-09)
