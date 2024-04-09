@@ -28,6 +28,7 @@ params:
     operatorId: IN
     sqlExpression: null
     subject: enrollment_status
+  annotation_layers: []
   conditional_formatting: []
   extra_form_data: {}
   header_font_size: 0.4

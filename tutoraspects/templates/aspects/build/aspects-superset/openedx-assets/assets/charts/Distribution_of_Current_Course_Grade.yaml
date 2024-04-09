@@ -8,6 +8,7 @@ params:
   adhoc_filters: []
   all_columns_x:
   - Course Grade
+  annotation_layers: []
   color_scheme: supersetColors
   cumulative: false
   extra_form_data: {}
