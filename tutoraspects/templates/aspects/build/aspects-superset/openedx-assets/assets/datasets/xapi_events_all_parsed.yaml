@@ -184,7 +184,8 @@ normalize_columns: true
 offset: 0
 params: null
 schema: '{{ ASPECTS_XAPI_DATABASE }}'
-sql: SELECT * FROM {{ASPECTS_XAPI_DATABASE}}.xapi_events_all_parsed
+sql: |-
+  SELECT * FROM {{ASPECTS_XAPI_DATABASE}}.xapi_events_all_parsed
 table_name: xapi_events_all_parsed
 template_params: null
 uuid: 2a2498dc-03ce-41a0-b798-d84f808f7da6
