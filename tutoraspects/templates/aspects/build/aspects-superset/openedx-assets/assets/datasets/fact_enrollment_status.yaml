@@ -1,4 +1,5 @@
 _file_name: fact_enrollment_status.yaml
+always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
@@ -100,8 +101,8 @@ metrics:
 normalize_columns: false
 offset: 0
 params: null
-schema: reporting
-sql: ''
+schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
+sql: 'select * from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_enrollment_status'
 table_name: fact_enrollment_status
 template_params: null
 uuid: 3dde421d-c0d0-43ab-8087-ca470985e88e
