@@ -227,7 +227,7 @@ normalize_columns: true
 offset: 0
 params: null
 schema: superset
-sql: 'select * from '
+sql: 'select * from dashboards'
 table_name: dashboards
 template_params: null
 uuid: 3dee777a-3dd4-4fcb-a749-4d13651b3444

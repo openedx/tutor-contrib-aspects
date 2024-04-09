@@ -24,6 +24,7 @@ params:
     expressionType: SIMPLE
     operator: TEMPORAL_RANGE
     subject: enrollment_status_date
+  annotation_layers: []
   color_picker:
     a: 1
     b: 135

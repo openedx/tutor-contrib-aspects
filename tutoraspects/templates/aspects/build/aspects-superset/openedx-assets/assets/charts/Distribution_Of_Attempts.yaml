@@ -17,6 +17,7 @@ params:
     operatorId: EQUALS
     sqlExpression: null
     subject: success
+  annotation_layers: []
   bottom_margin: auto
   color_scheme: supersetColors
   columns: []

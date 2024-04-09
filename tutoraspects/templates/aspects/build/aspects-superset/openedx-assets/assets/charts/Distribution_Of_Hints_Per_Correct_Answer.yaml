@@ -9,6 +9,7 @@ description: This chart displays counts of the number of times hints (including 
   group everyone into "0".
 params:
   adhoc_filters: []
+  annotation_layers: []
   bottom_margin: auto
   color_scheme: supersetColors
   columns: []

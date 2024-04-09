@@ -20,10 +20,10 @@ with
         where
             1 = 1
             {% raw %}
-            {% if from_dttm is not none %}
+            {% if from_dttm %}
                 and attempted_on > date('{{ from_dttm }}')
             {% endif %}
-            {% if to_dttm is not none %}
+            {% if to_dttm %}
                 and attempted_on < date('{{ to_dttm }}')
             {% endif %}
             {% endraw %}

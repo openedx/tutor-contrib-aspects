@@ -12,6 +12,7 @@ params:
     expressionType: SIMPLE
     operator: TEMPORAL_RANGE
     subject: started_at
+  annotation_layers: []
   bar_stacked: true
   bottom_margin: auto
   color_scheme: supersetColors
