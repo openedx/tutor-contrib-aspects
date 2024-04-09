@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.95.0 - 2024-04-09
+
+### [0.95.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.94.0...v0.95.0) (2024-04-09)
+
+#### Features
+
+* add chart for full and partial video views ([17f6437](https://github.com/openedx/tutor-contrib-aspects/commit/17f6437dd2d2497c1ae24c9eb11a038d2d56cbc0))
+
 ## v0.94.0 - 2024-04-08
 
 ### [0.94.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.93.0...v0.94.0) (2024-04-08)
