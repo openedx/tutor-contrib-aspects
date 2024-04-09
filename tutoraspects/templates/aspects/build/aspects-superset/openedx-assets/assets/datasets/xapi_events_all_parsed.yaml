@@ -183,7 +183,7 @@ metrics:
 normalize_columns: true
 offset: 0
 params: null
-schema: main
+schema: {{ ASPECTS_XAPI_DATABASE }}
 sql: SELECT * FROM {{ASPECTS_XAPI_DATABASE}}.xapi_events_all_parsed
 table_name: xapi_events_all_parsed
 template_params: null

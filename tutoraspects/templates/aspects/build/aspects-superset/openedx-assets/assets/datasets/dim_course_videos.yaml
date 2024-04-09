@@ -106,7 +106,7 @@ metrics:
 normalize_columns: true
 offset: 0
 params: null
-schema: main
+schema: {{ DBT_PROFILE_TARGET_DATABASE }}
 sql: |-
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/dim_course_videos.sql' %}{% endfilter %}
 table_name: dim_course_videos
