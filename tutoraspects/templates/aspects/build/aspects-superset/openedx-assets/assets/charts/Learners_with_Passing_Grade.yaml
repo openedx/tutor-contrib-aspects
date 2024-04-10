@@ -1,0 +1,74 @@
+_file_name: Learners_with_Passing_Grade.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 633a1d4e-cd40-482f-a5dc-d5901c2181c2
+description: null
+params:
+  adhoc_filters: []
+  annotation_layers: []
+  conditional_formatting:
+  - colorScheme: '#ACE1C4'
+    column: Number of Learners
+    operator: "\u2265"
+    targetValue: 0
+  extra_form_data: {}
+  header_font_size: 0.6
+  metric:
+    aggregate: COUNT_DISTINCT
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: actor_id
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 457
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: STRING
+      type_generic: 1
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: Number of Learners
+    optionName: metric_edlf1m0plr_j1zup9r1ixl
+    sqlExpression: null
+  subheader_font_size: 0.4
+  time_format: smart_date
+  viz_type: big_number_total
+  y_axis_format: SMART_NUMBER
+query_context: "{\"datasource\":{\"id\":70,\"type\":\"table\"},\"force\":false,\"\
+  queries\":[{\"filters\":[],\"extras\":{\"having\":\"\",\"where\":\"\"},\"applied_time_extras\"\
+  :{},\"columns\":[],\"metrics\":[{\"aggregate\":\"COUNT_DISTINCT\",\"column\":{\"\
+  advanced_data_type\":null,\"certification_details\":null,\"certified_by\":null,\"\
+  column_name\":\"actor_id\",\"description\":null,\"expression\":null,\"filterable\"\
+  :true,\"groupby\":true,\"id\":457,\"is_certified\":false,\"is_dttm\":false,\"python_date_format\"\
+  :null,\"type\":\"STRING\",\"type_generic\":1,\"verbose_name\":null,\"warning_markdown\"\
+  :null},\"datasourceWarning\":false,\"expressionType\":\"SIMPLE\",\"hasCustomLabel\"\
+  :true,\"label\":\"Number of Learners\",\"optionName\":\"metric_edlf1m0plr_j1zup9r1ixl\"\
+  ,\"sqlExpression\":null}],\"annotation_layers\":[],\"series_limit\":0,\"order_desc\"\
+  :true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"form_data\"\
+  :{\"datasource\":\"70__table\",\"viz_type\":\"big_number_total\",\"slice_id\":196,\"\
+  metric\":{\"aggregate\":\"COUNT_DISTINCT\",\"column\":{\"advanced_data_type\":null,\"\
+  certification_details\":null,\"certified_by\":null,\"column_name\":\"actor_id\"\
+  ,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"\
+  id\":457,\"is_certified\":false,\"is_dttm\":false,\"python_date_format\":null,\"\
+  type\":\"STRING\",\"type_generic\":1,\"verbose_name\":null,\"warning_markdown\"\
+  :null},\"datasourceWarning\":false,\"expressionType\":\"SIMPLE\",\"hasCustomLabel\"\
+  :true,\"label\":\"Number of Learners\",\"optionName\":\"metric_edlf1m0plr_j1zup9r1ixl\"\
+  ,\"sqlExpression\":null},\"adhoc_filters\":[],\"header_font_size\":0.6,\"subheader_font_size\"\
+  :0.4,\"y_axis_format\":\"SMART_NUMBER\",\"time_format\":\"smart_date\",\"conditional_formatting\"\
+  :[{\"colorScheme\":\"#ACE1C4\",\"column\":\"Number of Learners\",\"operator\":\"\
+  \u2265\",\"targetValue\":0}],\"extra_form_data\":{},\"dashboards\":[16],\"force\"\
+  :false,\"result_format\":\"json\",\"result_type\":\"full\"},\"result_format\":\"\
+  json\",\"result_type\":\"full\"}"
+slice_name: Learners with Passing Grade
+uuid: b40cdabc-b265-48d2-913d-a9dfee0b6ab1
+version: 1.0.0
+viz_type: big_number_total

@@ -1,0 +1,29 @@
+_file_name: Distribution_of_Current_Course_Grade.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 633a1d4e-cd40-482f-a5dc-d5901c2181c2
+description: null
+params:
+  adhoc_filters: []
+  all_columns_x:
+  - Course Grade
+  annotation_layers: []
+  color_scheme: supersetColors
+  cumulative: false
+  extra_form_data: {}
+  groupby: []
+  link_length: '10'
+  normalized: true
+  row_limit: 10000
+  show_legend: true
+  viz_type: histogram
+  x_axis_label: Grade
+  y_axis_label: Number of Learners
+query_context: '{"datasource":{"id":70,"type":"table"},"force":false,"queries":[{"filters":[],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":[],"metrics":[],"annotation_layers":[],"row_limit":10000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"form_data":{"datasource":"70__table","viz_type":"histogram","slice_id":197,"all_columns_x":["Course
+  Grade"],"adhoc_filters":[],"row_limit":10000,"groupby":[],"color_scheme":"supersetColors","link_length":"10","x_axis_label":"Grade","y_axis_label":"Number
+  of Learners","show_legend":true,"normalized":true,"cumulative":false,"extra_form_data":{},"dashboards":[16],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+slice_name: Distribution of Current Course Grade
+uuid: ea565658-6796-40e8-9d1e-01ffd0778bc9
+version: 1.0.0
+viz_type: histogram

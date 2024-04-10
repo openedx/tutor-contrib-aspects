@@ -1,0 +1,148 @@
+_file_name: Subsection_Summary.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 1b1cbf0a-1193-4251-ad52-724c2f0190ae
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: visited_on
+  all_columns: []
+  annotation_layers: []
+  color_pn: true
+  conditional_formatting:
+  - colorScheme: '#ACE1C4'
+    column: Number of Learners
+    operator: "\u2265"
+    targetValue: 1
+  - colorScheme: '#ACE1C4'
+    column: Views
+    operator: "\u2265"
+    targetValue: 1
+  extra_form_data: {}
+  groupby:
+  - section_with_name
+  - subsection_with_name
+  metrics:
+  - aggregate: COUNT_DISTINCT
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: actor_id
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 469
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: STRING
+      type_generic: 1
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: Number of Learners
+    optionName: metric_irehgr64yc_a873p00dn94
+    sqlExpression: null
+  - aggregate: SUM
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: page_count
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 468
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: UINT64
+      type_generic: 0
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: Views
+    optionName: metric_lmuvjt8ora9_y80kswm8xuo
+    sqlExpression: null
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 1000
+  server_page_length: 10
+  show_cell_bars: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup:
+    visited_on: true
+  time_grain_sqla: P1D
+  viz_type: table
+query_context: "{\"datasource\":{\"id\":42,\"type\":\"table\"},\"force\":false,\"\
+  queries\":[{\"filters\":[{\"col\":\"visited_on\",\"op\":\"TEMPORAL_RANGE\",\"val\"\
+  :\"No filter\"}],\"extras\":{\"time_grain_sqla\":\"P1D\",\"having\":\"\",\"where\"\
+  :\"\"},\"applied_time_extras\":{},\"columns\":[\"section_with_name\",\"subsection_with_name\"\
+  ],\"metrics\":[{\"aggregate\":\"COUNT_DISTINCT\",\"column\":{\"advanced_data_type\"\
+  :null,\"certification_details\":null,\"certified_by\":null,\"column_name\":\"actor_id\"\
+  ,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"\
+  id\":469,\"is_certified\":false,\"is_dttm\":false,\"python_date_format\":null,\"\
+  type\":\"STRING\",\"type_generic\":1,\"verbose_name\":null,\"warning_markdown\"\
+  :null},\"datasourceWarning\":false,\"expressionType\":\"SIMPLE\",\"hasCustomLabel\"\
+  :true,\"label\":\"Number of Learners\",\"optionName\":\"metric_irehgr64yc_a873p00dn94\"\
+  ,\"sqlExpression\":null},{\"aggregate\":\"SUM\",\"column\":{\"advanced_data_type\"\
+  :null,\"certification_details\":null,\"certified_by\":null,\"column_name\":\"page_count\"\
+  ,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"\
+  id\":468,\"is_certified\":false,\"is_dttm\":false,\"python_date_format\":null,\"\
+  type\":\"UINT64\",\"type_generic\":0,\"verbose_name\":null,\"warning_markdown\"\
+  :null},\"datasourceWarning\":false,\"expressionType\":\"SIMPLE\",\"hasCustomLabel\"\
+  :true,\"label\":\"Views\",\"optionName\":\"metric_lmuvjt8ora9_y80kswm8xuo\",\"sqlExpression\"\
+  :null}],\"orderby\":[[{\"aggregate\":\"COUNT_DISTINCT\",\"column\":{\"advanced_data_type\"\
+  :null,\"certification_details\":null,\"certified_by\":null,\"column_name\":\"actor_id\"\
+  ,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"\
+  id\":469,\"is_certified\":false,\"is_dttm\":false,\"python_date_format\":null,\"\
+  type\":\"STRING\",\"type_generic\":1,\"verbose_name\":null,\"warning_markdown\"\
+  :null},\"datasourceWarning\":false,\"expressionType\":\"SIMPLE\",\"hasCustomLabel\"\
+  :true,\"label\":\"Number of Learners\",\"optionName\":\"metric_irehgr64yc_a873p00dn94\"\
+  ,\"sqlExpression\":null},false]],\"annotation_layers\":[],\"row_limit\":1000,\"\
+  series_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\"\
+  :{},\"post_processing\":[]}],\"form_data\":{\"datasource\":\"42__table\",\"viz_type\"\
+  :\"table\",\"slice_id\":192,\"query_mode\":\"aggregate\",\"groupby\":[\"section_with_name\"\
+  ,\"subsection_with_name\"],\"time_grain_sqla\":\"P1D\",\"temporal_columns_lookup\"\
+  :{\"visited_on\":true},\"metrics\":[{\"aggregate\":\"COUNT_DISTINCT\",\"column\"\
+  :{\"advanced_data_type\":null,\"certification_details\":null,\"certified_by\":null,\"\
+  column_name\":\"actor_id\",\"description\":null,\"expression\":null,\"filterable\"\
+  :true,\"groupby\":true,\"id\":469,\"is_certified\":false,\"is_dttm\":false,\"python_date_format\"\
+  :null,\"type\":\"STRING\",\"type_generic\":1,\"verbose_name\":null,\"warning_markdown\"\
+  :null},\"datasourceWarning\":false,\"expressionType\":\"SIMPLE\",\"hasCustomLabel\"\
+  :true,\"label\":\"Number of Learners\",\"optionName\":\"metric_irehgr64yc_a873p00dn94\"\
+  ,\"sqlExpression\":null},{\"aggregate\":\"SUM\",\"column\":{\"advanced_data_type\"\
+  :null,\"certification_details\":null,\"certified_by\":null,\"column_name\":\"page_count\"\
+  ,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"\
+  id\":468,\"is_certified\":false,\"is_dttm\":false,\"python_date_format\":null,\"\
+  type\":\"UINT64\",\"type_generic\":0,\"verbose_name\":null,\"warning_markdown\"\
+  :null},\"datasourceWarning\":false,\"expressionType\":\"SIMPLE\",\"hasCustomLabel\"\
+  :true,\"label\":\"Views\",\"optionName\":\"metric_lmuvjt8ora9_y80kswm8xuo\",\"sqlExpression\"\
+  :null}],\"all_columns\":[],\"percent_metrics\":[],\"adhoc_filters\":[{\"clause\"\
+  :\"WHERE\",\"comparator\":\"No filter\",\"expressionType\":\"SIMPLE\",\"operator\"\
+  :\"TEMPORAL_RANGE\",\"subject\":\"visited_on\"}],\"order_by_cols\":[],\"row_limit\"\
+  :1000,\"server_page_length\":10,\"order_desc\":true,\"table_timestamp_format\":\"\
+  smart_date\",\"show_cell_bars\":true,\"color_pn\":true,\"conditional_formatting\"\
+  :[{\"colorScheme\":\"#ACE1C4\",\"column\":\"Number of Learners\",\"operator\":\"\
+  \u2265\",\"targetValue\":1},{\"colorScheme\":\"#ACE1C4\",\"column\":\"Views\",\"\
+  operator\":\"\u2265\",\"targetValue\":1}],\"extra_form_data\":{},\"dashboards\"\
+  :[16],\"force\":false,\"result_format\":\"json\",\"result_type\":\"full\"},\"result_format\"\
+  :\"json\",\"result_type\":\"full\"}"
+slice_name: Subsection Summary
+uuid: 2a8d96be-687d-4918-98fe-ae9fbd599152
+version: 1.0.0
+viz_type: table

@@ -80,9 +80,9 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "ASPECTS_INSTRUCTOR_DASHBOARDS",
             [
                 {
-                    "name": "Instructor Dashboard",
-                    "slug": "instructor-dashboard",
-                    "uuid": "1d6bf904-f53f-47fd-b1c9-6cd7e284d286",
+                    "name": "Course Dashboard",
+                    "slug": "course-dashboard-v1",
+                    "uuid": "c0e64194-33d1-4d5a-8c10-4f51530c5ee9",
                 },
                 {
                     "name": "Learner Groups Dashboard",
@@ -102,7 +102,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "SUPERSET_EMBEDDABLE_DASHBOARDS",
             {
-                "instructor-dashboard": "1d6bf904-f53f-47fd-b1c9-6cd7e284d286",
+                "course-dashboard-v1": "c0e64194-33d1-4d5a-8c10-4f51530c5ee9",
                 "learner-groups": "8661d20c-cee6-4245-9fcc-610daea5fd24",
                 "individual-learner": "abae8a25-1ba4-4653-81bd-d3937a162a11",
             },

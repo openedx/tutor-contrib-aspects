@@ -273,8 +273,9 @@ metrics:
 normalize_columns: true
 offset: 0
 params: null
-schema: {{ SUPERSET_DB_NAME }}
-sql: select * from slices
+schema: '{{ SUPERSET_DB_NAME }}'
+sql: |-
+  select * from slices
 table_name: slices
 template_params: null
 uuid: aaf1ae12-73c1-4b88-b07d-7a8988333018
