@@ -15,6 +15,7 @@ import sqlparse
 from flask import g
 from superset import security_manager
 from superset.commands.chart.data.get_data_command import ChartDataCommand
+from superset.commands.chart.exceptions import ChartDataQueryFailedError
 from superset.charts.schemas import ChartDataQueryContextSchema
 from superset.extensions import db
 from superset.models.dashboard import Dashboard
@@ -29,6 +30,7 @@ RUN_ID = f"aspects-{ASPECTS_VERSION}-{UUID}"
 report_format = "{i}. {slice}\n" "Superset time: {superset_time} (s).\n"
 
 query_format = (
+    "Succeeded: {success}\n"
     "Query duration: {query_duration_ms} (s).\n"
     "Result rows: {result_rows}\n"
     "Memory Usage (MB): {memory_usage_mb}\n"
@@ -87,7 +89,11 @@ def measure_chart(slice, extra_filters=[]):
     command = ChartDataCommand(query_context)
 
     start_time = datetime.now()
-    result = command.run()
+    try:
+        result = command.run()
+    except ChartDataQueryFailedError as e:
+        print(e)
+        result = {"result": "error", "data": None, "queries": []}
     end_time = datetime.now()
 
     result["time_elapsed"] = (end_time - start_time).total_seconds()
@@ -135,7 +141,10 @@ def get_query_log_from_clickhouse(report):
             clickhouse_report = clickhouse_queries.get(parsed_sql, {})
             report_str+=(
                 query_format.format(
-                    query_duration_ms=clickhouse_report.get("query_duration_ms") / 1000,
+                    success=clickhouse_report.get("result", "") != "error",
+                    query_duration_ms=clickhouse_report.get(
+                        "query_duration_ms", 0
+                    ) / 1000,
                     memory_usage_mb=clickhouse_report.get("memory_usage_mb"),
                     result_rows=clickhouse_report.get("result_rows"),
                     rowcount=query["rowcount"],
