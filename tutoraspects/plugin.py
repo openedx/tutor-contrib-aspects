@@ -110,37 +110,12 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "individual-learner": "abae8a25-1ba4-4653-81bd-d3937a162a11",
             },
         ),
-        ("ASPECTS_SUPERSET_EXTRA_FILTERS_FORMAT", []),
         # ClickHouse xAPI settings
         ("ASPECTS_XAPI_DATABASE", "xapi"),
         ("ASPECTS_RAW_XAPI_TABLE", "xapi_events_all"),
-        ("ASPECTS_XAPI_TRANSFORM_MV", "xapi_events_all_parsed_mv"),
-        ("ASPECTS_XAPI_TABLE", "xapi_events_all_parsed"),
-        # ClickHouse top-level materialized views
-        ("ASPECTS_ENROLLMENT_TRANSFORM_MV", "enrollment_events_mv"),
-        ("ASPECTS_ENROLLMENT_EVENTS_TABLE", "enrollment_events"),
-        ("ASPECTS_VIDEO_PLAYBACK_TRANSFORM_MV", "video_playback_events_mv"),
-        ("ASPECTS_VIDEO_PLAYBACK_EVENTS_TABLE", "video_playback_events"),
-        ("ASPECTS_PROBLEM_TRANSFORM_MV", "problem_events_mv"),
-        ("ASPECTS_PROBLEM_EVENTS_TABLE", "problem_events"),
-        ("ASPECTS_NAVIGATION_TRANSFORM_MV", "navigation_events_mv"),
-        ("ASPECTS_NAVIGATION_EVENTS_TABLE", "navigation_events"),
-        ("ASPECTS_GRADING_TRANSFORM_MV", "grading_events_mv"),
-        ("ASPECTS_GRADING_EVENTS_TABLE", "grading_events"),
-        ("ASPECTS_FORUM_TRANSFORM_MV", "forum_events_mv"),
-        ("ASPECTS_FORUM_EVENTS_TABLE", "forum_events"),
-        ("ASPECTS_COMPLETION_EVENTS_TABLE", "completion_events"),
-        ("ASPECTS_COMPLETION_TRANSFORM_MV", "completion_events_mv"),
         # ClickHouse event sink settings
         ("ASPECTS_EVENT_SINK_DATABASE", "event_sink"),
-        ("ASPECTS_EVENT_SINK_NODES_TABLE", "course_blocks"),
-        ("ASPECTS_EVENT_SINK_RELATIONSHIPS_TABLE", "course_relationships"),
-        ("ASPECTS_EVENT_SINK_OVERVIEWS_TABLE", "course_overviews"),
-        ("ASPECTS_EVENT_SINK_USER_PROFILE_TABLE", "user_profile"),
-        ("ASPECTS_EVENT_SINK_EXTERNAL_ID_TABLE", "external_id"),
-        ("ASPECTS_EVENT_SINK_CLICKHOUSE_TIMEOUT_SECS", "5"),
-        ("ASPECTS_EVENT_SINK_RECENT_BLOCKS_TABLE", "most_recent_course_blocks"),
-        ("ASPECTS_EVENT_SINK_RECENT_BLOCKS_MV", "most_recent_course_blocks_mv"),
+        ("ASPECTS_EVENT_SINK_CLICKHOUSE_TIMEOUT_SECS", 5),
         # Vector settings
         ("ASPECTS_DOCKER_HOST_SOCK_PATH", "/var/run/docker.sock"),
         ("ASPECTS_VECTOR_STORE_TRACKING_LOGS", False),
@@ -242,11 +217,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("RALPH_PORT", "8100"),
         ("RALPH_ENABLE_PUBLIC_URL", False),
         ("RALPH_RUN_HTTPS", False),
-        ("RALPH_SENTRY_DSN", ""),
-        ("RALPH_EXECUTION_ENVIRONMENT", "development"),
-        ("RALPH_SENTRY_CLI_TRACES_SAMPLE_RATE", 1.0),
-        ("RALPH_SENTRY_LRS_TRACES_SAMPLE_RATE", 0.1),
-        ("RALPH_SENTRY_IGNORE_HEALTH_CHECKS", True),
         ("RALPH_EXTRA_SETTINGS", {}),
         ######################
         # Superset Settings
@@ -279,7 +249,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("SUPERSET_LMS_EMAIL", "superset/lms-admin@aspects.invalid"),
         ("SUPERSET_OWNERS", []),
         # Set to 0 to have no row limit.
-        ("SUPERSET_ROW_LIMIT", 100_000),
         (
             "SUPERSET_METADATA_SQLALCHEMY_URI",
             "mysql://{{SUPERSET_DB_USERNAME}}:{{SUPERSET_DB_PASSWORD}}"
@@ -292,27 +261,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "Superset Metadata": "{{SUPERSET_METADATA_SQLALCHEMY_URI}}",
             },
         ),
-        ("SUPERSET_SENTRY_DSN", ""),
-        (
-            "SUPERSET_TALISMAN_CONFIG",
-            {
-                "content_security_policy": {
-                    "default-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
-                    "img-src": ["'self'", "data:"],
-                    "worker-src": ["'self'", "blob:"],
-                    "connect-src": [
-                        "'self'",
-                        "https://api.mapbox.com",
-                        "https://events.mapbox.com",
-                    ],
-                    "object-src": "'none'",
-                }
-            },
-        ),
-        ("SUPERSET_TALISMAN_ENABLED", True),
         # These are languages that Superset itself supports, it does not currently
         # support different locales for a language.
-        ("SUPERSET_DEFAULT_LOCALE", "en"),
         (
             "SUPERSET_SUPPORTED_LANGUAGES",
             {
@@ -365,10 +315,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # short since mostly most of the savings comes from the
         # course cache anyway.
         ("SUPERSET_USER_PERMISSIONS_CACHE_TIMEOUT", 120),
-        # This controls the cache time of the user's course list
-        # only, limiting the number of LMS calls since they are
-        # rate limited. This can be cleared by logging back in.
-        ("SUPERSET_USER_COURSES_CACHE_TIMEOUT", 300),
         ("SUPERSET_BLOCK_STUDENT_ACCESS", True),
         # This setting allows Superset to run behind a reverse proxy in HTTPS and
         # redirect to the correct http/s based on the headers sent from the proxy.
@@ -379,6 +325,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # in the Superset database. This is useful for keeping the columns up to
         # date with the latest changes in DBT.
         ("SUPERSET_REFRESH_DATASETS", False),
+        ("SUPERSET_SENTRY_DSN", ""),
         ######################
         # dbt Settings
         # For the most part you shouldn't have to touch these
@@ -389,40 +336,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DBT_BRANCH", "v3.12.0"),
         ("DBT_SSH_KEY", ""),
         ("DBT_STATE_DIR", "/app/aspects/dbt_state/"),
-        # This is a pip compliant list of Python packages to install to run dbt
-        # make sure packages with versions are enclosed in double quotes
-        ("EXTRA_DBT_PACKAGES", []),
         # This is the name of the database dbt will write to
         ("DBT_PROFILE_TARGET_DATABASE", "reporting"),
-        # Validate TLS certificate if using TLS/SSL
-        ("DBT_PROFILE_VERIFY", "True"),
-        # Use TLS (native protocol) or HTTPS (http protocol)
-        ("DBT_PROFILE_SECURE", "{{ CLICKHOUSE_SECURE_CONNECTION }}"),
-        # Number of times to retry a "retryable" database exception (such as a 503
-        # 'Service Unavailable' error)
-        ("DBT_PROFILE_RETRIES", "3"),
-        # Use gzip compression if truthy (http), or compression type for a native
-        # connection
-        ("DBT_PROFILE_COMPRESSION", "lz4"),
-        # Timeout in seconds to establish a connection to ClickHouse
-        ("DBT_PROFILE_CONNECT_TIMEOUT", "10"),
-        # Timeout in seconds to receive data from the ClickHouse server
-        ("DBT_PROFILE_SEND_RECEIVE_TIMEOUT", "300"),
-        # Use specific settings designed to improve operation on replicated databases
-        # (recommended for ClickHouse Cloud)
-        ("DBT_PROFILE_CLUSTER_MODE", "False"),
-        # Use the experimental `delete+insert` as the default incremental strategy.
-        ("DBT_PROFILE_USE_LW_DELETES", "False"),
-        # Validate that clickhouse support the atomic EXCHANGE TABLES command.  (Not
-        # needed for most ClickHouse versions)
-        ("DBT_PROFILE_CHECK_EXCHANGE", "False"),
-        # A dictionary/mapping of custom ClickHouse settings for the connection -
-        # default is empty.
-        ("DBT_PROFILE_CUSTOM_SETTINGS", ""),
-        # Timeout for server ping
-        ("DBT_PROFILE_SYNC_REQUEST_TIMEOUT", "5"),
-        # Compression block size if compression is enabled, this is the default value
-        ("DBT_PROFILE_COMPRESS_BLOCK_SIZE", "1048576"),
     ]
 )
 

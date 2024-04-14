@@ -155,12 +155,22 @@ sentry_sdk.init(
 {% endif %}
 
 {% if ENABLE_HTTPS %}
-TALISMAN_ENABLED = {{SUPERSET_TALISMAN_ENABLED}}
-TALISMAN_CONFIG = {{SUPERSET_TALISMAN_CONFIG}}
+TALISMAN_ENABLED = True
+TALISMAN_CONFIG = {
+    "content_security_policy": {
+        "default-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+        "img-src": ["'self'", "data:"],
+        "worker-src": ["'self'", "blob:"],
+        "connect-src": [
+            "'self'",
+            "https://api.mapbox.com",
+            "https://events.mapbox.com",
+        ],
+        "object-src": "'none'",
+    }
+}
 {% endif %}
-#
-
-BABEL_DEFAULT_LOCALE = "{{ SUPERSET_DEFAULT_LOCALE }}"
+BABEL_DEFAULT_LOCALE = "en"
 
 {{ patch('superset-config')}}
 

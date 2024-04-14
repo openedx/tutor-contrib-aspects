@@ -19,14 +19,14 @@ engine = (
 def drop_objects():
     op.execute(
         f"""
-        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_RECENT_BLOCKS_TABLE }}
+        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_course_blocks
         {on_cluster}
         """
     )
 
     op.execute(
         f"""
-        DROP VIEW IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_RECENT_BLOCKS_MV }}
+        DROP VIEW IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_course_blocks_mv
         {on_cluster}
         """
     )
@@ -53,7 +53,7 @@ def upgrade():
 
     op.execute(
         f"""
-        CREATE TABLE IF NOT EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_RECENT_BLOCKS_TABLE }}
+        CREATE TABLE IF NOT EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_course_blocks
         {on_cluster}
         (
             location String NOT NULL,
@@ -73,9 +73,9 @@ def upgrade():
 
     op.execute(
         f"""
-        create materialized view if not exists {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_RECENT_BLOCKS_MV }}
+        create materialized view if not exists {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_course_blocks_mv
         {on_cluster}
-        to {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_RECENT_BLOCKS_TABLE }} as
+        to {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_course_blocks as
         select
             location,
             display_name,
@@ -87,13 +87,13 @@ def upgrade():
             course_key,
             dump_id,
             time_last_dumped
-        from {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_NODES_TABLE }}
+        from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_blocks
         """
     )
 
     op.execute(
         """
-        insert into {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_RECENT_BLOCKS_TABLE }} (
+        insert into {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_course_blocks (
             location, display_name, display_name_with_location, section, subsection, unit, graded, course_key, dump_id, time_last_dumped
         )
         select
@@ -107,7 +107,7 @@ def upgrade():
             course_key,
             dump_id,
             time_last_dumped
-        from {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_NODES_TABLE }};
+        from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_blocks
         """
     )
 
@@ -134,7 +134,7 @@ def upgrade():
                     course_key,
                     graded,
                     display_name_with_location
-                from {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_RECENT_BLOCKS_TABLE }}
+                from {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_course_blocks
                 final
             "
         ))
@@ -178,7 +178,7 @@ def downgrade():
             db '{{ ASPECTS_EVENT_SINK_DATABASE }}'
             query "with most_recent_blocks as (
                     select org, course_key, location, max(edited_on) as last_modified
-                    from {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_NODES_TABLE }}
+                    from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_blocks
                     group by org, course_key, location
                 )
                 select
@@ -186,7 +186,7 @@ def downgrade():
                     display_name,
                     course_key,
                     JSONExtractBool(xblock_data_json, 'graded') as graded
-                from {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_NODES_TABLE }} co
+                from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_blocks co
                 inner join most_recent_blocks mrb on
                     co.org = mrb.org and
                     co.course_key = mrb.course_key and

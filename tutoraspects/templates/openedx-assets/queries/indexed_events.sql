@@ -7,7 +7,7 @@ with events as (
     splitByString('/', course_id)[-1] AS course_key,
     org,
     verb_id
-  FROM {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_XAPI_TABLE }}
+  FROM {{ ASPECTS_XAPI_DATABASE }}.xapi_events_all_parsed
 )
 
 SELECT

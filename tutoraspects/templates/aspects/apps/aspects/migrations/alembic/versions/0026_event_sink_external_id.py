@@ -21,7 +21,7 @@ engine = "ReplicatedReplacingMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "R
 def upgrade():
     op.execute(
         f"""
-        CREATE TABLE IF NOT EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_EXTERNAL_ID_TABLE }}
+        CREATE TABLE IF NOT EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.external_id
         {on_cluster}
         (
             `external_user_id` UUID NOT NULL,
@@ -41,6 +41,6 @@ def upgrade():
 
 def downgrade():
     op.execute(
-        "DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_EXTERNAL_ID_TABLE }}"
+        "DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.external_id"
         f"{on_cluster}"
     )

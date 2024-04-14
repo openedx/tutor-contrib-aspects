@@ -87,7 +87,7 @@ def upgrade():
                         profile_image_uploaded_at,
                         phone_number,
                     ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY (id, time_last_dumped) DESC) as rn
-                    from {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_USER_PROFILE_TABLE }}
+                    from {{ ASPECTS_EVENT_SINK_DATABASE }}.user_profile
                 )
                 select
                     mrup.user_id as user_id,
@@ -110,7 +110,7 @@ def upgrade():
                     bio,
                     profile_image_uploaded_at,
                     phone_number
-                FROM {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ ASPECTS_EVENT_SINK_EXTERNAL_ID_TABLE }} ex
+                FROM {{ ASPECTS_EVENT_SINK_DATABASE }}.external_id ex
                 RIGHT OUTER JOIN most_recent_user_profile mrup ON
                     mrup.user_id = ex.user_id and (
                        ex.external_id_type = 'xapi' OR
