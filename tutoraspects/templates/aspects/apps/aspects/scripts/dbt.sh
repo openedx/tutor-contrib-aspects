@@ -27,6 +27,7 @@ pip install -r ./requirements.txt
 export ASPECTS_EVENT_SINK_DATABASE={{ASPECTS_EVENT_SINK_DATABASE}}
 export ASPECTS_XAPI_DATABASE={{ASPECTS_XAPI_DATABASE}}
 export DBT_STATE={{ DBT_STATE_DIR }}
+export ASPECTS_DATA_TTL_EXPRESSION="{{ ASPECTS_DATA_TTL_EXPRESSION }}"
 
 echo "Installing dbt dependencies"
 dbt deps --profiles-dir /app/aspects/dbt/
