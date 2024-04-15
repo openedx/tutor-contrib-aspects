@@ -22,6 +22,7 @@ cd aspects-dbt || exit
 
 echo "Installing dbt python requirements"
 pip install -r /app/aspects/dbt/requirements.txt
+pip install -r ./requirements.txt
 
 export ASPECTS_EVENT_SINK_DATABASE={{ASPECTS_EVENT_SINK_DATABASE}}
 export ASPECTS_XAPI_DATABASE={{ASPECTS_XAPI_DATABASE}}
