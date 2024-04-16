@@ -57,19 +57,7 @@ def create_assets():
             path = os.path.join(root, file)
             with open(path, "r") as file:
                 asset = yaml.safe_load(file)
-                if not asset:
-                    continue
-
-                # Process the asset directly
-                if FILE_NAME_ATTRIBUTE not in asset:
-                    raise Exception(f"Asset {asset} has no {FILE_NAME_ATTRIBUTE}")
-                file_name = asset.pop(FILE_NAME_ATTRIBUTE)
-
-                # Find the right folder to create the asset in
-                for asset_name, folder in ASSET_FOLDER_MAPPING.items():
-                    if asset_name in asset:
-                        write_asset_to_file(asset, asset_name, folder, file_name, roles)
-                        break
+                process_asset(asset, roles)
 
     with open(ASSETS_FILE_PATH, "r") as file:
         extra_assets = yaml.safe_load(file)
@@ -77,17 +65,7 @@ def create_assets():
         if extra_assets:
             # For each asset, create a file in the right folder
             for asset in extra_assets:
-                if FILE_NAME_ATTRIBUTE not in asset:
-                    raise Exception(f"Asset {asset} has no {FILE_NAME_ATTRIBUTE}")
-                file_name = asset.pop(FILE_NAME_ATTRIBUTE)
-
-                # Find the right folder to create the asset in
-                for asset_name, folder in ASSET_FOLDER_MAPPING.items():
-                    if not asset_name in asset:
-                        continue
-
-                    write_asset_to_file(asset, asset_name, folder, file_name, roles)
-                    break
+                process_asset(asset, roles)
 
     import_databases()
     import_assets()
@@ -95,6 +73,18 @@ def create_assets():
     update_embeddable_uuids()
     update_datasets()
     create_rls_filters()
+
+
+def process_asset(asset, roles):
+    if FILE_NAME_ATTRIBUTE not in asset:
+        raise Exception(f"Asset {asset} has no {FILE_NAME_ATTRIBUTE}")
+    file_name = asset.pop(FILE_NAME_ATTRIBUTE)
+
+    # Find the right folder to create the asset in
+    for asset_name, folder in ASSET_FOLDER_MAPPING.items():
+        if asset_name in asset:
+            write_asset_to_file(asset, asset_name, folder, file_name, roles)
+            return
 
 
 def import_databases():
