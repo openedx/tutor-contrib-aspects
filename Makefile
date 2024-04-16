@@ -5,7 +5,7 @@
 .DEFAULT_GOAL := help
 
 PACKAGE=tutoraspects
-PROJECT=tutor-contrib-aspects
+PROJECT=tutor_contrib_aspects
 
 SOURCES=./setup.py ./$(PACKAGE)
 BLACK_OPTS = --exclude templates ${SOURCES}
