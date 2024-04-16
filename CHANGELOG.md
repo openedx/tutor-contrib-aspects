@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.100.0 - 2024-04-16
+
+### [0.100.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.99.0...v0.100.0) (2024-04-16)
+
+#### Features
+
+* add configurable TTL ([5078750](https://github.com/openedx/tutor-contrib-aspects/commit/507875076dba7cb3ac7152722025403322a344a8))
+* migrate aspects dictionaries to dbt ([89acf63](https://github.com/openedx/tutor-contrib-aspects/commit/89acf63e51acb9b41cb7a8566778cad4472dde12))
+
+#### Bug Fixes
+
+* install only dbt requirements ([e3d5768](https://github.com/openedx/tutor-contrib-aspects/commit/e3d5768473bf8a152a879563b7070ce345dd28b7))
+* restore installation of aspects-dbt requirements ([b0a711d](https://github.com/openedx/tutor-contrib-aspects/commit/b0a711d5568d63a3bf04a742bae0057bd09d4e43))
+
 ## v0.99.0 - 2024-04-14
 
 ### [0.99.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.98.0...v0.99.0) (2024-04-14)
