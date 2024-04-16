@@ -167,7 +167,7 @@ normalize_columns: false
 offset: 0
 params: null
 schema: '{{DBT_PROFILE_TARGET_DATABASE}}'
-sql: 'select * from {{DBT_PROFILE_TARGET_DATABASE}}.fact_navigation'
+sql: select * from {{DBT_PROFILE_TARGET_DATABASE}}.fact_navigation
 table_name: fact_navigation
 template_params: null
 uuid: 1c443466-300e-4f01-a690-3d9d1b934d9a
