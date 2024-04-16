@@ -115,7 +115,6 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
     """Write an asset to a file and generated translated assets"""
     if folder == "databases":
         create_superset_db(asset["database_name"], asset["sqlalchemy_uri"])
-
     if folder in ["charts", "dashboards", "datasets"]:
         for locale in DASHBOARD_LOCALES:
             updated_asset = generate_translated_asset(
@@ -128,8 +127,7 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
                 dashboard = db.session.query(Dashboard).filter_by(slug=dashboard_slug).first()
                 if dashboard:
                     db.session.delete(dashboard)
-
-            path = f"{BASE_DIR}/{folder}/{file_name}-{locale}.yaml"
+            path = f"{BASE_DIR}/{folder}/{file_name.split('.')[0]}-{locale}.yaml"
             with open(path, "w") as file:
                 yaml.dump(updated_asset, file)
 
@@ -144,7 +142,8 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
         dashboard = db.session.query(Dashboard).filter_by(slug=dashboard_slug).first()
         if dashboard:
             db.session.delete(dashboard)
-    path = f"{BASE_DIR}/{folder}/{file_name}.yaml"
+
+    path = f"{BASE_DIR}/{folder}/{file_name}"
     with open(path, "w") as file:
         yaml.dump(asset, file)
 
@@ -174,7 +173,7 @@ def generate_translated_asset(asset, asset_name, folder, language, roles):
         generate_translated_dashboard_elements(copy, language)
         generate_translated_dashboard_filters(copy, language)
 
-    if folder == "datasets" and copy.get("schema") == "main":
+    if folder == "datasets" and copy.get("sql"):
         # Only virtual datasets can be translated
         for column in copy.get("columns", []):
             column["verbose_name"] = get_translation(column["verbose_name"], language)
