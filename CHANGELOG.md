@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.101.0 - 2024-04-17
+
+### [0.101.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.100.0...v0.101.0) (2024-04-17)
+
+#### Features
+
+* install platform plugin aspects v0.7.0 ([5dcb82e](https://github.com/openedx/tutor-contrib-aspects/commit/5dcb82eac0ee52c19c90d9ad698ee7adb198647f))
+
+#### Bug Fixes
+
+* do not check for main schema when translating datasets ([5561793](https://github.com/openedx/tutor-contrib-aspects/commit/5561793116947fe199dcf32d3823a8c55841fae7))
+* link filters to the course_name dataset ([b3a0ba9](https://github.com/openedx/tutor-contrib-aspects/commit/b3a0ba9136785be9de266e469c2ae7a53202e4d5))
+* use virtual datasets ([78e2a23](https://github.com/openedx/tutor-contrib-aspects/commit/78e2a239ed0623a1c1c892cdf9d3236035658833))
+
 ## v0.100.0 - 2024-04-16
 
 ### [0.100.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.99.0...v0.100.0) (2024-04-16)
