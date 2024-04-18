@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.102.0 - 2024-04-18
+
+### [0.102.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.101.0...v0.102.0) (2024-04-18)
+
+#### Features
+
+* update enrollment datasets ([d5b229f](https://github.com/openedx/tutor-contrib-aspects/commit/d5b229f563a1e08257da2e72b5830c027b6974c5))
+
 ## v0.101.0 - 2024-04-17
 
 ### [0.101.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.100.0...v0.101.0) (2024-04-17)
