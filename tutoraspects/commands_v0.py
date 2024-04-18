@@ -109,7 +109,7 @@ def alembic(context, command) -> None:
 
 # Ex: "tutor local do performance-metrics "
 @click.command(context_settings={"ignore_unknown_options": True})
-@click.option("--course_key", default='', help="A course_key to apply as a filter.")
+@click.option("--course_key", default="", help="A course_key to apply as a filter.")
 @click.pass_obj
 def performance_metrics(context, course_key) -> None:
     """

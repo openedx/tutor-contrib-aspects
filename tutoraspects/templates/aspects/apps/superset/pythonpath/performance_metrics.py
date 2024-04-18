@@ -43,8 +43,9 @@ def performance_metrics(course_id=None):
     """Measure the performance of the dashboard."""
     # Mock the client name to identify the queries in the clickhouse system.query_log table by
     # by the http_user_agent field.}
+    extra_filters = []
     if course_id:
-        extra_filters = [{"col":"course_key","op":"==","val":course_id}]
+        extra_filters+=[{"col":"course_key","op":"==","val":course_id}]
     with patch("clickhouse_connect.common.build_client_name") as mock_build_client_name:
         mock_build_client_name.return_value = RUN_ID
         embedable_dashboards = {{SUPERSET_EMBEDDABLE_DASHBOARDS}}
