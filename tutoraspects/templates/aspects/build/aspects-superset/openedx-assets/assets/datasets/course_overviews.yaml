@@ -1,4 +1,5 @@
 _file_name: course_overviews.yaml
+always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
@@ -178,9 +179,8 @@ normalize_columns: true
 offset: 0
 params: null
 schema: '{{ ASPECTS_EVENT_SINK_DATABASE }}'
-sql: |-
-  select * from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_overviews
+sql: select * from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_overviews
 table_name: course_overviews
 template_params: null
-uuid: 46183302-6fa6-41a3-b6a7-79ff6c1c8402
+uuid: ab5988f5-c05a-5a04-8629-78d58cd9e5f2
 version: 1.0.0

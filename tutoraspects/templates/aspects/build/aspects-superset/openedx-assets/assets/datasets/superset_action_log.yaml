@@ -1,4 +1,5 @@
 _file_name: superset_action_log.yaml
+always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
@@ -195,5 +196,5 @@ sql: |-
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/superset_action_log.sql' %}{% endfilter %}
 table_name: superset_action_log
 template_params: null
-uuid: c33517b3-daa5-4fac-b7f2-ae012b999d12
+uuid: 328ccae5-9a44-5e8c-8598-8d1c14b9f9fb
 version: 1.0.0

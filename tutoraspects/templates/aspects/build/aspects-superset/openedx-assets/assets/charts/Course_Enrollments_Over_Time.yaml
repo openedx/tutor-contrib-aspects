@@ -2,25 +2,25 @@ _file_name: Course_Enrollments_Over_Time.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: 352311fe-12f0-470c-8b8c-d4f6a3936b3d
+dataset_uuid: 0cdb38bc-1692-5c64-b28d-2108ff4104a8
 description: null
 params:
   adhoc_filters:
   - clause: WHERE
-    comparator: registered
+    comparator: No filter
+    datasourceWarning: false
     expressionType: SIMPLE
-    filterOptionName: filter_0boo7wmml3y9_u9cjkku59hh
+    filterOptionName: filter_j934h06scr_fjq2ldvifgw
     isExtra: false
     isNew: false
-    operator: ==
-    operatorId: EQUALS
+    operator: TEMPORAL_RANGE
     sqlExpression: null
-    subject: enrollment_status
+    subject: enrollment_status_date
   - clause: WHERE
     comparator: No filter
     expressionType: SIMPLE
     operator: TEMPORAL_RANGE
-    subject: enrollment_status_date
+    subject: emission_hour
   annotation_layers: []
   color_scheme: supersetColors
   comparison_type: values
@@ -28,33 +28,37 @@ params:
   forecastInterval: 0.8
   forecastPeriods: 10
   groupby:
-  - enrollment_status
+  - course_name
+  - enrollment_mode
+  legendMargin: null
   legendOrientation: top
   legendType: scroll
+  markerEnabled: true
   markerSize: 6
   metrics:
-  - aggregate: COUNT
+  - aggregate: SUM
     column:
       advanced_data_type: null
-      certification_details: null
-      certified_by: null
-      column_name: enrollment_status
+      changed_on: '2024-04-17T20:58:42'
+      column_name: course_enrollment_mode_status_cnt
+      created_on: '2024-04-17T20:58:42'
       description: null
       expression: null
+      extra: '{}'
       filterable: true
       groupby: true
-      id: 10
-      is_certified: false
+      id: 892
+      is_active: true
       is_dttm: false
       python_date_format: null
-      type: String
-      type_generic: 1
+      type: UINT64
+      type_generic: 0
+      uuid: 3244fff5-dde7-4b18-907e-4ee817c88797
       verbose_name: null
-      warning_markdown: null
+    datasourceWarning: false
     expressionType: SIMPLE
     hasCustomLabel: false
-    isNew: false
-    label: COUNT(enrollment_status)
+    label: SUM(course_enrollment_mode_status_cnt)
     optionName: metric_iapetcrge8_4fkcsr2b3nj
     sqlExpression: null
   only_total: true
@@ -64,25 +68,33 @@ params:
   row_limit: 10000
   seriesType: line
   show_empty_columns: true
-  show_legend: true
+  show_legend: false
   sort_series_type: sum
   time_grain_sqla: P1D
   tooltipTimeFormat: smart_date
+  truncateXAxis: true
   truncate_metric: true
   viz_type: echarts_timeseries_line
-  x_axis: enrollment_status_date
+  x_axis: emission_hour
   x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
+  x_axis_title: ''
   x_axis_title_margin: 15
   y_axis_bounds:
   - null
   - null
   y_axis_format: SMART_NUMBER
-  y_axis_title: Registrations
-  y_axis_title_margin: 15
+  y_axis_title: Registration Events
+  y_axis_title_margin: 50
   y_axis_title_position: Left
+  zoomable: true
+query_context: '{"datasource":{"id":50,"type":"table"},"force":false,"queries":[{"filters":[{"col":"enrollment_status_date","op":"TEMPORAL_RANGE","val":"No
+  filter"},{"col":"emission_hour","op":"TEMPORAL_RANGE","val":"No filter"}],"extras":{"time_grain_sqla":"P1D","having":"","where":""},"applied_time_extras":{},"columns":[{"timeGrain":"P1D","columnType":"BASE_AXIS","sqlExpression":"emission_hour","label":"emission_hour","expressionType":"SQL"},"course_name","enrollment_mode"],"metrics":[{"expressionType":"SIMPLE","column":{"advanced_data_type":null,"changed_on":"2024-04-17T20:58:42","column_name":"course_enrollment_mode_status_cnt","created_on":"2024-04-17T20:58:42","description":null,"expression":null,"extra":"{}","filterable":true,"groupby":true,"id":892,"is_active":true,"is_dttm":false,"python_date_format":null,"type":"UINT64","type_generic":0,"uuid":"3244fff5-dde7-4b18-907e-4ee817c88797","verbose_name":null},"aggregate":"SUM","sqlExpression":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"SUM(course_enrollment_mode_status_cnt)","optionName":"metric_iapetcrge8_4fkcsr2b3nj"}],"orderby":[[{"expressionType":"SIMPLE","column":{"advanced_data_type":null,"changed_on":"2024-04-17T20:58:42","column_name":"course_enrollment_mode_status_cnt","created_on":"2024-04-17T20:58:42","description":null,"expression":null,"extra":"{}","filterable":true,"groupby":true,"id":892,"is_active":true,"is_dttm":false,"python_date_format":null,"type":"UINT64","type_generic":0,"uuid":"3244fff5-dde7-4b18-907e-4ee817c88797","verbose_name":null},"aggregate":"SUM","sqlExpression":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"SUM(course_enrollment_mode_status_cnt)","optionName":"metric_iapetcrge8_4fkcsr2b3nj"},false]],"annotation_layers":[],"row_limit":10000,"series_columns":["course_name","enrollment_mode"],"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"time_offsets":[],"post_processing":[{"operation":"pivot","options":{"index":["emission_hour"],"columns":["course_name","enrollment_mode"],"aggregates":{"SUM(course_enrollment_mode_status_cnt)":{"operator":"mean"}},"drop_missing_columns":false}},{"operation":"rename","options":{"columns":{"SUM(course_enrollment_mode_status_cnt)":null},"level":0,"inplace":true}},{"operation":"flatten"}]}],"form_data":{"datasource":"50__table","viz_type":"echarts_timeseries_line","slice_id":2801,"x_axis":"emission_hour","time_grain_sqla":"P1D","x_axis_sort_asc":true,"x_axis_sort_series":"name","x_axis_sort_series_ascending":true,"metrics":[{"expressionType":"SIMPLE","column":{"advanced_data_type":null,"changed_on":"2024-04-17T20:58:42","column_name":"course_enrollment_mode_status_cnt","created_on":"2024-04-17T20:58:42","description":null,"expression":null,"extra":"{}","filterable":true,"groupby":true,"id":892,"is_active":true,"is_dttm":false,"python_date_format":null,"type":"UINT64","type_generic":0,"uuid":"3244fff5-dde7-4b18-907e-4ee817c88797","verbose_name":null},"aggregate":"SUM","sqlExpression":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"SUM(course_enrollment_mode_status_cnt)","optionName":"metric_iapetcrge8_4fkcsr2b3nj"}],"groupby":["course_name","enrollment_mode"],"adhoc_filters":[{"expressionType":"SIMPLE","subject":"enrollment_status_date","operator":"TEMPORAL_RANGE","comparator":"No
+  filter","clause":"WHERE","sqlExpression":null,"isExtra":false,"isNew":false,"datasourceWarning":false,"filterOptionName":"filter_j934h06scr_fjq2ldvifgw"},{"clause":"WHERE","subject":"emission_hour","operator":"TEMPORAL_RANGE","comparator":"No
+  filter","expressionType":"SIMPLE"}],"order_desc":true,"row_limit":10000,"truncate_metric":true,"show_empty_columns":true,"comparison_type":"values","annotation_layers":[],"forecastPeriods":10,"forecastInterval":0.8,"x_axis_title":"","x_axis_title_margin":15,"y_axis_title":"Registration
+  Events","y_axis_title_margin":50,"y_axis_title_position":"Left","sort_series_type":"sum","color_scheme":"supersetColors","seriesType":"line","only_total":true,"opacity":0.2,"markerEnabled":true,"markerSize":6,"zoomable":true,"show_legend":false,"legendType":"scroll","legendOrientation":"top","legendMargin":null,"x_axis_time_format":"smart_date","rich_tooltip":true,"tooltipTimeFormat":"smart_date","y_axis_format":"SMART_NUMBER","truncateXAxis":true,"y_axis_bounds":[null,null],"extra_form_data":{},"dashboards":[502],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
 slice_name: Course Enrollments Over Time
 uuid: bf4f4671-c276-4185-9b9a-b10864efea6c
 version: 1.0.0

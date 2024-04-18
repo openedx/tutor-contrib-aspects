@@ -1,0 +1,110 @@
+_file_name: Total_Enrollment_Events.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 0cdb38bc-1692-5c64-b28d-2108ff4104a8
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_h7w8k247kow_yvd7g3gvm1
+    isExtra: false
+    isNew: false
+    operator: TEMPORAL_RANGE
+    sqlExpression: null
+    subject: emission_hour
+  - clause: WHERE
+    comparator: registered
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_wx7up1yaz1k_i9cn3al8e3f
+    isExtra: false
+    isNew: false
+    operator: ==
+    operatorId: EQUALS
+    sqlExpression: null
+    subject: enrollment_status
+  all_columns:
+  - course_name
+  - enrollment_status
+  - enrollment_mode
+  - course_enrollment_mode_status_cnt
+  color_pn: true
+  extra_form_data: {}
+  groupby:
+  - course_name
+  - enrollment_mode
+  metrics:
+  - aggregate: SUM
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: course_enrollment_mode_status_cnt
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 892
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: UINT64
+      type_generic: 0
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    label: SUM(course_enrollment_mode_status_cnt)
+    optionName: metric_rf4tpo38r2_r3brnuyki59
+    sqlExpression: null
+  order_by_cols:
+  - '["course_name", true]'
+  order_desc: false
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 1000
+  server_page_length: 100
+  server_pagination: true
+  show_cell_bars: true
+  show_totals: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup:
+    emission_hour: true
+  time_grain_sqla: P1D
+  timeseries_limit_metric:
+    aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: false
+    label: '(course_name, enrollment_mode) '
+    optionName: metric_e1grp8ubmwu_yzrrrixu97q
+    sqlExpression: '(course_name, enrollment_mode) '
+  viz_type: table
+query_context: '{"datasource":{"id":50,"type":"table"},"force":false,"queries":[{"filters":[{"col":"emission_hour","op":"TEMPORAL_RANGE","val":"No
+  filter"},{"col":"enrollment_status","op":"==","val":"registered"}],"extras":{"time_grain_sqla":"P1D","having":"","where":""},"applied_time_extras":{},"columns":["course_name","enrollment_mode"],"metrics":[{"expressionType":"SIMPLE","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"course_enrollment_mode_status_cnt","description":null,"expression":null,"filterable":true,"groupby":true,"id":892,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"UINT64","type_generic":0,"verbose_name":null,"warning_markdown":null},"aggregate":"SUM","sqlExpression":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"SUM(course_enrollment_mode_status_cnt)","optionName":"metric_rf4tpo38r2_r3brnuyki59"}],"orderby":[[{"expressionType":"SQL","sqlExpression":"(course_name,
+  enrollment_mode) ","column":null,"aggregate":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"(course_name,
+  enrollment_mode) ","optionName":"metric_e1grp8ubmwu_yzrrrixu97q"},true]],"annotation_layers":[],"row_limit":100,"row_offset":0,"series_limit":0,"series_limit_metric":{"expressionType":"SQL","sqlExpression":"(course_name,
+  enrollment_mode) ","column":null,"aggregate":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"(course_name,
+  enrollment_mode) ","optionName":"metric_e1grp8ubmwu_yzrrrixu97q"},"order_desc":false,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[]},{"filters":[{"col":"emission_hour","op":"TEMPORAL_RANGE","val":"No
+  filter"},{"col":"enrollment_status","op":"==","val":"registered"}],"extras":{"time_grain_sqla":"P1D","having":"","where":""},"applied_time_extras":{},"columns":["course_name","enrollment_mode"],"metrics":[{"expressionType":"SIMPLE","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"course_enrollment_mode_status_cnt","description":null,"expression":null,"filterable":true,"groupby":true,"id":892,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"UINT64","type_generic":0,"verbose_name":null,"warning_markdown":null},"aggregate":"SUM","sqlExpression":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"SUM(course_enrollment_mode_status_cnt)","optionName":"metric_rf4tpo38r2_r3brnuyki59"}],"orderby":[[{"expressionType":"SQL","sqlExpression":"(course_name,
+  enrollment_mode) ","column":null,"aggregate":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"(course_name,
+  enrollment_mode) ","optionName":"metric_e1grp8ubmwu_yzrrrixu97q"},true]],"annotation_layers":[],"row_limit":0,"row_offset":0,"series_limit":0,"series_limit_metric":{"expressionType":"SQL","sqlExpression":"(course_name,
+  enrollment_mode) ","column":null,"aggregate":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"(course_name,
+  enrollment_mode) ","optionName":"metric_e1grp8ubmwu_yzrrrixu97q"},"order_desc":false,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[],"is_rowcount":true},{"filters":[{"col":"emission_hour","op":"TEMPORAL_RANGE","val":"No
+  filter"},{"col":"enrollment_status","op":"==","val":"registered"}],"extras":{"time_grain_sqla":"P1D","having":"","where":""},"applied_time_extras":{},"columns":[],"metrics":[{"expressionType":"SIMPLE","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"course_enrollment_mode_status_cnt","description":null,"expression":null,"filterable":true,"groupby":true,"id":892,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"UINT64","type_generic":0,"verbose_name":null,"warning_markdown":null},"aggregate":"SUM","sqlExpression":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"SUM(course_enrollment_mode_status_cnt)","optionName":"metric_rf4tpo38r2_r3brnuyki59"}],"annotation_layers":[],"row_limit":0,"row_offset":0,"series_limit":0,"series_limit_metric":{"expressionType":"SQL","sqlExpression":"(course_name,
+  enrollment_mode) ","column":null,"aggregate":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"(course_name,
+  enrollment_mode) ","optionName":"metric_e1grp8ubmwu_yzrrrixu97q"},"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[]}],"form_data":{"datasource":"50__table","viz_type":"table","query_mode":"aggregate","groupby":["course_name","enrollment_mode"],"time_grain_sqla":"P1D","temporal_columns_lookup":{"emission_hour":true},"metrics":[{"expressionType":"SIMPLE","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"course_enrollment_mode_status_cnt","description":null,"expression":null,"filterable":true,"groupby":true,"id":892,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"UINT64","type_generic":0,"verbose_name":null,"warning_markdown":null},"aggregate":"SUM","sqlExpression":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"SUM(course_enrollment_mode_status_cnt)","optionName":"metric_rf4tpo38r2_r3brnuyki59"}],"all_columns":["course_name","enrollment_status","enrollment_mode","course_enrollment_mode_status_cnt"],"percent_metrics":[],"adhoc_filters":[{"expressionType":"SIMPLE","subject":"emission_hour","operator":"TEMPORAL_RANGE","comparator":"No
+  filter","clause":"WHERE","sqlExpression":null,"isExtra":false,"isNew":false,"datasourceWarning":false,"filterOptionName":"filter_h7w8k247kow_yvd7g3gvm1"},{"expressionType":"SIMPLE","subject":"enrollment_status","operator":"==","operatorId":"EQUALS","comparator":"registered","clause":"WHERE","sqlExpression":null,"isExtra":false,"isNew":false,"datasourceWarning":false,"filterOptionName":"filter_wx7up1yaz1k_i9cn3al8e3f"}],"timeseries_limit_metric":{"expressionType":"SQL","sqlExpression":"(course_name,
+  enrollment_mode) ","column":null,"aggregate":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"(course_name,
+  enrollment_mode) ","optionName":"metric_e1grp8ubmwu_yzrrrixu97q"},"order_by_cols":["[\"course_name\",
+  true]"],"server_pagination":true,"row_limit":1000,"server_page_length":100,"order_desc":false,"show_totals":true,"table_timestamp_format":"smart_date","show_cell_bars":true,"color_pn":true,"extra_form_data":{},"dashboards":[502],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+slice_name: Total Enrollment Events
+uuid: 571de207-d897-43dc-b562-1568e04ddcdb
+version: 1.0.0
+viz_type: table

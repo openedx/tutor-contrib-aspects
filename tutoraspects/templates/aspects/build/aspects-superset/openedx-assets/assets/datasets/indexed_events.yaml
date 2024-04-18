@@ -1,4 +1,5 @@
 _file_name: indexed_events.yaml
+always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
@@ -134,5 +135,5 @@ sql: |-
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/indexed_events.sql' %}{% endfilter %}
 table_name: indexed_events
 template_params: null
-uuid: d6b1402a-393b-4595-9fbc-86aa9beacae9
+uuid: e48f2262-a8b4-5016-8648-bdba8e11199d
 version: 1.0.0

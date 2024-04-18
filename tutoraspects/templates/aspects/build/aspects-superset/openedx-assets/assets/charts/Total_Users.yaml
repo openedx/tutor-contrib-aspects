@@ -1,0 +1,38 @@
+_file_name: Total_Users.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: e48f2262-a8b4-5016-8648-bdba8e11199d
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_time
+  conditional_formatting: []
+  extra_form_data: {}
+  force_timestamp_formatting: false
+  header_font_size: 0.5
+  metric:
+    aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: false
+    label: COUNT(DISTINCT(actor_id))
+    optionName: metric_kvpvmgti3sq_43fw3621oyf
+    sqlExpression: COUNT(DISTINCT(actor_id))
+  subheader: ''
+  subheader_font_size: 0.2
+  time_format: smart_date
+  viz_type: big_number_total
+  y_axis_format: SMART_NUMBER
+query_context: '{"datasource":{"id":52,"type":"table"},"force":false,"queries":[{"filters":[{"col":"emission_time","op":"TEMPORAL_RANGE","val":"No
+  filter"}],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":[],"metrics":[{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":false,"label":"COUNT(DISTINCT(actor_id))","optionName":"metric_kvpvmgti3sq_43fw3621oyf","sqlExpression":"COUNT(DISTINCT(actor_id))"}],"annotation_layers":[],"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"form_data":{"datasource":"52__table","viz_type":"big_number_total","slice_id":3001,"metric":{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":false,"label":"COUNT(DISTINCT(actor_id))","optionName":"metric_kvpvmgti3sq_43fw3621oyf","sqlExpression":"COUNT(DISTINCT(actor_id))"},"adhoc_filters":[{"clause":"WHERE","comparator":"No
+  filter","expressionType":"SIMPLE","operator":"TEMPORAL_RANGE","subject":"emission_time"}],"subheader":"","header_font_size":0.5,"subheader_font_size":0.2,"y_axis_format":"SMART_NUMBER","time_format":"smart_date","force_timestamp_formatting":false,"conditional_formatting":[],"extra_form_data":{},"dashboards":[502],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+slice_name: Total Users
+uuid: 15620ae6-5452-4a11-bc7e-56c7e5987a4d
+version: 1.0.0
+viz_type: big_number_total
