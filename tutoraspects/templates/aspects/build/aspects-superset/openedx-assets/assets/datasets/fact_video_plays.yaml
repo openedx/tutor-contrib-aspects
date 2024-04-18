@@ -161,7 +161,7 @@ columns:
 - advanced_data_type: null
   column_name: video_link
   description: null
-  expression: null
+  expression: ''
   extra: null
   filterable: true
   groupby: true
@@ -173,7 +173,7 @@ columns:
 - advanced_data_type: null
   column_name: username
   description: null
-  expression: null
+  expression: ''
   extra: null
   filterable: true
   groupby: true
@@ -185,7 +185,7 @@ columns:
 - advanced_data_type: null
   column_name: email
   description: null
-  expression: null
+  expression: ''
   extra: null
   filterable: true
   groupby: true
@@ -197,7 +197,7 @@ columns:
 - advanced_data_type: null
   column_name: name
   description: null
-  expression: null
+  expression: ''
   extra: null
   filterable: true
   groupby: true

@@ -113,7 +113,7 @@ columns:
 - advanced_data_type: null
   column_name: video_duration
   description: null
-  expression: null
+  expression: ''
   extra: null
   filterable: true
   groupby: true

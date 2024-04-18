@@ -135,7 +135,7 @@ columns:
   type: String
   verbose_name: null
 - advanced_data_type: null
-  column_name: org
+  column_name: username
   description: null
   expression: ''
   extra: null
@@ -147,21 +147,9 @@ columns:
   type: String
   verbose_name: null
 - advanced_data_type: null
-  column_name: username
-  description: null
-  expression: null
-  extra: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: null
-- advanced_data_type: null
   column_name: email
   description: null
-  expression: null
+  expression: ''
   extra: null
   filterable: true
   groupby: true
@@ -173,7 +161,19 @@ columns:
 - advanced_data_type: null
   column_name: name
   description: null
-  expression: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: null
+- advanced_data_type: null
+  column_name: org
+  description: null
+  expression: ''
   extra: null
   filterable: true
   groupby: true
