@@ -1,3 +1,5 @@
+import sys
+
 from superset.app import create_app
 
 app = create_app()
@@ -37,10 +39,12 @@ query_format = (
 )
 
 
-def performance_metrics():
+def performance_metrics(course_id=None):
     """Measure the performance of the dashboard."""
     # Mock the client name to identify the queries in the clickhouse system.query_log table by
-    # by the http_user_agent field.
+    # by the http_user_agent field.}
+    if course_id:
+        extra_filters = [{"col":"course_key","op":"==","val":course_id}]
     with patch("clickhouse_connect.common.build_client_name") as mock_build_client_name:
         mock_build_client_name.return_value = RUN_ID
         embedable_dashboards = {{SUPERSET_EMBEDDABLE_DASHBOARDS}}
@@ -53,7 +57,7 @@ def performance_metrics():
         for dashboard in dashboards:
             logger.info(f"Dashboard: {dashboard.slug}")
             for slice in dashboard.slices:
-                result = measure_chart(slice)
+                result = measure_chart(slice, extra_filters)
                 if not result:
                     continue
                 for query in result["queries"]:
@@ -82,7 +86,8 @@ def measure_chart(slice, extra_filters=[]):
     )
 
     if extra_filters:
-        query_context["filters"].extend(extra_filters)
+        for query in query_context["queries"]:
+            query["filters"]+=extra_filters
 
     g.user = security_manager.find_user(username="{{SUPERSET_ADMIN_USERNAME}}")
     query_context = ChartDataQueryContextSchema().load(query_context)
@@ -153,7 +158,12 @@ def get_query_log_from_clickhouse(report):
 
 if __name__ == "__main__":
     logger.info(f"Running performance metrics. RUN ID: {RUN_ID}")
-    report = performance_metrics()
+    try:
+        course_id = sys.argv[1]
+        report = performance_metrics(course_id)
+    except IndexError:
+        report = performance_metrics()
+
     # Clickhouse query log takes some seconds to log queries.
     logger.info("Waiting for clickhouse log...")
     time.sleep(10)
