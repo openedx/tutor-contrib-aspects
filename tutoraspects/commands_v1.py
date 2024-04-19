@@ -134,10 +134,7 @@ def import_assets() -> list[tuple[str, str]]:
 @click.command(context_settings={"ignore_unknown_options": True})
 @click.option("--course_key", default="", help="A course_key to apply as a filter.")
 @click.option(
-    "--print_sql",
-    is_flag=True,
-    default=False,
-    help="Print the SQL that was run."
+    "--print_sql", is_flag=True, default=False, help="Print the SQL that was run."
 )
 def performance_metrics(course_key, print_sql) -> list[tuple[str, str]]:
     """
