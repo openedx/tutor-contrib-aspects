@@ -158,14 +158,15 @@ jobs:
           pip install -e .
           tutor config save
       - name: Run Kubernetes tools
-        uses: stefanprodan/kube-tools@v1
+        uses: alexellis/arkade-get@master
         with:
-          kubectl: 1.23.0
-          kustomize: 4.4.1
-          helmv3: 3.7.2
-          kubeconform: 0.4.13
-          command: |
-            kustomize build $TUTOR_ROOT/env | kubeconform -strict -ignore-missing-schemas -kubernetes-version 1.22.0
+          kubectl: latest
+          kustomize: latest
+          helm: latest
+          kubeconform: latest
+      - name: Check k8s manifests
+        run: |
+          kustomize build $TUTOR_ROOT/env | kubeconform -strict -ignore-missing-schemas -kubernetes-version latest
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Free Disk Space (Ubuntu)
