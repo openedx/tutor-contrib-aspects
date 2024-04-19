@@ -144,7 +144,7 @@ def performance_metrics(course_key, print_sql) -> list[tuple[str, str]]:
     Job to measure performance metrics of charts and its queries in Superset and ClickHouse.
     """
     options = f"--course_key {course_key}" if course_key else ""
-    options += f" --print_sql" if print_sql else ""
+    options += " --print_sql" if print_sql else ""
 
     return [
         (
