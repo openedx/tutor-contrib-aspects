@@ -37,7 +37,7 @@ setup(
         "Code": "https://github.com/openedx/tutor-contrib-aspects",
         "Issue tracker": "https://github.com/openedx/tutor-contrib-aspects/issues",
     },
-    license="AGPLv3",
+    license="Apache 2.0",
     author="The Open edX Community",
     description="Aspects plugin for Tutor",
     long_description_content_type="text/x-rst",
@@ -50,7 +50,7 @@ setup(
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
-        "License :: OSI Approved :: GNU Affero General Public License v3",
+        "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3.8",
