@@ -1,13 +1,13 @@
 """Import a list of assets from a yaml file and create them in the superset assets folder."""
 import os
-import uuid
-
-import yaml
 from superset.app import create_app
 
 app = create_app()
 app.app_context().push()
 
+import logging
+import uuid
+import yaml
 from copy import deepcopy
 from pathlib import Path
 
