@@ -21,6 +21,10 @@ from superset.utils.database import get_or_create_db
 from superset.models.embedded_dashboard import EmbeddedDashboard
 from pythonpath.localization import get_translation
 from pythonpath.create_row_level_security import create_rls_filters
+
+
+logger = logging.getLogger("create_assets")
+
 BASE_DIR = "/app/assets/superset"
 
 ASSET_FOLDER_MAPPING = {
