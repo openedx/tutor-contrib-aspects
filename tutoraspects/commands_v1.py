@@ -132,15 +132,22 @@ def import_assets() -> list[tuple[str, str]]:
 
 # Ex: "tutor local do performance-metrics "
 @click.command(context_settings={"ignore_unknown_options": True})
-def performance_metrics() -> list[tuple[str, str]]:
+@click.option("--course_key", default="", help="A course_key to apply as a filter.")
+@click.option(
+    "--print_sql", is_flag=True, default=False, help="Print the SQL that was run."
+)
+def performance_metrics(course_key, print_sql) -> list[tuple[str, str]]:
     """
     Job to measure performance metrics of charts and its queries in Superset and ClickHouse.
     """
+    options = f"--course_key {course_key}" if course_key else ""
+    options += " --print_sql" if print_sql else ""
+
     return [
         (
             "superset",
             "echo 'Performance...' && "
-            "python /app/pythonpath/performance_metrics.py &&"
+            f"python /app/pythonpath/performance_metrics.py {options} &&"
             "echo 'Done!';",
         ),
     ]

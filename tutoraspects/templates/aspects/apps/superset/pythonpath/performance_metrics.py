@@ -1,8 +1,9 @@
+import sys
+
 from superset.app import create_app
 
 app = create_app()
 app.app_context().push()
-
 
 import json
 import logging
@@ -11,6 +12,7 @@ import uuid
 from datetime import datetime
 from unittest.mock import patch
 
+import click
 import sqlparse
 from flask import g
 from superset import security_manager
@@ -36,11 +38,23 @@ query_format = (
     "Filters: {filters}\n\n"
 )
 
-
-def performance_metrics():
-    """Measure the performance of the dashboard."""
-    # Mock the client name to identify the queries in the clickhouse system.query_log table by
-    # by the http_user_agent field.
+@click.command()
+@click.option("--course_key", default="", help="A course_key to apply as a filter.")
+@click.option(
+    "--print_sql",
+    is_flag=True,
+    default=False,
+    help="Whether to print the SQL run."
+)
+def performance_metrics(course_key, print_sql):
+    """
+    Measure the performance of the dashboard.
+    """
+    # Mock the client name to identify the queries in the clickhouse system.query_log
+    # table by by the http_user_agent field.
+    extra_filters = []
+    if course_key:
+        extra_filters+=[{"col":"course_key","op":"==","val":course_key}]
     with patch("clickhouse_connect.common.build_client_name") as mock_build_client_name:
         mock_build_client_name.return_value = RUN_ID
         embedable_dashboards = {{SUPERSET_EMBEDDABLE_DASHBOARDS}}
@@ -53,13 +67,18 @@ def performance_metrics():
         for dashboard in dashboards:
             logger.info(f"Dashboard: {dashboard.slug}")
             for slice in dashboard.slices:
-                result = measure_chart(slice)
+                result = measure_chart(slice, extra_filters)
                 if not result:
                     continue
                 for query in result["queries"]:
-                    # Remove the data from the query to avoid memory issues on large datasets.
+                    # Remove the data from the query to avoid memory issues on large
+                    # datasets.
                     query.pop("data")
                 report.append(result)
+
+        logger.info("Waiting for clickhouse log...")
+        time.sleep(20)
+        get_query_log_from_clickhouse(report, print_sql)
         return report
 
 
@@ -82,7 +101,8 @@ def measure_chart(slice, extra_filters=[]):
     )
 
     if extra_filters:
-        query_context["filters"].extend(extra_filters)
+        for query in query_context["queries"]:
+            query["filters"]+=extra_filters
 
     g.user = security_manager.find_user(username="{{SUPERSET_ADMIN_USERNAME}}")
     query_context = ChartDataQueryContextSchema().load(query_context)
@@ -101,10 +121,11 @@ def measure_chart(slice, extra_filters=[]):
     return result
 
 
-def get_query_log_from_clickhouse(report):
+def get_query_log_from_clickhouse(report, print_sql):
     """
     Get the query log from clickhouse and print the results.
     """
+    # This corresponsds to the "Query Performance" chart in Superset
     chart_uuid = "bb13bb31-c797-4ed3-a7f9-7825cc6dc482"
 
     slice = db.session.query(Slice).filter(Slice.uuid == chart_uuid).one()
@@ -115,33 +136,46 @@ def get_query_log_from_clickhouse(report):
     )
     slice.query_context = json.dumps(query_context)
 
-    result = measure_chart(slice)
+    ch_chart_result = measure_chart(slice)
 
     clickhouse_queries = {}
-    for query in result["queries"]:
+    for query in ch_chart_result["queries"]:
         for row in query["data"]:
             parsed_sql = str(sqlparse.parse(row.pop("query"))[0])
             clickhouse_queries[parsed_sql] = row
+
+            if print_sql:
+                print("ClickHouse SQL: ")
+                logger.info(parsed_sql)
 
     # Sort report by slowest queries
     report = sorted(report, key=lambda x: x["time_elapsed"], reverse=True)
 
     report_str = f"\nSuperset Reports: {RUN_ID}\n\n"
-    for i, result in enumerate(report):
+    for i, chart_result in enumerate(report):
         report_str+=(
             report_format.format(
-                i=(i + 1), slice=result["slice"], superset_time=result["time_elapsed"]
+                i=(i + 1),
+                slice=chart_result["slice"],
+                superset_time=chart_result["time_elapsed"]
             )
         )
-        for i, query in enumerate(result["queries"]):
+        for i, query in enumerate(chart_result["queries"]):
             parsed_sql = (
                 str(sqlparse.parse(query["query"])[0]).replace(";", "")
                 + "\n FORMAT Native"
             )
+
+            if print_sql:
+                print("Superset SQL: ")
+                logger.info(parsed_sql)
+
             clickhouse_report = clickhouse_queries.get(parsed_sql, {})
             report_str+=(
                 query_format.format(
-                    query_duration_ms=clickhouse_report.get("query_duration_ms") / 1000,
+                    query_duration_ms=clickhouse_report.get(
+                        "query_duration_ms", 0
+                    ) / 1000,
                     memory_usage_mb=clickhouse_report.get("memory_usage_mb"),
                     result_rows=clickhouse_report.get("result_rows"),
                     rowcount=query["rowcount"],
@@ -153,8 +187,4 @@ def get_query_log_from_clickhouse(report):
 
 if __name__ == "__main__":
     logger.info(f"Running performance metrics. RUN ID: {RUN_ID}")
-    report = performance_metrics()
-    # Clickhouse query log takes some seconds to log queries.
-    logger.info("Waiting for clickhouse log...")
-    time.sleep(10)
-    get_query_log_from_clickhouse(report)
+    performance_metrics()

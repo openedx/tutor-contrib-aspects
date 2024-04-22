@@ -109,16 +109,17 @@ def alembic(context, command) -> None:
 
 # Ex: "tutor local do performance-metrics "
 @click.command(context_settings={"ignore_unknown_options": True})
+@click.option("--course_key", default="", help="A course_key to apply as a filter.")
 @click.pass_obj
-def performance_metrics(context) -> None:
+def performance_metrics(context, course_key) -> None:
     """
     Job to measure performance metrics of charts and its queries in Superset and ClickHouse.
     """
     config = tutor_config.load(context.root)
     runner = context.job_runner(config)
 
-    command = """echo 'Performance...' &&
-    python /app/pythonpath/performance_metrics.py &&
+    command = f"""echo 'Performance...' &&
+    python /app/pythonpath/performance_metrics.py '{course_key}' &&
     echo 'Done!';
     """
     runner.run_job("superset", command)
@@ -262,4 +263,5 @@ COMMANDS = (
     dump_data_to_clickhouse,
     transform_tracking_logs,
     import_assets,
+    performance_metrics,
 )
