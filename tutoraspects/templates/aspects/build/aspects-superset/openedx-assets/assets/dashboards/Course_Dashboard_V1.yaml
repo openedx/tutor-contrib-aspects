@@ -27,6 +27,7 @@ metadata:
         - 1901
         - 1921
         - 1941
+        - 1962
         scope: global
       id: 1589
     '1611':
@@ -48,6 +49,7 @@ metadata:
         - 1901
         - 1921
         - 1941
+        - 1962
         scope: global
       id: 1611
     '1613':
@@ -69,6 +71,7 @@ metadata:
         - 1901
         - 1921
         - 1941
+        - 1962
         scope: global
       id: 1613
     '1768':
@@ -90,6 +93,7 @@ metadata:
         - 1901
         - 1921
         - 1941
+        - 1962
         scope: global
       id: 1768
     '1783':
@@ -111,6 +115,7 @@ metadata:
         - 1901
         - 1921
         - 1941
+        - 1962
         scope: global
       id: 1783
     '1792':
@@ -132,6 +137,7 @@ metadata:
         - 1901
         - 1921
         - 1941
+        - 1962
         scope: global
       id: 1792
     '1805':
@@ -153,6 +159,7 @@ metadata:
         - 1901
         - 1921
         - 1941
+        - 1962
         scope: global
       id: 1805
     '1826':
@@ -174,6 +181,7 @@ metadata:
         - 1901
         - 1921
         - 1941
+        - 1962
         scope: global
       id: 1826
     '1839':
@@ -195,6 +203,7 @@ metadata:
         - 1901
         - 1921
         - 1941
+        - 1962
         scope: global
       id: 1839
     '1871':
@@ -216,6 +225,7 @@ metadata:
         - 1901
         - 1921
         - 1941
+        - 1962
         scope: global
       id: 1871
     '1901':
@@ -237,6 +247,7 @@ metadata:
         - 1871
         - 1921
         - 1941
+        - 1962
         scope: global
       id: 1901
     '1921':
@@ -258,6 +269,7 @@ metadata:
         - 1871
         - 1901
         - 1941
+        - 1962
         scope: global
       id: 1921
     '1941':
@@ -279,8 +291,31 @@ metadata:
         - 1871
         - 1901
         - 1921
+        - 1962
         scope: global
       id: 1941
+    '1962':
+      crossFilters:
+        chartsInScope:
+        - 682
+        - 1589
+        - 1611
+        - 1613
+        - 1655
+        - 1768
+        - 1783
+        - 1792
+        - 1805
+        - 1807
+        - 1826
+        - 1839
+        - 1846
+        - 1871
+        - 1901
+        - 1921
+        - 1941
+        scope: global
+      id: 1962
   color_scheme: supersetColors
   color_scheme_domain:
   - '#1FA8C9'
@@ -325,6 +360,7 @@ metadata:
     - 1901
     - 1921
     - 1941
+    - 1962
     scope:
       excluded: []
       rootPath:
@@ -624,12 +660,18 @@ metadata:
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
+    All pages viewed: '#8FD3E4'
     All videos viewed: '#5AC189'
+    At least one page viewed: '#3CCCCB'
     At least one video viewed: '#1FA8C9'
     Full views: '#454E7C'
+    Number of Learners: '#FCC700'
     Partial views: '#666666'
     Repeat Views: '#A868B7'
+    Total Learners: '#A38F79'
+    Total Views: '#ACE1C4'
     Unique Viewers: '#FF7F44'
+    audit: '#E04355'
   timed_refresh_immune_slices: []
 position:
   CHART-Q6nr6irIdz:
@@ -873,6 +915,20 @@ position:
     - ROW-sMfqRh00J
     - COLUMN-N18OE5OVho
     type: CHART
+  CHART-explore-1962-1:
+    children: []
+    id: CHART-explore-1962-1
+    meta:
+      chartId: 1962
+      height: 50
+      sliceName: Video views by section/subsection
+      uuid: c8c363f8-8dbc-4a78-841d-4976f4404884
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-_A28qByD8
+    type: CHART
   CHART-explore-197-1:
     children: []
     id: CHART-explore-197-1
@@ -895,7 +951,7 @@ position:
     meta:
       chartId: 1613
       height: 50
-      sliceName: Problem Interactions
+      sliceName: Problem interactions
       uuid: ba14d2ea-8c53-4f79-aa1b-434011f3c725
       width: 5
     parents:
@@ -1135,6 +1191,20 @@ position:
     - TABS-nk8aeLmc5o
     - TAB-nqLFUR_Tg
     type: ROW
+  ROW-jK8rH2uIlm:
+    children:
+    - CHART-explore-1962-1
+    id: ROW-jK8rH2uIlm
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-UDkdlBRw4n
+    - TAB-_Ey4nPhFr
+    - TABS-nk8aeLmc5o
+    - TAB-V5zNdxwhsP
+    type: ROW
   ROW-qDVwqO3bi4:
     children:
     - CHART-explore-185-1
@@ -1216,6 +1286,7 @@ position:
   TAB-V5zNdxwhsP:
     children:
     - ROW-TNGl9z7XZ
+    - ROW-jK8rH2uIlm
     - ROW-vpQpToPQb
     - ROW-ToSAm6kqA2
     id: TAB-V5zNdxwhsP
