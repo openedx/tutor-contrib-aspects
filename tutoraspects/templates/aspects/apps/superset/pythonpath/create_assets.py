@@ -15,6 +15,7 @@ from superset import security_manager
 from superset.examples.utils import load_configs_from_directory
 from superset.extensions import db
 from superset.models.dashboard import Dashboard
+from superset.models.slice import Slice
 from superset.connectors.sqla.models import SqlaTable
 from superset.utils.database import get_or_create_db
 from superset.models.embedded_dashboard import EmbeddedDashboard
@@ -235,6 +236,16 @@ def import_assets():
         force_data=False,
     )
 
+    # Query contexts use slice IDs instead of UUIDs, which breaks for us
+    # especially in translated datasets. We do need them for the
+    # performance_metric script however, so we keep them in the assets.
+    # This just blanks them in the database after import, which forces a
+    # query to get the assets instead of using the query context.
+    for o in db.session.query(Slice).all():
+        if o.query_context:
+            o.query_context = None
+    db.session.commit()
+
 
 def update_dashboard_roles(roles):
     """Update the roles of the dashboards"""
@@ -249,7 +260,7 @@ def update_dashboard_roles(roles):
 
     for dashboard_uuid, role_ids in roles.items():
         dashboard = db.session.query(Dashboard).filter_by(uuid=dashboard_uuid).one()
-        print("Importing dashboard roles", dashboard_uuid, role_ids)
+        logger.info("Importing dashboard roles", dashboard_uuid, role_ids)
         dashboard.roles = role_ids
         if owners:
             dashboard.owners = owners
@@ -270,10 +281,10 @@ def update_embeddable_uuids():
 
 def create_embeddable_dashboard_by_slug(dashboard_slug, embeddable_uuid):
     """Create an embeddable dashboard by slug"""
-    print(f"Creating embeddable dashboard {dashboard_slug}, {embeddable_uuid}")
+    logger.info(f"Creating embeddable dashboard {dashboard_slug}, {embeddable_uuid}")
     dashboard = db.session.query(Dashboard).filter_by(slug=dashboard_slug).first()
     if dashboard is None:
-        print(f"WARNING: Dashboard {dashboard_slug} not found")
+        logger.info(f"WARNING: Dashboard {dashboard_slug} not found")
         return
 
     embedded_dashboard = db.session.query(EmbeddedDashboard).filter_by(dashboard_id=dashboard.id).first()
@@ -287,13 +298,13 @@ def create_embeddable_dashboard_by_slug(dashboard_slug, embeddable_uuid):
 
 def update_datasets():
     """Update the datasets"""
-    print("Refreshing datasets")
+    logger.info("Refreshing datasets")
     if {{SUPERSET_REFRESH_DATASETS}}:
         datasets = (
             db.session.query(SqlaTable).all()
         )
         for dataset in datasets:
-            print(f"Refreshing dataset {dataset.table_name}")
+            logger.info(f"Refreshing dataset {dataset.table_name}")
             dataset.fetch_metadata(commit=True)
 
 

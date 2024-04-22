@@ -1,12 +1,17 @@
-import sys
+"""
+Gather performance metrics on Superset chart queries.
 
-from superset.app import create_app
+Reads the queries from the superset database, and enriches them with the
+query_context from the asset files. The query_context cannot be stored in the
+database on import due to is using database primary keys which do not match
+across Superset installations.
+"""
 
-app = create_app()
-app.app_context().push()
+from create_assets import BASE_DIR, ASSET_FOLDER_MAPPING, app
 
 import json
 import logging
+import os
 import time
 import uuid
 from datetime import datetime
@@ -14,6 +19,7 @@ from unittest.mock import patch
 
 import click
 import sqlparse
+import yaml
 from flask import g
 from superset import security_manager
 from superset.commands.chart.data.get_data_command import ChartDataCommand
@@ -27,6 +33,7 @@ logger = logging.getLogger("performance_metrics")
 ASPECTS_VERSION = "{{ASPECTS_VERSION}}"
 UUID = str(uuid.uuid4())[0:6]
 RUN_ID = f"aspects-{ASPECTS_VERSION}-{UUID}"
+CHART_PATH = "/app/openedx-assets/assets/charts/"
 
 report_format = "{i}. {slice}\n" "Superset time: {superset_time} (s).\n"
 
@@ -64,10 +71,12 @@ def performance_metrics(course_key, print_sql):
             .all()
         )
         report = []
+        query_contexts = get_query_contexts_from_assets()
         for dashboard in dashboards:
             logger.info(f"Dashboard: {dashboard.slug}")
             for slice in dashboard.slices:
-                result = measure_chart(slice, extra_filters)
+                query_context = get_slice_query_context(slice, query_contexts)
+                result = measure_chart(slice, query_context)
                 if not result:
                     continue
                 for query in result["queries"]:
@@ -78,16 +87,33 @@ def performance_metrics(course_key, print_sql):
 
         logger.info("Waiting for clickhouse log...")
         time.sleep(20)
-        get_query_log_from_clickhouse(report, print_sql)
+        get_query_log_from_clickhouse(report, query_contexts, print_sql)
         return report
 
 
-def measure_chart(slice, extra_filters=[]):
-    """
-    Measure the performance of a chart and return the results.
-    """
-    logger.info(f"Fetching slice data: {slice}")
-    query_context = json.loads(slice.query_context)
+def get_query_contexts_from_assets():
+    query_contexts = {}
+
+    for root, dirs, files in os.walk(CHART_PATH):
+        for file in files:
+            if not file.endswith(".yaml"):
+                continue
+
+            path = os.path.join(root, file)
+            with open(path, "r") as file:
+                asset = yaml.safe_load(file)
+                if "query_context" in asset and asset["query_context"]:
+                    query_contexts[asset["uuid"]] = json.loads(asset["query_context"])
+
+    logger.info(f"Found {len(query_contexts)} query contexts")
+    return query_contexts
+
+def get_slice_query_context(slice, query_contexts, extra_filters=[]):
+    query_context = query_contexts.get(str(slice.uuid), {})
+    if not query_context:
+        logger.info(f"SLICE {slice} has no query context! {slice.uuid}")
+        logger.info(query_contexts.keys())
+
     query_context.update(
         {
             "result_format": "json",
@@ -103,6 +129,15 @@ def measure_chart(slice, extra_filters=[]):
     if extra_filters:
         for query in query_context["queries"]:
             query["filters"]+=extra_filters
+
+    return query_context
+
+
+def measure_chart(slice, query_context):
+    """
+    Measure the performance of a chart and return the results.
+    """
+    logger.info(f"Fetching slice data: {slice}")
 
     g.user = security_manager.find_user(username="{{SUPERSET_ADMIN_USERNAME}}")
     query_context = ChartDataQueryContextSchema().load(query_context)
@@ -121,7 +156,7 @@ def measure_chart(slice, extra_filters=[]):
     return result
 
 
-def get_query_log_from_clickhouse(report, print_sql):
+def get_query_log_from_clickhouse(report, query_contexts, print_sql):
     """
     Get the query log from clickhouse and print the results.
     """
@@ -130,13 +165,12 @@ def get_query_log_from_clickhouse(report, print_sql):
 
     slice = db.session.query(Slice).filter(Slice.uuid == chart_uuid).one()
 
-    query_context = json.loads(slice.query_context)
+    query_context = get_slice_query_context(slice, query_contexts)
     query_context["queries"][0]["filters"].append(
         {"col": "http_user_agent", "op": "==", "val": RUN_ID}
     )
-    slice.query_context = json.dumps(query_context)
 
-    ch_chart_result = measure_chart(slice)
+    ch_chart_result = measure_chart(slice, query_context)
 
     clickhouse_queries = {}
     for query in ch_chart_result["queries"]:
@@ -145,7 +179,7 @@ def get_query_log_from_clickhouse(report, print_sql):
             clickhouse_queries[parsed_sql] = row
 
             if print_sql:
-                print("ClickHouse SQL: ")
+                logger.info("ClickHouse SQL: ")
                 logger.info(parsed_sql)
 
     # Sort report by slowest queries
@@ -167,7 +201,7 @@ def get_query_log_from_clickhouse(report, print_sql):
             )
 
             if print_sql:
-                print("Superset SQL: ")
+                logger.info("Superset SQL: ")
                 logger.info(parsed_sql)
 
             clickhouse_report = clickhouse_queries.get(parsed_sql, {})
