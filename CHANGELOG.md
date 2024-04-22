@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.103.0 - 2024-04-22
+
+### [0.103.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.102.1...v0.103.0) (2024-04-22)
+
+#### Features
+
+* Add an option to print the SQL, bug fix ([f3fa9f1](https://github.com/openedx/tutor-contrib-aspects/commit/f3fa9f10e490eaa36b89c62528b834e6057d3d7f))
+* allow to filter course id for performance metrics ([0ec681e](https://github.com/openedx/tutor-contrib-aspects/commit/0ec681ea900993f436406afbcc5294340ad767e8))
+* allow to filter course id for performance metrics ([659804b](https://github.com/openedx/tutor-contrib-aspects/commit/659804bc4297e7fcd2ad0cea9aae30e9b37111be))
+
+#### Styles
+
+* Fix lint error ([6e65a7a](https://github.com/openedx/tutor-contrib-aspects/commit/6e65a7aa7de6d22c2fd0ec2f2b247d9821805752))
+* Fix lint error ([c124082](https://github.com/openedx/tutor-contrib-aspects/commit/c124082b81aa4e025863ec624ea475038646b100))
+
 ## v0.102.1 - 2024-04-19
 
 ### [0.102.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.102.0...v0.102.1) (2024-04-19)
