@@ -264,7 +264,7 @@ def update_dashboard_roles(roles):
 
     for dashboard_uuid, role_ids in roles.items():
         dashboard = db.session.query(Dashboard).filter_by(uuid=dashboard_uuid).one()
-        logger.info("Importing dashboard roles", dashboard_uuid, role_ids)
+        logger.info(f"Importing dashboard roles: {dashboard_uuid} - {role_ids}")
         dashboard.roles = role_ids
         if owners:
             dashboard.owners = owners
