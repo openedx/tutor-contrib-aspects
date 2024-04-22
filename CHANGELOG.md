@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.104.1 - 2024-04-22
+
+### [0.104.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.104.0...v0.104.1) (2024-04-22)
+
+### Bug Fixes
+
+* Add logger we're trying to use ([3a05929](https://github.com/openedx/tutor-contrib-aspects/commit/3a059297456d064bd2fc0d961f7b73042a20cfb9))
+* Add missing import ([6e6e917](https://github.com/openedx/tutor-contrib-aspects/commit/6e6e917239368c5d4ae49885a4682c1c3c182273))
+* Broken logging statement ([ca4ee49](https://github.com/openedx/tutor-contrib-aspects/commit/ca4ee49479e0833e92ce2a9f20c09f06fca234a4))
+* Remove query context after asset import ([992f0cc](https://github.com/openedx/tutor-contrib-aspects/commit/992f0ccc7e8dde4e27c26fa216c794ddbdbeef83))
+
 ## v0.104.0 - 2024-04-22
 
 ### [0.104.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.103.0...v0.104.0) (2024-04-22)
