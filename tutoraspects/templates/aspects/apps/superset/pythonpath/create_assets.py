@@ -12,13 +12,14 @@ from copy import deepcopy
 from pathlib import Path
 
 from superset import security_manager
-from superset.examples.utils import load_configs_from_directory
 from superset.extensions import db
 from superset.models.dashboard import Dashboard
 from superset.models.slice import Slice
 from superset.connectors.sqla.models import SqlaTable
 from superset.utils.database import get_or_create_db
 from superset.models.embedded_dashboard import EmbeddedDashboard
+
+from pythonpath.create_assets_utils import load_configs_from_directory
 from pythonpath.localization import get_translation
 from pythonpath.create_row_level_security import create_rls_filters
 
@@ -116,7 +117,7 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
                 asset, asset_name, folder, locale, roles
             )
 
-            # Clean up old dashboard
+            # Clean up old localized dashboards
             if folder == "dashboards":
                 dashboard_slug = updated_asset["slug"]
                 dashboard = db.session.query(Dashboard).filter_by(slug=dashboard_slug).first()
@@ -132,6 +133,7 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
     if dashboard_roles:
         roles[asset["uuid"]] = [security_manager.find_role("Admin")]
 
+    # Clean up old un-localized dashboard
     dashboard_slug = asset.get("slug")
     if dashboard_slug:
         dashboard = db.session.query(Dashboard).filter_by(slug=dashboard_slug).first()
@@ -263,8 +265,8 @@ def update_dashboard_roles(roles):
             owners.append(user)
 
     for dashboard_uuid, role_ids in roles.items():
-        dashboard = db.session.query(Dashboard).filter_by(uuid=dashboard_uuid).one()
         logger.info(f"Importing dashboard roles: {dashboard_uuid} - {role_ids}")
+        dashboard = db.session.query(Dashboard).filter_by(uuid=dashboard_uuid).one()
         dashboard.roles = role_ids
         if owners:
             dashboard.owners = owners
