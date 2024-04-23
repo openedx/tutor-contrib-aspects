@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.104.2 - 2024-04-23
+
+### [0.104.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.104.1...v0.104.2) (2024-04-23)
+
+### Bug Fixes
+
+* apply filters to course dashboard datasets ([29a26b3](https://github.com/openedx/tutor-contrib-aspects/commit/29a26b3dd16ce708158eaf94f4f610deed4a9473))
+
 ## v0.104.1 - 2024-04-22
 
 ### [0.104.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.104.0...v0.104.1) (2024-04-22)
