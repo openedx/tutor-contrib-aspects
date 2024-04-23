@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
 mkdir -p /app/assets/
 cd /app/assets/
 rm -rf superset
