@@ -12,7 +12,6 @@ metadata:
       crossFilters:
         chartsInScope:
         - 682
-        - 1611
         - 1613
         - 1655
         - 1768
@@ -28,36 +27,14 @@ metadata:
         - 1921
         - 1941
         - 1962
+        - 1986
         scope: global
       id: 1589
-    '1611':
-      crossFilters:
-        chartsInScope:
-        - 682
-        - 1589
-        - 1613
-        - 1655
-        - 1768
-        - 1783
-        - 1792
-        - 1805
-        - 1807
-        - 1826
-        - 1839
-        - 1846
-        - 1871
-        - 1901
-        - 1921
-        - 1941
-        - 1962
-        scope: global
-      id: 1611
     '1613':
       crossFilters:
         chartsInScope:
         - 682
         - 1589
-        - 1611
         - 1655
         - 1768
         - 1783
@@ -72,6 +49,7 @@ metadata:
         - 1921
         - 1941
         - 1962
+        - 1986
         scope: global
       id: 1613
     '1768':
@@ -79,7 +57,6 @@ metadata:
         chartsInScope:
         - 682
         - 1589
-        - 1611
         - 1613
         - 1655
         - 1783
@@ -94,6 +71,7 @@ metadata:
         - 1921
         - 1941
         - 1962
+        - 1986
         scope: global
       id: 1768
     '1783':
@@ -101,7 +79,6 @@ metadata:
         chartsInScope:
         - 682
         - 1589
-        - 1611
         - 1613
         - 1655
         - 1768
@@ -116,6 +93,7 @@ metadata:
         - 1921
         - 1941
         - 1962
+        - 1986
         scope: global
       id: 1783
     '1792':
@@ -123,7 +101,6 @@ metadata:
         chartsInScope:
         - 682
         - 1589
-        - 1611
         - 1613
         - 1655
         - 1768
@@ -138,6 +115,7 @@ metadata:
         - 1921
         - 1941
         - 1962
+        - 1986
         scope: global
       id: 1792
     '1805':
@@ -145,7 +123,6 @@ metadata:
         chartsInScope:
         - 682
         - 1589
-        - 1611
         - 1613
         - 1655
         - 1768
@@ -160,6 +137,7 @@ metadata:
         - 1921
         - 1941
         - 1962
+        - 1986
         scope: global
       id: 1805
     '1826':
@@ -167,7 +145,6 @@ metadata:
         chartsInScope:
         - 682
         - 1589
-        - 1611
         - 1613
         - 1655
         - 1768
@@ -182,6 +159,7 @@ metadata:
         - 1921
         - 1941
         - 1962
+        - 1986
         scope: global
       id: 1826
     '1839':
@@ -189,7 +167,6 @@ metadata:
         chartsInScope:
         - 682
         - 1589
-        - 1611
         - 1613
         - 1655
         - 1768
@@ -204,6 +181,7 @@ metadata:
         - 1921
         - 1941
         - 1962
+        - 1986
         scope: global
       id: 1839
     '1871':
@@ -211,7 +189,6 @@ metadata:
         chartsInScope:
         - 682
         - 1589
-        - 1611
         - 1613
         - 1655
         - 1768
@@ -226,6 +203,7 @@ metadata:
         - 1921
         - 1941
         - 1962
+        - 1986
         scope: global
       id: 1871
     '1901':
@@ -233,7 +211,6 @@ metadata:
         chartsInScope:
         - 682
         - 1589
-        - 1611
         - 1613
         - 1655
         - 1768
@@ -248,6 +225,7 @@ metadata:
         - 1921
         - 1941
         - 1962
+        - 1986
         scope: global
       id: 1901
     '1921':
@@ -255,7 +233,6 @@ metadata:
         chartsInScope:
         - 682
         - 1589
-        - 1611
         - 1613
         - 1655
         - 1768
@@ -270,6 +247,7 @@ metadata:
         - 1901
         - 1941
         - 1962
+        - 1986
         scope: global
       id: 1921
     '1941':
@@ -277,7 +255,6 @@ metadata:
         chartsInScope:
         - 682
         - 1589
-        - 1611
         - 1613
         - 1655
         - 1768
@@ -292,6 +269,7 @@ metadata:
         - 1901
         - 1921
         - 1962
+        - 1986
         scope: global
       id: 1941
     '1962':
@@ -299,7 +277,6 @@ metadata:
         chartsInScope:
         - 682
         - 1589
-        - 1611
         - 1613
         - 1655
         - 1768
@@ -314,8 +291,31 @@ metadata:
         - 1901
         - 1921
         - 1941
+        - 1986
         scope: global
       id: 1962
+    '1986':
+      crossFilters:
+        chartsInScope:
+        - 682
+        - 1589
+        - 1613
+        - 1655
+        - 1768
+        - 1783
+        - 1792
+        - 1805
+        - 1807
+        - 1826
+        - 1839
+        - 1846
+        - 1871
+        - 1901
+        - 1921
+        - 1941
+        - 1962
+        scope: global
+      id: 1986
   color_scheme: supersetColors
   color_scheme_domain:
   - '#1FA8C9'
@@ -345,7 +345,6 @@ metadata:
     chartsInScope:
     - 682
     - 1589
-    - 1611
     - 1613
     - 1655
     - 1768
@@ -361,6 +360,7 @@ metadata:
     - 1921
     - 1941
     - 1962
+    - 1986
     scope:
       excluded: []
       rootPath:
@@ -660,18 +660,12 @@ metadata:
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
-    All pages viewed: '#8FD3E4'
     All videos viewed: '#5AC189'
-    At least one page viewed: '#3CCCCB'
     At least one video viewed: '#1FA8C9'
     Full views: '#454E7C'
-    Number of Learners: '#FCC700'
     Partial views: '#666666'
     Repeat Views: '#A868B7'
-    Total Learners: '#A38F79'
-    Total Views: '#ACE1C4'
     Unique Viewers: '#FF7F44'
-    audit: '#E04355'
   timed_refresh_immune_slices: []
 position:
   CHART-Q6nr6irIdz:
@@ -691,24 +685,6 @@ position:
     - TABS-nk8aeLmc5o
     - TAB-V5zNdxwhsP
     - ROW-ToSAm6kqA2
-    type: CHART
-  CHART-_BfZOEhMVM:
-    children: []
-    id: CHART-_BfZOEhMVM
-    meta:
-      chartId: 1611
-      height: 71
-      sliceName: Partial and full views per video
-      uuid: 14c5cd80-cb50-4136-9911-d77da1737d69
-      width: 12
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - TABS-UDkdlBRw4n
-    - TAB-_Ey4nPhFr
-    - TABS-nk8aeLmc5o
-    - TAB-V5zNdxwhsP
-    - ROW-vpQpToPQb
     type: CHART
   CHART-explore-185-1:
     children: []
@@ -920,14 +896,18 @@ position:
     id: CHART-explore-1962-1
     meta:
       chartId: 1962
-      height: 50
+      height: 41
       sliceName: Video views by section/subsection
       uuid: c8c363f8-8dbc-4a78-841d-4976f4404884
       width: 12
     parents:
     - ROOT_ID
     - GRID_ID
-    - ROW-_A28qByD8
+    - TABS-UDkdlBRw4n
+    - TAB-_Ey4nPhFr
+    - TABS-nk8aeLmc5o
+    - TAB-V5zNdxwhsP
+    - ROW-jK8rH2uIlm
     type: CHART
   CHART-explore-197-1:
     children: []
@@ -962,6 +942,20 @@ position:
     - TABS-nk8aeLmc5o
     - TAB-vze5iq6jg
     - ROW-7xndTh8hI
+    type: CHART
+  CHART-explore-1986-1:
+    children: []
+    id: CHART-explore-1986-1
+    meta:
+      chartId: 1986
+      height: 72
+      sliceName: Partial and full views per video
+      uuid: bfffb9fe-07bd-4b2f-b437-522d45f6cd2c
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-RNW6Zgx_Nb
     type: CHART
   CHART-explore-205-1:
     children: []
@@ -1106,6 +1100,20 @@ position:
     - TABS-nk8aeLmc5o
     - TAB-vze5iq6jg
     type: ROW
+  ROW-9mTVb6PMP:
+    children:
+    - CHART-explore-1986-1
+    id: ROW-9mTVb6PMP
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-UDkdlBRw4n
+    - TAB-_Ey4nPhFr
+    - TABS-nk8aeLmc5o
+    - TAB-V5zNdxwhsP
+    type: ROW
   ROW-CHCrAJpP5:
     children:
     - CHART-explore-1921-1
@@ -1243,20 +1251,6 @@ position:
     - TABS-nk8aeLmc5o
     - TAB-nqLFUR_Tg
     type: ROW
-  ROW-vpQpToPQb:
-    children:
-    - CHART-_BfZOEhMVM
-    id: ROW-vpQpToPQb
-    meta:
-      background: BACKGROUND_TRANSPARENT
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - TABS-UDkdlBRw4n
-    - TAB-_Ey4nPhFr
-    - TABS-nk8aeLmc5o
-    - TAB-V5zNdxwhsP
-    type: ROW
   TAB-4ptSkqs5MS:
     children:
     - ROW-EpJDdqK8c
@@ -1287,7 +1281,7 @@ position:
     children:
     - ROW-TNGl9z7XZ
     - ROW-jK8rH2uIlm
-    - ROW-vpQpToPQb
+    - ROW-9mTVb6PMP
     - ROW-ToSAm6kqA2
     id: TAB-V5zNdxwhsP
     meta:
