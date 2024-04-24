@@ -424,3 +424,63 @@ def check_asset_names(echo):
                 break
 
     echo(f"{warn} duplicate names detected.")
+
+
+def check_orphan_assets(echo):
+    """
+    Warn about any potentially unused assets.
+    """
+    echo("Looking for potentially orphaned assets...")
+
+    all_dataset_uuids = {}
+    all_chart_uuids = {}
+    removable_dataset_uuids = set()
+    removable_chart_uuids = set()
+
+    # First get all known uuid's
+    for file_name, asset in _get_asset_files():
+        if "slice_name" in asset:
+            all_chart_uuids[asset["uuid"]] = asset["slice_name"]
+        elif "table_name" in asset:
+            all_dataset_uuids[asset["uuid"]] = asset["table_name"]
+
+    # Now find if they are used anywhere
+    for file_name, asset in _get_asset_files():
+        if "dashboard_name" in asset:
+            filters = asset["metadata"]["native_filter_configuration"]
+            for filter_dataset in filters["target"].get("datasetUuid", []):
+                removable_dataset_uuids.add(filter_dataset)
+
+            for pos in asset["position"]:
+                if pos.startswith("CHART-"):
+                    slice = asset["position"][pos]["meta"].get("uuid")
+
+                    if slice:
+                        removable_chart_uuids.add(slice)
+
+        if "slice_name" in asset:
+            dataset_uuid = asset["dataset_uuid"]
+            removable_dataset_uuids.add(dataset_uuid)
+
+    for k in removable_dataset_uuids:
+        try:
+           all_dataset_uuids.pop(k)
+        except KeyError:
+            click.echo(click.style(f"WARNING: Dataset {k} used nut not found!",
+                                   fg="red"))
+
+    for k in removable_chart_uuids:
+        try:
+            all_chart_uuids.pop(k)
+        except KeyError:
+            click.echo(click.style(f"WARNING: Chart {k} used nut not found!", fg="red"))
+
+    if all_dataset_uuids:
+        echo()
+        echo(click.style("Potentially unused datasets detected:", fg="yellow"))
+        echo("\n".join(all_dataset_uuids.values()))
+
+    if all_dataset_uuids:
+        echo()
+        echo(click.style("Potentially unused charts detected:", fg="yellow"))
+        echo("\n".join(all_chart_uuids.values()))

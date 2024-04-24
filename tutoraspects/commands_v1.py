@@ -11,6 +11,7 @@ from tutor import env
 
 from tutoraspects.asset_command_helpers import (
     check_asset_names,
+    check_orphan_assets,
     import_superset_assets,
     deduplicate_superset_assets,
     SupersetCommandError,
@@ -317,6 +318,8 @@ def check_superset_assets():
 
     click.echo()
     check_asset_names(click.echo)
+    click.echo()
+    check_orphan_assets(click.echo)
 
     click.echo()
     click.echo(
