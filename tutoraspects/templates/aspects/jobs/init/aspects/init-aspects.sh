@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eo pipefail
+set -e
 
 bash /app/aspects/scripts/alembic.sh upgrade head
 

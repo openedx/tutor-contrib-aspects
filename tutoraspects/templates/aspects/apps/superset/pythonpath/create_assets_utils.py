@@ -32,7 +32,12 @@ from superset.commands.importers.v1.assets import ImportAssetsCommand
 from superset.commands.importers.v1.utils import METADATA_FILE_NAME
 from superset.commands.database.importers.v1.utils import security_manager
 
-_logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)
+
+# This logger is really spammy
+model_helper_logger = logging.getLogger("superset.models.helpers")
+model_helper_logger.setLevel(logging.WARNING)
+
 
 YAML_EXTENSIONS = {".yaml", ".yml"}
 
@@ -52,7 +57,6 @@ def load_configs_from_directory(
             queue.extend(path_name.glob("*"))
         elif path_name.suffix.lower() in YAML_EXTENSIONS:
             with open(path_name) as fp:
-                print(f"Found config to load: {path_name}")
                 contents[str(path_name.relative_to(root))] = fp.read()
 
     # removing "type" from the metadata allows us to import any exported model
@@ -73,4 +77,4 @@ def load_configs_from_directory(
     try:
         command.run()
     except CommandInvalidError as ex:
-        _logger.error("An error occurred: %s", ex.normalized_messages())
+        logger.error("An error occurred: %s", ex.normalized_messages())

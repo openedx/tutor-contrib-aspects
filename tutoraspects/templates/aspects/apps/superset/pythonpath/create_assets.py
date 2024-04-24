@@ -25,13 +25,7 @@ from pythonpath.create_row_level_security import create_rls_filters
 
 
 logger = logging.getLogger("create_assets")
-
-# This logger is really spammy
-model_helper_logger = logging.getLogger("superset.models.helpers")
-logger.setLevel(logging.WARNING)
-
 BASE_DIR = "/app/assets/superset"
-
 ASSET_FOLDER_MAPPING = {
     "dashboard_title": "dashboards",
     "slice_name": "charts",
