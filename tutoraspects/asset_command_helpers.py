@@ -446,10 +446,13 @@ def check_orphan_assets(echo):
 
     # Now find if they are used anywhere
     for file_name, asset in _get_asset_files():
-        if "dashboard_name" in asset:
-            filters = asset["metadata"]["native_filter_configuration"]
-            for filter_dataset in filters["target"].get("datasetUuid", []):
-                removable_dataset_uuids.add(filter_dataset)
+        if "dashboard_title" in asset:
+            filters = asset["metadata"].get("native_filter_configuration", [])
+
+            for filter in filters:
+                for filter_dataset in filter.get("target", {}).get("datasetUuid", []):
+                    print(filter_dataset)
+                    removable_dataset_uuids.add(filter_dataset)
 
             for pos in asset["position"]:
                 if pos.startswith("CHART-"):
@@ -464,10 +467,14 @@ def check_orphan_assets(echo):
 
     for k in removable_dataset_uuids:
         try:
-           all_dataset_uuids.pop(k)
+            all_dataset_uuids.pop(k)
         except KeyError:
             click.echo(click.style(f"WARNING: Dataset {k} used nut not found!",
                                    fg="red"))
+
+    # Remove the "Query performance" chart from the list, it's needed for
+    # the performance_metrics script, but not in any dashboard.
+    all_chart_uuids.pop("bb13bb31-c797-4ed3-a7f9-7825cc6dc482", None)
 
     for k in removable_chart_uuids:
         try:
@@ -475,12 +482,15 @@ def check_orphan_assets(echo):
         except KeyError:
             click.echo(click.style(f"WARNING: Chart {k} used nut not found!", fg="red"))
 
-    if all_dataset_uuids:
-        echo()
-        echo(click.style("Potentially unused datasets detected:", fg="yellow"))
-        echo("\n".join(all_dataset_uuids.values()))
+    echo()
 
     if all_dataset_uuids:
-        echo()
+        echo(click.style("Potentially unused datasets detected:", fg="yellow"))
+        echo("\n".join(sorted(all_dataset_uuids.values())))
+
+    if all_chart_uuids:
         echo(click.style("Potentially unused charts detected:", fg="yellow"))
-        echo("\n".join(all_chart_uuids.values()))
+        echo("\n".join(sorted(all_chart_uuids.values())))
+
+    if not all_dataset_uuids and not all_chart_uuids:
+        echo(f"{len(all_chart_uuids) + len(all_dataset_uuids)} orphans detected.")
