@@ -127,16 +127,16 @@ sql: |-
       fes.enrollment_status,
       fes.enrollment_mode,
       fes.emission_time,
-      dcb.course_name,
-      dcb.course_run
+      cn.display_name,
+      cn.course_run
   FROM
       `reporting`.`fact_enrollment_status` fes
     LEFT JOIN
-      `reporting`.`dim_course_blocks` dcb
+      `event_sink`.`course_names` cn
   ON
-      fes.org = dcb.org
+      fes.org = cn.org
     AND
-      fes.course_key = dcb.course_key;
+      fes.course_key = cn.course_key;
 table_name: enrollment_status
 template_params: null
 uuid: a4b350bd-5ec3-4baf-8835-074d1d6e106e

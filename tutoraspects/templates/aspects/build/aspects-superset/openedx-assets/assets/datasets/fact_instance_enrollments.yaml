@@ -92,5 +92,5 @@ schema: '{{ ASPECTS_XAPI_DATABASE }}'
 sql: ''
 table_name: fact_instance_enrollments
 template_params: {}
-uuid: 0cdb38bc-1692-5c64-b28d-2108ff4104a8
+uuid: 89b80173-29b0-5fbf-896e-49236ea45acb
 version: 1.0.0

@@ -74,5 +74,5 @@ schema: '{{ ASPECTS_XAPI_DATABASE }}'
 sql: null
 table_name: fact_instance_activity
 template_params: null
-uuid: 81524326-81d1-4839-8976-06200bf8dece
+uuid: fed94e41-966a-5faa-b2ad-d7e967e304c0
 version: 1.0.0

@@ -8,33 +8,9 @@ dashboard_title: Operator Dashboard
 description: null
 metadata:
   chart_configuration:
-    '2161':
-      crossFilters:
-        chartsInScope:
-        - 2421
-        - 2501
-        - 2521
-        - 2561
-        - 2661
-        - 2741
-        - 2801
-        - 2881
-        - 2901
-        - 2941
-        - 3001
-        - 3161
-        - 3301
-        - 3381
-        - 3401
-        - 3402
-        - 3403
-        - 3404
-        scope: global
-      id: 2161
     '2421':
       crossFilters:
         chartsInScope:
-        - 2161
         - 2501
         - 2521
         - 2561
@@ -51,13 +27,13 @@ metadata:
         - 3401
         - 3402
         - 3403
-        - 3404
+        - 3561
+        - 3562
         scope: global
       id: 2421
     '2501':
       crossFilters:
         chartsInScope:
-        - 2161
         - 2421
         - 2521
         - 2561
@@ -74,13 +50,13 @@ metadata:
         - 3401
         - 3402
         - 3403
-        - 3404
+        - 3561
+        - 3562
         scope: global
       id: 2501
     '2741':
       crossFilters:
         chartsInScope:
-        - 2161
         - 2421
         - 2501
         - 2521
@@ -97,13 +73,13 @@ metadata:
         - 3401
         - 3402
         - 3403
-        - 3404
+        - 3561
+        - 3562
         scope: global
       id: 2741
     '2801':
       crossFilters:
         chartsInScope:
-        - 2161
         - 2421
         - 2501
         - 2521
@@ -120,13 +96,13 @@ metadata:
         - 3401
         - 3402
         - 3403
-        - 3404
+        - 3561
+        - 3562
         scope: global
       id: 2801
     '2901':
       crossFilters:
         chartsInScope:
-        - 2161
         - 2421
         - 2501
         - 2521
@@ -143,13 +119,13 @@ metadata:
         - 3401
         - 3402
         - 3403
-        - 3404
+        - 3561
+        - 3562
         scope: global
       id: 2901
     '2941':
       crossFilters:
         chartsInScope:
-        - 2161
         - 2421
         - 2501
         - 2521
@@ -166,13 +142,13 @@ metadata:
         - 3401
         - 3402
         - 3403
-        - 3404
+        - 3561
+        - 3562
         scope: global
       id: 2941
     '3301':
       crossFilters:
         chartsInScope:
-        - 2161
         - 2421
         - 2501
         - 2521
@@ -189,13 +165,13 @@ metadata:
         - 3401
         - 3402
         - 3403
-        - 3404
+        - 3561
+        - 3562
         scope: global
       id: 3301
     '3381':
       crossFilters:
         chartsInScope:
-        - 2161
         - 2421
         - 2501
         - 2521
@@ -212,13 +188,13 @@ metadata:
         - 3401
         - 3402
         - 3403
-        - 3404
+        - 3561
+        - 3562
         scope: global
       id: 3381
     '3401':
       crossFilters:
         chartsInScope:
-        - 2161
         - 2421
         - 2501
         - 2521
@@ -235,13 +211,13 @@ metadata:
         - 3381
         - 3402
         - 3403
-        - 3404
+        - 3561
+        - 3562
         scope: global
       id: 3401
     '3402':
       crossFilters:
         chartsInScope:
-        - 2161
         - 2421
         - 2501
         - 2521
@@ -258,13 +234,13 @@ metadata:
         - 3381
         - 3401
         - 3403
-        - 3404
+        - 3561
+        - 3562
         scope: global
       id: 3402
     '3403':
       crossFilters:
         chartsInScope:
-        - 2161
         - 2421
         - 2501
         - 2521
@@ -281,13 +257,13 @@ metadata:
         - 3381
         - 3401
         - 3402
-        - 3404
+        - 3561
+        - 3562
         scope: global
       id: 3403
-    '3404':
+    '3561':
       crossFilters:
         chartsInScope:
-        - 2161
         - 2421
         - 2501
         - 2521
@@ -305,8 +281,32 @@ metadata:
         - 3401
         - 3402
         - 3403
+        - 3562
         scope: global
-      id: 3404
+      id: 3561
+    '3562':
+      crossFilters:
+        chartsInScope:
+        - 2421
+        - 2501
+        - 2521
+        - 2561
+        - 2661
+        - 2741
+        - 2801
+        - 2881
+        - 2901
+        - 2941
+        - 3001
+        - 3161
+        - 3301
+        - 3381
+        - 3401
+        - 3402
+        - 3403
+        - 3561
+        scope: global
+      id: 3562
   color_scheme: supersetColors
   color_scheme_domain:
   - '#1FA8C9'
@@ -329,12 +329,11 @@ metadata:
   - '#D3B3DA'
   - '#9EE5E5'
   - '#D1C6BC'
-  cross_filters_enabled: false
+  cross_filters_enabled: true
   default_filters: '{}'
   expanded_slices: {}
   global_chart_configuration:
     chartsInScope:
-    - 2161
     - 2421
     - 2501
     - 2521
@@ -352,7 +351,8 @@ metadata:
     - 3401
     - 3402
     - 3403
-    - 3404
+    - 3561
+    - 3562
     scope:
       excluded: []
       rootPath:
@@ -404,6 +404,10 @@ metadata:
     - {}
     type: NATIVE_FILTER
   - cascadeParentIds: []
+    chartsInScope:
+    - 3401
+    - 3402
+    - 3403
     controlValues:
       enableEmptyFilter: false
     defaultDataMask:
@@ -434,8 +438,10 @@ metadata:
       - 3404
       rootPath:
       - ROOT_ID
+    tabsInScope:
+    - TAB-DE73B5pXm
     targets:
-    - datasetUuid: 81524326-81d1-4839-8976-06200bf8dece
+    - datasetUuid: fed94e41-966a-5faa-b2ad-d7e967e304c0
     type: NATIVE_FILTER
   - cascadeParentIds: []
     chartsInScope:
@@ -853,29 +859,15 @@ position:
     - ROW-X7WD5wVoP
     - COLUMN-eGzPLamIzw
     type: CHART
-  CHART-explore-3404-1:
+  CHART-explore-3561-1:
     children: []
-    id: CHART-explore-3404-1
+    id: CHART-explore-3561-1
     meta:
-      chartId: 3404
-      height: 50
-      sliceName: Total Enrollment Events
-      uuid: 571de207-d897-43dc-b562-1568e04ddcdb
-      width: 12
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - ROW-F5EARbPToO
-    type: CHART
-  CHART-explore-787-1:
-    children: []
-    id: CHART-explore-787-1
-    meta:
-      chartId: 2161
-      height: 50
+      chartId: 3561
+      height: 54
       sliceName: Courses Per Organization
-      uuid: 12fc799d-5d02-4861-892c-4e04cbc1f87a
-      width: 4
+      uuid: ad951d3b-e177-4501-bae3-08370ee3ed2d
+      width: 6
     parents:
     - ROOT_ID
     - GRID_ID
@@ -883,15 +875,31 @@ position:
     - TAB-EygpebMa1
     - ROW-06Qh5Kxfn
     type: CHART
+  CHART-explore-3562-1:
+    children: []
+    id: CHART-explore-3562-1
+    meta:
+      chartId: 3562
+      height: 50
+      sliceName: Current Active Enrollments By Mode
+      uuid: 3e80132c-ea4d-4e61-9f3a-6164bacf58a0
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7nA6MwltSD
+    - TAB-uKjvZ62aJt
+    - ROW-InZ9jTh_R
+    type: CHART
   CHART-explore-788-1:
     children: []
     id: CHART-explore-788-1
     meta:
       chartId: 2741
-      height: 50
+      height: 54
       sliceName: Active Users Per Organization
       uuid: 02af00f5-6539-428f-b3ab-632997de7528
-      width: 4
+      width: 6
     parents:
     - ROOT_ID
     - GRID_ID
@@ -1067,8 +1075,8 @@ position:
     type: ROOT
   ROW-06Qh5Kxfn:
     children:
-    - CHART-explore-787-1
     - CHART-explore-788-1
+    - CHART-explore-3561-1
     id: ROW-06Qh5Kxfn
     meta:
       background: BACKGROUND_TRANSPARENT
@@ -1105,6 +1113,18 @@ position:
     - TABS-7nA6MwltSD
     - TAB-DE73B5pXm
     type: ROW
+  ROW-InZ9jTh_R:
+    children:
+    - CHART-explore-3562-1
+    id: ROW-InZ9jTh_R
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7nA6MwltSD
+    - TAB-uKjvZ62aJt
+    type: ROW
   ROW-LbxnrE6IHL:
     children:
     - CHART-Yv5sneg3nD
@@ -1118,18 +1138,6 @@ position:
     - GRID_ID
     - TABS-7nA6MwltSD
     - TAB-z7LunkNp63
-    type: ROW
-  ROW-OXNFfotjY:
-    children:
-    - CHART-explore-3404-1
-    id: ROW-OXNFfotjY
-    meta:
-      background: BACKGROUND_TRANSPARENT
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - TABS-7nA6MwltSD
-    - TAB-uKjvZ62aJt
     type: ROW
   ROW-VQVoPfsLlS:
     children:
@@ -1224,7 +1232,7 @@ position:
   TAB-uKjvZ62aJt:
     children:
     - ROW-VQVoPfsLlS
-    - ROW-OXNFfotjY
+    - ROW-InZ9jTh_R
     id: TAB-uKjvZ62aJt
     meta:
       defaultText: Tab title

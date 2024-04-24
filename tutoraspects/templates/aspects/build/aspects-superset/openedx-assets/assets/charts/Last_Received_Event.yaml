@@ -11,6 +11,7 @@ params:
     expressionType: SIMPLE
     operator: TEMPORAL_RANGE
     subject: emission_time
+  annotation_layers: []
   conditional_formatting: []
   extra_form_data: {}
   header_font_size: 0.5
@@ -27,10 +28,7 @@ params:
   time_format: '%Y-%m-%d %H:%M:%S'
   viz_type: big_number_total
   y_axis_format: ~g
-query_context: '{"datasource":{"id":70,"type":"table"},"force":false,"queries":[{"filters":[{"col":"emission_time","op":"TEMPORAL_RANGE","val":"Last
-  quarter"}],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":[],"metrics":[{"aggregate":null,"column":null,"expressionType":"SQL","hasCustomLabel":false,"isNew":false,"label":"max(emission_time)","optionName":"metric_ebqdez8q0pv_rg57ow9gti","sqlExpression":"max(emission_time)"}],"annotation_layers":[],"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"form_data":{"datasource":"70__table","viz_type":"big_number_total","slice_id":2881,"metric":{"aggregate":null,"column":null,"expressionType":"SQL","hasCustomLabel":false,"isNew":false,"label":"max(emission_time)","optionName":"metric_ebqdez8q0pv_rg57ow9gti","sqlExpression":"max(emission_time)"},"adhoc_filters":[{"clause":"WHERE","subject":"emission_time","operator":"TEMPORAL_RANGE","comparator":"Last
-  quarter","expressionType":"SIMPLE"}],"header_font_size":0.5,"subheader_font_size":0.2,"y_axis_format":"~g","time_format":"%Y-%m-%d
-  %H:%M:%S","conditional_formatting":[],"extra_form_data":{},"dashboards":[502],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+query_context: null
 slice_name: Last Received Event
 uuid: ffdaabc5-8d01-47d7-8f29-66efa643befb
 version: 1.0.0
