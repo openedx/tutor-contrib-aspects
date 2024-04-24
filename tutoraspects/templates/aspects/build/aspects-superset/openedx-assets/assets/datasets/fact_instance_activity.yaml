@@ -27,7 +27,7 @@ columns:
   type: UINT64
   verbose_name: null
 - advanced_data_type: null
-  column_name: event_cnt
+  column_name: events_cnt
   description: null
   expression: null
   extra: null
