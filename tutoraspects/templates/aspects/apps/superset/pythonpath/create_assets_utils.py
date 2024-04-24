@@ -23,10 +23,10 @@
 # are to either replicate asset import entirely or to use the "examples"
 # version, which skips a variety of other checks.
 import logging
+import yaml
 from pathlib import Path
 
-import yaml
-
+from flask import g
 from superset.commands.exceptions import CommandInvalidError
 from superset.commands.importers.v1.assets import ImportAssetsCommand
 from superset.commands.importers.v1.utils import METADATA_FILE_NAME
@@ -62,14 +62,15 @@ def load_configs_from_directory(
         del metadata["type"]
     contents[METADATA_FILE_NAME] = yaml.dump(metadata)
 
-    from unittest.mock import patch
-    with patch.object(security_manager, "can_access", return_value=True) as mocker:
-        command = ImportAssetsCommand(
-            contents,
-            overwrite=overwrite,
-            force_data=force_data,
-        )
-        try:
-            command.run()
-        except CommandInvalidError as ex:
-            _logger.error("An error occurred: %s", ex.normalized_messages())
+    # Force our use to the admin user to prevent errors on import
+    g.user = security_manager.find_user(username="{{SUPERSET_ADMIN_USERNAME}}")
+
+    command = ImportAssetsCommand(
+        contents,
+        overwrite=overwrite,
+        force_data=force_data,
+    )
+    try:
+        command.run()
+    except CommandInvalidError as ex:
+        _logger.error("An error occurred: %s", ex.normalized_messages())
