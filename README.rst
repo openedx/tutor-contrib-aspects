@@ -193,8 +193,3 @@ However, please keep in mind that the assets declaration is itself a jinja templ
 .. _queries: tutoraspects/templates/openedx-assets/queries/
 
 .. _dim_courses.sql: tutoraspects/templates/openedx-assets/queries/dim_courses.sql
-
-License
--------
-
-This software is licensed under the terms of the AGPLv3.
