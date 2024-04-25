@@ -426,57 +426,76 @@ def check_asset_names(echo):
     echo(f"{warn} duplicate names detected.")
 
 
+def _get_all_chart_dataset_uuids():
+    """
+    Return the UUIDs of all datasets and charts in our file assets.
+    """
+    all_dataset_uuids = {}
+    all_chart_uuids = {}
+
+    # First get all known uuid's
+    for _, asset in _get_asset_files():
+        if "slice_name" in asset:
+            all_chart_uuids[asset["uuid"]] = asset["slice_name"]
+        elif "table_name" in asset:
+            all_dataset_uuids[asset["uuid"]] = asset["table_name"]
+
+    return all_dataset_uuids, all_chart_uuids
+
+
+def _get_used_chart_dataset_uuids():
+    """
+    Return the UUIDs of all datasets and charts actually used in our file assets.
+    """
+    used_dataset_uuids = set()
+    used_chart_uuids = set()
+
+    for _, asset in _get_asset_files():
+        if "dashboard_title" in asset:
+            filters = asset["metadata"].get("native_filter_configuration", [])
+
+            for filter_config in filters:
+                for filter_dataset in filter_config.get("target", {}).get(
+                    "datasetUuid", []
+                ):
+                    used_dataset_uuids.add(filter_dataset)
+
+            for pos in asset["position"]:
+                if pos.startswith("CHART-"):
+                    slice_uuid = asset["position"][pos]["meta"].get("uuid")
+
+                    if slice_uuid:
+                        used_chart_uuids.add(slice_uuid)
+
+        if "slice_name" in asset:
+            dataset_uuid = asset["dataset_uuid"]
+            used_dataset_uuids.add(dataset_uuid)
+
+    return used_dataset_uuids, used_chart_uuids
+
+
 def check_orphan_assets(echo):
     """
     Warn about any potentially unused assets.
     """
     echo("Looking for potentially orphaned assets...")
 
-    all_dataset_uuids = {}
-    all_chart_uuids = {}
-    removable_dataset_uuids = set()
-    removable_chart_uuids = set()
+    all_dataset_uuids, all_chart_uuids = _get_all_chart_dataset_uuids()
+    used_dataset_uuids, used_chart_uuids = _get_used_chart_dataset_uuids()
 
-    # First get all known uuid's
-    for file_name, asset in _get_asset_files():
-        if "slice_name" in asset:
-            all_chart_uuids[asset["uuid"]] = asset["slice_name"]
-        elif "table_name" in asset:
-            all_dataset_uuids[asset["uuid"]] = asset["table_name"]
-
-    # Now find if they are used anywhere
-    for file_name, asset in _get_asset_files():
-        if "dashboard_title" in asset:
-            filters = asset["metadata"].get("native_filter_configuration", [])
-
-            for filter in filters:
-                for filter_dataset in filter.get("target", {}).get("datasetUuid", []):
-                    print(filter_dataset)
-                    removable_dataset_uuids.add(filter_dataset)
-
-            for pos in asset["position"]:
-                if pos.startswith("CHART-"):
-                    slice = asset["position"][pos]["meta"].get("uuid")
-
-                    if slice:
-                        removable_chart_uuids.add(slice)
-
-        if "slice_name" in asset:
-            dataset_uuid = asset["dataset_uuid"]
-            removable_dataset_uuids.add(dataset_uuid)
-
-    for k in removable_dataset_uuids:
+    for k in used_dataset_uuids:
         try:
             all_dataset_uuids.pop(k)
         except KeyError:
-            click.echo(click.style(f"WARNING: Dataset {k} used nut not found!",
-                                   fg="red"))
+            click.echo(
+                click.style(f"WARNING: Dataset {k} used nut not found!", fg="red")
+            )
 
     # Remove the "Query performance" chart from the list, it's needed for
     # the performance_metrics script, but not in any dashboard.
     all_chart_uuids.pop("bb13bb31-c797-4ed3-a7f9-7825cc6dc482", None)
 
-    for k in removable_chart_uuids:
+    for k in used_chart_uuids:
         try:
             all_chart_uuids.pop(k)
         except KeyError:
