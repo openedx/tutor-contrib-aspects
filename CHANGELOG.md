@@ -5,6 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.105.0 - 2024-04-29
+
+### [0.105.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.104.3...v0.105.0) (2024-04-29)
+
+#### Features
+
+* Add check for orphaned assets ([3e70836](https://github.com/openedx/tutor-contrib-aspects/commit/3e70836948fc1b5c0a2e47bb3074b4b66041bbe6))
+* Update operator dash to scale better ([470caba](https://github.com/openedx/tutor-contrib-aspects/commit/470cabaed8d66384d7d87180c23c0d6d17253592))
+
+#### Bug Fixes
+
+* Account for values being nulled on changed import yaml ([aaf8d0c](https://github.com/openedx/tutor-contrib-aspects/commit/aaf8d0c18d18c0ee5d1c073babc3fb3a436c7e72))
+* Don't overwrite Superset configurations if they already exist ([321b2c4](https://github.com/openedx/tutor-contrib-aspects/commit/321b2c498ce8c26ee5f198cccc2c230903f565a0))
+* Fail tasks when subcommands fail ([4a16044](https://github.com/openedx/tutor-contrib-aspects/commit/4a16044d411fa8ac1cd9867f14b58e76269f14ff))
+* Fixes for orphan detection ([3067963](https://github.com/openedx/tutor-contrib-aspects/commit/306796394fe8283dfc92cd17d48e6d844203eda9))
+* Prefer dbt over other queries for memory usage ([26eafcc](https://github.com/openedx/tutor-contrib-aspects/commit/26eafccd9f6849bde7d4aa5a77b799ff52c577a6))
+* Reduce CH memory usage by using uniqCombinedMerge ([ae355dd](https://github.com/openedx/tutor-contrib-aspects/commit/ae355dd419cf121d5abfa3868db2e97f55ddbfb5))
+
+#### Styles
+
+* Fix linting issues ([10b4de1](https://github.com/openedx/tutor-contrib-aspects/commit/10b4de129adbcecd20b7075a01f4d181ad952bbc))
+
+#### Code Refactoring
+
+* Clean up logging ([645ed38](https://github.com/openedx/tutor-contrib-aspects/commit/645ed3862cb780345a64b2bb6e938f61f9465dce))
+* Fix column names for next aspects-dbt release ([5716e38](https://github.com/openedx/tutor-contrib-aspects/commit/5716e38fc899398600495ed0ec5cc1ad42237682))
+* Operator dash performance / usability refactor ([a47caa3](https://github.com/openedx/tutor-contrib-aspects/commit/a47caa3c58685dadd64b9024c95d2e13e7d248b0))
+* Remove unused assets ([ffb1e40](https://github.com/openedx/tutor-contrib-aspects/commit/ffb1e4069d1136e67f6d9dfc3e32a8043a63a242))
+* Use asset import instead of example import ([0fbee3f](https://github.com/openedx/tutor-contrib-aspects/commit/0fbee3f256d72a761feb5c9d4f6a04153d21dc31))
+* Use real asset import instead of example ([e5997cf](https://github.com/openedx/tutor-contrib-aspects/commit/e5997cf8b73d9174666447dc132f481a4dcb38a0))
+
 ## v0.104.3 - 2024-04-23
 
 ### [0.104.3](https://github.com/openedx/tutor-contrib-aspects/compare/v0.104.2...v0.104.3) (2024-04-23)
