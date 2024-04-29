@@ -137,16 +137,21 @@ def import_assets() -> list[tuple[str, str]]:
 @click.option(
     "--print_sql", is_flag=True, default=False, help="Print the SQL that was run."
 )
-def performance_metrics(course_key, print_sql) -> list[tuple[str, str]]:
+@click.option(
+    "--fail_on_error", is_flag=True, default=False, help="Allow errors to fail the run."
+)
+def performance_metrics(course_key, print_sql, fail_on_error) -> list[tuple[str, str]]:
     """
     Job to measure performance metrics of charts and its queries in Superset and ClickHouse.
     """
     options = f"--course_key {course_key}" if course_key else ""
     options += " --print_sql" if print_sql else ""
+    options += " --fail_on_error" if fail_on_error else ""
 
     return [
         (
             "superset",
+            "set -e && "
             "echo 'Performance...' && "
             f"python /app/pythonpath/performance_metrics.py {options} &&"
             "echo 'Done!';",

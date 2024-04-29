@@ -139,7 +139,7 @@ jobs:
           make extract_translations
           tutor dev do import-assets
       - name: Performance metrics
-        run: tutor dev do performance-metrics
+        run: tutor dev do performance-metrics --fail_on_error
       - name: Tutor stop
         run: tutor dev stop
 
