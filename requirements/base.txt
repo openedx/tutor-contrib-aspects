@@ -41,7 +41,7 @@ kubernetes==29.0.0
     # via tutor
 markupsafe==2.1.5
     # via jinja2
-mypy==1.9.0
+mypy==1.10.0
     # via tutor
 mypy-extensions==1.0.0
     # via mypy
@@ -69,7 +69,7 @@ pyyaml==6.0.1
     # via
     #   kubernetes
     #   tutor
-regex==2024.4.16
+regex==2024.4.28
     # via parsimonious
 requests==2.31.0
     # via
@@ -101,7 +101,7 @@ urllib3==2.2.1
     # via
     #   kubernetes
     #   requests
-websocket-client==1.7.0
+websocket-client==1.8.0
     # via kubernetes
 zipp==3.18.1
     # via
