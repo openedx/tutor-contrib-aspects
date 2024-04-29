@@ -4,7 +4,7 @@ with
             emission_time,
             org,
             course_key,
-            splitbystring('/xblock/', object_id)[-1] as video_id,
+            splitByString('/xblock/', object_id)[-1] as video_id,
             actor_id,
             verb_id,
             video_position,
