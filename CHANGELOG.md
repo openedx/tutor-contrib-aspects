@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.105.2 - 2024-04-29
+
+### [0.105.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.105.1...v0.105.2) (2024-04-29)
+
+### Bug Fixes
+
+* Distribution of current course grades chart errors in perf metrics ([27e9a62](https://github.com/openedx/tutor-contrib-aspects/commit/27e9a626d061f1c75c800943239c27bbe2598919))
+* Fail Tutor command on performance_metrics failure ([9a6f065](https://github.com/openedx/tutor-contrib-aspects/commit/9a6f0652240d7037afea27ddc21eb89a05b8e780))
+* Fix course_key option in performance_metrics ([b77ea4d](https://github.com/openedx/tutor-contrib-aspects/commit/b77ea4d2bf2c8464da4addc8827ffd382b24f5b3))
+* Learners with passing grade filter to only passing ([7946df4](https://github.com/openedx/tutor-contrib-aspects/commit/7946df4d7cd50326aa3bc7006ab10a2ae7416a8c))
+
 ## v0.105.1 - 2024-04-29
 
 ### [0.105.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.105.0...v0.105.1) (2024-04-29)
