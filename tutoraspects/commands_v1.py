@@ -11,6 +11,7 @@ from tutor import env
 
 from tutoraspects.asset_command_helpers import (
     check_asset_names,
+    check_orphan_assets,
     import_superset_assets,
     deduplicate_superset_assets,
     SupersetCommandError,
@@ -114,7 +115,7 @@ def alembic(command: string) -> list[tuple[str, str]]:
     ]
 
 
-# Ex: "tutor local do import_assets "
+# Ex: "tutor local do import-assets "
 @click.command(context_settings={"ignore_unknown_options": True})
 def import_assets() -> list[tuple[str, str]]:
     """
@@ -317,6 +318,8 @@ def check_superset_assets():
 
     click.echo()
     check_asset_names(click.echo)
+    click.echo()
+    check_orphan_assets(click.echo)
 
     click.echo()
     click.echo(

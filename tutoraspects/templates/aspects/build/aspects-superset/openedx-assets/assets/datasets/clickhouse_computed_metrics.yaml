@@ -1,4 +1,5 @@
 _file_name: clickhouse_computed_metrics.yaml
+always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
@@ -113,5 +114,5 @@ sql: |
   GROUP BY name
 table_name: clickhouse_computed_metrics
 template_params: null
-uuid: 9eee1df8-ad25-4d0f-8e53-90c277cf28e4
+uuid: 99b2225d-6462-5442-a2ae-53d4450a3d49
 version: 1.0.0

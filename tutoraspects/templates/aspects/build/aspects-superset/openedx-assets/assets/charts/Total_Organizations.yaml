@@ -2,13 +2,19 @@ _file_name: Total_Organizations.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: 41278a97-d0ff-4645-9514-d79f80d275df
+dataset_uuid: 38488934-35ee-5404-9acc-7e67626ddfae
 description: null
 params:
-  adhoc_filters: []
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_time
+  annotation_layers: []
+  conditional_formatting: []
   extra_form_data: {}
-  granularity_sqla: emission_time
-  header_font_size: 0.4
+  header_font_size: 0.5
   metric:
     aggregate: COUNT_DISTINCT
     column:
@@ -34,12 +40,11 @@ params:
     label: COUNT_DISTINCT(org)
     optionName: metric_3n2fzhdsmw5_rg9hrwirg3f
     sqlExpression: null
-  subheader_font_size: 0.15
+  subheader_font_size: 0.2
   time_format: smart_date
-  time_grain_sqla: P1D
-  time_range: No filter
   viz_type: big_number_total
-  y_axis_format: SMART_NUMBER
+  y_axis_format: ',d'
+query_context: null
 slice_name: Total Organizations
 uuid: e66b1cdb-6974-4fa2-a769-4908665118f6
 version: 1.0.0

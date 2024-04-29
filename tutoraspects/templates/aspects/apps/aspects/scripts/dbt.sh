@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+
+set -eo pipefail
+
 ## WARNING: If you modify this block, make sure to also update the
 ##          corresponding block in the init-aspects.sh file.
 
@@ -18,10 +21,9 @@ echo "Installing aspects-dbt"
 echo "git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }}"
 git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }} aspects-dbt
 
-cd aspects-dbt || exit
+cd aspects-dbt
 
 echo "Installing dbt python requirements"
-pip install -r /app/aspects/dbt/requirements.txt
 pip install -r ./requirements.txt
 
 export ASPECTS_EVENT_SINK_DATABASE={{ASPECTS_EVENT_SINK_DATABASE}}

@@ -160,7 +160,7 @@ def get_query_log_from_clickhouse(report, query_contexts, print_sql):
     """
     Get the query log from clickhouse and print the results.
     """
-    # This corresponsds to the "Query Performance" chart in Superset
+    # This corresponds to the "Query Performance" chart in Superset
     chart_uuid = "bb13bb31-c797-4ed3-a7f9-7825cc6dc482"
 
     slice = db.session.query(Slice).filter(Slice.uuid == chart_uuid).one()

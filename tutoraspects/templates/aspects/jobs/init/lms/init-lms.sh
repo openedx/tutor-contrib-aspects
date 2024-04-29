@@ -6,7 +6,6 @@
     --client-id {{ SUPERSET_OAUTH2_CLIENT_ID }} \
     --client-secret {{ SUPERSET_OAUTH2_CLIENT_SECRET }} \
     --scopes "user_id" \
-    --update \
     superset-sso superset
 ./manage.py lms create_dot_application \
     --grant-type authorization-code \
@@ -14,7 +13,6 @@
     --client-id {{ SUPERSET_OAUTH2_CLIENT_ID_DEV }} \
     --client-secret {{ SUPERSET_OAUTH2_CLIENT_SECRET }} \
     --scopes "user_id" \
-    --update \
     superset-sso-dev superset
 
 {% if RUN_RALPH %}

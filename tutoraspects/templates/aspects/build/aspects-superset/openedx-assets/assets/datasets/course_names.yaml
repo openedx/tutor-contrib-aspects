@@ -74,5 +74,5 @@ schema: '{{ASPECTS_EVENT_SINK_DATABASE}}'
 sql: select * from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names
 table_name: course_names
 template_params: null
-uuid: 41278a97-d0ff-4645-9514-d79f80d275df
+uuid: 38488934-35ee-5404-9acc-7e67626ddfae
 version: 1.0.0

@@ -415,7 +415,7 @@ metadata:
     targets:
     - column:
         name: org
-      datasetUuid: 41278a97-d0ff-4645-9514-d79f80d275df
+      datasetUuid: 38488934-35ee-5404-9acc-7e67626ddfae
     type: NATIVE_FILTER
   - cascadeParentIds:
     - NATIVE_FILTER-QrTlO4wBf
@@ -466,7 +466,7 @@ metadata:
     targets:
     - column:
         name: course_name
-      datasetUuid: 41278a97-d0ff-4645-9514-d79f80d275df
+      datasetUuid: 38488934-35ee-5404-9acc-7e67626ddfae
     type: NATIVE_FILTER
   - cascadeParentIds:
     - NATIVE_FILTER-IfS-Rd0ZS
@@ -516,7 +516,7 @@ metadata:
     targets:
     - column:
         name: course_run
-      datasetUuid: 41278a97-d0ff-4645-9514-d79f80d275df
+      datasetUuid: 38488934-35ee-5404-9acc-7e67626ddfae
     type: NATIVE_FILTER
   - chartsInScope: []
     description: ''
@@ -611,7 +611,7 @@ metadata:
     - TAB-nqLFUR_Tg
     - TAB-vze5iq6jg
     targets:
-    - datasetUuid: 41278a97-d0ff-4645-9514-d79f80d275df
+    - datasetUuid: 38488934-35ee-5404-9acc-7e67626ddfae
     type: NATIVE_FILTER
   - cascadeParentIds:
     - NATIVE_FILTER-IfS-Rd0ZS
