@@ -16,11 +16,11 @@ asttokens==2.4.1
     # via
     #   -r requirements/base.txt
     #   transifex-python
-backports-tarfile==1.1.0
+backports-tarfile==1.1.1
     # via jaraco-context
 bcrypt==4.1.2
     # via -r requirements/base.txt
-black==24.4.0
+black==24.4.2
     # via -r requirements/dev.in
 cachetools==5.3.3
     # via
@@ -90,7 +90,7 @@ jinja2==3.1.3
     # via
     #   -r requirements/base.txt
     #   tutor
-keyring==25.1.0
+keyring==25.2.0
     # via twine
 kubernetes==29.0.0
     # via
@@ -110,7 +110,7 @@ more-itertools==10.2.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-mypy==1.9.0
+mypy==1.10.0
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -141,7 +141,7 @@ pathspec==0.12.1
     # via black
 pkginfo==1.10.0
     # via twine
-platformdirs==4.2.0
+platformdirs==4.2.1
     # via
     #   black
     #   pylint
@@ -166,7 +166,7 @@ pygments==2.17.2
     #   rich
 pyinstaller==6.6.0
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2024.4
+pyinstaller-hooks-contrib==2024.5
     # via pyinstaller
 pylint==3.1.0
     # via -r requirements/dev.in
@@ -185,7 +185,7 @@ pyyaml==6.0.1
     #   tutor
 readme-renderer==43.0
     # via twine
-regex==2024.4.16
+regex==2024.4.28
     # via
     #   -r requirements/base.txt
     #   parsimonious
@@ -252,7 +252,7 @@ urllib3==2.2.1
     #   kubernetes
     #   requests
     #   twine
-websocket-client==1.7.0
+websocket-client==1.8.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
