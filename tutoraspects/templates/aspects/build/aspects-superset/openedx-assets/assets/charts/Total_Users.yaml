@@ -11,6 +11,7 @@ params:
     expressionType: SIMPLE
     operator: TEMPORAL_RANGE
     subject: emission_time
+  annotation_layers: []
   conditional_formatting: []
   extra_form_data: {}
   force_timestamp_formatting: false
@@ -29,11 +30,7 @@ params:
   time_format: smart_date
   viz_type: big_number_total
   y_axis_format: ',d'
-query_context: '{"datasource":{"id":66,"type":"table"},"force":false,"queries":[{"filters":[{"col":"emission_time","op":"TEMPORAL_RANGE","val":"No
-  filter"}],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":[],"metrics":[{"expressionType":"SQL","sqlExpression":"COUNT(user_id)","column":null,"aggregate":null,"datasourceWarning":false,"hasCustomLabel":true,"label":"User
-  ID Count","optionName":"metric_kvpvmgti3sq_43fw3621oyf"}],"annotation_layers":[],"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"form_data":{"datasource":"66__table","viz_type":"big_number_total","slice_id":3001,"metric":{"expressionType":"SQL","sqlExpression":"COUNT(user_id)","column":null,"aggregate":null,"datasourceWarning":false,"hasCustomLabel":true,"label":"User
-  ID Count","optionName":"metric_kvpvmgti3sq_43fw3621oyf"},"adhoc_filters":[{"clause":"WHERE","comparator":"No
-  filter","expressionType":"SIMPLE","operator":"TEMPORAL_RANGE","subject":"emission_time"}],"subheader":"","header_font_size":0.5,"subheader_font_size":0.2,"y_axis_format":",d","time_format":"smart_date","force_timestamp_formatting":false,"conditional_formatting":[],"extra_form_data":{},"dashboards":[1942],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+query_context: null
 slice_name: Total Users
 uuid: 15620ae6-5452-4a11-bc7e-56c7e5987a4d
 version: 1.0.0

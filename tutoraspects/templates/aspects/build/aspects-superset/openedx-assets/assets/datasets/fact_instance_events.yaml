@@ -1,31 +1,7 @@
-_file_name: fact_instance_activity.yaml
+_file_name: fact_instance_events.yaml
 always_filter_main_dttm: false
 cache_timeout: null
 columns:
-- advanced_data_type: null
-  column_name: actors_cnt
-  description: null
-  expression: null
-  extra: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: UINT64
-  verbose_name: null
-- advanced_data_type: null
-  column_name: courses_cnt
-  description: null
-  expression: null
-  extra: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: UINT64
-  verbose_name: null
 - advanced_data_type: null
   column_name: events_cnt
   description: null
@@ -36,7 +12,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: UINT64
+  type: AGGREGATEFUNCTION
   verbose_name: null
 - advanced_data_type: null
   column_name: emission_hour
@@ -72,7 +48,7 @@ offset: 0
 params: null
 schema: '{{ ASPECTS_XAPI_DATABASE }}'
 sql: null
-table_name: fact_instance_activity
+table_name: fact_instance_events
 template_params: null
-uuid: fed94e41-966a-5faa-b2ad-d7e967e304c0
+uuid: 6c54112c-1e2f-4c5f-8511-320fd9e180ac
 version: 1.0.0

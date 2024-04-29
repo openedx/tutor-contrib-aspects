@@ -330,7 +330,6 @@ metadata:
   - '#9EE5E5'
   - '#D1C6BC'
   cross_filters_enabled: true
-  default_filters: '{}'
   expanded_slices: {}
   global_chart_configuration:
     chartsInScope:
@@ -420,7 +419,6 @@ metadata:
     name: Time Grain
     scope:
       excluded:
-      - 2161
       - 2421
       - 2501
       - 2521
@@ -435,13 +433,12 @@ metadata:
       - 3161
       - 3301
       - 3381
-      - 3404
       rootPath:
       - ROOT_ID
     tabsInScope:
     - TAB-DE73B5pXm
     targets:
-    - datasetUuid: fed94e41-966a-5faa-b2ad-d7e967e304c0
+    - datasetUuid: f13a4d42-2f44-58a4-99d2-2f480d63fdf1
     type: NATIVE_FILTER
   - cascadeParentIds: []
     chartsInScope:
