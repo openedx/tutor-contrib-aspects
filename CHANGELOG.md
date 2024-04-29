@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.105.1 - 2024-04-29
+
+### [0.105.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.105.0...v0.105.1) (2024-04-29)
+
+### Bug Fixes
+
+* use correct casing for Int32 ([d196151](https://github.com/openedx/tutor-contrib-aspects/commit/d196151f01549237d27490f485dc1748a398efcf))
+* use proper casing for splitByString ([85800f2](https://github.com/openedx/tutor-contrib-aspects/commit/85800f243bc12ec45e82af2de996580a9f21d063))
+
+### Build Systems
+
+* **deps:** bump helm/kind-action from 1.9.0 to 1.10.0 ([1326aeb](https://github.com/openedx/tutor-contrib-aspects/commit/1326aeb2d2f531b0b04ef2fe7931da08beeb1694))
+
 ## v0.105.0 - 2024-04-29
 
 ### [0.105.0](https://github.com/openedx/tutor-contrib-aspects/compare/v0.104.3...v0.105.0) (2024-04-29)
