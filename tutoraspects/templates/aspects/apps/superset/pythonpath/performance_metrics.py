@@ -53,7 +53,10 @@ query_format = (
     default=False,
     help="Whether to print the SQL run."
 )
-def performance_metrics(course_key, print_sql):
+@click.option(
+    "--fail_on_error", is_flag=True, default=False, help="Allow errors to fail the run."
+)
+def performance_metrics(course_key, print_sql, fail_on_error):
     """
     Measure the performance of the dashboard.
     """
@@ -76,7 +79,7 @@ def performance_metrics(course_key, print_sql):
             logger.info(f"Dashboard: {dashboard.slug}")
             for slice in dashboard.slices:
                 query_context = get_slice_query_context(slice, query_contexts)
-                result = measure_chart(slice, query_context)
+                result = measure_chart(slice, query_context, fail_on_error)
                 if not result:
                     continue
                 for query in result["queries"]:
@@ -87,7 +90,7 @@ def performance_metrics(course_key, print_sql):
 
         logger.info("Waiting for clickhouse log...")
         time.sleep(20)
-        get_query_log_from_clickhouse(report, query_contexts, print_sql)
+        get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_error)
         return report
 
 
@@ -133,7 +136,7 @@ def get_slice_query_context(slice, query_contexts, extra_filters=[]):
     return query_context
 
 
-def measure_chart(slice, query_context):
+def measure_chart(slice, query_context, fail_on_error):
     """
     Measure the performance of a chart and return the results.
     """
@@ -146,17 +149,26 @@ def measure_chart(slice, query_context):
     start_time = datetime.now()
     try:
         result = command.run()
+
+        for query in result["queries"]:
+            if "error" in query and query["error"]:
+                print(query["error"])
+                raise query["error"]
     except Exception as e:
         logger.error(f"Error fetching slice data: {slice}. Error: {e}")
+        if fail_on_error:
+            raise e
         return
+
     end_time = datetime.now()
 
     result["time_elapsed"] = (end_time - start_time).total_seconds()
     result["slice"] = slice
+
     return result
 
 
-def get_query_log_from_clickhouse(report, query_contexts, print_sql):
+def get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_error):
     """
     Get the query log from clickhouse and print the results.
     """
@@ -170,7 +182,7 @@ def get_query_log_from_clickhouse(report, query_contexts, print_sql):
         {"col": "http_user_agent", "op": "==", "val": RUN_ID}
     )
 
-    ch_chart_result = measure_chart(slice, query_context)
+    ch_chart_result = measure_chart(slice, query_context, fail_on_error)
 
     clickhouse_queries = {}
     for query in ch_chart_result["queries"]:
