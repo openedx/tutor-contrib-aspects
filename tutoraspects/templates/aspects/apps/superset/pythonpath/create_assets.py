@@ -98,11 +98,14 @@ def import_databases():
         create_superset_db(database_name, uri)
 
 
-def get_uuid5(base_uuid, name):
-    """Generate an idempotent uuid."""
+def get_localized_uuid(base_uuid, language):
+    """
+    Generate an idempotent uuid for a localized asset.
+    """
     base_uuid = uuid.UUID(base_uuid)
     base_namespace = uuid.uuid5(base_uuid, "superset")
-    return uuid.uuid5(base_namespace, name)
+    normalized_language = language.lower().replace("-", "_")
+    return str(uuid.uuid5(base_namespace, normalized_language))
 
 
 def write_asset_to_file(asset, asset_name, folder, file_name, roles):
@@ -148,7 +151,7 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
 def generate_translated_asset(asset, asset_name, folder, language, roles):
     """Generate a translated asset with their elements updated"""
     copy = deepcopy(asset)
-    copy["uuid"] = str(get_uuid5(copy["uuid"], language))
+    copy["uuid"] = str(get_localized_uuid(copy["uuid"], language))
     copy[asset_name] = get_translation(copy[asset_name], language)
 
     if folder == "dashboards":
@@ -179,7 +182,7 @@ def generate_translated_asset(asset, asset_name, folder, language, roles):
         copy["table_name"] = f"{copy['table_name']}_{language}"
 
     if folder == "charts":
-        copy["dataset_uuid"] = str(get_uuid5(copy["dataset_uuid"], language))
+        copy["dataset_uuid"] = get_localized_uuid(copy["dataset_uuid"], language)
 
     return copy
 
@@ -200,7 +203,7 @@ def generate_translated_dashboard_elements(copy, language):
         translation, element_id = None, None
 
         if original_uuid:
-            element_id = str(get_uuid5(original_uuid, language))
+            element_id = get_localized_uuid(original_uuid, language)
             translation = get_translation(meta["sliceName"], language)
 
             meta["sliceName"] = translation
@@ -279,7 +282,7 @@ def update_embeddable_uuids():
     for locale in DASHBOARD_LOCALES:
         for dashboard_slug, embeddable_uuid in EMBEDDABLE_DASHBOARDS.items():
             slug = f"{dashboard_slug}-{locale}"
-            current_uuid = get_uuid5(embeddable_uuid, locale)
+            current_uuid = get_localized_uuid(embeddable_uuid, locale)
             create_embeddable_dashboard_by_slug(slug, current_uuid)
 
 
