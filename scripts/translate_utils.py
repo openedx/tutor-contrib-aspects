@@ -1,7 +1,9 @@
-import math
 import os
 import shutil
-import yaml
+
+import ruamel.yaml.comments
+from scripts.yaml_utils import yaml, recursive_sort_mappings
+import ruamel.yaml
 
 class TranslatableAsset:
     translatable_attributes = []
@@ -19,9 +21,14 @@ class TranslatableAsset:
         """
         strings = []
         for var_path in self.translatable_attributes:
-            strings.extend(self.translate_var(self.asset, var_path.split(".")))
+            current_strings = self.translate_var(self.asset, var_path.split("."))
+            if None in current_strings:
+                print(
+                    f"\tFound None in {var_path} for {self.asset_type[0]} {self.asset.get('uuid')}"
+                )
+            strings.extend(current_strings)
 
-        return strings
+        return list(filter(lambda a: a is not None, strings))
 
     def translate_var(self, content, var_path):
         """
@@ -49,7 +56,7 @@ class TranslatableAsset:
                     for key, value in content.items():
                         strings.extend(self.translate_var(value, var_path[1:]))
                     return strings
-                return self.translate_var(content.get(var_path[0]), var_path[1:])
+                return self.translate_var(content.get(var_path[0], ""), var_path[1:])
             else:
                 print("Could not translate var_path: ", var_path, content)
                 return []
@@ -110,11 +117,11 @@ def get_text_for_translations(root_path):
             with open(path, 'r') as asset_file:
                 asset_str = asset_file.read()
 
-            asset = yaml.safe_load(asset_str)
+            asset = yaml.load(asset_str)
             strings.extend(mark_text_for_translation(asset))
 
     with open(BASE_PATH + "localization/datasets_strings.yaml", 'r') as file:
-        dataset_strings = yaml.safe_load(file.read())
+        dataset_strings = yaml.load(file.read())
         for key in dataset_strings:
             strings.extend(dataset_strings[key])
             print(f"Extracted {len(dataset_strings[key])} strings for dataset {key}")
@@ -152,7 +159,7 @@ def compile_translations(root_path):
         )
     )
 
-    all_translations = {}
+    all_translations = ruamel.yaml.comments.CommentedMap()
     for root, dirs, files in os.walk(translations_path):
         for file in files:
             if not file.endswith(".yaml"):
@@ -162,7 +169,7 @@ def compile_translations(root_path):
             path = os.path.join(root, file)
             with open(path, 'r') as asset_file:
                 loc_str = asset_file.read()
-            loaded_strings = yaml.safe_load(loc_str)
+            loaded_strings = yaml.load(loc_str)
 
             # Sometimes translated files come back with "en" as the top level
             # key, but still translated correctly.
@@ -170,6 +177,7 @@ def compile_translations(root_path):
                 all_translations[lang] = loaded_strings[lang]
             except KeyError:
                 all_translations[lang] = loaded_strings["en"]
+                all_translations[lang].pop(None)
 
     out_path = (
         os.path.join(
@@ -183,7 +191,8 @@ def compile_translations(root_path):
         outfile.write("---\n")
         # If we don't use an extremely large width, the jinja in our translations
         # can be broken by newlines. So we use the largest number there is.
-        yaml.dump(all_translations, outfile, width=math.inf, sort_keys=True, allow_unicode=True)
+        recursive_sort_mappings(all_translations)
+        yaml.dump(all_translations, outfile)
         outfile.write("\n{{ patch('superset-extra-asset-translations')}}\n")
 
     # We remove these files to avoid confusion about where translations are coming
@@ -208,13 +217,15 @@ def extract_translations(root_path):
     print("Gathering text for translations...")
     STRINGS = set(get_text_for_translations(root_path))
     print(f"Extracted {len(STRINGS)} strings for translation.")
-    translations = {'en': {}}
+    translations = ruamel.yaml.comments.CommentedMap()
+    translations['en'] = ruamel.yaml.comments.CommentedMap()
 
     for string in STRINGS:
         translations['en'][string] = string
 
     print(f"Writing English strings to {translation_file}")
     with open(translation_file, "w") as file:
-        file.write(yaml.dump(translations))
+        recursive_sort_mappings(translations)
+        yaml.dump(translations, file)
 
     print("Done compiling translations.")
