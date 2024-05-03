@@ -2,7 +2,6 @@
 
 import click
 from tutor import config as tutor_config
-
 from tutor import env
 
 

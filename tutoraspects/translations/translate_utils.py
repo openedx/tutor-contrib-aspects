@@ -1,18 +1,25 @@
+"""Translations utilities for Tutor Aspects."""
+
 import os
+import glob
 import shutil
 
-import ruamel.yaml.comments
-from tutoraspects.utils import yaml, recursive_sort_mappings
 import ruamel.yaml
+import ruamel.yaml.comments
+
+from tutoraspects.utils import recursive_sort_mappings, yaml
+
 
 class TranslatableAsset:
+    """A class to represent an asset that can be translated."""
+
     translatable_attributes = []
 
     def __init__(self, asset: dict):
         self.asset = asset
-        for key in ASSET_FOLDER_MAPPING:
+        for key, value in ASSET_FOLDER_MAPPING.items():
             if key in asset:
-                self.asset_type = ASSET_FOLDER_MAPPING[key]
+                self.asset_type = value
                 break
 
     def extract_text(self):
@@ -30,7 +37,9 @@ class TranslatableAsset:
 
         return list(filter(lambda a: a is not None, strings))
 
-    def translate_var(self, content, var_path):
+    def translate_var(
+        self, content, var_path
+    ):  # pylint: disable=too-many-return-statements
         """
         Helper method to remove content from the content dict.
         """
@@ -38,31 +47,31 @@ class TranslatableAsset:
             return []
         if len(var_path) == 1:
             if isinstance(content, list):
-                 strings = []
-                 for item in content:
-                     strings.append(item.get(var_path[0], ""))
-                 return strings
-            string = [content.get(var_path[0], "")]
-            return string or []
-        else:
-            if isinstance(content, list):
                 strings = []
                 for item in content:
-                    strings.extend(self.translate_var(item, var_path[1:]))
+                    strings.append(item.get(var_path[0], ""))
                 return strings
-            if isinstance(content, dict):
-                if var_path[0] == "*":
-                    strings = []
-                    for key, value in content.items():
-                        strings.extend(self.translate_var(value, var_path[1:]))
-                    return strings
-                return self.translate_var(content.get(var_path[0], ""), var_path[1:])
-            else:
-                print("Could not translate var_path: ", var_path, content)
-                return []
+            string = [content.get(var_path[0], "")]
+            return string or []
+        if isinstance(content, list):
+            strings = []
+            for item in content:
+                strings.extend(self.translate_var(item, var_path[1:]))
+            return strings
+        if isinstance(content, dict):
+            if var_path[0] == "*":
+                strings = []
+                for value in content.values():
+                    strings.extend(self.translate_var(value, var_path[1:]))
+                return strings
+            return self.translate_var(content.get(var_path[0], ""), var_path[1:])
+        print("Could not translate var_path: ", var_path, content)
+        return []
 
 
 class DashboardAsset(TranslatableAsset):
+    """A class to represent a dashboard that can be translated."""
+
     translatable_attributes = [
         "dashboard_title",
         "description",
@@ -72,7 +81,10 @@ class DashboardAsset(TranslatableAsset):
         "position.*.meta.code",
     ]
 
+
 class ChartAsset(TranslatableAsset):
+    """A class to represent a chart that can be translated."""
+
     translatable_attributes = [
         "slice_name",
         "description",
@@ -80,7 +92,10 @@ class ChartAsset(TranslatableAsset):
         "params.y_axis_label",
     ]
 
+
 class DatasetAsset(TranslatableAsset):
+    """A class to represent a dataset that can be translated."""
+
     translatable_attributes = [
         "metrics.verbose_name",
         "columns.verbose_name",
@@ -95,32 +110,28 @@ ASSET_FOLDER_MAPPING = {
 
 BASE_PATH = "tutoraspects/templates/aspects/build/aspects-superset/"
 
-def get_text_for_translations(root_path):
-    assets_path = (
-        os.path.join(
-            root_path,
-            BASE_PATH,
-            "openedx-assets/assets/"
-        )
-    )
 
+def get_text_for_translations(root_path):
+    """
+    Extract all translatable text from the Superset assets.
+    """
+    assets_path = os.path.join(root_path, BASE_PATH, "openedx-assets/assets/")
     print(f"Assets path: {assets_path}")
 
     strings = []
 
-    for root, dirs, files in os.walk(assets_path):
-        for file in files:
-            if not file.endswith(".yaml"):
-                continue
+    yaml_files = glob.glob(os.path.join(assets_path, "**/*.yaml"))
 
-            path = os.path.join(root, file)
-            with open(path, 'r') as asset_file:
-                asset_str = asset_file.read()
+    for yaml_file in yaml_files:
+        with open(yaml_file, "r", encoding="utf-8") as asset_file:
+            asset_str = asset_file.read()
 
-            asset = yaml.load(asset_str)
-            strings.extend(mark_text_for_translation(asset))
+        asset = yaml.load(asset_str)
+        strings.extend(mark_text_for_translation(asset))
 
-    with open(BASE_PATH + "localization/datasets_strings.yaml", 'r') as file:
+    with open(
+        BASE_PATH + "localization/datasets_strings.yaml", "r", encoding="utf-8"
+    ) as file:
         dataset_strings = yaml.load(file.read())
         for key in dataset_strings:
             strings.extend(dataset_strings[key])
@@ -152,42 +163,34 @@ def compile_translations(root_path):
     This should be called after we pull translations using Atlas, see the
     pull_translations make target.
     """
-    translations_path = (
-        os.path.join(
-            root_path,
-            "tutoraspects/templates/aspects/apps/superset/conf/locale"
-        )
+    translations_path = os.path.join(
+        root_path, "tutoraspects/templates/aspects/apps/superset/conf/locale"
     )
 
     all_translations = ruamel.yaml.comments.CommentedMap()
-    for root, dirs, files in os.walk(translations_path):
-        for file in files:
-            if not file.endswith(".yaml"):
-                continue
+    yaml_files = glob.glob(os.path.join(translations_path, "**/locale.yaml"))
 
-            lang = root.split(os.sep)[-1]
-            path = os.path.join(root, file)
-            with open(path, 'r') as asset_file:
-                loc_str = asset_file.read()
-            loaded_strings = yaml.load(loc_str)
+    for file_path in yaml_files:
+        lang = file_path.split(os.sep)[-2]
+        with open(file_path, "r", encoding="utf-8") as asset_file:
+            loc_str = asset_file.read()
+        loaded_strings = yaml.load(loc_str)
 
-            # Sometimes translated files come back with "en" as the top level
-            # key, but still translated correctly.
-            try:
-                all_translations[lang] = loaded_strings[lang]
-            except KeyError:
-                all_translations[lang] = loaded_strings["en"]
-                all_translations[lang].pop(None)
+        # Sometimes translated files come back with "en" as the top level
+        # key, but still translated correctly.
+        try:
+            all_translations[lang] = loaded_strings[lang]
+        except KeyError:
+            all_translations[lang] = loaded_strings["en"]
+            all_translations[lang].pop(None)
 
-    out_path = (
-        os.path.join(
-            root_path,
-            "tutoraspects/templates/aspects/build/aspects-superset/localization/locale.yaml"
-        )
+    out_path = os.path.join(
+        root_path,
+        "tutoraspects/templates/aspects/build/aspects-superset/localization/locale.yaml",
     )
 
     print(f"Writing all translations out to {out_path}")
-    with open(out_path, 'w') as outfile:
+    with open(out_path, "w", encoding="utf-8") as outfile:
         outfile.write("---\n")
         # If we don't use an extremely large width, the jinja in our translations
         # can be broken by newlines. So we use the largest number there is.
@@ -215,16 +218,16 @@ def extract_translations(root_path):
     translation_file = "transifex_input.yaml"
 
     print("Gathering text for translations...")
-    STRINGS = set(get_text_for_translations(root_path))
-    print(f"Extracted {len(STRINGS)} strings for translation.")
+    strings = set(get_text_for_translations(root_path))
+    print(f"Extracted {len(strings)} strings for translation.")
     translations = ruamel.yaml.comments.CommentedMap()
-    translations['en'] = ruamel.yaml.comments.CommentedMap()
+    translations["en"] = ruamel.yaml.comments.CommentedMap()
 
-    for string in STRINGS:
-        translations['en'][string] = string
+    for string in strings:
+        translations["en"][string] = string
 
     print(f"Writing English strings to {translation_file}")
-    with open(translation_file, "w") as file:
+    with open(translation_file, "w", encoding="utf-8") as file:
         recursive_sort_mappings(translations)
         yaml.dump(translations, file)
 
