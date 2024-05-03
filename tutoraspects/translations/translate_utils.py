@@ -2,7 +2,7 @@ import os
 import shutil
 
 import ruamel.yaml.comments
-from scripts.yaml_utils import yaml, recursive_sort_mappings
+from tutoraspects.utils import yaml, recursive_sort_mappings
 import ruamel.yaml
 
 class TranslatableAsset:
