@@ -4,11 +4,11 @@ aspects: # this needs to match the profile in your dbt_project.yml file
     prod:
       type: clickhouse
       schema: {{ DBT_PROFILE_TARGET_DATABASE }}
-      host: {{ CLICKHOUSE_HOST }}
+      host: {% if CLICKHOUSE_CLUSTER_DDL_NODE_HOST %}{{CLICKHOUSE_CLUSTER_DDL_NODE_HOST}}{% else %}{{ CLICKHOUSE_HOST }}{% endif %}
       port: {{ CLICKHOUSE_INTERNAL_NATIVE_PORT }}
       user: {{ CLICKHOUSE_ADMIN_USER }}
-      password: '{{ CLICKHOUSE_ADMIN_PASSWORD }}'
-      cluster: {{ CLICKHOUSE_CLUSTER_NAME }}
+      password: {{ CLICKHOUSE_ADMIN_PASSWORD }}
+      cluster: "{{ CLICKHOUSE_CLUSTER_NAME }}"
 
       # These are ClickHouse provider values and map directly to ClickHouse connection settings.
       verify: True

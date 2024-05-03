@@ -28,6 +28,14 @@ target_metadata = None
 from clickhouse_sqlalchemy.alembic.dialect import include_object, patch_alembic_version
 
 
+def make_replicated_zk_path(cluster, table_name):
+    """
+    Allows CH cluster functionality in Alembic
+    """
+    database = "{{ ASPECTS_XAPI_DATABASE }}"
+    return f'/clickhouse/tables/{cluster}/{database}/{table_name}'
+
+
 def process_revision_directives(context, revision, directives):
     # extract Migration
     migration_script = directives[0]
@@ -64,7 +72,23 @@ def run_migrations_offline():
     )
 
     with context.begin_transaction():
+        {% if CLICKHOUSE_CLUSTER_NAME %}
+        # Without this, the Alembic versions table will only be created on one
+        # shard and will cause errors as migrations are run.
+        migration_context = context._proxy._migration_context
+        kwargs = {
+            'cluster': "{{CLICKHOUSE_CLUSTER_NAME}}",
+            'table_path': make_replicated_zk_path(
+                "{{CLICKHOUSE_CLUSTER_NAME}}",
+                migration_context.version_table
+            ),
+            'replica_name': '{replica}'
+        }
+
+        patch_alembic_version(context, **kwargs)
+        {% else %}
         patch_alembic_version(context)
+        {% endif %}
         context.run_migrations()
 
 
@@ -88,7 +112,23 @@ def run_migrations_online():
         )
 
         with context.begin_transaction():
+            {% if CLICKHOUSE_CLUSTER_NAME %}
+            # Without this, the Alembic versions table will only be created on one
+            # shard and will cause errors as migrations are run.
+            migration_context = context._proxy._migration_context
+            kwargs = {
+                'cluster': "{{CLICKHOUSE_CLUSTER_NAME}}",
+                'table_path': make_replicated_zk_path(
+                    "{{CLICKHOUSE_CLUSTER_NAME}}",
+                    migration_context.version_table
+                ),
+                'replica_name': '{replica}'
+            }
+
+            patch_alembic_version(context, **kwargs)
+            {% else %}
             patch_alembic_version(context)
+            {% endif %}
             context.run_migrations()
 
 

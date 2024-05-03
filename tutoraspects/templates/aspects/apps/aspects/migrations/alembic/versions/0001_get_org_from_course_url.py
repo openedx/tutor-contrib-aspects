@@ -19,7 +19,7 @@ def upgrade():
     """
     op.execute(
         f"""
-        CREATE OR REPLACE FUNCTION get_org_from_course_url {on_cluster}
+        CREATE OR REPLACE FUNCTION get_org_from_course_url
         AS (
         course_url) ->
         nullIf(EXTRACT(course_url, 'course-v1:([a-zA-Z0-9]*)'), '');
