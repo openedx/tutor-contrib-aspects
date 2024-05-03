@@ -38,6 +38,9 @@ export DBT_STATE={{ DBT_STATE_DIR }}
 export ASPECTS_DATA_TTL_EXPRESSION="{{ ASPECTS_DATA_TTL_EXPRESSION }}"
 export DBT_PROFILE_TARGET_DATABASE="{{ DBT_PROFILE_TARGET_DATABASE }}"
 
+# We use this in our aspects-dbt cluster macros
+export CLICKHOUSE_CLUSTER_NAME="{{ CLICKHOUSE_CLUSTER_NAME }}"
+
 echo "Installing dbt dependencies"
 dbt deps --profiles-dir /app/aspects/dbt/
 
