@@ -1,0 +1,32 @@
+_file_name: At-risk_learners.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 08f1477c-0628-5172-ae36-55e267796375
+description: null
+params:
+  adhoc_filters: []
+  all_columns: []
+  annotation_layers: []
+  color_pn: true
+  extra_form_data: {}
+  groupby:
+  - name
+  - username
+  - email
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 1000
+  server_page_length: 10
+  show_cell_bars: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup: {}
+  time_grain_sqla: P1D
+  viz_type: table
+query_context: null
+slice_name: At-risk learners
+uuid: 447a194b-dbed-4a82-a899-2df8e01e84b1
+version: 1.0.0
+viz_type: table
