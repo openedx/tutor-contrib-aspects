@@ -13,7 +13,7 @@ on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUST
 def upgrade():
     op.execute(
         f"""
-        CREATE OR REPLACE FUNCTION get_org_from_ccx_course_url {on_cluster}
+        CREATE OR REPLACE FUNCTION get_org_from_ccx_course_url
         AS (
         course_url) ->
            nullIf(EXTRACT(course_url, 'ccx-v1:([a-zA-Z0-9]*)'), '');

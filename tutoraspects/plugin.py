@@ -166,6 +166,11 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # the cluster here. All objects will be created "ON CLUSTER" with replicated
         # table types, otherwise a single server deployment will be assumed.
         ("CLICKHOUSE_CLUSTER_NAME", ""),
+        # We need to connect to a single node for Alembic and dbt DDL queries,
+        # otherwise the fast pace of the changes will outpace the propagation of
+        # changes to the cluster. We assume connection details are all the same
+        # except for the host.
+        ("CLICKHOUSE_CLUSTER_DDL_NODE_HOST", ""),
         # Port for the native interface exposed on the host container in Docker Compose,
         # this is changed from 9000 to prevent conflicts with MinIO, which also listens
         # on 9000.
@@ -239,8 +244,13 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "CLICKHOUSE_ADMIN_SQLALCHEMY_URI",
             "clickhouse+native://{{CLICKHOUSE_ADMIN_USER}}:{{CLICKHOUSE_ADMIN_PASSWORD}}"
-            "@{{CLICKHOUSE_HOST}}:{{CLICKHOUSE_INTERNAL_NATIVE_PORT}}/{{"
-            "ASPECTS_XAPI_DATABASE}}"
+            "@"
+            "{% if CLICKHOUSE_CLUSTER_DDL_NODE_HOST %}"
+            "{{CLICKHOUSE_CLUSTER_DDL_NODE_HOST}}"
+            "{% else %}"
+            "{{CLICKHOUSE_HOST}}"
+            "{% endif %}"
+            ":{{CLICKHOUSE_INTERNAL_NATIVE_PORT}}/{{ASPECTS_XAPI_DATABASE}}"
             "{% if CLICKHOUSE_SECURE_CONNECTION %}?secure=True{% endif %}",
         ),
         ######################
@@ -366,7 +376,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
-        ("DBT_BRANCH", "v3.29.0"),
+        ("DBT_BRANCH", "bmtcril/altinity_fixes"),
         ("DBT_SSH_KEY", ""),
         ("DBT_STATE_DIR", "/app/aspects/dbt_state/"),
         # This is the name of the database dbt will write to
