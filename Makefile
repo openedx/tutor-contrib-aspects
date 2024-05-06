@@ -87,10 +87,10 @@ pull_translations: translation-requirements
 	atlas pull -g $(OPENEDX_ATLAS_ARGS) translations/tutor-contrib-aspects/tutoraspects/*:tutoraspects/templates/
 
 	@echo "Translations have been pulled via Atlas."
-	python scripts/translate.py . compile
+	python tutoraspects/translations/translate.py . compile
 
 extract_translations: translation-requirements
-	python scripts/translate.py . extract
+	python tutoraspects/translations/translate.py . extract
 
 version: ## Print the current tutor version
 	@python -c 'import io, os; about = {}; exec(io.open(os.path.join("$(PACKAGE)", "__about__.py"), "rt", encoding="utf-8").read(), about); print(about["__version__"])'

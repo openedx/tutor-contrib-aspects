@@ -13,10 +13,8 @@ from tutor import hooks
 
 from .__about__ import __version__
 from .commands_v0 import COMMANDS as TUTOR_V0_COMMANDS
-from .commands_v1 import (
-    DO_COMMANDS as TUTOR_V1_DO_COMMANDS,
-    COMMANDS as TUTOR_V1_COMMANDS,
-)
+from .commands_v1 import COMMANDS as TUTOR_V1_COMMANDS
+from .commands_v1 import DO_COMMANDS as TUTOR_V1_DO_COMMANDS
 
 ########################################
 # CONFIGURATION

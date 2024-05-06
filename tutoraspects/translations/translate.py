@@ -1,8 +1,13 @@
-import os
+"""Interface for the translations."""
+
 import sys
 
 import click
-from translate_utils import compile_translations, extract_translations, get_text_for_translations
+from tutoraspects.translations.translate_utils import (
+    compile_translations,
+    extract_translations,
+    get_text_for_translations,
+)
 
 
 @click.command()
@@ -17,9 +22,9 @@ def command(root, action):
     elif action == "list":
         get_text_for_translations(root)
     else:
-        print("Unknown action: {}".format(action))
+        print(f"Unknown action: {action}")
         sys.exit(1)
 
 
 if __name__ == "__main__":
-    command()
+    command()  # pylint: disable=no-value-for-parameter

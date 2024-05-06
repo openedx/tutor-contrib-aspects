@@ -6,15 +6,14 @@ import string
 import sys
 
 import click
-
 from tutor import env
 
 from tutoraspects.asset_command_helpers import (
+    SupersetCommandError,
     check_asset_names,
     check_orphan_assets,
-    import_superset_assets,
     deduplicate_superset_assets,
-    SupersetCommandError,
+    import_superset_assets,
 )
 
 

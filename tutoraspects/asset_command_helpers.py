@@ -2,13 +2,13 @@
 Helpers for Tutor commands and "do" commands.
 """
 
-from zipfile import ZipFile
 import glob
 import os
 import re
-import yaml
+from zipfile import ZipFile
 
 import click
+import yaml
 
 FILE_NAME_ATTRIBUTE = "_file_name"
 

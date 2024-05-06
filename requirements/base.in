@@ -4,3 +4,4 @@ importlib-resources
 openedx-atlas
 transifex-python
 tutor>=15
+ruamel.yaml
