@@ -1808,260 +1808,175 @@ fa:
 fr_CA:
   ? ''
   : ''
-  Level of Education: Niveau de formation
-  User Name: Nom d'utilisateur
-  Self Paced: À votre rythme
-  Superset: Superset
-  Problem ID: ID du problème
-  Most Active Courses Per Day: Cours les plus actifs par jour
-  Course Name: Nom du cours
-  Unique actors: Acteurs uniques
-  Query Context: Contexte de requête
-  Operator Dashboard: Tableau de bord de l'opérateur
-  Course Dashboard V1: Tableau de bord du cours V1
-  Number of Posts: Nombre de publications
-  Seconds Of Video: Secondes de vidéo
-  Learner group dashboard: Tableau de bord du groupe d'apprenants
-  First Name: Prénom
-  Chart Count: Nombre de graphiques
-  Video name: Nom de la vidéo
-  Published: Publié
-  Action Count: Nombre d'actions
-  UUID: UUID
-  Entity Name With Location: Nom de l'entité avec emplacement
-  Grade Type: Type de note
-  Courses: Cours
-  Graded: Noté
-  Cumulative Enrollments by Track: Inscriptions cumulées par filière
-  Time Grain: Time Grain
-  Cache Timeout: Délai d'expiration du cache
-  Id: Identifiant
-  Value: Valeur
-  Language: Langue
-  Enrollment Status Date: Date du statut d'inscription
-  Created: Créé
-  Partial and full views per video: Vues partielles et complètes par vidéo
-  Last Saved At: Dernier enregistrement à
-  Last Saved By Fk: Dernier enregistrement par Fk
-  Engagement: Engagement
-  Total transcript usage: Utilisation totale des transcriptions
-  Chart showing the number of registered users over the selected time period.: Graphique montrant le nombre d'utilisateurs enregistrés sur la période sélectionnée.
-  Read Rows: Lire les lignes
-  Count of dashboards created in Superset over the selected time period.: Nombre de tableaux de bord créés dans Superset sur la période sélectionnée.
-  Time Range: Intervalle de temps
-  Responses: Réponses
-  Answers Chosen: Réponses choisies
-  Video Event: Événement vidéo
-  Enrollment Mode: Mode d'inscription
-  Unique Watchers: Observateurs uniques
-  Datasource ID: ID de source de données
-  External Url: URL externe
-  Entity Name: Nom de l'entité
-  Problem Name With Location: Nom du problème avec emplacement
-  Video Id: Identifiant de la vidéo
-  Action: Action
-  External User ID: ID utilisateur externe
-  Total Views: Vues totales
-  Grade: Note
-  ? This chart shows how often an answer or combination of answers (for multi-select) is selected by learners. Some problems allow learners to submit a response more than once, this chart will include all of the responses in that case.
-  : Ce graphique montre la fréquence à laquelle une réponse ou une combinaison de réponses (pour la sélection multiple) est sélectionnée par les apprenants. Certains problèmes permettent aux apprenants de soumettre une réponse plus d'une fois. Ce graphique inclura toutes les réponses dans ce cas.
-  Date: Date
-  ID: ID
-  Count of the various types of charts created in Superset over the selected time period.: Nombre des différents types de graphiques créés dans Superset sur la période sélectionnée.
-  Count of charts created in Superset over the selected time period.: Nombre de graphiques créés dans Superset sur la période sélectionnée.
-  Display Name: Nom d'affichage
-  Grade Bucket: Ensemble de notes
-  Started At: Commencé à
-  Performance: Performance
-  Active: Actif
-  Courseware: Cours
-  Course Run: Session de cours
-  City: Ville
-  Modified: Modifié
-  Dashboard ID: ID du tableau de bord
-  Description: Description
-  Unique Transcript Users: Utilisateurs de transcription uniques
-  Watched Segment Count: Nombre de segments surveillés
-  ' The number of learners who completed at least one graded problem in the course.': ' Le nombre d''apprenants qui ont résolu au moins un problème noté dans le cours.'
-  User ID: ID utilisateur
-  Learners with Passing Grade: Apprenants ayant obtenu la note de passage
-  Dashboard Title: Titre du tableau de bord
-  Slowest ClickHouse Queries: Requêtes ClickHouse les plus lentes
-  Verb: Verbe
-  Slug: Identifiant
-  Course Enrollments Over Time: Inscriptions aux cours au fil du temps
-  Total Hints: Indices totaux
-  '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
-  Action Cluster: Groupe d'actions
-  Subsection Summary: Résumé de la sous-section
-  verified: vérifié
-  Video views per section/subsection: Vues vidéo par section/sous-section
-  Course Key Short: Clé de cours courte
-  Course Information: Informations sur les cours
-  Most-used Charts: Graphiques les plus utilisés
-  Changed By Fk: Modifié par Fk
-  CSS: CSS
-  Dump ID: ID de dumping
-  State: État
-  Event String: Chaîne d'événement
-  Actor IDs over time: ID des acteurs au fil du temps
-  Parameters: Paramètres
-  Enrollment Status: État de l'inscription
-  Last Name: Nom
-  Number of Hints Displayed: Nombre d'indices affichés
-  Problems attempted per section/subsection: Problèmes tentés par section/sous-section
-  Query: Requête
-  Video Title: Titre de vidéo
-  Datasource Name: Nom de la source de données
-  Problem Results: Résultats du problème
-  Query performance: Performances des requêtes
-  Current Enrollees: Inscrits actuels
-  Object ID: ID d'objet
-  Video Name: Nom de la vidéo
-  Distribution Of Responses: Répartition des réponses
-  COUNT(*): COMPTER(*)
-  Emission Time: Temps d'émission
-  Chart showing the number of Superset actions taken on each dashboard in the selected time period.: Graphique montrant le nombre d'actions Superset effectuées sur chaque tableau de bord au cours de la période sélectionnée.
-  xAPI Events Over Time: Événements xAPI au fil du temps
-  Superset Active Users Over Time: Surensemble des utilisateurs actifs au fil du temps
-  Event type: Type d'événement
-  Organization: Organisation
-  Course ID: ID de cours
-  Course Key: Clé de cours
-  Most-used Dashboards: Tableaux de bord les plus utilisés
-  Attempts: Tentatives
-  Course Start: Début du cours
-  Number of Views / Viewers: Nombre de vues / d'observateurs
-  Number Of Users: Nombre d'utilisateurs
-  Posts per user: Publications par utilisateur
-  Distribution of Current Course Grade: Répartition de la note actuelle du cours
-  Number Of Viewers / Views: Nombre d'observateurs / de vues
-  Individual Learner Reports: Rapports individuels des apprenants
-  Enrollments By Type: Inscriptions par type
-  unregistered: non enregistré
-  Name: Nom
+  Active Learners: Apprenants actifs
   Count over time of unique users who performed an action in Superset over the selected time period.: Nombre au fil du temps des utilisateurs uniques qui ont effectué une action dans Superset au cours de la période sélectionnée.
-  Created By Fk: Créé par Fk
-  Mailing Address: Adresse postale
-  Enrollment Start: Début des inscriptions
-  Duration (Seconds): Durée (secondes)
-  null: null
-  Watched Entire Video: J'ai regardé la vidéo en entier
-  Location: Adresse
-  Watches Per Video: Vues par vidéo
-  ⏲️ Use the ‘Time Grain’ filter to update the time frame intervals shown in the following graph(s): ⏲️ Utilisez le filtre « Time Grain » pour mettre à jour les intervalles de temps affichés dans le(s) graphique(s) suivant(s)
-  Active Users Per Organization: Utilisateurs actifs par organisation
-  Certification Details: Détails des certifications
-  Gender: Genre
-  External ID Type: Type d'identifiant externe
-  Number of Learners: Nombre d'apprenants
-  Superset Active Users: Utilisateurs actifs du surensemble
-  Chart showing the number of Superset actions taken by each user over the selected time period.: Graphique montrant le nombre d'actions Superset effectuées par chaque utilisateur sur la période sélectionnée.
-  Object Type: Type d'objet
-  Video Name With Location: Nom de la vidéo avec emplacement
-  Videos: Vidéos
-  Pages: Pages
-  Course run: Session de cours
-  honor: honneur
-  Dashboard Status: État du tableau de bord
-  Datasource Type: Type de source de données
-  Page views per section/subsection: Pages vues par section/sous-section
   ClickHouse: ClickHouse
-  Problem Name: Nom de l'exercice
-  Help: Aide
-  Phone Number: Numéro de téléphone
-  Enrollment End: Fin des inscriptions
-  Password: Mot de passe
-  User Actions: Actions de l'utilisateur
-  Total plays: Nombre total de visionnements
-  Time Last Dumped: Heure du dernier dumping
-  Number of Answers Displayed: Nombre de réponses affichées
-  Courses Per Organization: Cours par organisation
-  Schema Perm: Perm du schéma
-  Visualization Bucket: Compartiment de visualisation
-  Last Received Event: Dernier événement reçu
-  Username: Nom d'utilisateur
-  Position Json: Positionner Json
-  Number of users: Nombre d'utilisateurs
-  Dashboard Count: Nombre de tableaux de bord
-  Evolution of engagement: Évolution de l'engagement
-  Enrollees per Enrollment Track: Inscrits par filière d'inscription
-  Actor Id: Identifiant de l'acteur
-  Superset Registered Users Over Time: Surensemble des utilisateurs enregistrés au fil du temps
-  Year of Birth: Année de naissance
-  Email: Courriel
-  Instance Health: État de santé de l'instance
-  Active Users Over Time v2: Utilisateurs actifs au fil du temps v2
-  Meta: Méta
-  Total Organizations: Total des organisations
-  Problem Id: Numéro du problème
-  Order: Commande
-  User Registration Date: Date d'enregistrement de l'utilisateur
   ? Information is needed on which section and subsection each problem is located in and whether or not these are graded. I have already sent the request and the report is being worked on.
   : Des informations sont nécessaires sur la section et la sous-section dans lesquelles se trouve chaque problème et si celles-ci sont notées ou non. J'ai déjà envoyé la demande et le rapport est en cours d'élaboration.
-  Learner Groups Reports: Rapports sur les groupes d'apprenants
-  Login Count: Nombre de connexions
-  Certified By: Certifié par
-  Course End: Fin du cours
-  Video ID: ID du vidéo
-  Perm: Perm
-  Is Managed Externally: Est géré en externe
-  Changed On: Modifié le
-  audit: Audit
-  Created On: Créé le
-  Success: Opération réussie
-  Profile Image Uploaded At: Image de profil téléchargée à
-  Goals: Objectifs
-  Course Data JSON: Données de cours JSON
-  Charts by Type: Graphiques par type
-  Repeat Views: Répéter les vues
-  Individual Learner Dashboard: Tableau de bord de l'apprenant individuel
-  Problem interactions: Interactions problématiques
-  Count of unique users who performed an action in Superset over the selected time period.: Nombre d'utilisateurs uniques qui ont effectué une action dans Superset au cours de la période sélectionnée.
-  Video Position: Emplacement de la vidéo
-  Scaled Score: Score échelonné
-  Verb ID: ID du verbe
-  Event Time: Heure de l'évènement
-  ? A count of the number of enrollments and un-enrollments per day. Learners can enroll and unenroll multiple times, in this chart each individual enrollment and unenrollment will be counted.
-  : Un décompte du nombre d’inscriptions et de désinscriptions par jour. Les apprenants peuvent s'inscrire et se désinscrire plusieurs fois. Dans ce graphique, chaque inscription et désinscription individuelle sera comptabilisée.
+  Chart showing the number of Superset actions taken on each chart in the selected time period.: Graphique montrant le nombre d'actions Superset effectuées sur chaque graphique au cours de la période sélectionnée.
+  Action Date: Date d'intervention
+  Object Type: Type d'objet
+  Course name: Nom du cours
+  Video Duration: Durée de la vidéo
+  ⏲️ Use the ‘Time Grain’ filter to update the time frame intervals shown in the following graph(s): ⏲️ Utilisez le filtre « Time Grain » pour mettre à jour les intervalles de temps affichés dans le(s) graphique(s) suivant(s)
+  Total Views: Vues totales
   Unique Viewers: Visionneurs uniques
-  XBlock Data JSON: Données XBlock JSON
-  Viz Type: Type de visualisation
-  Enrollment Events Per Day: Événements d'inscription par jour
+  Datasource Type: Type de source de données
+  Description: Description
+  Dashboard ID: ID du tableau de bord
+  Subsection Name: Nom de la sous-section
   Last course syncronized: Dernier cours synchronisé
-  Fail Login Count: Nombre d'échecs de connexion
-  Edited On: Modifié le
-  Segment Start: Début du segment
-  Enrollments: Inscriptions
-  Enrollment: Inscriptions
+  Changed By Fk: Modifié par Fk
+  Time Range: Intervalle de temps
+  Course Data JSON: Données de cours JSON
+  Event Activity: Activité événementielle
+  Watched Segment Count: Nombre de segments surveillés
+  Count of unique users who performed an action in Superset over the selected time period.: Nombre d'utilisateurs uniques qui ont effectué une action dans Superset au cours de la période sélectionnée.
+  Cumulative Enrollments by Track: Inscriptions cumulées par filière
+  Changed On: Modifié le
+  Repeat Views: Répéter les vues
+  Action: Action
+  Verb: Verbe
+  Course Key: Clé de cours
+  Course Run: Session de cours
+  Visualization Bucket: Compartiment de visualisation
+  User Registration Date: Date d'enregistrement de l'utilisateur
+  Started At: Commencé à
+  Help: Aide
+  Section With Name: Section avec nom
+  Emission Time: Temps d'émission
+  Video views per section/subsection: Vues vidéo par section/sous-section
   ? This chart shows which parts of a video are most watched, and which are most re-watched. Each segment represents 5 seconds of the video.
   : Ce graphique montre quelles parties d'une vidéo sont les plus regardées et lesquelles sont les plus regardées de nouveau. Chaque segment représente 5 secondes de la vidéo.
-  Cumulative Interactions: Interactions cumulatives
-  registered: inscrit
-  Total Actors v2: Total des acteurs v2
-  Action Date: Date d'intervention
-  Problems: Problèmes
-  Slice ID: ID de tranche
-  Students: Étudiants
-  xAPI Events Over Time v2: Événements xAPI au fil du temps v2
-  Country: Pays
-  Event ID: ID d'événement
-  ? This chart shows how many unique learners have watched each video, and how many repeat views each has gotten. If a video has never been played it will not appear in this chart.
-  : Ce graphique montre combien d'apprenants uniques ont regardé chaque vidéo et combien de vues répétées chacune a obtenu. Si une vidéo n'a jamais été regardée, elle n'apparaîtra pas dans ce graphique.
-  Chart showing the number of Superset actions taken on each chart in the selected time period.: Graphique montrant le nombre d'actions Superset effectuées sur chaque graphique au cours de la période sélectionnée.
-  Organizations: Organisations
-  Video Duration: Durée de la vidéo
+  Superset Active Users: Utilisateurs actifs du surensemble
   Actor ID: ID de l'acteur
-  Last Login: Dernière connexion
-  Course name: Nom du cours
-  Bio: Biographie
-  JSON Metadata: Métadonnées JSON
-  Section Summary: Résumé de la section
+  Read Rows: Lire les lignes
   Slice Name: Nom de la tranche
-  ClickHouse metrics: Métriques ClickHouse
-  Memory Usage (KB): Utilisation de la mémoire (Ko)
+  Course Dashboard V1: Tableau de bord du cours V1
+  Evolution of engagement: Évolution de l'engagement
+  Pages: Pages
   Watched Video Segments: Segments vidéo regardés
-  Events per course: Événements par cours
+  First Name: Prénom
+  Courses Per Organization: Cours par organisation
+  Courses: Cours
+  Login Count: Nombre de connexions
+  Problem Results: Résultats du problème
+  COUNT(*): COMPTER(*)
+  Superset Active Users Over Time: Surensemble des utilisateurs actifs au fil du temps
+  Course run: Session de cours
+  User ID: ID utilisateur
+  honor: honneur
+  Partial and full views per video: Vues partielles et complètes par vidéo
+  Learner Groups Reports: Rapports sur les groupes d'apprenants
+  Superset Registered Users Over Time: Surensemble des utilisateurs enregistrés au fil du temps
+  Slowest ClickHouse Queries: Requêtes ClickHouse les plus lentes
+  Problem interactions: Interactions problématiques
+  Video Position: Emplacement de la vidéo
+  Email: Courriel
+  Most-used Charts: Graphiques les plus utilisés
+  Video ID: ID du vidéo
+  Course ID: ID de cours
+  Actor Id: Identifiant de l'acteur
+  '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
+  Object ID: ID d'objet
+  Course Start: Début du cours
+  Total plays: Nombre total de visionnements
+  Video Name: Nom de la vidéo
+  Last Name: Nom
+  Event Time: Heure de l'évènement
+  Total Organizations: Total des organisations
+  Operator Dashboard: Tableau de bord de l'opérateur
+  Section Name: Nom de la section
+  Video name: Nom de la vidéo
+  Problems: Problèmes
+  Current Active Enrollments By Mode: Inscriptions actives actuelles par mode
+  User Name: Nom d'utilisateur
+  Section Summary: Résumé de la section
+  Individual Learner Dashboard: Tableau de bord de l'apprenant individuel
+  Username: Nom d'utilisateur
+  Active: Actif
+  Display Name: Nom d'affichage
+  Current Enrollees: Inscrits actuels
+  Active Users Per Organization: Utilisateurs actifs par organisation
+  Self Paced: À votre rythme
+  Enrollment Mode: Mode d'inscription
+  Query performance: Performances des requêtes
+  Datasource ID: ID de source de données
+  null: null
+  unregistered: non enregistré
+  Performance: Performance
+  Total Users: Nombre total d'utilisateurs
+  Date: Date
+  Number Of Viewers / Views: Nombre d'observateurs / de vues
+  Name: Nom
+  Last Received Event: Dernier événement reçu
+  audit: Audit
+  Cumulative Interactions: Interactions cumulatives
+  Event ID: ID d'événement
+  Last Login: Dernière connexion
+  verified: vérifié
+  Organizations: Organisations
+  Verb ID: ID du verbe
+  Value: Valeur
+  Course Information: Informations sur les cours
+  Enrollments: Inscriptions
+  Chart showing the number of registered users over the selected time period.: Graphique montrant le nombre d'utilisateurs enregistrés sur la période sélectionnée.
+  Event String: Chaîne d'événement
+  Unique Watchers: Observateurs uniques
+  Most-used Dashboards: Tableaux de bord les plus utilisés
+  Password: Mot de passe
+  Time Last Dumped: Heure du dernier dumping
+  Learners with Passing Grade: Apprenants ayant obtenu la note de passage
+  Superset: Superset
+  Dashboard Status: État du tableau de bord
+  Enrollees per Enrollment Track: Inscrits par filière d'inscription
+  Video views by section/subsection: Vues vidéo par section/sous-section
+  Subsection Summary: Résumé de la sous-section
+  Watched Entire Video: J'ai regardé la vidéo en entier
+  Subsection With Name: Sous-section avec nom
+  Dashboard Title: Titre du tableau de bord
+  Page views per section/subsection: Pages vues par section/sous-section
+  Enrollment Start: Début des inscriptions
+  Organization: Organisation
+  Course Enrollments Over Time: Inscriptions aux cours au fil du temps
+  Individual Learner Reports: Rapports individuels des apprenants
+  Slice ID: ID de tranche
+  Created: Créé
+  Active Courses: Cours actifs
+  Time Grain: Time Grain
+  Created On: Créé le
+  Segment Start: Début du segment
+  Course Key Short: Clé de cours courte
+  Engagement: Engagement
+  Id: Identifiant
+  Enrollment: Inscriptions
+  Duration (Seconds): Durée (secondes)
+  Created By Fk: Créé par Fk
+  Problems attempted per section/subsection: Problèmes tentés par section/sous-section
+  Datasource Name: Nom de la source de données
+  Graded: Noté
+  Enrollment End: Fin des inscriptions
+  Distribution of Current Course Grade: Répartition de la note actuelle du cours
+  Course End: Fin du cours
+  ' The number of learners who completed at least one graded problem in the course.': ' Le nombre d''apprenants qui ont résolu au moins un problème noté dans le cours.'
+  Action Count: Nombre d'actions
+  Dump ID: ID de dumping
+  Enrollment Status: État de l'inscription
+  Chart showing the number of Superset actions taken on each dashboard in the selected time period.: Graphique montrant le nombre d'actions Superset effectuées sur chaque tableau de bord au cours de la période sélectionnée.
+  Instance Health: État de santé de l'instance
+  Fail Login Count: Nombre d'échecs de connexion
+  Seconds Of Video: Secondes de vidéo
+  Modified: Modifié
+  registered: inscrit
+  Course Name: Nom du cours
+  ClickHouse metrics: Métriques ClickHouse
+  Video Event: Événement vidéo
+  Query: Requête
+  Memory Usage (KB): Utilisation de la mémoire (Ko)
+  Video Name With Location: Nom de la vidéo avec emplacement
+  External User ID: ID utilisateur externe
+  Videos: Vidéos
+  Learner group dashboard: Tableau de bord du groupe d'apprenants
 he:
   ? ''
   : ''
