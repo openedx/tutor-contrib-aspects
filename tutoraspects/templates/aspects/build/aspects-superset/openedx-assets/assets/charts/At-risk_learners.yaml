@@ -2,12 +2,11 @@ _file_name: At-risk_learners.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: 08f1477c-0628-5172-ae36-55e267796375
+dataset_uuid: 8621b581-99c4-5358-9385-fe81ffc1ec01
 description: null
 params:
   adhoc_filters: []
   all_columns: []
-  annotation_layers: []
   color_pn: true
   extra_form_data: {}
   groupby:
@@ -25,7 +24,7 @@ params:
   temporal_columns_lookup: {}
   time_grain_sqla: P1D
   viz_type: table
-query_context: null
+query_context: '{"datasource":{"id":1180,"type":"table"},"force":false,"queries":[{"filters":[],"extras":{"time_grain_sqla":"P1D","having":"","where":""},"applied_time_extras":{},"columns":["name","username","email"],"metrics":[],"orderby":[],"annotation_layers":[],"row_limit":1000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[]}],"form_data":{"datasource":"1180__table","viz_type":"table","slice_id":2128,"query_mode":"aggregate","groupby":["name","username","email"],"time_grain_sqla":"P1D","temporal_columns_lookup":{},"all_columns":[],"percent_metrics":[],"adhoc_filters":[],"order_by_cols":[],"row_limit":1000,"server_page_length":10,"order_desc":true,"table_timestamp_format":"smart_date","show_cell_bars":true,"color_pn":true,"extra_form_data":{},"dashboards":[5800],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
 slice_name: At-risk learners
 uuid: 447a194b-dbed-4a82-a899-2df8e01e84b1
 version: 1.0.0

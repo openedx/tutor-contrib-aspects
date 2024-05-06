@@ -170,5 +170,5 @@ schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: null
 table_name: dim_at_risk_learners
 template_params: {}
-uuid: 08f1477c-0628-5172-ae36-55e267796375
+uuid: 8621b581-99c4-5358-9385-fe81ffc1ec01
 version: 1.0.0
