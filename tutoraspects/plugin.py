@@ -84,7 +84,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                     "allow_translations": True,
                 },
                 {
-                    "name": "Learner Groups Dashboard",
+                    "name": "At-Risk Learners Dashboard",
                     "slug": "learner-groups",
                     "uuid": "8661d20c-cee6-4245-9fcc-610daea5fd24",
                     "allow_translations": True,
