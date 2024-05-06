@@ -137,10 +137,10 @@ class Asset:
                     else:
                         content[key] = existing[key]
 
-            if isinstance(existing[key], dict):
+            if isinstance(content[key], dict):
                 self.omit_templated_vars(content[key], existing[key])
 
-            if isinstance(existing[key], list):
+            if isinstance(content[key], list):
                 for i, item in enumerate(content[key]):
                     if isinstance(item, dict):
                         try:
@@ -161,7 +161,7 @@ class ChartAsset(Asset):
         "params.datasource",
         "params.slice_id",
     ]
-    raw_vars = ["sqlExpression", "query_context"]
+    raw_vars = ["query_context"]
 
 
 class DashboardAsset(Asset):
