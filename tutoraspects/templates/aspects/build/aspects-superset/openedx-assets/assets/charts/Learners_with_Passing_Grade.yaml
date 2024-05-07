@@ -18,6 +18,7 @@ params:
     operatorId: IN
     sqlExpression: null
     subject: approving_state
+  annotation_layers: []
   conditional_formatting:
   - colorScheme: '#ACE1C4'
     column: Number of Learners
