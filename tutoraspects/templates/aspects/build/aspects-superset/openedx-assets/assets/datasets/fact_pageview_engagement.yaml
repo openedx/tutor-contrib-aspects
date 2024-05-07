@@ -152,7 +152,7 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |-
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_pageview_engagement.sql' %}{% endfilter %}
+  select * from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_pageview_engagement
 table_name: fact_pageview_engagement
 template_params: {}
 uuid: 9febd6be-5102-4dbf-86b9-45ebd3cbbc45

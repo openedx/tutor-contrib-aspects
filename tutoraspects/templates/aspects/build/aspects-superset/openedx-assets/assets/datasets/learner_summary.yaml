@@ -1,0 +1,238 @@
+_file_name: learner_summary.yaml
+always_filter_main_dttm: false
+cache_timeout: null
+columns:
+- advanced_data_type: null
+  column_name: course_grade
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Float64
+  verbose_name: Course grade
+- advanced_data_type: null
+  column_name: course_name
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Name
+- advanced_data_type: null
+  column_name: course_run
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Run
+- advanced_data_type: null
+  column_name: emission_time
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DateTime
+  verbose_name: Enrollment date
+- advanced_data_type: null
+  column_name: last_visited
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DateTime
+  verbose_name: Last visited
+- advanced_data_type: null
+  column_name: enrollment_status
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Enrollment status
+- advanced_data_type: null
+  column_name: enrollment_mode
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Enrollment track
+- advanced_data_type: null
+  column_name: grade_bucket
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Grade range
+- advanced_data_type: null
+  column_name: approving_state
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Passed/Failed
+- advanced_data_type: null
+  column_name: email
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Email
+- advanced_data_type: null
+  column_name: name
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Name
+- advanced_data_type: null
+  column_name: org
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Organization
+- advanced_data_type: null
+  column_name: username
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Username
+- advanced_data_type: null
+  column_name: actor_id
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Actor Id
+- advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Key
+- advanced_data_type: null
+  column_name: user_info
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: User Info
+database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+default_endpoint: null
+description: null
+extra: null
+fetch_values_predicate: null
+filter_select_enabled: true
+main_dttm_col: emission_time
+metrics:
+- currency: null
+  d3format: null
+  description: null
+  expression: COUNT(*)
+  extra:
+    warning_markdown: ''
+  metric_name: count
+  metric_type: count
+  verbose_name: COUNT(*)
+  warning_text: null
+normalize_columns: false
+offset: 0
+params: null
+schema: reporting
+sql: "WITH latest_emission_time AS (\r\n    SELECT \r\n        actor_id,\r\n     \
+  \   MAX(emission_time) AS last_visited\r\n    FROM \r\n        `reporting`.`fact_navigation`\r\
+  \n    GROUP BY \r\n        actor_id\r\n)\r\nSELECT \r\n    fss.org AS org,\r\n \
+  \   fss.course_key AS course_key,\r\n    fss.actor_id AS actor_id,\r\n    fss.course_name\
+  \ AS course_name,\r\n    fss.course_run AS course_run,\r\n    fss.approving_state\
+  \ AS approving_state,\r\n    fss.enrollment_mode AS enrollment_mode,\r\n    fss.enrollment_status\
+  \ AS enrollment_status,\r\n    fss.course_grade AS course_grade,\r\n    fss.grade_bucket\
+  \ AS grade_bucket,\r\n    fss.username AS username,\r\n    fss.name AS name,\r\n\
+  \    fss.email AS email,\r\n    fes.max_emission_time AS emission_time,\r\n    let.last_visited\
+  \ AS last_visited,\r\n    concat(fss.username, ' - ', fss.name, ' - ', fss.email)\
+  \ AS user_info\r\nFROM \r\n    `reporting`.`fact_student_status` fss\r\nLEFT JOIN\
+  \ (\r\n    SELECT \r\n        course_key,\r\n        actor_id,\r\n        MAX(emission_time)\
+  \ AS max_emission_time\r\n    FROM \r\n        `reporting`.`fact_enrollment_status`\r\
+  \n    GROUP BY \r\n        course_key, \r\n        actor_id\r\n) fes ON fss.course_key\
+  \ = fes.course_key AND fss.actor_id = fes.actor_id\r\nLEFT JOIN latest_emission_time\
+  \ let ON fss.actor_id = let.actor_id;\r\n"
+table_name: learner_summary
+template_params: null
+uuid: 0d04c0d4-d864-4c3e-8a10-bf2e2e1fbc20
+version: 1.0.0

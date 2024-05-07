@@ -1,0 +1,132 @@
+_file_name: Video_views_per_subsection.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 247a55b3-d44e-442e-ba92-71bf7976b192
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: subsection
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_e4bt2n9f1ok_oprjb9a65pq
+    isExtra: false
+    isNew: false
+    operator: ==
+    operatorId: EQUALS
+    sqlExpression: null
+    subject: content level
+  - clause: WHERE
+    comparator: null
+    datasourceWarning: false
+    expressionType: SQL
+    filterOptionName: filter_wmehwxruk7h_kns096fcbqk
+    isExtra: false
+    isNew: false
+    operator: null
+    sqlExpression: |-
+      `section/subsection name` <> ''
+    subject: null
+  all_columns: []
+  color_pn: true
+  column_config:
+    All videos viewed:
+      d3NumberFormat: ',d'
+      d3SmallNumberFormat: ',d'
+    At least one video viewed:
+      d3NumberFormat: ',d'
+      d3SmallNumberFormat: ',d'
+  conditional_formatting:
+  - colorScheme: '#FDE380'
+    column: At least one video viewed
+    operator: "\u2265"
+    targetValue: 0
+  - colorScheme: '#ACE1C4'
+    column: All videos viewed
+    operator: "\u2265"
+    targetValue: 0
+  extra_form_data: {}
+  groupby:
+  - section/subsection name
+  metrics:
+  - aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: true
+    label: At least one video viewed
+    optionName: metric_pjnwyhoqed_98z4w1j60l
+    sqlExpression: |-
+      countIf("section/subsection video engagement" = 'At least one video viewed' or "section/subsection video engagement" = 'All videos viewed')
+  - aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: true
+    label: All videos viewed
+    optionName: metric_jo791jxqdd_ob1j1gmk0uh
+    sqlExpression: |-
+      countIf("section/subsection video engagement" = 'All videos viewed')
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 10000
+  server_page_length: 10
+  show_cell_bars: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup: {}
+  time_grain_sqla: P1M
+  viz_type: table
+query_context: "{\"datasource\":{\"id\":81,\"type\":\"table\"},\"force\":false,\"\
+  queries\":[{\"filters\":[{\"col\":\"content level\",\"op\":\"==\",\"val\":\"subsection\"\
+  }],\"extras\":{\"time_grain_sqla\":\"P1M\",\"having\":\"\",\"where\":\"(`section/subsection\
+  \ name` <> '')\"},\"applied_time_extras\":{},\"columns\":[\"section/subsection name\"\
+  ],\"metrics\":[{\"aggregate\":null,\"column\":null,\"datasourceWarning\":false,\"\
+  expressionType\":\"SQL\",\"hasCustomLabel\":true,\"label\":\"At least one video\
+  \ viewed\",\"optionName\":\"metric_pjnwyhoqed_98z4w1j60l\",\"sqlExpression\":\"\
+  countIf(\\\"section/subsection video engagement\\\" = 'At least one video viewed'\
+  \ or \\\"section/subsection video engagement\\\" = 'All videos viewed')\"},{\"aggregate\"\
+  :null,\"column\":null,\"datasourceWarning\":false,\"expressionType\":\"SQL\",\"\
+  hasCustomLabel\":true,\"label\":\"All videos viewed\",\"optionName\":\"metric_jo791jxqdd_ob1j1gmk0uh\"\
+  ,\"sqlExpression\":\"countIf(\\\"section/subsection video engagement\\\" = 'All\
+  \ videos viewed')\"}],\"orderby\":[[{\"aggregate\":null,\"column\":null,\"datasourceWarning\"\
+  :false,\"expressionType\":\"SQL\",\"hasCustomLabel\":true,\"label\":\"At least one\
+  \ video viewed\",\"optionName\":\"metric_pjnwyhoqed_98z4w1j60l\",\"sqlExpression\"\
+  :\"countIf(\\\"section/subsection video engagement\\\" = 'At least one video viewed'\
+  \ or \\\"section/subsection video engagement\\\" = 'All videos viewed')\"},false]],\"\
+  annotation_layers\":[],\"row_limit\":10000,\"series_limit\":0,\"order_desc\":true,\"\
+  url_params\":{},\"custom_params\":{},\"custom_form_data\":{},\"post_processing\"\
+  :[]}],\"form_data\":{\"datasource\":\"81__table\",\"viz_type\":\"table\",\"slice_id\"\
+  :114,\"query_mode\":\"aggregate\",\"groupby\":[\"section/subsection name\"],\"time_grain_sqla\"\
+  :\"P1M\",\"temporal_columns_lookup\":{},\"metrics\":[{\"aggregate\":null,\"column\"\
+  :null,\"datasourceWarning\":false,\"expressionType\":\"SQL\",\"hasCustomLabel\"\
+  :true,\"label\":\"At least one video viewed\",\"optionName\":\"metric_pjnwyhoqed_98z4w1j60l\"\
+  ,\"sqlExpression\":\"countIf(\\\"section/subsection video engagement\\\" = 'At least\
+  \ one video viewed' or \\\"section/subsection video engagement\\\" = 'All videos\
+  \ viewed')\"},{\"aggregate\":null,\"column\":null,\"datasourceWarning\":false,\"\
+  expressionType\":\"SQL\",\"hasCustomLabel\":true,\"label\":\"All videos viewed\"\
+  ,\"optionName\":\"metric_jo791jxqdd_ob1j1gmk0uh\",\"sqlExpression\":\"countIf(\\\
+  \"section/subsection video engagement\\\" = 'All videos viewed')\"}],\"all_columns\"\
+  :[],\"percent_metrics\":[],\"adhoc_filters\":[{\"clause\":\"WHERE\",\"comparator\"\
+  :\"subsection\",\"datasourceWarning\":false,\"expressionType\":\"SIMPLE\",\"filterOptionName\"\
+  :\"filter_e4bt2n9f1ok_oprjb9a65pq\",\"isExtra\":false,\"isNew\":false,\"operator\"\
+  :\"==\",\"operatorId\":\"EQUALS\",\"sqlExpression\":null,\"subject\":\"content level\"\
+  },{\"clause\":\"WHERE\",\"comparator\":null,\"datasourceWarning\":false,\"expressionType\"\
+  :\"SQL\",\"filterOptionName\":\"filter_wmehwxruk7h_kns096fcbqk\",\"isExtra\":false,\"\
+  isNew\":false,\"operator\":null,\"sqlExpression\":\"`section/subsection name` <>\
+  \ ''\",\"subject\":null}],\"order_by_cols\":[],\"row_limit\":10000,\"server_page_length\"\
+  :10,\"order_desc\":true,\"table_timestamp_format\":\"smart_date\",\"show_cell_bars\"\
+  :true,\"color_pn\":true,\"column_config\":{\"All videos viewed\":{\"d3NumberFormat\"\
+  :\",d\",\"d3SmallNumberFormat\":\",d\"},\"At least one video viewed\":{\"d3NumberFormat\"\
+  :\",d\",\"d3SmallNumberFormat\":\",d\"}},\"conditional_formatting\":[{\"colorScheme\"\
+  :\"#FDE380\",\"column\":\"At least one video viewed\",\"operator\":\"\u2265\",\"\
+  targetValue\":0},{\"colorScheme\":\"#ACE1C4\",\"column\":\"All videos viewed\",\"\
+  operator\":\"\u2265\",\"targetValue\":0}],\"extra_form_data\":{},\"dashboards\"\
+  :[17],\"force\":false,\"result_format\":\"json\",\"result_type\":\"full\"},\"result_format\"\
+  :\"json\",\"result_type\":\"full\"}"
+slice_name: Video views per subsection
+uuid: 91522305-32f0-4c6c-b92d-e3dc598b5c79
+version: 1.0.0
+viz_type: table

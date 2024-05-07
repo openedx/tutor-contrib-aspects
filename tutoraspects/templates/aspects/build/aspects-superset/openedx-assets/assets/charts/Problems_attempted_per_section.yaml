@@ -1,0 +1,124 @@
+_file_name: Problems_attempted_per_section.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 171c88e5-fd4b-4aab-b287-361fa6fa5415
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: section
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_wjodvc28g8_q60i2v0ebya
+    isExtra: false
+    isNew: false
+    operator: ==
+    operatorId: EQUALS
+    sqlExpression: null
+    subject: content level
+  - clause: WHERE
+    comparator: null
+    datasourceWarning: false
+    expressionType: SQL
+    filterOptionName: filter_pblvxh6ujkr_vnk6yoskj5
+    isExtra: false
+    isNew: false
+    operator: null
+    sqlExpression: |-
+      `section/subsection name` <> ''
+    subject: null
+  all_columns: []
+  color_pn: true
+  conditional_formatting:
+  - colorScheme: '#FDE380'
+    column: Attempted at least one problem
+    operator: "\u2265"
+    targetValue: 0
+  - colorScheme: '#ACE1C4'
+    column: Attempted all problems
+    operator: "\u2265"
+    targetValue: 0
+  extra_form_data: {}
+  groupby:
+  - section/subsection name
+  metrics:
+  - aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: true
+    label: Attempted at least one problem
+    optionName: metric_0gasd9pjc5y_44f8wzc1g3q
+    sqlExpression: |-
+      countIf("section/subsection problem engagement" = 'At least one problem attempted' or "section/subsection problem engagement" = 'All problems attempted')
+  - aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: true
+    label: Attempted all problems
+    optionName: metric_6ibge21tuod_k3hhlneae8f
+    sqlExpression: |-
+      countIf("section/subsection problem engagement" = 'All problems attempted')
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 10000
+  server_page_length: 10
+  show_cell_bars: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup: {}
+  time_grain_sqla: P1M
+  viz_type: table
+query_context: "{\"datasource\":{\"id\":82,\"type\":\"table\"},\"force\":false,\"\
+  queries\":[{\"filters\":[{\"col\":\"content level\",\"op\":\"==\",\"val\":\"section\"\
+  }],\"extras\":{\"time_grain_sqla\":\"P1M\",\"having\":\"\",\"where\":\"(`section/subsection\
+  \ name` <> '')\"},\"applied_time_extras\":{},\"columns\":[\"section/subsection name\"\
+  ],\"metrics\":[{\"aggregate\":null,\"column\":null,\"datasourceWarning\":false,\"\
+  expressionType\":\"SQL\",\"hasCustomLabel\":true,\"label\":\"Attempted at least\
+  \ one problem\",\"optionName\":\"metric_0gasd9pjc5y_44f8wzc1g3q\",\"sqlExpression\"\
+  :\"countIf(\\\"section/subsection problem engagement\\\" = 'At least one problem\
+  \ attempted' or \\\"section/subsection problem engagement\\\" = 'All problems attempted')\"\
+  },{\"aggregate\":null,\"column\":null,\"datasourceWarning\":false,\"expressionType\"\
+  :\"SQL\",\"hasCustomLabel\":true,\"label\":\"Attempted all problems\",\"optionName\"\
+  :\"metric_6ibge21tuod_k3hhlneae8f\",\"sqlExpression\":\"countIf(\\\"section/subsection\
+  \ problem engagement\\\" = 'All problems attempted')\"}],\"orderby\":[[{\"aggregate\"\
+  :null,\"column\":null,\"datasourceWarning\":false,\"expressionType\":\"SQL\",\"\
+  hasCustomLabel\":true,\"label\":\"Attempted at least one problem\",\"optionName\"\
+  :\"metric_0gasd9pjc5y_44f8wzc1g3q\",\"sqlExpression\":\"countIf(\\\"section/subsection\
+  \ problem engagement\\\" = 'At least one problem attempted' or \\\"section/subsection\
+  \ problem engagement\\\" = 'All problems attempted')\"},false]],\"annotation_layers\"\
+  :[],\"row_limit\":10000,\"series_limit\":0,\"order_desc\":true,\"url_params\":{},\"\
+  custom_params\":{},\"custom_form_data\":{},\"post_processing\":[]}],\"form_data\"\
+  :{\"datasource\":\"82__table\",\"viz_type\":\"table\",\"slice_id\":117,\"query_mode\"\
+  :\"aggregate\",\"groupby\":[\"section/subsection name\"],\"time_grain_sqla\":\"\
+  P1M\",\"temporal_columns_lookup\":{},\"metrics\":[{\"aggregate\":null,\"column\"\
+  :null,\"datasourceWarning\":false,\"expressionType\":\"SQL\",\"hasCustomLabel\"\
+  :true,\"label\":\"Attempted at least one problem\",\"optionName\":\"metric_0gasd9pjc5y_44f8wzc1g3q\"\
+  ,\"sqlExpression\":\"countIf(\\\"section/subsection problem engagement\\\" = 'At\
+  \ least one problem attempted' or \\\"section/subsection problem engagement\\\"\
+  \ = 'All problems attempted')\"},{\"aggregate\":null,\"column\":null,\"datasourceWarning\"\
+  :false,\"expressionType\":\"SQL\",\"hasCustomLabel\":true,\"label\":\"Attempted\
+  \ all problems\",\"optionName\":\"metric_6ibge21tuod_k3hhlneae8f\",\"sqlExpression\"\
+  :\"countIf(\\\"section/subsection problem engagement\\\" = 'All problems attempted')\"\
+  }],\"all_columns\":[],\"percent_metrics\":[],\"adhoc_filters\":[{\"clause\":\"WHERE\"\
+  ,\"comparator\":\"section\",\"datasourceWarning\":false,\"expressionType\":\"SIMPLE\"\
+  ,\"filterOptionName\":\"filter_wjodvc28g8_q60i2v0ebya\",\"isExtra\":false,\"isNew\"\
+  :false,\"operator\":\"==\",\"operatorId\":\"EQUALS\",\"sqlExpression\":null,\"subject\"\
+  :\"content level\"},{\"clause\":\"WHERE\",\"comparator\":null,\"datasourceWarning\"\
+  :false,\"expressionType\":\"SQL\",\"filterOptionName\":\"filter_pblvxh6ujkr_vnk6yoskj5\"\
+  ,\"isExtra\":false,\"isNew\":false,\"operator\":null,\"sqlExpression\":\"`section/subsection\
+  \ name` <> ''\",\"subject\":null}],\"order_by_cols\":[],\"row_limit\":10000,\"server_page_length\"\
+  :10,\"order_desc\":true,\"table_timestamp_format\":\"smart_date\",\"show_cell_bars\"\
+  :true,\"color_pn\":true,\"conditional_formatting\":[{\"colorScheme\":\"#FDE380\"\
+  ,\"column\":\"Attempted at least one problem\",\"operator\":\"\u2265\",\"targetValue\"\
+  :0},{\"colorScheme\":\"#ACE1C4\",\"column\":\"Attempted all problems\",\"operator\"\
+  :\"\u2265\",\"targetValue\":0}],\"extra_form_data\":{},\"dashboards\":[17],\"force\"\
+  :false,\"result_format\":\"json\",\"result_type\":\"full\"},\"result_format\":\"\
+  json\",\"result_type\":\"full\"}"
+slice_name: Problems attempted per section
+uuid: 6352da3d-7b36-4b1d-b613-c46725809540
+version: 1.0.0
+viz_type: table

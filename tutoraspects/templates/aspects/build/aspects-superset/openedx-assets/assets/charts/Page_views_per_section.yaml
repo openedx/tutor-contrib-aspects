@@ -1,0 +1,120 @@
+_file_name: Page_views_per_section.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 9febd6be-5102-4dbf-86b9-45ebd3cbbc45
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: section
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_z537engdspo_sd364pb246
+    isExtra: false
+    isNew: false
+    operator: ==
+    operatorId: EQUALS
+    sqlExpression: null
+    subject: content level
+  all_columns: []
+  color_pn: true
+  conditional_formatting:
+  - colorScheme: '#ACE1C4'
+    column: All pages viewed
+    operator: "\u2265"
+    targetValue: 0
+  - colorScheme: '#FDE380'
+    column: At least one page viewed
+    operator: "\u2265"
+    targetValue: 0
+  extra_form_data: {}
+  groupby:
+  - section/subsection name
+  metrics:
+  - aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: true
+    label: At least one page viewed
+    optionName: metric_oijxyr99vkc_bvobo3jivn
+    sqlExpression: |-
+      countIf("section/subsection page engagement" = 'At least one page viewed' or "section/subsection page engagement" = 'All pages viewed')
+  - aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: true
+    label: All pages viewed
+    optionName: metric_r2nyrw0dndj_mm2vbghwdb
+    sqlExpression: |-
+      countIf("section/subsection page engagement" = 'All pages viewed')
+  order_by_cols: []
+  order_desc: false
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 10000
+  server_page_length: 10
+  show_cell_bars: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup: {}
+  time_grain_sqla: P1M
+  timeseries_limit_metric:
+    aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: false
+    label: '1'
+    optionName: metric_wydpueuagb_z6oof4rys2l
+    sqlExpression: '1'
+  viz_type: table
+query_context: "{\"datasource\":{\"id\":80,\"type\":\"table\"},\"force\":false,\"\
+  queries\":[{\"filters\":[{\"col\":\"content level\",\"op\":\"==\",\"val\":\"section\"\
+  }],\"extras\":{\"time_grain_sqla\":\"P1M\",\"having\":\"\",\"where\":\"\"},\"applied_time_extras\"\
+  :{},\"columns\":[\"section/subsection name\"],\"metrics\":[{\"aggregate\":null,\"\
+  column\":null,\"datasourceWarning\":false,\"expressionType\":\"SQL\",\"hasCustomLabel\"\
+  :true,\"label\":\"At least one page viewed\",\"optionName\":\"metric_oijxyr99vkc_bvobo3jivn\"\
+  ,\"sqlExpression\":\"countIf(\\\"section/subsection page engagement\\\" = 'At least\
+  \ one page viewed' or \\\"section/subsection page engagement\\\" = 'All pages viewed')\"\
+  },{\"aggregate\":null,\"column\":null,\"datasourceWarning\":false,\"expressionType\"\
+  :\"SQL\",\"hasCustomLabel\":true,\"label\":\"All pages viewed\",\"optionName\":\"\
+  metric_r2nyrw0dndj_mm2vbghwdb\",\"sqlExpression\":\"countIf(\\\"section/subsection\
+  \ page engagement\\\" = 'All pages viewed')\"}],\"orderby\":[[{\"expressionType\"\
+  :\"SQL\",\"sqlExpression\":\"1\",\"column\":null,\"aggregate\":null,\"datasourceWarning\"\
+  :false,\"hasCustomLabel\":false,\"label\":\"1\",\"optionName\":\"metric_wydpueuagb_z6oof4rys2l\"\
+  },true]],\"annotation_layers\":[],\"row_limit\":10000,\"series_limit\":0,\"series_limit_metric\"\
+  :{\"expressionType\":\"SQL\",\"sqlExpression\":\"1\",\"column\":null,\"aggregate\"\
+  :null,\"datasourceWarning\":false,\"hasCustomLabel\":false,\"label\":\"1\",\"optionName\"\
+  :\"metric_wydpueuagb_z6oof4rys2l\"},\"order_desc\":false,\"url_params\":{},\"custom_params\"\
+  :{},\"custom_form_data\":{},\"post_processing\":[]}],\"form_data\":{\"datasource\"\
+  :\"80__table\",\"viz_type\":\"table\",\"slice_id\":115,\"query_mode\":\"aggregate\"\
+  ,\"groupby\":[\"section/subsection name\"],\"time_grain_sqla\":\"P1M\",\"temporal_columns_lookup\"\
+  :{},\"metrics\":[{\"aggregate\":null,\"column\":null,\"datasourceWarning\":false,\"\
+  expressionType\":\"SQL\",\"hasCustomLabel\":true,\"label\":\"At least one page viewed\"\
+  ,\"optionName\":\"metric_oijxyr99vkc_bvobo3jivn\",\"sqlExpression\":\"countIf(\\\
+  \"section/subsection page engagement\\\" = 'At least one page viewed' or \\\"section/subsection\
+  \ page engagement\\\" = 'All pages viewed')\"},{\"aggregate\":null,\"column\":null,\"\
+  datasourceWarning\":false,\"expressionType\":\"SQL\",\"hasCustomLabel\":true,\"\
+  label\":\"All pages viewed\",\"optionName\":\"metric_r2nyrw0dndj_mm2vbghwdb\",\"\
+  sqlExpression\":\"countIf(\\\"section/subsection page engagement\\\" = 'All pages\
+  \ viewed')\"}],\"all_columns\":[],\"percent_metrics\":[],\"adhoc_filters\":[{\"\
+  clause\":\"WHERE\",\"comparator\":\"section\",\"datasourceWarning\":false,\"expressionType\"\
+  :\"SIMPLE\",\"filterOptionName\":\"filter_z537engdspo_sd364pb246\",\"isExtra\":false,\"\
+  isNew\":false,\"operator\":\"==\",\"operatorId\":\"EQUALS\",\"sqlExpression\":null,\"\
+  subject\":\"content level\"}],\"timeseries_limit_metric\":{\"expressionType\":\"\
+  SQL\",\"sqlExpression\":\"1\",\"column\":null,\"aggregate\":null,\"datasourceWarning\"\
+  :false,\"hasCustomLabel\":false,\"label\":\"1\",\"optionName\":\"metric_wydpueuagb_z6oof4rys2l\"\
+  },\"order_by_cols\":[],\"row_limit\":10000,\"server_page_length\":10,\"order_desc\"\
+  :false,\"table_timestamp_format\":\"smart_date\",\"show_cell_bars\":true,\"color_pn\"\
+  :true,\"conditional_formatting\":[{\"colorScheme\":\"#ACE1C4\",\"column\":\"All\
+  \ pages viewed\",\"operator\":\"\u2265\",\"targetValue\":0},{\"colorScheme\":\"\
+  #FDE380\",\"column\":\"At least one page viewed\",\"operator\":\"\u2265\",\"targetValue\"\
+  :0}],\"extra_form_data\":{},\"dashboards\":[17],\"force\":false,\"result_format\"\
+  :\"json\",\"result_type\":\"full\"},\"result_format\":\"json\",\"result_type\":\"\
+  full\"}"
+slice_name: Page views per section
+uuid: 15c713d9-f1d3-4143-852e-0b5be84a387a
+version: 1.0.0
+viz_type: table
