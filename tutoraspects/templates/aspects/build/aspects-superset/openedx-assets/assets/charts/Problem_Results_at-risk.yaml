@@ -90,7 +90,7 @@ query_context: '{"datasource":{"id":1242,"type":"table"},"force":false,"queries"
   WHEN success THEN attempts ELSE 0 END)) /\n    SUM(attempts), 2\n  )"},{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":true,"label":"%
   Incorrect","optionName":"metric_3zuudx7dth3_e3j14ngnjxr","sqlExpression":" ROUND(\n    (SUM(CASE
   WHEN NOT success THEN attempts ELSE 0 END)) /\n    SUM(attempts), 2\n  )"}],"all_columns":[],"percent_metrics":[],"adhoc_filters":[{"clause":"WHERE","comparator":"No
-  filter","expressionType":"SIMPLE","operator":"TEMPORAL_RANGE","subject":"emission_time"}],"order_by_cols":[],"row_limit":1000,"server_page_length":10,"order_desc":true,"table_timestamp_format":"smart_date","show_cell_bars":true,"color_pn":true,"conditional_formatting":[],"extra_form_data":{},"dashboards":[5880],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+  filter","expressionType":"SIMPLE","operator":"TEMPORAL_RANGE","subject":"emission_time"}],"order_by_cols":[],"row_limit":1000,"server_page_length":10,"order_desc":true,"table_timestamp_format":"smart_date","show_cell_bars":true,"color_pn":true,"conditional_formatting":[],"extra_form_data":{},"dashboards":[6096],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
 slice_name: Problem Results (at-risk)
 uuid: 003e60b9-907d-4002-bf2e-7d315225ec29
 version: 1.0.0

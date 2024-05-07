@@ -39,6 +39,18 @@ columns:
   type: String
   verbose_name: Actor ID
 - advanced_data_type: null
+  column_name: grade_bucket
+  description: null
+  expression: null
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Grade Bucket
+- advanced_data_type: null
   column_name: course_key
   description: null
   expression: null
@@ -170,5 +182,5 @@ schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: null
 table_name: dim_at_risk_learners
 template_params: {}
-uuid: 56dc0d36-e847-5c0e-a320-b0d18aadcf3f
+uuid: 92eadc61-2931-577e-95b7-34adb1a8f515
 version: 1.0.0

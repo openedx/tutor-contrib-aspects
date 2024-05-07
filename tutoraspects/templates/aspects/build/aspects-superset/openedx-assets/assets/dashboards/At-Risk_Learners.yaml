@@ -26,6 +26,7 @@ metadata:
         - 2707
         - 2708
         - 2785
+        - 2805
         scope: global
       id: 2108
     '2128':
@@ -46,6 +47,7 @@ metadata:
         - 2707
         - 2708
         - 2785
+        - 2805
         scope: global
       id: 2128
     '2148':
@@ -66,6 +68,7 @@ metadata:
         - 2707
         - 2708
         - 2785
+        - 2805
         scope: global
       id: 2148
     '2168':
@@ -86,6 +89,7 @@ metadata:
         - 2707
         - 2708
         - 2785
+        - 2805
         scope: global
       id: 2168
     '2188':
@@ -106,6 +110,7 @@ metadata:
         - 2707
         - 2708
         - 2785
+        - 2805
         scope: global
       id: 2188
     '2208':
@@ -126,6 +131,7 @@ metadata:
         - 2707
         - 2708
         - 2785
+        - 2805
         scope: global
       id: 2208
     '2209':
@@ -146,6 +152,7 @@ metadata:
         - 2707
         - 2708
         - 2785
+        - 2805
         scope: global
       id: 2209
     '2210':
@@ -166,6 +173,7 @@ metadata:
         - 2707
         - 2708
         - 2785
+        - 2805
         scope: global
       id: 2210
     '2211':
@@ -186,6 +194,7 @@ metadata:
         - 2707
         - 2708
         - 2785
+        - 2805
         scope: global
       id: 2211
     '2664':
@@ -206,6 +215,7 @@ metadata:
         - 2707
         - 2708
         - 2785
+        - 2805
         scope: global
       id: 2664
     '2665':
@@ -226,6 +236,7 @@ metadata:
         - 2707
         - 2708
         - 2785
+        - 2805
         scope: global
       id: 2665
     '2705':
@@ -246,6 +257,7 @@ metadata:
         - 2707
         - 2708
         - 2785
+        - 2805
         scope: global
       id: 2705
     '2706':
@@ -266,6 +278,7 @@ metadata:
         - 2707
         - 2708
         - 2785
+        - 2805
         scope: global
       id: 2706
     '2707':
@@ -286,6 +299,7 @@ metadata:
         - 2706
         - 2708
         - 2785
+        - 2805
         scope: global
       id: 2707
     '2708':
@@ -306,6 +320,7 @@ metadata:
         - 2706
         - 2707
         - 2785
+        - 2805
         scope: global
       id: 2708
     '2785':
@@ -326,8 +341,30 @@ metadata:
         - 2706
         - 2707
         - 2708
+        - 2805
         scope: global
       id: 2785
+    '2805':
+      crossFilters:
+        chartsInScope:
+        - 2108
+        - 2128
+        - 2148
+        - 2168
+        - 2188
+        - 2208
+        - 2209
+        - 2210
+        - 2211
+        - 2664
+        - 2665
+        - 2705
+        - 2706
+        - 2707
+        - 2708
+        - 2785
+        scope: global
+      id: 2805
   color_scheme: supersetColors
   color_scheme_domain:
   - '#1FA8C9'
@@ -371,6 +408,7 @@ metadata:
     - 2707
     - 2708
     - 2785
+    - 2805
     scope:
       excluded: []
       rootPath:
@@ -801,6 +839,20 @@ position:
     - TAB-CRJ0LHIfEa
     - ROW-D_nOy1UKS
     type: CHART
+  CHART-explore-2805-1:
+    children: []
+    id: CHART-explore-2805-1
+    meta:
+      chartId: 2805
+      height: 50
+      sliceName: Distribution of Course Grades
+      uuid: cd3479d8-3574-4b77-9e1e-2ad176989b4d
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-Xdfl_TeC-D
+    type: CHART
   DASHBOARD_VERSION_KEY: v2
   GRID_ID:
     children:
@@ -947,6 +999,18 @@ position:
     - TABS-OsW2n-dsFI
     - TAB-YFvF29I04
     type: ROW
+  ROW-l6jLJIdb1:
+    children:
+    - CHART-explore-2805-1
+    id: ROW-l6jLJIdb1
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-nWjLboV5Q
+    type: ROW
   ROW-pj0KcXt7oq:
     children:
     - CHART-LmLX-39lXb
@@ -1052,7 +1116,8 @@ position:
     - TABS-OsW2n-dsFI
     type: TAB
   TAB-nWjLboV5Q:
-    children: []
+    children:
+    - ROW-l6jLJIdb1
     id: TAB-nWjLboV5Q
     meta:
       defaultText: Tab title
