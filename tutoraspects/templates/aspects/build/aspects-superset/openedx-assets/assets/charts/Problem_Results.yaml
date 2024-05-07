@@ -31,11 +31,11 @@ params:
       d3SmallNumberFormat: ',d'
   conditional_formatting:
   - colorScheme: '#ACE1C4'
-    column: '% Correct'
+    column: correct_percent
     operator: "\u2265"
     targetValue: 0
   - colorScheme: '#EFA1AA'
-    column: '% Incorrect'
+    column: incorrect_percent
     operator: "\u2265"
     targetValue: 0
   extra_form_data: {}

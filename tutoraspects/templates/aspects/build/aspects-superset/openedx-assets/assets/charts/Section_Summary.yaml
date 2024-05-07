@@ -15,11 +15,11 @@ params:
   color_pn: true
   conditional_formatting:
   - colorScheme: '#ACE1C4'
-    column: Number of Learners
+    column: number_of_learners
     operator: "\u2265"
     targetValue: 1
   - colorScheme: '#ACE1C4'
-    column: Views
+    column: views
     operator: "\u2265"
     targetValue: 1
   extra_form_data: {}

@@ -54,7 +54,7 @@ params:
   - course_run
   metrics:
   - graded_learners
-  - average_course_grade
+  - avg_course_grade
   - median_course_grade
   order_by_cols: []
   order_desc: true
@@ -67,7 +67,7 @@ params:
   temporal_columns_lookup: {}
   time_grain_sqla: P1D
   viz_type: table
-query_context: '{"datasource":{"id":282,"type":"table"},"force":false,"queries":[{"filters":[],"extras":{"time_grain_sqla":"P1D","having":"","where":""},"applied_time_extras":{},"columns":["org","course_key","course_name","course_run"],"metrics":["graded_learners","average_course_grade","median_course_grade"],"orderby":[["graded_learners",false]],"annotation_layers":[],"row_limit":1000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[]}],"form_data":{"datasource":"282__table","viz_type":"table","slice_id":528,"query_mode":"aggregate","groupby":["org","course_key","course_name","course_run"],"time_grain_sqla":"P1D","temporal_columns_lookup":{},"metrics":["graded_learners","average_course_grade","median_course_grade"],"all_columns":[],"percent_metrics":[],"adhoc_filters":[],"order_by_cols":[],"row_limit":1000,"server_page_length":10,"order_desc":true,"table_timestamp_format":"smart_date","show_cell_bars":true,"color_pn":true,"column_config":{"Avg
+query_context: '{"datasource":{"id":282,"type":"table"},"force":false,"queries":[{"filters":[],"extras":{"time_grain_sqla":"P1D","having":"","where":""},"applied_time_extras":{},"columns":["org","course_key","course_name","course_run"],"metrics":["graded_learners","avg_course_grade","median_course_grade"],"orderby":[["graded_learners",false]],"annotation_layers":[],"row_limit":1000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[]}],"form_data":{"datasource":"282__table","viz_type":"table","slice_id":528,"query_mode":"aggregate","groupby":["org","course_key","course_name","course_run"],"time_grain_sqla":"P1D","temporal_columns_lookup":{},"metrics":["graded_learners","avg_course_grade","median_course_grade"],"all_columns":[],"percent_metrics":[],"adhoc_filters":[],"order_by_cols":[],"row_limit":1000,"server_page_length":10,"order_desc":true,"table_timestamp_format":"smart_date","show_cell_bars":true,"color_pn":true,"column_config":{"Avg
   Course Grade":{"d3NumberFormat":"~g","d3SmallNumberFormat":"~g"},"Median Course
   Grade":{"d3NumberFormat":"~g","d3SmallNumberFormat":"~g"}},"conditional_formatting":[{"column":"graded_learners","colorScheme":"#ACE1C4","operator":">","targetValue":0}],"extra_form_data":{},"dashboards":[629],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
 slice_name: Course Information

@@ -208,7 +208,7 @@ metrics:
   expression: round(AVG(course_grade),2) * 100
   extra:
     warning_markdown: ''
-  metric_name: average_course_grade
+  metric_name: avg_course_grade
   metric_type: null
   verbose_name: Avg Course Grade
   warning_text: null

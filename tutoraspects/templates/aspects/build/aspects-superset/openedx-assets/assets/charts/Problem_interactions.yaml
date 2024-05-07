@@ -30,29 +30,29 @@ params:
       d3SmallNumberFormat: ',d'
   conditional_formatting:
   - colorScheme: '#ACE1C4'
-    column: Avg Attempts
+    column: avg_attemps
     operator: '='
     targetValue: 1
   - colorScheme: '#FDE380'
-    column: Avg Attempts
+    column: avg_attemps
     operator: "\u2264 x \u2264"
     targetValueLeft: '2'
     targetValueRight: '4'
   - colorScheme: '#EFA1AA'
-    column: Avg Attempts
+    column: avg_attemps
     operator: '>'
     targetValue: 4
   - colorScheme: '#ACE1C4'
-    column: Median of Attempts
+    column: median_attemps
     operator: <
     targetValue: 3
   - colorScheme: '#FDE380'
-    column: Median of Attempts
+    column: median_attemps
     operator: "\u2264 x \u2264"
     targetValueLeft: '3'
     targetValueRight: '5'
   - colorScheme: '#EFA1AA'
-    column: Median of Attempts
+    column: median_attemps
     operator: '>'
     targetValue: 5
   extra_form_data: {}

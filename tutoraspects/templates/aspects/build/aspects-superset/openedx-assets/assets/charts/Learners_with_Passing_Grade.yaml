@@ -20,7 +20,7 @@ params:
     subject: approving_state
   conditional_formatting:
   - colorScheme: '#ACE1C4'
-    column: Number of Learners
+    column: number_of_learners
     operator: "\u2265"
     targetValue: 0
   extra_form_data: {}
