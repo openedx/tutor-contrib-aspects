@@ -248,31 +248,34 @@ def import_assets():
     # performance_metric script however, so we keep them in the assets.
     # This just blanks them in the database after import, which forces a
     # query to get the assets instead of using the query context.
+    owners = get_owners()
     for o in db.session.query(Slice).all():
         if o.query_context:
             o.query_context = None
+        if owners:
+            o.owners = owners
     db.session.commit()
 
 
 def update_dashboard_roles(roles):
     """Update the roles of the dashboards"""
-    owners_username = {{SUPERSET_OWNERS}}
-
-    owners = []
-
-    for owner in owners_username:
-        user = security_manager.find_user(username=owner)
-        if user:
-            owners.append(user)
+    owners = get_owners()
 
     for dashboard_uuid, role_ids in roles.items():
-        logger.info(f"Importing dashboard roles: {dashboard_uuid} - {role_ids}")
         dashboard = db.session.query(Dashboard).filter_by(uuid=dashboard_uuid).one()
         dashboard.roles = role_ids
         if owners:
             dashboard.owners = owners
         db.session.commit()
 
+def get_owners():
+    owners_username = {{SUPERSET_OWNERS}}
+    owners = []
+    for owner in owners_username:
+        user = security_manager.find_user(username=owner)
+        if user:
+            owners.append(user)
+    return owners
 
 def update_embeddable_uuids():
     """Update the uuids of the embeddable dashboards"""
