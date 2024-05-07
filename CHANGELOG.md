@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.105.4 - 2024-05-07
+
+### [0.105.4](https://github.com/openedx/tutor-contrib-aspects/compare/v0.105.3...v0.105.4) (2024-05-07)
+
+### Bug Fixes
+
+* Import on openedx-translations ([#773](https://github.com/openedx/tutor-contrib-aspects/issues/773)) ([b6a78c2](https://github.com/openedx/tutor-contrib-aspects/commit/b6a78c2ebfdbb6ca1d3512deee4e1826000d9c8f))
+
 ## v0.105.3 - 2024-05-01
 
 ### [0.105.3](https://github.com/openedx/tutor-contrib-aspects/compare/v0.105.2...v0.105.3) (2024-05-01)
