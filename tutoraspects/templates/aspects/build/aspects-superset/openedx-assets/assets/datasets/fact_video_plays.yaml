@@ -3,10 +3,24 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
+  column_name: user_info
+  description: null
+  expression: |-
+    concat(username, '-', name, '-', email)
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: null
+  verbose_name: null
+- advanced_data_type: null
   column_name: video_name_with_location
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -18,7 +32,8 @@ columns:
   column_name: video_position
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -30,7 +45,8 @@ columns:
   column_name: subsection_with_name
   description: null
   expression: ''
-  extra: null
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -42,7 +58,8 @@ columns:
   column_name: section_with_name
   description: null
   expression: ''
-  extra: null
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -54,7 +71,8 @@ columns:
   column_name: video_duration
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -66,7 +84,8 @@ columns:
   column_name: actor_id
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -78,7 +97,8 @@ columns:
   column_name: visualization_bucket
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -90,7 +110,8 @@ columns:
   column_name: course_key
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -102,7 +123,8 @@ columns:
   column_name: course_name
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -114,7 +136,8 @@ columns:
   column_name: course_run
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -126,7 +149,8 @@ columns:
   column_name: emission_time
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -138,7 +162,8 @@ columns:
   column_name: video_id
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -147,10 +172,24 @@ columns:
   type: String
   verbose_name: Video ID
 - advanced_data_type: null
+  column_name: video_link
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Video Link
+- advanced_data_type: null
   column_name: video_name
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -162,7 +201,8 @@ columns:
   column_name: graded
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -174,7 +214,8 @@ columns:
   column_name: org
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -183,22 +224,11 @@ columns:
   type: String
   verbose_name: Organization
 - advanced_data_type: null
-  column_name: video_link
-  description: null
-  expression: ''
-  extra: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: null
-- advanced_data_type: null
   column_name: username
   description: null
   expression: ''
-  extra: null
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -210,7 +240,8 @@ columns:
   column_name: email
   description: null
   expression: ''
-  extra: null
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -222,7 +253,8 @@ columns:
   column_name: name
   description: null
   expression: ''
-  extra: null
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true

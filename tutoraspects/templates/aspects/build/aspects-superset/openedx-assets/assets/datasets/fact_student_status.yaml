@@ -6,7 +6,8 @@ columns:
   column_name: Course Grade
   description: null
   expression: course_grade * 100
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -18,151 +19,164 @@ columns:
   column_name: course_grade
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: Float64
-  verbose_name: null
-- advanced_data_type: null
-  column_name: approving_state
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: null
-- advanced_data_type: null
-  column_name: grade_bucket
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: null
-- advanced_data_type: null
-  column_name: actor_id
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: null
+  verbose_name: Course grade
 - advanced_data_type: null
   column_name: course_name
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
-- advanced_data_type: null
-  column_name: enrollment_status
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: null
-- advanced_data_type: null
-  column_name: course_key
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: null
+  verbose_name: Course Name
 - advanced_data_type: null
   column_name: course_run
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Course Run
+- advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course key
+- advanced_data_type: null
+  column_name: enrollment_status
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Enrollment status
 - advanced_data_type: null
   column_name: enrollment_mode
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Enrollment track
 - advanced_data_type: null
-  column_name: org
+  column_name: grade_bucket
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Grade range
 - advanced_data_type: null
-  column_name: username
+  column_name: approving_state
   description: null
   expression: ''
-  extra: null
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Passed/Failed
 - advanced_data_type: null
   column_name: email
   description: null
   expression: ''
-  extra: null
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Email
 - advanced_data_type: null
   column_name: name
   description: null
   expression: ''
-  extra: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Name
+- advanced_data_type: null
+  column_name: org
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Organization
+- advanced_data_type: null
+  column_name: username
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Username
+- advanced_data_type: null
+  column_name: actor_id
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true

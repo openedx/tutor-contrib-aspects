@@ -3,19 +3,20 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: video_name_with_location
+  column_name: user_info
   description: null
-  expression: ''
+  expression: |-
+    concat(username, '-', name, '-', email)
   extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
-  verbose_name: Video Name With Location
+  type: null
+  verbose_name: null
 - advanced_data_type: null
-  column_name: segment_start
+  column_name: video_duration
   description: null
   expression: ''
   extra: {}
@@ -25,19 +26,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: Int64
-  verbose_name: Segment Start
-- advanced_data_type: null
-  column_name: actor_id
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Actor ID
+  verbose_name: null
 - advanced_data_type: null
   column_name: started_at
   description: null
@@ -49,9 +38,9 @@ columns:
   is_dttm: true
   python_date_format: null
   type: DateTime
-  verbose_name: Started At
+  verbose_name: null
 - advanced_data_type: null
-  column_name: course_key
+  column_name: video_name_with_location
   description: null
   expression: ''
   extra: {}
@@ -61,7 +50,19 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Course Key
+  verbose_name: null
+- advanced_data_type: null
+  column_name: actor_id
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: null
 - advanced_data_type: null
   column_name: course_name
   description: null
@@ -73,19 +74,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Course Name
-- advanced_data_type: null
-  column_name: course_run
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Run
+  verbose_name: null
 - advanced_data_type: null
   column_name: video_name
   description: null
@@ -97,7 +86,79 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Video Name
+  verbose_name: null
+- advanced_data_type: null
+  column_name: segment_range
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: null
+- advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: null
+- advanced_data_type: null
+  column_name: course_run
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: null
+- advanced_data_type: null
+  column_name: username
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: null
+- advanced_data_type: null
+  column_name: email
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: null
+- advanced_data_type: null
+  column_name: name
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: null
 - advanced_data_type: null
   column_name: org
   description: null
@@ -109,12 +170,12 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Organization
+  verbose_name: null
 - advanced_data_type: null
-  column_name: video_duration
+  column_name: start_position
   description: null
-  expression: ''
-  extra: null
+  expression: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -145,7 +206,7 @@ metrics:
   expression: count(*)
   extra:
     warning_markdown: ''
-  metric_name: count
+  metric_name: total_views
   metric_type: null
   verbose_name: Total Views
   warning_text: null
@@ -163,7 +224,7 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |-
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_watched_video_segments.sql' %}{% endfilter %}
+  select * from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_watched_video_segments
 table_name: fact_watched_video_segments
 template_params: null
 uuid: c2c391b3-3403-4f05-bc0b-3de53bd366ec
