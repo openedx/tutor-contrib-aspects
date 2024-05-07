@@ -79,7 +79,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             [
                 {
                     "name": "Course Dashboard",
-                    "slug": "course-dashboard-v1",
+                    "slug": "course-dashboard",
                     "uuid": "c0e64194-33d1-4d5a-8c10-4f51530c5ee9",
                     "allow_translations": True,
                 },
@@ -103,7 +103,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "SUPERSET_EMBEDDABLE_DASHBOARDS",
             {
-                "course-dashboard-v1": "c0e64194-33d1-4d5a-8c10-4f51530c5ee9",
+                "course-dashboard": "c0e64194-33d1-4d5a-8c10-4f51530c5ee9",
                 "learner-groups": "8661d20c-cee6-4245-9fcc-610daea5fd24",
                 "individual-learner": "abae8a25-1ba4-4653-81bd-d3937a162a11",
             },
