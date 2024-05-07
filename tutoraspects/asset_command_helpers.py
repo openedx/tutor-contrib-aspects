@@ -123,7 +123,7 @@ class Asset:
         Omit templated variables from the content if they are not present in
         the existing file content.
         """
-        if not content or not existing:
+        if not isinstance(content, dict) or not isinstance(existing, dict):
             return
 
         for key in content.keys():
