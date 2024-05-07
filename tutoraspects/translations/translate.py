@@ -1,8 +1,16 @@
 """Interface for the translations."""
 
+import os
+import site
 import sys
 
 import click
+
+# Ensure that our whole source tree is on the path, otherwise actions in
+# openedx-translations will fail.
+site.addsitedir(os.path.join(os.path.dirname(__file__), "../.."))
+
+# pylint: disable=wrong-import-position
 from tutoraspects.translations.translate_utils import (
     compile_translations,
     extract_translations,
