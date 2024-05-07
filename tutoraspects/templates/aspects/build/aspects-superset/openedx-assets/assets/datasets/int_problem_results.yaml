@@ -15,7 +15,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: null
-  verbose_name: null
+  verbose_name: Result
 - advanced_data_type: null
   column_name: problem_name_with_location
   description: null
@@ -54,7 +54,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: Int16
-  verbose_name: null
+  verbose_name: Attempts
 - advanced_data_type: null
   column_name: graded
   description: null
@@ -80,7 +80,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: Bool
-  verbose_name: null
+  verbose_name: Success
 - advanced_data_type: null
   column_name: emission_time
   description: null
@@ -93,7 +93,7 @@ columns:
   is_dttm: true
   python_date_format: null
   type: DateTime
-  verbose_name: null
+  verbose_name: Emission Time
 - advanced_data_type: null
   column_name: problem_name
   description: null
@@ -106,7 +106,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Problem Name
 - advanced_data_type: null
   column_name: actor_id
   description: null
@@ -119,7 +119,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Actor Id
 - advanced_data_type: null
   column_name: course_name
   description: null
@@ -132,7 +132,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Course Name
 - advanced_data_type: null
   column_name: problem_id
   description: null
@@ -145,7 +145,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Problem Id
 - advanced_data_type: null
   column_name: course_key
   description: null
@@ -158,7 +158,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Course Key
 - advanced_data_type: null
   column_name: course_run
   description: null
@@ -171,7 +171,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Course Run
 - advanced_data_type: null
   column_name: responses
   description: null
@@ -184,7 +184,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Responses
 - advanced_data_type: null
   column_name: org
   description: null
@@ -197,7 +197,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Org
 - advanced_data_type: null
   column_name: interaction_type
   description: null
@@ -210,7 +210,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Interaction Type
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
