@@ -6,8 +6,7 @@ columns:
   column_name: section/subsection page engagement
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -16,37 +15,10 @@ columns:
   type: String
   verbose_name: Section/Subsection Page Engagement
 - advanced_data_type: null
-  column_name: subsection_with_name
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Subsection Name
-- advanced_data_type: null
-  column_name: section_with_name
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Section Name
-- advanced_data_type: null
   column_name: section/subsection name
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -58,8 +30,7 @@ columns:
   column_name: content level
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -71,8 +42,7 @@ columns:
   column_name: actor_id
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -84,8 +54,7 @@ columns:
   column_name: course_key
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -97,8 +66,7 @@ columns:
   column_name: course_run
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -107,11 +75,34 @@ columns:
   type: String
   verbose_name: Course Run
 - advanced_data_type: null
+  column_name: subsection_with_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Subsection Name
+- advanced_data_type: null
+  column_name: section_with_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Section Name
+- advanced_data_type: null
   column_name: org
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -127,6 +118,27 @@ fetch_values_predicate: null
 filter_select_enabled: false
 main_dttm_col: null
 metrics:
+- currency: null
+  d3format: null
+  description: null
+  expression: |-
+    countIf("section/subsection video engagement" = 'At least one video viewed' or "section/subsection video engagement" = 'All videos viewed')
+  extra:
+    warning_markdown: ''
+  metric_name: at_least_one_viewed
+  metric_type: null
+  verbose_name: At Leat One Viewed
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: |-
+    countIf("section/subsection video engagement" = 'All videos viewed')
+  extra: {}
+  metric_name: all_videos_viewed
+  metric_type: null
+  verbose_name: All Videos Viewed
+  warning_text: null
 - currency: null
   d3format: null
   description: null
