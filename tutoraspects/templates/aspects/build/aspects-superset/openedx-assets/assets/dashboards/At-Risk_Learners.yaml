@@ -1,10 +1,10 @@
-_file_name: Learner_Groups_Reports.yaml
+_file_name: At-Risk_Learners.yaml
 _roles:
 - '{{ SUPERSET_ROLES_MAPPING.instructor }}'
 certification_details: ''
 certified_by: ''
 css: ''
-dashboard_title: Learner Groups Reports
+dashboard_title: At-Risk Learners
 description: null
 metadata:
   chart_configuration:
@@ -351,6 +351,7 @@ metadata:
   - '#9EE5E5'
   - '#D1C6BC'
   cross_filters_enabled: true
+  default_filters: '{}'
   expanded_slices: {}
   global_chart_configuration:
     chartsInScope:
@@ -508,19 +509,7 @@ metadata:
     id: NATIVE_FILTER-5Hw7wF_4w
     name: Date
     scope:
-      excluded:
-      - 2108
-      - 2128
-      - 2148
-      - 2168
-      - 2188
-      - 2664
-      - 2665
-      - 2705
-      - 2706
-      - 2707
-      - 2708
-      - 2785
+      excluded: []
       rootPath:
       - ROOT_ID
     tabsInScope:
@@ -529,19 +518,7 @@ metadata:
     - {}
     type: NATIVE_FILTER
   refresh_frequency: 0
-  shared_label_colors:
-    All pages viewed: '#ACE1C4'
-    All problems attempted: '#3CCCCB'
-    All videos viewed: '#666666'
-    At least one page viewed: '#A38F79'
-    At least one problem attempted: '#E04355'
-    At least one video viewed: '#454E7C'
-    Full Views: '#5AC189'
-    Partial Views: '#1FA8C9'
-    Total Learners: '#A868B7'
-    Total Views: '#8FD3E4'
-    repeat_views: '#FCC700'
-    unique_viewers: '#FF7F44'
+  shared_label_colors: {}
   timed_refresh_immune_slices: []
 position:
   CHART-LmLX-39lXb:
@@ -835,7 +812,7 @@ position:
   HEADER_ID:
     id: HEADER_ID
     meta:
-      text: Learner Groups Reports
+      text: At-Risk Learners
     type: HEADER
   ROOT_ID:
     children:

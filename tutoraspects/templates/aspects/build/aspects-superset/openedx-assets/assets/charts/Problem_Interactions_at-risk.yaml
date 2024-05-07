@@ -81,7 +81,7 @@ query_context: '{"datasource":{"id":1242,"type":"table"},"force":false,"queries"
   of Attempts","optionName":"metric_mvxmpqpzo3d_pk4liyfd228","sqlExpression":"quantile(0.5)(attempts)
   "},{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":true,"label":"Avg
   Attempts","optionName":"metric_brfoafrujzf_mf5rmpmbu","sqlExpression":"SUM(attempts)/COUNT(actor_id)"}],"all_columns":[],"percent_metrics":[],"adhoc_filters":[{"clause":"WHERE","comparator":"No
-  filter","expressionType":"SIMPLE","operator":"TEMPORAL_RANGE","subject":"emission_time"}],"order_by_cols":[],"row_limit":1000,"server_page_length":10,"order_desc":true,"table_timestamp_format":"smart_date","show_cell_bars":true,"color_pn":true,"conditional_formatting":[],"extra_form_data":{},"dashboards":[5800],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+  filter","expressionType":"SIMPLE","operator":"TEMPORAL_RANGE","subject":"emission_time"}],"order_by_cols":[],"row_limit":1000,"server_page_length":10,"order_desc":true,"table_timestamp_format":"smart_date","show_cell_bars":true,"color_pn":true,"conditional_formatting":[],"extra_form_data":{},"dashboards":[5880],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
 slice_name: Problem Interactions (at-risk)
 uuid: d3b9fa1e-f0ab-41e5-9705-27c7c58e620c
 version: 1.0.0
