@@ -161,7 +161,7 @@ class ChartAsset(Asset):
         "params.datasource",
         "params.slice_id",
     ]
-    raw_vars = ["query_context"]
+    raw_vars = ["sqlExpression", "query_context"]
 
 
 class DashboardAsset(Asset):
