@@ -153,7 +153,6 @@ class Asset:
         """
         Process the asset content before writing it to a file.
         """
-        pass
 
 
 class ChartAsset(Asset):
@@ -199,6 +198,10 @@ class DatasetAsset(Asset):
         for column in content.get("columns", []):
             if not column.get("verbose_name"):
                 column["verbose_name"] = column["column_name"].replace("_", " ").title()
+
+        for metric in content.get("metrics", []):
+            if not metric.get("verbose_name"):
+                metric["verbose_name"] = metric["metric_name"].replace("_", " ").title()
 
 
 class DatabaseAsset(Asset):

@@ -113,7 +113,7 @@ metrics:
   extra: {}
   metric_name: count
   metric_type: null
-  verbose_name: null
+  verbose_name: Count
   warning_text: null
 normalize_columns: true
 offset: 0
