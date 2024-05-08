@@ -1,0 +1,170 @@
+_file_name: fact_at_risk_watched_video_segments.yaml
+always_filter_main_dttm: false
+cache_timeout: null
+columns:
+- advanced_data_type: null
+  column_name: video_name_with_location
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Video Name With Location
+- advanced_data_type: null
+  column_name: segment_start
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int64
+  verbose_name: Segment Start
+- advanced_data_type: null
+  column_name: actor_id
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Actor ID
+- advanced_data_type: null
+  column_name: started_at
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DateTime
+  verbose_name: Started At
+- advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Key
+- advanced_data_type: null
+  column_name: course_name
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Name
+- advanced_data_type: null
+  column_name: course_run
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Run
+- advanced_data_type: null
+  column_name: video_name
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Video Name
+- advanced_data_type: null
+  column_name: org
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Organization
+- advanced_data_type: null
+  column_name: video_duration
+  description: null
+  expression: ''
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int64
+  verbose_name: null
+database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+default_endpoint: null
+description: null
+extra: {}
+fetch_values_predicate: null
+filter_select_enabled: false
+main_dttm_col: started_at
+metrics:
+- currency: null
+  d3format: null
+  description: null
+  expression: count(*) - count(distinct actor_id)
+  extra: {}
+  metric_name: repeat_views
+  metric_type: null
+  verbose_name: Repeat Views
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: count(*)
+  extra:
+    warning_markdown: ''
+  metric_name: count
+  metric_type: null
+  verbose_name: Total Views
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: count(distinct actor_id)
+  extra: {}
+  metric_name: unique_viewers
+  metric_type: null
+  verbose_name: Unique Viewers
+  warning_text: null
+normalize_columns: true
+offset: 0
+params: null
+schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
+sql: |-
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_at_risk_watched_video_segments.sql' %}{% endfilter %}
+table_name: fact_at_risk_watched_video_segments
+template_params: null
+uuid: c2f0e842-738d-41a0-9ea6-51e32b7fab82
+version: 1.0.0

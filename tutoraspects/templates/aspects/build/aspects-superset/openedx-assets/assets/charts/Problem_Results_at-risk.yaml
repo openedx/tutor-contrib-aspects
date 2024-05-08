@@ -1,0 +1,97 @@
+_file_name: Problem_Results_at-risk.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 4df7005e-3a7e-4979-a4e3-e70f22d36daa
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_time
+  all_columns: []
+  color_pn: true
+  conditional_formatting: []
+  extra_form_data: {}
+  groupby:
+  - problem_name_with_location
+  metrics:
+  - aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: true
+    label: Correct Attempts
+    optionName: metric_rqulghfc2m_gtwrvu4imq
+    sqlExpression: SUM(CASE WHEN success THEN attempts ELSE 0 END)
+  - aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: true
+    label: Incorrect Attempts
+    optionName: metric_2pn4wmt4mhw_d3bfmf9hpqi
+    sqlExpression: SUM(CASE WHEN NOT success THEN attempts ELSE 0 END)
+  - aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: true
+    label: '% Correct'
+    optionName: metric_rxhpd0zy3a_l5nc215rcs8
+    sqlExpression: |2-
+        ROUND(
+          (SUM(CASE WHEN success THEN attempts ELSE 0 END)) /
+          SUM(attempts), 2
+        )
+  - aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: true
+    label: '% Incorrect'
+    optionName: metric_3zuudx7dth3_e3j14ngnjxr
+    sqlExpression: |2-
+       ROUND(
+          (SUM(CASE WHEN NOT success THEN attempts ELSE 0 END)) /
+          SUM(attempts), 2
+        )
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 1000
+  server_page_length: 10
+  show_cell_bars: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup:
+    emission_time: true
+  time_grain_sqla: P1D
+  viz_type: table
+query_context: '{"datasource":{"id":1242,"type":"table"},"force":false,"queries":[{"filters":[{"col":"emission_time","op":"TEMPORAL_RANGE","val":"No
+  filter"}],"extras":{"time_grain_sqla":"P1D","having":"","where":""},"applied_time_extras":{},"columns":["problem_name_with_location"],"metrics":[{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":true,"label":"Correct
+  Attempts","optionName":"metric_rqulghfc2m_gtwrvu4imq","sqlExpression":"SUM(CASE
+  WHEN success THEN attempts ELSE 0 END)"},{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":true,"label":"Incorrect
+  Attempts","optionName":"metric_2pn4wmt4mhw_d3bfmf9hpqi","sqlExpression":"SUM(CASE
+  WHEN NOT success THEN attempts ELSE 0 END)"},{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":true,"label":"%
+  Correct","optionName":"metric_rxhpd0zy3a_l5nc215rcs8","sqlExpression":"  ROUND(\n    (SUM(CASE
+  WHEN success THEN attempts ELSE 0 END)) /\n    SUM(attempts), 2\n  )"},{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":true,"label":"%
+  Incorrect","optionName":"metric_3zuudx7dth3_e3j14ngnjxr","sqlExpression":" ROUND(\n    (SUM(CASE
+  WHEN NOT success THEN attempts ELSE 0 END)) /\n    SUM(attempts), 2\n  )"}],"orderby":[[{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":true,"label":"Correct
+  Attempts","optionName":"metric_rqulghfc2m_gtwrvu4imq","sqlExpression":"SUM(CASE
+  WHEN success THEN attempts ELSE 0 END)"},false]],"annotation_layers":[],"row_limit":1000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[]}],"form_data":{"datasource":"1242__table","viz_type":"table","slice_id":2665,"query_mode":"aggregate","groupby":["problem_name_with_location"],"time_grain_sqla":"P1D","temporal_columns_lookup":{"emission_time":true},"metrics":[{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":true,"label":"Correct
+  Attempts","optionName":"metric_rqulghfc2m_gtwrvu4imq","sqlExpression":"SUM(CASE
+  WHEN success THEN attempts ELSE 0 END)"},{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":true,"label":"Incorrect
+  Attempts","optionName":"metric_2pn4wmt4mhw_d3bfmf9hpqi","sqlExpression":"SUM(CASE
+  WHEN NOT success THEN attempts ELSE 0 END)"},{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":true,"label":"%
+  Correct","optionName":"metric_rxhpd0zy3a_l5nc215rcs8","sqlExpression":"  ROUND(\n    (SUM(CASE
+  WHEN success THEN attempts ELSE 0 END)) /\n    SUM(attempts), 2\n  )"},{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":true,"label":"%
+  Incorrect","optionName":"metric_3zuudx7dth3_e3j14ngnjxr","sqlExpression":" ROUND(\n    (SUM(CASE
+  WHEN NOT success THEN attempts ELSE 0 END)) /\n    SUM(attempts), 2\n  )"}],"all_columns":[],"percent_metrics":[],"adhoc_filters":[{"clause":"WHERE","comparator":"No
+  filter","expressionType":"SIMPLE","operator":"TEMPORAL_RANGE","subject":"emission_time"}],"order_by_cols":[],"row_limit":1000,"server_page_length":10,"order_desc":true,"table_timestamp_format":"smart_date","show_cell_bars":true,"color_pn":true,"conditional_formatting":[],"extra_form_data":{},"dashboards":[6096],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+slice_name: Problem Results (at-risk)
+uuid: 003e60b9-907d-4002-bf2e-7d315225ec29
+version: 1.0.0
+viz_type: table

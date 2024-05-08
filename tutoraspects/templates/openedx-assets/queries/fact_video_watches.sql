@@ -21,6 +21,12 @@ where
     {% if filter_values("Subsection Name") != [] %}
         and subsection_with_name in {{ filter_values("Subsection Name") | where_in }}
     {% endif %}
+    {% if from_dttm %}
+       and started_at > '{{ from_dttm }}'
+    {% endif %}
+    {% if to_dttm %}
+       and started_at < '{{ to_dttm }}'
+    {% endif %}
     {% endraw %}
 group by
     org,

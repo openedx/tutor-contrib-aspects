@@ -1,0 +1,88 @@
+_file_name: Problem_Interactions_at-risk.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 4df7005e-3a7e-4979-a4e3-e70f22d36daa
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_time
+  all_columns: []
+  color_pn: true
+  conditional_formatting: []
+  extra_form_data: {}
+  groupby:
+  - problem_name_with_location
+  metrics:
+  - aggregate: COUNT_DISTINCT
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: actor_id
+      description: null
+      expression: ''
+      filterable: true
+      groupby: true
+      id: 14189
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: String
+      type_generic: 1
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: Number of Learners who attemped the problem
+    optionName: metric_1y87egvrs7r_60tzttoxm3f
+    sqlExpression: null
+  - aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: true
+    label: Median of Attempts
+    optionName: metric_mvxmpqpzo3d_pk4liyfd228
+    sqlExpression: 'quantile(0.5)(attempts) '
+  - aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: true
+    label: Avg Attempts
+    optionName: metric_brfoafrujzf_mf5rmpmbu
+    sqlExpression: SUM(attempts)/COUNT(actor_id)
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 1000
+  server_page_length: 10
+  show_cell_bars: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup:
+    emission_time: true
+  time_grain_sqla: P1D
+  viz_type: table
+query_context: '{"datasource":{"id":1242,"type":"table"},"force":false,"queries":[{"filters":[{"col":"emission_time","op":"TEMPORAL_RANGE","val":"No
+  filter"}],"extras":{"time_grain_sqla":"P1D","having":"","where":""},"applied_time_extras":{},"columns":["problem_name_with_location"],"metrics":[{"aggregate":"COUNT_DISTINCT","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"actor_id","description":null,"expression":"","filterable":true,"groupby":true,"id":14189,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"String","type_generic":1,"verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":true,"label":"Number
+  of Learners who attemped the problem","optionName":"metric_1y87egvrs7r_60tzttoxm3f","sqlExpression":null},{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":true,"label":"Median
+  of Attempts","optionName":"metric_mvxmpqpzo3d_pk4liyfd228","sqlExpression":"quantile(0.5)(attempts)
+  "},{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":true,"label":"Avg
+  Attempts","optionName":"metric_brfoafrujzf_mf5rmpmbu","sqlExpression":"SUM(attempts)/COUNT(actor_id)"}],"orderby":[[{"aggregate":"COUNT_DISTINCT","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"actor_id","description":null,"expression":"","filterable":true,"groupby":true,"id":14189,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"String","type_generic":1,"verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":true,"label":"Number
+  of Learners who attemped the problem","optionName":"metric_1y87egvrs7r_60tzttoxm3f","sqlExpression":null},false]],"annotation_layers":[],"row_limit":1000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[]}],"form_data":{"datasource":"1242__table","viz_type":"table","slice_id":2664,"query_mode":"aggregate","groupby":["problem_name_with_location"],"time_grain_sqla":"P1D","temporal_columns_lookup":{"emission_time":true},"metrics":[{"aggregate":"COUNT_DISTINCT","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"actor_id","description":null,"expression":"","filterable":true,"groupby":true,"id":14189,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"String","type_generic":1,"verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":true,"label":"Number
+  of Learners who attemped the problem","optionName":"metric_1y87egvrs7r_60tzttoxm3f","sqlExpression":null},{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":true,"label":"Median
+  of Attempts","optionName":"metric_mvxmpqpzo3d_pk4liyfd228","sqlExpression":"quantile(0.5)(attempts)
+  "},{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":true,"label":"Avg
+  Attempts","optionName":"metric_brfoafrujzf_mf5rmpmbu","sqlExpression":"SUM(attempts)/COUNT(actor_id)"}],"all_columns":[],"percent_metrics":[],"adhoc_filters":[{"clause":"WHERE","comparator":"No
+  filter","expressionType":"SIMPLE","operator":"TEMPORAL_RANGE","subject":"emission_time"}],"order_by_cols":[],"row_limit":1000,"server_page_length":10,"order_desc":true,"table_timestamp_format":"smart_date","show_cell_bars":true,"color_pn":true,"conditional_formatting":[],"extra_form_data":{},"dashboards":[6096],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+slice_name: Problem Interactions (at-risk)
+uuid: d3b9fa1e-f0ab-41e5-9705-27c7c58e620c
+version: 1.0.0
+viz_type: table

@@ -1,0 +1,1172 @@
+_file_name: At-Risk_Learners.yaml
+_roles:
+- '{{ SUPERSET_ROLES_MAPPING.instructor }}'
+certification_details: ''
+certified_by: ''
+css: ''
+dashboard_title: At-Risk Learners
+description: null
+metadata:
+  chart_configuration:
+    '2108':
+      crossFilters:
+        chartsInScope:
+        - 2128
+        - 2148
+        - 2168
+        - 2188
+        - 2208
+        - 2209
+        - 2210
+        - 2211
+        - 2664
+        - 2665
+        - 2705
+        - 2706
+        - 2707
+        - 2708
+        - 2785
+        - 2805
+        scope: global
+      id: 2108
+    '2128':
+      crossFilters:
+        chartsInScope:
+        - 2108
+        - 2148
+        - 2168
+        - 2188
+        - 2208
+        - 2209
+        - 2210
+        - 2211
+        - 2664
+        - 2665
+        - 2705
+        - 2706
+        - 2707
+        - 2708
+        - 2785
+        - 2805
+        scope: global
+      id: 2128
+    '2148':
+      crossFilters:
+        chartsInScope:
+        - 2108
+        - 2128
+        - 2168
+        - 2188
+        - 2208
+        - 2209
+        - 2210
+        - 2211
+        - 2664
+        - 2665
+        - 2705
+        - 2706
+        - 2707
+        - 2708
+        - 2785
+        - 2805
+        scope: global
+      id: 2148
+    '2168':
+      crossFilters:
+        chartsInScope:
+        - 2108
+        - 2128
+        - 2148
+        - 2188
+        - 2208
+        - 2209
+        - 2210
+        - 2211
+        - 2664
+        - 2665
+        - 2705
+        - 2706
+        - 2707
+        - 2708
+        - 2785
+        - 2805
+        scope: global
+      id: 2168
+    '2188':
+      crossFilters:
+        chartsInScope:
+        - 2108
+        - 2128
+        - 2148
+        - 2168
+        - 2208
+        - 2209
+        - 2210
+        - 2211
+        - 2664
+        - 2665
+        - 2705
+        - 2706
+        - 2707
+        - 2708
+        - 2785
+        - 2805
+        scope: global
+      id: 2188
+    '2208':
+      crossFilters:
+        chartsInScope:
+        - 2108
+        - 2128
+        - 2148
+        - 2168
+        - 2188
+        - 2209
+        - 2210
+        - 2211
+        - 2664
+        - 2665
+        - 2705
+        - 2706
+        - 2707
+        - 2708
+        - 2785
+        - 2805
+        scope: global
+      id: 2208
+    '2209':
+      crossFilters:
+        chartsInScope:
+        - 2108
+        - 2128
+        - 2148
+        - 2168
+        - 2188
+        - 2208
+        - 2210
+        - 2211
+        - 2664
+        - 2665
+        - 2705
+        - 2706
+        - 2707
+        - 2708
+        - 2785
+        - 2805
+        scope: global
+      id: 2209
+    '2210':
+      crossFilters:
+        chartsInScope:
+        - 2108
+        - 2128
+        - 2148
+        - 2168
+        - 2188
+        - 2208
+        - 2209
+        - 2211
+        - 2664
+        - 2665
+        - 2705
+        - 2706
+        - 2707
+        - 2708
+        - 2785
+        - 2805
+        scope: global
+      id: 2210
+    '2211':
+      crossFilters:
+        chartsInScope:
+        - 2108
+        - 2128
+        - 2148
+        - 2168
+        - 2188
+        - 2208
+        - 2209
+        - 2210
+        - 2664
+        - 2665
+        - 2705
+        - 2706
+        - 2707
+        - 2708
+        - 2785
+        - 2805
+        scope: global
+      id: 2211
+    '2664':
+      crossFilters:
+        chartsInScope:
+        - 2108
+        - 2128
+        - 2148
+        - 2168
+        - 2188
+        - 2208
+        - 2209
+        - 2210
+        - 2211
+        - 2665
+        - 2705
+        - 2706
+        - 2707
+        - 2708
+        - 2785
+        - 2805
+        scope: global
+      id: 2664
+    '2665':
+      crossFilters:
+        chartsInScope:
+        - 2108
+        - 2128
+        - 2148
+        - 2168
+        - 2188
+        - 2208
+        - 2209
+        - 2210
+        - 2211
+        - 2664
+        - 2705
+        - 2706
+        - 2707
+        - 2708
+        - 2785
+        - 2805
+        scope: global
+      id: 2665
+    '2705':
+      crossFilters:
+        chartsInScope:
+        - 2108
+        - 2128
+        - 2148
+        - 2168
+        - 2188
+        - 2208
+        - 2209
+        - 2210
+        - 2211
+        - 2664
+        - 2665
+        - 2706
+        - 2707
+        - 2708
+        - 2785
+        - 2805
+        scope: global
+      id: 2705
+    '2706':
+      crossFilters:
+        chartsInScope:
+        - 2108
+        - 2128
+        - 2148
+        - 2168
+        - 2188
+        - 2208
+        - 2209
+        - 2210
+        - 2211
+        - 2664
+        - 2665
+        - 2705
+        - 2707
+        - 2708
+        - 2785
+        - 2805
+        scope: global
+      id: 2706
+    '2707':
+      crossFilters:
+        chartsInScope:
+        - 2108
+        - 2128
+        - 2148
+        - 2168
+        - 2188
+        - 2208
+        - 2209
+        - 2210
+        - 2211
+        - 2664
+        - 2665
+        - 2705
+        - 2706
+        - 2708
+        - 2785
+        - 2805
+        scope: global
+      id: 2707
+    '2708':
+      crossFilters:
+        chartsInScope:
+        - 2108
+        - 2128
+        - 2148
+        - 2168
+        - 2188
+        - 2208
+        - 2209
+        - 2210
+        - 2211
+        - 2664
+        - 2665
+        - 2705
+        - 2706
+        - 2707
+        - 2785
+        - 2805
+        scope: global
+      id: 2708
+    '2785':
+      crossFilters:
+        chartsInScope:
+        - 2108
+        - 2128
+        - 2148
+        - 2168
+        - 2188
+        - 2208
+        - 2209
+        - 2210
+        - 2211
+        - 2664
+        - 2665
+        - 2705
+        - 2706
+        - 2707
+        - 2708
+        - 2805
+        scope: global
+      id: 2785
+    '2805':
+      crossFilters:
+        chartsInScope:
+        - 2108
+        - 2128
+        - 2148
+        - 2168
+        - 2188
+        - 2208
+        - 2209
+        - 2210
+        - 2211
+        - 2664
+        - 2665
+        - 2705
+        - 2706
+        - 2707
+        - 2708
+        - 2785
+        scope: global
+      id: 2805
+  color_scheme: supersetColors
+  color_scheme_domain:
+  - '#1FA8C9'
+  - '#454E7C'
+  - '#5AC189'
+  - '#FF7F44'
+  - '#666666'
+  - '#E04355'
+  - '#FCC700'
+  - '#A868B7'
+  - '#3CCCCB'
+  - '#A38F79'
+  - '#8FD3E4'
+  - '#A1A6BD'
+  - '#ACE1C4'
+  - '#FEC0A1'
+  - '#B2B2B2'
+  - '#EFA1AA'
+  - '#FDE380'
+  - '#D3B3DA'
+  - '#9EE5E5'
+  - '#D1C6BC'
+  cross_filters_enabled: true
+  default_filters: '{}'
+  expanded_slices: {}
+  global_chart_configuration:
+    chartsInScope:
+    - 2108
+    - 2128
+    - 2148
+    - 2168
+    - 2188
+    - 2208
+    - 2209
+    - 2210
+    - 2211
+    - 2664
+    - 2665
+    - 2705
+    - 2706
+    - 2707
+    - 2708
+    - 2785
+    - 2805
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+  label_colors: {}
+  native_filter_configuration:
+  - cascadeParentIds: []
+    chartsInScope:
+    - 2108
+    - 2128
+    - 2148
+    - 2168
+    - 2188
+    - 2208
+    - 2209
+    - 2210
+    - 2211
+    - 2664
+    - 2665
+    - 2705
+    - 2706
+    - 2707
+    - 2708
+    - 2785
+    controlValues:
+      defaultToFirstItem: true
+      enableEmptyFilter: true
+      inverseSelection: false
+      multiSelect: false
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-BlR-Ig6ob
+    name: Organization
+    requiredFirst: true
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope:
+    - TAB-CRJ0LHIfEa
+    - TAB-GeKBNaKbHg
+    - TAB-T3nFxdINB
+    - TAB-ez_vuoah8
+    - TAB-YFvF29I04
+    - TAB-s_n47Pk1I
+    targets:
+    - column:
+        name: org
+      datasetUuid: 38488934-35ee-5404-9acc-7e67626ddfae
+    type: NATIVE_FILTER
+  - cascadeParentIds:
+    - NATIVE_FILTER-BlR-Ig6ob
+    chartsInScope: []
+    controlValues:
+      defaultToFirstItem: true
+      enableEmptyFilter: true
+      inverseSelection: false
+      multiSelect: false
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-_isF30QLx
+    name: Course Name
+    requiredFirst: true
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope: []
+    targets:
+    - column:
+        name: course_name
+      datasetUuid: 38488934-35ee-5404-9acc-7e67626ddfae
+    type: NATIVE_FILTER
+  - cascadeParentIds:
+    - NATIVE_FILTER-BlR-Ig6ob
+    - NATIVE_FILTER-_isF30QLx
+    chartsInScope: []
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: false
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-MvQWFRvrn
+    name: Course Run
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope: []
+    targets:
+    - column:
+        name: course_run
+      datasetUuid: 38488934-35ee-5404-9acc-7e67626ddfae
+    type: NATIVE_FILTER
+  - chartsInScope: []
+    description: ''
+    id: NATIVE_FILTER_DIVIDER-QxpnGQLTu
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope: []
+    title: Time filter
+    type: DIVIDER
+  - cascadeParentIds: []
+    chartsInScope:
+    - 2208
+    - 2209
+    - 2210
+    - 2211
+    controlValues:
+      enableEmptyFilter: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_time
+    id: NATIVE_FILTER-5Hw7wF_4w
+    name: Date
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope:
+    - TAB-GeKBNaKbHg
+    targets:
+    - {}
+    type: NATIVE_FILTER
+  refresh_frequency: 0
+  shared_label_colors: {}
+  timed_refresh_immune_slices: []
+position:
+  CHART-LmLX-39lXb:
+    children: []
+    id: CHART-LmLX-39lXb
+    meta:
+      chartId: 2706
+      height: 72
+      sliceName: Partial and Full Views Per Video (at-risk)
+      uuid: 2232c302-cd41-406f-a45d-0f674344166b
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-YFvF29I04
+    - ROW-pj0KcXt7oq
+    type: CHART
+  CHART-NSSaeQX_nX:
+    children: []
+    id: CHART-NSSaeQX_nX
+    meta:
+      chartId: 2705
+      height: 50
+      sliceName: Video Views by Section/Subsection (at-risk)
+      uuid: 8266ce91-d0b3-4c3b-aa3d-2be4d90e64a8
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-YFvF29I04
+    - ROW-T9vq0VtrCv
+    type: CHART
+  CHART-explore-2108-1:
+    children: []
+    id: CHART-explore-2108-1
+    meta:
+      chartId: 2108
+      height: 62
+      sliceName: Problems attempted per section/subsection (at-risk)
+      uuid: 5015477d-d166-4823-868d-c7883d195bab
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-ez_vuoah8
+    - ROW-fYHQDhzd8
+    type: CHART
+  CHART-explore-2128-1:
+    children: []
+    id: CHART-explore-2128-1
+    meta:
+      chartId: 2128
+      height: 50
+      sliceName: At-risk learners
+      uuid: 447a194b-dbed-4a82-a899-2df8e01e84b1
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-s_n47Pk1I
+    - ROW-vQrzBOW17
+    type: CHART
+  CHART-explore-2148-1:
+    children: []
+    id: CHART-explore-2148-1
+    meta:
+      chartId: 2148
+      height: 50
+      sliceName: Last visit date
+      uuid: 6c2b1008-96c9-426d-b2fe-68aa1de7b10d
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-s_n47Pk1I
+    - ROW-vQrzBOW17
+    type: CHART
+  CHART-explore-2168-1:
+    children: []
+    id: CHART-explore-2168-1
+    meta:
+      chartId: 2168
+      height: 50
+      sliceName: At-risk Enrollees per Enrollment Track
+      uuid: f8beeb8c-b35c-47fc-8370-96b493f9c1b8
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-CRJ0LHIfEa
+    - ROW-D_nOy1UKS
+    type: CHART
+  CHART-explore-2188-1:
+    children: []
+    id: CHART-explore-2188-1
+    meta:
+      chartId: 2188
+      height: 63
+      sliceName: Page views per section/subsection (at-risk)
+      uuid: 29a5cf7e-41cd-4b60-a63a-c921d6ebd997
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-GeKBNaKbHg
+    - ROW-7jAvXwI_a
+    type: CHART
+  CHART-explore-2208-1:
+    children: []
+    id: CHART-explore-2208-1
+    meta:
+      chartId: 2208
+      height: 50
+      sliceName: Section Summary (at-risk)
+      uuid: eec3a432-153f-42bc-8d37-52b200a77acd
+      width: 5
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-GeKBNaKbHg
+    - ROW-UGAqBjUIm
+    type: CHART
+  CHART-explore-2209-1:
+    children: []
+    id: CHART-explore-2209-1
+    meta:
+      chartId: 2209
+      height: 50
+      sliceName: Cumulative Interactions (at-risk)
+      uuid: 3a22091f-4686-4a1d-a66d-b36541844b36
+      width: 7
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-GeKBNaKbHg
+    - ROW-UGAqBjUIm
+    type: CHART
+  CHART-explore-2210-1:
+    children: []
+    id: CHART-explore-2210-1
+    meta:
+      chartId: 2210
+      height: 50
+      sliceName: Subsection Summary (at-risk)
+      uuid: f60f12f3-f4f1-41af-8b10-d2cf3cb94f69
+      width: 5
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-GeKBNaKbHg
+    - ROW-i530N_eO4
+    type: CHART
+  CHART-explore-2211-1:
+    children: []
+    id: CHART-explore-2211-1
+    meta:
+      chartId: 2211
+      height: 50
+      sliceName: Evolution of Engagement (at-risk)
+      uuid: ffa98e7f-7bed-4435-a1c1-472a46a4d269
+      width: 7
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-GeKBNaKbHg
+    - ROW-i530N_eO4
+    type: CHART
+  CHART-explore-2664-1:
+    children: []
+    id: CHART-explore-2664-1
+    meta:
+      chartId: 2664
+      height: 50
+      sliceName: Problem Interactions (at-risk)
+      uuid: d3b9fa1e-f0ab-41e5-9705-27c7c58e620c
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-ez_vuoah8
+    - ROW-5pIDk-rQ-
+    type: CHART
+  CHART-explore-2665-1:
+    children: []
+    id: CHART-explore-2665-1
+    meta:
+      chartId: 2665
+      height: 50
+      sliceName: Problem Results (at-risk)
+      uuid: 003e60b9-907d-4002-bf2e-7d315225ec29
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-ez_vuoah8
+    - ROW-5pIDk-rQ-
+    type: CHART
+  CHART-explore-2707-1:
+    children: []
+    id: CHART-explore-2707-1
+    meta:
+      chartId: 2707
+      height: 64
+      sliceName: Video Views per Section/Subsection (at-risk)
+      uuid: 5d0329f4-2a4a-4cd4-8b4e-926568d1bbcc
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-YFvF29I04
+    - ROW-k5DFxNHkp
+    type: CHART
+  CHART-explore-2708-1:
+    children: []
+    id: CHART-explore-2708-1
+    meta:
+      chartId: 2708
+      height: 50
+      sliceName: Watched Video Segments (at-risk)
+      uuid: a7947bdb-65a2-49ed-815e-850423bfeacc
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-YFvF29I04
+    - ROW-TggrOtS67
+    type: CHART
+  CHART-explore-2785-1:
+    children: []
+    id: CHART-explore-2785-1
+    meta:
+      chartId: 2785
+      height: 50
+      sliceName: At-risk Enrollment Dates
+      uuid: ded61855-48ea-4705-9385-690bf7dba53b
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-CRJ0LHIfEa
+    - ROW-D_nOy1UKS
+    type: CHART
+  CHART-explore-2805-1:
+    children: []
+    id: CHART-explore-2805-1
+    meta:
+      chartId: 2805
+      height: 50
+      sliceName: Distribution of Course Grades
+      uuid: cd3479d8-3574-4b77-9e1e-2ad176989b4d
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-Xdfl_TeC-D
+    type: CHART
+  DASHBOARD_VERSION_KEY: v2
+  GRID_ID:
+    children:
+    - TABS-7McownEo06
+    id: GRID_ID
+    parents:
+    - ROOT_ID
+    type: GRID
+  HEADER_ID:
+    id: HEADER_ID
+    meta:
+      text: At-Risk Learners
+    type: HEADER
+  ROOT_ID:
+    children:
+    - GRID_ID
+    id: ROOT_ID
+    type: ROOT
+  ROW-5pIDk-rQ-:
+    children:
+    - CHART-explore-2664-1
+    - CHART-explore-2665-1
+    id: ROW-5pIDk-rQ-
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-ez_vuoah8
+    type: ROW
+  ROW-7jAvXwI_a:
+    children:
+    - CHART-explore-2188-1
+    id: ROW-7jAvXwI_a
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-GeKBNaKbHg
+    type: ROW
+  ROW-D_nOy1UKS:
+    children:
+    - CHART-explore-2168-1
+    - CHART-explore-2785-1
+    id: ROW-D_nOy1UKS
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-CRJ0LHIfEa
+    type: ROW
+  ROW-T9vq0VtrCv:
+    children:
+    - CHART-NSSaeQX_nX
+    id: ROW-T9vq0VtrCv
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-YFvF29I04
+    type: ROW
+  ROW-TggrOtS67:
+    children:
+    - CHART-explore-2708-1
+    id: ROW-TggrOtS67
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-YFvF29I04
+    type: ROW
+  ROW-UGAqBjUIm:
+    children:
+    - CHART-explore-2208-1
+    - CHART-explore-2209-1
+    id: ROW-UGAqBjUIm
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-GeKBNaKbHg
+    type: ROW
+  ROW-fYHQDhzd8:
+    children:
+    - CHART-explore-2108-1
+    id: ROW-fYHQDhzd8
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-ez_vuoah8
+    type: ROW
+  ROW-i530N_eO4:
+    children:
+    - CHART-explore-2210-1
+    - CHART-explore-2211-1
+    id: ROW-i530N_eO4
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-GeKBNaKbHg
+    type: ROW
+  ROW-k5DFxNHkp:
+    children:
+    - CHART-explore-2707-1
+    id: ROW-k5DFxNHkp
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-YFvF29I04
+    type: ROW
+  ROW-l6jLJIdb1:
+    children:
+    - CHART-explore-2805-1
+    id: ROW-l6jLJIdb1
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-nWjLboV5Q
+    type: ROW
+  ROW-pj0KcXt7oq:
+    children:
+    - CHART-LmLX-39lXb
+    id: ROW-pj0KcXt7oq
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    - TAB-YFvF29I04
+    type: ROW
+  ROW-vQrzBOW17:
+    children:
+    - CHART-explore-2128-1
+    - CHART-explore-2148-1
+    id: ROW-vQrzBOW17
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-s_n47Pk1I
+    type: ROW
+  TAB-CRJ0LHIfEa:
+    children:
+    - ROW-D_nOy1UKS
+    id: TAB-CRJ0LHIfEa
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Enrollment
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    type: TAB
+  TAB-GeKBNaKbHg:
+    children:
+    - ROW-7jAvXwI_a
+    - ROW-UGAqBjUIm
+    - ROW-i530N_eO4
+    id: TAB-GeKBNaKbHg
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Pages
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    type: TAB
+  TAB-T3nFxdINB:
+    children:
+    - TABS-OsW2n-dsFI
+    id: TAB-T3nFxdINB
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Engagement
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    type: TAB
+  TAB-YFvF29I04:
+    children:
+    - ROW-k5DFxNHkp
+    - ROW-T9vq0VtrCv
+    - ROW-pj0KcXt7oq
+    - ROW-TggrOtS67
+    id: TAB-YFvF29I04
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Videos
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    type: TAB
+  TAB-ez_vuoah8:
+    children:
+    - ROW-fYHQDhzd8
+    - ROW-5pIDk-rQ-
+    id: TAB-ez_vuoah8
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Problems
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    - TABS-OsW2n-dsFI
+    type: TAB
+  TAB-nWjLboV5Q:
+    children:
+    - ROW-l6jLJIdb1
+    id: TAB-nWjLboV5Q
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Performance
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    type: TAB
+  TAB-s_n47Pk1I:
+    children:
+    - ROW-vQrzBOW17
+    id: TAB-s_n47Pk1I
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Overview
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    type: TAB
+  TABS-7McownEo06:
+    children:
+    - TAB-s_n47Pk1I
+    - TAB-CRJ0LHIfEa
+    - TAB-T3nFxdINB
+    - TAB-nWjLboV5Q
+    id: TABS-7McownEo06
+    meta: {}
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: TABS
+  TABS-OsW2n-dsFI:
+    children:
+    - TAB-GeKBNaKbHg
+    - TAB-ez_vuoah8
+    - TAB-YFvF29I04
+    id: TABS-OsW2n-dsFI
+    meta: {}
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-7McownEo06
+    - TAB-T3nFxdINB
+    type: TABS
+published: true
+slug: learner-groups
+uuid: 8661d20c-cee6-4245-9fcc-610daea5fd24
+version: 1.0.0
