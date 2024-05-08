@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.107.2 - 2024-05-08
+
+### [0.107.2](https://github.com/openedx/tutor-contrib-aspects/compare/v0.107.1...v0.107.2) (2024-05-08)
+
+### Bug Fixes
+
+* automatically add verbose name for dataset columns ([8d37a19](https://github.com/openedx/tutor-contrib-aspects/commit/8d37a192a69572a6afd50d5b3cf0e2b9618b3fa4))
+* automatically add verbose name for metrics ([66d7117](https://github.com/openedx/tutor-contrib-aspects/commit/66d711714e24baa77943165ebbdea810cbad09a4))
+* move chart metrics to datasets ([0db0f57](https://github.com/openedx/tutor-contrib-aspects/commit/0db0f5785d7a3dc38658db5e1a2f57474531a97c))
+* update charts owners if configured ([73b8954](https://github.com/openedx/tutor-contrib-aspects/commit/73b89545571f40c24565e9b5e0e09722e8782efe))
+* update conditional format for new metrics ([fb55119](https://github.com/openedx/tutor-contrib-aspects/commit/fb551191e2b8674a87d9f6c366d0ba91ae6b25ed))
+
 ## v0.107.1 - 2024-05-08
 
 ### [0.107.1](https://github.com/openedx/tutor-contrib-aspects/compare/v0.107.0...v0.107.1) (2024-05-08)
