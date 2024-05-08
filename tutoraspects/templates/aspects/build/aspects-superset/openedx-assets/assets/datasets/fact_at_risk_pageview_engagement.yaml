@@ -6,7 +6,7 @@ columns:
   column_name: section_subsection_page_engagement
   description: null
   expression: null
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -15,34 +15,10 @@ columns:
   type: String
   verbose_name: Section/Subsection Page Enggagement
 - advanced_data_type: null
-  column_name: subsection_with_name
-  description: null
-  expression: null
-  extra: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Subsection Name
-- advanced_data_type: null
-  column_name: section_with_name
-  description: null
-  expression: null
-  extra: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Section Name
-- advanced_data_type: null
   column_name: section_subsection_name
   description: null
   expression: null
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -51,22 +27,10 @@ columns:
   type: String
   verbose_name: Section/Subsection Name
 - advanced_data_type: null
-  column_name: content level
-  description: null
-  expression: null
-  extra: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Content Level
-- advanced_data_type: null
   column_name: actor_id
   description: null
   expression: null
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -78,7 +42,7 @@ columns:
   column_name: course_key
   description: null
   expression: null
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -90,7 +54,7 @@ columns:
   column_name: course_run
   description: null
   expression: null
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -99,10 +63,34 @@ columns:
   type: String
   verbose_name: Course Run
 - advanced_data_type: null
+  column_name: subsection_with_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Subsection Name
+- advanced_data_type: null
+  column_name: section_with_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Section Name
+- advanced_data_type: null
   column_name: org
   description: null
   expression: null
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -110,6 +98,54 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Organization
+- advanced_data_type: null
+  column_name: content_level
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Content Level
+- advanced_data_type: null
+  column_name: username
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Username
+- advanced_data_type: null
+  column_name: email
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Email
+- advanced_data_type: null
+  column_name: name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Name
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
@@ -122,7 +158,8 @@ metrics:
   d3format: null
   description: null
   expression: count(*)
-  extra: null
+  extra:
+    warning_markdown: ''
   metric_name: count
   metric_type: null
   verbose_name: Count
