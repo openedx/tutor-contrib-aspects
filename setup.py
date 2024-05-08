@@ -8,6 +8,7 @@ from setuptools import find_packages, setup
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 
+
 class MultipleConstraintException(BaseException):
     """
     Exception raised when multiple constraints are provided.
