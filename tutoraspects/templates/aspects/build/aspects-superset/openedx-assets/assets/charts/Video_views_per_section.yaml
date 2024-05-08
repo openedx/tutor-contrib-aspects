@@ -16,7 +16,7 @@ params:
     operator: ==
     operatorId: EQUALS
     sqlExpression: null
-    subject: content level
+    subject: content_level
   - clause: WHERE
     comparator: null
     datasourceWarning: false
@@ -26,7 +26,7 @@ params:
     isNew: false
     operator: null
     sqlExpression: |-
-      `section/subsection name` <> ''
+      `section_subsection_name` <> ''
     subject: null
   all_columns: []
   color_pn: true
@@ -48,7 +48,7 @@ params:
     targetValue: 0
   extra_form_data: {}
   groupby:
-  - section/subsection name
+  - section_subsection_name
   metrics:
   - aggregate: null
     column: null
@@ -58,7 +58,7 @@ params:
     label: At least one video viewed
     optionName: metric_pjnwyhoqed_98z4w1j60l
     sqlExpression: |-
-      countIf("section/subsection video engagement" = 'At least one video viewed' or "section/subsection video engagement" = 'All videos viewed')
+      countIf("section_subsection_video_engagement" = 'At least one video viewed' or "section_subsection_video_engagement" = 'All videos viewed')
   - aggregate: null
     column: null
     datasourceWarning: false
@@ -67,7 +67,7 @@ params:
     label: All videos viewed
     optionName: metric_jo791jxqdd_ob1j1gmk0uh
     sqlExpression: |-
-      countIf("section/subsection video engagement" = 'All videos viewed')
+      countIf("section_subsection_video_engagement" = 'All videos viewed')
   order_by_cols: []
   order_desc: true
   percent_metrics: []
@@ -80,42 +80,41 @@ params:
   time_grain_sqla: P1M
   viz_type: table
 query_context: "{\"datasource\":{\"id\":81,\"type\":\"table\"},\"force\":false,\"\
-  queries\":[{\"filters\":[{\"col\":\"content level\",\"op\":\"==\",\"val\":\"section\"\
-  }],\"extras\":{\"time_grain_sqla\":\"P1M\",\"having\":\"\",\"where\":\"(`section/subsection\
-  \ name` <> '')\"},\"applied_time_extras\":{},\"columns\":[\"section/subsection name\"\
+  queries\":[{\"filters\":[{\"col\":\"content_level\",\"op\":\"==\",\"val\":\"section\"\
+  }],\"extras\":{\"time_grain_sqla\":\"P1M\",\"having\":\"\",\"where\":\"(`section_subsection_name` <> '')\"},\"applied_time_extras\":{},\"columns\":[\"section_subsection_name\"\
   ],\"metrics\":[{\"aggregate\":null,\"column\":null,\"datasourceWarning\":false,\"\
   expressionType\":\"SQL\",\"hasCustomLabel\":true,\"label\":\"At least one video\
   \ viewed\",\"optionName\":\"metric_pjnwyhoqed_98z4w1j60l\",\"sqlExpression\":\"\
-  countIf(\\\"section/subsection video engagement\\\" = 'At least one video viewed'\
-  \ or \\\"section/subsection video engagement\\\" = 'All videos viewed')\"},{\"aggregate\"\
+  countIf(\\\"section_subsection_video_engagement\\\" = 'At least one video viewed'\
+  \ or \\\"section_subsection_video_engagement\\\" = 'All videos viewed')\"},{\"aggregate\"\
   :null,\"column\":null,\"datasourceWarning\":false,\"expressionType\":\"SQL\",\"\
   hasCustomLabel\":true,\"label\":\"All videos viewed\",\"optionName\":\"metric_jo791jxqdd_ob1j1gmk0uh\"\
-  ,\"sqlExpression\":\"countIf(\\\"section/subsection video engagement\\\" = 'All\
+  ,\"sqlExpression\":\"countIf(\\\"section_subsection_video_engagement\\\" = 'All\
   \ videos viewed')\"}],\"orderby\":[[{\"aggregate\":null,\"column\":null,\"datasourceWarning\"\
   :false,\"expressionType\":\"SQL\",\"hasCustomLabel\":true,\"label\":\"At least one\
   \ video viewed\",\"optionName\":\"metric_pjnwyhoqed_98z4w1j60l\",\"sqlExpression\"\
-  :\"countIf(\\\"section/subsection video engagement\\\" = 'At least one video viewed'\
-  \ or \\\"section/subsection video engagement\\\" = 'All videos viewed')\"},false]],\"\
+  :\"countIf(\\\"section_subsection_video_engagement\\\" = 'At least one video viewed'\
+  \ or \\\"section_subsection_video_engagement\\\" = 'All videos viewed')\"},false]],\"\
   annotation_layers\":[],\"row_limit\":10000,\"series_limit\":0,\"order_desc\":true,\"\
   url_params\":{},\"custom_params\":{},\"custom_form_data\":{},\"post_processing\"\
   :[]}],\"form_data\":{\"datasource\":\"81__table\",\"viz_type\":\"table\",\"slice_id\"\
-  :113,\"query_mode\":\"aggregate\",\"groupby\":[\"section/subsection name\"],\"time_grain_sqla\"\
+  :113,\"query_mode\":\"aggregate\",\"groupby\":[\"section_subsection_name\"],\"time_grain_sqla\"\
   :\"P1M\",\"temporal_columns_lookup\":{},\"metrics\":[{\"aggregate\":null,\"column\"\
   :null,\"datasourceWarning\":false,\"expressionType\":\"SQL\",\"hasCustomLabel\"\
   :true,\"label\":\"At least one video viewed\",\"optionName\":\"metric_pjnwyhoqed_98z4w1j60l\"\
-  ,\"sqlExpression\":\"countIf(\\\"section/subsection video engagement\\\" = 'At least\
-  \ one video viewed' or \\\"section/subsection video engagement\\\" = 'All videos\
+  ,\"sqlExpression\":\"countIf(\\\"section_subsection_video_engagement\\\" = 'At least\
+  \ one video viewed' or \\\"section_subsection_video_engagement\\\" = 'All videos\
   \ viewed')\"},{\"aggregate\":null,\"column\":null,\"datasourceWarning\":false,\"\
   expressionType\":\"SQL\",\"hasCustomLabel\":true,\"label\":\"All videos viewed\"\
   ,\"optionName\":\"metric_jo791jxqdd_ob1j1gmk0uh\",\"sqlExpression\":\"countIf(\\\
-  \"section/subsection video engagement\\\" = 'All videos viewed')\"}],\"all_columns\"\
+  \"section_subsection_video_engagement\\\" = 'All videos viewed')\"}],\"all_columns\"\
   :[],\"percent_metrics\":[],\"adhoc_filters\":[{\"clause\":\"WHERE\",\"comparator\"\
   :\"section\",\"datasourceWarning\":false,\"expressionType\":\"SIMPLE\",\"filterOptionName\"\
   :\"filter_e4bt2n9f1ok_oprjb9a65pq\",\"isExtra\":false,\"isNew\":false,\"operator\"\
-  :\"==\",\"operatorId\":\"EQUALS\",\"sqlExpression\":null,\"subject\":\"content level\"\
+  :\"==\",\"operatorId\":\"EQUALS\",\"sqlExpression\":null,\"subject\":\"content_level\"\
   },{\"clause\":\"WHERE\",\"comparator\":null,\"datasourceWarning\":false,\"expressionType\"\
   :\"SQL\",\"filterOptionName\":\"filter_05x6f1qnuusm_0ol2p9c0cpeo\",\"isExtra\":false,\"\
-  isNew\":false,\"operator\":null,\"sqlExpression\":\"`section/subsection name` <>\
+  isNew\":false,\"operator\":null,\"sqlExpression\":\"`section_subsection_name` <>\
   \ ''\",\"subject\":null}],\"order_by_cols\":[],\"row_limit\":10000,\"server_page_length\"\
   :10,\"order_desc\":true,\"table_timestamp_format\":\"smart_date\",\"show_cell_bars\"\
   :true,\"color_pn\":true,\"column_config\":{\"At least one video viewed\":{\"d3NumberFormat\"\

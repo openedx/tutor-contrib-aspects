@@ -3,7 +3,7 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: section/subsection problem engagement
+  column_name: section_subsection_problem_engagement
   description: null
   expression: null
   extra: {}
@@ -15,7 +15,7 @@ columns:
   type: String
   verbose_name: Section/Subsection Problem Engagement
 - advanced_data_type: null
-  column_name: section/subsection name
+  column_name: section_subsection_name
   description: null
   expression: null
   extra: {}
@@ -25,9 +25,9 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Section/Subsection Name
+  verbose_name: section_subsection_name
 - advanced_data_type: null
-  column_name: content level
+  column_name: content_level
   description: null
   expression: null
   extra: {}
@@ -98,7 +98,7 @@ metrics:
   d3format: null
   description: null
   expression: |-
-    countIf("section/subsection problem engagement" = 'At least one problem attempted' or "section/subsection problem engagement" = 'All problems attempted')
+    countIf("section_subsection_problem_engagement" = 'At least one problem attempted' or "section_subsection_problem_engagement" = 'All problems attempted')
   extra:
     warning_markdown: ''
   metric_name: attempted_at_least_one_problem
@@ -109,7 +109,7 @@ metrics:
   d3format: null
   description: null
   expression: |-
-    countIf("section/subsection problem engagement" = 'All problems attempted')
+    countIf("section_subsection_problem_engagement" = 'All problems attempted')
   extra: {}
   metric_name: attempted_all_problems
   metric_type: null

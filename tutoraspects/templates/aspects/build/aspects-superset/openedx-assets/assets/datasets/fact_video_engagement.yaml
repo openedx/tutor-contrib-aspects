@@ -3,7 +3,7 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: section/subsection page engagement
+  column_name: section_subsection_page_engagement
   description: null
   expression: null
   extra: {}
@@ -15,7 +15,7 @@ columns:
   type: String
   verbose_name: Section/Subsection Page Engagement
 - advanced_data_type: null
-  column_name: section/subsection name
+  column_name: section_subsection_name
   description: null
   expression: null
   extra: {}
@@ -25,9 +25,9 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Section/Subsection Name
+  verbose_name: section_subsection_name
 - advanced_data_type: null
-  column_name: content level
+  column_name: content_level
   description: null
   expression: null
   extra: {}
@@ -122,7 +122,7 @@ metrics:
   d3format: null
   description: null
   expression: |-
-    countIf("section/subsection video engagement" = 'At least one video viewed' or "section/subsection video engagement" = 'All videos viewed')
+    countIf("section_subsection_video_engagement" = 'At least one video viewed' or "section_subsection_video_engagement" = 'All videos viewed')
   extra:
     warning_markdown: ''
   metric_name: at_least_one_viewed
@@ -133,7 +133,7 @@ metrics:
   d3format: null
   description: null
   expression: |-
-    countIf("section/subsection video engagement" = 'All videos viewed')
+    countIf("section_subsection_video_engagement" = 'All videos viewed')
   extra: {}
   metric_name: all_videos_viewed
   metric_type: null

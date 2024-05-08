@@ -16,7 +16,7 @@ params:
     operator: ==
     operatorId: EQUALS
     sqlExpression: null
-    subject: content level
+    subject: content_level
   - clause: WHERE
     comparator: null
     datasourceWarning: false
@@ -26,7 +26,7 @@ params:
     isNew: false
     operator: null
     sqlExpression: |-
-      `section/subsection name` <> ''
+      `section_subsection_name` <> ''
     subject: null
   all_columns: []
   color_pn: true
@@ -41,7 +41,7 @@ params:
     targetValue: 0
   extra_form_data: {}
   groupby:
-  - section/subsection name
+  - section_subsection_name
   metrics:
   - aggregate: null
     column: null
@@ -51,7 +51,7 @@ params:
     label: Attempted at least one problem
     optionName: metric_0gasd9pjc5y_44f8wzc1g3q
     sqlExpression: |-
-      countIf("section/subsection problem engagement" = 'At least one problem attempted' or "section/subsection problem engagement" = 'All problems attempted')
+      countIf("section_subsection_problem_engagement" = 'At least one problem attempted' or "section_subsection_problem_engagement" = 'All problems attempted')
   - aggregate: null
     column: null
     datasourceWarning: false
@@ -60,7 +60,7 @@ params:
     label: Attempted all problems
     optionName: metric_6ibge21tuod_k3hhlneae8f
     sqlExpression: |-
-      countIf("section/subsection problem engagement" = 'All problems attempted')
+      countIf("section_subsection_problem_engagement" = 'All problems attempted')
   order_by_cols: []
   order_desc: true
   percent_metrics: []
@@ -73,42 +73,38 @@ params:
   time_grain_sqla: P1M
   viz_type: table
 query_context: "{\"datasource\":{\"id\":82,\"type\":\"table\"},\"force\":false,\"\
-  queries\":[{\"filters\":[{\"col\":\"content level\",\"op\":\"==\",\"val\":\"subsection\"\
-  }],\"extras\":{\"time_grain_sqla\":\"P1M\",\"having\":\"\",\"where\":\"(`section/subsection\
-  \ name` <> '')\"},\"applied_time_extras\":{},\"columns\":[\"section/subsection name\"\
+  queries\":[{\"filters\":[{\"col\":\"content_level\",\"op\":\"==\",\"val\":\"subsection\"\
+  }],\"extras\":{\"time_grain_sqla\":\"P1M\",\"having\":\"\",\"where\":\"(`section_subsection_name` <> '')\"},\"applied_time_extras\":{},\"columns\":[\"section_subsection_name\"\
   ],\"metrics\":[{\"aggregate\":null,\"column\":null,\"datasourceWarning\":false,\"\
   expressionType\":\"SQL\",\"hasCustomLabel\":true,\"label\":\"Attempted at least\
   \ one problem\",\"optionName\":\"metric_0gasd9pjc5y_44f8wzc1g3q\",\"sqlExpression\"\
-  :\"countIf(\\\"section/subsection problem engagement\\\" = 'At least one problem\
-  \ attempted' or \\\"section/subsection problem engagement\\\" = 'All problems attempted')\"\
+  :\"countIf(\\\"section_subsection_problem_engagement\\\" = 'At least one problem\
+  \ attempted' or \\\"section_subsection_problem_engagement\\\" = 'All problems attempted')\"\
   },{\"aggregate\":null,\"column\":null,\"datasourceWarning\":false,\"expressionType\"\
   :\"SQL\",\"hasCustomLabel\":true,\"label\":\"Attempted all problems\",\"optionName\"\
-  :\"metric_6ibge21tuod_k3hhlneae8f\",\"sqlExpression\":\"countIf(\\\"section/subsection\
-  \ problem engagement\\\" = 'All problems attempted')\"}],\"orderby\":[[{\"aggregate\"\
+  :\"metric_6ibge21tuod_k3hhlneae8f\",\"sqlExpression\":\"countIf(\\\"section_subsection_problem_engagement\\\" = 'All problems attempted')\"}],\"orderby\":[[{\"aggregate\"\
   :null,\"column\":null,\"datasourceWarning\":false,\"expressionType\":\"SQL\",\"\
   hasCustomLabel\":true,\"label\":\"Attempted at least one problem\",\"optionName\"\
-  :\"metric_0gasd9pjc5y_44f8wzc1g3q\",\"sqlExpression\":\"countIf(\\\"section/subsection\
-  \ problem engagement\\\" = 'At least one problem attempted' or \\\"section/subsection\
-  \ problem engagement\\\" = 'All problems attempted')\"},false]],\"annotation_layers\"\
+  :\"metric_0gasd9pjc5y_44f8wzc1g3q\",\"sqlExpression\":\"countIf(\\\"section_subsection_problem_engagement\\\" = 'At least one problem attempted' or \\\"section_subsection_problem_engagement\\\" = 'All problems attempted')\"},false]],\"annotation_layers\"\
   :[],\"row_limit\":10000,\"series_limit\":0,\"order_desc\":true,\"url_params\":{},\"\
   custom_params\":{},\"custom_form_data\":{},\"post_processing\":[]}],\"form_data\"\
   :{\"datasource\":\"82__table\",\"viz_type\":\"table\",\"slice_id\":118,\"query_mode\"\
-  :\"aggregate\",\"groupby\":[\"section/subsection name\"],\"time_grain_sqla\":\"\
+  :\"aggregate\",\"groupby\":[\"section_subsection_name\"],\"time_grain_sqla\":\"\
   P1M\",\"temporal_columns_lookup\":{},\"metrics\":[{\"aggregate\":null,\"column\"\
   :null,\"datasourceWarning\":false,\"expressionType\":\"SQL\",\"hasCustomLabel\"\
   :true,\"label\":\"Attempted at least one problem\",\"optionName\":\"metric_0gasd9pjc5y_44f8wzc1g3q\"\
-  ,\"sqlExpression\":\"countIf(\\\"section/subsection problem engagement\\\" = 'At\
-  \ least one problem attempted' or \\\"section/subsection problem engagement\\\"\
+  ,\"sqlExpression\":\"countIf(\\\"section_subsection_problem_engagement\\\" = 'At\
+  \ least one problem attempted' or \\\"section_subsection_problem_engagement\\\"\
   \ = 'All problems attempted')\"},{\"aggregate\":null,\"column\":null,\"datasourceWarning\"\
   :false,\"expressionType\":\"SQL\",\"hasCustomLabel\":true,\"label\":\"Attempted\
   \ all problems\",\"optionName\":\"metric_6ibge21tuod_k3hhlneae8f\",\"sqlExpression\"\
-  :\"countIf(\\\"section/subsection problem engagement\\\" = 'All problems attempted')\"\
+  :\"countIf(\\\"section_subsection_problem_engagement\\\" = 'All problems attempted')\"\
   }],\"all_columns\":[],\"percent_metrics\":[],\"adhoc_filters\":[{\"expressionType\"\
-  :\"SIMPLE\",\"subject\":\"content level\",\"operator\":\"==\",\"operatorId\":\"\
+  :\"SIMPLE\",\"subject\":\"content_level\",\"operator\":\"==\",\"operatorId\":\"\
   EQUALS\",\"comparator\":\"subsection\",\"clause\":\"WHERE\",\"sqlExpression\":null,\"\
   isExtra\":false,\"isNew\":false,\"datasourceWarning\":false,\"filterOptionName\"\
   :\"filter_wjodvc28g8_q60i2v0ebya\"},{\"expressionType\":\"SQL\",\"sqlExpression\"\
-  :\"`section/subsection name` <> ''\",\"clause\":\"WHERE\",\"subject\":null,\"operator\"\
+  :\"`section_subsection_name` <> ''\",\"clause\":\"WHERE\",\"subject\":null,\"operator\"\
   :null,\"comparator\":null,\"isExtra\":false,\"isNew\":false,\"datasourceWarning\"\
   :false,\"filterOptionName\":\"filter_vwio2pful7l_d509oyvu9c5\"}],\"order_by_cols\"\
   :[],\"row_limit\":10000,\"server_page_length\":10,\"order_desc\":true,\"table_timestamp_format\"\

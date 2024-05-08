@@ -817,7 +817,7 @@ position:
   HEADER_ID:
     id: HEADER_ID
     meta:
-      text: Individual learner reports
+      text: Individual Learner Dashboard
     type: HEADER
   ROOT_ID:
     children:

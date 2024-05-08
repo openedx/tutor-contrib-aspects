@@ -3,7 +3,7 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: section/subsection page engagement
+  column_name: section_subsection_page_engagement
   description: null
   expression: ''
   extra: {}
@@ -15,7 +15,7 @@ columns:
   type: String
   verbose_name: Section/Subsection Page Engagement
 - advanced_data_type: null
-  column_name: section/subsection name
+  column_name: section_subsection_name
   description: null
   expression: ''
   extra: {}
@@ -25,9 +25,9 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Section/Subsection Name
+  verbose_name: section_subsection_name
 - advanced_data_type: null
-  column_name: content level
+  column_name: content_level
   description: null
   expression: ''
   extra: {}
@@ -122,7 +122,7 @@ metrics:
   d3format: null
   description: null
   expression: |-
-    countIf("section/subsection page engagement" = 'At least one page viewed' or "section/subsection page engagement" = 'All pages viewed')
+    countIf("section_subsection_page_engagement" = 'At least one page viewed' or "section_subsection_page_engagement" = 'All pages viewed')
   extra: {}
   metric_name: at_leat_one_page_viewed
   metric_type: null
@@ -132,7 +132,7 @@ metrics:
   d3format: null
   description: null
   expression: |-
-    countIf("section/subsection page engagement" = 'All pages viewed')
+    countIf("section_subsection_page_engagement" = 'All pages viewed')
   extra: {}
   metric_name: all_pages_viewed
   metric_type: null
