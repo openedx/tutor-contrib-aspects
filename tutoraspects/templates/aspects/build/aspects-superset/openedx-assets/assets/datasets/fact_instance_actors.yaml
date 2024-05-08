@@ -14,7 +14,7 @@ columns:
   is_dttm: null
   python_date_format: null
   type: AGGREGATEFUNCTION
-  verbose_name: null
+  verbose_name: Actors Count
 - advanced_data_type: null
   column_name: emission_hour
   description: null

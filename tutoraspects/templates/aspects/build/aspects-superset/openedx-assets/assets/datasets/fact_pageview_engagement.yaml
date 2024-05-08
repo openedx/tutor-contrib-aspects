@@ -13,7 +13,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Section/Subsection Page Engagement
+  verbose_name: section_subsection_page_enggagement
 - advanced_data_type: null
   column_name: section/subsection name
   description: null

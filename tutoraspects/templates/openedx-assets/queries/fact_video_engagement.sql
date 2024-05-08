@@ -67,10 +67,10 @@ with
             course_run,
             section_with_name as section_with_name,
             subsection_with_name as subsection_with_name,
-            subsection_with_name as `section/subsection name`,
+            subsection_with_name as `section_subsection_name`,
             'subsection' as `content level`,
             actor_id as actor_id,
-            engagement_level as `section/subsection video engagement`
+            engagement_level as `section_subsection_video_engagement`
         from subsection_counts
         union all
         select
@@ -79,10 +79,10 @@ with
             course_run,
             section_with_name as section_with_name,
             subsection_with_name as subsection_with_name,
-            section_with_name as `section/subsection name`,
+            section_with_name as `section_subsection_name`,
             'section' as `content level`,
             actor_id as actor_id,
-            engagement_level as `section/subsection video engagement`
+            engagement_level as `section_subsection_video_engagement`
         from section_counts
     )
 select *

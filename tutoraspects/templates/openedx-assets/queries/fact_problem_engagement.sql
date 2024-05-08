@@ -61,18 +61,18 @@ select
     org,
     course_key,
     course_run,
-    subsection_with_name as `section/subsection name`,
+    subsection_with_name as `section_subsection_name`,
     'subsection' as `content level`,
     actor_id as actor_id,
-    engagement_level as `section/subsection problem engagement`
+    engagement_level as `section_subsection_problem_engagement`
 from subsection_counts
 union all
 select
     org,
     course_key,
     course_run,
-    section_with_name as `section/subsection name`,
+    section_with_name as `section_subsection_name`,
     'section' as `content level`,
     actor_id as actor_id,
-    engagement_level as `section/subsection problem engagement`
+    engagement_level as `section_subsection_problem_engagement`
 from section_counts
