@@ -3,7 +3,7 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: section_subsection_page_enggagement
+  column_name: section_subsection_page_engagement
   description: null
   expression: null
   extra: null
