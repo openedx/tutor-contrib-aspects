@@ -6,93 +6,86 @@ columns:
   column_name: section/subsection problem engagement
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Section/Subsection Problem Engagement
 - advanced_data_type: null
   column_name: section/subsection name
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Section/Subsection Name
 - advanced_data_type: null
   column_name: content level
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Content Level
 - advanced_data_type: null
   column_name: actor_id
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Actor Id
 - advanced_data_type: null
   column_name: course_key
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Course Key
 - advanced_data_type: null
   column_name: course_run
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Course Run
 - advanced_data_type: null
   column_name: org
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Org
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
@@ -104,12 +97,33 @@ metrics:
 - currency: null
   d3format: null
   description: null
+  expression: |-
+    countIf("section/subsection problem engagement" = 'At least one problem attempted' or "section/subsection problem engagement" = 'All problems attempted')
+  extra:
+    warning_markdown: ''
+  metric_name: attempted_at_least_one_problem
+  metric_type: null
+  verbose_name: Attempted at Least One Problem
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: |-
+    countIf("section/subsection problem engagement" = 'All problems attempted')
+  extra: {}
+  metric_name: attempted_all_problems
+  metric_type: null
+  verbose_name: Attempted All Problems
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
   expression: count(*)
   extra:
     warning_markdown: ''
   metric_name: count
   metric_type: null
-  verbose_name: null
+  verbose_name: Count
   warning_text: null
 normalize_columns: true
 offset: 0

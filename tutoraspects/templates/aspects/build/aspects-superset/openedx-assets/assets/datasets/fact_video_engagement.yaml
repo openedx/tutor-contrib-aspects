@@ -6,21 +6,79 @@ columns:
   column_name: section/subsection page engagement
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Section/Subsection Page Engagement
+- advanced_data_type: null
+  column_name: section/subsection name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Section/Subsection Name
+- advanced_data_type: null
+  column_name: content level
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Content Level
+- advanced_data_type: null
+  column_name: actor_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Actor Id
+- advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Key
+- advanced_data_type: null
+  column_name: course_run
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Run
 - advanced_data_type: null
   column_name: subsection_with_name
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -32,8 +90,7 @@ columns:
   column_name: section_with_name
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -42,83 +99,17 @@ columns:
   type: String
   verbose_name: Section Name
 - advanced_data_type: null
-  column_name: section/subsection name
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: null
-- advanced_data_type: null
-  column_name: content level
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: null
-- advanced_data_type: null
-  column_name: actor_id
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: null
-- advanced_data_type: null
-  column_name: course_key
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: null
-- advanced_data_type: null
-  column_name: course_run
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: null
-- advanced_data_type: null
   column_name: org
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Org
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
@@ -130,12 +121,33 @@ metrics:
 - currency: null
   d3format: null
   description: null
+  expression: |-
+    countIf("section/subsection video engagement" = 'At least one video viewed' or "section/subsection video engagement" = 'All videos viewed')
+  extra:
+    warning_markdown: ''
+  metric_name: at_least_one_viewed
+  metric_type: null
+  verbose_name: At Leat One Viewed
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: |-
+    countIf("section/subsection video engagement" = 'All videos viewed')
+  extra: {}
+  metric_name: all_videos_viewed
+  metric_type: null
+  verbose_name: All Videos Viewed
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
   expression: count(*)
   extra:
     warning_markdown: ''
   metric_name: count
   metric_type: null
-  verbose_name: null
+  verbose_name: Count
   warning_text: null
 normalize_columns: true
 offset: 0

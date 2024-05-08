@@ -149,6 +149,11 @@ class Asset:
                         except IndexError:
                             pass
 
+    def process(self, content: dict, existing: dict):
+        """
+        Process the asset content before writing it to a file.
+        """
+
 
 class ChartAsset(Asset):
     """
@@ -162,6 +167,10 @@ class ChartAsset(Asset):
         "params.slice_id",
     ]
     raw_vars = ["sqlExpression", "query_context"]
+
+    def process(self, content: dict, existing: dict):
+        if not content.get("query_context"):
+            content["query_context"] = existing.get("query_context")
 
 
 class DashboardAsset(Asset):
@@ -181,6 +190,18 @@ class DatasetAsset(Asset):
     path = "datasets"
     templated_vars = ["schema", "table_name", "sql"]
     omitted_vars = ["extra.certification"]
+
+    def process(self, content: dict, existing: dict):
+        """
+        Process the content of the chart asset.
+        """
+        for column in content.get("columns", []):
+            if not column.get("verbose_name"):
+                column["verbose_name"] = column["column_name"].replace("_", " ").title()
+
+        for metric in content.get("metrics", []):
+            if not metric.get("verbose_name"):
+                metric["verbose_name"] = metric["metric_name"].replace("_", " ").title()
 
 
 class DatabaseAsset(Asset):
@@ -265,6 +286,7 @@ def validate_asset_file(asset_path, content, echo):
 
             cls.remove_content(content)
             cls.omit_templated_vars(content, existing)
+            cls.process(content, existing)
             # We found the correct class, we can stop looking.
             break
     return out_path, needs_review
