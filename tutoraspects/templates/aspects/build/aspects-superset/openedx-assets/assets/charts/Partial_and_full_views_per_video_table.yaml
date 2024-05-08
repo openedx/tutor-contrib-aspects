@@ -1,0 +1,41 @@
+_file_name: Partial_and_full_views_per_video_table.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: d0070c9a-5b1c-4e52-867b-79aa46a8cdcf
+description: null
+params:
+  adhoc_filters: []
+  all_columns: []
+  color_pn: true
+  conditional_formatting:
+  - colorScheme: '#ACE1C4'
+    column: full_views
+    operator: '>'
+    targetValue: 0
+  - colorScheme: '#FDE380'
+    column: partial_views
+    operator: '>'
+    targetValue: 0
+  extra_form_data: {}
+  groupby:
+  - video_name_with_location
+  metrics:
+  - full_views
+  - partial_views
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 10000
+  server_page_length: 10
+  show_cell_bars: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup: {}
+  time_grain_sqla: P1M
+  viz_type: table
+query_context: '{"datasource":{"id":82,"type":"table"},"force":false,"queries":[{"filters":[],"extras":{"time_grain_sqla":"P1M","having":"","where":""},"applied_time_extras":{},"columns":["video_name_with_location"],"metrics":["full_views","partial_views"],"orderby":[["full_views",false]],"annotation_layers":[],"row_limit":10000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[]}],"form_data":{"datasource":"82__table","viz_type":"table","slice_id":146,"query_mode":"aggregate","groupby":["video_name_with_location"],"time_grain_sqla":"P1M","temporal_columns_lookup":{},"metrics":["full_views","partial_views"],"all_columns":[],"percent_metrics":[],"adhoc_filters":[],"order_by_cols":[],"row_limit":10000,"server_page_length":10,"order_desc":true,"table_timestamp_format":"smart_date","show_cell_bars":true,"color_pn":true,"conditional_formatting":[{"column":"full_views","colorScheme":"#ACE1C4","operator":">","targetValue":0},{"column":"partial_views","colorScheme":"#FDE380","operator":">","targetValue":0}],"extra_form_data":{},"dashboards":[42],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+slice_name: Partial and full views per video (table)
+uuid: 54a1551c-7eb3-43fb-abd1-005816da0769
+version: 1.0.0
+viz_type: table

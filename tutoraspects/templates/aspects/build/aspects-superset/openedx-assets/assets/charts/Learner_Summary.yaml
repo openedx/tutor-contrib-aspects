@@ -1,0 +1,117 @@
+_file_name: Learner_Summary.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: da75efef-09ba-4ed0-8b6b-bf11c5c26008
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_time
+  all_columns: []
+  color_pn: true
+  conditional_formatting:
+  - colorScheme: '#ACE1C4'
+    column: course_grade
+    operator: "\u2265"
+    targetValue: 0.7
+  - colorScheme: '#FDE380'
+    column: course_grade
+    operator: "\u2264 x \u2264"
+    targetValueLeft: '0.5'
+    targetValueRight: '0.7'
+  - colorScheme: '#EFA1AA'
+    column: course_grade
+    operator: <
+    targetValue: 0.5
+  extra_form_data: {}
+  groupby:
+  - username
+  - name
+  - email
+  - course_name
+  - course_run
+  - expressionType: SQL
+    label: Enrollment Date
+    sqlExpression: emission_time
+  - last_visited
+  - expressionType: SQL
+    label: Passed/Failed
+    sqlExpression: approving_state
+  - expressionType: SQL
+    label: Enrollment Track
+    sqlExpression: enrollment_mode
+  - enrollment_status
+  - expressionType: SQL
+    label: Grade Range
+    sqlExpression: grade_bucket
+  - course_grade
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 1000
+  server_page_length: 100
+  server_pagination: true
+  show_cell_bars: true
+  show_totals: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup:
+    emission_time: true
+    last_visited: true
+  time_grain_sqla: P1D
+  viz_type: table
+query_context: "{\"datasource\":{\"id\":105,\"type\":\"table\"},\"force\":false,\"\
+  queries\":[{\"filters\":[{\"col\":\"emission_time\",\"op\":\"TEMPORAL_RANGE\",\"\
+  val\":\"No filter\"}],\"extras\":{\"time_grain_sqla\":\"P1D\",\"having\":\"\",\"\
+  where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"username\",\"name\",\"email\"\
+  ,\"course_name\",\"course_run\",{\"expressionType\":\"SQL\",\"label\":\"Enrollment\
+  \ Date\",\"sqlExpression\":\"emission_time\"},{\"timeGrain\":\"P1D\",\"columnType\"\
+  :\"BASE_AXIS\",\"sqlExpression\":\"last_visited\",\"label\":\"last_visited\",\"\
+  expressionType\":\"SQL\"},{\"expressionType\":\"SQL\",\"label\":\"Passed/Failed\"\
+  ,\"sqlExpression\":\"approving_state\"},{\"label\":\"Enrollment Track\",\"sqlExpression\"\
+  :\"enrollment_mode\",\"expressionType\":\"SQL\"},\"enrollment_status\",{\"label\"\
+  :\"Grade Range\",\"sqlExpression\":\"grade_bucket\",\"expressionType\":\"SQL\"},\"\
+  course_grade\"],\"metrics\":[],\"orderby\":[],\"annotation_layers\":[],\"row_limit\"\
+  :100,\"row_offset\":0,\"series_limit\":0,\"order_desc\":true,\"url_params\":{},\"\
+  custom_params\":{},\"custom_form_data\":{},\"post_processing\":[]},{\"filters\"\
+  :[{\"col\":\"emission_time\",\"op\":\"TEMPORAL_RANGE\",\"val\":\"No filter\"}],\"\
+  extras\":{\"time_grain_sqla\":\"P1D\",\"having\":\"\",\"where\":\"\"},\"applied_time_extras\"\
+  :{},\"columns\":[\"username\",\"name\",\"email\",\"course_name\",\"course_run\"\
+  ,{\"expressionType\":\"SQL\",\"label\":\"Enrollment Date\",\"sqlExpression\":\"\
+  emission_time\"},{\"timeGrain\":\"P1D\",\"columnType\":\"BASE_AXIS\",\"sqlExpression\"\
+  :\"last_visited\",\"label\":\"last_visited\",\"expressionType\":\"SQL\"},{\"expressionType\"\
+  :\"SQL\",\"label\":\"Passed/Failed\",\"sqlExpression\":\"approving_state\"},{\"\
+  label\":\"Enrollment Track\",\"sqlExpression\":\"enrollment_mode\",\"expressionType\"\
+  :\"SQL\"},\"enrollment_status\",{\"label\":\"Grade Range\",\"sqlExpression\":\"\
+  grade_bucket\",\"expressionType\":\"SQL\"},\"course_grade\"],\"metrics\":[],\"orderby\"\
+  :[],\"annotation_layers\":[],\"row_limit\":0,\"row_offset\":0,\"series_limit\":0,\"\
+  order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{},\"\
+  post_processing\":[],\"is_rowcount\":true}],\"form_data\":{\"datasource\":\"105__table\"\
+  ,\"viz_type\":\"table\",\"slice_id\":193,\"query_mode\":\"aggregate\",\"groupby\"\
+  :[\"username\",\"name\",\"email\",\"course_name\",\"course_run\",{\"expressionType\"\
+  :\"SQL\",\"label\":\"Enrollment Date\",\"sqlExpression\":\"emission_time\"},\"last_visited\"\
+  ,{\"expressionType\":\"SQL\",\"label\":\"Passed/Failed\",\"sqlExpression\":\"approving_state\"\
+  },{\"label\":\"Enrollment Track\",\"sqlExpression\":\"enrollment_mode\",\"expressionType\"\
+  :\"SQL\"},\"enrollment_status\",{\"label\":\"Grade Range\",\"sqlExpression\":\"\
+  grade_bucket\",\"expressionType\":\"SQL\"},\"course_grade\"],\"time_grain_sqla\"\
+  :\"P1D\",\"temporal_columns_lookup\":{\"emission_time\":true,\"last_visited\":true},\"\
+  all_columns\":[],\"percent_metrics\":[],\"adhoc_filters\":[{\"clause\":\"WHERE\"\
+  ,\"comparator\":\"No filter\",\"expressionType\":\"SIMPLE\",\"operator\":\"TEMPORAL_RANGE\"\
+  ,\"subject\":\"emission_time\"}],\"order_by_cols\":[],\"server_pagination\":true,\"\
+  row_limit\":1000,\"server_page_length\":100,\"order_desc\":true,\"show_totals\"\
+  :true,\"table_timestamp_format\":\"smart_date\",\"show_cell_bars\":true,\"color_pn\"\
+  :true,\"conditional_formatting\":[{\"column\":\"course_grade\",\"colorScheme\":\"\
+  #ACE1C4\",\"operator\":\"\u2265\",\"targetValue\":0.7},{\"column\":\"course_grade\"\
+  ,\"colorScheme\":\"#FDE380\",\"targetValueLeft\":\"0.5\",\"operator\":\"\u2264 x\
+  \ \u2264\",\"targetValueRight\":\"0.7\"},{\"column\":\"course_grade\",\"colorScheme\"\
+  :\"#EFA1AA\",\"operator\":\"<\",\"targetValue\":0.5}],\"extra_form_data\":{},\"\
+  dashboards\":[42],\"force\":false,\"result_format\":\"json\",\"result_type\":\"\
+  full\"},\"result_format\":\"json\",\"result_type\":\"full\"}"
+slice_name: Learner Summary
+uuid: 6da50964-000e-4342-a931-3881feb02c13
+version: 1.0.0
+viz_type: table

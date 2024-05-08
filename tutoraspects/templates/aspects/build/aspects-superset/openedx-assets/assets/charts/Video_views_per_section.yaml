@@ -1,0 +1,66 @@
+_file_name: Video_views_per_section.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 247a55b3-d44e-442e-ba92-71bf7976b192
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: null
+    datasourceWarning: false
+    expressionType: SQL
+    filterOptionName: filter_1eznhnyjr5k_wylhwvlq7z
+    isExtra: false
+    isNew: false
+    operator: null
+    sqlExpression: |-
+      `section_subsection_name` <> ''
+    subject: null
+  - clause: WHERE
+    comparator: section
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_9uxf3jzunuu_agqd5zk40wm
+    isExtra: false
+    isNew: false
+    operator: ==
+    operatorId: EQUALS
+    sqlExpression: null
+    subject: content_level
+  all_columns: []
+  color_pn: true
+  conditional_formatting:
+  - colorScheme: '#ACE1C4'
+    column: all_videos_viewed
+    operator: '>'
+    targetValue: 0
+  - colorScheme: '#FDE380'
+    column: at_least_one_viewed
+    operator: '>'
+    targetValue: 0
+  extra_form_data: {}
+  groupby:
+  - expressionType: SQL
+    label: Section Name
+    sqlExpression: section_subsection_name
+  metrics:
+  - all_videos_viewed
+  - at_least_one_viewed
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 10000
+  server_page_length: 10
+  show_cell_bars: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup: {}
+  time_grain_sqla: P1M
+  viz_type: table
+query_context: |-
+  {"datasource":{"id":95,"type":"table"},"force":false,"queries":[{"filters":[{"col":"content_level","op":"==","val":"section"}],"extras":{"time_grain_sqla":"P1M","having":"","where":"(`section_subsection_name` <> '')"},"applied_time_extras":{},"columns":[{"label":"Section Name","sqlExpression":"section_subsection_name","expressionType":"SQL"}],"metrics":["all_videos_viewed","at_least_one_viewed"],"orderby":[["all_videos_viewed",false]],"annotation_layers":[],"row_limit":10000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[]}],"form_data":{"datasource":"95__table","viz_type":"table","slice_id":196,"query_mode":"aggregate","groupby":[{"label":"Section Name","sqlExpression":"section_subsection_name","expressionType":"SQL"}],"time_grain_sqla":"P1M","temporal_columns_lookup":{},"metrics":["all_videos_viewed","at_least_one_viewed"],"all_columns":[],"percent_metrics":[],"adhoc_filters":[{"expressionType":"SQL","sqlExpression":"`section_subsection_name` <> ''","clause":"WHERE","subject":null,"operator":null,"comparator":null,"isExtra":false,"isNew":false,"datasourceWarning":false,"filterOptionName":"filter_1eznhnyjr5k_wylhwvlq7z"},{"expressionType":"SIMPLE","subject":"content_level","operator":"==","operatorId":"EQUALS","comparator":"section","clause":"WHERE","sqlExpression":null,"isExtra":false,"isNew":false,"datasourceWarning":false,"filterOptionName":"filter_9uxf3jzunuu_agqd5zk40wm"}],"order_by_cols":[],"row_limit":10000,"server_page_length":10,"order_desc":true,"table_timestamp_format":"smart_date","show_cell_bars":true,"color_pn":true,"conditional_formatting":[{"column":"all_videos_viewed","colorScheme":"#ACE1C4","operator":">","targetValue":0},{"column":"at_least_one_viewed","colorScheme":"#FDE380","operator":">","targetValue":0}],"extra_form_data":{},"dashboards":[42],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}
+slice_name: Video views per section
+uuid: 0744f1bf-1636-4735-861b-18a6f1e825a2
+version: 1.0.0
+viz_type: table
