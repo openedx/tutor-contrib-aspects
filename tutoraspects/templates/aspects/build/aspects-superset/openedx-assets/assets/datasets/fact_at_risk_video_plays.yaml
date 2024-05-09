@@ -193,7 +193,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Video Link
 - advanced_data_type: null
   column_name: username
   description: null
@@ -205,7 +205,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Username
 - advanced_data_type: null
   column_name: email
   description: null
@@ -217,7 +217,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Email
 - advanced_data_type: null
   column_name: name
   description: null
@@ -229,7 +229,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: null
+  verbose_name: Name
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null

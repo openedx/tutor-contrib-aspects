@@ -1,0 +1,63 @@
+_file_name: Page_views_per_subsection.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 9febd6be-5102-4dbf-86b9-45ebd3cbbc45
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_s8d5o5h20q_2r3i3mfdrkw
+    isExtra: false
+    isNew: false
+    operator: TEMPORAL_RANGE
+    sqlExpression: null
+    subject: visited_on
+  - clause: WHERE
+    comparator: null
+    datasourceWarning: false
+    expressionType: SQL
+    filterOptionName: filter_f90l1y3p62f_1hlgx4smg41
+    isExtra: false
+    isNew: false
+    operator: null
+    sqlExpression: |-
+      subsection_with_name != ''
+    subject: null
+  all_columns: []
+  color_pn: true
+  conditional_formatting:
+  - colorScheme: '#ACE1C4'
+    column: all_pages_viewed
+    operator: '>'
+    targetValue: 0
+  - colorScheme: '#FDE380'
+    column: at_leat_one_page_viewed
+    operator: '>'
+    targetValue: 0
+  extra_form_data: {}
+  groupby:
+  - subsection_with_name
+  metrics:
+  - all_pages_viewed
+  - at_leat_one_page_viewed
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 10000
+  server_page_length: 10
+  show_cell_bars: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup: {}
+  time_grain_sqla: P1M
+  viz_type: table
+query_context: |-
+  {"datasource":{"id":99,"type":"table"},"force":false,"queries":[{"filters":[{"col":"visited_on","op":"TEMPORAL_RANGE","val":"No filter"}],"extras":{"time_grain_sqla":"P1M","having":"","where":"(subsection_with_name != '')"},"applied_time_extras":{},"columns":["subsection_with_name"],"metrics":["all_pages_viewed","at_leat_one_page_viewed"],"orderby":[["all_pages_viewed",false]],"annotation_layers":[],"row_limit":10000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[]}],"form_data":{"datasource":"99__table","viz_type":"table","slice_id":191,"query_mode":"aggregate","groupby":["subsection_with_name"],"time_grain_sqla":"P1M","temporal_columns_lookup":{},"metrics":["all_pages_viewed","at_leat_one_page_viewed"],"all_columns":[],"percent_metrics":[],"adhoc_filters":[{"clause":"WHERE","comparator":"No filter","datasourceWarning":false,"expressionType":"SIMPLE","filterOptionName":"filter_s8d5o5h20q_2r3i3mfdrkw","isExtra":false,"isNew":false,"operator":"TEMPORAL_RANGE","sqlExpression":null,"subject":"visited_on"},{"clause":"WHERE","comparator":null,"datasourceWarning":false,"expressionType":"SQL","filterOptionName":"filter_f90l1y3p62f_1hlgx4smg41","isExtra":false,"isNew":false,"operator":null,"sqlExpression":"subsection_with_name != ''","subject":null}],"order_by_cols":[],"row_limit":10000,"server_page_length":10,"order_desc":true,"table_timestamp_format":"smart_date","show_cell_bars":true,"color_pn":true,"conditional_formatting":[{"colorScheme":"#ACE1C4","column":"all_pages_viewed","operator":">","targetValue":0},{"colorScheme":"#FDE380","column":"at_leat_one_page_viewed","operator":">","targetValue":0}],"extra_form_data":{},"dashboards":[42],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}
+slice_name: Page views per subsection
+uuid: 18f85781-d604-4edf-a3e6-429e16c3040a
+version: 1.0.0
+viz_type: table

@@ -1,115 +1,151 @@
-_file_name: fact_pageview_engagement.yaml
+_file_name: learner_summary.yaml
 always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: subsection_with_name
+  column_name: emission_time
   description: null
-  expression: ''
+  expression: null
   extra: {}
   filterable: true
   groupby: true
   is_active: true
-  is_dttm: false
+  is_dttm: true
   python_date_format: null
-  type: String
-  verbose_name: Subsection With Name
-- advanced_data_type: null
-  column_name: section_with_name
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Section With Name
+  type: DATETIME
+  verbose_name: Enrollment Date
 - advanced_data_type: null
   column_name: actor_id
   description: null
-  expression: ''
+  expression: null
   extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: STRING
   verbose_name: Actor Id
 - advanced_data_type: null
   column_name: course_key
   description: null
-  expression: ''
+  expression: null
   extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: STRING
   verbose_name: Course Key
 - advanced_data_type: null
-  column_name: content_level
+  column_name: course_name
   description: null
-  expression: ''
+  expression: null
   extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
-  verbose_name: Content Level
+  type: STRING
+  verbose_name: Course Name
 - advanced_data_type: null
   column_name: course_run
   description: null
-  expression: ''
+  expression: null
   extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: STRING
   verbose_name: Course Run
+- advanced_data_type: null
+  column_name: enrollment_status
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: Enrollment Status
+- advanced_data_type: null
+  column_name: enrollment_mode
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: Enrollment Track
+- advanced_data_type: null
+  column_name: grade_bucket
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: Grade Range
+- advanced_data_type: null
+  column_name: approving_state
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: Passed/Failed
 - advanced_data_type: null
   column_name: org
   description: null
-  expression: ''
+  expression: null
   extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
-  verbose_name: Org
+  type: STRING
+  verbose_name: Organization
 - advanced_data_type: null
-  column_name: section_subsection_page_engagement
+  column_name: course_grade
   description: null
-  expression: ''
+  expression: null
   extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
-  verbose_name: section_subsection_page_engagement
+  type: FLOAT64
+  verbose_name: Course Grade
 - advanced_data_type: null
-  column_name: section_subsection_name
+  column_name: last_visited
   description: null
-  expression: ''
+  expression: null
   extra: {}
   filterable: true
   groupby: true
   is_active: true
-  is_dttm: false
+  is_dttm: true
   python_date_format: null
-  type: String
-  verbose_name: section_subsection_name
+  type: DATETIME
+  verbose_name: Last Visited
 - advanced_data_type: null
   column_name: username
   description: null
@@ -120,7 +156,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: STRING
   verbose_name: Username
 - advanced_data_type: null
   column_name: email
@@ -132,7 +168,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: STRING
   verbose_name: Email
 - advanced_data_type: null
   column_name: name
@@ -144,54 +180,32 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: STRING
   verbose_name: Name
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
 extra: null
 fetch_values_predicate: null
-filter_select_enabled: false
-main_dttm_col: null
+filter_select_enabled: true
+main_dttm_col: emission_time
 metrics:
 - currency: null
   d3format: null
   description: null
-  expression: |-
-    countIf("section_subsection_page_engagement" = 'At least one page viewed' or "section_subsection_page_engagement" = 'All pages viewed')
-  extra:
-    warning_markdown: ''
-  metric_name: at_leat_one_page_viewed
-  metric_type: null
-  verbose_name: At Leat One Page Viewed
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: |-
-    countIf("section_subsection_page_engagement" = 'All pages viewed')
-  extra:
-    warning_markdown: ''
-  metric_name: all_pages_viewed
-  metric_type: null
-  verbose_name: All Pages Viewed
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: count(*)
+  expression: COUNT(*)
   extra:
     warning_markdown: ''
   metric_name: count
-  metric_type: null
-  verbose_name: Count
+  metric_type: count
+  verbose_name: COUNT(*)
   warning_text: null
-normalize_columns: true
+normalize_columns: false
 offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
-sql: select * from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_pageview_engagement
-table_name: fact_pageview_engagement
-template_params: {}
-uuid: 9febd6be-5102-4dbf-86b9-45ebd3cbbc45
+sql: select * from {{DBT_PROFILE_TARGET_DATABASE}}.learner_summary
+table_name: learner_summary
+template_params: null
+uuid: da75efef-09ba-4ed0-8b6b-bf11c5c26008
 version: 1.0.0
