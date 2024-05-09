@@ -1,8 +1,17 @@
 name: Bump version and changelog
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'The version to bump to'
+        required: true
+        default: 'minor'
+        type: choice
+        options:
+        - major
+        - minor
+        - patch
+
 
 jobs:
   bumpversion:
@@ -21,7 +30,7 @@ jobs:
         uses: mathieudutour/github-tag-action@v6.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          default_bump: false
+          default_bump: ${{ github.event.inputs.version }}
           default_prerelease_bump: false
           dry_run: true
       - name: Set up Python 3.12
@@ -61,14 +70,14 @@ jobs:
           base: main
           body: |
             Automated version bump for release ${{ steps.tag_version.outputs.new_version }}.
-          
+
             This pull request was automatically generated. It includes the following changes:
-          
+
             - Version: ${{ steps.tag_version.outputs.new_version }}
             - Previous version: ${{ steps.tag_version.outputs.previous_tag }}
-            
+
             ${{ steps.tag_version.outputs.changelog }}
-          
+
             No code changes are included in this pull request. The purpose of this PR is to trigger a version bump for the project.
-          
+
             Once the pull request is merged, a new GitHub release will be created with the updated version.
