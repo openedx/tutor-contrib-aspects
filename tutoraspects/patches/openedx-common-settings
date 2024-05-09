@@ -37,6 +37,10 @@ EVENT_TRACKING_BACKENDS["event_transformer"]["OPTIONS"]["backends"]["caliper"]["
 # Enable the event bus producer
 SEND_TRACKING_EVENT_EMITTED_SIGNAL = True
 # Update the event bus producer config
+try:
+	not EVENT_BUS_PRODUCER_CONFIG
+except NameError:  # EVENT_BUS_PRODUCER_CONFIG is not defined
+	EVENT_BUS_PRODUCER_CONFIG = {}
 EVENT_BUS_PRODUCER_CONFIG.update(
 	{
     	"org.openedx.analytics.tracking.event.emitted.v1": {
