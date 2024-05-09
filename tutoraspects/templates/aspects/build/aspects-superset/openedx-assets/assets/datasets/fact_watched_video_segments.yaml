@@ -124,6 +124,18 @@ columns:
   type: String
   verbose_name: Segment Range
 - advanced_data_type: null
+  column_name: segment_start
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Segment Start
+- advanced_data_type: null
   column_name: start_position
   description: null
   expression: null
