@@ -2,6 +2,13 @@ name: Build Image
 on:
   pull_request:
     types: [opened, synchronize, closed]
+    paths-ignore:
+      - .github/**
+      - .ci/**
+      - .gitignore
+      - CHANGELOG.md
+      - setup.cfg
+      - tutoraspects/__about__.py
 
 env:
   TUTOR_ROOT: ./.ci/
