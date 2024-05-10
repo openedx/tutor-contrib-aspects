@@ -35,7 +35,7 @@ UUID = str(uuid.uuid4())[0:6]
 RUN_ID = f"aspects-{ASPECTS_VERSION}-{UUID}"
 CHART_PATH = "/app/openedx-assets/assets/charts/"
 
-report_format = "{i}. {slice}\n" "Superset time: {superset_time} (s).\n"
+report_format = "{i}. {dashboard} - {slice}\n" "Superset time: {superset_time} (s).\n"
 
 query_format = (
     "Query duration: {query_duration_ms} (s).\n"
@@ -51,6 +51,15 @@ query_format = (
     default="",
     help="A course_key to apply as a filter, you must include the 'course-v1:'.")
 @click.option(
+    "--dashboard_slug",
+    default="",
+    help="Only run charts for the given dashboard.")
+@click.option(
+    "--slice_name",
+    default="",
+    help="Only run charts for the given slice name, if the name appears in more than "
+         "one dashboard it will be run for each.")
+@click.option(
     "--print_sql",
     is_flag=True,
     default=False,
@@ -59,7 +68,8 @@ query_format = (
 @click.option(
     "--fail_on_error", is_flag=True, default=False, help="Allow errors to fail the run."
 )
-def performance_metrics(course_key, print_sql, fail_on_error):
+def performance_metrics(course_key, dashboard_slug, slice_name, print_sql,
+                        fail_on_error):
     """
     Measure the performance of the dashboard.
     """
@@ -71,17 +81,27 @@ def performance_metrics(course_key, print_sql, fail_on_error):
 
     with patch("clickhouse_connect.common.build_client_name") as mock_build_client_name:
         mock_build_client_name.return_value = RUN_ID
-        embedable_dashboards = {{SUPERSET_EMBEDDABLE_DASHBOARDS}}
+        target_dashboards = [dashboard_slug] if dashboard_slug else {{SUPERSET_EMBEDDABLE_DASHBOARDS}}
+
         dashboards = (
             db.session.query(Dashboard)
-            .filter(Dashboard.slug.in_(embedable_dashboards))
+            .filter(Dashboard.slug.in_(target_dashboards))
             .all()
         )
         report = []
+
+        if not dashboards:
+            logger.warning(f"No dashboard found for {target_dashboards}")
+
         query_contexts = get_query_contexts_from_assets()
         for dashboard in dashboards:
             logger.info(f"Dashboard: {dashboard.slug}")
             for slice in dashboard.slices:
+                if slice_name and not slice_name == slice.slice_name:
+                    logger.info(f"{slice.slice_name} doesn't match {slice_name}, "
+                             f"skipping.")
+                    continue
+
                 query_context = get_slice_query_context(
                     slice,
                     query_contexts,
@@ -94,7 +114,13 @@ def performance_metrics(course_key, print_sql, fail_on_error):
                     # Remove the data from the query to avoid memory issues on large
                     # datasets.
                     query.pop("data")
+
+                result["dashboard"] = dashboard.slug
                 report.append(result)
+
+        if not report:
+            logger.warning("No target charts found!")
+            return report
 
         logger.info("Waiting for clickhouse log...")
         time.sleep(20)
@@ -210,9 +236,10 @@ def get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_err
 
     report_str = f"\nSuperset Reports: {RUN_ID}\n\n"
     for i, chart_result in enumerate(report):
-        report_str+=(
+        report_str += (
             report_format.format(
                 i=(i + 1),
+                dashboard=chart_result["dashboard"],
                 slice=chart_result["slice"],
                 superset_time=chart_result["time_elapsed"]
             )
@@ -228,7 +255,7 @@ def get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_err
                 logger.info(parsed_sql)
 
             clickhouse_report = clickhouse_queries.get(parsed_sql, {})
-            report_str+=(
+            report_str += (
                 query_format.format(
                     query_duration_ms=clickhouse_report.get(
                         "query_duration_ms", 0
