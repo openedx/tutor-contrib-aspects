@@ -5,3 +5,6 @@ enrollment_mode:
 enrollment_status:
 - registered
 - unregistered
+graded:
+- graded
+- ungraded

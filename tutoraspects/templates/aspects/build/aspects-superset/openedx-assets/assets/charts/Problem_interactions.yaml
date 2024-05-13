@@ -63,9 +63,7 @@ params:
     expressionType: SQL
     label: Graded
     sqlExpression: |-
-      case when graded then 'Graded'
-      else 'Ungraded'
-      end
+      {% raw %}{{translate_column_bool('graded')}}{% endraw %}
   metrics:
   - number_of_learners
   - median_attemps
