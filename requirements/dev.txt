@@ -43,7 +43,7 @@ click==8.1.7
     #   black
     #   transifex-python
     #   tutor
-cryptography==42.0.6
+cryptography==42.0.7
     # via secretstorage
 dill==0.3.8
     # via pylint
@@ -166,7 +166,7 @@ pygments==2.18.0
     #   rich
 pyinstaller==6.6.0
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2024.5
+pyinstaller-hooks-contrib==2024.6
     # via pyinstaller
 pylint==3.1.0
     # via -r requirements/dev.in
@@ -185,7 +185,7 @@ pyyaml==6.0.1
     #   tutor
 readme-renderer==43.0
     # via twine
-regex==2024.4.28
+regex==2024.5.10
     # via
     #   -r requirements/base.txt
     #   parsimonious
@@ -231,7 +231,7 @@ tomli==2.0.1
     #   black
     #   mypy
     #   pylint
-tomlkit==0.12.4
+tomlkit==0.12.5
     # via pylint
 toolz==0.12.1
     # via
