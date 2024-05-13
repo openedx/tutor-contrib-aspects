@@ -4,7 +4,7 @@ on:
     types:
       - closed
     branches:
-      - main
+      - nightly
 
 env:
   TUTOR_ROOT: ./.ci/
