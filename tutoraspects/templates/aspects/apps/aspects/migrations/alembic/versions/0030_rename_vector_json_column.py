@@ -1,5 +1,9 @@
 """
 As part of the Ralph 4.0 upgrade, we need to rename "event_json" to "event".
+
+Later we've removed all references to the JSON columns and
+allow_experimental_object_type since they have been removed from ClickHouse and cause
+various errors.
 """
 from alembic import op
 
