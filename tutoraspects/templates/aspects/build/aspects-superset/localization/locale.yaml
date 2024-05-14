@@ -4086,6 +4086,261 @@ pt_BR:
   xAPI Events Over Time v2: Eventos xAPI ao longo do tempo v2
   '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
+pt_PT:
+  '': ''
+  '% Correct': '% Correto'
+  '% Incorrect': '% Incorreto'
+  Action: Ação
+  Action Count: Contagem de ações
+  Action Date: Data da ação
+  Active: Ativo
+  Active Courses: Cursos ativos
+  Active Learners: Alunos ativos
+  Active Users Per Organization: Utilizadores ativos por organização
+  Actor ID: ID do ator
+  Actor Id: Id do ator
+  All Pages Viewed: Todas as páginas visualizadas
+  All Videos Viewed: Todos os vídeos visualizados
+  At Leat One Page Viewed: Pelo menos uma página visualizada
+  At Leat One Viewed: Pelo menos um visto
+  At-Risk Learners: Alunos em risco
+  At-risk Enrollees per Enrollment Track: Inscritos em risco por via de inscrição
+  At-risk Enrollment Dates: Datas de inscrição em risco
+  At-risk learners: Alunos em risco
+  Attempted All Problems: Tentativa de todos os problemas
+  Attempted at Least One Problem: Tentou pelo menos um problema
+  Attempts: Tentativas
+  Avg Attempts: Média de tentativas
+  Avg Course Grade: Nota média do curso
+  Block ID: Bloco ID
+  Block Id: Bloco Id
+  COUNT(*): COUNT(*)
+  Changed By Fk: Alterado por Fk
+  Changed On: Alterado em
+  Chart showing the number of Superset actions taken on each chart in the selected time period.: Gráfico
+    que mostra o número de ações Superset realizadas em cada gráfico no período de
+    tempo selecionado.
+  Chart showing the number of Superset actions taken on each dashboard in the selected time period.: Gráfico
+    que mostra o número de ações Superset realizadas em cada dashboard no período
+    de tempo selecionado.
+  Chart showing the number of registered users over the selected time period.: Gráfico
+    que mostra o número de utilizadores registados durante o período de tempo selecionado.
+  ClickHouse: ClickHouse
+  ClickHouse metrics: Métricas do ClickHouse
+  Content Level: Nível de conteúdo
+  Correct Attempts: Tentativas correctas
+  Count: Contagem
+  Count of unique users who performed an action in Superset over the selected time period.: Contagem
+    de utilizadores únicos que realizaram uma ação no Superset durante o período de
+    tempo selecionado.
+  Count over time of unique users who performed an action in Superset over the selected time period.: Contagem
+    ao longo do tempo de utilizadores únicos que realizaram uma ação no Superset durante
+    o período de tempo selecionado.
+  Course Dashboard: Painel de controlo da disciplina
+  Course Data JSON: Dados da disciplina JSON
+  Course End: Data de Fim do Curso
+  Course Enrollments Over Time: Inscrições nos cursos ao longo do tempo
+  Course Grade: Classificação do Curso
+  Course ID: ID do Curso
+  Course Information: Informações sobre os cursos
+  Course Key: Chave do Curso
+  Course Key Short: Chave do curso curto
+  Course Name: Nome do Curso
+  Course Run: Edição do Curso
+  Course Start: Data de Início do Curso
+  Course grade: Nota do curso
+  Course key: Chave da disciplina
+  Course name: Nome do curso
+  Course run: Edição do curso
+  Courses: Cursos
+  Courses Per Organization: Cursos por organização
+  Created: Criado
+  Created By Fk: Criado por Fk
+  Created On: Criado em
+  Cumulative Enrollments by Track: Inscrições acumuladas por via
+  Cumulative Interactions: Interações cumulativas
+  Cumulative Interactions (at-risk): Interações cumulativas (em risco)
+  Current Active Enrollments By Mode: Inscrições ativas atuais por modo
+  Current Enrollees: Inscritos atuais
+  Dashboard ID: ID do painel de controlo
+  Dashboard Status: Estado do painel de controlo
+  Dashboard Title: Título do painel de controlo
+  Datasource ID: ID da fonte de dados
+  Datasource Name: Nome da fonte de dados
+  Datasource Type: Tipo de fonte de dados
+  Date: Data
+  Description: Descrição
+  Display Name: Nome a Exibir
+  Distribution of Course Grades: Distribuição das notas dos cursos
+  Distribution of Current Course Grade: Distribuição da nota atual do curso
+  Dump ID: ID do depósito
+  Duration (Seconds): Duração (segundos)
+  Email: Email
+  Emission Time: Tempo de emissão
+  Engagement: Envolvimento
+  Enrolled At: Inscrito em
+  Enrollees per Enrollment Track: Inscritos por via de inscrição
+  Enrollment: Inscrição
+  Enrollment End: Fim da inscrição
+  Enrollment Mode: Modo de inscrição
+  Enrollment Start: Início da inscrição
+  Enrollment Status: Estado da inscrição
+  Enrollment status: Estado da inscrição
+  Enrollment track: Percurso de aprendizagem
+  Enrollments: Inscrições
+  Event Activity: Atividade do evento
+  Event ID: ID do evento
+  Event String: Cadeia de eventos
+  Event Time: Hora do evento
+  Evolution of Engagement (at-risk): Evolução do envolvimento (em risco)
+  Evolution of engagement: Evolução da envolvimento
+  External User ID: ID do utilizador externo
+  Fail Login Count: Contagem de falhas de início de sessão
+  First Name: Primeiro Nome
+  Full Views: Visualizações completas
+  Grade Bucket: Bucket da Avaliação
+  Grade range: Intervalo de notas
+  Graded: Avaliado
+  Graded Learners: Alunos classificados
+  Help: Ajuda
+  Id: Id
+  Incorrect Attempts: Tentativas incorrectas
+  Individual Learner Dashboard: Painel de controlo individual do aluno
+  Individual Learner Reports: Relatórios individuais dos alunos
+  Instance Health: Saúde da instância
+  Interaction Type: Tipo de interação
+  Last Login: Último login
+  Last Name: Apelido
+  Last Received Event: Último evento recebido
+  Last Visited: Última visita
+  Last course syncronized: Último curso sincronizado
+  Last visit date: Data da última visita
+  Learners with Passing Grade: Estudantes com classificados para aprovação
+  Login Count: Contagem de registos
+  Median Course Grade: Classificação mediana do curso
+  Median of Attempts: Mediana de tentativas
+  Memory Usage (KB): Uso de memória (KB)
+  Modified: Modificado
+  Most-used Charts: Gráficos mais utilizados
+  Most-used Dashboards: Painéis mais utilizados
+  Name: Nome
+  Number of Learners: Número de estudantes
+  Number of Learners who attemped the problem: Número de estudantes que responderam
+    ao problema
+  Object ID: ID do objeto
+  Object Type: Tipo de Objeto
+  Operator Dashboard: Painel do operador
+  Org: Org
+  Organization: Organização
+  Organizations: Organizações
+  Overview: Descrição geral
+  Page Count: Contagem de páginas
+  Page views per section/subsection: Visualizações de páginas por secção/subsecção
+  Page views per section/subsection (at-risk): Visualizações de páginas por secção/subsecção
+    (em risco)
+  Pages: Páginas
+  Partial Views: Vistas parciais
+  Partial and Full Views Per Video (at-risk): Visualizações parciais e completas por
+    vídeo (em risco)
+  Partial and full views per video: Visualizações parciais e totais por vídeo
+  Passed/Failed: Aprovado/Reprovado
+  Password: Palavra-passe
+  Performance: Performance
+  Problem Id: Id do problema
+  Problem Interactions (at-risk): Interações com o Problema (em risco)
+  Problem Link: Link do Problema
+  Problem Name: Nome do problema
+  Problem Results: Resultados do Problema
+  Problem Results (at-risk): Resultados do Problema (em risco)
+  Problem interactions: Interações com o Problema
+  Problem name with location: Nome do Problema com localização
+  Problems: Problemas
+  Problems attempted per section/subsection: Problemas resolvidos por secção/subsecção
+  Problems attempted per section/subsection (at-risk): Problemas resolvidos por secção/subsecção
+    (em risco)
+  Query: Consulta
+  Query performance: Desempenho de consulta
+  Read Rows: Ler linhas
+  Repeat Views: Repetir vizualizações
+  Responses: Respostas
+  Result: Resultado
+  Section Name: Nome da Secção
+  Section Summary: Sumário da secção
+  Section Summary (at-risk): Sumário da secção (em risco)
+  Section With Name: Secção com Nome
+  Section with Name: Secção com Nome
+  Section with name: Secção com nome
+  Section/Subsection Name: Nome da secção/subsecção
+  Section/Subsection Page Engagement: Envolvimento na página de secção/subsecção
+  Section/Subsection Problem Engagement: Problema de envolvimento de Secção/Subsecção
+  Segment Range: Intervalo do segmento
+  Segment Start: Início do segmento
+  Self Paced: Ritmo Próprio Indiviual
+  Slice ID: ID do Slice
+  Slice Name: Nome do Slice
+  Slowest ClickHouse Queries: Consultas ClickHouse mais lentas
+  Start Position: Posição inicial
+  Started At: Começou em
+  Subsection Name: Nome da Subsecção
+  Subsection Summary: Sumário da Subsecção
+  Subsection Summary (at-risk): Sumário da Subsecção (em risco)
+  Subsection With Name: Subsecção com Nome
+  Subsection with Name: Subsecção com Nome
+  Subsection with name: Subsecção com nome
+  Success: Sucesso
+  Superset: Superset
+  Superset Active Users: Utilizadores ativos do Superset
+  Superset Active Users Over Time: Utilizadores ativos do Superset ao longo do tempo
+  Superset Registered Users Over Time: Utilizadores registados do Superset ao longo
+    do tempo
+  Time Grain: Granularidade do tempo
+  Time Last Dumped: Hora do último descarregamento
+  Time Range: Intervalo de tempo
+  Total Organizations: Total de organizações
+  Total Users: Total de utilizadores
+  Total Views: Total de vistas
+  Total plays: Total de início de reproduções
+  Unique Viewers: Espectadores únicos
+  Unique Watchers: Observadores únicos
+  User ID: ID do utilizador
+  User Info: Informação do utilizador
+  User Name: Nome do utilizador
+  User Registration Date: Data de registo do utilizador
+  Username: Nome de utilizador
+  Value: Valor
+  Verb: Verbo
+  Verb ID: ID do verbo
+  Video Duration: Duração do vídeo
+  Video Event: Evento do vídeo
+  Video ID: ID do Vídeo
+  Video Link: Link do vídeo
+  Video Name: Nome do vídeo
+  Video Name With Location: Nome do vídeo com localização
+  Video Position: Posição do vídeo
+  Video Views by Section/Subsection (at-risk): Visualizações de vídeo por secção/subsecção
+    (em risco)
+  Video Views per Section/Subsection (at-risk): Visualizações de vídeo por secção/subsecção
+    (em risco)
+  Video name: Nome do vídeo
+  Video views by section/subsection: Visualizações de vídeo por secção/subsecção
+  Video views per section/subsection: Visualizações de vídeo por secção/subsecção
+  Videos: Vídeos
+  Views: Visualizações
+  Visited On: Visitado em
+  Visualization Bucket: Visualização do bucket
+  Watched Entire Video: Assistiu a todo o vídeo
+  Watched Segment Count: Contagem de Visualizações do Segmento
+  Watched Video Segments: Segmentos de vídeo visualizados
+  Watched Video Segments (at-risk): Segmentos de vídeo visualizados (em risco)
+  audit: audit
+  honor: honra
+  registered: registado
+  unregistered: não registado
+  verified: verificado
+  '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
+  ⏲️ Use the ‘Time Grain’ filter to update the time frame intervals shown in the following graph(s): ⏲️
+    Utilize o filtro “Time Grain” para atualizar os intervalos de tempo apresentados
+    no(s) gráfico(s) seguinte(s)
 ru:
   '': ''
   <div>Filter these results by selecting various options from the filters panel.</div>: <div>Отфильтруйте
