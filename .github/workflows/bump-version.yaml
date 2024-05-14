@@ -67,7 +67,7 @@ jobs:
           title: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
           commit-message: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
           branch: "bot/v${{steps.tag_version.outputs.new_version}}"
-          base: nightly
+          base: main
           body: |
             Automated version bump for release ${{ steps.tag_version.outputs.new_version }}.
 
