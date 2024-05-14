@@ -315,7 +315,6 @@ ar:
   verified: تم التحقق
   xAPI Events Over Time: أحداث xAPI مع مرور الوقت
   xAPI Events Over Time v2: أحداث xAPI مع مرور الوقت v2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 da:
   '': ''
@@ -636,7 +635,6 @@ da:
   verified: verificeret
   xAPI Events Over Time: xAPI-begivenheder over tid
   xAPI Events Over Time v2: xAPI-begivenheder over tid v2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 de_DE:
   '': ''
@@ -967,7 +965,6 @@ de_DE:
   verified: verifiziert
   xAPI Events Over Time: xAPI-Ereignisse im Zeitverlauf
   xAPI Events Over Time v2: xAPI-Ereignisse im Zeitverlauf v2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 el:
   '': ''
@@ -1296,7 +1293,6 @@ el:
   verified: επαληθεύτηκε
   xAPI Events Over Time: xAPI συμβάντα με την πάροδο του χρόνου
   xAPI Events Over Time v2: xAPI συμβάντα με την πάροδο του χρόνου v2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 es_419:
   '': ''
@@ -1625,7 +1621,6 @@ es_419:
   verified: verificado
   xAPI Events Over Time: Eventos xAPI a lo largo del tiempo
   xAPI Events Over Time v2: Eventos xAPI a lo largo del tiempo v2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 es_ES:
   '': ''
@@ -1954,7 +1949,6 @@ es_ES:
   verified: verificado
   xAPI Events Over Time: Eventos xAPI a lo largo del tiempo
   xAPI Events Over Time v2: Eventos xAPI a lo largo del tiempo v2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 fa:
   '': ''
@@ -2280,7 +2274,6 @@ fa:
   verified: تایید شده است
   xAPI Events Over Time: رویدادهای xAPI در طول زمان
   xAPI Events Over Time v2: رویدادهای xAPI در طول زمان نسخه 2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 fr_CA:
   '': ''
@@ -2784,7 +2777,6 @@ he:
   verified: מְאוּמָת
   xAPI Events Over Time: אירועי xAPI לאורך זמן
   xAPI Events Over Time v2: xAPI אירועים לאורך זמן v2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 hi:
   '': ''
@@ -3108,7 +3100,6 @@ hi:
   verified: सत्यापित
   xAPI Events Over Time: समय के साथ xAPI घटनाएँ
   xAPI Events Over Time v2: समय के साथ xAPI इवेंट v2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 id:
   '': ''
@@ -3430,7 +3421,6 @@ id:
   verified: verified
   xAPI Events Over Time: xAPI Events Over Time
   xAPI Events Over Time v2: xAPI Events Over Time v2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 it_IT:
   '': ''
@@ -3758,7 +3748,6 @@ it_IT:
   verified: verificato
   xAPI Events Over Time: Eventi xAPI nel tempo
   xAPI Events Over Time v2: Eventi xAPI nel tempo v2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 pt_BR:
   '': ''
@@ -4084,7 +4073,6 @@ pt_BR:
   verified: verificado
   xAPI Events Over Time: Eventos xAPI ao longo do tempo
   xAPI Events Over Time v2: Eventos xAPI ao longo do tempo v2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 pt_PT:
   '': ''
@@ -4664,7 +4652,6 @@ ru:
   verified: проверено
   xAPI Events Over Time: События xAPI с течением времени
   xAPI Events Over Time v2: События xAPI с течением времени v2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 sw:
   '': ''
@@ -4985,7 +4972,6 @@ sw:
   verified: imethibitishwa
   xAPI Events Over Time: Matukio ya xAPI kwa Muda
   xAPI Events Over Time v2: Matukio ya xAPI kwa Muda v2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 te:
   '': ''
@@ -5305,7 +5291,6 @@ te:
   verified: ధృవీకరించబడింది
   xAPI Events Over Time: కాలక్రమేణా xAPI ఈవెంట్‌లు
   xAPI Events Over Time v2: కాలక్రమేణా xAPI ఈవెంట్‌లు v2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 th:
   '': ''
@@ -5605,7 +5590,6 @@ th:
   verified: ตรวจสอบแล้ว
   xAPI Events Over Time: เหตุการณ์ xAPI เมื่อเวลาผ่านไป
   xAPI Events Over Time v2: เหตุการณ์ xAPI เมื่อเวลาผ่านไป เวอร์ชัน 2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 tr_TR:
   '': ''
@@ -5927,7 +5911,6 @@ tr_TR:
   verified: doğrulandı
   xAPI Events Over Time: Zaman İçinde xAPI Olayları
   xAPI Events Over Time v2: Zaman İçinde xAPI Olayları v2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 uk:
   '': ''
@@ -6248,7 +6231,6 @@ uk:
   verified: перевірено
   xAPI Events Over Time: Події xAPI з часом
   xAPI Events Over Time v2: Події xAPI з часом v2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 zh_CN:
   '': ''
@@ -6534,7 +6516,6 @@ zh_CN:
   verified: 已验证
   xAPI Events Over Time: xAPI 随时间变化的事件
   xAPI Events Over Time v2: xAPI随时间变化的事件 v2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 
 {{ patch('superset-extra-asset-translations')}}
