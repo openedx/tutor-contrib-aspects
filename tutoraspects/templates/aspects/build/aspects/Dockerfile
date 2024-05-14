@@ -8,6 +8,8 @@ RUN pip install -r /app/requirements.txt
 
 RUN git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }} aspects-dbt
 
-RUN pip install -r /app/aspects-dbt/requirements.txt
+WORKDIR /app/aspects-dbt
+
+RUN pip install -r requirements.txt
 
 RUN dbt deps
