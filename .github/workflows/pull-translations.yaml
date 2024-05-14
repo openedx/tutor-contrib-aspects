@@ -45,7 +45,7 @@ jobs:
           branch: "bot/translations/${{ steps.date.outputs.date }}"
           add-paths: |
             tutoraspects/
-          base: main
+          base: nightly
           body: |
             Automated update of translations for assets on ${{ steps.date.outputs.date }}.
 
