@@ -207,7 +207,7 @@ metrics:
   d3format: null
   description: null
   expression: "  ROUND(\r\n    (SUM(CASE WHEN not success THEN attempts ELSE 0 END))\
-    \ /\r\n    SUM(attempts), 2\r\n  )"
+    \ /\r\n    SUM(attempts), 2\r\n  )*100"
   extra: {}
   metric_name: incorrect_percent
   metric_type: null
@@ -217,7 +217,7 @@ metrics:
   d3format: null
   description: null
   expression: "  ROUND(\r\n    (SUM(CASE WHEN success THEN attempts ELSE 0 END)) /\r\
-    \n    SUM(attempts), 2\r\n  )"
+    \n    SUM(attempts), 2\r\n  )*100"
   extra: {}
   metric_name: correct_percent
   metric_type: null
@@ -287,7 +287,8 @@ normalize_columns: false
 offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
-sql: select * from {{ DBT_PROFILE_TARGET_DATABASE }}.int_problem_results
+sql: |-
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/int_problem_results.sql' %}{% endfilter %}
 table_name: int_problem_results
 template_params: null
 uuid: c0c8b8a3-b18a-4c17-a69b-e6befea0159d

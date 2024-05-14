@@ -51,54 +51,6 @@ columns:
   type: String
   verbose_name: Course Run
 - advanced_data_type: null
-  column_name: org
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Org
-- advanced_data_type: null
-  column_name: section_subsection_problem_engagement
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: section_subsection_problem_engagement
-- advanced_data_type: null
-  column_name: section_subsection_name
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: section_subsection_name
-- advanced_data_type: null
-  column_name: username
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Username
-- advanced_data_type: null
   column_name: email
   description: null
   expression: null
@@ -122,6 +74,54 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Name
+- advanced_data_type: null
+  column_name: org
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Org
+- advanced_data_type: null
+  column_name: username
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Username
+- advanced_data_type: null
+  column_name: section_subsection_problem_engagement
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Section Subsection Problem Engagement
+- advanced_data_type: null
+  column_name: section_subsection_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Section Subsection Name
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
@@ -166,7 +166,8 @@ normalize_columns: true
 offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
-sql: select * from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_problem_engagement
+sql: |-
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_problem_engagement.sql' %}{% endfilter %}
 table_name: fact_problem_engagement
 template_params: {}
 uuid: 171c88e5-fd4b-4aab-b287-361fa6fa5415

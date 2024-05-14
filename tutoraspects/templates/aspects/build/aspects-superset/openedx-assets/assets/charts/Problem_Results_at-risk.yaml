@@ -45,7 +45,7 @@ params:
         ROUND(
           (SUM(CASE WHEN success THEN attempts ELSE 0 END)) /
           SUM(attempts), 2
-        )
+        )*100
   - aggregate: null
     column: null
     datasourceWarning: false
@@ -57,7 +57,7 @@ params:
        ROUND(
           (SUM(CASE WHEN NOT success THEN attempts ELSE 0 END)) /
           SUM(attempts), 2
-        )
+        )*100
   order_by_cols: []
   order_desc: true
   percent_metrics: []
