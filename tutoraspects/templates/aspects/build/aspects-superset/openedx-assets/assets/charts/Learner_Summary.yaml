@@ -54,7 +54,10 @@ params:
   - expressionType: SQL
     label: Grade Range
     sqlExpression: grade_bucket
-  - course_grade
+  - expressionType: SQL
+    label: Course Grade %
+    sqlExpression: |2-
+      ROUND(course_grade*100, 2)
   order_by_cols: []
   order_desc: true
   percent_metrics: []
