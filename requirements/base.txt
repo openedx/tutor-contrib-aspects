@@ -69,7 +69,7 @@ pyyaml==6.0.1
     # via
     #   kubernetes
     #   tutor
-regex==2024.4.28
+regex==2024.5.10
     # via parsimonious
 requests==2.31.0
     # via

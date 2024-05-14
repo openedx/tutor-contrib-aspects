@@ -59,6 +59,13 @@ def translate_column(column_name):
     strings = DATASET_STRINGS.get(column_name, [])
     if not strings:
         return column_name
+
+    # Since we're doing bad string SQL, we can at least avoid obvious error /
+    # SQL injection problems this way.
+    if "'" in (" ".join(strings)):
+        log.warning("Column translations cannot contain single quotes.")
+        return column_name
+
     case_format = """CASE \n {cases} \n ELSE {column_name} \n END"""
     single_case_format = "WHEN {column_name} = '{string}' THEN '{translation}'"
     cases = "\n".join(
@@ -71,6 +78,37 @@ def translate_column(column_name):
     )
 
     return case_format.format(column_name=column_name, cases=cases)
+
+
+def translate_column_bool(column_name):
+    """
+    Translate a string to the given language based on the column name.
+
+    To use this, the dataset string must have 2 options, the first for when
+    a column evaluates to true, the second for when a column evaluates to false.
+    """
+    lang = security_manager.get_preferences(g.user.username)
+    strings = DATASET_STRINGS.get(column_name, [])
+
+    if not strings or not len(strings) == 2:
+        log.warning("Wrong number of string options for bool column translation.")
+        return column_name
+
+    # Since we're doing bad string SQL, we can at least avoid obvious error /
+    # SQL injection problems this way.
+    if "'" in (strings[0], strings[1]):
+        log.warning("Column translations cannot contain single quotes.")
+        return column_name
+
+    true_str = get_translation(strings[0], lang)
+    false_str = get_translation(strings[1], lang)
+
+    return f"""
+        CASE WHEN {column_name} = true 
+        THEN '{true_str}' 
+        ELSE '{false_str}'
+        END
+    """
 
 
 {{patch("superset-jinja-filters")}}

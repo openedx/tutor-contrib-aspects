@@ -182,6 +182,8 @@ def compile_translations(root_path):
             all_translations[lang] = loaded_strings[lang]
         except KeyError:
             all_translations[lang] = loaded_strings["en"]
+
+        if None in all_translations[lang]:
             all_translations[lang].pop(None)
 
     out_path = os.path.join(
