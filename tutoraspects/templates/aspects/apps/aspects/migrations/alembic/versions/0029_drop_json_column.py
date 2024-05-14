@@ -15,12 +15,8 @@ engine = "ReplicatedReplacingMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "R
 # Only used in downgrade, where we have to move data
 upgraded_table_name = "{{ASPECTS_XAPI_DATABASE}}.old_{{ASPECTS_RAW_XAPI_TABLE}}"
 
+
 def upgrade():
-    op.execute(
-        """
-        SET allow_experimental_object_type=1;
-        """
-    )
     op.execute(
         f"""
         DROP VIEW IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.xapi_events_all_parsed_mv;
@@ -36,11 +32,6 @@ def upgrade():
 
 
 def downgrade():
-    op.execute(
-        """
-        SET allow_experimental_object_type=1;
-        """
-    )
     # 0. Remove the MV that may be pointing at the table we're changing
     op.execute(
         f"""
@@ -66,7 +57,7 @@ def downgrade():
         (      
             event_id UUID NOT NULL,
             emission_time DateTime64(6) NOT NULL,
-            event JSON NOT NULL,
+            event String NOT NULL,
             event_str String NOT NULL
         ) ENGINE {engine}
         ORDER BY (emission_time, event_id)
