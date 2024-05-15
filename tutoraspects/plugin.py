@@ -58,10 +58,17 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Set to empty string/False to omit Help tab entirely from the dashboard.
         # Newlines and double-quotes must be escaped.
         (
-            "ASPECTS_INSTRUCTOR_HELP_MARKDOWN",
+            "ASPECTS_COURSE_OVERVIEW_HELP_MARKDOWN",
             "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
-            "reference/instructor_reports.html)<br>"
+            "reference/course_overview_dashboard.html)<br>"
+            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
+        ),
+        (
+            "ASPECTS_LEARNER_GROUPS_HELP_MARKDOWN",
+            "## Help<br>"
+            "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
+            "reference/learner_groups_dashboard.html)<br>"
             "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
         ),
         (
@@ -69,6 +76,13 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
             "reference/operator_reports.html)<br>"
+            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
+        ),
+        (
+            "ASPECTS_INDIVIDUAL_LEARNER_HELP_MARKDOWN",
+            "## Help<br>"
+            "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
+            "reference/individual_learner_dashboard.html)<br>"
             "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
         ),
         ("ASPECTS_ENABLE_INSTRUCTOR_DASHBOARD_PLUGIN", True),

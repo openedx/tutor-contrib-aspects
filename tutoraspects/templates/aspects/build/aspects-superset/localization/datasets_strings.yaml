@@ -8,3 +8,6 @@ enrollment_status:
 graded:
 - graded
 - ungraded
+approving_state:
+- passed
+- failed
