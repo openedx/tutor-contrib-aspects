@@ -130,6 +130,21 @@ def import_assets() -> list[tuple[str, str]]:
     ]
 
 
+@click.command(context_settings={"ignore_unknown_options": True})
+def init_clickhouse() -> list[tuple[str, str]]:
+    """
+    Job to run ClickHouse initialization tasks.
+    """
+    return [
+        (
+            "clickhouse",
+            env.read_template_file(
+                "aspects", "jobs", "init", "clickhouse", "init-clickhouse.sh"
+            ),
+        )
+    ]
+
+
 # Ex: "tutor local do performance-metrics "
 @click.command(context_settings={"ignore_unknown_options": True})
 @click.option(
@@ -359,6 +374,7 @@ DO_COMMANDS = (
     transform_tracking_logs,
     import_assets,
     performance_metrics,
+    init_clickhouse,
 )
 
 COMMANDS = (aspects,)
