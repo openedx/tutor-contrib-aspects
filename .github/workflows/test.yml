@@ -2,9 +2,9 @@ name: Run all tests & checks
 
 on:
   push:
-    branches: [ nightly ]
+    branches: [ main ]
   pull_request:
-    branches: [ nightly ]
+    branches: [ main ]
 
 jobs:
   tests:
