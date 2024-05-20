@@ -10,7 +10,7 @@ appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   tutor
-astroid==3.1.0
+astroid==3.2.2
     # via pylint
 asttokens==2.4.1
     # via
@@ -90,7 +90,7 @@ jinja2==3.1.4
     # via
     #   -r requirements/base.txt
     #   tutor
-keyring==25.2.0
+keyring==25.2.1
     # via twine
 kubernetes==29.0.0
     # via
@@ -141,7 +141,7 @@ pathspec==0.12.1
     # via black
 pkginfo==1.10.0
     # via twine
-platformdirs==4.2.1
+platformdirs==4.2.2
     # via
     #   black
     #   pylint
@@ -168,7 +168,7 @@ pyinstaller==6.6.0
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2024.6
     # via pyinstaller
-pylint==3.1.0
+pylint==3.2.2
     # via -r requirements/dev.in
 pyseeyou==1.0.2
     # via
@@ -185,7 +185,7 @@ pyyaml==6.0.1
     #   tutor
 readme-renderer==43.0
     # via twine
-regex==2024.5.10
+regex==2024.5.15
     # via
     #   -r requirements/base.txt
     #   parsimonious
@@ -241,7 +241,7 @@ transifex-python==3.5.0
     # via -r requirements/base.txt
 tutor==17.0.4
     # via -r requirements/base.txt
-twine==5.0.0
+twine==5.1.0
     # via -r requirements/dev.in
 typing-extensions==4.11.0
     # via
@@ -262,7 +262,7 @@ websocket-client==1.8.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-zipp==3.18.1
+zipp==3.18.2
     # via
     #   -r requirements/base.txt
     #   importlib-metadata

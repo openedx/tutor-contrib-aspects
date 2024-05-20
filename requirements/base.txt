@@ -69,7 +69,7 @@ pyyaml==6.0.1
     # via
     #   kubernetes
     #   tutor
-regex==2024.5.10
+regex==2024.5.15
     # via parsimonious
 requests==2.31.0
     # via
@@ -107,7 +107,7 @@ urllib3==2.2.1
     #   requests
 websocket-client==1.8.0
     # via kubernetes
-zipp==3.18.1
+zipp==3.18.2
     # via
     #   importlib-metadata
     #   importlib-resources
