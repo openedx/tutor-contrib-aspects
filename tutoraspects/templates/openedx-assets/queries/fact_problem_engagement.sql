@@ -19,7 +19,9 @@ with
             username,
             name,
             email
-        from {{ ref("fact_problem_engagement_per_subsection") }}
+        from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_problem_engagement_per_subsection
+        where 1=1
+            {% include 'openedx-assets/queries/common_filters.sql' %}
         group by
             org,
             course_key,
@@ -31,8 +33,6 @@ with
             username,
             name,
             email
-        where 1=1
-            {% include 'openedx-assets/queries/common_filters.sql' %}
     ),
     section_counts as (
         select
@@ -54,8 +54,6 @@ with
             name,
             email
         from subsection_counts
-        where 1=1
-            {% include 'openedx-assets/queries/common_filters.sql' %}
         group by
             org,
             course_key,

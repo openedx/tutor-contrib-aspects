@@ -86,6 +86,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
         ),
         ("ASPECTS_ENABLE_INSTRUCTOR_DASHBOARD_PLUGIN", True),
+        # Whether to show the link to go to Superset in the instructor dashboard tab
+        ("SUPERSET_SHOW_INSTRUCTOR_DASHBOARD_LINK", True),
         # The following settings are used to configure the Superset dashboards
         # in the LMS Instructor Dashboard.
         (
@@ -346,7 +348,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
-        ("DBT_BRANCH", "v3.24.0"),
+        ("DBT_BRANCH", "bmtcril/performance_tweaks"),
         ("DBT_SSH_KEY", ""),
         ("DBT_STATE_DIR", "/app/aspects/dbt_state/"),
         # This is the name of the database dbt will write to

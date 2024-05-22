@@ -1,7 +1,7 @@
 with
     page_visits as (
-        select org, course_key, actor_id, max(emission_time) as last_visited
-        from {{ ASPECTS_XAPI_DATABASE }}.navigation_events
+        select org, course_key, actor_id, max(last_visited) as last_visited
+        from {{ ASPECTS_XAPI_DATABASE }}.fact_learner_last_course_visit
         where
             1=1
             {% include 'openedx-assets/queries/common_filters.sql' %}
