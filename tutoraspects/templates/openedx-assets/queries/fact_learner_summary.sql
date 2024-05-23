@@ -31,7 +31,8 @@ with
             fss.grade_bucket as grade_bucket,
             fss.username as username,
             fss.name as name,
-            fss.email as email
+            fss.email as email,
+            fss.enrolled_at as enrolled_at
         from {{DBT_PROFILE_TARGET_DATABASE}}.fact_student_status fss
         where
         1=1
@@ -53,7 +54,7 @@ select
     fss.name as name,
     fss.email as email,
     fes.max_emission_time as emission_time,
-    let.last_visited as last_visited
+    GREATEST(let.last_visited, fss.enrolled_at) as last_visited
 from student_status fss
 left join
     enrollment_status fes
