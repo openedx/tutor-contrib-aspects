@@ -136,7 +136,7 @@ metrics:
 normalize_columns: false
 offset: 0
 params: null
-schema: reporting
+schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |-
   SELECT
       fes.org,
