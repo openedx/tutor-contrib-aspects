@@ -5,7 +5,7 @@
 -- this will be used to pick the xAPI event corresponding to that submission
 with
     successful_responses as (
-        select org, course_key, problem_id, actor_id, first_success_at
+        select org, course_key, problem_id, actor_id::String as actor_id, first_success_at
         from {{ ASPECTS_XAPI_DATABASE }}.responses
         where isNotNull(first_success_at)
         {% include 'openedx-assets/queries/common_filters.sql' %}
@@ -17,12 +17,12 @@ with
             org,
             course_key,
             problem_id,
-            actor_id,
+            actor_id::String as actor_id,
             max(last_attempt_at) as last_attempt_at
         from {{ ASPECTS_XAPI_DATABASE }}.responses
         where actor_id not in (select distinct actor_id from successful_responses)
-        group by org, course_key, problem_id, actor_id
         {% include 'openedx-assets/queries/common_filters.sql' %}
+        group by org, course_key, problem_id, actor_id
     ),
     -- combine result sets for successful and unsuccessful problem submissions
     responses as (
