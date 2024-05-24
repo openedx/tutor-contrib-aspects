@@ -77,7 +77,7 @@ jobs:
           make extract_translations
           tutor local do import-assets
       - name: Performance metrics
-        run: tutor local do performance-metrics
+        run: tutor local do performance-metrics --fail_on_error
       - name: Tutor stop
         run: tutor local stop
 
@@ -229,7 +229,7 @@ jobs:
           make extract_translations
           tutor k8s do import-assets
       - name: Performance metrics
-        run: tutor k8s do performance-metrics
+        run: tutor k8s do performance-metrics --fail_on_error
       - name: Check failure logs
         if: failure()
         run: |
