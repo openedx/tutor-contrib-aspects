@@ -1,106 +1,56 @@
 with
-    subsection_counts as (
+    subsection_engagement as (
         select
             org,
             course_key,
-            course_run,
-            section_with_name,
-            subsection_with_name,
+            'subsection' as content_level,
             actor_id,
-            item_count,
-            count(distinct problem_id) as problems_attempted,
-            case
-                when problems_attempted = 0
-                then 'No problems attempted yet'
-                when problems_attempted = item_count
-                then 'All problems attempted'
-                else 'At least one problem attempted'
-            end as engagement_level,
-            username,
-            name,
-            email
-        from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_problem_engagement_per_subsection
-        where 1=1
+            subsection_block_id as block_id,
+            engagement_level as section_subsection_problem_engagement
+        from {{ ASPECTS_XAPI_DATABASE }}.subsection_problem_engagement
+        where
+            1=1
             {% include 'openedx-assets/queries/common_filters.sql' %}
-        group by
-            org,
-            course_key,
-            course_run,
-            section_with_name,
-            subsection_with_name,
-            actor_id,
-            item_count,
-            username,
-            name,
-            email
+
     ),
-    section_counts as (
+    section_engagement as (
         select
             org,
             course_key,
-            course_run,
-            section_with_name,
+            'section' as content_level,
             actor_id,
-            sum(item_count) as item_count,
-            sum(problems_attempted) as problems_attempted,
-            case
-                when problems_attempted = 0
-                then 'No problems attempted yet'
-                when problems_attempted = item_count
-                then 'All problems attempted'
-                else 'At least one problem attempted'
-            end as engagement_level,
-            username,
-            name,
-            email
-        from subsection_counts
-        group by
-            org,
-            course_key,
-            course_run,
-            section_with_name,
-            actor_id,
-            username,
-            name,
-            email
+            section_block_id as block_id,
+            engagement_level as section_subsection_problem_engagement
+        from {{ ASPECTS_XAPI_DATABASE }}.section_problem_engagement
+        where
+            1=1
+            {% include 'openedx-assets/queries/common_filters.sql' %}
     ),
     problem_engagement as (
-        select
-            org,
-            course_key,
-            course_run,
-            subsection_with_name as section_subsection_name,
-            'subsection' as content_level,
-            actor_id as actor_id,
-            engagement_level as section_subsection_problem_engagement,
-            username,
-            name,
-            email
-        from subsection_counts
+        select *
+        from subsection_engagement
         union all
-        select
-            org,
-            course_key,
-            course_run,
-            section_with_name as section_subsection_name,
-            'section' as content_level,
-            actor_id as actor_id,
-            engagement_level as section_subsection_problem_engagement,
-            username,
-            name,
-            email
-        from section_counts
+        select *
+        from section_engagement
     )
-
 select
     pe.org as org,
     pe.course_key as course_key,
-    pe.course_run as course_run,
-    pe.section_subsection_name as section_subsection_name,
+    course_blocks.course_run as course_run,
+    course_blocks.display_name_with_location as section_subsection_name,
     pe.content_level as content_level,
     pe.actor_id as actor_id,
     pe.section_subsection_problem_engagement as section_subsection_problem_engagement,
-    pe.username as username,
-    pe.name as name,
-    pe.email as email
+    users.username as username,
+    users.name as name,
+    users.email as email
 from problem_engagement pe
+join
+    {{ DBT_PROFILE_TARGET_DATABASE }}.dim_course_blocks course_blocks
+    on (
+        pe.org = course_blocks.org
+        and pe.course_key = course_blocks.course_key
+        and pe.block_id = course_blocks.block_id
+    )
+left outer join
+    {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii users on toUUID(pe.actor_id) = users.external_user_id

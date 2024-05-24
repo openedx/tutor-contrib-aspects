@@ -135,8 +135,7 @@ metrics:
   description: null
   expression: |-
     countIf("section_subsection_problem_engagement" = 'At least one problem attempted' or "section_subsection_problem_engagement" = 'All problems attempted')
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: attempted_at_least_one_problem
   metric_type: null
   verbose_name: Attempted at Least One Problem
@@ -146,8 +145,7 @@ metrics:
   description: null
   expression: |-
     countIf("section_subsection_problem_engagement" = 'All problems attempted')
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: attempted_all_problems
   metric_type: null
   verbose_name: Attempted All Problems
@@ -156,8 +154,7 @@ metrics:
   d3format: null
   description: null
   expression: count(*)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: count
   metric_type: null
   verbose_name: Count
