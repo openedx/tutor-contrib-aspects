@@ -12,6 +12,7 @@ params:
     operator: TEMPORAL_RANGE
     subject: event_time
   all_columns: []
+  annotation_layers: []
   color_pn: true
   extra_form_data: {}
   groupby:
@@ -34,9 +35,81 @@ params:
     event_time: true
   time_grain_sqla: P1D
   viz_type: table
-query_context: '{"datasource":{"id":266,"type":"table"},"force":false,"queries":[{"filters":[{"col":"event_time","op":"TEMPORAL_RANGE","val":"No
-  filter"}],"extras":{"time_grain_sqla":"P1D","having":"","where":""},"applied_time_extras":{},"columns":["http_user_agent","query_duration_ms","result_rows",{"timeGrain":"P1D","columnType":"BASE_AXIS","sqlExpression":"event_time","label":"event_time","expressionType":"SQL"},"memory_usage_mb","tables","query"],"metrics":[],"orderby":[],"annotation_layers":[],"row_limit":1000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[]}],"form_data":{"datasource":"266__table","viz_type":"table","slice_id":422,"query_mode":"aggregate","groupby":["http_user_agent","query_duration_ms","result_rows","event_time","memory_usage_mb","tables","query"],"time_grain_sqla":"P1D","temporal_columns_lookup":{"event_time":true},"all_columns":[],"percent_metrics":[],"adhoc_filters":[{"clause":"WHERE","comparator":"No
-  filter","expressionType":"SIMPLE","operator":"TEMPORAL_RANGE","subject":"event_time"}],"order_by_cols":[],"row_limit":1000,"server_page_length":10,"order_desc":true,"table_timestamp_format":"smart_date","show_cell_bars":true,"color_pn":true,"extra_form_data":{},"dashboards":[],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+query_context:
+  datasource:
+    id: 266
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: event_time
+    all_columns: []
+    color_pn: true
+    dashboards: []
+    datasource: 266__table
+    extra_form_data: {}
+    force: false
+    groupby:
+    - http_user_agent
+    - query_duration_ms
+    - result_rows
+    - event_time
+    - memory_usage_mb
+    - tables
+    - query
+    order_by_cols: []
+    order_desc: true
+    percent_metrics: []
+    query_mode: aggregate
+    result_format: json
+    result_type: full
+    row_limit: 1000
+    server_page_length: 10
+    show_cell_bars: true
+    slice_id: 422
+    table_timestamp_format: smart_date
+    temporal_columns_lookup:
+      event_time: true
+    time_grain_sqla: P1D
+    viz_type: table
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - http_user_agent
+    - query_duration_ms
+    - result_rows
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: event_time
+      sqlExpression: event_time
+      timeGrain: P1D
+    - memory_usage_mb
+    - tables
+    - query
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1D
+      where: ''
+    filters:
+    - col: event_time
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics: []
+    order_desc: true
+    orderby: []
+    post_processing: []
+    row_limit: 1000
+    series_limit: 0
+    url_params: {}
+  result_format: json
+  result_type: full
 slice_name: Query performance
 uuid: bb13bb31-c797-4ed3-a7f9-7825cc6dc482
 version: 1.0.0
