@@ -24,7 +24,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Int32
+  type: UInt64
   verbose_name: Watched Segment Count
 - advanced_data_type: null
   column_name: watched_entire_video
@@ -36,7 +36,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Boolean
+  type: UInt8
   verbose_name: Watched Entire Video
 - advanced_data_type: null
   column_name: actor_id
@@ -134,6 +134,18 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Organization
+- advanced_data_type: null
+  column_name: video_segment_count
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Float64
+  verbose_name: Video Segment Count
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
@@ -186,7 +198,8 @@ metrics:
   d3format: null
   description: null
   expression: countIf(watched_entire_video)
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: full_views
   metric_type: null
   verbose_name: Full Views
