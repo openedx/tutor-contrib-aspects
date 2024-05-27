@@ -65,6 +65,13 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
         ),
         (
+            "ASPECTS_INSTRUCTOR_HELP_MARKDOWN",
+            "## Help<br>"
+            "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
+            "reference/course_overview_dashboard.html)<br>"
+            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
+        ),
+        (
             "ASPECTS_LEARNER_GROUPS_HELP_MARKDOWN",
             "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
@@ -348,7 +355,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
-        ("DBT_BRANCH", "v3.26.0"),
+        ("DBT_BRANCH", "v3.27.0"),
         ("DBT_SSH_KEY", ""),
         ("DBT_STATE_DIR", "/app/aspects/dbt_state/"),
         # This is the name of the database dbt will write to
