@@ -8,8 +8,7 @@ with
             subsection_block_id as block_id,
             engagement_level as section_subsection_page_engagement
         from {{ ASPECTS_XAPI_DATABASE }}.subsection_page_engagement
-        where 1=1
-        {% include 'openedx-assets/queries/common_filters.sql' %}
+        where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
     ),
     section_engagement as (
         select
@@ -49,4 +48,5 @@ join
         and pv.block_id = course_blocks.block_id
     )
 left outer join
-    {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii users on toUUID(pv.actor_id) = users.external_user_id
+    {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii users
+    on toUUID(pv.actor_id) = users.external_user_id

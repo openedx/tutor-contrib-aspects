@@ -1,62 +1,33 @@
-SELECT
-    l.dttm AS action_date,
-    CASE
-        WHEN LOWER(
-            l.action
-        ) = 'queries' THEN 'query from sqllab'
-        WHEN LOWER(
-            l.action
-        ) = 'chartrestapi.data' THEN 'query from charts'
-        WHEN LOWER(
-            l.action
-        ) = 'count' THEN 'dashboard view'
-        WHEN LOWER(
-            l.action
-        ) LIKE 'annotation%' THEN 'annotations'
-        WHEN LOWER(
-            l.action
-        ) LIKE 'css%' THEN 'CSS'
-        ELSE LOWER(
-            l.action
-        )
-    END AS action,
+select
+    l.dttm as action_date,
+    case
+        when LOWER(l.action) = 'queries'
+        then 'query from sqllab'
+        when LOWER(l.action) = 'chartrestapi.data'
+        then 'query from charts'
+        when LOWER(l.action) = 'count'
+        then 'dashboard view'
+        when LOWER(l.action) like 'annotation%'
+        then 'annotations'
+        when LOWER(l.action) like 'css%'
+        then 'CSS'
+        else LOWER(l.action)
+    end as action,
     l.user_id,
-    u.username AS user_name,
-    u.created_on AS user_registration_date,
+    u.username as user_name,
+    u.created_on as user_registration_date,
     l.dashboard_id,
     d.dashboard_title,
-    CASE
-        WHEN d.published = TRUE THEN 'published'
-        ELSE 'draft'
-    END AS dashboard_status,
+    case when d.published = TRUE then 'published' else 'draft' end as dashboard_status,
     l.slice_id,
     s.slice_name,
     s.datasource_type,
     s.datasource_name,
     s.datasource_id,
-    COUNT(1) AS action_count
-FROM
-    logs AS l
-    LEFT JOIN ab_user AS u
-    ON u.id = l.user_id
-    LEFT JOIN dashboards AS d
-    ON d.id = l.dashboard_id
-    LEFT JOIN slices AS s
-    ON s.id = l.slice_id
-WHERE
-    1 = 1
-    AND l.action != 'log'
-GROUP BY
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13
+    COUNT(1) as action_count
+from logs as l
+left join ab_user as u on u.id = l.user_id
+left join dashboards as d on d.id = l.dashboard_id
+left join slices as s on s.id = l.slice_id
+where 1 = 1 and l.action != 'log'
+group by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13

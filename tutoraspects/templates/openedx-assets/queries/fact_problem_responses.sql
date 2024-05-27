@@ -1,6 +1,7 @@
-with problem_responses as (
-    {% include 'openedx-assets/queries/int_problem_responses.sql' %}
-)
+with
+    problem_responses as (
+        {% include 'openedx-assets/queries/int_problem_responses.sql' %}
+    )
 
 select
     emission_time,
@@ -15,21 +16,15 @@ select
     attempts,
     success,
     arrayJoin(
-        if(
-            JSONArrayLength(responses) > 0,
-            JSONExtractArrayRaw(responses),
-            [responses]
-        )
+        if(JSONArrayLength(responses) > 0, JSONExtractArrayRaw(responses), [responses])
     ) as responses
-from
-    problem_responses
+from problem_responses
 where
     {% raw %}
-    {% if get_filters('problem_name_with_location', remove_filter=True) == [] %}
-    1=1
-    {% elif filter_values('problem_name_with_location') != [] %}
-    problem_name_with_location in {{ filter_values('problem_name_with_location') | where_in }}
-    {% else %}
-    1=0
+    {% if get_filters("problem_name_with_location", remove_filter=True) == [] %} 1 = 1
+    {% elif filter_values("problem_name_with_location") != [] %}
+        problem_name_with_location
+        in {{ filter_values("problem_name_with_location") | where_in }}
+    {% else %} 1 = 0
     {% endif %}
     {% endraw %}

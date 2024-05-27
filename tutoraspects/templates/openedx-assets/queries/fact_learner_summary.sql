@@ -1,18 +1,18 @@
 with
     latest_emission_time as (
         select course_key, actor_id, MAX(emission_time) as last_visited
-        from {{DBT_PROFILE_TARGET_DATABASE}}.fact_navigation
+        from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_navigation
         where
-            1=1
+            1 = 1
             {% include 'openedx-assets/queries/common_filters.sql' %}
             {% include 'openedx-assets/queries/user_filters.sql' %}
         group by course_key, actor_id
     ),
     enrollment_status as (
         select course_key, actor_id, MAX(emission_time) as max_emission_time
-        from {{DBT_PROFILE_TARGET_DATABASE}}.fact_enrollment_status
+        from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_enrollment_status
         where
-            1=1
+            1 = 1
             {% include 'openedx-assets/queries/common_filters.sql' %}
             {% include 'openedx-assets/queries/user_filters.sql' %}
         group by course_key, actor_id
@@ -33,11 +33,11 @@ with
             fss.name as name,
             fss.email as email,
             fss.enrolled_at as enrolled_at
-        from {{DBT_PROFILE_TARGET_DATABASE}}.fact_student_status fss
+        from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_student_status fss
         where
-        1=1
-        {% include 'openedx-assets/queries/common_filters.sql' %}
-        {% include 'openedx-assets/queries/user_filters.sql' %}
+            1 = 1
+            {% include 'openedx-assets/queries/common_filters.sql' %}
+            {% include 'openedx-assets/queries/user_filters.sql' %}
     )
 select
     fss.org as org,

@@ -1,0 +1,2 @@
+[tool.sqlfmt]
+dialect="clickhouse"
