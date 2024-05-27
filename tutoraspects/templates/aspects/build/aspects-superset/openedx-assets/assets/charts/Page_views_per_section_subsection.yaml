@@ -57,7 +57,7 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 58
+    id: 30
     type: table
   force: false
   form_data:
@@ -71,9 +71,9 @@ query_context:
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 5076
-    - 5080
-    datasource: 58__table
+    - 65
+    - 67
+    datasource: 30__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -94,7 +94,7 @@ query_context:
     show_empty_columns: true
     show_legend: true
     show_value: false
-    slice_id: 3501
+    slice_id: 60
     sort_series_type: sum
     time_grain_sqla: P1M
     tooltipTimeFormat: smart_date

@@ -7,17 +7,17 @@ description: null
 params:
   adhoc_filters:
   - clause: WHERE
-    comparator: No filter
+    comparator: section
     datasourceWarning: false
     expressionType: SIMPLE
-    filterOptionName: filter_s8d5o5h20q_2r3i3mfdrkw
+    filterOptionName: filter_k8vxzqng15_65dx11p7fbi
     isExtra: false
     isNew: false
-    operator: TEMPORAL_RANGE
+    operator: ==
+    operatorId: EQUALS
     sqlExpression: null
-    subject: visited_on
+    subject: content_level
   all_columns: []
-  annotation_layers: []
   color_pn: true
   conditional_formatting:
   - colorScheme: '#ACE1C4'
@@ -30,7 +30,9 @@ params:
     targetValue: 0
   extra_form_data: {}
   groupby:
-  - section_with_name
+  - expressionType: SQL
+    label: Section name
+    sqlExpression: section_subsection_name
   metrics:
   - all_pages_viewed
   - at_leat_one_page_viewed
@@ -47,21 +49,22 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 99
+    id: 30
     type: table
   force: false
   form_data:
     adhoc_filters:
     - clause: WHERE
-      comparator: No filter
+      comparator: section
       datasourceWarning: false
       expressionType: SIMPLE
-      filterOptionName: filter_s8d5o5h20q_2r3i3mfdrkw
+      filterOptionName: filter_k8vxzqng15_65dx11p7fbi
       isExtra: false
       isNew: false
-      operator: TEMPORAL_RANGE
+      operator: ==
+      operatorId: EQUALS
       sqlExpression: null
-      subject: visited_on
+      subject: content_level
     all_columns: []
     color_pn: true
     conditional_formatting:
@@ -74,12 +77,14 @@ query_context:
       operator: '>'
       targetValue: 0
     dashboards:
-    - 42
-    datasource: 99__table
+    - 65
+    datasource: 30__table
     extra_form_data: {}
     force: false
     groupby:
-    - section_with_name
+    - expressionType: SQL
+      label: Section name
+      sqlExpression: section_subsection_name
     metrics:
     - all_pages_viewed
     - at_leat_one_page_viewed
@@ -92,7 +97,7 @@ query_context:
     row_limit: 10000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 192
+    slice_id: 47
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     time_grain_sqla: P1M
@@ -101,7 +106,9 @@ query_context:
   - annotation_layers: []
     applied_time_extras: {}
     columns:
-    - section_with_name
+    - expressionType: SQL
+      label: Section name
+      sqlExpression: section_subsection_name
     custom_form_data: {}
     custom_params: {}
     extras:
@@ -109,9 +116,9 @@ query_context:
       time_grain_sqla: P1M
       where: ''
     filters:
-    - col: visited_on
-      op: TEMPORAL_RANGE
-      val: No filter
+    - col: content_level
+      op: ==
+      val: section
     metrics:
     - all_pages_viewed
     - at_leat_one_page_viewed
