@@ -65,6 +65,13 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
         ),
         (
+            "ASPECTS_INSTRUCTOR_HELP_MARKDOWN",
+            "## Help<br>"
+            "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
+            "reference/course_overview_dashboard.html)<br>"
+            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
+        ),
+        (
             "ASPECTS_LEARNER_GROUPS_HELP_MARKDOWN",
             "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
