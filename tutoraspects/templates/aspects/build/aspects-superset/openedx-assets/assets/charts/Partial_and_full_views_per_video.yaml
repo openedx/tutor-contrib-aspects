@@ -35,7 +35,7 @@ params:
   x_axis:
     expressionType: SQL
     label: Video Name With Location
-    sqlExpression: leftUTF8(video_name_with_location, 20)
+    sqlExpression: video_name_with_location
   x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
@@ -90,7 +90,7 @@ query_context:
     x_axis:
       expressionType: SQL
       label: Video Name With Location
-      sqlExpression: leftUTF8(video_name_with_location, 20)
+      sqlExpression: video_name_with_location
     x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
@@ -111,7 +111,7 @@ query_context:
     - columnType: BASE_AXIS
       expressionType: SQL
       label: Video Name With Location
-      sqlExpression: leftUTF8(video_name_with_location, 20)
+      sqlExpression: video_name_with_location
       timeGrain: P1M
     custom_form_data: {}
     custom_params: {}
