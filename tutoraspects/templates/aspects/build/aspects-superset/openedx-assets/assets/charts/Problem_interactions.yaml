@@ -17,7 +17,6 @@ params:
     sqlExpression: null
     subject: emission_time
   all_columns: []
-  annotation_layers: []
   color_pn: true
   column_config:
     Avg Attempts:
@@ -83,7 +82,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 373
+    id: 29
     type: table
   force: false
   form_data:
@@ -112,34 +111,34 @@ query_context:
         d3SmallNumberFormat: ',d'
     conditional_formatting:
     - colorScheme: '#ACE1C4'
-      column: Avg Attempts
+      column: avg_attemps
       operator: '='
       targetValue: 1
     - colorScheme: '#FDE380'
-      column: Avg Attempts
+      column: avg_attemps
       operator: "\u2264 x \u2264"
       targetValueLeft: '2'
       targetValueRight: '4'
     - colorScheme: '#EFA1AA'
-      column: Avg Attempts
+      column: avg_attemps
       operator: '>'
       targetValue: 4
     - colorScheme: '#ACE1C4'
-      column: Median of Attempts
+      column: median_attemps
       operator: <
       targetValue: 3
     - colorScheme: '#FDE380'
-      column: Median of Attempts
+      column: median_attemps
       operator: "\u2264 x \u2264"
       targetValueLeft: '3'
       targetValueRight: '5'
     - colorScheme: '#EFA1AA'
-      column: Median of Attempts
+      column: median_attemps
       operator: '>'
       targetValue: 5
     dashboards:
-    - 629
-    datasource: 373__table
+    - 67
+    datasource: 29__table
     extra_form_data: {}
     force: false
     groupby:
@@ -149,9 +148,7 @@ query_context:
       expressionType: SQL
       label: Graded
       sqlExpression: |-
-        case when graded then 'Graded'
-        else 'Ungraded'
-        end
+        {{translate_column_bool('graded')}}
     metrics:
     - number_of_learners
     - median_attemps
@@ -165,7 +162,7 @@ query_context:
     row_limit: 1000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 410
+    slice_id: 29
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true
@@ -181,9 +178,7 @@ query_context:
       expressionType: SQL
       label: Graded
       sqlExpression: |-
-        case when graded then 'Graded'
-        else 'Ungraded'
-        end
+        {{translate_column_bool('graded')}}
     custom_form_data: {}
     custom_params: {}
     extras:

@@ -29,7 +29,6 @@ params:
     sqlExpression: null
     subject: content_level
   all_columns: []
-  annotation_layers: []
   color_pn: true
   conditional_formatting:
   - colorScheme: '#FDE380'
@@ -42,7 +41,8 @@ params:
     targetValue: 0
   extra_form_data: {}
   groupby:
-  - expressionType: SQL
+  - datasourceWarning: false
+    expressionType: SQL
     label: Subsection Name
     sqlExpression: section_subsection_name
   metrics:
@@ -61,7 +61,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 80
+    id: 11
     type: table
   force: false
   form_data:
@@ -100,12 +100,13 @@ query_context:
       operator: '>'
       targetValue: 0
     dashboards:
-    - 42
-    datasource: 80__table
+    - 65
+    datasource: 11__table
     extra_form_data: {}
     force: false
     groupby:
-    - expressionType: SQL
+    - datasourceWarning: false
+      expressionType: SQL
       label: Subsection Name
       sqlExpression: section_subsection_name
     metrics:
@@ -120,7 +121,7 @@ query_context:
     row_limit: 10000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 194
+    slice_id: 24
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     time_grain_sqla: P1M
@@ -129,7 +130,8 @@ query_context:
   - annotation_layers: []
     applied_time_extras: {}
     columns:
-    - expressionType: SQL
+    - datasourceWarning: false
+      expressionType: SQL
       label: Subsection Name
       sqlExpression: section_subsection_name
     custom_form_data: {}

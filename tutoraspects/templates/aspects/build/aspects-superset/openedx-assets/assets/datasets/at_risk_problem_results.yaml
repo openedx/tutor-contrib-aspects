@@ -7,7 +7,8 @@ columns:
   description: null
   expression: "  CASE\r\n    WHEN success THEN 'Correct'\r\n    ELSE 'Incorrect'\r\
     \n  END"
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -28,6 +29,19 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Problem Name With Location
+- advanced_data_type: null
+  column_name: emission_time
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: Nullable(DateTime)
+  verbose_name: Emission Time
 - advanced_data_type: null
   column_name: actor_id
   description: null
@@ -81,19 +95,6 @@ columns:
   type: String
   verbose_name: Course Run
 - advanced_data_type: null
-  column_name: emission_time
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: DateTime
-  verbose_name: Emission Time
-- advanced_data_type: null
   column_name: problem_id
   description: null
   expression: ''
@@ -107,6 +108,19 @@ columns:
   type: String
   verbose_name: Problem ID
 - advanced_data_type: null
+  column_name: problem_link
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Problem Link
+- advanced_data_type: null
   column_name: problem_name
   description: null
   expression: ''
@@ -119,6 +133,19 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Problem Name
+- advanced_data_type: null
+  column_name: interaction_type
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Interaction Type
 - advanced_data_type: null
   column_name: attempts
   description: null
@@ -172,34 +199,11 @@ columns:
   type: String
   verbose_name: Responses
 - advanced_data_type: null
-  column_name: problem_link
-  description: null
-  expression: ''
-  extra: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Problem Link
-- advanced_data_type: null
-  column_name: interaction_type
-  description: null
-  expression: null
-  extra: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Interaction Type
-- advanced_data_type: null
   column_name: graded
   description: null
   expression: null
-  extra: null
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -207,6 +211,18 @@ columns:
   python_date_format: null
   type: Bool
   verbose_name: Graded
+- advanced_data_type: null
+  column_name: course_order
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int32
+  verbose_name: Course Order
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
