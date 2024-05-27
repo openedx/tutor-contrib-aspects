@@ -60,9 +60,131 @@ params:
   y_axis_title_margin: 15
   y_axis_title_position: Left
   zoomable: true
-query_context: '{"datasource":{"id":830,"type":"table"},"force":false,"queries":[{"filters":[{"col":"emission_hour","op":"TEMPORAL_RANGE","val":"No
-  filter"}],"extras":{"time_grain_sqla":"P1D","having":"","where":""},"applied_time_extras":{},"columns":[{"timeGrain":"P1D","columnType":"BASE_AXIS","sqlExpression":"emission_hour","label":"emission_hour","expressionType":"SQL"}],"metrics":[{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":false,"label":"uniqCombinedMerge(events_cnt)","optionName":"metric_7kfvvdo0026_su07rkgdx7","sqlExpression":"uniqCombinedMerge(events_cnt)"}],"orderby":[[{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":false,"label":"uniqCombinedMerge(events_cnt)","optionName":"metric_7kfvvdo0026_su07rkgdx7","sqlExpression":"uniqCombinedMerge(events_cnt)"},false]],"annotation_layers":[],"row_limit":10000,"series_columns":[],"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"time_offsets":[],"post_processing":[{"operation":"pivot","options":{"index":["emission_hour"],"columns":[],"aggregates":{"uniqCombinedMerge(events_cnt)":{"operator":"mean"}},"drop_missing_columns":false}},{"operation":"flatten"}]}],"form_data":{"datasource":"830__table","viz_type":"echarts_timeseries_line","slice_id":3401,"x_axis":"emission_hour","time_grain_sqla":"P1D","x_axis_sort_asc":true,"x_axis_sort_series":"name","x_axis_sort_series_ascending":true,"metrics":[{"aggregate":null,"column":null,"datasourceWarning":false,"expressionType":"SQL","hasCustomLabel":false,"label":"uniqCombinedMerge(events_cnt)","optionName":"metric_7kfvvdo0026_su07rkgdx7","sqlExpression":"uniqCombinedMerge(events_cnt)"}],"groupby":[],"adhoc_filters":[{"clause":"WHERE","comparator":"No
-  filter","expressionType":"SIMPLE","operator":"TEMPORAL_RANGE","subject":"emission_hour"}],"order_desc":true,"row_limit":10000,"truncate_metric":false,"show_empty_columns":true,"comparison_type":"values","annotation_layers":[],"forecastPeriods":10,"forecastInterval":0.8,"x_axis_title_margin":15,"y_axis_title_margin":15,"y_axis_title_position":"Left","sort_series_type":"sum","color_scheme":"supersetColors","seriesType":"line","show_value":false,"only_total":true,"opacity":0.2,"markerEnabled":false,"markerSize":6,"zoomable":true,"show_legend":false,"legendType":"scroll","legendOrientation":"top","legendMargin":null,"x_axis_time_format":"%Y-%m-%d","rich_tooltip":true,"tooltipTimeFormat":"smart_date","y_axis_format":"SMART_NUMBER","truncateXAxis":false,"y_axis_bounds":[null,null],"extra_form_data":{},"dashboards":[2422],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+query_context:
+  datasource:
+    id: 830
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: emission_hour
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    dashboards:
+    - 2422
+    datasource: 830__table
+    extra_form_data: {}
+    force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    groupby: []
+    legendMargin: null
+    legendOrientation: top
+    legendType: scroll
+    markerEnabled: false
+    markerSize: 6
+    metrics:
+    - aggregate: null
+      column: null
+      datasourceWarning: false
+      expressionType: SQL
+      hasCustomLabel: false
+      label: uniqCombinedMerge(events_cnt)
+      optionName: metric_7kfvvdo0026_su07rkgdx7
+      sqlExpression: uniqCombinedMerge(events_cnt)
+    only_total: true
+    opacity: 0.2
+    order_desc: true
+    result_format: json
+    result_type: full
+    rich_tooltip: true
+    row_limit: 10000
+    seriesType: line
+    show_empty_columns: true
+    show_legend: false
+    show_value: false
+    slice_id: 3401
+    sort_series_type: sum
+    time_grain_sqla: P1D
+    tooltipTimeFormat: smart_date
+    truncateXAxis: false
+    truncate_metric: false
+    viz_type: echarts_timeseries_line
+    x_axis: emission_hour
+    x_axis_sort_asc: true
+    x_axis_sort_series: name
+    x_axis_sort_series_ascending: true
+    x_axis_time_format: '%Y-%m-%d'
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title_margin: 15
+    y_axis_title_position: Left
+    zoomable: true
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: emission_hour
+      sqlExpression: emission_hour
+      timeGrain: P1D
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1D
+      where: ''
+    filters:
+    - col: emission_hour
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics:
+    - aggregate: null
+      column: null
+      datasourceWarning: false
+      expressionType: SQL
+      hasCustomLabel: false
+      label: uniqCombinedMerge(events_cnt)
+      optionName: metric_7kfvvdo0026_su07rkgdx7
+      sqlExpression: uniqCombinedMerge(events_cnt)
+    order_desc: true
+    orderby:
+    - - aggregate: null
+        column: null
+        datasourceWarning: false
+        expressionType: SQL
+        hasCustomLabel: false
+        label: uniqCombinedMerge(events_cnt)
+        optionName: metric_7kfvvdo0026_su07rkgdx7
+        sqlExpression: uniqCombinedMerge(events_cnt)
+      - false
+    post_processing:
+    - operation: pivot
+      options:
+        aggregates:
+          uniqCombinedMerge(events_cnt):
+            operator: mean
+        columns: []
+        drop_missing_columns: false
+        index:
+        - emission_hour
+    - operation: flatten
+    row_limit: 10000
+    series_columns: []
+    series_limit: 0
+    time_offsets: []
+    url_params: {}
+  result_format: json
+  result_type: full
 slice_name: Event Activity
 uuid: abc9bf92-2b32-42a5-8cd0-d383de777619
 version: 1.0.0

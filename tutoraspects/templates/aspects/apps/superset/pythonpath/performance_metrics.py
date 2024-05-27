@@ -140,7 +140,7 @@ def get_query_contexts_from_assets():
             with open(path, "r") as file:
                 asset = yaml.safe_load(file)
                 if "query_context" in asset and asset["query_context"]:
-                    query_contexts[asset["uuid"]] = json.loads(asset["query_context"])
+                    query_contexts[asset["uuid"]] = asset["query_context"]
 
     logger.info(f"Found {len(query_contexts)} query contexts")
     return query_contexts

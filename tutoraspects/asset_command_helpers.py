@@ -5,6 +5,7 @@ Helpers for Tutor commands and "do" commands.
 import glob
 import os
 import re
+import json
 from zipfile import ZipFile
 
 import click
@@ -171,6 +172,9 @@ class ChartAsset(Asset):
     def process(self, content: dict, existing: dict):
         if not content.get("query_context"):
             content["query_context"] = existing.get("query_context")
+        query_context = content["query_context"]
+        if query_context is not None and isinstance(query_context, str):
+            content["query_context"] = json.loads(query_context)
 
 
 class DashboardAsset(Asset):

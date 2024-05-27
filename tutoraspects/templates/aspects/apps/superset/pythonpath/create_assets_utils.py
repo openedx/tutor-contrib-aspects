@@ -24,6 +24,7 @@
 # version, which skips a variety of other checks.
 import logging
 import yaml
+import json
 from pathlib import Path
 
 from flask import g
@@ -57,7 +58,13 @@ def load_configs_from_directory(
             queue.extend(path_name.glob("*"))
         elif path_name.suffix.lower() in YAML_EXTENSIONS:
             with open(path_name) as fp:
-                contents[str(path_name.relative_to(root))] = fp.read()
+                content = fp.read()
+                loaded_content = yaml.load(content, Loader=yaml.Loader)
+                if loaded_content.get("query_context") and isinstance(loaded_content["query_context"], dict):
+                    loaded_content["query_context"] = json.dumps(loaded_content["query_context"])
+                content = yaml.dump(loaded_content)
+                contents[str(path_name.relative_to(root))] = content
+
 
     # removing "type" from the metadata allows us to import any exported model
     # from the unzipped directory directly

@@ -18,6 +18,7 @@ params:
     operatorId: IN
     sqlExpression: null
     subject: approving_state
+  annotation_layers: []
   conditional_formatting:
   - colorScheme: '#ACE1C4'
     column: number_of_learners
@@ -30,22 +31,65 @@ params:
   time_format: smart_date
   viz_type: big_number_total
   y_axis_format: SMART_NUMBER
-query_context: "{\"datasource\":{\"id\":282,\"type\":\"table\"},\"force\":false,\"\
-  queries\":[{\"filters\":[{\"col\":\"approving_state\",\"op\":\"IN\",\"val\":[\"\
-  passed\"]}],\"extras\":{\"having\":\"\",\"where\":\"\"},\"applied_time_extras\"\
-  :{},\"columns\":[],\"metrics\":[\"number_of_learners\"],\"annotation_layers\":[],\"\
-  series_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\"\
-  :{}}],\"form_data\":{\"datasource\":\"282__table\",\"viz_type\":\"big_number_total\"\
-  ,\"slice_id\":500,\"metric\":\"number_of_learners\",\"adhoc_filters\":[{\"clause\"\
-  :\"WHERE\",\"comparator\":[\"passed\"],\"datasourceWarning\":false,\"expressionType\"\
-  :\"SIMPLE\",\"filterOptionName\":\"filter_k60jb4bendq_gwaxaqda836\",\"isExtra\"\
-  :false,\"isNew\":false,\"operator\":\"IN\",\"operatorId\":\"IN\",\"sqlExpression\"\
-  :null,\"subject\":\"approving_state\"}],\"header_font_size\":0.5,\"subheader_font_size\"\
-  :0.3,\"y_axis_format\":\"SMART_NUMBER\",\"time_format\":\"smart_date\",\"conditional_formatting\"\
-  :[{\"colorScheme\":\"#ACE1C4\",\"column\":\"Number of Learners\",\"operator\":\"\
-  \u2265\",\"targetValue\":0}],\"extra_form_data\":{},\"dashboards\":[629],\"force\"\
-  :false,\"result_format\":\"json\",\"result_type\":\"full\"},\"result_format\":\"\
-  json\",\"result_type\":\"full\"}"
+query_context:
+  datasource:
+    id: 282
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator:
+      - passed
+      datasourceWarning: false
+      expressionType: SIMPLE
+      filterOptionName: filter_k60jb4bendq_gwaxaqda836
+      isExtra: false
+      isNew: false
+      operator: IN
+      operatorId: IN
+      sqlExpression: null
+      subject: approving_state
+    conditional_formatting:
+    - colorScheme: '#ACE1C4'
+      column: Number of Learners
+      operator: "\u2265"
+      targetValue: 0
+    dashboards:
+    - 629
+    datasource: 282__table
+    extra_form_data: {}
+    force: false
+    header_font_size: 0.5
+    metric: number_of_learners
+    result_format: json
+    result_type: full
+    slice_id: 500
+    subheader_font_size: 0.3
+    time_format: smart_date
+    viz_type: big_number_total
+    y_axis_format: SMART_NUMBER
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns: []
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      where: ''
+    filters:
+    - col: approving_state
+      op: IN
+      val:
+      - passed
+    metrics:
+    - number_of_learners
+    order_desc: true
+    series_limit: 0
+    url_params: {}
+  result_format: json
+  result_type: full
 slice_name: Learners with Passing Grade
 uuid: b40cdabc-b265-48d2-913d-a9dfee0b6ab1
 version: 1.0.0
