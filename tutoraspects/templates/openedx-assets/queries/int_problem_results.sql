@@ -5,10 +5,12 @@
 -- this will be used to pick the xAPI event corresponding to that submission
 with
     successful_responses as (
-        select org, course_key, problem_id, actor_id::String as actor_id, first_success_at
+        select
+            org, course_key, problem_id, actor_id::String as actor_id, first_success_at
         from {{ ASPECTS_XAPI_DATABASE }}.responses
-        where isNotNull(first_success_at)
-        {% include 'openedx-assets/queries/common_filters.sql' %}
+        where
+            isNotNull(first_success_at)
+            {% include 'openedx-assets/queries/common_filters.sql' %}
     ),
     -- for all learners who did not submit a successful response,
     -- find the timestamp of the most recent unsuccessful response
@@ -20,8 +22,9 @@ with
             actor_id::String as actor_id,
             max(last_attempt_at) as last_attempt_at
         from {{ ASPECTS_XAPI_DATABASE }}.responses
-        where actor_id not in (select distinct actor_id from successful_responses)
-        {% include 'openedx-assets/queries/common_filters.sql' %}
+        where
+            actor_id not in (select distinct actor_id from successful_responses)
+            {% include 'openedx-assets/queries/common_filters.sql' %}
         group by org, course_key, problem_id, actor_id
     ),
     -- combine result sets for successful and unsuccessful problem submissions
@@ -59,7 +62,11 @@ select
     blocks.display_name_with_location as problem_name_with_location,
     blocks.course_order as course_order,
     concat(
-        '<a href="', full_responses.object_id, '" target="_blank">', blocks.block_name, '</a>'
+        '<a href="',
+        full_responses.object_id,
+        '" target="_blank">',
+        blocks.block_name,
+        '</a>'
     ) as problem_link,
     full_responses.actor_id as actor_id,
     full_responses.responses as responses,

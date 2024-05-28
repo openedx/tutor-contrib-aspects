@@ -54,6 +54,7 @@ test: dev-requirements test-lint test-format test-pythonpackage ## Run all tests
 
 test-format: ## Run code formatting tests
 	black --check --diff $(BLACK_OPTS)
+	sqlfmt tutoraspects/templates/openedx-assets/queries --check
 
 test-lint: ## Run code linting tests
 	pylint ${SOURCES}
@@ -66,6 +67,7 @@ test-pythonpackage: build-pythonpackage ## Test that package can be uploaded to 
 
 format: ## Format code automatically
 	black $(BLACK_OPTS)
+	sqlfmt tutoraspects/templates/openedx-assets/queries
 
 ###### Deployment
 

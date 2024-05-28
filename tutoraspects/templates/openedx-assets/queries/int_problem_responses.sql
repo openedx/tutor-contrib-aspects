@@ -1,9 +1,9 @@
-with problem_responses_base as (
-select *
-from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_problem_responses
-where 1=1
-    {% include 'openedx-assets/queries/common_filters.sql' %}
-)
+with
+    problem_responses_base as (
+        select *
+        from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_problem_responses
+        where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
+    )
 
 select
     emission_time,
@@ -18,5 +18,4 @@ select
     attempts,
     success,
     responses
-from
-    problem_responses_base
+from problem_responses_base
