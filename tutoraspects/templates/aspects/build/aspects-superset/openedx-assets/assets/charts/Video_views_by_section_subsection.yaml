@@ -28,7 +28,6 @@ params:
       `section_with_name` <> '' and `subsection_with_name` <> ''
     subject: null
   all_columns: []
-  annotation_layers: []
   color_pn: true
   column_config:
     total_plays:
@@ -69,7 +68,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 303
+    id: 27
     type: table
   force: false
   form_data:
@@ -114,8 +113,8 @@ query_context:
       operator: "\u2265"
       targetValue: 0
     dashboards:
-    - 629
-    datasource: 303__table
+    - 67
+    datasource: 27__table
     extra_form_data: {}
     force: false
     groupby:
@@ -135,7 +134,7 @@ query_context:
     row_limit: 1000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 654
+    slice_id: 53
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true

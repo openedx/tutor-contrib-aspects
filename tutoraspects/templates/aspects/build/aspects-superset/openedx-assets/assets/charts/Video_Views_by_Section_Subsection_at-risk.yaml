@@ -12,14 +12,15 @@ params:
     operator: TEMPORAL_RANGE
     subject: emission_time
   all_columns: []
-  annotation_layers: []
   color_pn: true
   extra_form_data: {}
   groupby:
-  - expressionType: SQL
+  - datasourceWarning: false
+    expressionType: SQL
     label: Section Name
     sqlExpression: section_with_name
-  - expressionType: SQL
+  - datasourceWarning: false
+    expressionType: SQL
     label: Subsection Name
     sqlExpression: subsection_with_name
   - video_name_with_location
@@ -40,7 +41,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 1288
+    id: 16
     type: table
   force: false
   form_data:
@@ -53,15 +54,17 @@ query_context:
     all_columns: []
     color_pn: true
     dashboards:
-    - 6096
-    datasource: 1288__table
+    - 66
+    datasource: 16__table
     extra_form_data: {}
     force: false
     groupby:
-    - expressionType: SQL
+    - datasourceWarning: false
+      expressionType: SQL
       label: Section Name
       sqlExpression: section_with_name
-    - expressionType: SQL
+    - datasourceWarning: false
+      expressionType: SQL
       label: Subsection Name
       sqlExpression: subsection_with_name
     - video_name_with_location
@@ -77,7 +80,7 @@ query_context:
     row_limit: 1000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 2705
+    slice_id: 35
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true
@@ -87,10 +90,12 @@ query_context:
   - annotation_layers: []
     applied_time_extras: {}
     columns:
-    - expressionType: SQL
+    - datasourceWarning: false
+      expressionType: SQL
       label: Section Name
       sqlExpression: section_with_name
-    - expressionType: SQL
+    - datasourceWarning: false
+      expressionType: SQL
       label: Subsection Name
       sqlExpression: subsection_with_name
     - video_name_with_location

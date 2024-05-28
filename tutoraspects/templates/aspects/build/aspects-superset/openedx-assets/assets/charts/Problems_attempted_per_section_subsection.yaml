@@ -80,8 +80,8 @@ query_context:
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 41
-    - 43
+    - 65
+    - 67
     datasource: 11__table
     extra_form_data: {}
     force: false

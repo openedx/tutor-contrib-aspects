@@ -17,18 +17,17 @@ params:
     sqlExpression: null
     subject: visited_on
   - clause: WHERE
-    comparator: null
+    comparator: subsection
     datasourceWarning: false
-    expressionType: SQL
-    filterOptionName: filter_f90l1y3p62f_1hlgx4smg41
+    expressionType: SIMPLE
+    filterOptionName: filter_4ate51p377o_vqvpc6jm2x9
     isExtra: false
     isNew: false
-    operator: null
-    sqlExpression: |-
-      subsection_with_name != ''
-    subject: null
+    operator: ==
+    operatorId: EQUALS
+    sqlExpression: null
+    subject: content_level
   all_columns: []
-  annotation_layers: []
   color_pn: true
   conditional_formatting:
   - colorScheme: '#ACE1C4'
@@ -41,7 +40,9 @@ params:
     targetValue: 0
   extra_form_data: {}
   groupby:
-  - subsection_with_name
+  - expressionType: SQL
+    label: Subsection Name
+    sqlExpression: section_subsection_name
   metrics:
   - all_pages_viewed
   - at_leat_one_page_viewed
@@ -58,7 +59,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 99
+    id: 30
     type: table
   force: false
   form_data:
@@ -74,16 +75,16 @@ query_context:
       sqlExpression: null
       subject: visited_on
     - clause: WHERE
-      comparator: null
+      comparator: subsection
       datasourceWarning: false
-      expressionType: SQL
-      filterOptionName: filter_f90l1y3p62f_1hlgx4smg41
+      expressionType: SIMPLE
+      filterOptionName: filter_4ate51p377o_vqvpc6jm2x9
       isExtra: false
       isNew: false
-      operator: null
-      sqlExpression: |-
-        subsection_with_name != ''
-      subject: null
+      operator: ==
+      operatorId: EQUALS
+      sqlExpression: null
+      subject: content_level
     all_columns: []
     color_pn: true
     conditional_formatting:
@@ -96,12 +97,14 @@ query_context:
       operator: '>'
       targetValue: 0
     dashboards:
-    - 42
-    datasource: 99__table
+    - 65
+    datasource: 30__table
     extra_form_data: {}
     force: false
     groupby:
-    - subsection_with_name
+    - expressionType: SQL
+      label: Subsection Name
+      sqlExpression: section_subsection_name
     metrics:
     - all_pages_viewed
     - at_leat_one_page_viewed
@@ -114,7 +117,7 @@ query_context:
     row_limit: 10000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 191
+    slice_id: 25
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     time_grain_sqla: P1M
@@ -123,18 +126,22 @@ query_context:
   - annotation_layers: []
     applied_time_extras: {}
     columns:
-    - subsection_with_name
+    - expressionType: SQL
+      label: Subsection Name
+      sqlExpression: section_subsection_name
     custom_form_data: {}
     custom_params: {}
     extras:
       having: ''
       time_grain_sqla: P1M
-      where: |-
-        (subsection_with_name != '')
+      where: ''
     filters:
     - col: visited_on
       op: TEMPORAL_RANGE
       val: No filter
+    - col: content_level
+      op: ==
+      val: subsection
     metrics:
     - all_pages_viewed
     - at_leat_one_page_viewed

@@ -17,7 +17,6 @@ params:
     sqlExpression: null
     subject: emission_time
   all_columns: []
-  annotation_layers: []
   color_pn: true
   column_config:
     '% Correct':
@@ -69,7 +68,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 373
+    id: 29
     type: table
   force: false
   form_data:
@@ -99,16 +98,17 @@ query_context:
         d3SmallNumberFormat: ',d'
     conditional_formatting:
     - colorScheme: '#ACE1C4'
-      column: '% Correct'
+      column: correct_percent
       operator: "\u2265"
       targetValue: 0
     - colorScheme: '#EFA1AA'
-      column: '% Incorrect'
+      column: incorrect_percent
       operator: "\u2265"
       targetValue: 0
     dashboards:
-    - 629
-    datasource: 373__table
+    - 65
+    - 67
+    datasource: 29__table
     extra_form_data: {}
     force: false
     groupby:
@@ -118,9 +118,7 @@ query_context:
       expressionType: SQL
       label: Graded
       sqlExpression: |-
-        case when graded then 'Graded'
-        else 'Ungraded'
-        end
+        {% raw %}{{translate_column_bool('graded')}}{% endraw %}
     metrics:
     - correct_attempts
     - incorrect_attempts
@@ -137,7 +135,7 @@ query_context:
     server_pagination: false
     show_cell_bars: true
     show_totals: false
-    slice_id: 666
+    slice_id: 55
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true
@@ -153,9 +151,7 @@ query_context:
       expressionType: SQL
       label: Graded
       sqlExpression: |-
-        case when graded then 'Graded'
-        else 'Ungraded'
-        end
+        {% raw %}{{translate_column_bool('graded')}}{% endraw %}
     custom_form_data: {}
     custom_params: {}
     extras:
