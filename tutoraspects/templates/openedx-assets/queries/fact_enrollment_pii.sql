@@ -8,7 +8,10 @@ with
         from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_enrollment_status enrollment
         inner join
             {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names as course_names
-            on course_names.course_key = enrollment.course_key
+        -- Need to cast the course key to a string here otherwise the
+        -- course_names dictionary throws this:
+        -- Key type for complex key at position 0 does not match, expected String, found LowCardinality(String).
+        on course_names.course_key = enrollment.course_key::String
         where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
     )
 

@@ -22,6 +22,7 @@ aspects: # this needs to match the profile in your dbt_project.yml file
       check_exchange: false
       sync_request_timeout: 5
       compress_block_size: 1048576
+      threads: 2
 
       # Without this dbt queries populating tables can be killed for using too much memory
       custom_settings:
