@@ -28,20 +28,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Problem name with location
-- advanced_data_type: null
-  column_name: emission_time
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: Nullable(DateTime)
-  verbose_name: Emission Time
+  verbose_name: Problem Location and Name
 - advanced_data_type: null
   column_name: actor_id
   description: null
@@ -94,6 +81,19 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Course Run
+- advanced_data_type: null
+  column_name: emission_time
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DateTime
+  verbose_name: Emission Time
 - advanced_data_type: null
   column_name: problem_id
   description: null
@@ -215,7 +215,8 @@ columns:
   column_name: course_order
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -235,7 +236,7 @@ metrics:
   d3format: null
   description: null
   expression: "  ROUND(\r\n    (SUM(CASE WHEN not success THEN attempts ELSE 0 END))\
-    \ /\r\n    SUM(attempts), 2\r\n  )*100"
+    \ /\r\n    SUM(attempts), 2\r\n  )"
   extra:
     warning_markdown: ''
   metric_name: incorrect_percent
@@ -246,7 +247,7 @@ metrics:
   d3format: null
   description: null
   expression: "  ROUND(\r\n    (SUM(CASE WHEN success THEN attempts ELSE 0 END)) /\r\
-    \n    SUM(attempts), 2\r\n  )*100"
+    \n    SUM(attempts), 2\r\n  )"
   extra:
     warning_markdown: ''
   metric_name: correct_percent
@@ -281,7 +282,7 @@ metrics:
     warning_markdown: ''
   metric_name: number_of_learners
   metric_type: null
-  verbose_name: Number of Learners who attemped the problem
+  verbose_name: Number of Learners who Attempted the Problem
   warning_text: null
 - currency: null
   d3format: null
@@ -291,7 +292,7 @@ metrics:
     warning_markdown: ''
   metric_name: median_attemps
   metric_type: null
-  verbose_name: Median of Attempts
+  verbose_name: Median Attempts
   warning_text: null
 - currency: null
   d3format: null

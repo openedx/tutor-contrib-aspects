@@ -54,13 +54,13 @@ params:
   - null
   - null
   y_axis_format: ',d'
-  y_axis_title: Number of learners
+  y_axis_title: Number of Learners
   y_axis_title_margin: 30
   y_axis_title_position: Left
   zoomable: true
 query_context:
   datasource:
-    id: 11
+    id: 75
     type: table
   force: false
   form_data:
@@ -80,9 +80,8 @@ query_context:
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 65
-    - 67
-    datasource: 11__table
+    - 9
+    datasource: 75__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -103,7 +102,7 @@ query_context:
     show_empty_columns: true
     show_legend: true
     show_value: false
-    slice_id: 21
+    slice_id: 22
     sort_series_type: sum
     time_grain_sqla: P1M
     tooltipTimeFormat: smart_date
@@ -121,7 +120,7 @@ query_context:
     - null
     - null
     y_axis_format: ',d'
-    y_axis_title: Number of learners
+    y_axis_title: Number of Learners
     y_axis_title_margin: 30
     y_axis_title_position: Left
     zoomable: true

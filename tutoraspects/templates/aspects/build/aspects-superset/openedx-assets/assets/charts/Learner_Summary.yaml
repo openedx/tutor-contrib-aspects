@@ -54,9 +54,7 @@ params:
   - expressionType: SQL
     label: Grade Range
     sqlExpression: grade_bucket
-  - expressionType: SQL
-    label: Course Grade %
-    sqlExpression: ROUND(course_grade*100, 2)
+  - course_grade
   order_by_cols: []
   order_desc: true
   percent_metrics: []
@@ -74,7 +72,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 992
+    id: 79
     type: table
   force: false
   form_data:
@@ -101,7 +99,7 @@ query_context:
       column: course_grade
       operator: <
       targetValue: 0.5
-    datasource: 992__table
+    datasource: 79__table
     extra_form_data: {}
     force: false
     groupby:
@@ -136,7 +134,7 @@ query_context:
     server_pagination: true
     show_cell_bars: true
     show_totals: true
-    slice_id: 4364
+    slice_id: 169
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true

@@ -149,7 +149,7 @@ metrics:
     warning_markdown: ''
   metric_name: at_least_one_viewed
   metric_type: null
-  verbose_name: At Leat One Viewed
+  verbose_name: Viewed At Least One Video
   warning_text: null
 - currency: null
   d3format: null
@@ -160,7 +160,7 @@ metrics:
     warning_markdown: ''
   metric_name: all_videos_viewed
   metric_type: null
-  verbose_name: All Videos Viewed
+  verbose_name: Viewed All Videos
   warning_text: null
 - currency: null
   d3format: null

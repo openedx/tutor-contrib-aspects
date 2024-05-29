@@ -149,7 +149,7 @@ metrics:
     warning_markdown: ''
   metric_name: at_leat_one_page_viewed
   metric_type: null
-  verbose_name: At Leat One Page Viewed
+  verbose_name: Viewed At Least One Page
   warning_text: null
 - currency: null
   d3format: null
@@ -160,7 +160,7 @@ metrics:
     warning_markdown: ''
   metric_name: all_pages_viewed
   metric_type: null
-  verbose_name: All Pages Viewed
+  verbose_name: Viewed All Pages
   warning_text: null
 - currency: null
   d3format: null

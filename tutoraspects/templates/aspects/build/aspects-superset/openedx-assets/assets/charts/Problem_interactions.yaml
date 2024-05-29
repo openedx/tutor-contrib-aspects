@@ -31,8 +31,8 @@ params:
   conditional_formatting:
   - colorScheme: '#ACE1C4'
     column: avg_attemps
-    operator: '='
-    targetValue: 1
+    operator: <
+    targetValue: 2
   - colorScheme: '#FDE380'
     column: avg_attemps
     operator: "\u2264 x \u2264"
@@ -69,7 +69,7 @@ params:
   - median_attemps
   - avg_attemps
   order_by_cols: []
-  order_desc: true
+  order_desc: false
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
@@ -79,10 +79,36 @@ params:
   temporal_columns_lookup:
     emission_time: true
   time_grain_sqla: P1M
+  timeseries_limit_metric:
+    aggregate: AVG
+    column:
+      advanced_data_type: null
+      changed_on: '2024-05-23T00:19:51'
+      column_name: course_order
+      created_on: '2024-05-23T00:19:51'
+      description: null
+      expression: null
+      extra: '{}'
+      filterable: true
+      groupby: true
+      id: 1348
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: Int32
+      type_generic: 0
+      uuid: d09b858c-5a09-47a2-b290-84d1fce37c7a
+      verbose_name: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    label: AVG(course_order)
+    optionName: metric_fy7mao4qznk_sumf5x11o8i
+    sqlExpression: null
   viz_type: table
 query_context:
   datasource:
-    id: 29
+    id: 34
     type: table
   force: false
   form_data:
@@ -112,8 +138,8 @@ query_context:
     conditional_formatting:
     - colorScheme: '#ACE1C4'
       column: avg_attemps
-      operator: '='
-      targetValue: 1
+      operator: <
+      targetValue: 2
     - colorScheme: '#FDE380'
       column: avg_attemps
       operator: "\u2264 x \u2264"
@@ -137,8 +163,8 @@ query_context:
       operator: '>'
       targetValue: 5
     dashboards:
-    - 67
-    datasource: 29__table
+    - 9
+    datasource: 34__table
     extra_form_data: {}
     force: false
     groupby:
@@ -154,7 +180,7 @@ query_context:
     - median_attemps
     - avg_attemps
     order_by_cols: []
-    order_desc: true
+    order_desc: false
     percent_metrics: []
     query_mode: aggregate
     result_format: json
@@ -162,11 +188,37 @@ query_context:
     row_limit: 1000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 29
+    slice_id: 198
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true
     time_grain_sqla: P1M
+    timeseries_limit_metric:
+      aggregate: AVG
+      column:
+        advanced_data_type: null
+        changed_on: '2024-05-23T00:19:51'
+        column_name: course_order
+        created_on: '2024-05-23T00:19:51'
+        description: null
+        expression: null
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 1348
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: Int32
+        type_generic: 0
+        uuid: d09b858c-5a09-47a2-b290-84d1fce37c7a
+        verbose_name: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: false
+      label: AVG(course_order)
+      optionName: metric_fy7mao4qznk_sumf5x11o8i
+      sqlExpression: null
     viz_type: table
   queries:
   - annotation_layers: []
@@ -193,13 +245,63 @@ query_context:
     - number_of_learners
     - median_attemps
     - avg_attemps
-    order_desc: true
+    order_desc: false
     orderby:
-    - - number_of_learners
-      - false
+    - - aggregate: AVG
+        column:
+          advanced_data_type: null
+          changed_on: '2024-05-23T00:19:51'
+          column_name: course_order
+          created_on: '2024-05-23T00:19:51'
+          description: null
+          expression: null
+          extra: '{}'
+          filterable: true
+          groupby: true
+          id: 1348
+          is_active: true
+          is_dttm: false
+          python_date_format: null
+          type: Int32
+          type_generic: 0
+          uuid: d09b858c-5a09-47a2-b290-84d1fce37c7a
+          verbose_name: null
+        datasourceWarning: false
+        expressionType: SIMPLE
+        hasCustomLabel: false
+        label: AVG(course_order)
+        optionName: metric_fy7mao4qznk_sumf5x11o8i
+        sqlExpression: null
+      - true
     post_processing: []
     row_limit: 1000
     series_limit: 0
+    series_limit_metric:
+      aggregate: AVG
+      column:
+        advanced_data_type: null
+        changed_on: '2024-05-23T00:19:51'
+        column_name: course_order
+        created_on: '2024-05-23T00:19:51'
+        description: null
+        expression: null
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 1348
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: Int32
+        type_generic: 0
+        uuid: d09b858c-5a09-47a2-b290-84d1fce37c7a
+        verbose_name: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: false
+      label: AVG(course_order)
+      optionName: metric_fy7mao4qznk_sumf5x11o8i
+      sqlExpression: null
     url_params: {}
   result_format: json
   result_type: full

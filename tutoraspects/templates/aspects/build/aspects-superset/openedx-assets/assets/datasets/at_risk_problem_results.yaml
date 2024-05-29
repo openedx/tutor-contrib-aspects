@@ -30,19 +30,6 @@ columns:
   type: String
   verbose_name: Problem Name With Location
 - advanced_data_type: null
-  column_name: emission_time
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: Nullable(DateTime)
-  verbose_name: Emission Time
-- advanced_data_type: null
   column_name: actor_id
   description: null
   expression: ''
@@ -94,6 +81,19 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Course Run
+- advanced_data_type: null
+  column_name: emission_time
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DateTime
+  verbose_name: Emission Time
 - advanced_data_type: null
   column_name: problem_id
   description: null

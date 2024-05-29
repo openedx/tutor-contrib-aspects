@@ -3,6 +3,30 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
+  column_name: subsection_with_name
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Subsection Location and Name
+- advanced_data_type: null
+  column_name: section_with_name
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Section Location and Name
+- advanced_data_type: null
   column_name: video_name_with_location
   description: null
   expression: ''
@@ -26,30 +50,6 @@ columns:
   python_date_format: null
   type: Decimal(9, 2)
   verbose_name: Video Position
-- advanced_data_type: null
-  column_name: subsection_with_name
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Subsection With Name
-- advanced_data_type: null
-  column_name: section_with_name
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Section With Name
 - advanced_data_type: null
   column_name: video_duration
   description: null
@@ -254,25 +254,28 @@ metrics:
   d3format: null
   description: null
   expression: count(distinct actor_id)
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: unique_watchers
   metric_type: null
-  verbose_name: Unique Watchers
+  verbose_name: Unique Viewers
   warning_text: null
 - currency: null
   d3format: null
   description: null
   expression: count(*)
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: total_plays
   metric_type: null
-  verbose_name: Total plays
+  verbose_name: Total Views
   warning_text: null
 - currency: null
   d3format: null
   description: null
   expression: COUNT(*)
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: count
   metric_type: count
   verbose_name: COUNT(*)

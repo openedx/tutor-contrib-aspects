@@ -41,7 +41,7 @@ params:
   extra_form_data: {}
   groupby:
   - expressionType: SQL
-    label: Subsection Name
+    label: Subsection Location and Name
     sqlExpression: section_subsection_name
   metrics:
   - all_pages_viewed
@@ -59,7 +59,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 30
+    id: 6
     type: table
   force: false
   form_data:
@@ -97,13 +97,13 @@ query_context:
       operator: '>'
       targetValue: 0
     dashboards:
-    - 65
-    datasource: 30__table
+    - 21
+    datasource: 6__table
     extra_form_data: {}
     force: false
     groupby:
     - expressionType: SQL
-      label: Subsection Name
+      label: Subsection Location and Name
       sqlExpression: section_subsection_name
     metrics:
     - all_pages_viewed
@@ -117,7 +117,7 @@ query_context:
     row_limit: 10000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 25
+    slice_id: 192
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     time_grain_sqla: P1M
@@ -127,7 +127,7 @@ query_context:
     applied_time_extras: {}
     columns:
     - expressionType: SQL
-      label: Subsection Name
+      label: Subsection Location and Name
       sqlExpression: section_subsection_name
     custom_form_data: {}
     custom_params: {}

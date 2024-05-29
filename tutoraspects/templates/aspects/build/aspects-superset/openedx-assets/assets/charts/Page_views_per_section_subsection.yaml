@@ -38,10 +38,7 @@ params:
   truncate_metric: true
   viz_type: echarts_timeseries_bar
   xAxisLabelRotation: 0
-  x_axis:
-    expressionType: SQL
-    label: section_subsection_name
-    sqlExpression: section_subsection_name
+  x_axis: section_subsection_name
   x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
@@ -51,13 +48,13 @@ params:
   - null
   - null
   y_axis_format: ',d'
-  y_axis_title: Number of learners
+  y_axis_title: Number of Learners
   y_axis_title_margin: 30
   y_axis_title_position: Left
   zoomable: true
 query_context:
   datasource:
-    id: 30
+    id: 6
     type: table
   force: false
   form_data:
@@ -71,9 +68,8 @@ query_context:
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 65
-    - 67
-    datasource: 30__table
+    - 9
+    datasource: 6__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -94,7 +90,7 @@ query_context:
     show_empty_columns: true
     show_legend: true
     show_value: false
-    slice_id: 60
+    slice_id: 194
     sort_series_type: sum
     time_grain_sqla: P1M
     tooltipTimeFormat: smart_date
@@ -102,10 +98,7 @@ query_context:
     truncate_metric: true
     viz_type: echarts_timeseries_bar
     xAxisLabelRotation: 0
-    x_axis:
-      expressionType: SQL
-      label: section_subsection_name
-      sqlExpression: section_subsection_name
+    x_axis: section_subsection_name
     x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
@@ -115,7 +108,7 @@ query_context:
     - null
     - null
     y_axis_format: ',d'
-    y_axis_title: Number of learners
+    y_axis_title: Number of Learners
     y_axis_title_margin: 30
     y_axis_title_position: Left
     zoomable: true

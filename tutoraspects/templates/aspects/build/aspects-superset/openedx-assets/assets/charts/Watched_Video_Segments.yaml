@@ -43,19 +43,18 @@ params:
   truncate_metric: true
   viz_type: echarts_timeseries_bar
   xAxisForceCategorical: true
-  xAxisLabelRotation: 45
-  x_axis: segment_start
+  x_axis: start_position
   x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
-  x_axis_title: Video Timestamp (in seconds)
-  x_axis_title_margin: 50
+  x_axis_title: Number of Views
+  x_axis_title_margin: 30
   y_axis_bounds:
   - null
   - null
   y_axis_format: SMART_NUMBER
-  y_axis_title: Number of Views
+  y_axis_title: Video Timestamp (in seconds)
   y_axis_title_margin: 30
   y_axis_title_position: Left
   zoomable: true

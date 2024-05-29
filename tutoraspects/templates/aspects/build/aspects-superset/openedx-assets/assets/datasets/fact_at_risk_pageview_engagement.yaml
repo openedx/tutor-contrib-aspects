@@ -3,10 +3,37 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
+  column_name: subsection_with_name
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Subsection Location and Name
+- advanced_data_type: null
+  column_name: section_with_name
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Section Location and Name
+- advanced_data_type: null
   column_name: section_subsection_page_engagement
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -18,7 +45,8 @@ columns:
   column_name: section_subsection_name
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -30,7 +58,8 @@ columns:
   column_name: actor_id
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -42,7 +71,8 @@ columns:
   column_name: course_key
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -54,7 +84,8 @@ columns:
   column_name: content_level
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -66,7 +97,8 @@ columns:
   column_name: course_run
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -75,34 +107,11 @@ columns:
   type: String
   verbose_name: Course Run
 - advanced_data_type: null
-  column_name: subsection_with_name
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Subsection Name
-- advanced_data_type: null
-  column_name: section_with_name
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Section Name
-- advanced_data_type: null
   column_name: email
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -114,7 +123,8 @@ columns:
   column_name: name
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -126,7 +136,8 @@ columns:
   column_name: org
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -138,7 +149,8 @@ columns:
   column_name: username
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
