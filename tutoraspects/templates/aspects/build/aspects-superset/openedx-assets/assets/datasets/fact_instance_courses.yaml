@@ -3,9 +3,21 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
+  column_name: courses_cnt
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: AGGREGATEFUNCTION
+  verbose_name: Courses Cnt
+- advanced_data_type: null
   column_name: emission_hour
   description: null
-  expression: null
+  expression: ''
   extra:
     warning_markdown: null
   filterable: true
@@ -15,18 +27,6 @@ columns:
   python_date_format: null
   type: DATETIME
   verbose_name: Emission Hour
-- advanced_data_type: null
-  column_name: courses_cnt
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: AGGREGATEFUNCTION
-  verbose_name: Courses Cnt
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null

@@ -117,21 +117,21 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: COUNT(DISTINCT actor_id)
-  extra: {}
-  metric_name: number_of_learners
-  metric_type: null
-  verbose_name: Number of Learners
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
   expression: count(*)
   extra:
     warning_markdown: ''
   metric_name: count
   metric_type: null
   verbose_name: Count
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: COUNT(DISTINCT actor_id)
+  extra: {}
+  metric_name: number_of_learners
+  metric_type: null
+  verbose_name: Number of Learners
   warning_text: null
 normalize_columns: true
 offset: 0

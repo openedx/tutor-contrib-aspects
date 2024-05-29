@@ -3,45 +3,6 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: subsection_with_name
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Subsection with name
-- advanced_data_type: null
-  column_name: section_with_name
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Section with name
-- advanced_data_type: null
-  column_name: page_count
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: UInt64
-  verbose_name: Page Count
-- advanced_data_type: null
   column_name: actor_id
   description: null
   expression: ''
@@ -94,6 +55,18 @@ columns:
   type: String
   verbose_name: Course Name
 - advanced_data_type: null
+  column_name: course_order
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int32
+  verbose_name: Course Order
+- advanced_data_type: null
   column_name: course_run
   description: null
   expression: ''
@@ -106,19 +79,6 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Course Run
-- advanced_data_type: null
-  column_name: visited_on
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: Date
-  verbose_name: Visited On
 - advanced_data_type: null
   column_name: email
   description: null
@@ -159,6 +119,45 @@ columns:
   type: String
   verbose_name: Org
 - advanced_data_type: null
+  column_name: page_count
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: UInt64
+  verbose_name: Page Count
+- advanced_data_type: null
+  column_name: section_with_name
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Section with name
+- advanced_data_type: null
+  column_name: subsection_with_name
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Subsection with name
+- advanced_data_type: null
   column_name: username
   description: null
   expression: ''
@@ -172,17 +171,18 @@ columns:
   type: String
   verbose_name: Username
 - advanced_data_type: null
-  column_name: course_order
+  column_name: visited_on
   description: null
-  expression: null
-  extra: {}
+  expression: ''
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
-  is_dttm: false
+  is_dttm: true
   python_date_format: null
-  type: Int32
-  verbose_name: Course Order
+  type: Date
+  verbose_name: Visited On
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
@@ -194,22 +194,22 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: COUNT(DISTINCT actor_id)
-  extra:
-    warning_markdown: ''
-  metric_name: number_of_learners
-  metric_type: null
-  verbose_name: Number of Learners
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
   expression: COUNT(*)
   extra:
     warning_markdown: ''
   metric_name: count
   metric_type: count
   verbose_name: COUNT(*)
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: COUNT(DISTINCT actor_id)
+  extra:
+    warning_markdown: ''
+  metric_name: number_of_learners
+  metric_type: null
+  verbose_name: Number of Learners
   warning_text: null
 - currency: null
   d3format: null

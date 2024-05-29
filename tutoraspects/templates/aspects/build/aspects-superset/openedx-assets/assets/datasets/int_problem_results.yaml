@@ -17,19 +17,6 @@ columns:
   type: null
   verbose_name: Result
 - advanced_data_type: null
-  column_name: problem_name_with_location
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Problem Location and Name
-- advanced_data_type: null
   column_name: actor_id
   description: null
   expression: ''
@@ -42,6 +29,19 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Actor Id
+- advanced_data_type: null
+  column_name: attempts
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int16
+  verbose_name: Attempts
 - advanced_data_type: null
   column_name: course_key
   description: null
@@ -69,6 +69,19 @@ columns:
   type: String
   verbose_name: Course Name
 - advanced_data_type: null
+  column_name: course_order
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int32
+  verbose_name: Course Order
+- advanced_data_type: null
   column_name: course_run
   description: null
   expression: ''
@@ -92,8 +105,47 @@ columns:
   is_active: true
   is_dttm: true
   python_date_format: null
-  type: DateTime
+  type: Nullable(DateTime)
   verbose_name: Emission Time
+- advanced_data_type: null
+  column_name: graded
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Bool
+  verbose_name: Graded
+- advanced_data_type: null
+  column_name: interaction_type
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Interaction Type
+- advanced_data_type: null
+  column_name: org
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Org
 - advanced_data_type: null
   column_name: problem_id
   description: null
@@ -134,46 +186,7 @@ columns:
   type: String
   verbose_name: Problem Name
 - advanced_data_type: null
-  column_name: interaction_type
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Interaction Type
-- advanced_data_type: null
-  column_name: attempts
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Int16
-  verbose_name: Attempts
-- advanced_data_type: null
-  column_name: success
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Bool
-  verbose_name: Success
-- advanced_data_type: null
-  column_name: org
+  column_name: problem_name_with_location
   description: null
   expression: ''
   extra:
@@ -184,7 +197,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Org
+  verbose_name: Problem Location and Name
 - advanced_data_type: null
   column_name: responses
   description: null
@@ -199,9 +212,9 @@ columns:
   type: String
   verbose_name: Responses
 - advanced_data_type: null
-  column_name: graded
+  column_name: success
   description: null
-  expression: null
+  expression: ''
   extra:
     warning_markdown: null
   filterable: true
@@ -210,20 +223,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: Bool
-  verbose_name: Graded
-- advanced_data_type: null
-  column_name: course_order
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Int32
-  verbose_name: Course Order
+  verbose_name: Success
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
@@ -235,13 +235,22 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: "  ROUND(\r\n    (SUM(CASE WHEN not success THEN attempts ELSE 0 END))\
-    \ /\r\n    SUM(attempts), 2\r\n  )"
+  expression: SUM(attempts)/COUNT(actor_id)
   extra:
     warning_markdown: ''
-  metric_name: incorrect_percent
+  metric_name: avg_attemps
   metric_type: null
-  verbose_name: '% Incorrect'
+  verbose_name: Avg Attempts
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: SUM(CASE WHEN success THEN attempts ELSE 0 END)
+  extra:
+    warning_markdown: ''
+  metric_name: correct_attempts
+  metric_type: null
+  verbose_name: Correct Attempts
   warning_text: null
 - currency: null
   d3format: null
@@ -257,6 +266,16 @@ metrics:
 - currency: null
   d3format: null
   description: null
+  expression: COUNT(*)
+  extra:
+    warning_markdown: ''
+  metric_name: count
+  metric_type: count
+  verbose_name: COUNT(*)
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
   expression: SUM(CASE WHEN NOT success THEN attempts ELSE 0 END)
   extra:
     warning_markdown: ''
@@ -267,22 +286,13 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: SUM(CASE WHEN success THEN attempts ELSE 0 END)
+  expression: "  ROUND(\r\n    (SUM(CASE WHEN not success THEN attempts ELSE 0 END))\
+    \ /\r\n    SUM(attempts), 2\r\n  )"
   extra:
     warning_markdown: ''
-  metric_name: correct_attempts
+  metric_name: incorrect_percent
   metric_type: null
-  verbose_name: Correct Attempts
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: COUNT(DISTINCT actor_id)
-  extra:
-    warning_markdown: ''
-  metric_name: number_of_learners
-  metric_type: null
-  verbose_name: Number of Learners who Attempted the Problem
+  verbose_name: '% Incorrect'
   warning_text: null
 - currency: null
   d3format: null
@@ -297,22 +307,12 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: SUM(attempts)/COUNT(actor_id)
+  expression: COUNT(DISTINCT actor_id)
   extra:
     warning_markdown: ''
-  metric_name: avg_attemps
+  metric_name: number_of_learners
   metric_type: null
-  verbose_name: Avg Attempts
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: COUNT(*)
-  extra:
-    warning_markdown: ''
-  metric_name: count
-  metric_type: count
-  verbose_name: COUNT(*)
+  verbose_name: Number of Learners who Attempted the Problem
   warning_text: null
 normalize_columns: false
 offset: 0

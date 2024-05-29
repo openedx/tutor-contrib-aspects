@@ -3,43 +3,7 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: created_on
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: TIMESTAMP WITHOUT TIME ZONE
-  verbose_name: Created On
-- advanced_data_type: null
-  column_name: changed_on
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: TIMESTAMP WITHOUT TIME ZONE
-  verbose_name: Changed On
-- advanced_data_type: null
-  column_name: last_login
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: TIMESTAMP WITHOUT TIME ZONE
-  verbose_name: Last Login
-- advanced_data_type: null
-  column_name: created_by_fk
+  column_name: active
   description: null
   expression: ''
   extra: {}
@@ -48,8 +12,8 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: INTEGER
-  verbose_name: Created By Fk
+  type: TINY
+  verbose_name: Active
 - advanced_data_type: null
   column_name: changed_by_fk
   description: null
@@ -60,8 +24,56 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: INTEGER
+  type: LONG
   verbose_name: Changed By Fk
+- advanced_data_type: null
+  column_name: changed_on
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DATETIME
+  verbose_name: Changed On
+- advanced_data_type: null
+  column_name: created_by_fk
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LONG
+  verbose_name: Created By Fk
+- advanced_data_type: null
+  column_name: created_on
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DATETIME
+  verbose_name: Created On
+- advanced_data_type: null
+  column_name: email
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: VAR_STRING
+  verbose_name: Email
 - advanced_data_type: null
   column_name: fail_login_count
   description: null
@@ -72,7 +84,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: INTEGER
+  type: LONG
   verbose_name: Fail Login Count
 - advanced_data_type: null
   column_name: first_name
@@ -84,8 +96,32 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: VARCHAR(64)
+  type: VAR_STRING
   verbose_name: First Name
+- advanced_data_type: null
+  column_name: id
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LONG
+  verbose_name: Id
+- advanced_data_type: null
+  column_name: last_login
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DATETIME
+  verbose_name: Last Login
 - advanced_data_type: null
   column_name: last_name
   description: null
@@ -96,7 +132,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: VARCHAR(64)
+  type: VAR_STRING
   verbose_name: Last Name
 - advanced_data_type: null
   column_name: login_count
@@ -108,7 +144,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: INTEGER
+  type: LONG
   verbose_name: Login Count
 - advanced_data_type: null
   column_name: password
@@ -120,20 +156,8 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: VARCHAR(256)
+  type: VAR_STRING
   verbose_name: Password
-- advanced_data_type: null
-  column_name: email
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: VARCHAR(64)
-  verbose_name: Email
 - advanced_data_type: null
   column_name: username
   description: null
@@ -144,32 +168,8 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: VARCHAR(64)
+  type: VAR_STRING
   verbose_name: Username
-- advanced_data_type: null
-  column_name: active
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: BOOLEAN
-  verbose_name: Active
-- advanced_data_type: null
-  column_name: id
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: INTEGER
-  verbose_name: Id
 database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
 default_endpoint: null
 description: null

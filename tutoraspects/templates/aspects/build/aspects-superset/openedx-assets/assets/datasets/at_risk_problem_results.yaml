@@ -17,19 +17,6 @@ columns:
   type: null
   verbose_name: Result
 - advanced_data_type: null
-  column_name: problem_name_with_location
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Problem Name With Location
-- advanced_data_type: null
   column_name: actor_id
   description: null
   expression: ''
@@ -42,6 +29,19 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Actor ID
+- advanced_data_type: null
+  column_name: attempts
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int16
+  verbose_name: Attempts
 - advanced_data_type: null
   column_name: course_key
   description: null
@@ -69,6 +69,18 @@ columns:
   type: String
   verbose_name: Course Name
 - advanced_data_type: null
+  column_name: course_order
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int32
+  verbose_name: Course Order
+- advanced_data_type: null
   column_name: course_run
   description: null
   expression: ''
@@ -92,8 +104,47 @@ columns:
   is_active: true
   is_dttm: true
   python_date_format: null
-  type: DateTime
+  type: Nullable(DateTime)
   verbose_name: Emission Time
+- advanced_data_type: null
+  column_name: graded
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Bool
+  verbose_name: Graded
+- advanced_data_type: null
+  column_name: interaction_type
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Interaction Type
+- advanced_data_type: null
+  column_name: org
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Org
 - advanced_data_type: null
   column_name: problem_id
   description: null
@@ -134,46 +185,7 @@ columns:
   type: String
   verbose_name: Problem Name
 - advanced_data_type: null
-  column_name: interaction_type
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Interaction Type
-- advanced_data_type: null
-  column_name: attempts
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Int16
-  verbose_name: Attempts
-- advanced_data_type: null
-  column_name: success
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Bool
-  verbose_name: Success
-- advanced_data_type: null
-  column_name: org
+  column_name: problem_name_with_location
   description: null
   expression: ''
   extra:
@@ -184,7 +196,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Org
+  verbose_name: Problem Name With Location
 - advanced_data_type: null
   column_name: responses
   description: null
@@ -199,9 +211,9 @@ columns:
   type: String
   verbose_name: Responses
 - advanced_data_type: null
-  column_name: graded
+  column_name: success
   description: null
-  expression: null
+  expression: ''
   extra:
     warning_markdown: null
   filterable: true
@@ -210,19 +222,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: Bool
-  verbose_name: Graded
-- advanced_data_type: null
-  column_name: course_order
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Int32
-  verbose_name: Course Order
+  verbose_name: Success
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null

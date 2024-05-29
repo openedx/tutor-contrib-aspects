@@ -29,6 +29,7 @@ params:
     sqlExpression: null
     subject: content_level
   all_columns: []
+  annotation_layers: []
   color_pn: true
   conditional_formatting:
   - colorScheme: '#ACE1C4'

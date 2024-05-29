@@ -16,19 +16,6 @@ columns:
   type: String
   verbose_name: Actor Id
 - advanced_data_type: null
-  column_name: course_key
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Key
-- advanced_data_type: null
   column_name: content_level
   description: null
   expression: ''
@@ -41,6 +28,19 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Content Level
+- advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Key
 - advanced_data_type: null
   column_name: course_run
   description: null
@@ -55,6 +55,32 @@ columns:
   type: String
   verbose_name: Course Run
 - advanced_data_type: null
+  column_name: email
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Email
+- advanced_data_type: null
+  column_name: name
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Name
+- advanced_data_type: null
   column_name: org
   description: null
   expression: ''
@@ -67,19 +93,6 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Org
-- advanced_data_type: null
-  column_name: section_subsection_page_engagement
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: section_subsection_page_engagement
 - advanced_data_type: null
   column_name: section_subsection_name
   description: null
@@ -94,9 +107,9 @@ columns:
   type: String
   verbose_name: section_subsection_name
 - advanced_data_type: null
-  column_name: email
+  column_name: section_subsection_page_engagement
   description: null
-  expression: null
+  expression: ''
   extra:
     warning_markdown: null
   filterable: true
@@ -105,24 +118,11 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Email
-- advanced_data_type: null
-  column_name: name
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Name
+  verbose_name: section_subsection_page_engagement
 - advanced_data_type: null
   column_name: username
   description: null
-  expression: null
+  expression: ''
   extra:
     warning_markdown: null
   filterable: true
@@ -144,23 +144,23 @@ metrics:
   d3format: null
   description: null
   expression: |-
-    countIf("section_subsection_page_engagement" = 'At least one page viewed' or "section_subsection_page_engagement" = 'All pages viewed')
-  extra:
-    warning_markdown: ''
-  metric_name: at_leat_one_page_viewed
-  metric_type: null
-  verbose_name: Viewed At Least One Page
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: |-
     countIf("section_subsection_page_engagement" = 'All pages viewed')
   extra:
     warning_markdown: ''
   metric_name: all_pages_viewed
   metric_type: null
   verbose_name: Viewed All Pages
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: |-
+    countIf("section_subsection_page_engagement" = 'At least one page viewed' or "section_subsection_page_engagement" = 'All pages viewed')
+  extra:
+    warning_markdown: ''
+  metric_name: at_leat_one_page_viewed
+  metric_type: null
+  verbose_name: Viewed At Least One Page
   warning_text: null
 - currency: null
   d3format: null

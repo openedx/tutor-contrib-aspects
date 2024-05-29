@@ -5,7 +5,7 @@ columns:
 - advanced_data_type: null
   column_name: actors_cnt
   description: null
-  expression: null
+  expression: ''
   extra:
     warning_markdown: null
   filterable: true
@@ -18,7 +18,7 @@ columns:
 - advanced_data_type: null
   column_name: emission_hour
   description: null
-  expression: null
+  expression: ''
   extra:
     warning_markdown: null
   filterable: true

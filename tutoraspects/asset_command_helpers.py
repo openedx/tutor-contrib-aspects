@@ -207,6 +207,9 @@ class DatasetAsset(Asset):
             if not metric.get("verbose_name"):
                 metric["verbose_name"] = metric["metric_name"].replace("_", " ").title()
 
+        content["columns"] = sorted(content["columns"], key=lambda x: x["column_name"])
+        content["metrics"] = sorted(content["metrics"], key=lambda x: x["metric_name"])
+
 
 class DatabaseAsset(Asset):
     """
