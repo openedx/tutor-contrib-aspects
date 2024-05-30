@@ -45,14 +45,14 @@ class TranslatableAsset:
         """
         if not content or isinstance(content, str):
             return []
-        
+
         # if content is a list, run method for each list item
         if isinstance(content, list):
             strings = []
             for item in content:
                 strings.extend(self.translate_var(item, var_path))
             return strings
-        
+
         if isinstance(content, dict):
             # if var_path is wild, run method on every value in dict
             if var_path[0] == "*":
@@ -69,7 +69,7 @@ class TranslatableAsset:
                 return strings
             # otherwise, run method again 1 level deeper
             return self.translate_var(content.get(var_path[0], " "), var_path[1:])
-        
+
         print("Could not translate var_path: ", var_path, content)
         return []
 
