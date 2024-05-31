@@ -8,9 +8,15 @@ params:
   adhoc_filters:
   - clause: WHERE
     comparator: No filter
+    datasourceWarning: false
     expressionType: SIMPLE
+    filterOptionName: filter_jfungcanfns_4if9uzm072d
+    isExtra: false
+    isNew: false
     operator: TEMPORAL_RANGE
-    subject: emission_hour
+    operatorId: TEMPORAL_RANGE
+    sqlExpression: null
+    subject: emission_day
   annotation_layers: []
   color_scheme: supersetColors
   comparison_type: values
@@ -47,7 +53,7 @@ params:
   truncateXAxis: false
   truncate_metric: false
   viz_type: echarts_timeseries_line
-  x_axis: emission_hour
+  x_axis: emission_day
   x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
@@ -69,14 +75,20 @@ query_context:
     adhoc_filters:
     - clause: WHERE
       comparator: No filter
+      datasourceWarning: false
       expressionType: SIMPLE
+      filterOptionName: filter_jfungcanfns_4if9uzm072d
+      isExtra: false
+      isNew: false
       operator: TEMPORAL_RANGE
-      subject: emission_hour
+      operatorId: TEMPORAL_RANGE
+      sqlExpression: null
+      subject: emission_day
     annotation_layers: []
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 2422
+    - 6085
     datasource: 830__table
     extra_form_data: {}
     force: false
@@ -115,7 +127,7 @@ query_context:
     truncateXAxis: false
     truncate_metric: false
     viz_type: echarts_timeseries_line
-    x_axis: emission_hour
+    x_axis: emission_day
     x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
@@ -134,8 +146,8 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: emission_hour
-      sqlExpression: emission_hour
+      label: emission_day
+      sqlExpression: emission_day
       timeGrain: P1D
     custom_form_data: {}
     custom_params: {}
@@ -144,7 +156,7 @@ query_context:
       time_grain_sqla: P1D
       where: ''
     filters:
-    - col: emission_hour
+    - col: emission_day
       op: TEMPORAL_RANGE
       val: No filter
     metrics:
@@ -176,7 +188,7 @@ query_context:
         columns: []
         drop_missing_columns: false
         index:
-        - emission_hour
+        - emission_day
     - operation: flatten
     row_limit: 10000
     series_columns: []

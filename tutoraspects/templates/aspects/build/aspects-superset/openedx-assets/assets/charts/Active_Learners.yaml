@@ -11,6 +11,11 @@ params:
     expressionType: SIMPLE
     operator: TEMPORAL_RANGE
     subject: emission_hour
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_day
   annotation_layers: []
   area: false
   color_scheme: supersetColors
@@ -50,7 +55,7 @@ params:
   truncateYAxis: false
   truncate_metric: true
   viz_type: echarts_timeseries_line
-  x_axis: emission_hour
+  x_axis: emission_day
   x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
@@ -75,12 +80,17 @@ query_context:
       expressionType: SIMPLE
       operator: TEMPORAL_RANGE
       subject: emission_hour
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: emission_day
     annotation_layers: []
     area: false
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 2422
+    - 6085
     datasource: 84__table
     extra_form_data: {}
     force: false
@@ -121,7 +131,7 @@ query_context:
     truncateYAxis: false
     truncate_metric: true
     viz_type: echarts_timeseries_line
-    x_axis: emission_hour
+    x_axis: emission_day
     x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
@@ -140,8 +150,8 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: emission_hour
-      sqlExpression: emission_hour
+      label: emission_day
+      sqlExpression: emission_day
       timeGrain: P1D
     custom_form_data: {}
     custom_params: {}
@@ -151,6 +161,9 @@ query_context:
       where: ''
     filters:
     - col: emission_hour
+      op: TEMPORAL_RANGE
+      val: No filter
+    - col: emission_day
       op: TEMPORAL_RANGE
       val: No filter
     metrics:
@@ -182,7 +195,7 @@ query_context:
         columns: []
         drop_missing_columns: false
         index:
-        - emission_hour
+        - emission_day
     - operation: flatten
     row_limit: 10000
     series_columns: []
