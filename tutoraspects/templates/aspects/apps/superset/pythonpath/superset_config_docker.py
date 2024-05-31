@@ -104,7 +104,7 @@ def can_view_courses_wrapper(*args, **kwargs):
     from superset.utils.cache import memoized_func
 
     kwargs["cache_timeout"] = {{ SUPERSET_USER_PERMISSIONS_CACHE_TIMEOUT }}
-    return memoized_func()(can_view_courses)(*args, **kwargs)
+    return memoized_func("{username}:{field_name}")(can_view_courses)(*args, **kwargs)
 
 
 JINJA_CONTEXT_ADDONS = {

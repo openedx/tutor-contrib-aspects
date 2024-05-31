@@ -141,6 +141,23 @@ def import_assets(context) -> None:
     runner.run_job("superset", command)
 
 
+@click.command(context_settings={"ignore_unknown_options": True})
+@click.pass_obj
+def init_clickhouse(context) -> None:
+    """
+    Job to import Superset assets.
+    """
+    config = tutor_config.load(context.root)
+    runner = context.job_runner(config)
+
+    runner.run_job(
+        "clickhouse",
+        env.read_template_file(
+            "aspects", "jobs", "init", "clickhouse", "init-clickhouse.sh"
+        ),
+    )
+
+
 @click.command(help="Dump data to ClickHouse.")
 @click.option("--service", default="lms", help="The service to run the command on.")
 @click.option("--options", default="")
@@ -263,4 +280,5 @@ COMMANDS = (
     transform_tracking_logs,
     import_assets,
     performance_metrics,
+    init_clickhouse,
 )

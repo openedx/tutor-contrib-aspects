@@ -10,8 +10,7 @@ with
             video_position,
             video_duration
         from {{ ASPECTS_XAPI_DATABASE }}.video_playback_events
-        where 1=1
-        {% include 'openedx-assets/queries/common_filters.sql' %}
+        where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
     ),
     starts as (
         select *
@@ -96,5 +95,6 @@ select
     email
 from enriched_segments
 left outer join
-    {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii users on toUUID(actor_id) = users.external_user_id
+    {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii users
+    on toUUID(actor_id) = users.external_user_id
 order by segment_start

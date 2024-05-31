@@ -56,9 +56,124 @@ params:
   y_axis_title_margin: 15
   y_axis_title_position: Left
   zoomable: true
-query_context: '{"datasource":{"id":61,"type":"table"},"force":false,"queries":[{"filters":[{"col":"visited_on","op":"TEMPORAL_RANGE","val":"No
-  filter"}],"extras":{"time_grain_sqla":"P1M","having":"","where":""},"applied_time_extras":{},"columns":[{"timeGrain":"P1M","columnType":"BASE_AXIS","sqlExpression":"visited_on","label":"visited_on","expressionType":"SQL"}],"metrics":["views","number_of_learners"],"orderby":[["views",false]],"annotation_layers":[],"row_limit":1000,"series_columns":[],"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"time_offsets":[],"post_processing":[{"operation":"pivot","options":{"index":["visited_on"],"columns":[],"aggregates":{"views":{"operator":"mean"},"number_of_learners":{"operator":"mean"}},"drop_missing_columns":false}},{"operation":"cum","options":{"operator":"sum","columns":{"views":"views","number_of_learners":"number_of_learners"}}},{"operation":"flatten"}]}],"form_data":{"datasource":"61__table","viz_type":"echarts_timeseries_line","slice_id":140,"x_axis":"visited_on","time_grain_sqla":"P1M","xAxisForceCategorical":true,"x_axis_sort":"Views","x_axis_sort_asc":true,"x_axis_sort_series":"name","x_axis_sort_series_ascending":true,"metrics":["views","number_of_learners"],"groupby":[],"adhoc_filters":[{"clause":"WHERE","comparator":"No
-  filter","expressionType":"SIMPLE","operator":"TEMPORAL_RANGE","subject":"visited_on"}],"order_desc":true,"row_limit":1000,"truncate_metric":true,"show_empty_columns":true,"rolling_type":"cumsum","comparison_type":"values","annotation_layers":[],"forecastPeriods":10,"forecastInterval":0.8,"x_axis_title_margin":15,"y_axis_title_margin":15,"y_axis_title_position":"Left","sort_series_type":"sum","sort_series_ascending":true,"color_scheme":"supersetColors","seriesType":"line","show_value":false,"only_total":true,"opacity":0.2,"markerEnabled":true,"markerSize":7,"zoomable":true,"show_legend":true,"legendType":"scroll","legendOrientation":"top","legendMargin":null,"x_axis_time_format":"smart_date","rich_tooltip":true,"tooltipTimeFormat":"smart_date","y_axis_format":",d","truncateXAxis":true,"y_axis_bounds":[null,null],"extra_form_data":{},"dashboards":[629],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+query_context:
+  datasource:
+    id: 61
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: visited_on
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    dashboards:
+    - 629
+    datasource: 61__table
+    extra_form_data: {}
+    force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    groupby: []
+    legendMargin: null
+    legendOrientation: top
+    legendType: scroll
+    markerEnabled: true
+    markerSize: 7
+    metrics:
+    - views
+    - number_of_learners
+    only_total: true
+    opacity: 0.2
+    order_desc: true
+    result_format: json
+    result_type: full
+    rich_tooltip: true
+    rolling_type: cumsum
+    row_limit: 1000
+    seriesType: line
+    show_empty_columns: true
+    show_legend: true
+    show_value: false
+    slice_id: 140
+    sort_series_ascending: true
+    sort_series_type: sum
+    time_grain_sqla: P1M
+    tooltipTimeFormat: smart_date
+    truncateXAxis: true
+    truncate_metric: true
+    viz_type: echarts_timeseries_line
+    xAxisForceCategorical: true
+    x_axis: visited_on
+    x_axis_sort: Views
+    x_axis_sort_asc: true
+    x_axis_sort_series: name
+    x_axis_sort_series_ascending: true
+    x_axis_time_format: smart_date
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: ',d'
+    y_axis_title_margin: 15
+    y_axis_title_position: Left
+    zoomable: true
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: visited_on
+      sqlExpression: visited_on
+      timeGrain: P1M
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1M
+      where: ''
+    filters:
+    - col: visited_on
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics:
+    - views
+    - number_of_learners
+    order_desc: true
+    orderby:
+    - - views
+      - false
+    post_processing:
+    - operation: pivot
+      options:
+        aggregates:
+          number_of_learners:
+            operator: mean
+          views:
+            operator: mean
+        columns: []
+        drop_missing_columns: false
+        index:
+        - visited_on
+    - operation: cum
+      options:
+        columns:
+          number_of_learners: number_of_learners
+          views: views
+        operator: sum
+    - operation: flatten
+    row_limit: 1000
+    series_columns: []
+    series_limit: 0
+    time_offsets: []
+    url_params: {}
+  result_format: json
+  result_type: full
 slice_name: Cumulative Interactions
 uuid: c44e43b5-ba69-4805-8d01-3b04dcbf2cb6
 version: 1.0.0

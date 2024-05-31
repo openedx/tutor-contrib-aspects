@@ -15,6 +15,18 @@ columns:
   type: String
   verbose_name: Video Name With Location
 - advanced_data_type: null
+  column_name: video_segment_count
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Float64
+  verbose_name: Video Segment Count
+- advanced_data_type: null
   column_name: watched_segment_count
   description: null
   expression: null
@@ -24,7 +36,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Int32
+  type: UInt64
   verbose_name: Watched Segment Count
 - advanced_data_type: null
   column_name: watched_entire_video
@@ -36,7 +48,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Boolean
+  type: UInt8
   verbose_name: Watched Entire Video
 - advanced_data_type: null
   column_name: actor_id
@@ -87,22 +99,10 @@ columns:
   type: String
   verbose_name: Course Run
 - advanced_data_type: null
-  column_name: video_name
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Video Name
-- advanced_data_type: null
   column_name: subsection_with_name
   description: null
   expression: null
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -114,7 +114,7 @@ columns:
   column_name: section_with_name
   description: null
   expression: null
-  extra: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -122,6 +122,18 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Section Name
+- advanced_data_type: null
+  column_name: video_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Video Name
 - advanced_data_type: null
   column_name: org
   description: null
@@ -146,10 +158,21 @@ metrics:
   d3format: null
   description: null
   expression: count(*) - count(distinct actor_id)
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: repeat_views
   metric_type: null
   verbose_name: Repeat Views
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: count(distinct actor_id)
+  extra:
+    warning_markdown: ''
+  metric_name: unique_viewers
+  metric_type: null
+  verbose_name: Unique Viewers
   warning_text: null
 - currency: null
   d3format: null
@@ -160,15 +183,6 @@ metrics:
   metric_name: count
   metric_type: null
   verbose_name: Total Views
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: count(distinct actor_id)
-  extra: {}
-  metric_name: unique_viewers
-  metric_type: null
-  verbose_name: Unique Viewers
   warning_text: null
 normalize_columns: true
 offset: 0

@@ -44,7 +44,7 @@ jobs:
           bump2version --new-version ${{ steps.tag_version.outputs.new_version }} setup.cfg tutoraspects/__about__.py .ci/config.yml
       - name: Update Changelog
         if: steps.tag_version.outputs.new_version
-        uses: stefanzweifel/changelog-updater-action@v1.10.0
+        uses: stefanzweifel/changelog-updater-action@v1.11.0
         with:
           latest-version: ${{ steps.tag_version.outputs.new_tag }}
           release-notes: ${{ steps.tag_version.outputs.changelog }}
@@ -67,7 +67,7 @@ jobs:
           title: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
           commit-message: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
           branch: "bot/v${{steps.tag_version.outputs.new_version}}"
-          base: nightly
+          base: main
           body: |
             Automated version bump for release ${{ steps.tag_version.outputs.new_version }}.
 

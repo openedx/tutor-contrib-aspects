@@ -360,7 +360,6 @@ metadata:
   native_filter_configuration:
   - cascadeParentIds: []
     chartsInScope:
-    - 2161
     - 2421
     - 2501
     - 2521
@@ -378,21 +377,31 @@ metadata:
     - 3401
     - 3402
     - 3403
-    - 3404
+    - 3561
+    - 3562
     controlValues:
       enableEmptyFilter: false
     defaultDataMask:
-      extraFormData: {}
-      filterState: {}
-      ownState: {}
+      extraFormData:
+        time_range: 'DATEADD(DATETIME("now"), -90, day) : now'
+      filterState:
+        value: 'DATEADD(DATETIME("now"), -90, day) : now'
     description: ''
     filterType: filter_time
     id: NATIVE_FILTER-VfB-vTQtG
     name: Time Range
     scope:
-      excluded: []
+      excluded:
+      - 3001
+      - 3161
+      - 2521
+      - 3562
       rootPath:
-      - ROOT_ID
+      - TAB-DE73B5pXm
+      - TAB-uKjvZ62aJt
+      - TAB-EygpebMa1
+      - TAB-gvqU89mvT
+      - TAB-z7LunkNp63
     tabsInScope:
     - TAB-DE73B5pXm
     - TAB-EygpebMa1

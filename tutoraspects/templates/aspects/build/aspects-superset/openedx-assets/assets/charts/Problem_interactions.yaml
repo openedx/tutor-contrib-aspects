@@ -80,42 +80,129 @@ params:
     emission_time: true
   time_grain_sqla: P1M
   viz_type: table
-query_context: "{\"datasource\":{\"id\":373,\"type\":\"table\"},\"force\":false,\"\
-  queries\":[{\"filters\":[{\"col\":\"emission_time\",\"op\":\"TEMPORAL_RANGE\",\"\
-  val\":\"No filter\"}],\"extras\":{\"time_grain_sqla\":\"P1M\",\"having\":\"\",\"\
-  where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"problem_link\",\"problem_name_with_location\"\
-  ,{\"datasourceWarning\":false,\"expressionType\":\"SQL\",\"label\":\"Graded\",\"\
-  sqlExpression\":\"case when graded then 'Graded'\\nelse 'Ungraded'\\nend\"}],\"\
-  metrics\":[\"number_of_learners\",\"median_attemps\",\"avg_attemps\"],\"orderby\"\
-  :[[\"number_of_learners\",false]],\"annotation_layers\":[],\"row_limit\":1000,\"\
-  series_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\"\
-  :{},\"post_processing\":[]}],\"form_data\":{\"datasource\":\"373__table\",\"viz_type\"\
-  :\"table\",\"slice_id\":410,\"query_mode\":\"aggregate\",\"groupby\":[\"problem_link\"\
-  ,\"problem_name_with_location\",{\"datasourceWarning\":false,\"expressionType\"\
-  :\"SQL\",\"label\":\"Graded\",\"sqlExpression\":\"case when graded then 'Graded'\\\
-  nelse 'Ungraded'\\nend\"}],\"time_grain_sqla\":\"P1M\",\"temporal_columns_lookup\"\
-  :{\"emission_time\":true},\"metrics\":[\"number_of_learners\",\"median_attemps\"\
-  ,\"avg_attemps\"],\"all_columns\":[],\"percent_metrics\":[],\"adhoc_filters\":[{\"\
-  clause\":\"WHERE\",\"comparator\":\"No filter\",\"datasourceWarning\":false,\"expressionType\"\
-  :\"SIMPLE\",\"filterOptionName\":\"filter_qqnzi3klvaa_mtbj67olly\",\"isExtra\":false,\"\
-  isNew\":false,\"operator\":\"TEMPORAL_RANGE\",\"sqlExpression\":null,\"subject\"\
-  :\"emission_time\"}],\"order_by_cols\":[],\"row_limit\":1000,\"server_page_length\"\
-  :10,\"order_desc\":true,\"table_timestamp_format\":\"smart_date\",\"show_cell_bars\"\
-  :true,\"color_pn\":true,\"column_config\":{\"Avg Attempts\":{\"d3NumberFormat\"\
-  :\",d\",\"d3SmallNumberFormat\":\",d\"},\"Median of Attempts\":{\"d3NumberFormat\"\
-  :\",d\",\"d3SmallNumberFormat\":\",.1%\"},\"Number of Learners who attemped the\
-  \ problem\":{\"d3NumberFormat\":\",d\",\"d3SmallNumberFormat\":\",d\"}},\"conditional_formatting\"\
-  :[{\"colorScheme\":\"#ACE1C4\",\"column\":\"Avg Attempts\",\"operator\":\"=\",\"\
-  targetValue\":1},{\"colorScheme\":\"#FDE380\",\"column\":\"Avg Attempts\",\"operator\"\
-  :\"\u2264 x \u2264\",\"targetValueLeft\":\"2\",\"targetValueRight\":\"4\"},{\"colorScheme\"\
-  :\"#EFA1AA\",\"column\":\"Avg Attempts\",\"operator\":\">\",\"targetValue\":4},{\"\
-  colorScheme\":\"#ACE1C4\",\"column\":\"Median of Attempts\",\"operator\":\"<\",\"\
-  targetValue\":3},{\"colorScheme\":\"#FDE380\",\"column\":\"Median of Attempts\"\
-  ,\"operator\":\"\u2264 x \u2264\",\"targetValueLeft\":\"3\",\"targetValueRight\"\
-  :\"5\"},{\"colorScheme\":\"#EFA1AA\",\"column\":\"Median of Attempts\",\"operator\"\
-  :\">\",\"targetValue\":5}],\"extra_form_data\":{},\"dashboards\":[629],\"force\"\
-  :false,\"result_format\":\"json\",\"result_type\":\"full\"},\"result_format\":\"\
-  json\",\"result_type\":\"full\"}"
+query_context:
+  datasource:
+    id: 29
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      datasourceWarning: false
+      expressionType: SIMPLE
+      filterOptionName: filter_qqnzi3klvaa_mtbj67olly
+      isExtra: false
+      isNew: false
+      operator: TEMPORAL_RANGE
+      sqlExpression: null
+      subject: emission_time
+    all_columns: []
+    color_pn: true
+    column_config:
+      Avg Attempts:
+        d3NumberFormat: ',d'
+        d3SmallNumberFormat: ',d'
+      Median of Attempts:
+        d3NumberFormat: ',d'
+        d3SmallNumberFormat: ',.1%'
+      Number of Learners who attemped the problem:
+        d3NumberFormat: ',d'
+        d3SmallNumberFormat: ',d'
+    conditional_formatting:
+    - colorScheme: '#ACE1C4'
+      column: avg_attemps
+      operator: '='
+      targetValue: 1
+    - colorScheme: '#FDE380'
+      column: avg_attemps
+      operator: "\u2264 x \u2264"
+      targetValueLeft: '2'
+      targetValueRight: '4'
+    - colorScheme: '#EFA1AA'
+      column: avg_attemps
+      operator: '>'
+      targetValue: 4
+    - colorScheme: '#ACE1C4'
+      column: median_attemps
+      operator: <
+      targetValue: 3
+    - colorScheme: '#FDE380'
+      column: median_attemps
+      operator: "\u2264 x \u2264"
+      targetValueLeft: '3'
+      targetValueRight: '5'
+    - colorScheme: '#EFA1AA'
+      column: median_attemps
+      operator: '>'
+      targetValue: 5
+    dashboards:
+    - 67
+    datasource: 29__table
+    extra_form_data: {}
+    force: false
+    groupby:
+    - problem_link
+    - problem_name_with_location
+    - datasourceWarning: false
+      expressionType: SQL
+      label: Graded
+      sqlExpression: |-
+        {% raw %}{{translate_column_bool('graded')}}{% endraw %}
+    metrics:
+    - number_of_learners
+    - median_attemps
+    - avg_attemps
+    order_by_cols: []
+    order_desc: true
+    percent_metrics: []
+    query_mode: aggregate
+    result_format: json
+    result_type: full
+    row_limit: 1000
+    server_page_length: 10
+    show_cell_bars: true
+    slice_id: 29
+    table_timestamp_format: smart_date
+    temporal_columns_lookup:
+      emission_time: true
+    time_grain_sqla: P1M
+    viz_type: table
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - problem_link
+    - problem_name_with_location
+    - datasourceWarning: false
+      expressionType: SQL
+      label: Graded
+      sqlExpression: |-
+        {% raw %}{{translate_column_bool('graded')}}{% endraw %}
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1M
+      where: ''
+    filters:
+    - col: emission_time
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics:
+    - number_of_learners
+    - median_attemps
+    - avg_attemps
+    order_desc: true
+    orderby:
+    - - number_of_learners
+      - false
+    post_processing: []
+    row_limit: 1000
+    series_limit: 0
+    url_params: {}
+  result_format: json
+  result_type: full
 slice_name: Problem interactions
 uuid: ba14d2ea-8c53-4f79-aa1b-434011f3c725
 version: 1.0.0

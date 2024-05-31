@@ -43,28 +43,33 @@ class TranslatableAsset:
         """
         Helper method to remove content from the content dict.
         """
-        if not content:
+        if not content or isinstance(content, str):
             return []
-        if len(var_path) == 1:
-            if isinstance(content, list):
-                strings = []
-                for item in content:
-                    strings.append(item.get(var_path[0], ""))
-                return strings
-            string = [content.get(var_path[0], "")]
-            return string or []
+
+        # if content is a list, run method for each list item
         if isinstance(content, list):
             strings = []
             for item in content:
-                strings.extend(self.translate_var(item, var_path[1:]))
+                strings.extend(self.translate_var(item, var_path))
             return strings
+
         if isinstance(content, dict):
+            # if var_path is wild, run method on every value in dict
             if var_path[0] == "*":
                 strings = []
                 for value in content.values():
                     strings.extend(self.translate_var(value, var_path[1:]))
                 return strings
-            return self.translate_var(content.get(var_path[0], ""), var_path[1:])
+            # if there is only 1 value in var_path, find it in the dict
+            if len(var_path) == 1:
+                strings = []
+                result = content.get(var_path[0])
+                if result:
+                    strings.append(result)
+                return strings
+            # otherwise, run method again 1 level deeper
+            return self.translate_var(content.get(var_path[0], " "), var_path[1:])
+
         print("Could not translate var_path: ", var_path, content)
         return []
 
@@ -79,6 +84,7 @@ class DashboardAsset(TranslatableAsset):
         "metadata.native_filter_configuration.description",
         "position.*.meta.text",
         "position.*.meta.code",
+        "position.*.meta.sliceNameOverride",
     ]
 
 
@@ -90,6 +96,7 @@ class ChartAsset(TranslatableAsset):
         "description",
         "params.x_axis_label",
         "params.y_axis_label",
+        "params.groupby.label",
     ]
 
 

@@ -15,6 +15,18 @@ columns:
   type: String
   verbose_name: Video Name With Location
 - advanced_data_type: null
+  column_name: video_segment_count
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Float64
+  verbose_name: Video Segment Count
+- advanced_data_type: null
   column_name: watched_segment_count
   description: null
   expression: null
@@ -24,7 +36,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Int32
+  type: UInt64
   verbose_name: Watched Segment Count
 - advanced_data_type: null
   column_name: watched_entire_video
@@ -36,7 +48,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Boolean
+  type: UInt8
   verbose_name: Watched Entire Video
 - advanced_data_type: null
   column_name: actor_id
@@ -186,7 +198,8 @@ metrics:
   d3format: null
   description: null
   expression: countIf(watched_entire_video)
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: full_views
   metric_type: null
   verbose_name: Full Views

@@ -17,7 +17,6 @@ params:
     sqlExpression: null
     subject: emission_time
   all_columns: []
-  annotation_layers: []
   color_pn: true
   column_config:
     '% Correct':
@@ -67,37 +66,117 @@ params:
     emission_time: true
   time_grain_sqla: P1M
   viz_type: table
-query_context: "{\"datasource\":{\"id\":373,\"type\":\"table\"},\"force\":false,\"\
-  queries\":[{\"filters\":[{\"col\":\"emission_time\",\"op\":\"TEMPORAL_RANGE\",\"\
-  val\":\"No filter\"}],\"extras\":{\"time_grain_sqla\":\"P1M\",\"having\":\"\",\"\
-  where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"problem_link\",\"problem_name_with_location\"\
-  ,{\"expressionType\":\"SQL\",\"label\":\"Graded\",\"sqlExpression\":\"case when\
-  \ graded then 'Graded'\\nelse 'Ungraded'\\nend\",\"datasourceWarning\":false}],\"\
-  metrics\":[\"correct_attempts\",\"incorrect_attempts\",\"correct_percent\",\"incorrect_percent\"\
-  ],\"orderby\":[[\"correct_attempts\",false]],\"annotation_layers\":[],\"row_limit\"\
-  :1000,\"series_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\"\
-  :{},\"custom_form_data\":{},\"post_processing\":[]}],\"form_data\":{\"datasource\"\
-  :\"373__table\",\"viz_type\":\"table\",\"slice_id\":666,\"query_mode\":\"aggregate\"\
-  ,\"groupby\":[\"problem_link\",\"problem_name_with_location\",{\"expressionType\"\
-  :\"SQL\",\"label\":\"Graded\",\"sqlExpression\":\"case when graded then 'Graded'\\\
-  nelse 'Ungraded'\\nend\",\"datasourceWarning\":false}],\"time_grain_sqla\":\"P1M\"\
-  ,\"temporal_columns_lookup\":{\"emission_time\":true},\"metrics\":[\"correct_attempts\"\
-  ,\"incorrect_attempts\",\"correct_percent\",\"incorrect_percent\"],\"all_columns\"\
-  :[],\"percent_metrics\":[],\"adhoc_filters\":[{\"clause\":\"WHERE\",\"comparator\"\
-  :\"No filter\",\"datasourceWarning\":false,\"expressionType\":\"SIMPLE\",\"filterOptionName\"\
-  :\"filter_yd770pyvxe_mwgme7m4o1\",\"isExtra\":false,\"isNew\":false,\"operator\"\
-  :\"TEMPORAL_RANGE\",\"sqlExpression\":null,\"subject\":\"emission_time\"}],\"order_by_cols\"\
-  :[],\"server_pagination\":false,\"row_limit\":1000,\"server_page_length\":10,\"\
-  order_desc\":true,\"show_totals\":false,\"table_timestamp_format\":\"smart_date\"\
-  ,\"show_cell_bars\":true,\"color_pn\":true,\"column_config\":{\"% Correct\":{\"\
-  d3NumberFormat\":\",.1%\"},\"% Incorrect\":{\"d3NumberFormat\":\",.1%\"},\"Correct\
-  \ Attempts\":{\"d3NumberFormat\":\",d\",\"d3SmallNumberFormat\":\",d\"},\"Incorrect\
-  \ Attempts\":{\"d3NumberFormat\":\",d\",\"d3SmallNumberFormat\":\",d\"}},\"conditional_formatting\"\
-  :[{\"colorScheme\":\"#ACE1C4\",\"column\":\"% Correct\",\"operator\":\"\u2265\"\
-  ,\"targetValue\":0},{\"colorScheme\":\"#EFA1AA\",\"column\":\"% Incorrect\",\"operator\"\
-  :\"\u2265\",\"targetValue\":0}],\"extra_form_data\":{},\"dashboards\":[629],\"force\"\
-  :false,\"result_format\":\"json\",\"result_type\":\"full\"},\"result_format\":\"\
-  json\",\"result_type\":\"full\"}"
+query_context:
+  datasource:
+    id: 29
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      datasourceWarning: false
+      expressionType: SIMPLE
+      filterOptionName: filter_yd770pyvxe_mwgme7m4o1
+      isExtra: false
+      isNew: false
+      operator: TEMPORAL_RANGE
+      sqlExpression: null
+      subject: emission_time
+    all_columns: []
+    color_pn: true
+    column_config:
+      '% Correct':
+        d3NumberFormat: ',.1%'
+      '% Incorrect':
+        d3NumberFormat: ',.1%'
+      Correct Attempts:
+        d3NumberFormat: ',d'
+        d3SmallNumberFormat: ',d'
+      Incorrect Attempts:
+        d3NumberFormat: ',d'
+        d3SmallNumberFormat: ',d'
+    conditional_formatting:
+    - colorScheme: '#ACE1C4'
+      column: correct_percent
+      operator: "\u2265"
+      targetValue: 0
+    - colorScheme: '#EFA1AA'
+      column: incorrect_percent
+      operator: "\u2265"
+      targetValue: 0
+    dashboards:
+    - 65
+    - 67
+    datasource: 29__table
+    extra_form_data: {}
+    force: false
+    groupby:
+    - problem_link
+    - problem_name_with_location
+    - datasourceWarning: false
+      expressionType: SQL
+      label: Graded
+      sqlExpression: |-
+        {% raw %}{{translate_column_bool('graded')}}{% endraw %}
+    metrics:
+    - correct_attempts
+    - incorrect_attempts
+    - correct_percent
+    - incorrect_percent
+    order_by_cols: []
+    order_desc: true
+    percent_metrics: []
+    query_mode: aggregate
+    result_format: json
+    result_type: full
+    row_limit: 1000
+    server_page_length: 10
+    server_pagination: false
+    show_cell_bars: true
+    show_totals: false
+    slice_id: 55
+    table_timestamp_format: smart_date
+    temporal_columns_lookup:
+      emission_time: true
+    time_grain_sqla: P1M
+    viz_type: table
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - problem_link
+    - problem_name_with_location
+    - datasourceWarning: false
+      expressionType: SQL
+      label: Graded
+      sqlExpression: |-
+        {% raw %}{{translate_column_bool('graded')}}{% endraw %}
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1M
+      where: ''
+    filters:
+    - col: emission_time
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics:
+    - correct_attempts
+    - incorrect_attempts
+    - correct_percent
+    - incorrect_percent
+    order_desc: true
+    orderby:
+    - - correct_attempts
+      - false
+    post_processing: []
+    row_limit: 1000
+    series_limit: 0
+    url_params: {}
+  result_format: json
+  result_type: full
 slice_name: Problem Results
 uuid: 6df96404-8c09-4a52-96c8-9a60a92cec29
 version: 1.0.0
