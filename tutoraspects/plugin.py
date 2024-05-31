@@ -52,6 +52,17 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_ENABLE_EVENT_BUS_CONSUMER", False),
         ("ASPECTS_ENABLE_EVENT_BUS_PRODUCER", False),
         ("ASPECTS_EVENT_BUS_CONSUMER_REPLICAS", 1),
+
+        # These settings override the event-routing-backends defaults for performance
+        # reasons.
+        # Turn on event batching by default, performance is severely impacted by
+        # turning this off.
+        ("EVENT_ROUTING_BACKEND_BATCHING_ENABLED", True),
+        # Events are sent when they hit either the batch size or the batch interval
+        # time limit (defaults here are 100 events or 5 seconds).
+        # https://event-routing-backends.readthedocs.io/en/latest/getting_started.html#batching-configuration
+        ("EVENT_ROUTING_BACKEND_BATCH_SIZE", 100),
+        ("EVENT_ROUTING_BACKEND_BATCH_INTERVAL", 5),
         # User PII is cached in an in-memory dictionary for this many seconds.
         ("ASPECTS_PII_CACHE_LIFETIME", 900),
         # Markdown comprising the Help tab for the Operator and Instructor dashboards.
