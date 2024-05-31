@@ -52,7 +52,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_ENABLE_EVENT_BUS_CONSUMER", False),
         ("ASPECTS_ENABLE_EVENT_BUS_PRODUCER", False),
         ("ASPECTS_EVENT_BUS_CONSUMER_REPLICAS", 1),
-
         # These settings override the event-routing-backends defaults for performance
         # reasons.
         # Turn on event batching by default, performance is severely impacted by
