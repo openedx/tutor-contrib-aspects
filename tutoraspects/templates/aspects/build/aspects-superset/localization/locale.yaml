@@ -6536,5 +6536,285 @@ zh_CN:
   xAPI Events Over Time v2: xAPI随时间变化的事件 v2
   '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
+zh_HK:
+  '% Correct': ％ 正確的
+  '% Incorrect': '% 錯誤'
+  Action: 操作
+  Action Count: 操作計數
+  Action Date: 操作日期
+  Active: 活躍
+  Active Courses: 活躍課程
+  Active Learners: 活躍學生
+  Active Users Per Organization: 每個組織的活躍用戶
+  Actor ID: Actor ID
+  Actor Id: Actor Id
+  Actors Count: Actors 數
+  All Pages Viewed: 瀏覽過的所有頁面
+  All Videos Viewed: 觀看過的所有影片
+  At Leat One Page Viewed: 至少瀏覽一頁
+  At Leat One Viewed: 至少看過一位
+  At-Risk Learners: 有風險的學生
+  At-risk Enrollees per Enrollment Track: 每個註冊軌道的高風險註冊者
+  At-risk Enrollment Dates: 有風險的註冊日期
+  At-risk learners: 有風險的學生
+  Attempted All Problems: 嘗試了所有問題
+  Attempted at Least One Problem: 嘗試了至少一個問題
+  Attempts: 嘗試
+  Avg Attempts: 平均嘗試次數
+  Avg Course Grade: 平均課程成績
+  Block ID: 區塊ID
+  Block Id: 區塊ID
+  COUNT(*): 數（*）
+  Changed By Fk: 由 Fk 更改
+  Changed On: 更改時間
+  Chart showing the number of Superset actions taken on each chart in the selected time period.: 顯示所選時間段內每個圖表上執行的Superset操作數量的圖表。
+  Chart showing the number of Superset actions taken on each dashboard in the selected time period.: 顯示所選時間段內每個控制面板上執行的
+    Superset 操作數量的圖表。
+  Chart showing the number of registered users over the selected time period.: 顯示所選時間內註冊用户數量的圖表。
+  ClickHouse: ClickHouse
+  ClickHouse metrics: ClickHouse 指標
+  Content Level: 內容水平
+  Correct Attempts: 正確的嘗試
+  Count: 計算
+  Count of unique users who performed an action in Superset over the selected time period.: 在選取時間段內在
+    Superset 中執行操作的唯一用户計數。
+  Count over time of unique users who performed an action in Superset over the selected time period.: 計算在選定時間段內在
+    Superset 中執行操作的唯一用户的數量。
+  Course Dashboard: 課程控制面板
+  Course Data JSON: 課程資料 JSON
+  Course End: 課程結束
+  Course Enrollment Mode Status Cnt: 課程註冊模式狀態計數
+  Course Enrollments Over Time: 隨時間變化的課程報名情況
+  Course Grade: 課程成績
+  Course Grade %: 課程成績%
+  Course ID: 課程ID
+  Course Information: 課程資訊
+  Course Key: 課程重點
+  Course Key Short: 課程重點簡述
+  Course Name: 課程名稱
+  Course Order: 課程順序
+  Course Run: 課程運行
+  Course Start: 課程開始
+  Course grade: 課程成績
+  Course key: 課程重點
+  Course name: 課程名稱
+  Course run: 課程運行
+  Courses: 課程
+  Courses Cnt: 課程數量
+  Courses Per Organization: 每個組織的課程
+  Created: 已創建
+  Created By Fk: 創作者： Fk
+  Created On: 創建於
+  Cumulative Enrollments by Track: 按軌道的累計報名人數
+  Cumulative Interactions: 累計互動
+  Cumulative Interactions (at-risk): 累積互動（有風險）
+  Current Active Enrollments By Mode: 目前活躍報名人數（按模式）
+  Current Enrollees: 目前註冊者
+  Currently Enrolled Users: 目前註冊用戶
+  Dashboard ID: 控制面板 ID
+  Dashboard Status: 控制面板狀態
+  Dashboard Title: 控制面板標題
+  Datasource ID: 資料來源ID
+  Datasource Name: 資料來源名稱
+  Datasource Type: 資料來源類型
+  Date: 日期
+  Description: 描述
+  Display Name: 顯示名稱
+  Distribution of Course Grades: 課程成績分佈
+  Distribution of Current Course Grade: 目前課程成績分佈
+  Dump ID: Dump ID
+  Duration (Seconds): 持續時間（秒）
+  Email: 電郵
+  Emission Day: 發行日期
+  Emission Hour: 發行時間
+  Emission Time: 排放時間
+  Engagement: 預約
+  Enrolled At: 入學時間
+  Enrollees per Enrollment Track: 每個註冊軌道的註冊人數
+  Enrollment: 註冊
+  Enrollment Date: 開學報道日
+  Enrollment End: 報名結束
+  Enrollment Mode: 報名方式
+  Enrollment Start: 報名開始
+  Enrollment Status: 入學狀況
+  Enrollment Track: 招生軌道
+  Enrollment status: 報名狀況
+  Enrollment track: 招生軌道
+  Enrollments: 入學人數
+  Event Activity: 活動
+  Event ID: 事件ID
+  Event String: 事件字串
+  Event Time: 活動時間
+  Events Cnt: 活動數量
+  Evolution of Engagement (at-risk): 參與度的演變（有風險）
+  Evolution of engagement: 參與度的演變
+  Fail Login Count: 登入失敗次數
+  First Name: 名
+  Full Views: 總瀏覽
+  Grade Bucket: 成績分組
+  Grade Range: 評分範圍
+  Grade range: 評分範圍
+  Graded: 已評分
+  Graded Learners: 評分學生
+  Help: 幫助
+  Http User Agent: HTTP 使用者代理
+  Id: ID
+  Incorrect Attempts: 錯誤的嘗試
+  Individual Learner: 個别學生
+  Instance Health: 健康情況
+  Interaction Type: 互動類型
+  Last Course Published: 最後發布的課程
+  Last Login: 上次登入
+  Last Name: 姓
+  Last Received Event: 最後收到的事件
+  Last Visited: 上次訪問
+  Last course syncronized: 最後一門課程已同步
+  Last visit date: 上次造訪日期
+  Learner Summary: 學生總結
+  Learners with Passing Grade: 成績及格的學生
+  Login Count: 登入次數
+  Median Course Grade: 課程成績中位數
+  Median of Attempts: 嘗試次數的中位數
+  Memory Usage (KB): 記憶體使用量 (KB)
+  Memory Usage Mb: 記憶體使用量 Mb
+  Modified: 修改的
+  Most-used Charts: 最常用的圖表
+  Most-used Dashboards: 最常用的控制面板
+  Name: 姓名
+  Number of Learners: 學習人數
+  Number of Learners who attemped the problem: 嘗試該問題的學生數量
+  Object ID: 對象 ID
+  Object Type: 對象類型
+  Operator Dashboard: 操作員控制面板
+  Org: 組織
+  Organization: 組織
+  Organizations: 組織機構
+  Overview: 概述
+  Page Count: 頁數
+  Page views per section: 每個章節的頁面瀏覽量
+  Page views per section/subsection: 每個章節/小節的頁面瀏覽量
+  Page views per section/subsection (at-risk): 每個章節/小節的頁面瀏覽量（有風險）
+  Page views per subsection: 每個小節的頁面瀏覽量
+  Pages: 頁數
+  Partial Views: 部分瀏覽
+  Partial and Full Views Per Video (at-risk): 每個影片的部分和完整觀看次數（有風險）
+  Partial and full views per video: 每個影片的部分和完整觀看次數
+  Partial and full views per video (table): 每個影片的部分和完整觀看次數（表）
+  Passed/Failed: 通過/失敗
+  Password: 密碼
+  Performance: 表現
+  Problem ID: 問題ID
+  Problem Id: 問題ID
+  Problem Interactions (at-risk): 問題互動（有風險）
+  Problem Link: 問題連結
+  Problem Name: 問題名稱
+  Problem Name With Location: 問題名稱及位置
+  Problem Results: 問題結果
+  Problem Results (at-risk): 問題結果（有風險）
+  Problem interactions: 問題交互
+  Problem name with location: 問題名稱及位置
+  Problems: 問題
+  Problems attempted per section: 每個章節嘗試的問題
+  Problems attempted per section/subsection: 每個章節/小節嘗試的問題
+  Problems attempted per section/subsection (at-risk): 每個章節/小節嘗試的問題（有風險）
+  Problems attempted per subsection: 每小節嘗試的問題
+  Query: 詢問
+  Query Duration Ms: 查詢持續時間（毫秒）
+  Query performance: 查詢表現
+  Read Rows: 讀取行
+  Repeat Views: 重複瀏覽
+  Responses: 回應
+  Result: 結果
+  Result Rows: 結果行數
+  Section Name: 章節名稱
+  Section Subsection Name: 章節小節名稱
+  Section Subsection Problem Engagement: 章節小節問題參與
+  Section Subsection Video Engagement: 小節 小節 影片參與
+  Section Summary: 章節摘要
+  Section Summary (at-risk): 章節摘要（有風險）
+  Section With Name: 帶有名稱的章節
+  Section name: 欄位名稱
+  Section with Name: 帶有名稱的章節
+  Section with name: 帶有名稱的章節
+  Section/Subsection Name: 章節/小節名稱
+  Section/Subsection Page Enggagement: 章節/小節頁面參與度
+  Section/Subsection Problem Engagement: 章節/小節問題參與
+  Section/Subsection Video Engagement: 章節/小節影片參與
+  Segment Range: 分段範圍
+  Segment Start: 分段開始
+  Self Paced: 自訂進度
+  Slice ID: Slice ID
+  Slice Name: Slice 名稱
+  Slowest ClickHouse Queries: 最慢的 ClickHouse 查詢
+  Start Position: 起始位置
+  Started At: 開始於
+  Subsection Name: 小節名稱
+  Subsection Summary: 小節總結
+  Subsection Summary (at-risk): 小節摘要（有風險）
+  Subsection With Name: 有名稱的小節
+  Subsection with Name: 有名稱的小節
+  Subsection with name: 有名稱的小節
+  Success: 成功
+  Superset: Superset
+  Superset Active Users: 活躍用戶Superset
+  Superset Active Users Over Time: Superset 時間內的活躍使用者
+  Superset Registered Users Over Time: Superset 時間內的註冊使用者
+  Tables: 表格
+  Time Grain: 時間粒度
+  Time Last Dumped: 上次導出的時間
+  Time Range: 時間範圍
+  Total Courses: 總課程數量
+  Total Organizations: 組織總數
+  Total Views: 總瀏覽
+  Total plays: 總播放次數
+  Unique Viewers: 獨特的觀看者
+  Unique Watchers: 獨特的觀察者
+  User ID: 用户ID
+  User Info: 用户資訊
+  User Name: 用户名稱
+  User Registration Date: 用戶註冊日期
+  Username: 用户名稱
+  Value: 值
+  Verb: Verb
+  Verb ID: Verb ID
+  Video Duration: 影片時長
+  Video Event: 影片活動
+  Video ID: 影片ID
+  Video Link: 影片連結
+  Video Name: 影片名稱
+  Video Name With Location: 帶有位置的影片名稱
+  Video Position: 影片位置
+  Video Segment Count: 影片片段數量
+  Video Views by Section/Subsection (at-risk): 按章節/子章節劃分的影片觀看次數（有風險）
+  Video Views per Section/Subsection (at-risk): 每個章節/小節的影片觀看次數（有風險）
+  Video name: 影片名稱
+  Video views by section/subsection: 按章節/小節劃分的影片觀看次數
+  Video views per section: 每個章節的影片觀看次數
+  Video views per section/subsection: 每個章節/小節的影片觀看次數
+  Video views per subsection: 每個小節的影片觀看次數
+  Videos: 影片
+  Views: 意見
+  Visited On: 訪問時間
+  Visualization Bucket: 可視化分組
+  Watched Entire Video: 觀看了整個影片
+  Watched Segment Count: 觀看片段數
+  Watched Video Segments: 觀看的影片片段
+  Watched Video Segments (at-risk): 觀看的影片片段（有風險）
+  audit: 旁聽
+  failed: 已失敗
+  graded: 已評分
+  honor: 榮譽
+  passed: 通過了
+  registered: 已登記
+  section_subsection_name: 章節_小節_名稱
+  section_subsection_page_engagement: section_subsection_page_engagement
+  ungraded: 未評分
+  unregistered: 未註冊的
+  verified: 已驗證
+  '{{ASPECTS_INDIVIDUAL_LEARNER_HELP_MARKDOWN}}': '{{ASPECTS_INDIVIDUAL_LEARNER_HELP_MARKDOWN}}'
+  '{{ASPECTS_LEARNER_GROUPS_HELP_MARKDOWN}}': '{{ASPECTS_LEARNER_GROUPS_HELP_MARKDOWN}}'
+  '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
+  ⏲️ Use the ‘Time Grain’ filter to update the time frame intervals shown in the following graph(s): ⏲️
+    使用「時間粒度」篩選器來更新以下圖表中顯示的時間範圍間隔
 
 {{ patch('superset-extra-asset-translations')}}
