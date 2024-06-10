@@ -46,7 +46,7 @@ click==8.1.7
     #   shandy-sqlfmt
     #   transifex-python
     #   tutor
-cryptography==42.0.7
+cryptography==42.0.8
     # via secretstorage
 dill==0.3.8
     # via pylint
@@ -56,7 +56,7 @@ future==1.0.0
     # via
     #   -r requirements/base.txt
     #   pyseeyou
-google-auth==2.29.0
+google-auth==2.30.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -96,7 +96,7 @@ jinja2==3.1.4
     #   tutor
 keyring==25.2.1
     # via twine
-kubernetes==29.0.0
+kubernetes==30.1.0
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -130,9 +130,9 @@ oauthlib==3.2.2
     #   -r requirements/base.txt
     #   kubernetes
     #   requests-oauthlib
-openedx-atlas==0.6.0
+openedx-atlas==0.6.1
     # via -r requirements/base.txt
-packaging==24.0
+packaging==24.1
     # via
     #   black
     #   pyinstaller
@@ -143,7 +143,7 @@ parsimonious==0.10.0
     #   pyseeyou
 pathspec==0.12.1
     # via black
-pkginfo==1.11.0
+pkginfo==1.11.1
     # via twine
 platformdirs==4.2.2
     # via
@@ -169,11 +169,11 @@ pygments==2.18.0
     # via
     #   readme-renderer
     #   rich
-pyinstaller==6.7.0
+pyinstaller==6.8.0
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2024.6
+pyinstaller-hooks-contrib==2024.7
     # via pyinstaller
-pylint==3.2.2
+pylint==3.2.3
     # via -r requirements/dev.in
 pyseeyou==1.0.2
     # via
@@ -253,7 +253,7 @@ tutor==17.0.5
     # via -r requirements/base.txt
 twine==5.1.0
     # via -r requirements/dev.in
-typing-extensions==4.12.1
+typing-extensions==4.12.2
     # via
     #   -r requirements/base.txt
     #   astroid
@@ -272,7 +272,7 @@ websocket-client==1.8.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-zipp==3.19.1
+zipp==3.19.2
     # via
     #   -r requirements/base.txt
     #   importlib-metadata
