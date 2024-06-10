@@ -25,7 +25,7 @@ click==8.1.7
     #   tutor
 future==1.0.0
     # via pyseeyou
-google-auth==2.29.0
+google-auth==2.30.0
     # via kubernetes
 idna==3.7
     # via requests
@@ -37,7 +37,7 @@ importlib-resources==6.4.0
     #   tutor
 jinja2==3.1.4
     # via tutor
-kubernetes==29.0.0
+kubernetes==30.1.0
     # via tutor
 markupsafe==2.1.5
     # via jinja2
@@ -49,7 +49,7 @@ oauthlib==3.2.2
     # via
     #   kubernetes
     #   requests-oauthlib
-openedx-atlas==0.6.0
+openedx-atlas==0.6.1
     # via -r requirements/base.in
 parsimonious==0.10.0
     # via pyseeyou
@@ -97,7 +97,7 @@ transifex-python==3.5.0
     # via -r requirements/base.in
 tutor==17.0.5
     # via -r requirements/base.in
-typing-extensions==4.12.1
+typing-extensions==4.12.2
     # via
     #   mypy
     #   tutor
@@ -107,7 +107,7 @@ urllib3==2.2.1
     #   requests
 websocket-client==1.8.0
     # via kubernetes
-zipp==3.19.1
+zipp==3.19.2
     # via
     #   importlib-metadata
     #   importlib-resources
