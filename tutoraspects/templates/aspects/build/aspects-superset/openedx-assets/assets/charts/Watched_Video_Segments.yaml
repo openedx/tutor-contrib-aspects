@@ -43,14 +43,13 @@ params:
   truncate_metric: true
   viz_type: echarts_timeseries_bar
   xAxisForceCategorical: true
-  xAxisLabelRotation: 45
-  x_axis: segment_start
+  x_axis: start_position
   x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
   x_axis_title: Video Timestamp (in seconds)
-  x_axis_title_margin: 50
+  x_axis_title_margin: 30
   y_axis_bounds:
   - null
   - null
@@ -61,7 +60,7 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 103
+    id: 5
     type: table
   force: false
   form_data:
@@ -80,9 +79,9 @@ query_context:
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 43
-    - 42
-    datasource: 103__table
+    - 28
+    - 29
+    datasource: 5__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -102,7 +101,7 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    slice_id: 186
+    slice_id: 100
     sort_series_type: sum
     stack: Stack
     time_grain_sqla: P1M
@@ -111,14 +110,13 @@ query_context:
     truncate_metric: true
     viz_type: echarts_timeseries_bar
     xAxisForceCategorical: true
-    xAxisLabelRotation: 45
-    x_axis: segment_start
+    x_axis: start_position
     x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date
     x_axis_title: Video Timestamp (in seconds)
-    x_axis_title_margin: 50
+    x_axis_title_margin: 30
     y_axis_bounds:
     - null
     - null
@@ -133,8 +131,8 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: segment_start
-      sqlExpression: segment_start
+      label: start_position
+      sqlExpression: start_position
       timeGrain: P1M
     custom_form_data: {}
     custom_params: {}
@@ -164,7 +162,7 @@ query_context:
         columns: []
         drop_missing_columns: false
         index:
-        - segment_start
+        - start_position
     - operation: flatten
     row_limit: 10000
     series_columns: []

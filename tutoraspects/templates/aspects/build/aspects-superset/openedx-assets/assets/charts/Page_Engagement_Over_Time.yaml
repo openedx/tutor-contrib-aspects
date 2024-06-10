@@ -1,11 +1,16 @@
-_file_name: Partial_and_full_views_per_video.yaml
+_file_name: Page_Engagement_Over_Time.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: d0070c9a-5b1c-4e52-867b-79aa46a8cdcf
+dataset_uuid: 1b1cbf0a-1193-4251-ad52-724c2f0190ae
 description: null
 params:
-  adhoc_filters: []
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: visited_on
   annotation_layers: []
   color_scheme: supersetColors
   comparison_type: values
@@ -15,27 +20,30 @@ params:
   groupby: []
   legendOrientation: top
   legendType: scroll
+  markerEnabled: true
+  markerSize: 6
   metrics:
-  - partial_views
-  - full_views
+  - number_of_learners
+  - views
   only_total: true
+  opacity: 0.2
   order_desc: true
-  orientation: vertical
   rich_tooltip: true
-  row_limit: 10000
+  row_limit: 1000
+  seriesType: line
   show_empty_columns: true
   show_legend: true
+  show_value: false
+  sort_series_ascending: true
   sort_series_type: sum
   time_grain_sqla: P1M
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncate_metric: true
-  viz_type: echarts_timeseries_bar
-  xAxisLabelRotation: 45
-  x_axis:
-    expressionType: SQL
-    label: Video Name With Location
-    sqlExpression: video_name_with_location
+  viz_type: echarts_timeseries_line
+  xAxisForceCategorical: true
+  x_axis: visited_on
+  x_axis_sort: Views
   x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
@@ -44,22 +52,28 @@ params:
   y_axis_bounds:
   - null
   - null
-  y_axis_format: SMART_NUMBER
-  y_axis_title: Number of learners
-  y_axis_title_margin: 30
+  y_axis_format: ',d'
+  y_axis_title_margin: 15
   y_axis_title_position: Left
   zoomable: true
 query_context:
   datasource:
-    id: 81
+    id: 73
     type: table
   force: false
   form_data:
-    adhoc_filters: []
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: visited_on
     annotation_layers: []
     color_scheme: supersetColors
     comparison_type: values
-    datasource: 81__table
+    dashboards:
+    - 28
+    datasource: 73__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -67,30 +81,33 @@ query_context:
     groupby: []
     legendOrientation: top
     legendType: scroll
+    markerEnabled: true
+    markerSize: 6
     metrics:
-    - partial_views
-    - full_views
+    - number_of_learners
+    - views
     only_total: true
+    opacity: 0.2
     order_desc: true
-    orientation: vertical
     result_format: json
     result_type: full
     rich_tooltip: true
-    row_limit: 10000
+    row_limit: 1000
+    seriesType: line
     show_empty_columns: true
     show_legend: true
-    slice_id: 3620
+    show_value: false
+    slice_id: 84
+    sort_series_ascending: true
     sort_series_type: sum
     time_grain_sqla: P1M
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
-    viz_type: echarts_timeseries_bar
-    xAxisLabelRotation: 45
-    x_axis:
-      expressionType: SQL
-      label: Video Name With Location
-      sqlExpression: video_name_with_location
+    viz_type: echarts_timeseries_line
+    xAxisForceCategorical: true
+    x_axis: visited_on
+    x_axis_sort: Views
     x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
@@ -99,9 +116,8 @@ query_context:
     y_axis_bounds:
     - null
     - null
-    y_axis_format: SMART_NUMBER
-    y_axis_title: Number of learners
-    y_axis_title_margin: 30
+    y_axis_format: ',d'
+    y_axis_title_margin: 15
     y_axis_title_position: Left
     zoomable: true
   queries:
@@ -110,8 +126,8 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: Video Name With Location
-      sqlExpression: video_name_with_location
+      label: visited_on
+      sqlExpression: visited_on
       timeGrain: P1M
     custom_form_data: {}
     custom_params: {}
@@ -119,35 +135,38 @@ query_context:
       having: ''
       time_grain_sqla: P1M
       where: ''
-    filters: []
+    filters:
+    - col: visited_on
+      op: TEMPORAL_RANGE
+      val: No filter
     metrics:
-    - partial_views
-    - full_views
+    - number_of_learners
+    - views
     order_desc: true
     orderby:
-    - - partial_views
+    - - number_of_learners
       - false
     post_processing:
     - operation: pivot
       options:
         aggregates:
-          full_views:
+          number_of_learners:
             operator: mean
-          partial_views:
+          views:
             operator: mean
         columns: []
         drop_missing_columns: false
         index:
-        - Video Name With Location
+        - visited_on
     - operation: flatten
-    row_limit: 10000
+    row_limit: 1000
     series_columns: []
     series_limit: 0
     time_offsets: []
     url_params: {}
   result_format: json
   result_type: full
-slice_name: Partial and full views per video
-uuid: bfffb9fe-07bd-4b2f-b437-522d45f6cd2c
+slice_name: Page Engagement Over Time
+uuid: d3ae0546-37a8-4841-a57b-8087a6c33049
 version: 1.0.0
-viz_type: echarts_timeseries_bar
+viz_type: echarts_timeseries_line

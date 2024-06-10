@@ -2,7 +2,7 @@ _file_name: Cumulative_Interactions.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: 1b1cbf0a-1193-4251-ad52-724c2f0190ae
+dataset_uuid: 649ad1d3-c0b4-48e1-a02b-e1d1e80c94ac
 description: null
 params:
   adhoc_filters:
@@ -18,11 +18,10 @@ params:
   forecastInterval: 0.8
   forecastPeriods: 10
   groupby: []
-  legendMargin: null
   legendOrientation: top
   legendType: scroll
   markerEnabled: true
-  markerSize: 7
+  markerSize: 6
   metrics:
   - views
   - number_of_learners
@@ -31,19 +30,18 @@ params:
   order_desc: true
   rich_tooltip: true
   rolling_type: cumsum
-  row_limit: 1000
+  row_limit: 10000
   seriesType: line
   show_empty_columns: true
   show_legend: true
-  show_value: false
   sort_series_ascending: true
   sort_series_type: sum
   time_grain_sqla: P1M
   tooltipTimeFormat: smart_date
+  truncateXAxis: true
   truncate_metric: true
   viz_type: echarts_timeseries_line
   x_axis: visited_on
-  x_axis_sort: Views
   x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true

@@ -2,7 +2,7 @@ _file_name: Section_Summary.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: 1b1cbf0a-1193-4251-ad52-724c2f0190ae
+dataset_uuid: 649ad1d3-c0b4-48e1-a02b-e1d1e80c94ac
 description: null
 params:
   adhoc_filters:
@@ -12,23 +12,21 @@ params:
     operator: TEMPORAL_RANGE
     subject: visited_on
   all_columns: []
-  annotation_layers: []
   color_pn: true
+  column_config:
+    number_of_learners:
+      d3NumberFormat: ',d'
+      d3SmallNumberFormat: ',d'
   conditional_formatting:
   - colorScheme: '#ACE1C4'
     column: number_of_learners
     operator: "\u2265"
-    targetValue: 1
-  - colorScheme: '#ACE1C4'
-    column: views
-    operator: "\u2265"
-    targetValue: 1
+    targetValue: 0
   extra_form_data: {}
   groupby:
   - section_with_name
   metrics:
   - number_of_learners
-  - views
   order_by_cols: []
   order_desc: true
   percent_metrics: []
@@ -40,10 +38,36 @@ params:
   temporal_columns_lookup:
     visited_on: true
   time_grain_sqla: P1D
+  timeseries_limit_metric:
+    aggregate: AVG
+    column:
+      advanced_data_type: null
+      changed_on: '2024-05-24T16:02:07'
+      column_name: course_order
+      created_on: '2024-05-24T16:02:07'
+      description: null
+      expression: null
+      extra: '{}'
+      filterable: true
+      groupby: true
+      id: 1354
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: Int32
+      type_generic: 0
+      uuid: e8587f60-b3e2-45e6-abb8-edc64410ba31
+      verbose_name: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    label: AVG(course_order)
+    optionName: metric_55fgihnunvg_wqxqn77c8ic
+    sqlExpression: null
   viz_type: table
 query_context:
   datasource:
-    id: 61
+    id: 89
     type: table
   force: false
   form_data:
@@ -55,25 +79,24 @@ query_context:
       subject: visited_on
     all_columns: []
     color_pn: true
+    column_config:
+      number_of_learners:
+        d3NumberFormat: ',d'
+        d3SmallNumberFormat: ',d'
     conditional_formatting:
     - colorScheme: '#ACE1C4'
-      column: Number of Learners
+      column: number_of_learners
       operator: "\u2265"
-      targetValue: 1
-    - colorScheme: '#ACE1C4'
-      column: Views
-      operator: "\u2265"
-      targetValue: 1
+      targetValue: 0
     dashboards:
-    - 629
-    datasource: 61__table
+    - 28
+    datasource: 89__table
     extra_form_data: {}
     force: false
     groupby:
     - section_with_name
     metrics:
     - number_of_learners
-    - views
     order_by_cols: []
     order_desc: true
     percent_metrics: []
@@ -83,11 +106,37 @@ query_context:
     row_limit: 1000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 503
+    slice_id: 63
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       visited_on: true
     time_grain_sqla: P1D
+    timeseries_limit_metric:
+      aggregate: AVG
+      column:
+        advanced_data_type: null
+        changed_on: '2024-05-24T16:02:07'
+        column_name: course_order
+        created_on: '2024-05-24T16:02:07'
+        description: null
+        expression: null
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 1354
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: Int32
+        type_generic: 0
+        uuid: e8587f60-b3e2-45e6-abb8-edc64410ba31
+        verbose_name: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: false
+      label: AVG(course_order)
+      optionName: metric_55fgihnunvg_wqxqn77c8ic
+      sqlExpression: null
     viz_type: table
   queries:
   - annotation_layers: []
@@ -106,14 +155,63 @@ query_context:
       val: No filter
     metrics:
     - number_of_learners
-    - views
     order_desc: true
     orderby:
-    - - number_of_learners
+    - - aggregate: AVG
+        column:
+          advanced_data_type: null
+          changed_on: '2024-05-24T16:02:07'
+          column_name: course_order
+          created_on: '2024-05-24T16:02:07'
+          description: null
+          expression: null
+          extra: '{}'
+          filterable: true
+          groupby: true
+          id: 1354
+          is_active: true
+          is_dttm: false
+          python_date_format: null
+          type: Int32
+          type_generic: 0
+          uuid: e8587f60-b3e2-45e6-abb8-edc64410ba31
+          verbose_name: null
+        datasourceWarning: false
+        expressionType: SIMPLE
+        hasCustomLabel: false
+        label: AVG(course_order)
+        optionName: metric_55fgihnunvg_wqxqn77c8ic
+        sqlExpression: null
       - false
     post_processing: []
     row_limit: 1000
     series_limit: 0
+    series_limit_metric:
+      aggregate: AVG
+      column:
+        advanced_data_type: null
+        changed_on: '2024-05-24T16:02:07'
+        column_name: course_order
+        created_on: '2024-05-24T16:02:07'
+        description: null
+        expression: null
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 1354
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: Int32
+        type_generic: 0
+        uuid: e8587f60-b3e2-45e6-abb8-edc64410ba31
+        verbose_name: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: false
+      label: AVG(course_order)
+      optionName: metric_55fgihnunvg_wqxqn77c8ic
+      sqlExpression: null
     url_params: {}
   result_format: json
   result_type: full

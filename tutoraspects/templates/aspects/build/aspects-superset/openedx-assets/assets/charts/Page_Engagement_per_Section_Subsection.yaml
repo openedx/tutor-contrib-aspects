@@ -1,22 +1,16 @@
-_file_name: Video_views_per_section_subsection.yaml
+_file_name: Page_Engagement_per_Section_Subsection.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: 247a55b3-d44e-442e-ba92-71bf7976b192
+dataset_uuid: 9febd6be-5102-4dbf-86b9-45ebd3cbbc45
 description: null
 params:
   adhoc_filters:
   - clause: WHERE
-    comparator: null
-    datasourceWarning: false
-    expressionType: SQL
-    filterOptionName: filter_1eznhnyjr5k_wylhwvlq7z
-    isExtra: false
-    isNew: false
-    operator: null
-    sqlExpression: |-
-      `section_subsection_name` <> ''
-    subject: null
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: visited_on
   annotation_layers: []
   color_scheme: supersetColors
   comparison_type: values
@@ -27,8 +21,8 @@ params:
   legendOrientation: top
   legendType: scroll
   metrics:
-  - all_videos_viewed
-  - at_least_one_viewed
+  - all_pages_viewed
+  - at_leat_one_page_viewed
   only_total: true
   order_desc: true
   orientation: vertical
@@ -49,40 +43,34 @@ params:
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
-  x_axis_title_margin: 15
+  x_axis_title_margin: 75
   y_axis_bounds:
   - null
   - null
-  y_axis_format: SMART_NUMBER
-  y_axis_title: Number of learners
+  y_axis_format: ',d'
+  y_axis_title: Number of Learners
   y_axis_title_margin: 30
   y_axis_title_position: Left
   zoomable: true
 query_context:
   datasource:
-    id: 26
+    id: 6
     type: table
   force: false
   form_data:
     adhoc_filters:
     - clause: WHERE
-      comparator: null
-      datasourceWarning: false
-      expressionType: SQL
-      filterOptionName: filter_1eznhnyjr5k_wylhwvlq7z
-      isExtra: false
-      isNew: false
-      operator: null
-      sqlExpression: |-
-        `section_subsection_name` <> ''
-      subject: null
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: visited_on
     annotation_layers: []
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 65
-    - 67
-    datasource: 26__table
+    - 28
+    - 29
+    datasource: 6__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -91,8 +79,8 @@ query_context:
     legendOrientation: top
     legendType: scroll
     metrics:
-    - all_videos_viewed
-    - at_least_one_viewed
+    - all_pages_viewed
+    - at_leat_one_page_viewed
     only_total: true
     order_desc: true
     orientation: vertical
@@ -103,7 +91,7 @@ query_context:
     show_empty_columns: true
     show_legend: true
     show_value: false
-    slice_id: 34
+    slice_id: 7
     sort_series_type: sum
     time_grain_sqla: P1M
     tooltipTimeFormat: smart_date
@@ -116,12 +104,12 @@ query_context:
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date
-    x_axis_title_margin: 15
+    x_axis_title_margin: 75
     y_axis_bounds:
     - null
     - null
-    y_axis_format: SMART_NUMBER
-    y_axis_title: Number of learners
+    y_axis_format: ',d'
+    y_axis_title: Number of Learners
     y_axis_title_margin: 30
     y_axis_title_position: Left
     zoomable: true
@@ -139,23 +127,25 @@ query_context:
     extras:
       having: ''
       time_grain_sqla: P1M
-      where: |-
-        (`section_subsection_name` <> '')
-    filters: []
+      where: ''
+    filters:
+    - col: visited_on
+      op: TEMPORAL_RANGE
+      val: No filter
     metrics:
-    - all_videos_viewed
-    - at_least_one_viewed
+    - all_pages_viewed
+    - at_leat_one_page_viewed
     order_desc: true
     orderby:
-    - - all_videos_viewed
+    - - all_pages_viewed
       - false
     post_processing:
     - operation: pivot
       options:
         aggregates:
-          all_videos_viewed:
+          all_pages_viewed:
             operator: mean
-          at_least_one_viewed:
+          at_leat_one_page_viewed:
             operator: mean
         columns: []
         drop_missing_columns: false
@@ -169,7 +159,7 @@ query_context:
     url_params: {}
   result_format: json
   result_type: full
-slice_name: Video views per section/subsection
-uuid: c1f77432-e55f-4473-b7d0-7a1c3976e6a8
+slice_name: Page Engagement per Section/Subsection
+uuid: bf2d6219-d633-48c1-a9b5-742eac6a4c0a
 version: 1.0.0
 viz_type: echarts_timeseries_bar
