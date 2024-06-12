@@ -2,7 +2,7 @@ _file_name: Section_Summary.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: 649ad1d3-c0b4-48e1-a02b-e1d1e80c94ac
+dataset_uuid: 1b1cbf0a-1193-4251-ad52-724c2f0190ae
 description: null
 params:
   adhoc_filters:
@@ -67,7 +67,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 89
+    id: 73
     type: table
   force: false
   form_data:
@@ -90,7 +90,7 @@ query_context:
       targetValue: 0
     dashboards:
     - 28
-    datasource: 89__table
+    datasource: 73__table
     extra_form_data: {}
     force: false
     groupby:

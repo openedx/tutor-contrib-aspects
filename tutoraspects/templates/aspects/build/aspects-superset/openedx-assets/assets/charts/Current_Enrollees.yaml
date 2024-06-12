@@ -39,7 +39,7 @@ params:
   y_axis_format: ',d'
 query_context:
   datasource:
-    id: 271
+    id: 35
     type: table
   force: false
   form_data:
@@ -66,17 +66,16 @@ query_context:
       operatorId: IN
       sqlExpression: null
       subject: enrollment_status
+    annotation_layers: []
     conditional_formatting: []
-    dashboards:
-    - 629
-    datasource: 271__table
+    datasource: 35__table
     extra_form_data: {}
     force: false
     header_font_size: 0.4
     metric: number_of_learners
     result_format: json
     result_type: full
-    slice_id: 229
+    slice_id: 8
     subheader_font_size: 0.2
     time_format: smart_date
     viz_type: big_number_total

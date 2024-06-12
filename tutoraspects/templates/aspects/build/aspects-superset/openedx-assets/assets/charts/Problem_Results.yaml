@@ -17,19 +17,14 @@ params:
     sqlExpression: null
     subject: emission_time
   all_columns: []
-  annotation_layers: []
   color_pn: true
   column_config:
-    '% Correct':
+    correct_percent:
       d3NumberFormat: ',.1%'
-    '% Incorrect':
+      d3SmallNumberFormat: ',.1%'
+    incorrect_percent:
       d3NumberFormat: ',.1%'
-    Correct Attempts:
-      d3NumberFormat: ',d'
-      d3SmallNumberFormat: ',d'
-    Incorrect Attempts:
-      d3NumberFormat: ',d'
-      d3SmallNumberFormat: ',d'
+      d3SmallNumberFormat: ',.1%'
   conditional_formatting:
   - colorScheme: '#ACE1C4'
     column: correct_percent
@@ -94,7 +89,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 29
+    id: 34
     type: table
   force: false
   form_data:
@@ -112,16 +107,12 @@ query_context:
     all_columns: []
     color_pn: true
     column_config:
-      '% Correct':
+      correct_percent:
         d3NumberFormat: ',.1%'
-      '% Incorrect':
+        d3SmallNumberFormat: ',.1%'
+      incorrect_percent:
         d3NumberFormat: ',.1%'
-      Correct Attempts:
-        d3NumberFormat: ',d'
-        d3SmallNumberFormat: ',d'
-      Incorrect Attempts:
-        d3NumberFormat: ',d'
-        d3SmallNumberFormat: ',d'
+        d3SmallNumberFormat: ',.1%'
     conditional_formatting:
     - colorScheme: '#ACE1C4'
       column: correct_percent
@@ -132,9 +123,9 @@ query_context:
       operator: "\u2265"
       targetValue: 0
     dashboards:
-    - 65
-    - 67
-    datasource: 29__table
+    - 28
+    - 29
+    datasource: 34__table
     extra_form_data: {}
     force: false
     groupby:
@@ -151,7 +142,7 @@ query_context:
     - correct_percent
     - incorrect_percent
     order_by_cols: []
-    order_desc: true
+    order_desc: false
     percent_metrics: []
     query_mode: aggregate
     result_format: json
@@ -161,11 +152,36 @@ query_context:
     server_pagination: false
     show_cell_bars: true
     show_totals: false
-    slice_id: 55
+    slice_id: 92
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true
     time_grain_sqla: P1M
+    timeseries_limit_metric:
+      aggregate: AVG
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: course_order
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 1348
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: Int32
+        type_generic: 0
+        verbose_name: null
+        warning_markdown: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: false
+      label: AVG(course_order)
+      optionName: metric_cq2cm641ll8_pcu3pmwa32m
+      sqlExpression: null
     viz_type: table
   queries:
   - annotation_layers: []
@@ -193,13 +209,61 @@ query_context:
     - incorrect_attempts
     - correct_percent
     - incorrect_percent
-    order_desc: true
+    order_desc: false
     orderby:
-    - - correct_attempts
-      - false
+    - - aggregate: AVG
+        column:
+          advanced_data_type: null
+          certification_details: null
+          certified_by: null
+          column_name: course_order
+          description: null
+          expression: null
+          filterable: true
+          groupby: true
+          id: 1348
+          is_certified: false
+          is_dttm: false
+          python_date_format: null
+          type: Int32
+          type_generic: 0
+          verbose_name: null
+          warning_markdown: null
+        datasourceWarning: false
+        expressionType: SIMPLE
+        hasCustomLabel: false
+        label: AVG(course_order)
+        optionName: metric_cq2cm641ll8_pcu3pmwa32m
+        sqlExpression: null
+      - true
     post_processing: []
     row_limit: 1000
     series_limit: 0
+    series_limit_metric:
+      aggregate: AVG
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: course_order
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 1348
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: Int32
+        type_generic: 0
+        verbose_name: null
+        warning_markdown: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: false
+      label: AVG(course_order)
+      optionName: metric_cq2cm641ll8_pcu3pmwa32m
+      sqlExpression: null
     url_params: {}
   result_format: json
   result_type: full
