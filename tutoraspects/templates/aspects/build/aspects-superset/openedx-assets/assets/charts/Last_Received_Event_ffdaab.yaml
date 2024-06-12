@@ -1,0 +1,35 @@
+_file_name: Last_Received_Event_ffdaab.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 0d9f0ed1-8bc4-55b4-b3eb-198f35ae7efb
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: Last quarter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_time
+  annotation_layers: []
+  conditional_formatting: []
+  extra_form_data: {}
+  header_font_size: 0.5
+  metric:
+    aggregate: null
+    column: null
+    expressionType: SQL
+    hasCustomLabel: false
+    isNew: false
+    label: max(emission_time)
+    optionName: metric_ebqdez8q0pv_rg57ow9gti
+    sqlExpression: max(emission_time)
+  subheader_font_size: 0.2
+  time_format: '%Y-%m-%d %H:%M:%S'
+  viz_type: big_number_total
+  y_axis_format: ~g
+query_context: null
+slice_name: Last Received Event
+uuid: ffdaabc5-8d01-47d7-8f29-66efa643befb
+version: 1.0.0
+viz_type: big_number_total

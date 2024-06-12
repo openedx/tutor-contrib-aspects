@@ -1,0 +1,186 @@
+_file_name: Currently_Enrolled_Users_15620a.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 3dde421d-c0d0-43ab-8087-ca470985e88e
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_pjonesa0ahk_5r3tr52akow
+    isExtra: false
+    isNew: false
+    operator: TEMPORAL_RANGE
+    sqlExpression: null
+    subject: emission_time
+  - clause: WHERE
+    comparator: registered
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_826elbp9r6t_zd27undohee
+    isExtra: false
+    isNew: false
+    operator: ==
+    operatorId: EQUALS
+    sqlExpression: null
+    subject: enrollment_status
+  annotation_layers: []
+  conditional_formatting: []
+  extra_form_data: {}
+  force_timestamp_formatting: false
+  header_font_size: 0.5
+  metric:
+    aggregate: COUNT_DISTINCT
+    column:
+      advanced_data_type: null
+      changed_on: '2024-05-29T16:46:33'
+      column_name: actor_id
+      created_on: '2024-04-11T21:02:15'
+      description: null
+      expression: null
+      extra: '{"warning_markdown": null}'
+      filterable: true
+      groupby: true
+      id: 785
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: STRING
+      type_generic: 1
+      uuid: 452cd817-afda-40de-aaef-5c02143e4e48
+      verbose_name: Actor Id
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    label: COUNT_DISTINCT(Actor Id)
+    optionName: metric_0s87bb0logr_zgntots557g
+    sqlExpression: null
+  subheader: ''
+  subheader_font_size: 0.2
+  time_format: smart_date
+  viz_type: big_number_total
+  y_axis_format: ',d'
+query_context:
+  datasource:
+    id: 73
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      datasourceWarning: false
+      expressionType: SIMPLE
+      filterOptionName: filter_pjonesa0ahk_5r3tr52akow
+      isExtra: false
+      isNew: false
+      operator: TEMPORAL_RANGE
+      sqlExpression: null
+      subject: emission_time
+    - clause: WHERE
+      comparator: registered
+      datasourceWarning: false
+      expressionType: SIMPLE
+      filterOptionName: filter_826elbp9r6t_zd27undohee
+      isExtra: false
+      isNew: false
+      operator: ==
+      operatorId: EQUALS
+      sqlExpression: null
+      subject: enrollment_status
+    conditional_formatting: []
+    dashboards:
+    - 6085
+    datasource: 73__table
+    extra_form_data: {}
+    force: false
+    force_timestamp_formatting: false
+    header_font_size: 0.5
+    metric:
+      aggregate: COUNT_DISTINCT
+      column:
+        advanced_data_type: null
+        changed_on: '2024-05-29T16:46:33'
+        column_name: actor_id
+        created_on: '2024-04-11T21:02:15'
+        description: null
+        expression: null
+        extra: '{"warning_markdown": null}'
+        filterable: true
+        groupby: true
+        id: 785
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: STRING
+        type_generic: 1
+        uuid: 452cd817-afda-40de-aaef-5c02143e4e48
+        verbose_name: Actor Id
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: false
+      label: COUNT_DISTINCT(Actor Id)
+      optionName: metric_0s87bb0logr_zgntots557g
+      sqlExpression: null
+    result_format: json
+    result_type: full
+    slice_id: 3001
+    subheader: ''
+    subheader_font_size: 0.2
+    time_format: smart_date
+    viz_type: big_number_total
+    y_axis_format: ',d'
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns: []
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      where: ''
+    filters:
+    - col: emission_time
+      op: TEMPORAL_RANGE
+      val: No filter
+    - col: enrollment_status
+      op: ==
+      val: registered
+    metrics:
+    - aggregate: COUNT_DISTINCT
+      column:
+        advanced_data_type: null
+        changed_on: '2024-05-29T16:46:33'
+        column_name: actor_id
+        created_on: '2024-04-11T21:02:15'
+        description: null
+        expression: null
+        extra: '{"warning_markdown": null}'
+        filterable: true
+        groupby: true
+        id: 785
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: STRING
+        type_generic: 1
+        uuid: 452cd817-afda-40de-aaef-5c02143e4e48
+        verbose_name: Actor Id
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: false
+      label: COUNT_DISTINCT(Actor Id)
+      optionName: metric_0s87bb0logr_zgntots557g
+      sqlExpression: null
+    order_desc: true
+    series_limit: 0
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Currently Enrolled Users
+uuid: 15620ae6-5452-4a11-bc7e-56c7e5987a4d
+version: 1.0.0
+viz_type: big_number_total

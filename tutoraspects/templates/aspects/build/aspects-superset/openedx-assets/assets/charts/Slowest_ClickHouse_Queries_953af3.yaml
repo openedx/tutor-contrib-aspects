@@ -1,0 +1,42 @@
+_file_name: Slowest_ClickHouse_Queries_953af3.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 6ad7ef38-b580-5eb7-9458-861a61cd5029
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: event_time
+  all_columns:
+  - event_time
+  - duration_secs
+  - read_rows
+  - memory_usage_kb
+  - query
+  annotation_layers: []
+  color_pn: true
+  extra_form_data: {}
+  groupby: []
+  metrics: []
+  order_by_cols:
+  - '["duration_secs", false]'
+  order_desc: true
+  percent_metrics: []
+  query_mode: raw
+  row_limit: 100
+  server_page_length: 10
+  show_cell_bars: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup:
+    event_time: true
+  time_grain_sqla: P1D
+  viz_type: table
+query_context: null
+slice_name: Slowest ClickHouse Queries
+uuid: 953af3e5-8fc6-441e-bff1-22987735edf0
+version: 1.0.0
+viz_type: table

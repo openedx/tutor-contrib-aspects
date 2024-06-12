@@ -1,0 +1,105 @@
+_file_name: Current_Active_Enrollments_By_Mode_3e8013.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: a4b350bd-5ec3-4baf-8835-074d1d6e106e
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_9d4pitw97bp_2tc4grhtrnq
+    isExtra: false
+    isNew: false
+    operator: TEMPORAL_RANGE
+    sqlExpression: null
+    subject: emission_time
+  - clause: WHERE
+    comparator: registered
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_6nt4yfesm8r_g6ajbt8e2ge
+    isExtra: false
+    isNew: false
+    operator: ==
+    operatorId: EQUALS
+    sqlExpression: null
+    subject: enrollment_status
+  all_columns: []
+  annotation_layers: []
+  color_pn: true
+  column_config:
+    Currently Enrolled Students:
+      d3NumberFormat: ',d'
+      d3SmallNumberFormat: ',d'
+  conditional_formatting: []
+  extra_form_data: {}
+  groupby:
+  - expressionType: SQL
+    label: Organization
+    sqlExpression: org
+  - expressionType: SQL
+    label: Course Key
+    sqlExpression: course_key
+  - expressionType: SQL
+    label: Course Name
+    sqlExpression: course_name
+  - expressionType: SQL
+    label: Enrollment Mode
+    sqlExpression: enrollment_mode
+  include_search: true
+  metrics:
+  - aggregate: COUNT
+    column:
+      advanced_data_type: null
+      changed_on: '2024-04-19T17:31:16'
+      column_name: enrollment_status
+      created_on: '2024-04-19T17:31:16'
+      description: null
+      expression: ''
+      extra: null
+      filterable: true
+      groupby: true
+      id: 8464
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      type_generic: 1
+      uuid: ed146ba9-9ad6-48e4-a774-fd0ad9408aae
+      verbose_name: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: Currently Enrolled Students
+    optionName: metric_2lt4zimxmtg_9p9i8o6z6nr
+    sqlExpression: null
+  order_by_cols: []
+  order_desc: false
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 50000
+  server_page_length: 10
+  show_cell_bars: true
+  show_totals: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup:
+    emission_time: true
+  time_grain_sqla: P1D
+  timeseries_limit_metric:
+    aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: false
+    label: (course_name)
+    optionName: metric_5siilcrfb5m_8n3ojmfx1qw
+    sqlExpression: (course_name)
+  viz_type: table
+query_context: null
+slice_name: Current Active Enrollments By Mode
+uuid: 3e80132c-ea4d-4e61-9f3a-6164bacf58a0
+version: 1.0.0
+viz_type: table
