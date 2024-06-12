@@ -76,6 +76,8 @@ jobs:
           tutor local do dump-data-to-clickhouse --options "--object course_overviews --force"
           make extract_translations
           tutor local do import-assets
+          tutor local do collect-dbt-lineage
+          tutor local run lms python manage.py lms transform_tracking_logs --source_provider LOCAL --source_config '{"key": "/openedx/data/", "prefix": "tracking.log", "container": "logs"}' --destination_provider LRS --transformer_type xapi
       - name: Performance metrics
         run: tutor local do performance-metrics --fail_on_error
       - name: Tutor stop
