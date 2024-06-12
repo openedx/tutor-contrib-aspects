@@ -53,5 +53,5 @@ schema: '{{ ASPECTS_XAPI_DATABASE }}'
 sql: ''
 table_name: fact_instance_events
 template_params: null
-uuid: 6c54112c-1e2f-4c5f-8511-320fd9e180ac
+uuid: b822b6f5-78d0-56bb-9a2f-4c5f94c5f9c7
 version: 1.0.0

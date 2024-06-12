@@ -5,9 +5,8 @@ columns:
 - advanced_data_type: null
   column_name: section_subsection_problem_engagement
   description: null
-  expression: null
-  extra:
-    warning_markdown: null
+  expression: ''
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -18,9 +17,8 @@ columns:
 - advanced_data_type: null
   column_name: section_subsection_name
   description: null
-  expression: null
-  extra:
-    warning_markdown: null
+  expression: ''
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -31,9 +29,8 @@ columns:
 - advanced_data_type: null
   column_name: actor_id
   description: null
-  expression: null
-  extra:
-    warning_markdown: null
+  expression: ''
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -44,9 +41,8 @@ columns:
 - advanced_data_type: null
   column_name: course_key
   description: null
-  expression: null
-  extra:
-    warning_markdown: null
+  expression: ''
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -57,9 +53,8 @@ columns:
 - advanced_data_type: null
   column_name: content_level
   description: null
-  expression: null
-  extra:
-    warning_markdown: null
+  expression: ''
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -70,9 +65,8 @@ columns:
 - advanced_data_type: null
   column_name: course_run
   description: null
-  expression: null
-  extra:
-    warning_markdown: null
+  expression: ''
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -83,9 +77,8 @@ columns:
 - advanced_data_type: null
   column_name: email
   description: null
-  expression: null
-  extra:
-    warning_markdown: null
+  expression: ''
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -96,9 +89,8 @@ columns:
 - advanced_data_type: null
   column_name: name
   description: null
-  expression: null
-  extra:
-    warning_markdown: null
+  expression: ''
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -109,9 +101,8 @@ columns:
 - advanced_data_type: null
   column_name: org
   description: null
-  expression: null
-  extra:
-    warning_markdown: null
+  expression: ''
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -122,9 +113,8 @@ columns:
 - advanced_data_type: null
   column_name: username
   description: null
-  expression: null
-  extra:
-    warning_markdown: null
+  expression: ''
+  extra: {}
   filterable: true
   groupby: true
   is_active: true

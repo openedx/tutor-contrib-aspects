@@ -230,10 +230,18 @@ def validate_asset_file(asset_path, content, echo):
     Check various aspects of the asset file based on its type.
 
     Returns the destination path for the file to import to.
+    Append last 6 characters of uuid for charts
     """
     orig_filename = os.path.basename(asset_path)
-    out_filename = re.sub(r"(_\d*)\.yaml", ".yaml", orig_filename)
-    content[FILE_NAME_ATTRIBUTE] = out_filename
+    out_filename_trimmed = re.sub(r"(_\d*)\.yaml", ".yaml", orig_filename)
+
+    # make sure to not change the dashboard filename if we happen
+    # to have a chart with the same name
+    if not content.get('dashboard_title'):
+        out_filename_uuid = re.sub(r"(_\d*)\.yaml", f"_{content['uuid'][:6]}.yaml", orig_filename)
+    else:
+        out_filename_uuid = out_filename_trimmed
+    content[FILE_NAME_ATTRIBUTE] = out_filename_uuid
 
     out_path = None
     needs_review = False
@@ -243,10 +251,17 @@ def validate_asset_file(asset_path, content, echo):
 
             existing = None
 
-            # Check if the file already exists
-            if os.path.exists(os.path.join(out_path, out_filename)):
+            # Check if the file already exists under the new uuid filename
+            if os.path.exists(os.path.join(out_path, out_filename_uuid)):
                 with open(
-                    os.path.join(out_path, out_filename), encoding="utf-8"
+                    os.path.join(out_path, out_filename_uuid), encoding="utf-8"
+                ) as stream:
+                    existing = yaml.safe_load(stream)
+
+            # Check if exists under original filename
+            if os.path.exists(os.path.join(out_path, out_filename_trimmed)):
+                with open(
+                    os.path.join(out_path, out_filename_trimmed), encoding="utf-8"
                 ) as stream:
                     existing = yaml.safe_load(stream)
 

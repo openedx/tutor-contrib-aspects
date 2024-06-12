@@ -586,7 +586,7 @@ position:
     children: []
     id: CHART-3L0xSxskX4
     meta:
-      chartId: 21
+      chartId: 1161
       height: 56
       sliceName: Problems attempted per section/subsection
       uuid: 8cdcd4aa-1fa2-41dc-b38d-f1112134592e
@@ -602,7 +602,7 @@ position:
     children: []
     id: CHART-4zWYZE6VQm
     meta:
-      chartId: 60
+      chartId: 1081
       height: 50
       sliceName: Page views per section/subsection
       uuid: bf2d6219-d633-48c1-a9b5-742eac6a4c0a
@@ -618,7 +618,7 @@ position:
     children: []
     id: CHART-BmEG_m0R8l
     meta:
-      chartId: 57
+      chartId: 1041
       height: 50
       sliceName: Watched Video Segments
       uuid: 2985a9db-c338-4008-af52-2930b81ee2e5
@@ -634,7 +634,7 @@ position:
     children: []
     id: CHART-OJrXW113HX
     meta:
-      chartId: 55
+      chartId: 221
       height: 50
       sliceName: Problem Results
       uuid: 6df96404-8c09-4a52-96c8-9a60a92cec29
@@ -650,7 +650,7 @@ position:
     children: []
     id: CHART-explore-191-1
     meta:
-      chartId: 25
+      chartId: 341
       height: 50
       sliceName: Page views per subsection
       uuid: 18f85781-d604-4edf-a3e6-429e16c3040a
@@ -666,7 +666,7 @@ position:
     children: []
     id: CHART-explore-192-1
     meta:
-      chartId: 47
+      chartId: 81
       height: 50
       sliceName: Page views per section
       uuid: 834ec7c4-ead8-4dea-b227-1c8be5fbb1d3
@@ -682,7 +682,7 @@ position:
     children: []
     id: CHART-explore-194-1
     meta:
-      chartId: 19
+      chartId: 741
       height: 50
       sliceName: Problems attempted per section
       uuid: 1d00bbc3-f0d5-4c17-b9f3-8cc4d5516950
@@ -698,7 +698,7 @@ position:
     children: []
     id: CHART-explore-195-1
     meta:
-      chartId: 24
+      chartId: 921
       height: 50
       sliceName: Problems attempted per subsection
       uuid: b3516698-35fe-4934-862a-7f5fb869d322
@@ -714,7 +714,7 @@ position:
     children: []
     id: CHART-explore-196-1
     meta:
-      chartId: 62
+      chartId: 321
       height: 50
       sliceName: Video views per section
       uuid: 0744f1bf-1636-4735-861b-18a6f1e825a2
@@ -730,7 +730,7 @@ position:
     children: []
     id: CHART-explore-197-1
     meta:
-      chartId: 13
+      chartId: 441
       height: 50
       sliceName: Video views per subsection
       uuid: cf5b6eb7-d22c-4dda-bd4e-ee2401f337cc
@@ -746,7 +746,7 @@ position:
     children: []
     id: CHART-explore-198-1
     meta:
-      chartId: 61
+      chartId: 141
       height: 50
       sliceName: Partial and full views per video (table)
       uuid: 54a1551c-7eb3-43fb-abd1-005816da0769
@@ -762,7 +762,7 @@ position:
     children: []
     id: CHART-hZ8cIzkMoC
     meta:
-      chartId: 11
+      chartId: 201
       height: 50
       sliceName: Partial and full views per video
       uuid: bfffb9fe-07bd-4b2f-b437-522d45f6cd2c
@@ -778,7 +778,7 @@ position:
     children: []
     id: CHART-nw620qu42a
     meta:
-      chartId: 37
+      chartId: 421
       height: 50
       sliceName: Learner Summary
       uuid: 6da50964-000e-4342-a931-3881feb02c13
@@ -792,7 +792,7 @@ position:
     children: []
     id: CHART-ykpHXAV6JN
     meta:
-      chartId: 34
+      chartId: 621
       height: 50
       sliceName: Video views per section/subsection
       uuid: c1f77432-e55f-4473-b7d0-7a1c3976e6a8

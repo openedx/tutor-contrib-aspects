@@ -1,0 +1,164 @@
+_file_name: Watched_Video_Segments_a7947b.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: c2f0e842-738d-41a0-9ea6-51e32b7fab82
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: started_at
+  annotation_layers: []
+  color_scheme: supersetColors
+  comparison_type: values
+  extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
+  groupby: []
+  legendOrientation: top
+  legendType: scroll
+  metrics:
+  - unique_viewers
+  - repeat_views
+  only_total: true
+  order_desc: true
+  orientation: vertical
+  rich_tooltip: true
+  row_limit: 10000
+  show_empty_columns: true
+  show_legend: true
+  sort_series_type: sum
+  time_grain_sqla: P1D
+  tooltipTimeFormat: smart_date
+  truncateXAxis: true
+  truncateYAxis: false
+  truncate_metric: true
+  viz_type: echarts_timeseries_bar
+  xAxisLabelRotation: 0
+  x_axis: segment_start
+  x_axis_sort_asc: true
+  x_axis_sort_series: name
+  x_axis_sort_series_ascending: true
+  x_axis_time_format: smart_date
+  x_axis_title: Video Timestamp (in seconds)
+  x_axis_title_margin: 30
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  y_axis_title: Number of Views
+  y_axis_title_margin: 30
+  y_axis_title_position: Left
+query_context:
+  datasource:
+    id: 107
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: started_at
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    dashboards:
+    - 30
+    datasource: 107__table
+    extra_form_data: {}
+    force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    groupby: []
+    legendOrientation: top
+    legendType: scroll
+    metrics:
+    - unique_viewers
+    - repeat_views
+    only_total: true
+    order_desc: true
+    orientation: vertical
+    result_format: json
+    result_type: full
+    rich_tooltip: true
+    row_limit: 10000
+    show_empty_columns: true
+    show_legend: true
+    slice_id: 190
+    sort_series_type: sum
+    time_grain_sqla: P1D
+    tooltipTimeFormat: smart_date
+    truncateXAxis: true
+    truncateYAxis: false
+    truncate_metric: true
+    viz_type: echarts_timeseries_bar
+    xAxisLabelRotation: 0
+    x_axis: segment_start
+    x_axis_sort_asc: true
+    x_axis_sort_series: name
+    x_axis_sort_series_ascending: true
+    x_axis_time_format: smart_date
+    x_axis_title: Video Timestamp (in seconds)
+    x_axis_title_margin: 30
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title: Number of Views
+    y_axis_title_margin: 30
+    y_axis_title_position: Left
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: segment_start
+      sqlExpression: segment_start
+      timeGrain: P1D
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1D
+      where: ''
+    filters:
+    - col: started_at
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics:
+    - unique_viewers
+    - repeat_views
+    order_desc: true
+    orderby:
+    - - unique_viewers
+      - false
+    post_processing:
+    - operation: pivot
+      options:
+        aggregates:
+          repeat_views:
+            operator: mean
+          unique_viewers:
+            operator: mean
+        columns: []
+        drop_missing_columns: false
+        index:
+        - segment_start
+    - operation: flatten
+    row_limit: 10000
+    series_columns: []
+    series_limit: 0
+    time_offsets: []
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Watched Video Segments
+uuid: a7947bdb-65a2-49ed-815e-850423bfeacc
+version: 1.0.0
+viz_type: echarts_timeseries_bar
