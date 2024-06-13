@@ -5,7 +5,7 @@ columns:
 - advanced_data_type: null
   column_name: section_subsection_video_engagement
   description: null
-  expression: null
+  expression: ''
   extra:
     warning_markdown: null
   filterable: true
@@ -18,7 +18,7 @@ columns:
 - advanced_data_type: null
   column_name: actor_id
   description: null
-  expression: null
+  expression: ''
   extra:
     warning_markdown: null
   filterable: true
@@ -31,7 +31,7 @@ columns:
 - advanced_data_type: null
   column_name: course_key
   description: null
-  expression: null
+  expression: ''
   extra:
     warning_markdown: null
   filterable: true
@@ -44,7 +44,7 @@ columns:
 - advanced_data_type: null
   column_name: content_level
   description: null
-  expression: null
+  expression: ''
   extra:
     warning_markdown: null
   filterable: true
@@ -57,7 +57,7 @@ columns:
 - advanced_data_type: null
   column_name: course_run
   description: null
-  expression: null
+  expression: ''
   extra:
     warning_markdown: null
   filterable: true
@@ -70,7 +70,7 @@ columns:
 - advanced_data_type: null
   column_name: email
   description: null
-  expression: null
+  expression: ''
   extra:
     warning_markdown: null
   filterable: true
@@ -83,7 +83,7 @@ columns:
 - advanced_data_type: null
   column_name: name
   description: null
-  expression: null
+  expression: ''
   extra:
     warning_markdown: null
   filterable: true
@@ -96,7 +96,7 @@ columns:
 - advanced_data_type: null
   column_name: org
   description: null
-  expression: null
+  expression: ''
   extra:
     warning_markdown: null
   filterable: true
@@ -109,7 +109,7 @@ columns:
 - advanced_data_type: null
   column_name: username
   description: null
-  expression: null
+  expression: ''
   extra:
     warning_markdown: null
   filterable: true
@@ -122,7 +122,7 @@ columns:
 - advanced_data_type: null
   column_name: section_subsection_name
   description: null
-  expression: null
+  expression: ''
   extra:
     warning_markdown: null
   filterable: true
@@ -149,7 +149,7 @@ metrics:
     warning_markdown: ''
   metric_name: at_least_one_viewed
   metric_type: null
-  verbose_name: At Leat One Viewed
+  verbose_name: Viewed At Least One Video
   warning_text: null
 - currency: null
   d3format: null
@@ -160,7 +160,7 @@ metrics:
     warning_markdown: ''
   metric_name: all_videos_viewed
   metric_type: null
-  verbose_name: All Videos Viewed
+  verbose_name: Viewed All Videos
   warning_text: null
 - currency: null
   d3format: null
