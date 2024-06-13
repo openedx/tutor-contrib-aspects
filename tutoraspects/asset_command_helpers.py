@@ -224,6 +224,15 @@ ASSET_TYPE_MAP = {
     "database_name": DatabaseAsset(),
 }
 
+def _check_file_exists(out_path, filename):
+    """
+    Check if file exists and return loaded yaml
+    """
+    if os.path.exists(os.path.join(out_path, filename)):
+        with open(
+            os.path.join(out_path, filename), encoding="utf-8"
+        ) as stream:
+            return yaml.safe_load(stream)
 
 def validate_asset_file(asset_path, content, echo):
     """
@@ -251,12 +260,8 @@ def validate_asset_file(asset_path, content, echo):
 
             existing = None
 
-            # Check if the file already exists under the new uuid filename
-            if os.path.exists(os.path.join(out_path, out_filename_uuid)):
-                with open(
-                    os.path.join(out_path, out_filename_uuid), encoding="utf-8"
-                ) as stream:
-                    existing = yaml.safe_load(stream)
+            existing = _check_file_exists(out_path, out_filename_trimmed)
+            existing = _check_file_exists(out_path, out_filename_uuid)
 
             # Check if exists under original filename
             if os.path.exists(os.path.join(out_path, out_filename_trimmed)):
