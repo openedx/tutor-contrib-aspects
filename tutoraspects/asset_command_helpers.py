@@ -225,17 +225,7 @@ ASSET_TYPE_MAP = {
 }
 
 
-def _check_file_exists(out_path, filename):
-    """
-    Check if file exists and return loaded yaml
-    """
-    if os.path.exists(os.path.join(out_path, filename)):
-        with open(os.path.join(out_path, filename), encoding="utf-8") as stream:
-            return yaml.safe_load(stream)
-    return None
-
-
-def validate_asset_file(asset_path, content, echo):
+def validate_asset_file(asset_path, content, echo):  # pylint: disable=too-many-branches
     """
     Check various aspects of the asset file based on its type.
 
@@ -263,7 +253,9 @@ def validate_asset_file(asset_path, content, echo):
             existing = None
 
             if os.path.exists(os.path.join(out_path, out_filename_uuid)):
-                with open(os.path.join(out_path, out_filename_uuid), encoding="utf-8") as stream:
+                with open(
+                    os.path.join(out_path, out_filename_uuid), encoding="utf-8"
+                ) as stream:
                     existing = yaml.safe_load(stream)
 
             for var in cls.get_templated_vars():
