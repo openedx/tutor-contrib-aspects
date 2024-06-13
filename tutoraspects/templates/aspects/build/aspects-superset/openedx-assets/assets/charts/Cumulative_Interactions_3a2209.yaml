@@ -1,4 +1,4 @@
-_file_name: Evolution_of_Engagement_at-risk_ffa98e.yaml
+_file_name: Cumulative_Interactions_3a2209.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
@@ -45,7 +45,7 @@ params:
     expressionType: SIMPLE
     hasCustomLabel: true
     label: Total Views
-    optionName: metric_b6ne4x0igqc_ggxaomlidqn
+    optionName: metric_pydx11wjnw_8z80flv3i5f
     sqlExpression: null
   - aggregate: COUNT_DISTINCT
     column:
@@ -69,7 +69,7 @@ params:
     expressionType: SIMPLE
     hasCustomLabel: true
     label: Total Learners
-    optionName: metric_h6pmq3ijrfp_ei6cfisqim
+    optionName: metric_w4k3yirnsj_hatijp1t74p
     sqlExpression: null
   only_total: true
   opacity: 0.2
@@ -101,7 +101,7 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 1228
+    id: 89
     type: table
   force: false
   form_data:
@@ -115,8 +115,8 @@ query_context:
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 6096
-    datasource: 1228__table
+    - 30
+    datasource: 89__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -149,7 +149,7 @@ query_context:
       expressionType: SIMPLE
       hasCustomLabel: true
       label: Total Views
-      optionName: metric_b6ne4x0igqc_ggxaomlidqn
+      optionName: metric_pydx11wjnw_8z80flv3i5f
       sqlExpression: null
     - aggregate: COUNT_DISTINCT
       column:
@@ -173,7 +173,7 @@ query_context:
       expressionType: SIMPLE
       hasCustomLabel: true
       label: Total Learners
-      optionName: metric_h6pmq3ijrfp_ei6cfisqim
+      optionName: metric_w4k3yirnsj_hatijp1t74p
       sqlExpression: null
     only_total: true
     opacity: 0.2
@@ -185,7 +185,7 @@ query_context:
     seriesType: line
     show_empty_columns: true
     show_legend: true
-    slice_id: 2211
+    slice_id: 162
     sort_series_ascending: true
     sort_series_type: sum
     time_grain_sqla: P1M
@@ -248,7 +248,7 @@ query_context:
       expressionType: SIMPLE
       hasCustomLabel: true
       label: Total Views
-      optionName: metric_b6ne4x0igqc_ggxaomlidqn
+      optionName: metric_pydx11wjnw_8z80flv3i5f
       sqlExpression: null
     - aggregate: COUNT_DISTINCT
       column:
@@ -272,7 +272,7 @@ query_context:
       expressionType: SIMPLE
       hasCustomLabel: true
       label: Total Learners
-      optionName: metric_h6pmq3ijrfp_ei6cfisqim
+      optionName: metric_w4k3yirnsj_hatijp1t74p
       sqlExpression: null
     order_desc: true
     orderby:
@@ -298,7 +298,7 @@ query_context:
         expressionType: SIMPLE
         hasCustomLabel: true
         label: Total Views
-        optionName: metric_b6ne4x0igqc_ggxaomlidqn
+        optionName: metric_pydx11wjnw_8z80flv3i5f
         sqlExpression: null
       - false
     post_processing:
@@ -321,7 +321,7 @@ query_context:
     url_params: {}
   result_format: json
   result_type: full
-slice_name: Evolution of Engagement (at-risk)
-uuid: ffa98e7f-7bed-4435-a1c1-472a46a4d269
+slice_name: Cumulative Interactions
+uuid: 3a22091f-4686-4a1d-a66d-b36541844b36
 version: 1.0.0
 viz_type: echarts_timeseries_line

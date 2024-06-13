@@ -1,8 +1,8 @@
-_file_name: Video_Views_per_Section_Subsection_at-risk_5d0329.yaml
+_file_name: Page_Engagement_per_Section_Subsection_29a5cf.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: cf9fe3a6-f7a3-4951-a669-d8c3845f4d25
+dataset_uuid: dd62315a-42af-4dd0-a245-cce419ac3d8f
 description: null
 params:
   adhoc_filters: []
@@ -21,19 +21,19 @@ params:
     datasourceWarning: false
     expressionType: SQL
     hasCustomLabel: true
-    label: At least one video viewed
-    optionName: metric_pw80mjg37y_lphzw7gkrx
+    label: Viewed At Least One Page
+    optionName: metric_luga9plford_yed4xbi724
     sqlExpression: |-
-      countIf("section_subsection_video_engagement" = 'At least one video viewed' or "section_subsection_video_engagement" = 'All videos viewed')
+      countIf("section_subsection_page_engagement" = 'At least one page viewed' or "section_subsection_page_engagement" = 'All pages viewed')
   - aggregate: null
     column: null
     datasourceWarning: false
     expressionType: SQL
     hasCustomLabel: true
-    label: All videos viewed
-    optionName: metric_smvgjzqh7lg_ida1817fs1
+    label: Viewed All Pages
+    optionName: metric_u566xrvox2_qv3xavca31l
     sqlExpression: |-
-      countIf("section_subsection_video_engagement" = 'All videos viewed')
+      countIf("section_subsection_page_engagement" = 'All pages viewed')
   only_total: true
   order_desc: true
   orientation: vertical
@@ -64,7 +64,7 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 31
+    id: 95
     type: table
   force: false
   form_data:
@@ -73,8 +73,8 @@ query_context:
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 66
-    datasource: 31__table
+    - 30
+    datasource: 95__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -88,19 +88,19 @@ query_context:
       datasourceWarning: false
       expressionType: SQL
       hasCustomLabel: true
-      label: At least one video viewed
-      optionName: metric_pw80mjg37y_lphzw7gkrx
+      label: Viewed At Least One Page
+      optionName: metric_luga9plford_yed4xbi724
       sqlExpression: |-
-        countIf("section_subsection_video_engagement" = 'At least one video viewed' or "section_subsection_video_engagement" = 'All videos viewed')
+        countIf("section_subsection_page_engagement" = 'At least one page viewed' or "section_subsection_page_engagement" = 'All pages viewed')
     - aggregate: null
       column: null
       datasourceWarning: false
       expressionType: SQL
       hasCustomLabel: true
-      label: All videos viewed
-      optionName: metric_smvgjzqh7lg_ida1817fs1
+      label: Viewed All Pages
+      optionName: metric_u566xrvox2_qv3xavca31l
       sqlExpression: |-
-        countIf("section_subsection_video_engagement" = 'All videos viewed')
+        countIf("section_subsection_page_engagement" = 'All pages viewed')
     only_total: true
     order_desc: true
     orientation: vertical
@@ -110,7 +110,7 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    slice_id: 32
+    slice_id: 133
     sort_series_type: sum
     time_grain_sqla: P1D
     tooltipTimeFormat: smart_date
@@ -154,19 +154,19 @@ query_context:
       datasourceWarning: false
       expressionType: SQL
       hasCustomLabel: true
-      label: At least one video viewed
-      optionName: metric_pw80mjg37y_lphzw7gkrx
+      label: Viewed At Least One Page
+      optionName: metric_luga9plford_yed4xbi724
       sqlExpression: |-
-        countIf("section_subsection_video_engagement" = 'At least one video viewed' or "section_subsection_video_engagement" = 'All videos viewed')
+        countIf("section_subsection_page_engagement" = 'At least one page viewed' or "section_subsection_page_engagement" = 'All pages viewed')
     - aggregate: null
       column: null
       datasourceWarning: false
       expressionType: SQL
       hasCustomLabel: true
-      label: All videos viewed
-      optionName: metric_smvgjzqh7lg_ida1817fs1
+      label: Viewed All Pages
+      optionName: metric_u566xrvox2_qv3xavca31l
       sqlExpression: |-
-        countIf("section_subsection_video_engagement" = 'All videos viewed')
+        countIf("section_subsection_page_engagement" = 'All pages viewed')
     order_desc: true
     orderby:
     - - aggregate: null
@@ -174,18 +174,18 @@ query_context:
         datasourceWarning: false
         expressionType: SQL
         hasCustomLabel: true
-        label: At least one video viewed
-        optionName: metric_pw80mjg37y_lphzw7gkrx
+        label: Viewed At Least One Page
+        optionName: metric_luga9plford_yed4xbi724
         sqlExpression: |-
-          countIf("section_subsection_video_engagement" = 'At least one video viewed' or "section_subsection_video_engagement" = 'All videos viewed')
+          countIf("section_subsection_page_engagement" = 'At least one page viewed' or "section_subsection_page_engagement" = 'All pages viewed')
       - false
     post_processing:
     - operation: pivot
       options:
         aggregates:
-          All videos viewed:
+          Viewed All Pages:
             operator: mean
-          At least one video viewed:
+          Viewed At Least One Page:
             operator: mean
         columns: []
         drop_missing_columns: false
@@ -199,7 +199,7 @@ query_context:
     url_params: {}
   result_format: json
   result_type: full
-slice_name: Video Views per Section/Subsection (at-risk)
-uuid: 5d0329f4-2a4a-4cd4-8b4e-926568d1bbcc
+slice_name: Page Engagement per Section/Subsection
+uuid: 29a5cf7e-41cd-4b60-a63a-c921d6ebd997
 version: 1.0.0
 viz_type: echarts_timeseries_bar

@@ -1,4 +1,4 @@
-_file_name: Problem_Results_at-risk_003e60.yaml
+_file_name: Problem_Results_003e60.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
@@ -12,12 +12,24 @@ params:
     operator: TEMPORAL_RANGE
     subject: emission_time
   all_columns: []
-  annotation_layers: []
   color_pn: true
-  conditional_formatting: []
+  conditional_formatting:
+  - colorScheme: '#ACE1C4'
+    column: '% Correct'
+    operator: "\u2265"
+    targetValue: 0
+  - colorScheme: '#EFA1AA'
+    column: '% Incorrect'
+    operator: "\u2265"
+    targetValue: 0
   extra_form_data: {}
   groupby:
+  - problem_link
   - problem_name_with_location
+  - expressionType: SQL
+    label: Graded
+    sqlExpression: |-
+      {% raw %}{{translate_column_bool('graded')}}{% endraw %}
   metrics:
   - aggregate: null
     column: null
@@ -60,7 +72,7 @@ params:
           SUM(attempts), 2
         )*100
   order_by_cols: []
-  order_desc: true
+  order_desc: false
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
@@ -70,10 +82,35 @@ params:
   temporal_columns_lookup:
     emission_time: true
   time_grain_sqla: P1D
+  timeseries_limit_metric:
+    aggregate: AVG
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: course_order
+      description: null
+      expression: ''
+      filterable: true
+      groupby: true
+      id: 1355
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: Int32
+      type_generic: 0
+      verbose_name: Course Order
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    label: AVG(Course Order)
+    optionName: metric_fcba1k5cou_zxfeo9e8kxp
+    sqlExpression: null
   viz_type: table
 query_context:
   datasource:
-    id: 14
+    id: 100
     type: table
   force: false
   form_data:
@@ -85,14 +122,27 @@ query_context:
       subject: emission_time
     all_columns: []
     color_pn: true
-    conditional_formatting: []
+    conditional_formatting:
+    - colorScheme: '#ACE1C4'
+      column: '% Correct'
+      operator: "\u2265"
+      targetValue: 0
+    - colorScheme: '#EFA1AA'
+      column: '% Incorrect'
+      operator: "\u2265"
+      targetValue: 0
     dashboards:
-    - 66
-    datasource: 14__table
+    - 30
+    datasource: 100__table
     extra_form_data: {}
     force: false
     groupby:
+    - problem_link
     - problem_name_with_location
+    - expressionType: SQL
+      label: Graded
+      sqlExpression: |-
+        {% raw %}{{translate_column_bool('graded')}}{% endraw %}
     metrics:
     - aggregate: null
       column: null
@@ -135,7 +185,7 @@ query_context:
             SUM(attempts), 2
           )*100
     order_by_cols: []
-    order_desc: true
+    order_desc: false
     percent_metrics: []
     query_mode: aggregate
     result_format: json
@@ -143,17 +193,47 @@ query_context:
     row_limit: 1000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 50
+    slice_id: 188
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true
     time_grain_sqla: P1D
+    timeseries_limit_metric:
+      aggregate: AVG
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: course_order
+        description: null
+        expression: ''
+        filterable: true
+        groupby: true
+        id: 1355
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: Int32
+        type_generic: 0
+        verbose_name: Course Order
+        warning_markdown: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: false
+      label: AVG(Course Order)
+      optionName: metric_fcba1k5cou_zxfeo9e8kxp
+      sqlExpression: null
     viz_type: table
   queries:
   - annotation_layers: []
     applied_time_extras: {}
     columns:
+    - problem_link
     - problem_name_with_location
+    - expressionType: SQL
+      label: Graded
+      sqlExpression: |-
+        {% raw %}{{translate_column_bool('graded')}}{% endraw %}
     custom_form_data: {}
     custom_params: {}
     extras:
@@ -205,24 +285,65 @@ query_context:
             (SUM(CASE WHEN NOT success THEN attempts ELSE 0 END)) /
             SUM(attempts), 2
           )*100
-    order_desc: true
+    order_desc: false
     orderby:
-    - - aggregate: null
-        column: null
+    - - aggregate: AVG
+        column:
+          advanced_data_type: null
+          certification_details: null
+          certified_by: null
+          column_name: course_order
+          description: null
+          expression: ''
+          filterable: true
+          groupby: true
+          id: 1355
+          is_certified: false
+          is_dttm: false
+          python_date_format: null
+          type: Int32
+          type_generic: 0
+          verbose_name: Course Order
+          warning_markdown: null
         datasourceWarning: false
-        expressionType: SQL
-        hasCustomLabel: true
-        label: Correct Attempts
-        optionName: metric_rqulghfc2m_gtwrvu4imq
-        sqlExpression: SUM(CASE WHEN success THEN attempts ELSE 0 END)
-      - false
+        expressionType: SIMPLE
+        hasCustomLabel: false
+        label: AVG(Course Order)
+        optionName: metric_fcba1k5cou_zxfeo9e8kxp
+        sqlExpression: null
+      - true
     post_processing: []
     row_limit: 1000
     series_limit: 0
+    series_limit_metric:
+      aggregate: AVG
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: course_order
+        description: null
+        expression: ''
+        filterable: true
+        groupby: true
+        id: 1355
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: Int32
+        type_generic: 0
+        verbose_name: Course Order
+        warning_markdown: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: false
+      label: AVG(Course Order)
+      optionName: metric_fcba1k5cou_zxfeo9e8kxp
+      sqlExpression: null
     url_params: {}
   result_format: json
   result_type: full
-slice_name: Problem Results (at-risk)
+slice_name: Problem Results
 uuid: 003e60b9-907d-4002-bf2e-7d315225ec29
 version: 1.0.0
 viz_type: table

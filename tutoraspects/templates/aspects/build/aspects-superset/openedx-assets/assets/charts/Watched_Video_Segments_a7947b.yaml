@@ -1,4 +1,4 @@
-_file_name: Watched_Video_Segments_at-risk_a7947b.yaml
+_file_name: Watched_Video_Segments_a7947b.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
@@ -34,17 +34,17 @@ params:
   time_grain_sqla: P1D
   tooltipTimeFormat: smart_date
   truncateXAxis: true
+  truncateYAxis: false
   truncate_metric: true
   viz_type: echarts_timeseries_bar
-  xAxisForceCategorical: true
-  xAxisLabelRotation: 45
+  xAxisLabelRotation: 0
   x_axis: segment_start
   x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
   x_axis_title: Video Timestamp (in seconds)
-  x_axis_title_margin: 50
+  x_axis_title_margin: 30
   y_axis_bounds:
   - null
   - null
@@ -54,7 +54,7 @@ params:
   y_axis_title_position: Left
 query_context:
   datasource:
-    id: 1299
+    id: 107
     type: table
   force: false
   form_data:
@@ -68,8 +68,8 @@ query_context:
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 6096
-    datasource: 1299__table
+    - 30
+    datasource: 107__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -89,22 +89,22 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    slice_id: 2708
+    slice_id: 190
     sort_series_type: sum
     time_grain_sqla: P1D
     tooltipTimeFormat: smart_date
     truncateXAxis: true
+    truncateYAxis: false
     truncate_metric: true
     viz_type: echarts_timeseries_bar
-    xAxisForceCategorical: true
-    xAxisLabelRotation: 45
+    xAxisLabelRotation: 0
     x_axis: segment_start
     x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date
     x_axis_title: Video Timestamp (in seconds)
-    x_axis_title_margin: 50
+    x_axis_title_margin: 30
     y_axis_bounds:
     - null
     - null
@@ -158,7 +158,7 @@ query_context:
     url_params: {}
   result_format: json
   result_type: full
-slice_name: Watched Video Segments (at-risk)
+slice_name: Watched Video Segments
 uuid: a7947bdb-65a2-49ed-815e-850423bfeacc
 version: 1.0.0
 viz_type: echarts_timeseries_bar

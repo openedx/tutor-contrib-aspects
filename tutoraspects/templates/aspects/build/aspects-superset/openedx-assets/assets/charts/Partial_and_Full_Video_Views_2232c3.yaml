@@ -1,8 +1,8 @@
-_file_name: Problems_attempted_per_section_subsection_at-risk_501547.yaml
+_file_name: Partial_and_Full_Video_Views_2232c3.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: 0f3f86fe-2973-491d-b01a-986ac06096a3
+dataset_uuid: b422bdfe-0bbb-4191-888d-d0839878fb31
 description: null
 params:
   adhoc_filters: []
@@ -21,19 +21,17 @@ params:
     datasourceWarning: false
     expressionType: SQL
     hasCustomLabel: true
-    label: At least one problem attempted
-    optionName: metric_v9nu1yjhmes_t1ptoyn64ud
-    sqlExpression: |-
-      countIf("section_subsection_problem_engagement" = 'At least one problem attempted' or "section_subsection_problem_engagement" = 'All problems attempted')
+    label: Partial Views
+    optionName: metric_h50s8htipd_venor6mo6s
+    sqlExpression: countIf(not watched_entire_video)
   - aggregate: null
     column: null
     datasourceWarning: false
     expressionType: SQL
     hasCustomLabel: true
-    label: All problems attempted
-    optionName: metric_7b15u1sw9p_3a441hsri4m
-    sqlExpression: |-
-      countIf("section_subsection_problem_engagement" = 'All problems attempted')
+    label: Full Views
+    optionName: metric_uqiel1omte_00o0uw5q78fli
+    sqlExpression: countIf(watched_entire_video)
   only_total: true
   order_desc: true
   orientation: vertical
@@ -48,7 +46,7 @@ params:
   truncate_metric: true
   viz_type: echarts_timeseries_bar
   xAxisLabelRotation: 45
-  x_axis: section_subsection_name
+  x_axis: video_name_with_location
   x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
@@ -58,13 +56,13 @@ params:
   - null
   - null
   y_axis_format: SMART_NUMBER
-  y_axis_title: Number of learners
+  y_axis_title: Number of Learners
   y_axis_title_margin: 30
   y_axis_title_position: Left
   zoomable: true
 query_context:
   datasource:
-    id: 32
+    id: 99
     type: table
   force: false
   form_data:
@@ -73,8 +71,8 @@ query_context:
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 66
-    datasource: 32__table
+    - 30
+    datasource: 99__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -88,19 +86,17 @@ query_context:
       datasourceWarning: false
       expressionType: SQL
       hasCustomLabel: true
-      label: At least one problem attempted
-      optionName: metric_v9nu1yjhmes_t1ptoyn64ud
-      sqlExpression: |-
-        countIf("section_subsection_problem_engagement" = 'At least one problem attempted' or "section_subsection_problem_engagement" = 'All problems attempted')
+      label: Partial Views
+      optionName: metric_h50s8htipd_venor6mo6s
+      sqlExpression: countIf(not watched_entire_video)
     - aggregate: null
       column: null
       datasourceWarning: false
       expressionType: SQL
       hasCustomLabel: true
-      label: All problems attempted
-      optionName: metric_7b15u1sw9p_3a441hsri4m
-      sqlExpression: |-
-        countIf("section_subsection_problem_engagement" = 'All problems attempted')
+      label: Full Views
+      optionName: metric_uqiel1omte_00o0uw5q78fli
+      sqlExpression: countIf(watched_entire_video)
     only_total: true
     order_desc: true
     orientation: vertical
@@ -110,7 +106,7 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    slice_id: 59
+    slice_id: 178
     sort_series_type: sum
     time_grain_sqla: P1D
     tooltipTimeFormat: smart_date
@@ -118,7 +114,7 @@ query_context:
     truncate_metric: true
     viz_type: echarts_timeseries_bar
     xAxisLabelRotation: 45
-    x_axis: section_subsection_name
+    x_axis: video_name_with_location
     x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
@@ -128,7 +124,7 @@ query_context:
     - null
     - null
     y_axis_format: SMART_NUMBER
-    y_axis_title: Number of learners
+    y_axis_title: Number of Learners
     y_axis_title_margin: 30
     y_axis_title_position: Left
     zoomable: true
@@ -138,8 +134,8 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: section_subsection_name
-      sqlExpression: section_subsection_name
+      label: video_name_with_location
+      sqlExpression: video_name_with_location
       timeGrain: P1D
     custom_form_data: {}
     custom_params: {}
@@ -154,19 +150,17 @@ query_context:
       datasourceWarning: false
       expressionType: SQL
       hasCustomLabel: true
-      label: At least one problem attempted
-      optionName: metric_v9nu1yjhmes_t1ptoyn64ud
-      sqlExpression: |-
-        countIf("section_subsection_problem_engagement" = 'At least one problem attempted' or "section_subsection_problem_engagement" = 'All problems attempted')
+      label: Partial Views
+      optionName: metric_h50s8htipd_venor6mo6s
+      sqlExpression: countIf(not watched_entire_video)
     - aggregate: null
       column: null
       datasourceWarning: false
       expressionType: SQL
       hasCustomLabel: true
-      label: All problems attempted
-      optionName: metric_7b15u1sw9p_3a441hsri4m
-      sqlExpression: |-
-        countIf("section_subsection_problem_engagement" = 'All problems attempted')
+      label: Full Views
+      optionName: metric_uqiel1omte_00o0uw5q78fli
+      sqlExpression: countIf(watched_entire_video)
     order_desc: true
     orderby:
     - - aggregate: null
@@ -174,23 +168,22 @@ query_context:
         datasourceWarning: false
         expressionType: SQL
         hasCustomLabel: true
-        label: At least one problem attempted
-        optionName: metric_v9nu1yjhmes_t1ptoyn64ud
-        sqlExpression: |-
-          countIf("section_subsection_problem_engagement" = 'At least one problem attempted' or "section_subsection_problem_engagement" = 'All problems attempted')
+        label: Partial Views
+        optionName: metric_h50s8htipd_venor6mo6s
+        sqlExpression: countIf(not watched_entire_video)
       - false
     post_processing:
     - operation: pivot
       options:
         aggregates:
-          All problems attempted:
+          Full Views:
             operator: mean
-          At least one problem attempted:
+          Partial Views:
             operator: mean
         columns: []
         drop_missing_columns: false
         index:
-        - section_subsection_name
+        - video_name_with_location
     - operation: flatten
     row_limit: 10000
     series_columns: []
@@ -199,7 +192,7 @@ query_context:
     url_params: {}
   result_format: json
   result_type: full
-slice_name: Problems attempted per section/subsection (at-risk)
-uuid: 5015477d-d166-4823-868d-c7883d195bab
+slice_name: Partial and Full Video Views
+uuid: 2232c302-cd41-406f-a45d-0f674344166b
 version: 1.0.0
 viz_type: echarts_timeseries_bar
