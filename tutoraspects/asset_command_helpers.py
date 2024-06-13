@@ -243,7 +243,6 @@ def validate_asset_file(asset_path, content, echo):
     Append last 6 characters of uuid for charts
     """
     orig_filename = os.path.basename(asset_path)
-    out_filename_trimmed = re.sub(r"(_\d*)\.yaml", ".yaml", orig_filename)
 
     # make sure to not change the dashboard filename if we happen
     # to have a chart with the same name
@@ -252,7 +251,7 @@ def validate_asset_file(asset_path, content, echo):
             r"(_\d*)\.yaml", f"_{content['uuid'][:6]}.yaml", orig_filename
         )
     else:
-        out_filename_uuid = out_filename_trimmed
+        out_filename_uuid = re.sub(r"(_\d*)\.yaml", ".yaml", orig_filename)
     content[FILE_NAME_ATTRIBUTE] = out_filename_uuid
 
     out_path = None
@@ -263,8 +262,9 @@ def validate_asset_file(asset_path, content, echo):
 
             existing = None
 
-            existing = _check_file_exists(out_path, out_filename_trimmed)
-            existing = _check_file_exists(out_path, out_filename_uuid)
+            if os.path.exists(os.path.join(out_path, out_filename_uuid)):
+                with open(os.path.join(out_path, out_filename_uuid), encoding="utf-8") as stream:
+                    existing = yaml.safe_load(stream)
 
             for var in cls.get_templated_vars():
                 # If this is a variable we expect to be templated,
