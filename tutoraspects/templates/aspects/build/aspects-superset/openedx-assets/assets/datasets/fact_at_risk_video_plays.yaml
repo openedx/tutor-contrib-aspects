@@ -183,6 +183,18 @@ columns:
   type: String
   verbose_name: Video Name
 - advanced_data_type: null
+  column_name: course_order
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int32
+  verbose_name: Course Order
+- advanced_data_type: null
   column_name: graded
   description: null
   expression: ''

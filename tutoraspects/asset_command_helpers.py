@@ -224,15 +224,16 @@ ASSET_TYPE_MAP = {
     "database_name": DatabaseAsset(),
 }
 
+
 def _check_file_exists(out_path, filename):
     """
     Check if file exists and return loaded yaml
     """
     if os.path.exists(os.path.join(out_path, filename)):
-        with open(
-            os.path.join(out_path, filename), encoding="utf-8"
-        ) as stream:
+        with open(os.path.join(out_path, filename), encoding="utf-8") as stream:
             return yaml.safe_load(stream)
+    return None
+
 
 def validate_asset_file(asset_path, content, echo):
     """
@@ -246,8 +247,10 @@ def validate_asset_file(asset_path, content, echo):
 
     # make sure to not change the dashboard filename if we happen
     # to have a chart with the same name
-    if not content.get('dashboard_title'):
-        out_filename_uuid = re.sub(r"(_\d*)\.yaml", f"_{content['uuid'][:6]}.yaml", orig_filename)
+    if not content.get("dashboard_title"):
+        out_filename_uuid = re.sub(
+            r"(_\d*)\.yaml", f"_{content['uuid'][:6]}.yaml", orig_filename
+        )
     else:
         out_filename_uuid = out_filename_trimmed
     content[FILE_NAME_ATTRIBUTE] = out_filename_uuid
@@ -262,13 +265,6 @@ def validate_asset_file(asset_path, content, echo):
 
             existing = _check_file_exists(out_path, out_filename_trimmed)
             existing = _check_file_exists(out_path, out_filename_uuid)
-
-            # Check if exists under original filename
-            if os.path.exists(os.path.join(out_path, out_filename_trimmed)):
-                with open(
-                    os.path.join(out_path, out_filename_trimmed), encoding="utf-8"
-                ) as stream:
-                    existing = yaml.safe_load(stream)
 
             for var in cls.get_templated_vars():
                 # If this is a variable we expect to be templated,
