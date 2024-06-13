@@ -1,4 +1,4 @@
-_file_name: Problems_attempted_per_section_1d00bb.yaml
+_file_name: Problem_Engagement_per_Subsection_b35166.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
@@ -18,7 +18,7 @@ params:
       `section_subsection_name` <> ''
     subject: null
   - clause: WHERE
-    comparator: section
+    comparator: subsection
     datasourceWarning: false
     expressionType: SIMPLE
     filterOptionName: filter_1j70lybkgj1_ygpas42b05
@@ -29,7 +29,6 @@ params:
     sqlExpression: null
     subject: content_level
   all_columns: []
-  annotation_layers: []
   color_pn: true
   conditional_formatting:
   - colorScheme: '#FDE380'
@@ -44,7 +43,7 @@ params:
   groupby:
   - datasourceWarning: false
     expressionType: SQL
-    label: Section Name
+    label: Subsection Location and Name
     sqlExpression: section_subsection_name
   metrics:
   - attempted_all_problems
@@ -62,7 +61,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 11
+    id: 75
     type: table
   force: false
   form_data:
@@ -79,7 +78,7 @@ query_context:
         `section_subsection_name` <> ''
       subject: null
     - clause: WHERE
-      comparator: section
+      comparator: subsection
       datasourceWarning: false
       expressionType: SIMPLE
       filterOptionName: filter_1j70lybkgj1_ygpas42b05
@@ -101,14 +100,14 @@ query_context:
       operator: '>'
       targetValue: 0
     dashboards:
-    - 65
-    datasource: 11__table
+    - 29
+    datasource: 75__table
     extra_form_data: {}
     force: false
     groupby:
     - datasourceWarning: false
       expressionType: SQL
-      label: Section Name
+      label: Subsection Location and Name
       sqlExpression: section_subsection_name
     metrics:
     - attempted_all_problems
@@ -122,7 +121,7 @@ query_context:
     row_limit: 10000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 19
+    slice_id: 143
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     time_grain_sqla: P1M
@@ -133,7 +132,7 @@ query_context:
     columns:
     - datasourceWarning: false
       expressionType: SQL
-      label: Section Name
+      label: Subsection Location and Name
       sqlExpression: section_subsection_name
     custom_form_data: {}
     custom_params: {}
@@ -145,7 +144,7 @@ query_context:
     filters:
     - col: content_level
       op: ==
-      val: section
+      val: subsection
     metrics:
     - attempted_all_problems
     - attempted_at_least_one_problem
@@ -159,7 +158,7 @@ query_context:
     url_params: {}
   result_format: json
   result_type: full
-slice_name: Problems attempted per section
-uuid: 1d00bbc3-f0d5-4c17-b9f3-8cc4d5516950
+slice_name: Problem Engagement per Subsection
+uuid: b3516698-35fe-4934-862a-7f5fb869d322
 version: 1.0.0
 viz_type: table

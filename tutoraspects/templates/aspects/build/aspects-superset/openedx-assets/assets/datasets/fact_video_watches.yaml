@@ -5,7 +5,7 @@ columns:
 - advanced_data_type: null
   column_name: video_name_with_location
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -13,11 +13,11 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Video Name With Location
+  verbose_name: Video Location and Name
 - advanced_data_type: null
   column_name: video_segment_count
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -29,7 +29,7 @@ columns:
 - advanced_data_type: null
   column_name: watched_segment_count
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -41,7 +41,7 @@ columns:
 - advanced_data_type: null
   column_name: watched_entire_video
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -53,7 +53,7 @@ columns:
 - advanced_data_type: null
   column_name: actor_id
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -65,7 +65,7 @@ columns:
 - advanced_data_type: null
   column_name: course_key
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -77,7 +77,7 @@ columns:
 - advanced_data_type: null
   column_name: course_name
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -89,7 +89,7 @@ columns:
 - advanced_data_type: null
   column_name: course_run
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -101,7 +101,7 @@ columns:
 - advanced_data_type: null
   column_name: subsection_with_name
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -113,7 +113,7 @@ columns:
 - advanced_data_type: null
   column_name: section_with_name
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -125,7 +125,7 @@ columns:
 - advanced_data_type: null
   column_name: video_name
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -137,7 +137,7 @@ columns:
 - advanced_data_type: null
   column_name: org
   description: null
-  expression: null
+  expression: ''
   extra: {}
   filterable: true
   groupby: true
@@ -146,6 +146,42 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Organization
+- advanced_data_type: null
+  column_name: username
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Username
+- advanced_data_type: null
+  column_name: email
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Email
+- advanced_data_type: null
+  column_name: name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Name
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
