@@ -1,4 +1,4 @@
-_file_name: Last_visit_date_6c2b10.yaml
+_file_name: Last_Visit_Date_6c2b10.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
@@ -59,7 +59,7 @@ params:
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
   x_axis_time_format: '%Y-%m-%d'
-  x_axis_title: Date visited
+  x_axis_title: Date Visited
   x_axis_title_margin: 100
   y_axis_bounds:
   - null
@@ -69,7 +69,7 @@ params:
   y_axis_title_position: Left
 query_context:
   datasource:
-    id: 1180
+    id: 94
     type: table
   force: false
   form_data:
@@ -78,8 +78,8 @@ query_context:
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 6096
-    datasource: 1180__table
+    - 30
+    datasource: 94__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -121,7 +121,7 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    slice_id: 2148
+    slice_id: 171
     sort_series_type: sum
     time_grain_sqla: P1D
     tooltipTimeFormat: smart_date
@@ -134,7 +134,7 @@ query_context:
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
     x_axis_time_format: '%Y-%m-%d'
-    x_axis_title: Date visited
+    x_axis_title: Date Visited
     x_axis_title_margin: 100
     y_axis_bounds:
     - null
@@ -228,7 +228,7 @@ query_context:
     url_params: {}
   result_format: json
   result_type: full
-slice_name: Last visit date
+slice_name: Last Visit Date
 uuid: 6c2b1008-96c9-426d-b2fe-68aa1de7b10d
 version: 1.0.0
 viz_type: echarts_timeseries_bar
