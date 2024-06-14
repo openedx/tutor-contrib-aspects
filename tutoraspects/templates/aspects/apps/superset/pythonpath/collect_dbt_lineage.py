@@ -1,7 +1,9 @@
 """
 Parse all Superset datasets for SQL, find links back to dbt assets.
 
-This is used in aspects-dbt to update the exposures.
+This is used in aspects-dbt to update the exposures. Significant parts of this
+are from the dbt_superset_lineage package at:
+https://github.com/slidoapp/dbt-superset-lineage/
 """
 
 # Necessary to access Superset
@@ -173,19 +175,27 @@ def collect_dbt_lineage():
     dbt_tables = get_tables_from_dbt()
 
     target_dashboards = {{SUPERSET_EMBEDDABLE_DASHBOARDS}}
+    locale_suffixes = [
+        f"-{loc}"
+        for loc in {{SUPERSET_DASHBOARD_LOCALES}}
+    ]
 
-    dashboards = (
-        db.session.query(Dashboard)
-        .filter(Dashboard.slug.in_(target_dashboards))
-        .all()
-    )
+    dashboards = (db.session.query(Dashboard).all())
 
     if not dashboards:
         logger.warning(f"No dashboard found!")
 
     exposure_dashboards = []
     for dashboard in dashboards:
-        exposure_dashboards.append(get_dashboard_dict(dashboard, dbt_tables))
+        localized = False
+        for locale_suffix in locale_suffixes:
+            if dashboard.slug.endswith(locale_suffix):
+                print(f"{dashboard.slug} is localized, skipping")
+                localized = True
+                break
+
+        if not localized:
+            exposure_dashboards.append(get_dashboard_dict(dashboard, dbt_tables))
 
     write_exposures_yaml(exposure_dashboards)
 
