@@ -1,0 +1,73 @@
+_file_name: Most-used_Charts_9d5f69.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 328ccae5-9a44-5e8c-8598-8d1c14b9f9fb
+description: Chart showing the number of Superset actions taken on each chart in the
+  selected time period.
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: null
+    expressionType: SIMPLE
+    filterOptionName: filter_l6m8rb1vslf_a07sl2fma45
+    isExtra: false
+    isNew: false
+    operator: IS NOT NULL
+    operatorId: IS_NOT_NULL
+    sqlExpression: null
+    subject: slice_id
+  all_columns: []
+  annotation_layers: []
+  color_pn: false
+  conditional_formatting: []
+  extra_form_data: {}
+  granularity_sqla: action_date
+  groupby:
+  - slice_name
+  include_search: true
+  metrics:
+  - aggregate: SUM
+    column:
+      certification_details: null
+      certified_by: null
+      column_name: action_count
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 47205
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: INT
+      type_generic: 0
+      verbose_name: null
+      warning_markdown: null
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    isNew: false
+    label: SUM(action_count)
+    optionName: metric_s8q9hgt4ktk_u149bx4eoq8
+    sqlExpression: null
+  order_by_cols: []
+  order_desc: true
+  page_length: 20
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 100
+  server_page_length: 10
+  show_cell_bars: false
+  table_timestamp_format: smart_date
+  time_grain_sqla: P1D
+  time_range: No filter
+  time_range_endpoints:
+  - inclusive
+  - exclusive
+  url_params: {}
+  viz_type: table
+query_context: null
+slice_name: Most-used Charts
+uuid: 9d5f69e8-f335-42a0-bbfa-272f43d74ad0
+version: 1.0.0
+viz_type: table
