@@ -407,6 +407,17 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
     ]
 )
 
+@hooks.Filters.APP_PUBLIC_HOSTS.add()
+def _aspects_public_hosts(
+    hosts: list[str], context_name: t.Literal["local", "dev"]
+) -> list[str]:
+    if context_name == "dev":
+        hosts += ["{{ SUPERSET_HOST }}:{{ SUPERSET_PORT }}"]
+    else:
+        hosts += ["{{ SUPERSET_HOST }}"]
+    return hosts
+
+
 ########################################
 # INITIALIZATION TASKS
 ########################################
