@@ -8,6 +8,8 @@ image: {{ DOCKER_IMAGE_SUPERSET }}
     - ../../env/plugins/aspects/apps/superset/scripts:/app/scripts
     - ../../env/plugins/aspects/build/aspects-superset/localization:/app/localization
     - ../../env/plugins/aspects/build/aspects-superset/openedx-assets:/app/openedx-assets
+    # Shared with Aspects job so it has access to the state file for the lineage push job
+    - ../../data/aspects-dbt:/app/dbt_manifest
   restart: unless-stopped
   environment:
     DATABASE_DIALECT: {{ SUPERSET_DB_DIALECT }}

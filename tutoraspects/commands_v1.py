@@ -190,6 +190,26 @@ def performance_metrics(
     ]
 
 
+# Ex: "tutor local do collect-dbt-lineage"
+@click.command(context_settings={"ignore_unknown_options": True})
+def collect_dbt_lineage() -> (list)[tuple[str, str]]:
+    """
+    Job to dump a list of dbt resources used in Superset.
+
+    aspects-dbt uses this to update the list of exposures so we can identify which
+    models are being used, and where.
+    """
+    return [
+        (
+            "superset",
+            "set -e && "
+            "echo 'Collecting dbt lineage...' && "
+            "python /app/pythonpath/collect_dbt_lineage.py &&"
+            "echo 'Done!';",
+        ),
+    ]
+
+
 # Ex: "tutor local do dump_data_to_clickhouse "
 @click.command(context_settings={"ignore_unknown_options": True})
 @click.option(
@@ -375,6 +395,7 @@ DO_COMMANDS = (
     import_assets,
     performance_metrics,
     init_clickhouse,
+    collect_dbt_lineage,
 )
 
 COMMANDS = (aspects,)
