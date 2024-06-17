@@ -1,4 +1,4 @@
-_file_name: Evolution_of_engagement_d3ae05.yaml
+_file_name: Page_Engagement_Over_Time_d7bfef.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
@@ -23,25 +23,25 @@ params:
   markerEnabled: true
   markerSize: 6
   metrics:
-  - number_of_learners
   - views
+  - number_of_learners
   only_total: true
   opacity: 0.2
   order_desc: true
   rich_tooltip: true
-  row_limit: 1000
+  rolling_type: null
+  row_limit: 10000
   seriesType: line
   show_empty_columns: true
   show_legend: true
-  show_value: false
   sort_series_ascending: true
   sort_series_type: sum
   time_grain_sqla: P1M
   tooltipTimeFormat: smart_date
+  truncateXAxis: true
   truncate_metric: true
   viz_type: echarts_timeseries_line
   x_axis: visited_on
-  x_axis_sort: Views
   x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
@@ -56,7 +56,7 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 61
+    id: 73
     type: table
   force: false
   form_data:
@@ -70,8 +70,9 @@ query_context:
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 629
-    datasource: 61__table
+    - 32
+    - 28
+    datasource: 73__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -82,20 +83,20 @@ query_context:
     markerEnabled: true
     markerSize: 6
     metrics:
-    - number_of_learners
     - views
+    - number_of_learners
     only_total: true
     opacity: 0.2
     order_desc: true
     result_format: json
     result_type: full
     rich_tooltip: true
-    row_limit: 1000
+    rolling_type: null
+    row_limit: 10000
     seriesType: line
     show_empty_columns: true
     show_legend: true
-    show_value: false
-    slice_id: 345
+    slice_id: 238
     sort_series_ascending: true
     sort_series_type: sum
     time_grain_sqla: P1M
@@ -103,9 +104,7 @@ query_context:
     truncateXAxis: true
     truncate_metric: true
     viz_type: echarts_timeseries_line
-    xAxisForceCategorical: true
     x_axis: visited_on
-    x_axis_sort: Views
     x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
@@ -138,11 +137,11 @@ query_context:
       op: TEMPORAL_RANGE
       val: No filter
     metrics:
-    - number_of_learners
     - views
+    - number_of_learners
     order_desc: true
     orderby:
-    - - number_of_learners
+    - - views
       - false
     post_processing:
     - operation: pivot
@@ -157,14 +156,14 @@ query_context:
         index:
         - visited_on
     - operation: flatten
-    row_limit: 1000
+    row_limit: 10000
     series_columns: []
     series_limit: 0
     time_offsets: []
     url_params: {}
   result_format: json
   result_type: full
-slice_name: Evolution of engagement
-uuid: d3ae0546-37a8-4841-a57b-8087a6c33049
+slice_name: Page Engagement Over Time
+uuid: d7bfef35-d35a-405f-ae59-73472845cd59
 version: 1.0.0
 viz_type: echarts_timeseries_line

@@ -8,358 +8,358 @@ dashboard_title: Course Dashboard
 description: null
 metadata:
   chart_configuration:
-    '2221':
+    '100':
       crossFilters:
         chartsInScope:
-        - 2441
-        - 2481
-        - 2581
-        - 2601
-        - 2681
-        - 2701
-        - 2721
-        - 2921
-        - 2981
-        - 3121
-        - 3181
-        - 3261
-        - 3481
-        - 3501
-        - 3521
-        - 3541
-        - 3620
+        - 5
+        - 7
+        - 8
+        - 22
+        - 30
+        - 41
+        - 59
+        - 62
+        - 63
+        - 83
+        - 86
+        - 87
+        - 90
+        - 92
+        - 95
+        - 104
+        - 238
         scope: global
-      id: 2221
-    '2441':
+      id: 100
+    '104':
       crossFilters:
         chartsInScope:
-        - 2221
-        - 2481
-        - 2581
-        - 2601
-        - 2681
-        - 2701
-        - 2721
-        - 2921
-        - 2981
-        - 3121
-        - 3181
-        - 3261
-        - 3481
-        - 3501
-        - 3521
-        - 3541
-        - 3620
+        - 5
+        - 7
+        - 8
+        - 22
+        - 30
+        - 41
+        - 59
+        - 62
+        - 63
+        - 83
+        - 86
+        - 87
+        - 90
+        - 92
+        - 95
+        - 100
+        - 238
         scope: global
-      id: 2441
-    '2481':
+      id: 104
+    '22':
       crossFilters:
         chartsInScope:
-        - 2221
-        - 2441
-        - 2581
-        - 2601
-        - 2681
-        - 2701
-        - 2721
-        - 2921
-        - 2981
-        - 3121
-        - 3181
-        - 3261
-        - 3481
-        - 3501
-        - 3521
-        - 3541
-        - 3620
+        - 5
+        - 7
+        - 8
+        - 30
+        - 41
+        - 59
+        - 62
+        - 63
+        - 83
+        - 86
+        - 87
+        - 90
+        - 92
+        - 95
+        - 100
+        - 104
+        - 238
         scope: global
-      id: 2481
-    '2601':
+      id: 22
+    '238':
       crossFilters:
         chartsInScope:
-        - 2221
-        - 2441
-        - 2481
-        - 2581
-        - 2681
-        - 2701
-        - 2721
-        - 2921
-        - 2981
-        - 3121
-        - 3181
-        - 3261
-        - 3481
-        - 3501
-        - 3521
-        - 3541
-        - 3620
+        - 5
+        - 7
+        - 8
+        - 22
+        - 30
+        - 41
+        - 59
+        - 62
+        - 63
+        - 83
+        - 86
+        - 87
+        - 90
+        - 92
+        - 95
+        - 100
+        - 104
         scope: global
-      id: 2601
-    '2681':
+      id: 238
+    '30':
       crossFilters:
         chartsInScope:
-        - 2221
-        - 2441
-        - 2481
-        - 2581
-        - 2601
-        - 2701
-        - 2721
-        - 2921
-        - 2981
-        - 3121
-        - 3181
-        - 3261
-        - 3481
-        - 3501
-        - 3521
-        - 3541
-        - 3620
+        - 5
+        - 7
+        - 8
+        - 22
+        - 41
+        - 59
+        - 62
+        - 63
+        - 83
+        - 86
+        - 87
+        - 90
+        - 92
+        - 95
+        - 100
+        - 104
+        - 238
         scope: global
-      id: 2681
-    '2701':
+      id: 30
+    '41':
       crossFilters:
         chartsInScope:
-        - 2221
-        - 2441
-        - 2481
-        - 2581
-        - 2601
-        - 2681
-        - 2721
-        - 2921
-        - 2981
-        - 3121
-        - 3181
-        - 3261
-        - 3481
-        - 3501
-        - 3521
-        - 3541
-        - 3620
+        - 5
+        - 7
+        - 8
+        - 22
+        - 30
+        - 59
+        - 62
+        - 63
+        - 83
+        - 86
+        - 87
+        - 90
+        - 92
+        - 95
+        - 100
+        - 104
+        - 238
         scope: global
-      id: 2701
-    '2721':
+      id: 41
+    '5':
       crossFilters:
         chartsInScope:
-        - 2221
-        - 2441
-        - 2481
-        - 2581
-        - 2601
-        - 2681
-        - 2701
-        - 2921
-        - 2981
-        - 3121
-        - 3181
-        - 3261
-        - 3481
-        - 3501
-        - 3521
-        - 3541
-        - 3620
+        - 7
+        - 8
+        - 22
+        - 30
+        - 41
+        - 59
+        - 62
+        - 63
+        - 83
+        - 86
+        - 87
+        - 90
+        - 92
+        - 95
+        - 100
+        - 104
+        - 238
         scope: global
-      id: 2721
-    '2921':
+      id: 5
+    '59':
       crossFilters:
         chartsInScope:
-        - 2221
-        - 2441
-        - 2481
-        - 2581
-        - 2601
-        - 2681
-        - 2701
-        - 2721
-        - 2981
-        - 3121
-        - 3181
-        - 3261
-        - 3481
-        - 3501
-        - 3521
-        - 3541
-        - 3620
+        - 5
+        - 7
+        - 8
+        - 22
+        - 30
+        - 41
+        - 62
+        - 63
+        - 83
+        - 86
+        - 87
+        - 90
+        - 92
+        - 95
+        - 100
+        - 104
+        - 238
         scope: global
-      id: 2921
-    '3121':
+      id: 59
+    '62':
       crossFilters:
         chartsInScope:
-        - 2221
-        - 2441
-        - 2481
-        - 2581
-        - 2601
-        - 2681
-        - 2701
-        - 2721
-        - 2921
-        - 2981
-        - 3181
-        - 3261
-        - 3481
-        - 3501
-        - 3521
-        - 3541
-        - 3620
+        - 5
+        - 7
+        - 8
+        - 22
+        - 30
+        - 41
+        - 59
+        - 63
+        - 83
+        - 86
+        - 87
+        - 90
+        - 92
+        - 95
+        - 100
+        - 104
+        - 238
         scope: global
-      id: 3121
-    '3181':
+      id: 62
+    '63':
       crossFilters:
         chartsInScope:
-        - 2221
-        - 2441
-        - 2481
-        - 2581
-        - 2601
-        - 2681
-        - 2701
-        - 2721
-        - 2921
-        - 2981
-        - 3121
-        - 3261
-        - 3481
-        - 3501
-        - 3521
-        - 3541
-        - 3620
+        - 5
+        - 7
+        - 8
+        - 22
+        - 30
+        - 41
+        - 59
+        - 62
+        - 83
+        - 86
+        - 87
+        - 90
+        - 92
+        - 95
+        - 100
+        - 104
+        - 238
         scope: global
-      id: 3181
-    '3261':
+      id: 63
+    '7':
       crossFilters:
         chartsInScope:
-        - 2221
-        - 2441
-        - 2481
-        - 2581
-        - 2601
-        - 2681
-        - 2701
-        - 2721
-        - 2921
-        - 2981
-        - 3121
-        - 3181
-        - 3481
-        - 3501
-        - 3521
-        - 3541
-        - 3620
+        - 5
+        - 8
+        - 22
+        - 30
+        - 41
+        - 59
+        - 62
+        - 63
+        - 83
+        - 86
+        - 87
+        - 90
+        - 92
+        - 95
+        - 100
+        - 104
+        - 238
         scope: global
-      id: 3261
-    '3481':
+      id: 7
+    '86':
       crossFilters:
         chartsInScope:
-        - 2221
-        - 2441
-        - 2481
-        - 2581
-        - 2601
-        - 2681
-        - 2701
-        - 2721
-        - 2921
-        - 2981
-        - 3121
-        - 3181
-        - 3261
-        - 3501
-        - 3521
-        - 3541
-        - 3620
+        - 5
+        - 7
+        - 8
+        - 22
+        - 30
+        - 41
+        - 59
+        - 62
+        - 63
+        - 83
+        - 87
+        - 90
+        - 92
+        - 95
+        - 100
+        - 104
+        - 238
         scope: global
-      id: 3481
-    '3501':
+      id: 86
+    '87':
       crossFilters:
         chartsInScope:
-        - 2221
-        - 2441
-        - 2481
-        - 2581
-        - 2601
-        - 2681
-        - 2701
-        - 2721
-        - 2921
-        - 2981
-        - 3121
-        - 3181
-        - 3261
-        - 3481
-        - 3521
-        - 3541
-        - 3620
+        - 5
+        - 7
+        - 8
+        - 22
+        - 30
+        - 41
+        - 59
+        - 62
+        - 63
+        - 83
+        - 86
+        - 90
+        - 92
+        - 95
+        - 100
+        - 104
+        - 238
         scope: global
-      id: 3501
-    '3521':
+      id: 87
+    '90':
       crossFilters:
         chartsInScope:
-        - 2221
-        - 2441
-        - 2481
-        - 2581
-        - 2601
-        - 2681
-        - 2701
-        - 2721
-        - 2921
-        - 2981
-        - 3121
-        - 3181
-        - 3261
-        - 3481
-        - 3501
-        - 3541
-        - 3620
+        - 5
+        - 7
+        - 8
+        - 22
+        - 30
+        - 41
+        - 59
+        - 62
+        - 63
+        - 83
+        - 86
+        - 87
+        - 92
+        - 95
+        - 100
+        - 104
+        - 238
         scope: global
-      id: 3521
-    '3541':
+      id: 90
+    '92':
       crossFilters:
         chartsInScope:
-        - 2221
-        - 2441
-        - 2481
-        - 2581
-        - 2601
-        - 2681
-        - 2701
-        - 2721
-        - 2921
-        - 2981
-        - 3121
-        - 3181
-        - 3261
-        - 3481
-        - 3501
-        - 3521
-        - 3620
+        - 5
+        - 7
+        - 8
+        - 22
+        - 30
+        - 41
+        - 59
+        - 62
+        - 63
+        - 83
+        - 86
+        - 87
+        - 90
+        - 95
+        - 100
+        - 104
+        - 238
         scope: global
-      id: 3541
-    '3620':
+      id: 92
+    '95':
       crossFilters:
         chartsInScope:
-        - 2221
-        - 2441
-        - 2481
-        - 2581
-        - 2601
-        - 2681
-        - 2701
-        - 2721
-        - 2921
-        - 2981
-        - 3121
-        - 3181
-        - 3261
-        - 3481
-        - 3501
-        - 3521
-        - 3541
+        - 5
+        - 7
+        - 8
+        - 22
+        - 30
+        - 41
+        - 59
+        - 62
+        - 63
+        - 83
+        - 86
+        - 87
+        - 90
+        - 92
+        - 100
+        - 104
+        - 238
         scope: global
-      id: 3620
+      id: 95
   color_scheme: supersetColors
   color_scheme_domain:
   - '#1FA8C9'
@@ -383,27 +383,28 @@ metadata:
   - '#9EE5E5'
   - '#D1C6BC'
   cross_filters_enabled: true
+  default_filters: '{}'
   expanded_slices: {}
   global_chart_configuration:
     chartsInScope:
-    - 2221
-    - 2441
-    - 2481
-    - 2581
-    - 2601
-    - 2681
-    - 2701
-    - 2721
-    - 2921
-    - 2981
-    - 3121
-    - 3181
-    - 3261
-    - 3481
-    - 3501
-    - 3521
-    - 3541
-    - 3620
+    - 5
+    - 7
+    - 8
+    - 22
+    - 30
+    - 41
+    - 59
+    - 62
+    - 63
+    - 83
+    - 86
+    - 87
+    - 90
+    - 92
+    - 95
+    - 100
+    - 104
+    - 238
     scope:
       excluded: []
       rootPath:
@@ -412,24 +413,24 @@ metadata:
   native_filter_configuration:
   - cascadeParentIds: []
     chartsInScope:
-    - 2221
-    - 2441
-    - 2481
-    - 2581
-    - 2601
-    - 2681
-    - 2701
-    - 2721
-    - 2921
-    - 2981
-    - 3121
-    - 3181
-    - 3261
-    - 3481
-    - 3501
-    - 3521
-    - 3541
-    - 3620
+    - 5
+    - 7
+    - 8
+    - 22
+    - 30
+    - 41
+    - 59
+    - 62
+    - 63
+    - 83
+    - 86
+    - 87
+    - 90
+    - 92
+    - 95
+    - 100
+    - 104
+    - 238
     controlValues:
       defaultToFirstItem: true
       enableEmptyFilter: true
@@ -464,27 +465,27 @@ metadata:
   - cascadeParentIds:
     - NATIVE_FILTER-QrTlO4wBf
     chartsInScope:
-    - 2221
-    - 2441
-    - 2481
-    - 2581
-    - 2601
-    - 2681
-    - 2701
-    - 2721
-    - 2921
-    - 2981
-    - 3121
-    - 3181
-    - 3261
-    - 3481
-    - 3501
-    - 3521
-    - 3541
-    - 3620
+    - 5
+    - 7
+    - 8
+    - 22
+    - 30
+    - 41
+    - 59
+    - 62
+    - 63
+    - 83
+    - 86
+    - 87
+    - 90
+    - 92
+    - 95
+    - 100
+    - 104
+    - 238
     controlValues:
       defaultToFirstItem: true
-      enableEmptyFilter: true
+      enableEmptyFilter: false
       inverseSelection: false
       multiSelect: false
       searchAllOptions: false
@@ -527,14 +528,14 @@ metadata:
     - 62
     - 63
     - 83
-    - 84
+    - 86
     - 87
     - 90
+    - 92
     - 95
-    - 119
-    - 120
-    - 121
-    - 122
+    - 100
+    - 104
+    - 238
     controlValues:
       defaultToFirstItem: false
       enableEmptyFilter: false
@@ -577,18 +578,18 @@ metadata:
     type: DIVIDER
   - cascadeParentIds: []
     chartsInScope:
-    - 1
-    - 7
-    - 56
+    - 30
+    - 41
     - 62
-    - 71
-    - 79
-    - 112
-    - 116
-    - 129
-    - 132
-    - 134
-    - 147
+    - 63
+    - 83
+    - 86
+    - 87
+    - 90
+    - 92
+    - 95
+    - 100
+    - 238
     controlValues:
       enableEmptyFilter: false
     defaultDataMask:
@@ -601,12 +602,13 @@ metadata:
     name: Date
     scope:
       excluded:
-      - 361
-      - 981
-      - 1101
-      - 161
+      - 104
+      - 7
+      - 22
+      - 59
       rootPath:
-      - ROOT_ID
+      - TAB-4ptSkqs5MS
+      - TAB-_Ey4nPhFr
     tabsInScope:
     - TAB-4ptSkqs5MS
     - TAB-5Guk2p9fd
@@ -619,16 +621,12 @@ metadata:
     type: NATIVE_FILTER
   - cascadeParentIds: []
     chartsInScope:
-    - 1
-    - 6
-    - 56
-    - 71
-    - 74
-    - 79
-    - 112
-    - 116
-    - 134
-    - 147
+    - 30
+    - 62
+    - 90
+    - 100
+    - 104
+    - 238
     controlValues:
       enableEmptyFilter: false
     defaultDataMask:
@@ -644,9 +642,17 @@ metadata:
     name: Time Grain
     scope:
       excluded:
-      - 721
-      - 361
-      - 981
+      - 86
+      - 92
+      - 100
+      - 104
+      - 7
+      - 22
+      - 59
+      - 90
+      - 41
+      - 63
+      - 87
       rootPath:
       - TAB-4ptSkqs5MS
       - TAB-_Ey4nPhFr
@@ -655,62 +661,38 @@ metadata:
     - TAB-V5zNdxwhsP
     - TAB-_Ey4nPhFr
     - TAB-nqLFUR_Tg
-    - TAB-vze5iq6jg
     targets:
     - datasetUuid: 38488934-35ee-5404-9acc-7e67626ddfae
-    type: NATIVE_FILTER
-  - cascadeParentIds:
-    - NATIVE_FILTER-IfS-Rd0ZS
-    chartsInScope:
-    - 71
-    - 79
-    - 112
-    - 147
-    controlValues:
-      defaultToFirstItem: false
-      enableEmptyFilter: false
-      inverseSelection: false
-      multiSelect: false
-      searchAllOptions: false
-    defaultDataMask:
-      extraFormData: {}
-      filterState: {}
-      ownState: {}
-    description: ''
-    filterType: filter_select
-    id: NATIVE_FILTER-aT2KP-m-p
-    name: Video name
-    scope:
-      excluded:
-      - 861
-      - 721
-      - 521
-      - 361
-      - 981
-      - 1101
-      - 161
-      rootPath:
-      - ROOT_ID
-    tabsInScope:
-    - TAB-V5zNdxwhsP
-    - TAB-_Ey4nPhFr
-    - TAB-vze5iq6jg
-    targets:
-    - column:
-        name: video_name
-      datasetUuid: 6ec360a5-e247-42e7-b301-fa8275fc93f9
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors: {}
   timed_refresh_immune_slices: []
 position:
+  CHART-XNUtUvjGrL:
+    children: []
+    id: CHART-XNUtUvjGrL
+    meta:
+      chartId: 238
+      height: 50
+      sliceName: Page Engagement Over Time
+      uuid: d7bfef35-d35a-405f-ae59-73472845cd59
+      width: 7
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-UDkdlBRw4n
+    - TAB-_Ey4nPhFr
+    - TABS-nk8aeLmc5o
+    - TAB-nqLFUR_Tg
+    - ROW-GlQl7V_ol
+    type: CHART
   CHART-explore-119-1:
     children: []
     id: CHART-explore-119-1
     meta:
-      chartId: 481
+      chartId: 86
       height: 50
-      sliceName: Problem interactions
+      sliceName: Problem Attempts
       uuid: ba14d2ea-8c53-4f79-aa1b-434011f3c725
       width: 6
     parents:
@@ -726,7 +708,7 @@ position:
     children: []
     id: CHART-explore-120-1
     meta:
-      chartId: 221
+      chartId: 92
       height: 50
       sliceName: Problem Results
       uuid: 6df96404-8c09-4a52-96c8-9a60a92cec29
@@ -744,7 +726,7 @@ position:
     children: []
     id: CHART-explore-121-1
     meta:
-      chartId: 1041
+      chartId: 100
       height: 54
       sliceName: Watched Video Segments
       uuid: 2985a9db-c338-4008-af52-2930b81ee2e5
@@ -762,9 +744,9 @@ position:
     children: []
     id: CHART-explore-122-1
     meta:
-      chartId: 201
+      chartId: 104
       height: 53
-      sliceName: Partial and full views per video
+      sliceName: Partial and Full Video Views
       uuid: bfffb9fe-07bd-4b2f-b437-522d45f6cd2c
       width: 12
     parents:
@@ -780,9 +762,9 @@ position:
     children: []
     id: CHART-explore-123-1
     meta:
-      chartId: 1081
+      chartId: 7
       height: 61
-      sliceName: Page views per section/subsection
+      sliceName: Page Engagement per Section/Subsection
       uuid: bf2d6219-d633-48c1-a9b5-742eac6a4c0a
       width: 12
     parents:
@@ -798,7 +780,7 @@ position:
     children: []
     id: CHART-explore-124-1
     meta:
-      chartId: 61
+      chartId: 95
       height: 50
       sliceName: Distribution of Current Course Grade
       uuid: ea565658-6796-40e8-9d1e-01ffd0778bc9
@@ -815,9 +797,9 @@ position:
     children: []
     id: CHART-explore-125-1
     meta:
-      chartId: 1161
+      chartId: 22
       height: 61
-      sliceName: Problems attempted per section/subsection
+      sliceName: Problem Engagement per Section/Subsection
       uuid: 8cdcd4aa-1fa2-41dc-b38d-f1112134592e
       width: 12
     parents:
@@ -833,9 +815,9 @@ position:
     children: []
     id: CHART-explore-126-1
     meta:
-      chartId: 621
+      chartId: 59
       height: 69
-      sliceName: Video views per section/subsection
+      sliceName: Video Engagement per Section/Subsection
       uuid: c1f77432-e55f-4473-b7d0-7a1c3976e6a8
       width: 12
     parents:
@@ -851,9 +833,9 @@ position:
     children: []
     id: CHART-explore-127-1
     meta:
-      chartId: 1121
+      chartId: 90
       height: 39
-      sliceName: Video views by section/subsection
+      sliceName: Video Engagement
       uuid: c8c363f8-8dbc-4a78-841d-4976f4404884
       width: 12
     parents:
@@ -869,7 +851,7 @@ position:
     children: []
     id: CHART-explore-128-1
     meta:
-      chartId: 501
+      chartId: 5
       height: 29
       sliceName: Course Information
       uuid: fa249dda-78da-4ccc-9ef3-39177e6aae0c
@@ -883,7 +865,7 @@ position:
     children: []
     id: CHART-explore-129-1
     meta:
-      chartId: 301
+      chartId: 83
       height: 27
       sliceName: Learners with Passing Grade
       uuid: b40cdabc-b265-48d2-913d-a9dfee0b6ab1
@@ -900,7 +882,7 @@ position:
     children: []
     id: CHART-explore-185-1
     meta:
-      chartId: 861
+      chartId: 8
       height: 29
       sliceName: Current Enrollees
       uuid: 00de2f72-b3ed-4994-b231-fd3cf29d758d
@@ -914,8 +896,8 @@ position:
     children: []
     id: CHART-explore-188-1
     meta:
-      chartId: 721
-      height: 64
+      chartId: 41
+      height: 51
       sliceName: Enrollees per Enrollment Track
       uuid: e584199e-0ed6-42bf-afb9-db3b9fe4132b
       width: 5
@@ -930,7 +912,7 @@ position:
     children: []
     id: CHART-explore-189-1
     meta:
-      chartId: 521
+      chartId: 30
       height: 51
       sliceName: Cumulative Enrollments by Track
       uuid: f207c896-030a-462b-b69f-6416230d50b6
@@ -947,7 +929,7 @@ position:
     children: []
     id: CHART-explore-191-1
     meta:
-      chartId: 361
+      chartId: 63
       height: 50
       sliceName: Section Summary
       uuid: 47417136-acd1-44a1-b41e-644eb2c237c3
@@ -965,7 +947,7 @@ position:
     children: []
     id: CHART-explore-192-1
     meta:
-      chartId: 981
+      chartId: 87
       height: 50
       sliceName: Subsection Summary
       uuid: 2a8d96be-687d-4918-98fe-ae9fbd599152
@@ -979,29 +961,11 @@ position:
     - TAB-nqLFUR_Tg
     - ROW-GlQl7V_ol
     type: CHART
-  CHART-explore-194-1:
-    children: []
-    id: CHART-explore-194-1
-    meta:
-      chartId: 1101
-      height: 50
-      sliceName: Evolution of engagement
-      uuid: d3ae0546-37a8-4841-a57b-8087a6c33049
-      width: 7
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - TABS-UDkdlBRw4n
-    - TAB-_Ey4nPhFr
-    - TABS-nk8aeLmc5o
-    - TAB-nqLFUR_Tg
-    - ROW-GlQl7V_ol
-    type: CHART
   CHART-explore-195-1:
     children: []
     id: CHART-explore-195-1
     meta:
-      chartId: 161
+      chartId: 62
       height: 50
       sliceName: Cumulative Interactions
       uuid: c44e43b5-ba69-4805-8d01-3b04dcbf2cb6
@@ -1017,7 +981,6 @@ position:
     type: CHART
   COLUMN-2jtUMCFWN3:
     children:
-    - MARKDOWN-OJhMYV_oUT
     - CHART-explore-189-1
     id: COLUMN-2jtUMCFWN3
     meta:
@@ -1072,21 +1035,19 @@ position:
     meta:
       text: Course Dashboard
     type: HEADER
-  MARKDOWN-OJhMYV_oUT:
+  MARKDOWN-tfEfxXbgdS:
     children: []
-    id: MARKDOWN-OJhMYV_oUT
+    id: MARKDOWN-tfEfxXbgdS
     meta:
-      code: "\u23F2\uFE0F Use the \u2018Time Grain\u2019 filter to update the time\
-        \ frame intervals shown in the following graph(s)"
-      height: 8
-      width: 3
+      code: '{{ASPECTS_COURSE_OVERVIEW_HELP_MARKDOWN}}'
+      height: 50
+      width: 12
     parents:
     - ROOT_ID
     - GRID_ID
     - TABS-UDkdlBRw4n
-    - TAB-4ptSkqs5MS
-    - ROW-EpJDdqK8c
-    - COLUMN-2jtUMCFWN3
+    - TAB-CyCZ-ZZN5
+    - ROW-kHUmLTwokB
     type: MARKDOWN
   ROOT_ID:
     children:
@@ -1123,7 +1084,7 @@ position:
   ROW-GlQl7V_ol:
     children:
     - CHART-explore-192-1
-    - CHART-explore-194-1
+    - CHART-XNUtUvjGrL
     id: ROW-GlQl7V_ol
     meta:
       background: BACKGROUND_TRANSPARENT
@@ -1221,6 +1182,18 @@ position:
     - TABS-nk8aeLmc5o
     - TAB-V5zNdxwhsP
     type: ROW
+  ROW-kHUmLTwokB:
+    children:
+    - MARKDOWN-tfEfxXbgdS
+    id: ROW-kHUmLTwokB
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-UDkdlBRw4n
+    - TAB-CyCZ-ZZN5
+    type: ROW
   ROW-p7zEYX-nL:
     children:
     - CHART-explore-122-1
@@ -1280,6 +1253,19 @@ position:
       defaultText: Tab title
       placeholder: Tab title
       text: Performance
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - TABS-UDkdlBRw4n
+    type: TAB
+  TAB-CyCZ-ZZN5:
+    children:
+    - ROW-kHUmLTwokB
+    id: TAB-CyCZ-ZZN5
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Help
     parents:
     - ROOT_ID
     - GRID_ID
@@ -1354,6 +1340,7 @@ position:
     - TAB-4ptSkqs5MS
     - TAB-_Ey4nPhFr
     - TAB-5Guk2p9fd
+    - TAB-CyCZ-ZZN5
     id: TABS-UDkdlBRw4n
     meta: {}
     parents:

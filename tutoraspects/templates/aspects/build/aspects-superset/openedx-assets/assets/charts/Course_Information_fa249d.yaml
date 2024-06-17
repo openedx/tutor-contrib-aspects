@@ -5,9 +5,13 @@ certified_by: null
 dataset_uuid: 633a1d4e-cd40-482f-a5dc-d5901c2181c2
 description: null
 params:
-  adhoc_filters: []
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: enrolled_at
   all_columns: []
-  annotation_layers: []
   color_pn: true
   column_config:
     Avg Course Grade:
@@ -54,7 +58,6 @@ params:
   - course_name
   - course_run
   metrics:
-  - graded_learners
   - avg_course_grade
   - median_course_grade
   order_by_cols: []
@@ -65,16 +68,22 @@ params:
   server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
-  temporal_columns_lookup: {}
+  temporal_columns_lookup:
+    enrolled_at: true
   time_grain_sqla: P1D
   viz_type: table
 query_context:
   datasource:
-    id: 282
+    id: 54
     type: table
   force: false
   form_data:
-    adhoc_filters: []
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: enrolled_at
     all_columns: []
     color_pn: true
     column_config:
@@ -89,9 +98,35 @@ query_context:
       column: graded_learners
       operator: '>'
       targetValue: 0
+    - colorScheme: '#FDE380'
+      column: avg_course_grade
+      operator: "\u2264 x \u2264"
+      targetValueLeft: '50'
+      targetValueRight: '70'
+    - colorScheme: '#EFA1AA'
+      column: avg_course_grade
+      operator: <
+      targetValue: 50
+    - colorScheme: '#ACE1C4'
+      column: avg_course_grade
+      operator: "\u2265"
+      targetValue: 70
+    - colorScheme: '#ACE1C4'
+      column: median_course_grade
+      operator: "\u2265"
+      targetValue: 70
+    - colorScheme: '#FDE380'
+      column: median_course_grade
+      operator: "\u2264 x \u2264"
+      targetValueLeft: '50'
+      targetValueRight: '70'
+    - colorScheme: '#EFA1AA'
+      column: median_course_grade
+      operator: <
+      targetValue: 50
     dashboards:
-    - 629
-    datasource: 282__table
+    - 28
+    datasource: 54__table
     extra_form_data: {}
     force: false
     groupby:
@@ -100,7 +135,6 @@ query_context:
     - course_name
     - course_run
     metrics:
-    - graded_learners
     - avg_course_grade
     - median_course_grade
     order_by_cols: []
@@ -112,9 +146,10 @@ query_context:
     row_limit: 1000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 528
+    slice_id: 5
     table_timestamp_format: smart_date
-    temporal_columns_lookup: {}
+    temporal_columns_lookup:
+      enrolled_at: true
     time_grain_sqla: P1D
     viz_type: table
   queries:
@@ -131,14 +166,16 @@ query_context:
       having: ''
       time_grain_sqla: P1D
       where: ''
-    filters: []
+    filters:
+    - col: enrolled_at
+      op: TEMPORAL_RANGE
+      val: No filter
     metrics:
-    - graded_learners
     - avg_course_grade
     - median_course_grade
     order_desc: true
     orderby:
-    - - graded_learners
+    - - avg_course_grade
       - false
     post_processing: []
     row_limit: 1000
