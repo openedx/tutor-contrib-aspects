@@ -31,7 +31,7 @@ params:
   truncateXAxis: true
   truncate_metric: true
   viz_type: echarts_timeseries_bar
-  xAxisLabelRotation: 45
+  xAxisLabelRotation: 0
   x_axis:
     expressionType: SQL
     label: Video Name With Location
@@ -89,7 +89,7 @@ query_context:
     truncateXAxis: true
     truncate_metric: true
     viz_type: echarts_timeseries_bar
-    xAxisLabelRotation: 45
+    xAxisLabelRotation: 0
     x_axis:
       expressionType: SQL
       label: Video Name With Location

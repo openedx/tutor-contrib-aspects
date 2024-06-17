@@ -47,7 +47,7 @@ params:
   truncateXAxis: true
   truncate_metric: true
   viz_type: echarts_timeseries_bar
-  xAxisLabelRotation: 45
+  xAxisLabelRotation: 0
   x_axis: section_subsection_name
   x_axis_sort_asc: true
   x_axis_sort_series: name
@@ -117,7 +117,7 @@ query_context:
     truncateXAxis: true
     truncate_metric: true
     viz_type: echarts_timeseries_bar
-    xAxisLabelRotation: 45
+    xAxisLabelRotation: 0
     x_axis: section_subsection_name
     x_axis_sort_asc: true
     x_axis_sort_series: name
