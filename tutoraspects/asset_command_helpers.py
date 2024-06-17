@@ -170,15 +170,16 @@ class ChartAsset(Asset):
     raw_vars = ["sqlExpression", "query_context", "translate_column"]
 
     def process(self, content: dict, existing: dict):
-        if not content.get("query_context"):
+        if not content.get("query_context") and existing:
             content["query_context"] = existing.get("query_context")
         query_context = content["query_context"]
         if query_context is not None and isinstance(query_context, str):
             content["query_context"] = json.loads(query_context)
         # run templated vars again to update query_context
-        self.omit_templated_vars(
-            content["query_context"], existing.get("query_context")
-        )
+        if existing:
+            self.omit_templated_vars(
+                content["query_context"], existing.get("query_context")
+            )
 
 
 class DashboardAsset(Asset):

@@ -43,7 +43,7 @@ params:
   truncate_metric: true
   viz_type: echarts_timeseries_bar
   xAxisForceCategorical: true
-  x_axis: start_position
+  x_axis: segment_start
   x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
@@ -110,7 +110,7 @@ query_context:
     truncate_metric: true
     viz_type: echarts_timeseries_bar
     xAxisForceCategorical: true
-    x_axis: start_position
+    x_axis: segment_start
     x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
@@ -131,8 +131,8 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: start_position
-      sqlExpression: start_position
+      label: segment_start
+      sqlExpression: segment_start
       timeGrain: P1M
     custom_form_data: {}
     custom_params: {}
@@ -162,7 +162,7 @@ query_context:
         columns: []
         drop_missing_columns: false
         index:
-        - start_position
+        - segment_start
     - operation: flatten
     row_limit: 10000
     series_columns: []

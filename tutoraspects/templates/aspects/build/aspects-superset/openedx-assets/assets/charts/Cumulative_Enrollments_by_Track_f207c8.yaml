@@ -63,7 +63,7 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 424
+    id: 29
     type: table
   force: false
   form_data:
@@ -81,9 +81,7 @@ query_context:
     annotation_layers: []
     color_scheme: supersetColors
     comparison_type: values
-    dashboards:
-    - 629
-    datasource: 424__table
+    datasource: 29__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -110,7 +108,7 @@ query_context:
     show_extra_controls: false
     show_legend: true
     show_value: false
-    slice_id: 439
+    slice_id: 30
     sort_series_type: sum
     time_grain_sqla: P1M
     tooltipTimeFormat: smart_date
