@@ -1,0 +1,95 @@
+_file_name: Learners_with_Passing_Grade_b40cda.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 633a1d4e-cd40-482f-a5dc-d5901c2181c2
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator:
+    - passed
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_k60jb4bendq_gwaxaqda836
+    isExtra: false
+    isNew: false
+    operator: IN
+    operatorId: IN
+    sqlExpression: null
+    subject: approving_state
+  annotation_layers: []
+  conditional_formatting:
+  - colorScheme: '#ACE1C4'
+    column: number_of_learners
+    operator: "\u2265"
+    targetValue: 0
+  extra_form_data: {}
+  header_font_size: 0.5
+  metric: number_of_learners
+  subheader_font_size: 0.3
+  time_format: smart_date
+  viz_type: big_number_total
+  y_axis_format: SMART_NUMBER
+query_context:
+  datasource:
+    id: 54
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator:
+      - passed
+      datasourceWarning: false
+      expressionType: SIMPLE
+      filterOptionName: filter_k60jb4bendq_gwaxaqda836
+      isExtra: false
+      isNew: false
+      operator: IN
+      operatorId: IN
+      sqlExpression: null
+      subject: approving_state
+    annotation_layers: []
+    conditional_formatting:
+    - colorScheme: '#ACE1C4'
+      column: number_of_learners
+      operator: "\u2265"
+      targetValue: 0
+    datasource: 54__table
+    extra_form_data: {}
+    force: false
+    header_font_size: 0.5
+    metric: number_of_learners
+    result_format: json
+    result_type: full
+    slice_id: 83
+    subheader_font_size: 0.3
+    time_format: smart_date
+    viz_type: big_number_total
+    y_axis_format: SMART_NUMBER
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns: []
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      where: ''
+    filters:
+    - col: approving_state
+      op: IN
+      val:
+      - passed
+    metrics:
+    - number_of_learners
+    order_desc: true
+    series_limit: 0
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Learners with Passing Grade
+uuid: b40cdabc-b265-48d2-913d-a9dfee0b6ab1
+version: 1.0.0
+viz_type: big_number_total

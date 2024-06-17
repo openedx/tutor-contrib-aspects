@@ -1,0 +1,243 @@
+_file_name: Learner_Summary_6da509.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: da75efef-09ba-4ed0-8b6b-bf11c5c26008
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_time
+  all_columns: []
+  annotation_layers: []
+  color_pn: true
+  conditional_formatting:
+  - colorScheme: '#ACE1C4'
+    column: course_grade
+    operator: "\u2265"
+    targetValue: 0.7
+  - colorScheme: '#FDE380'
+    column: course_grade
+    operator: "\u2264 x \u2264"
+    targetValueLeft: '0.5'
+    targetValueRight: '0.7'
+  - colorScheme: '#EFA1AA'
+    column: course_grade
+    operator: <
+    targetValue: 0.5
+  extra_form_data: {}
+  groupby:
+  - username
+  - name
+  - email
+  - course_name
+  - course_run
+  - expressionType: SQL
+    label: Enrollment Date
+    sqlExpression: emission_time
+  - last_visited
+  - expressionType: SQL
+    label: Passed/Failed
+    sqlExpression: |-
+      {% raw %}{{translate_column('approving_state')}}{% endraw %}
+  - expressionType: SQL
+    label: Enrollment Track
+    sqlExpression: |-
+      {% raw %}{{translate_column('enrollment_mode')}}{% endraw %}
+  - expressionType: SQL
+    label: Enrollment Status
+    sqlExpression: |-
+      {% raw %}{{translate_column('enrollment_status')}}{% endraw %}
+  - expressionType: SQL
+    label: Grade Range
+    sqlExpression: grade_bucket  
+  - expressionType: SQL
+    label: Course Grade %
+    sqlExpression: ROUND(course_grade*100, 2)
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 1000
+  server_page_length: 100
+  server_pagination: true
+  show_cell_bars: true
+  show_totals: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup:
+    emission_time: true
+    last_visited: true
+  time_grain_sqla: P1D
+  viz_type: table
+query_context:
+  datasource:
+    id: 992
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: emission_time
+    all_columns: []
+    annotation_layers: []
+    color_pn: true
+    conditional_formatting:
+    - colorScheme: '#ACE1C4'
+      column: course_grade
+      operator: "\u2265"
+      targetValue: 0.7
+    - colorScheme: '#FDE380'
+      column: course_grade
+      operator: "\u2264 x \u2264"
+      targetValueLeft: '0.5'
+      targetValueRight: '0.7'
+    - colorScheme: '#EFA1AA'
+      column: course_grade
+      operator: <
+      targetValue: 0.5
+    datasource: 992__table
+    extra_form_data: {}
+    force: false
+    groupby:
+    - username
+    - name
+    - email
+    - course_name
+    - course_run
+    - expressionType: SQL
+      label: Enrollment Date
+      sqlExpression: emission_time
+    - last_visited
+    - expressionType: SQL
+      label: Passed/Failed
+      sqlExpression: approving_state
+    - expressionType: SQL
+      label: Enrollment Track
+      sqlExpression: enrollment_mode
+    - enrollment_status
+    - expressionType: SQL
+      label: Grade Range
+      sqlExpression: grade_bucket
+    - course_grade
+    order_by_cols: []
+    order_desc: true
+    percent_metrics: []
+    query_mode: aggregate
+    result_format: json
+    result_type: full
+    row_limit: 1000
+    server_page_length: 100
+    server_pagination: true
+    show_cell_bars: true
+    show_totals: true
+    slice_id: 4364
+    table_timestamp_format: smart_date
+    temporal_columns_lookup:
+      emission_time: true
+      last_visited: true
+    time_grain_sqla: P1D
+    viz_type: table
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - username
+    - name
+    - email
+    - course_name
+    - course_run
+    - expressionType: SQL
+      label: Enrollment Date
+      sqlExpression: emission_time
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: last_visited
+      sqlExpression: last_visited
+      timeGrain: P1D
+    - expressionType: SQL
+      label: Passed/Failed
+      sqlExpression: approving_state
+    - expressionType: SQL
+      label: Enrollment Track
+      sqlExpression: enrollment_mode
+    - enrollment_status
+    - expressionType: SQL
+      label: Grade Range
+      sqlExpression: grade_bucket
+    - course_grade
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1D
+      where: ''
+    filters:
+    - col: emission_time
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics: []
+    order_desc: true
+    orderby: []
+    post_processing: []
+    row_limit: 100
+    row_offset: 0
+    series_limit: 0
+    url_params: {}
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - username
+    - name
+    - email
+    - course_name
+    - course_run
+    - expressionType: SQL
+      label: Enrollment Date
+      sqlExpression: emission_time
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: last_visited
+      sqlExpression: last_visited
+      timeGrain: P1D
+    - expressionType: SQL
+      label: Passed/Failed
+      sqlExpression: approving_state
+    - expressionType: SQL
+      label: Enrollment Track
+      sqlExpression: enrollment_mode
+    - enrollment_status
+    - expressionType: SQL
+      label: Grade Range
+      sqlExpression: grade_bucket
+    - course_grade
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1D
+      where: ''
+    filters:
+    - col: emission_time
+      op: TEMPORAL_RANGE
+      val: No filter
+    is_rowcount: true
+    metrics: []
+    order_desc: true
+    orderby: []
+    post_processing: []
+    row_limit: 0
+    row_offset: 0
+    series_limit: 0
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Learner Summary
+uuid: 6da50964-000e-4342-a931-3881feb02c13
+version: 1.0.0
+viz_type: table

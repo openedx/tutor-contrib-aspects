@@ -1,0 +1,161 @@
+_file_name: Page_Engagement_per_Subsection_18f857.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 9febd6be-5102-4dbf-86b9-45ebd3cbbc45
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_s8d5o5h20q_2r3i3mfdrkw
+    isExtra: false
+    isNew: false
+    operator: TEMPORAL_RANGE
+    sqlExpression: null
+    subject: visited_on
+  - clause: WHERE
+    comparator: subsection
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_4ate51p377o_vqvpc6jm2x9
+    isExtra: false
+    isNew: false
+    operator: ==
+    operatorId: EQUALS
+    sqlExpression: null
+    subject: content_level
+  all_columns: []
+  color_pn: true
+  conditional_formatting:
+  - colorScheme: '#ACE1C4'
+    column: all_pages_viewed
+    operator: '>'
+    targetValue: 0
+  - colorScheme: '#FDE380'
+    column: at_leat_one_page_viewed
+    operator: '>'
+    targetValue: 0
+  extra_form_data: {}
+  groupby:
+  - expressionType: SQL
+    label: Subsection Location and Name
+    sqlExpression: section_subsection_name
+  metrics:
+  - all_pages_viewed
+  - at_leat_one_page_viewed
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 10000
+  server_page_length: 10
+  show_cell_bars: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup: {}
+  time_grain_sqla: P1M
+  viz_type: table
+query_context:
+  datasource:
+    id: 6
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      datasourceWarning: false
+      expressionType: SIMPLE
+      filterOptionName: filter_s8d5o5h20q_2r3i3mfdrkw
+      isExtra: false
+      isNew: false
+      operator: TEMPORAL_RANGE
+      sqlExpression: null
+      subject: visited_on
+    - clause: WHERE
+      comparator: subsection
+      datasourceWarning: false
+      expressionType: SIMPLE
+      filterOptionName: filter_4ate51p377o_vqvpc6jm2x9
+      isExtra: false
+      isNew: false
+      operator: ==
+      operatorId: EQUALS
+      sqlExpression: null
+      subject: content_level
+    all_columns: []
+    color_pn: true
+    conditional_formatting:
+    - colorScheme: '#ACE1C4'
+      column: all_pages_viewed
+      operator: '>'
+      targetValue: 0
+    - colorScheme: '#FDE380'
+      column: at_leat_one_page_viewed
+      operator: '>'
+      targetValue: 0
+    dashboards:
+    - 29
+    datasource: 6__table
+    extra_form_data: {}
+    force: false
+    groupby:
+    - expressionType: SQL
+      label: Subsection Location and Name
+      sqlExpression: section_subsection_name
+    metrics:
+    - all_pages_viewed
+    - at_leat_one_page_viewed
+    order_by_cols: []
+    order_desc: true
+    percent_metrics: []
+    query_mode: aggregate
+    result_format: json
+    result_type: full
+    row_limit: 10000
+    server_page_length: 10
+    show_cell_bars: true
+    slice_id: 192
+    table_timestamp_format: smart_date
+    temporal_columns_lookup: {}
+    time_grain_sqla: P1M
+    viz_type: table
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - expressionType: SQL
+      label: Subsection Location and Name
+      sqlExpression: section_subsection_name
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1M
+      where: ''
+    filters:
+    - col: visited_on
+      op: TEMPORAL_RANGE
+      val: No filter
+    - col: content_level
+      op: ==
+      val: subsection
+    metrics:
+    - all_pages_viewed
+    - at_leat_one_page_viewed
+    order_desc: true
+    orderby:
+    - - all_pages_viewed
+      - false
+    post_processing: []
+    row_limit: 10000
+    series_limit: 0
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Page Engagement per Subsection
+uuid: 18f85781-d604-4edf-a3e6-429e16c3040a
+version: 1.0.0
+viz_type: table

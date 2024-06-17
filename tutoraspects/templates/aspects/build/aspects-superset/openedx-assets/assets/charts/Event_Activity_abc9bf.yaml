@@ -1,0 +1,203 @@
+_file_name: Event_Activity_abc9bf.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 6c54112c-1e2f-4c5f-8511-320fd9e180ac
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_jfungcanfns_4if9uzm072d
+    isExtra: false
+    isNew: false
+    operator: TEMPORAL_RANGE
+    operatorId: TEMPORAL_RANGE
+    sqlExpression: null
+    subject: emission_day
+  annotation_layers: []
+  color_scheme: supersetColors
+  comparison_type: values
+  extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
+  groupby: []
+  legendMargin: null
+  legendOrientation: top
+  legendType: scroll
+  markerEnabled: false
+  markerSize: 6
+  metrics:
+  - aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: false
+    label: uniqCombinedMerge(events_cnt)
+    optionName: metric_7kfvvdo0026_su07rkgdx7
+    sqlExpression: uniqCombinedMerge(events_cnt)
+  only_total: true
+  opacity: 0.2
+  order_desc: true
+  rich_tooltip: true
+  row_limit: 10000
+  seriesType: line
+  show_empty_columns: true
+  show_legend: false
+  show_value: false
+  sort_series_type: sum
+  time_grain_sqla: P1D
+  tooltipTimeFormat: smart_date
+  truncateXAxis: false
+  truncate_metric: false
+  viz_type: echarts_timeseries_line
+  x_axis: emission_day
+  x_axis_sort_asc: true
+  x_axis_sort_series: name
+  x_axis_sort_series_ascending: true
+  x_axis_time_format: '%Y-%m-%d'
+  x_axis_title_margin: 15
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  y_axis_title_margin: 15
+  y_axis_title_position: Left
+  zoomable: true
+query_context:
+  datasource:
+    id: 830
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      datasourceWarning: false
+      expressionType: SIMPLE
+      filterOptionName: filter_jfungcanfns_4if9uzm072d
+      isExtra: false
+      isNew: false
+      operator: TEMPORAL_RANGE
+      operatorId: TEMPORAL_RANGE
+      sqlExpression: null
+      subject: emission_day
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    dashboards:
+    - 6085
+    datasource: 830__table
+    extra_form_data: {}
+    force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    groupby: []
+    legendMargin: null
+    legendOrientation: top
+    legendType: scroll
+    markerEnabled: false
+    markerSize: 6
+    metrics:
+    - aggregate: null
+      column: null
+      datasourceWarning: false
+      expressionType: SQL
+      hasCustomLabel: false
+      label: uniqCombinedMerge(events_cnt)
+      optionName: metric_7kfvvdo0026_su07rkgdx7
+      sqlExpression: uniqCombinedMerge(events_cnt)
+    only_total: true
+    opacity: 0.2
+    order_desc: true
+    result_format: json
+    result_type: full
+    rich_tooltip: true
+    row_limit: 10000
+    seriesType: line
+    show_empty_columns: true
+    show_legend: false
+    show_value: false
+    slice_id: 3401
+    sort_series_type: sum
+    time_grain_sqla: P1D
+    tooltipTimeFormat: smart_date
+    truncateXAxis: false
+    truncate_metric: false
+    viz_type: echarts_timeseries_line
+    x_axis: emission_day
+    x_axis_sort_asc: true
+    x_axis_sort_series: name
+    x_axis_sort_series_ascending: true
+    x_axis_time_format: '%Y-%m-%d'
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title_margin: 15
+    y_axis_title_position: Left
+    zoomable: true
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: emission_day
+      sqlExpression: emission_day
+      timeGrain: P1D
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1D
+      where: ''
+    filters:
+    - col: emission_day
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics:
+    - aggregate: null
+      column: null
+      datasourceWarning: false
+      expressionType: SQL
+      hasCustomLabel: false
+      label: uniqCombinedMerge(events_cnt)
+      optionName: metric_7kfvvdo0026_su07rkgdx7
+      sqlExpression: uniqCombinedMerge(events_cnt)
+    order_desc: true
+    orderby:
+    - - aggregate: null
+        column: null
+        datasourceWarning: false
+        expressionType: SQL
+        hasCustomLabel: false
+        label: uniqCombinedMerge(events_cnt)
+        optionName: metric_7kfvvdo0026_su07rkgdx7
+        sqlExpression: uniqCombinedMerge(events_cnt)
+      - false
+    post_processing:
+    - operation: pivot
+      options:
+        aggregates:
+          uniqCombinedMerge(events_cnt):
+            operator: mean
+        columns: []
+        drop_missing_columns: false
+        index:
+        - emission_day
+    - operation: flatten
+    row_limit: 10000
+    series_columns: []
+    series_limit: 0
+    time_offsets: []
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Event Activity
+uuid: abc9bf92-2b32-42a5-8cd0-d383de777619
+version: 1.0.0
+viz_type: echarts_timeseries_line

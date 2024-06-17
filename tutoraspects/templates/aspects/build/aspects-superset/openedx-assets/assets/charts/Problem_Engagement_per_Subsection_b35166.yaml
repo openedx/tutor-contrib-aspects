@@ -1,0 +1,164 @@
+_file_name: Problem_Engagement_per_Subsection_b35166.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 171c88e5-fd4b-4aab-b287-361fa6fa5415
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: null
+    datasourceWarning: false
+    expressionType: SQL
+    filterOptionName: filter_pl0jq8ekze_4ayga9dbjat
+    isExtra: false
+    isNew: false
+    operator: null
+    sqlExpression: |-
+      `section_subsection_name` <> ''
+    subject: null
+  - clause: WHERE
+    comparator: subsection
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_1j70lybkgj1_ygpas42b05
+    isExtra: false
+    isNew: false
+    operator: ==
+    operatorId: EQUALS
+    sqlExpression: null
+    subject: content_level
+  all_columns: []
+  color_pn: true
+  conditional_formatting:
+  - colorScheme: '#FDE380'
+    column: attempted_at_least_one_problem
+    operator: '>'
+    targetValue: 0
+  - colorScheme: '#ACE1C4'
+    column: attempted_all_problems
+    operator: '>'
+    targetValue: 0
+  extra_form_data: {}
+  groupby:
+  - datasourceWarning: false
+    expressionType: SQL
+    label: Subsection Location and Name
+    sqlExpression: section_subsection_name
+  metrics:
+  - attempted_all_problems
+  - attempted_at_least_one_problem
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 10000
+  server_page_length: 10
+  show_cell_bars: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup: {}
+  time_grain_sqla: P1M
+  viz_type: table
+query_context:
+  datasource:
+    id: 75
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: null
+      datasourceWarning: false
+      expressionType: SQL
+      filterOptionName: filter_pl0jq8ekze_4ayga9dbjat
+      isExtra: false
+      isNew: false
+      operator: null
+      sqlExpression: |-
+        `section_subsection_name` <> ''
+      subject: null
+    - clause: WHERE
+      comparator: subsection
+      datasourceWarning: false
+      expressionType: SIMPLE
+      filterOptionName: filter_1j70lybkgj1_ygpas42b05
+      isExtra: false
+      isNew: false
+      operator: ==
+      operatorId: EQUALS
+      sqlExpression: null
+      subject: content_level
+    all_columns: []
+    color_pn: true
+    conditional_formatting:
+    - colorScheme: '#FDE380'
+      column: attempted_at_least_one_problem
+      operator: '>'
+      targetValue: 0
+    - colorScheme: '#ACE1C4'
+      column: attempted_all_problems
+      operator: '>'
+      targetValue: 0
+    dashboards:
+    - 29
+    datasource: 75__table
+    extra_form_data: {}
+    force: false
+    groupby:
+    - datasourceWarning: false
+      expressionType: SQL
+      label: Subsection Location and Name
+      sqlExpression: section_subsection_name
+    metrics:
+    - attempted_all_problems
+    - attempted_at_least_one_problem
+    order_by_cols: []
+    order_desc: true
+    percent_metrics: []
+    query_mode: aggregate
+    result_format: json
+    result_type: full
+    row_limit: 10000
+    server_page_length: 10
+    show_cell_bars: true
+    slice_id: 143
+    table_timestamp_format: smart_date
+    temporal_columns_lookup: {}
+    time_grain_sqla: P1M
+    viz_type: table
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - datasourceWarning: false
+      expressionType: SQL
+      label: Subsection Location and Name
+      sqlExpression: section_subsection_name
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1M
+      where: |-
+        (`section_subsection_name` <> '')
+    filters:
+    - col: content_level
+      op: ==
+      val: subsection
+    metrics:
+    - attempted_all_problems
+    - attempted_at_least_one_problem
+    order_desc: true
+    orderby:
+    - - attempted_all_problems
+      - false
+    post_processing: []
+    row_limit: 10000
+    series_limit: 0
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Problem Engagement per Subsection
+uuid: b3516698-35fe-4934-862a-7f5fb869d322
+version: 1.0.0
+viz_type: table

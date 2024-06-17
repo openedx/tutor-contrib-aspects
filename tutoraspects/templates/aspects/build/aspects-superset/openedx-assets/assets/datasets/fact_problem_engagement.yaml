@@ -5,8 +5,9 @@ columns:
 - advanced_data_type: null
   column_name: actor_id
   description: null
-  expression: null
-  extra: {}
+  expression: ''
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -17,8 +18,9 @@ columns:
 - advanced_data_type: null
   column_name: course_key
   description: null
-  expression: null
-  extra: {}
+  expression: ''
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -29,8 +31,9 @@ columns:
 - advanced_data_type: null
   column_name: content_level
   description: null
-  expression: null
-  extra: {}
+  expression: ''
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -41,8 +44,9 @@ columns:
 - advanced_data_type: null
   column_name: course_run
   description: null
-  expression: null
-  extra: {}
+  expression: ''
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -51,58 +55,11 @@ columns:
   type: String
   verbose_name: Course Run
 - advanced_data_type: null
-  column_name: org
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Org
-- advanced_data_type: null
-  column_name: section_subsection_problem_engagement
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: section_subsection_problem_engagement
-- advanced_data_type: null
-  column_name: section_subsection_name
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: section_subsection_name
-- advanced_data_type: null
-  column_name: username
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Username
-- advanced_data_type: null
   column_name: email
   description: null
-  expression: null
-  extra: {}
+  expression: ''
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -113,8 +70,9 @@ columns:
 - advanced_data_type: null
   column_name: name
   description: null
-  expression: null
-  extra: {}
+  expression: ''
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -122,6 +80,58 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Name
+- advanced_data_type: null
+  column_name: org
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Org
+- advanced_data_type: null
+  column_name: username
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Username
+- advanced_data_type: null
+  column_name: section_subsection_problem_engagement
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: section_subsection_problem_engagement
+- advanced_data_type: null
+  column_name: section_subsection_name
+  description: null
+  expression: ''
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: section_subsection_name
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
@@ -139,7 +149,7 @@ metrics:
     warning_markdown: ''
   metric_name: attempted_at_least_one_problem
   metric_type: null
-  verbose_name: Attempted at Least One Problem
+  verbose_name: Attempted At Least One Problem
   warning_text: null
 - currency: null
   d3format: null
@@ -166,7 +176,8 @@ normalize_columns: true
 offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
-sql: select * from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_problem_engagement
+sql: |-
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_problem_engagement.sql' %}{% endfilter %}
 table_name: fact_problem_engagement
 template_params: {}
 uuid: 171c88e5-fd4b-4aab-b287-361fa6fa5415

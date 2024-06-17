@@ -1,0 +1,156 @@
+_file_name: Partial_and_Full_Video_Views_bfffb9.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: d0070c9a-5b1c-4e52-867b-79aa46a8cdcf
+description: null
+params:
+  adhoc_filters: []
+  annotation_layers: []
+  color_scheme: supersetColors
+  comparison_type: values
+  extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
+  groupby: []
+  legendOrientation: top
+  legendType: scroll
+  metrics:
+  - partial_views
+  - full_views
+  only_total: true
+  order_desc: true
+  orientation: vertical
+  rich_tooltip: true
+  row_limit: 10000
+  show_empty_columns: true
+  show_legend: true
+  sort_series_type: sum
+  time_grain_sqla: P1M
+  tooltipTimeFormat: smart_date
+  truncateXAxis: true
+  truncate_metric: true
+  viz_type: echarts_timeseries_bar
+  xAxisLabelRotation: 0
+  x_axis:
+    expressionType: SQL
+    label: Video Name With Location
+    sqlExpression: video_name_with_location
+  x_axis_sort_asc: true
+  x_axis_sort_series: name
+  x_axis_sort_series_ascending: true
+  x_axis_time_format: smart_date
+  x_axis_title_margin: 15
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  y_axis_title: Number of Learners
+  y_axis_title_margin: 30
+  y_axis_title_position: Left
+  zoomable: true
+query_context:
+  datasource:
+    id: 23
+    type: table
+  force: false
+  form_data:
+    adhoc_filters: []
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    dashboards:
+    - 28
+    - 29
+    datasource: 23__table
+    extra_form_data: {}
+    force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    groupby: []
+    legendOrientation: top
+    legendType: scroll
+    metrics:
+    - partial_views
+    - full_views
+    only_total: true
+    order_desc: true
+    orientation: vertical
+    result_format: json
+    result_type: full
+    rich_tooltip: true
+    row_limit: 10000
+    show_empty_columns: true
+    show_legend: true
+    slice_id: 104
+    sort_series_type: sum
+    time_grain_sqla: P1M
+    tooltipTimeFormat: smart_date
+    truncateXAxis: true
+    truncate_metric: true
+    viz_type: echarts_timeseries_bar
+    xAxisLabelRotation: 0
+    x_axis:
+      expressionType: SQL
+      label: Video Name With Location
+      sqlExpression: video_name_with_location
+    x_axis_sort_asc: true
+    x_axis_sort_series: name
+    x_axis_sort_series_ascending: true
+    x_axis_time_format: smart_date
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title: Number of Learners
+    y_axis_title_margin: 30
+    y_axis_title_position: Left
+    zoomable: true
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: Video Name With Location
+      sqlExpression: video_name_with_location
+      timeGrain: P1M
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1M
+      where: ''
+    filters: []
+    metrics:
+    - partial_views
+    - full_views
+    order_desc: true
+    orderby:
+    - - partial_views
+      - false
+    post_processing:
+    - operation: pivot
+      options:
+        aggregates:
+          full_views:
+            operator: mean
+          partial_views:
+            operator: mean
+        columns: []
+        drop_missing_columns: false
+        index:
+        - Video Name With Location
+    - operation: flatten
+    row_limit: 10000
+    series_columns: []
+    series_limit: 0
+    time_offsets: []
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Partial and Full Video Views
+uuid: bfffb9fe-07bd-4b2f-b437-522d45f6cd2c
+version: 1.0.0
+viz_type: echarts_timeseries_bar

@@ -1,0 +1,138 @@
+_file_name: Distribution_of_Current_Course_Grade_ea5656.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 633a1d4e-cd40-482f-a5dc-d5901c2181c2
+description: null
+params:
+  adhoc_filters: []
+  annotation_layers: []
+  color_scheme: supersetColors
+  comparison_type: values
+  extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
+  groupby: []
+  legendMargin: null
+  legendOrientation: top
+  legendType: scroll
+  metrics:
+  - number_of_learners
+  only_total: true
+  order_desc: true
+  orientation: vertical
+  rich_tooltip: true
+  row_limit: 10000
+  show_empty_columns: true
+  show_legend: true
+  show_value: false
+  sort_series_type: sum
+  tooltipTimeFormat: smart_date
+  truncateXAxis: true
+  truncate_metric: true
+  viz_type: echarts_timeseries_bar
+  xAxisForceCategorical: false
+  x_axis: grade_bucket
+  x_axis_sort_asc: true
+  x_axis_sort_series: name
+  x_axis_sort_series_ascending: true
+  x_axis_time_format: smart_date
+  x_axis_title_margin: 15
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  y_axis_title_margin: 15
+  y_axis_title_position: Left
+query_context:
+  datasource:
+    id: 54
+    type: table
+  force: false
+  form_data:
+    adhoc_filters: []
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    datasource: 54__table
+    extra_form_data: {}
+    force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    groupby: []
+    legendMargin: null
+    legendOrientation: top
+    legendType: scroll
+    metrics:
+    - number_of_learners
+    only_total: true
+    order_desc: true
+    orientation: vertical
+    result_format: json
+    result_type: full
+    rich_tooltip: true
+    row_limit: 10000
+    show_empty_columns: true
+    show_legend: true
+    show_value: false
+    slice_id: 95
+    sort_series_type: sum
+    tooltipTimeFormat: smart_date
+    truncateXAxis: true
+    truncate_metric: true
+    viz_type: echarts_timeseries_bar
+    xAxisForceCategorical: false
+    x_axis: grade_bucket
+    x_axis_sort_asc: true
+    x_axis_sort_series: name
+    x_axis_sort_series_ascending: true
+    x_axis_time_format: smart_date
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title_margin: 15
+    y_axis_title_position: Left
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: grade_bucket
+      sqlExpression: grade_bucket
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      where: ''
+    filters: []
+    metrics:
+    - number_of_learners
+    order_desc: true
+    orderby:
+    - - number_of_learners
+      - false
+    post_processing:
+    - operation: pivot
+      options:
+        aggregates:
+          number_of_learners:
+            operator: mean
+        columns: []
+        drop_missing_columns: false
+        index:
+        - grade_bucket
+    - operation: flatten
+    row_limit: 10000
+    series_columns: []
+    series_limit: 0
+    time_offsets: []
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Distribution of Current Course Grade
+uuid: ea565658-6796-40e8-9d1e-01ffd0778bc9
+version: 1.0.0
+viz_type: echarts_timeseries_bar

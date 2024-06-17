@@ -2,6 +2,13 @@ name: Build Image
 on:
   pull_request:
     types: [opened, synchronize, closed]
+    paths-ignore:
+      - .github/**
+      - .ci/**
+      - .gitignore
+      - CHANGELOG.md
+      - setup.cfg
+      - tutoraspects/__about__.py
 
 env:
   TUTOR_ROOT: ./.ci/
@@ -22,7 +29,7 @@ jobs:
     steps:
       - name: Log in to Docker Hub
         continue-on-error: true
-        uses: docker/login-action@e92390c5fb421da1463c202d546fed0ec5c39f20
+        uses: docker/login-action@0d4c9c5ea7693da7b068278f7b52bda2a190a446
         with:
           username: ${{ secrets.EDUNEXT_DOCKER_USERNAME }}
           password: ${{ secrets.EDUNEXT_DOCKER_PASSWORD }}

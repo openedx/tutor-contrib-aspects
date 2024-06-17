@@ -97,3 +97,7 @@ DOCKER_IMAGE_OPENEDX: edunext/openedx-aspects:{{ASPECTS_VERSION}}
 DOCKER_IMAGE_OPENEDX_DEV: edunext/openedx-aspects-dev:{{ASPECTS_VERSION}}
 ASPECTS_ENABLE_EVENT_BUS_CONSUMER: true
 ASPECTS_ENABLE_EVENT_BUS_PRODUCER: true
+# Limit languages to 2 to speed up CI times
+SUPERSET_DASHBOARD_LOCALES:
+- en
+- fr_CA

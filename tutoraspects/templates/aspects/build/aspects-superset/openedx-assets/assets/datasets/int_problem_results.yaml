@@ -26,7 +26,31 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Problem name with location
+  verbose_name: Problem Location and Name
+- advanced_data_type: null
+  column_name: emission_time
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: Nullable(DateTime)
+  verbose_name: Emission Time
+- advanced_data_type: null
+  column_name: course_order
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int32
+  verbose_name: Course Order
 - advanced_data_type: null
   column_name: actor_id
   description: null
@@ -76,18 +100,6 @@ columns:
   type: String
   verbose_name: Course Run
 - advanced_data_type: null
-  column_name: emission_time
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: DateTime
-  verbose_name: Emission Time
-- advanced_data_type: null
   column_name: problem_id
   description: null
   expression: ''
@@ -99,6 +111,18 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Problem Id
+- advanced_data_type: null
+  column_name: interaction_type
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Interaction Type
 - advanced_data_type: null
   column_name: problem_link
   description: null
@@ -124,18 +148,6 @@ columns:
   type: String
   verbose_name: Problem Name
 - advanced_data_type: null
-  column_name: interaction_type
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Interaction Type
-- advanced_data_type: null
   column_name: attempts
   description: null
   expression: ''
@@ -147,6 +159,18 @@ columns:
   python_date_format: null
   type: Int16
   verbose_name: Attempts
+- advanced_data_type: null
+  column_name: graded
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Bool
+  verbose_name: Graded
 - advanced_data_type: null
   column_name: success
   description: null
@@ -184,7 +208,7 @@ columns:
   type: String
   verbose_name: Responses
 - advanced_data_type: null
-  column_name: graded
+  column_name: username
   description: null
   expression: null
   extra: {}
@@ -193,8 +217,32 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Bool
-  verbose_name: Graded
+  type: String
+  verbose_name: Username
+- advanced_data_type: null
+  column_name: email
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Email
+- advanced_data_type: null
+  column_name: name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Name
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
@@ -208,7 +256,8 @@ metrics:
   description: null
   expression: "  ROUND(\r\n    (SUM(CASE WHEN not success THEN attempts ELSE 0 END))\
     \ /\r\n    SUM(attempts), 2\r\n  )"
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: incorrect_percent
   metric_type: null
   verbose_name: '% Incorrect'
@@ -218,7 +267,8 @@ metrics:
   description: null
   expression: "  ROUND(\r\n    (SUM(CASE WHEN success THEN attempts ELSE 0 END)) /\r\
     \n    SUM(attempts), 2\r\n  )"
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: correct_percent
   metric_type: null
   verbose_name: '% Correct'
@@ -251,7 +301,7 @@ metrics:
     warning_markdown: ''
   metric_name: number_of_learners
   metric_type: null
-  verbose_name: Number of Learners who attemped the problem
+  verbose_name: Number of Learners who Attempted the Problem
   warning_text: null
 - currency: null
   d3format: null
@@ -261,7 +311,7 @@ metrics:
     warning_markdown: ''
   metric_name: median_attemps
   metric_type: null
-  verbose_name: Median of Attempts
+  verbose_name: Median Attempts
   warning_text: null
 - currency: null
   d3format: null
@@ -287,7 +337,8 @@ normalize_columns: false
 offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
-sql: select * from {{ DBT_PROFILE_TARGET_DATABASE }}.int_problem_results
+sql: |-
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/int_problem_results.sql' %}{% endfilter %}
 table_name: int_problem_results
 template_params: null
 uuid: c0c8b8a3-b18a-4c17-a69b-e6befea0159d

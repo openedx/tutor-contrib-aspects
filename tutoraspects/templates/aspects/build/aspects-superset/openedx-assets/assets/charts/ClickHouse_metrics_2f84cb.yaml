@@ -1,0 +1,32 @@
+_file_name: ClickHouse_metrics_2f84cb.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 99b2225d-6462-5442-a2ae-53d4450a3d49
+description: null
+params:
+  adhoc_filters: []
+  all_columns:
+  - name
+  - value
+  - description
+  annotation_layers: []
+  color_pn: true
+  extra_form_data: {}
+  groupby: []
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: raw
+  row_limit: 1000
+  server_page_length: 10
+  show_cell_bars: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup: {}
+  time_grain_sqla: P1D
+  viz_type: table
+query_context: null
+slice_name: ClickHouse metrics
+uuid: 2f84cbc3-4068-4d4d-bd40-ae348e4be95d
+version: 1.0.0
+viz_type: table

@@ -1,0 +1,198 @@
+_file_name: Partial_and_Full_Video_Views_2232c3.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: b422bdfe-0bbb-4191-888d-d0839878fb31
+description: null
+params:
+  adhoc_filters: []
+  annotation_layers: []
+  color_scheme: supersetColors
+  comparison_type: values
+  extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
+  groupby: []
+  legendOrientation: top
+  legendType: scroll
+  metrics:
+  - aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: true
+    label: Partial Views
+    optionName: metric_h50s8htipd_venor6mo6s
+    sqlExpression: countIf(not watched_entire_video)
+  - aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: true
+    label: Full Views
+    optionName: metric_uqiel1omte_00o0uw5q78fli
+    sqlExpression: countIf(watched_entire_video)
+  only_total: true
+  order_desc: true
+  orientation: vertical
+  rich_tooltip: true
+  row_limit: 10000
+  show_empty_columns: true
+  show_legend: true
+  sort_series_type: sum
+  time_grain_sqla: P1D
+  tooltipTimeFormat: smart_date
+  truncateXAxis: true
+  truncate_metric: true
+  viz_type: echarts_timeseries_bar
+  xAxisLabelRotation: 0
+  x_axis: video_name_with_location
+  x_axis_sort_asc: true
+  x_axis_sort_series: name
+  x_axis_sort_series_ascending: true
+  x_axis_time_format: smart_date
+  x_axis_title_margin: 15
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  y_axis_title: Number of Learners
+  y_axis_title_margin: 30
+  y_axis_title_position: Left
+  zoomable: true
+query_context:
+  datasource:
+    id: 99
+    type: table
+  force: false
+  form_data:
+    adhoc_filters: []
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    dashboards:
+    - 30
+    datasource: 99__table
+    extra_form_data: {}
+    force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    groupby: []
+    legendOrientation: top
+    legendType: scroll
+    metrics:
+    - aggregate: null
+      column: null
+      datasourceWarning: false
+      expressionType: SQL
+      hasCustomLabel: true
+      label: Partial Views
+      optionName: metric_h50s8htipd_venor6mo6s
+      sqlExpression: countIf(not watched_entire_video)
+    - aggregate: null
+      column: null
+      datasourceWarning: false
+      expressionType: SQL
+      hasCustomLabel: true
+      label: Full Views
+      optionName: metric_uqiel1omte_00o0uw5q78fli
+      sqlExpression: countIf(watched_entire_video)
+    only_total: true
+    order_desc: true
+    orientation: vertical
+    result_format: json
+    result_type: full
+    rich_tooltip: true
+    row_limit: 10000
+    show_empty_columns: true
+    show_legend: true
+    slice_id: 178
+    sort_series_type: sum
+    time_grain_sqla: P1D
+    tooltipTimeFormat: smart_date
+    truncateXAxis: true
+    truncate_metric: true
+    viz_type: echarts_timeseries_bar
+    xAxisLabelRotation: 0
+    x_axis: video_name_with_location
+    x_axis_sort_asc: true
+    x_axis_sort_series: name
+    x_axis_sort_series_ascending: true
+    x_axis_time_format: smart_date
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title: Number of Learners
+    y_axis_title_margin: 30
+    y_axis_title_position: Left
+    zoomable: true
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: video_name_with_location
+      sqlExpression: video_name_with_location
+      timeGrain: P1D
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1D
+      where: ''
+    filters: []
+    metrics:
+    - aggregate: null
+      column: null
+      datasourceWarning: false
+      expressionType: SQL
+      hasCustomLabel: true
+      label: Partial Views
+      optionName: metric_h50s8htipd_venor6mo6s
+      sqlExpression: countIf(not watched_entire_video)
+    - aggregate: null
+      column: null
+      datasourceWarning: false
+      expressionType: SQL
+      hasCustomLabel: true
+      label: Full Views
+      optionName: metric_uqiel1omte_00o0uw5q78fli
+      sqlExpression: countIf(watched_entire_video)
+    order_desc: true
+    orderby:
+    - - aggregate: null
+        column: null
+        datasourceWarning: false
+        expressionType: SQL
+        hasCustomLabel: true
+        label: Partial Views
+        optionName: metric_h50s8htipd_venor6mo6s
+        sqlExpression: countIf(not watched_entire_video)
+      - false
+    post_processing:
+    - operation: pivot
+      options:
+        aggregates:
+          Full Views:
+            operator: mean
+          Partial Views:
+            operator: mean
+        columns: []
+        drop_missing_columns: false
+        index:
+        - video_name_with_location
+    - operation: flatten
+    row_limit: 10000
+    series_columns: []
+    series_limit: 0
+    time_offsets: []
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Partial and Full Video Views
+uuid: 2232c302-cd41-406f-a45d-0f674344166b
+version: 1.0.0
+viz_type: echarts_timeseries_bar

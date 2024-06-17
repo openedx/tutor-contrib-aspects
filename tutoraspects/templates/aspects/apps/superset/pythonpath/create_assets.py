@@ -35,6 +35,7 @@ ASSET_FOLDER_MAPPING = {
 
 DASHBOARD_LOCALES = {{SUPERSET_DASHBOARD_LOCALES}}
 EMBEDDABLE_DASHBOARDS = {{SUPERSET_EMBEDDABLE_DASHBOARDS}}
+DATABASES = {{SUPERSET_DATABASES}}
 
 for folder in ASSET_FOLDER_MAPPING.values():
     os.makedirs(f"{BASE_DIR}/{folder}", exist_ok=True)
@@ -71,7 +72,6 @@ def create_assets():
             for asset in extra_assets:
                 process_asset(asset, roles)
 
-    import_databases()
     import_assets()
     update_dashboard_roles(roles)
     update_embeddable_uuids()
@@ -91,13 +91,6 @@ def process_asset(asset, roles):
             return
 
 
-def import_databases():
-    """Import databases from settings"""
-    databases = {{SUPERSET_DATABASES}}
-    for database_name, uri in databases.items():
-        create_superset_db(database_name, uri)
-
-
 def get_localized_uuid(base_uuid, language):
     """
     Generate an idempotent uuid for a localized asset.
@@ -111,7 +104,8 @@ def get_localized_uuid(base_uuid, language):
 def write_asset_to_file(asset, asset_name, folder, file_name, roles):
     """Write an asset to a file and generated translated assets"""
     if folder == "databases":
-        create_superset_db(asset["database_name"], asset["sqlalchemy_uri"])
+        # Update the sqlalchery_uri from the asset override pre-generated values
+        asset["sqlalchemy_uri"] = DATABASES.get(asset["database_name"])
     if folder in ["charts", "dashboards", "datasets"]:
         for locale in DASHBOARD_LOCALES:
             updated_asset = generate_translated_asset(
@@ -226,13 +220,6 @@ def generate_translated_dashboard_filters(copy, language):
         for k in ("name", "description"):
             if k in filter:
                 filter[k] = get_translation(filter[k], language)
-
-
-def create_superset_db(database_name, uri) -> None:
-    """Create a database object with the right URI"""
-    superset_db = get_or_create_db(database_name, uri, always_create=True)
-    db.session.add(superset_db)
-    db.session.commit()
 
 
 def import_assets():

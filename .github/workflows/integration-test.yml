@@ -56,6 +56,8 @@ jobs:
         run: |
           tutor local do alembic -c "downgrade base"
           tutor local do alembic -c "upgrade head"
+      - name: Init clickhouse
+        run: tutor local do init-clickhouse
       # This should:
       # 1. Find no models on the first run, since state should be up to date
       # 2. Force run all models
@@ -71,11 +73,13 @@ jobs:
         run: tutor local do importdemocourse
       - name: Test commands
         run: |
-          tutor local do dump-data-to-clickhouse --options "--object course_overviews"
+          tutor local do dump-data-to-clickhouse --options "--object course_overviews --force"
           make extract_translations
           tutor local do import-assets
+          tutor local do collect-dbt-lineage
+          tutor local run lms python manage.py lms transform_tracking_logs --source_provider LOCAL --source_config '{"key": "/openedx/data/", "prefix": "tracking.log", "container": "logs"}' --destination_provider LRS --transformer_type xapi
       - name: Performance metrics
-        run: tutor local do performance-metrics
+        run: tutor local do performance-metrics --fail_on_error
       - name: Tutor stop
         run: tutor local stop
 
@@ -120,6 +124,8 @@ jobs:
         run: |
           tutor dev do alembic -c "downgrade base"
           tutor dev do alembic -c "upgrade head"
+      - name: Init clickhouse
+        run: tutor dev do init-clickhouse
       # This should:
       # 1. Find no models on the first run, since state should be up to date
       # 2. Force run all models
@@ -135,7 +141,7 @@ jobs:
         run: tutor dev do importdemocourse
       - name: Test commands
         run: |
-          tutor dev do dump-data-to-clickhouse --options "--object course_overviews"
+          tutor dev do dump-data-to-clickhouse --options "--object course_overviews --force"
           make extract_translations
           tutor dev do import-assets
       - name: Performance metrics
@@ -204,6 +210,8 @@ jobs:
         run: |
           tutor k8s do alembic -c "downgrade base"
           tutor k8s do alembic -c "upgrade head"
+      - name: Init clickhouse
+        run: tutor k8s do init-clickhouse
       # This should:
       # 1. Find no models on the first run, since state should be up to date
       # 2. Force run all models
@@ -219,11 +227,11 @@ jobs:
         run: tutor k8s do importdemocourse
       - name: Test commands
         run: |
-          tutor k8s do dump-data-to-clickhouse --options "--object course_overviews"
+          tutor k8s do dump-data-to-clickhouse --options "--object course_overviews --force"
           make extract_translations
           tutor k8s do import-assets
       - name: Performance metrics
-        run: tutor k8s do performance-metrics
+        run: tutor k8s do performance-metrics --fail_on_error
       - name: Check failure logs
         if: failure()
         run: |

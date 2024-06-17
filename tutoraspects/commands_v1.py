@@ -130,20 +130,52 @@ def import_assets() -> list[tuple[str, str]]:
     ]
 
 
+@click.command(context_settings={"ignore_unknown_options": True})
+def init_clickhouse() -> list[tuple[str, str]]:
+    """
+    Job to run ClickHouse initialization tasks.
+    """
+    return [
+        (
+            "clickhouse",
+            env.read_template_file(
+                "aspects", "jobs", "init", "clickhouse", "init-clickhouse.sh"
+            ),
+        )
+    ]
+
+
 # Ex: "tutor local do performance-metrics "
 @click.command(context_settings={"ignore_unknown_options": True})
-@click.option("--course_key", default="", help="A course_key to apply as a filter.")
+@click.option(
+    "--course_key",
+    default="",
+    help="A course_key to apply as a filter, you must include the 'course-v1:'.",
+)
+@click.option(
+    "--dashboard_slug", default="", help="Only run charts for the given dashboard."
+)
+@click.option(
+    "--slice_name",
+    default="",
+    help="Only run charts for the given slice name, if the name appears in more than "
+    "one dashboard it will be run for each.",
+)
 @click.option(
     "--print_sql", is_flag=True, default=False, help="Print the SQL that was run."
 )
 @click.option(
     "--fail_on_error", is_flag=True, default=False, help="Allow errors to fail the run."
 )
-def performance_metrics(course_key, print_sql, fail_on_error) -> list[tuple[str, str]]:
+def performance_metrics(
+    course_key, dashboard_slug, slice_name, print_sql, fail_on_error
+) -> (list)[tuple[str, str]]:
     """
     Job to measure performance metrics of charts and its queries in Superset and ClickHouse.
     """
     options = f"--course_key {course_key}" if course_key else ""
+    options += f" --dashboard_slug {dashboard_slug}" if dashboard_slug else ""
+    options += f' --slice_name "{slice_name}"' if slice_name else ""
     options += " --print_sql" if print_sql else ""
     options += " --fail_on_error" if fail_on_error else ""
 
@@ -153,6 +185,26 @@ def performance_metrics(course_key, print_sql, fail_on_error) -> list[tuple[str,
             "set -e && "
             "echo 'Performance...' && "
             f"python /app/pythonpath/performance_metrics.py {options} &&"
+            "echo 'Done!';",
+        ),
+    ]
+
+
+# Ex: "tutor local do collect-dbt-lineage"
+@click.command(context_settings={"ignore_unknown_options": True})
+def collect_dbt_lineage() -> (list)[tuple[str, str]]:
+    """
+    Job to dump a list of dbt resources used in Superset.
+
+    aspects-dbt uses this to update the list of exposures so we can identify which
+    models are being used, and where.
+    """
+    return [
+        (
+            "superset",
+            "set -e && "
+            "echo 'Collecting dbt lineage...' && "
+            "python /app/pythonpath/collect_dbt_lineage.py &&"
             "echo 'Done!';",
         ),
     ]
@@ -342,6 +394,8 @@ DO_COMMANDS = (
     transform_tracking_logs,
     import_assets,
     performance_metrics,
+    init_clickhouse,
+    collect_dbt_lineage,
 )
 
 COMMANDS = (aspects,)

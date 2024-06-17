@@ -1,0 +1,189 @@
+_file_name: Enrollees_per_Enrollment_Track_e58419.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: a4b350bd-5ec3-4baf-8835-074d1d6e106e
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_3lacmmheoza_5bcm089g49o
+    isExtra: false
+    isNew: false
+    operator: TEMPORAL_RANGE
+    sqlExpression: null
+    subject: emission_time
+  - clause: WHERE
+    comparator:
+    - registered
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_qttcfymcil_aplt776mxl
+    isExtra: false
+    isNew: false
+    operator: IN
+    operatorId: IN
+    sqlExpression: null
+    subject: enrollment_status
+  annotation_layers: []
+  color_scheme: supersetColors
+  comparison_type: values
+  extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
+  groupby: []
+  legendMargin: null
+  legendOrientation: top
+  legendType: scroll
+  metrics:
+  - number_of_learners
+  only_total: true
+  order_desc: true
+  orientation: vertical
+  rich_tooltip: true
+  row_limit: 100
+  show_empty_columns: true
+  show_legend: true
+  show_value: false
+  sort_series_type: sum
+  tooltipTimeFormat: smart_date
+  truncateXAxis: true
+  truncate_metric: true
+  viz_type: echarts_timeseries_bar
+  x_axis: enrollment_mode
+  x_axis_sort_asc: true
+  x_axis_sort_series: name
+  x_axis_sort_series_ascending: true
+  x_axis_time_format: smart_date
+  x_axis_title_margin: 15
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: ',d'
+  y_axis_title_margin: 15
+  y_axis_title_position: Left
+query_context:
+  datasource:
+    id: 29
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      datasourceWarning: false
+      expressionType: SIMPLE
+      filterOptionName: filter_3lacmmheoza_5bcm089g49o
+      isExtra: false
+      isNew: false
+      operator: TEMPORAL_RANGE
+      sqlExpression: null
+      subject: emission_time
+    - clause: WHERE
+      comparator:
+      - registered
+      datasourceWarning: false
+      expressionType: SIMPLE
+      filterOptionName: filter_qttcfymcil_aplt776mxl
+      isExtra: false
+      isNew: false
+      operator: IN
+      operatorId: IN
+      sqlExpression: null
+      subject: enrollment_status
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    dashboards:
+    - 28
+    datasource: 29__table
+    extra_form_data: {}
+    force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    groupby: []
+    legendMargin: null
+    legendOrientation: top
+    legendType: scroll
+    metrics:
+    - number_of_learners
+    only_total: true
+    order_desc: true
+    orientation: vertical
+    result_format: json
+    result_type: full
+    rich_tooltip: true
+    row_limit: 100
+    show_empty_columns: true
+    show_legend: true
+    show_value: false
+    slice_id: 41
+    sort_series_type: sum
+    tooltipTimeFormat: smart_date
+    truncateXAxis: true
+    truncate_metric: true
+    viz_type: echarts_timeseries_bar
+    x_axis: enrollment_mode
+    x_axis_sort_asc: true
+    x_axis_sort_series: name
+    x_axis_sort_series_ascending: true
+    x_axis_time_format: smart_date
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: ',d'
+    y_axis_title_margin: 15
+    y_axis_title_position: Left
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: enrollment_mode
+      sqlExpression: enrollment_mode
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      where: ''
+    filters:
+    - col: emission_time
+      op: TEMPORAL_RANGE
+      val: No filter
+    - col: enrollment_status
+      op: IN
+      val:
+      - registered
+    metrics:
+    - number_of_learners
+    order_desc: true
+    orderby:
+    - - number_of_learners
+      - false
+    post_processing:
+    - operation: pivot
+      options:
+        aggregates:
+          number_of_learners:
+            operator: mean
+        columns: []
+        drop_missing_columns: false
+        index:
+        - enrollment_mode
+    - operation: flatten
+    row_limit: 100
+    series_columns: []
+    series_limit: 0
+    time_offsets: []
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Enrollees per Enrollment Track
+uuid: e584199e-0ed6-42bf-afb9-db3b9fe4132b
+version: 1.0.0
+viz_type: echarts_timeseries_bar

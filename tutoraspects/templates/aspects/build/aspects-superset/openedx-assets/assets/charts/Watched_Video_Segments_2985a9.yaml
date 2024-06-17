@@ -1,0 +1,177 @@
+_file_name: Watched_Video_Segments_2985a9.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: c2c391b3-3403-4f05-bc0b-3de53bd366ec
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_kpkhcnms3c_m156a9ez5ga
+    isExtra: false
+    isNew: false
+    operator: TEMPORAL_RANGE
+    sqlExpression: null
+    subject: started_at
+  annotation_layers: []
+  color_scheme: supersetColors
+  comparison_type: values
+  extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
+  groupby: []
+  legendOrientation: top
+  legendType: scroll
+  metrics:
+  - total_views
+  - repeat_views
+  only_total: true
+  order_desc: true
+  orientation: vertical
+  rich_tooltip: true
+  row_limit: 10000
+  show_empty_columns: true
+  show_legend: true
+  sort_series_type: sum
+  stack: Stack
+  time_grain_sqla: P1M
+  tooltipTimeFormat: smart_date
+  truncateXAxis: true
+  truncate_metric: true
+  viz_type: echarts_timeseries_bar
+  xAxisForceCategorical: true
+  x_axis: segment_start
+  x_axis_sort_asc: true
+  x_axis_sort_series: name
+  x_axis_sort_series_ascending: true
+  x_axis_time_format: smart_date
+  x_axis_title: Video Timestamp (in seconds)
+  x_axis_title_margin: 30
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  y_axis_title: Number of Views
+  y_axis_title_margin: 30
+  y_axis_title_position: Left
+  zoomable: true
+query_context:
+  datasource:
+    id: 5
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      datasourceWarning: false
+      expressionType: SIMPLE
+      filterOptionName: filter_kpkhcnms3c_m156a9ez5ga
+      isExtra: false
+      isNew: false
+      operator: TEMPORAL_RANGE
+      sqlExpression: null
+      subject: started_at
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    dashboards:
+    - 28
+    - 29
+    datasource: 5__table
+    extra_form_data: {}
+    force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    groupby: []
+    legendOrientation: top
+    legendType: scroll
+    metrics:
+    - total_views
+    - repeat_views
+    only_total: true
+    order_desc: true
+    orientation: vertical
+    result_format: json
+    result_type: full
+    rich_tooltip: true
+    row_limit: 10000
+    show_empty_columns: true
+    show_legend: true
+    slice_id: 100
+    sort_series_type: sum
+    stack: Stack
+    time_grain_sqla: P1M
+    tooltipTimeFormat: smart_date
+    truncateXAxis: true
+    truncate_metric: true
+    viz_type: echarts_timeseries_bar
+    xAxisForceCategorical: true
+    x_axis: segment_start
+    x_axis_sort_asc: true
+    x_axis_sort_series: name
+    x_axis_sort_series_ascending: true
+    x_axis_time_format: smart_date
+    x_axis_title: Video Timestamp (in seconds)
+    x_axis_title_margin: 30
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title: Number of Views
+    y_axis_title_margin: 30
+    y_axis_title_position: Left
+    zoomable: true
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: segment_start
+      sqlExpression: segment_start
+      timeGrain: P1M
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1M
+      where: ''
+    filters:
+    - col: started_at
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics:
+    - total_views
+    - repeat_views
+    order_desc: true
+    orderby:
+    - - total_views
+      - false
+    post_processing:
+    - operation: pivot
+      options:
+        aggregates:
+          repeat_views:
+            operator: mean
+          total_views:
+            operator: mean
+        columns: []
+        drop_missing_columns: false
+        index:
+        - segment_start
+    - operation: flatten
+    row_limit: 10000
+    series_columns: []
+    series_limit: 0
+    time_offsets: []
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Watched Video Segments
+uuid: 2985a9db-c338-4008-af52-2930b81ee2e5
+version: 1.0.0
+viz_type: echarts_timeseries_bar

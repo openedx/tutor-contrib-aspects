@@ -52,16 +52,40 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_ENABLE_EVENT_BUS_CONSUMER", False),
         ("ASPECTS_ENABLE_EVENT_BUS_PRODUCER", False),
         ("ASPECTS_EVENT_BUS_CONSUMER_REPLICAS", 1),
+        # These settings override the event-routing-backends defaults for performance
+        # reasons.
+        # Turn on event batching by default, performance is severely impacted by
+        # turning this off.
+        ("EVENT_ROUTING_BACKEND_BATCHING_ENABLED", True),
+        # Events are sent when they hit either the batch size or the batch interval
+        # time limit (defaults here are 100 events or 5 seconds).
+        # https://event-routing-backends.readthedocs.io/en/latest/getting_started.html#batching-configuration
+        ("EVENT_ROUTING_BACKEND_BATCH_SIZE", 100),
+        ("EVENT_ROUTING_BACKEND_BATCH_INTERVAL", 5),
         # User PII is cached in an in-memory dictionary for this many seconds.
         ("ASPECTS_PII_CACHE_LIFETIME", 900),
         # Markdown comprising the Help tab for the Operator and Instructor dashboards.
         # Set to empty string/False to omit Help tab entirely from the dashboard.
         # Newlines and double-quotes must be escaped.
         (
+            "ASPECTS_COURSE_OVERVIEW_HELP_MARKDOWN",
+            "## Help<br>"
+            "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
+            "reference/course_overview_dashboard.html)<br>"
+            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
+        ),
+        (
             "ASPECTS_INSTRUCTOR_HELP_MARKDOWN",
             "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
-            "reference/instructor_reports.html)<br>"
+            "reference/course_overview_dashboard.html)<br>"
+            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
+        ),
+        (
+            "ASPECTS_LEARNER_GROUPS_HELP_MARKDOWN",
+            "## Help<br>"
+            "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
+            "reference/learner_groups_dashboard.html)<br>"
             "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
         ),
         (
@@ -71,7 +95,16 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "reference/operator_reports.html)<br>"
             "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
         ),
+        (
+            "ASPECTS_INDIVIDUAL_LEARNER_HELP_MARKDOWN",
+            "## Help<br>"
+            "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
+            "reference/individual_learner_dashboard.html)<br>"
+            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
+        ),
         ("ASPECTS_ENABLE_INSTRUCTOR_DASHBOARD_PLUGIN", True),
+        # Whether to show the link to go to Superset in the instructor dashboard tab
+        ("SUPERSET_SHOW_INSTRUCTOR_DASHBOARD_LINK", True),
         # The following settings are used to configure the Superset dashboards
         # in the LMS Instructor Dashboard.
         (
@@ -332,7 +365,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
-        ("DBT_BRANCH", "v3.24.0"),
+        ("DBT_BRANCH", "v3.29.0"),
         ("DBT_SSH_KEY", ""),
         ("DBT_STATE_DIR", "/app/aspects/dbt_state/"),
         # This is the name of the database dbt will write to

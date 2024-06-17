@@ -1,0 +1,175 @@
+_file_name: Video_Engagement_per_Section_Subsection_c1f774.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 247a55b3-d44e-442e-ba92-71bf7976b192
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: null
+    datasourceWarning: false
+    expressionType: SQL
+    filterOptionName: filter_1eznhnyjr5k_wylhwvlq7z
+    isExtra: false
+    isNew: false
+    operator: null
+    sqlExpression: |-
+      `section_subsection_name` <> ''
+    subject: null
+  annotation_layers: []
+  color_scheme: supersetColors
+  comparison_type: values
+  extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
+  groupby: []
+  legendOrientation: top
+  legendType: scroll
+  metrics:
+  - all_videos_viewed
+  - at_least_one_viewed
+  only_total: true
+  order_desc: true
+  orientation: vertical
+  rich_tooltip: true
+  row_limit: 10000
+  show_empty_columns: true
+  show_legend: true
+  show_value: false
+  sort_series_type: sum
+  time_grain_sqla: P1M
+  tooltipTimeFormat: smart_date
+  truncateXAxis: true
+  truncate_metric: true
+  viz_type: echarts_timeseries_bar
+  xAxisLabelRotation: 0
+  x_axis: section_subsection_name
+  x_axis_sort_asc: true
+  x_axis_sort_series: name
+  x_axis_sort_series_ascending: true
+  x_axis_time_format: smart_date
+  x_axis_title_margin: 15
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  y_axis_title: Number of Learners
+  y_axis_title_margin: 30
+  y_axis_title_position: Left
+  zoomable: true
+query_context:
+  datasource:
+    id: 14
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: null
+      datasourceWarning: false
+      expressionType: SQL
+      filterOptionName: filter_1eznhnyjr5k_wylhwvlq7z
+      isExtra: false
+      isNew: false
+      operator: null
+      sqlExpression: |-
+        `section_subsection_name` <> ''
+      subject: null
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    dashboards:
+    - 28
+    - 29
+    datasource: 14__table
+    extra_form_data: {}
+    force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    groupby: []
+    legendOrientation: top
+    legendType: scroll
+    metrics:
+    - all_videos_viewed
+    - at_least_one_viewed
+    only_total: true
+    order_desc: true
+    orientation: vertical
+    result_format: json
+    result_type: full
+    rich_tooltip: true
+    row_limit: 10000
+    show_empty_columns: true
+    show_legend: true
+    show_value: false
+    slice_id: 59
+    sort_series_type: sum
+    time_grain_sqla: P1M
+    tooltipTimeFormat: smart_date
+    truncateXAxis: true
+    truncate_metric: true
+    viz_type: echarts_timeseries_bar
+    xAxisLabelRotation: 0
+    x_axis: section_subsection_name
+    x_axis_sort_asc: true
+    x_axis_sort_series: name
+    x_axis_sort_series_ascending: true
+    x_axis_time_format: smart_date
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title: Number of Learners
+    y_axis_title_margin: 30
+    y_axis_title_position: Left
+    zoomable: true
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: section_subsection_name
+      sqlExpression: section_subsection_name
+      timeGrain: P1M
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1M
+      where: |-
+        (`section_subsection_name` <> '')
+    filters: []
+    metrics:
+    - all_videos_viewed
+    - at_least_one_viewed
+    order_desc: true
+    orderby:
+    - - all_videos_viewed
+      - false
+    post_processing:
+    - operation: pivot
+      options:
+        aggregates:
+          all_videos_viewed:
+            operator: mean
+          at_least_one_viewed:
+            operator: mean
+        columns: []
+        drop_missing_columns: false
+        index:
+        - section_subsection_name
+    - operation: flatten
+    row_limit: 10000
+    series_columns: []
+    series_limit: 0
+    time_offsets: []
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Video Engagement per Section/Subsection
+uuid: c1f77432-e55f-4473-b7d0-7a1c3976e6a8
+version: 1.0.0
+viz_type: echarts_timeseries_bar

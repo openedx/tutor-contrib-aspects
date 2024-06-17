@@ -1,0 +1,191 @@
+_file_name: Cumulative_Enrollments_by_Track_f207c8.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: a4b350bd-5ec3-4baf-8835-074d1d6e106e
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_utjjqw9427d_5p5ur7mob2
+    isExtra: false
+    isNew: false
+    operator: TEMPORAL_RANGE
+    sqlExpression: null
+    subject: emission_time
+  annotation_layers: []
+  color_scheme: supersetColors
+  comparison_type: values
+  extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
+  groupby:
+  - enrollment_mode
+  legendMargin: null
+  legendOrientation: top
+  legendType: scroll
+  markerEnabled: true
+  markerSize: 6
+  metrics:
+  - number_of_learners
+  only_total: true
+  opacity: 0.2
+  order_desc: true
+  rich_tooltip: true
+  rolling_type: cumsum
+  row_limit: 10000
+  seriesType: line
+  show_empty_columns: true
+  show_extra_controls: false
+  show_legend: true
+  show_value: false
+  sort_series_type: sum
+  time_grain_sqla: P1M
+  tooltipTimeFormat: smart_date
+  truncateXAxis: true
+  truncate_metric: true
+  viz_type: echarts_area
+  x_axis: emission_time
+  x_axis_sort_asc: true
+  x_axis_sort_series: name
+  x_axis_sort_series_ascending: true
+  x_axis_time_format: smart_date
+  x_axis_title_margin: 15
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: ~g
+  y_axis_title_margin: 15
+  y_axis_title_position: Left
+  zoomable: true
+query_context:
+  datasource:
+    id: 29
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      datasourceWarning: false
+      expressionType: SIMPLE
+      filterOptionName: filter_utjjqw9427d_5p5ur7mob2
+      isExtra: false
+      isNew: false
+      operator: TEMPORAL_RANGE
+      sqlExpression: null
+      subject: emission_time
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    datasource: 29__table
+    extra_form_data: {}
+    force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    groupby:
+    - enrollment_mode
+    legendMargin: null
+    legendOrientation: top
+    legendType: scroll
+    markerEnabled: true
+    markerSize: 6
+    metrics:
+    - number_of_learners
+    only_total: true
+    opacity: 0.2
+    order_desc: true
+    result_format: json
+    result_type: full
+    rich_tooltip: true
+    rolling_type: cumsum
+    row_limit: 10000
+    seriesType: line
+    show_empty_columns: true
+    show_extra_controls: false
+    show_legend: true
+    show_value: false
+    slice_id: 30
+    sort_series_type: sum
+    time_grain_sqla: P1M
+    tooltipTimeFormat: smart_date
+    truncateXAxis: true
+    truncate_metric: true
+    viz_type: echarts_area
+    x_axis: emission_time
+    x_axis_sort_asc: true
+    x_axis_sort_series: name
+    x_axis_sort_series_ascending: true
+    x_axis_time_format: smart_date
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: ~g
+    y_axis_title_margin: 15
+    y_axis_title_position: Left
+    zoomable: true
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: emission_time
+      sqlExpression: emission_time
+      timeGrain: P1M
+    - enrollment_mode
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1M
+      where: ''
+    filters:
+    - col: emission_time
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics:
+    - number_of_learners
+    order_desc: true
+    orderby:
+    - - number_of_learners
+      - false
+    post_processing:
+    - operation: pivot
+      options:
+        aggregates:
+          number_of_learners:
+            operator: mean
+        columns:
+        - enrollment_mode
+        drop_missing_columns: false
+        index:
+        - emission_time
+    - operation: cum
+      options:
+        columns:
+          number_of_learners: number_of_learners
+        operator: sum
+    - operation: rename
+      options:
+        columns:
+          number_of_learners: null
+        inplace: true
+        level: 0
+    - operation: flatten
+    row_limit: 10000
+    series_columns:
+    - enrollment_mode
+    series_limit: 0
+    time_offsets: []
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Cumulative Enrollments by Track
+uuid: f207c896-030a-462b-b69f-6416230d50b6
+version: 1.0.0
+viz_type: echarts_area

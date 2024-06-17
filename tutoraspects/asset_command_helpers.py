@@ -5,6 +5,7 @@ Helpers for Tutor commands and "do" commands.
 import glob
 import os
 import re
+import json
 from zipfile import ZipFile
 
 import click
@@ -166,11 +167,19 @@ class ChartAsset(Asset):
         "params.datasource",
         "params.slice_id",
     ]
-    raw_vars = ["sqlExpression", "query_context"]
+    raw_vars = ["sqlExpression", "query_context", "translate_column"]
 
     def process(self, content: dict, existing: dict):
-        if not content.get("query_context"):
+        if not content.get("query_context") and existing:
             content["query_context"] = existing.get("query_context")
+        query_context = content["query_context"]
+        if query_context is not None and isinstance(query_context, str):
+            content["query_context"] = json.loads(query_context)
+        # run templated vars again to update query_context
+        if existing:
+            self.omit_templated_vars(
+                content["query_context"], existing.get("query_context")
+            )
 
 
 class DashboardAsset(Asset):
@@ -221,15 +230,24 @@ ASSET_TYPE_MAP = {
 }
 
 
-def validate_asset_file(asset_path, content, echo):
+def validate_asset_file(asset_path, content, echo):  # pylint: disable=too-many-branches
     """
     Check various aspects of the asset file based on its type.
 
     Returns the destination path for the file to import to.
+    Append last 6 characters of uuid for charts
     """
     orig_filename = os.path.basename(asset_path)
-    out_filename = re.sub(r"(_\d*)\.yaml", ".yaml", orig_filename)
-    content[FILE_NAME_ATTRIBUTE] = out_filename
+
+    # make sure to not change the dashboard filename if we happen
+    # to have a chart with the same name
+    if not content.get("dashboard_title"):
+        out_filename_uuid = re.sub(
+            r"(_\d*)\.yaml", f"_{content['uuid'][:6]}.yaml", orig_filename
+        )
+    else:
+        out_filename_uuid = re.sub(r"(_\d*)\.yaml", ".yaml", orig_filename)
+    content[FILE_NAME_ATTRIBUTE] = out_filename_uuid
 
     out_path = None
     needs_review = False
@@ -239,10 +257,9 @@ def validate_asset_file(asset_path, content, echo):
 
             existing = None
 
-            # Check if the file already exists
-            if os.path.exists(os.path.join(out_path, out_filename)):
+            if os.path.exists(os.path.join(out_path, out_filename_uuid)):
                 with open(
-                    os.path.join(out_path, out_filename), encoding="utf-8"
+                    os.path.join(out_path, out_filename_uuid), encoding="utf-8"
                 ) as stream:
                     existing = yaml.safe_load(stream)
 
@@ -292,13 +309,14 @@ def validate_asset_file(asset_path, content, echo):
     return out_path, needs_review
 
 
-def import_superset_assets(file, echo):
+def import_superset_assets(file, echo):  # pylint: disable=too-many-locals
     """
     Import assets from a Superset export zip file to the openedx-assets directory.
     """
     written_assets = []
     review_files = set()
     err = 0
+    dataset_warn = False
 
     with ZipFile(file.name) as zip_file:
         for asset_path in zip_file.namelist():
@@ -311,6 +329,9 @@ def import_superset_assets(file, echo):
                 # This can happen if it's an unknown asset type
                 if not out_path:
                     continue
+
+                if "dataset" in out_path:
+                    dataset_warn = True
 
                 if needs_review:
                     review_files.add(content[FILE_NAME_ATTRIBUTE])
@@ -338,6 +359,11 @@ def import_superset_assets(file, echo):
 
     echo()
     echo(f"Serialized {len(written_assets)} assets")
+    if dataset_warn:
+        echo()
+        echo(
+            "WARNING: Datasets were changed, please check if SQL queries need to be updated"
+        )
 
     return err
 
