@@ -95,7 +95,7 @@ toolz==0.12.1
     # via pyseeyou
 transifex-python==3.5.0
     # via -r requirements/base.in
-tutor==17.0.5
+tutor==17.0.6
     # via -r requirements/base.in
 typing-extensions==4.12.2
     # via
