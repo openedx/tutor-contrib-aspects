@@ -1,0 +1,164 @@
+_file_name: Video_Engagement_per_Subsection_cf5b6e.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 247a55b3-d44e-442e-ba92-71bf7976b192
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: null
+    datasourceWarning: false
+    expressionType: SQL
+    filterOptionName: filter_1eznhnyjr5k_wylhwvlq7z
+    isExtra: false
+    isNew: false
+    operator: null
+    sqlExpression: |-
+      `section_subsection_name` <> ''
+    subject: null
+  - clause: WHERE
+    comparator: subsection
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_9uxf3jzunuu_agqd5zk40wm
+    isExtra: false
+    isNew: false
+    operator: ==
+    operatorId: EQUALS
+    sqlExpression: null
+    subject: content_level
+  all_columns: []
+  color_pn: true
+  conditional_formatting:
+  - colorScheme: '#ACE1C4'
+    column: all_videos_viewed
+    operator: '>'
+    targetValue: 0
+  - colorScheme: '#FDE380'
+    column: at_least_one_viewed
+    operator: '>'
+    targetValue: 0
+  extra_form_data: {}
+  groupby:
+  - datasourceWarning: false
+    expressionType: SQL
+    label: Subsection Location and Name
+    sqlExpression: section_subsection_name
+  metrics:
+  - all_videos_viewed
+  - at_least_one_viewed
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 10000
+  server_page_length: 10
+  show_cell_bars: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup: {}
+  time_grain_sqla: P1M
+  viz_type: table
+query_context:
+  datasource:
+    id: 14
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: null
+      datasourceWarning: false
+      expressionType: SQL
+      filterOptionName: filter_1eznhnyjr5k_wylhwvlq7z
+      isExtra: false
+      isNew: false
+      operator: null
+      sqlExpression: |-
+        `section_subsection_name` <> ''
+      subject: null
+    - clause: WHERE
+      comparator: subsection
+      datasourceWarning: false
+      expressionType: SIMPLE
+      filterOptionName: filter_9uxf3jzunuu_agqd5zk40wm
+      isExtra: false
+      isNew: false
+      operator: ==
+      operatorId: EQUALS
+      sqlExpression: null
+      subject: content_level
+    all_columns: []
+    color_pn: true
+    conditional_formatting:
+    - colorScheme: '#ACE1C4'
+      column: all_videos_viewed
+      operator: '>'
+      targetValue: 0
+    - colorScheme: '#FDE380'
+      column: at_least_one_viewed
+      operator: '>'
+      targetValue: 0
+    dashboards:
+    - 29
+    datasource: 14__table
+    extra_form_data: {}
+    force: false
+    groupby:
+    - datasourceWarning: false
+      expressionType: SQL
+      label: Subsection Location and Name
+      sqlExpression: section_subsection_name
+    metrics:
+    - all_videos_viewed
+    - at_least_one_viewed
+    order_by_cols: []
+    order_desc: true
+    percent_metrics: []
+    query_mode: aggregate
+    result_format: json
+    result_type: full
+    row_limit: 10000
+    server_page_length: 10
+    show_cell_bars: true
+    slice_id: 187
+    table_timestamp_format: smart_date
+    temporal_columns_lookup: {}
+    time_grain_sqla: P1M
+    viz_type: table
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - datasourceWarning: false
+      expressionType: SQL
+      label: Subsection Location and Name
+      sqlExpression: section_subsection_name
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1M
+      where: |-
+        (`section_subsection_name` <> '')
+    filters:
+    - col: content_level
+      op: ==
+      val: subsection
+    metrics:
+    - all_videos_viewed
+    - at_least_one_viewed
+    order_desc: true
+    orderby:
+    - - all_videos_viewed
+      - false
+    post_processing: []
+    row_limit: 10000
+    series_limit: 0
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Video Engagement per Subsection
+uuid: cf5b6eb7-d22c-4dda-bd4e-ee2401f337cc
+version: 1.0.0
+viz_type: table

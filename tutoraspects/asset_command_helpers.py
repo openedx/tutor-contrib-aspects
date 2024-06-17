@@ -167,7 +167,7 @@ class ChartAsset(Asset):
         "params.datasource",
         "params.slice_id",
     ]
-    raw_vars = ["sqlExpression", "query_context"]
+    raw_vars = ["sqlExpression", "query_context", "translate_column"]
 
     def process(self, content: dict, existing: dict):
         if not content.get("query_context"):
@@ -175,6 +175,10 @@ class ChartAsset(Asset):
         query_context = content["query_context"]
         if query_context is not None and isinstance(query_context, str):
             content["query_context"] = json.loads(query_context)
+        # run templated vars again to update query_context
+        self.omit_templated_vars(
+            content["query_context"], existing.get("query_context")
+        )
 
 
 class DashboardAsset(Asset):
@@ -304,13 +308,14 @@ def validate_asset_file(asset_path, content, echo):  # pylint: disable=too-many-
     return out_path, needs_review
 
 
-def import_superset_assets(file, echo):
+def import_superset_assets(file, echo):  # pylint: disable=too-many-locals
     """
     Import assets from a Superset export zip file to the openedx-assets directory.
     """
     written_assets = []
     review_files = set()
     err = 0
+    dataset_warn = False
 
     with ZipFile(file.name) as zip_file:
         for asset_path in zip_file.namelist():
@@ -323,6 +328,9 @@ def import_superset_assets(file, echo):
                 # This can happen if it's an unknown asset type
                 if not out_path:
                     continue
+
+                if "dataset" in out_path:
+                    dataset_warn = True
 
                 if needs_review:
                     review_files.add(content[FILE_NAME_ATTRIBUTE])
@@ -350,6 +358,11 @@ def import_superset_assets(file, echo):
 
     echo()
     echo(f"Serialized {len(written_assets)} assets")
+    if dataset_warn:
+        echo()
+        echo(
+            "WARNING: Datasets were changed, please check if SQL queries need to be updated"
+        )
 
     return err
 

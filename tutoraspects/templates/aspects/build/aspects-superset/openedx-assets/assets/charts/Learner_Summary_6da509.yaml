@@ -53,7 +53,7 @@ params:
       {% raw %}{{translate_column('enrollment_status')}}{% endraw %}
   - expressionType: SQL
     label: Grade Range
-    sqlExpression: grade_bucket
+    sqlExpression: grade_bucket  
   - expressionType: SQL
     label: Course Grade %
     sqlExpression: ROUND(course_grade*100, 2)

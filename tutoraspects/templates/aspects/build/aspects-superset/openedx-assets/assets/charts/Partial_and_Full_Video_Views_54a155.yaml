@@ -1,42 +1,28 @@
-_file_name: Page_views_per_section_834ec7.yaml
+_file_name: Partial_and_Full_Video_Views_54a155.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: 9febd6be-5102-4dbf-86b9-45ebd3cbbc45
+dataset_uuid: d0070c9a-5b1c-4e52-867b-79aa46a8cdcf
 description: null
 params:
-  adhoc_filters:
-  - clause: WHERE
-    comparator: section
-    datasourceWarning: false
-    expressionType: SIMPLE
-    filterOptionName: filter_k8vxzqng15_65dx11p7fbi
-    isExtra: false
-    isNew: false
-    operator: ==
-    operatorId: EQUALS
-    sqlExpression: null
-    subject: content_level
+  adhoc_filters: []
   all_columns: []
-  annotation_layers: []
   color_pn: true
   conditional_formatting:
   - colorScheme: '#ACE1C4'
-    column: all_pages_viewed
+    column: full_views
     operator: '>'
     targetValue: 0
   - colorScheme: '#FDE380'
-    column: at_leat_one_page_viewed
+    column: partial_views
     operator: '>'
     targetValue: 0
   extra_form_data: {}
   groupby:
-  - expressionType: SQL
-    label: Section name
-    sqlExpression: section_subsection_name
+  - video_name_with_location
   metrics:
-  - all_pages_viewed
-  - at_leat_one_page_viewed
+  - full_views
+  - partial_views
   order_by_cols: []
   order_desc: true
   percent_metrics: []
@@ -50,45 +36,32 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 30
+    id: 23
     type: table
   force: false
   form_data:
-    adhoc_filters:
-    - clause: WHERE
-      comparator: section
-      datasourceWarning: false
-      expressionType: SIMPLE
-      filterOptionName: filter_k8vxzqng15_65dx11p7fbi
-      isExtra: false
-      isNew: false
-      operator: ==
-      operatorId: EQUALS
-      sqlExpression: null
-      subject: content_level
+    adhoc_filters: []
     all_columns: []
     color_pn: true
     conditional_formatting:
     - colorScheme: '#ACE1C4'
-      column: all_pages_viewed
+      column: full_views
       operator: '>'
       targetValue: 0
     - colorScheme: '#FDE380'
-      column: at_leat_one_page_viewed
+      column: partial_views
       operator: '>'
       targetValue: 0
     dashboards:
-    - 65
-    datasource: 30__table
+    - 29
+    datasource: 23__table
     extra_form_data: {}
     force: false
     groupby:
-    - expressionType: SQL
-      label: Section name
-      sqlExpression: section_subsection_name
+    - video_name_with_location
     metrics:
-    - all_pages_viewed
-    - at_leat_one_page_viewed
+    - full_views
+    - partial_views
     order_by_cols: []
     order_desc: true
     percent_metrics: []
@@ -98,7 +71,7 @@ query_context:
     row_limit: 10000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 47
+    slice_id: 136
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     time_grain_sqla: P1M
@@ -107,25 +80,20 @@ query_context:
   - annotation_layers: []
     applied_time_extras: {}
     columns:
-    - expressionType: SQL
-      label: Section name
-      sqlExpression: section_subsection_name
+    - video_name_with_location
     custom_form_data: {}
     custom_params: {}
     extras:
       having: ''
       time_grain_sqla: P1M
       where: ''
-    filters:
-    - col: content_level
-      op: ==
-      val: section
+    filters: []
     metrics:
-    - all_pages_viewed
-    - at_leat_one_page_viewed
+    - full_views
+    - partial_views
     order_desc: true
     orderby:
-    - - all_pages_viewed
+    - - full_views
       - false
     post_processing: []
     row_limit: 10000
@@ -133,7 +101,7 @@ query_context:
     url_params: {}
   result_format: json
   result_type: full
-slice_name: Page views per section
-uuid: 834ec7c4-ead8-4dea-b227-1c8be5fbb1d3
+slice_name: Partial and Full Video Views
+uuid: 54a1551c-7eb3-43fb-abd1-005816da0769
 version: 1.0.0
 viz_type: table

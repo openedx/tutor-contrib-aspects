@@ -73,7 +73,10 @@ select
     full_responses.success as success,
     full_responses.attempts as attempts,
     full_responses.interaction_type as interaction_type,
-    blocks.graded
+    blocks.graded,
+    users.username as username,
+    users.email as email,
+    users.name as name
 from full_responses
 join
     {{ DBT_PROFILE_TARGET_DATABASE }}.dim_course_blocks blocks
@@ -81,3 +84,6 @@ join
         full_responses.course_key = blocks.course_key
         and full_responses.problem_id = blocks.block_id
     )
+join
+    event_sink.user_pii users
+    on full_responses.actor_id = users.external_user_id::String

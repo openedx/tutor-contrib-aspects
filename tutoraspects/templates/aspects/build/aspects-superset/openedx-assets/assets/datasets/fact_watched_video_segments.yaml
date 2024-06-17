@@ -28,6 +28,30 @@ columns:
   type: String
   verbose_name: Video Name With Location
 - advanced_data_type: null
+  column_name: subsection_with_name
+  description: null
+  expression: null
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Subsection With Name
+- advanced_data_type: null
+  column_name: section_with_name
+  description: null
+  expression: null
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Section With Name
+- advanced_data_type: null
   column_name: video_duration
   description: null
   expression: ''
@@ -39,6 +63,30 @@ columns:
   python_date_format: null
   type: Int64
   verbose_name: Video Duration
+- advanced_data_type: null
+  column_name: start_position
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int64
+  verbose_name: Start Position
+- advanced_data_type: null
+  column_name: segment_start
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int64
+  verbose_name: Segment Start
 - advanced_data_type: null
   column_name: started_at
   description: null
@@ -124,30 +172,6 @@ columns:
   type: String
   verbose_name: Segment Range
 - advanced_data_type: null
-  column_name: segment_start
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Segment Start
-- advanced_data_type: null
-  column_name: start_position
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Int64
-  verbose_name: Start Position
-- advanced_data_type: null
   column_name: email
   description: null
   expression: ''
@@ -230,6 +254,15 @@ metrics:
   metric_name: unique_viewers
   metric_type: null
   verbose_name: Unique Viewers
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: COUNT(*)
+  extra: null
+  metric_name: count
+  metric_type: count
+  verbose_name: COUNT(*)
   warning_text: null
 normalize_columns: true
 offset: 0

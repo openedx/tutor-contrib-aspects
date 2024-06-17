@@ -13,6 +13,9 @@ select
     video_name,
     video_name_with_location,
     actor_id,
+    username,
+    email,
+    name,
     count(distinct segment_start) as watched_segment_count,
     (video_duration - 10) / 5 as video_segment_count,
     video_segment_count <= watched_segment_count as watched_entire_video
@@ -39,4 +42,7 @@ group by
     video_name,
     video_name_with_location,
     actor_id,
-    video_segment_count
+    video_segment_count,
+    username,
+    email,
+    name

@@ -1,22 +1,11 @@
-_file_name: Video_views_per_section_subsection_c1f774.yaml
+_file_name: Partial_and_Full_Video_Views_bfffb9.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: 247a55b3-d44e-442e-ba92-71bf7976b192
+dataset_uuid: d0070c9a-5b1c-4e52-867b-79aa46a8cdcf
 description: null
 params:
-  adhoc_filters:
-  - clause: WHERE
-    comparator: null
-    datasourceWarning: false
-    expressionType: SQL
-    filterOptionName: filter_1eznhnyjr5k_wylhwvlq7z
-    isExtra: false
-    isNew: false
-    operator: null
-    sqlExpression: |-
-      `section_subsection_name` <> ''
-    subject: null
+  adhoc_filters: []
   annotation_layers: []
   color_scheme: supersetColors
   comparison_type: values
@@ -27,8 +16,8 @@ params:
   legendOrientation: top
   legendType: scroll
   metrics:
-  - all_videos_viewed
-  - at_least_one_viewed
+  - partial_views
+  - full_views
   only_total: true
   order_desc: true
   orientation: vertical
@@ -36,15 +25,17 @@ params:
   row_limit: 10000
   show_empty_columns: true
   show_legend: true
-  show_value: false
   sort_series_type: sum
   time_grain_sqla: P1M
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncate_metric: true
   viz_type: echarts_timeseries_bar
-  xAxisLabelRotation: 0
-  x_axis: section_subsection_name
+  xAxisLabelRotation: 45
+  x_axis:
+    expressionType: SQL
+    label: Video Name With Location
+    sqlExpression: video_name_with_location
   x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
@@ -54,35 +45,24 @@ params:
   - null
   - null
   y_axis_format: SMART_NUMBER
-  y_axis_title: Number of learners
+  y_axis_title: Number of Learners
   y_axis_title_margin: 30
   y_axis_title_position: Left
   zoomable: true
 query_context:
   datasource:
-    id: 26
+    id: 23
     type: table
   force: false
   form_data:
-    adhoc_filters:
-    - clause: WHERE
-      comparator: null
-      datasourceWarning: false
-      expressionType: SQL
-      filterOptionName: filter_1eznhnyjr5k_wylhwvlq7z
-      isExtra: false
-      isNew: false
-      operator: null
-      sqlExpression: |-
-        `section_subsection_name` <> ''
-      subject: null
+    adhoc_filters: []
     annotation_layers: []
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 65
-    - 67
-    datasource: 26__table
+    - 28
+    - 29
+    datasource: 23__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -91,8 +71,8 @@ query_context:
     legendOrientation: top
     legendType: scroll
     metrics:
-    - all_videos_viewed
-    - at_least_one_viewed
+    - partial_views
+    - full_views
     only_total: true
     order_desc: true
     orientation: vertical
@@ -102,16 +82,18 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    show_value: false
-    slice_id: 34
+    slice_id: 104
     sort_series_type: sum
     time_grain_sqla: P1M
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
     viz_type: echarts_timeseries_bar
-    xAxisLabelRotation: 0
-    x_axis: section_subsection_name
+    xAxisLabelRotation: 45
+    x_axis:
+      expressionType: SQL
+      label: Video Name With Location
+      sqlExpression: video_name_with_location
     x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
@@ -121,7 +103,7 @@ query_context:
     - null
     - null
     y_axis_format: SMART_NUMBER
-    y_axis_title: Number of learners
+    y_axis_title: Number of Learners
     y_axis_title_margin: 30
     y_axis_title_position: Left
     zoomable: true
@@ -131,36 +113,35 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: section_subsection_name
-      sqlExpression: section_subsection_name
+      label: Video Name With Location
+      sqlExpression: video_name_with_location
       timeGrain: P1M
     custom_form_data: {}
     custom_params: {}
     extras:
       having: ''
       time_grain_sqla: P1M
-      where: |-
-        (`section_subsection_name` <> '')
+      where: ''
     filters: []
     metrics:
-    - all_videos_viewed
-    - at_least_one_viewed
+    - partial_views
+    - full_views
     order_desc: true
     orderby:
-    - - all_videos_viewed
+    - - partial_views
       - false
     post_processing:
     - operation: pivot
       options:
         aggregates:
-          all_videos_viewed:
+          full_views:
             operator: mean
-          at_least_one_viewed:
+          partial_views:
             operator: mean
         columns: []
         drop_missing_columns: false
         index:
-        - section_subsection_name
+        - Video Name With Location
     - operation: flatten
     row_limit: 10000
     series_columns: []
@@ -169,7 +150,7 @@ query_context:
     url_params: {}
   result_format: json
   result_type: full
-slice_name: Video views per section/subsection
-uuid: c1f77432-e55f-4473-b7d0-7a1c3976e6a8
+slice_name: Partial and Full Video Views
+uuid: bfffb9fe-07bd-4b2f-b437-522d45f6cd2c
 version: 1.0.0
 viz_type: echarts_timeseries_bar
