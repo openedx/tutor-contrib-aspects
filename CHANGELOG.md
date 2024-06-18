@@ -5,6 +5,81 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.0.1 - 2024-06-18
+
+### [1.1.0-cag-release-workflow-v2.0](https://github.com/openedx/tutor-contrib-aspects/compare/v1.0.0...v1.1.0-cag-release-workflow-v2.0) (2024-06-18)
+
+#### Features
+
+* Update performance_metrics to take optional dashboard and slice ([#801](https://github.com/openedx/tutor-contrib-aspects/issues/801)) ([02e0a50](https://github.com/openedx/tutor-contrib-aspects/commit/02e0a50df23ea4a02919f2c1bd98b78e57ea6ad2))
+* use jinja for watched video segments query ([#804](https://github.com/openedx/tutor-contrib-aspects/issues/804)) ([cb8c40c](https://github.com/openedx/tutor-contrib-aspects/commit/cb8c40c3560360a7bb959e359fa96835ba83f1fc))
+* **perf:** improve time of running dbt by pre installing requirements ([ccb2c4b](https://github.com/openedx/tutor-contrib-aspects/commit/ccb2c4b8bd355fd32c96a5e78bd907521ccd589e))
+* Add command to generate a dbt exposures file ([#851](https://github.com/openedx/tutor-contrib-aspects/issues/851)) ([859cb4c](https://github.com/openedx/tutor-contrib-aspects/commit/859cb4c699d55aae7bde47a7bdd01957c3ad2647))
+* add init clickhouse job ([#815](https://github.com/openedx/tutor-contrib-aspects/issues/815)) ([a2fa0ff](https://github.com/openedx/tutor-contrib-aspects/commit/a2fa0ff7775aca9968b8ae846d65e2415ed315e8))
+* Add real version of aspects-dbt to include new model ([f68fea3](https://github.com/openedx/tutor-contrib-aspects/commit/f68fea3ad64c3c5336c5ccf00ca03c39d4d686d7))
+* add uuid to chart filenames ([01ec69a](https://github.com/openedx/tutor-contrib-aspects/commit/01ec69a81df80d0a6e735d172e1aed148e9d744a))
+* bring back int_problem_results CTEs ([8864c4b](https://github.com/openedx/tutor-contrib-aspects/commit/8864c4bd5ff14d5099b41d0b70bd1ecd4fb19018))
+* changes from edunext for individual learner dashboard ([#860](https://github.com/openedx/tutor-contrib-aspects/issues/860)) ([9d17c82](https://github.com/openedx/tutor-contrib-aspects/commit/9d17c8299e9c20ccd9ad6fe66e8788a709ddd7a2))
+* move page engagement to an mv ([5c2792f](https://github.com/openedx/tutor-contrib-aspects/commit/5c2792f02009db65b15316f041d16ebf2cbb8816))
+* serialize query_context as json for redability ([ca06d3a](https://github.com/openedx/tutor-contrib-aspects/commit/ca06d3a15016d073e49d159a9a899399c49c2699))
+* Turn on event-routing-backends batching by default ([#844](https://github.com/openedx/tutor-contrib-aspects/issues/844)) ([deabdd5](https://github.com/openedx/tutor-contrib-aspects/commit/deabdd5ff928aadcfb5814739fca5fe80b02c2c5))
+* ui changes from edunext sandbox ([#858](https://github.com/openedx/tutor-contrib-aspects/issues/858)) ([4bcc491](https://github.com/openedx/tutor-contrib-aspects/commit/4bcc491728832bc6d0858884d82685608e78740c))
+* upgrade aspects-dbt to pages ([546e304](https://github.com/openedx/tutor-contrib-aspects/commit/546e30407307df2fba55ff93b46d0ca2db6c1b89))
+* upgrade aspects-dbt to v3.26.0 ([07a5ca2](https://github.com/openedx/tutor-contrib-aspects/commit/07a5ca272a30fe1999bb798241f46fcb8ea5052d))
+* upgrade aspects-dbt to v3.27.0 ([eddd610](https://github.com/openedx/tutor-contrib-aspects/commit/eddd61006b5e1ea17d3bfcbfaa1806d4c9fb1462))
+* use video engagement from MV ([f23bdce](https://github.com/openedx/tutor-contrib-aspects/commit/f23bdce630eb2d6c4aa6f769b20fe73d13d95a26))
+
+#### Bug Fixes
+
+* Add help text to the individual learner dash ([01941b8](https://github.com/openedx/tutor-contrib-aspects/commit/01941b831ca452f3ece7ad33963385786106f5c0))
+* add key for memoized_func ([d3fabff](https://github.com/openedx/tutor-contrib-aspects/commit/d3fabff4966d8b511929d28cdcc219397fbdd842))
+* add missing aspects instructor help markdown ([6d36aa5](https://github.com/openedx/tutor-contrib-aspects/commit/6d36aa5ee61592b5ecf3ba57fe297b51734b2a1f))
+* Add verbose names to fact_problem_engagement fields ([9cb979c](https://github.com/openedx/tutor-contrib-aspects/commit/9cb979ceb45b264bebe05f3268ade5bf2446c314))
+* Bump aspects-dbt to v3.29.0 to get associated changes ([27e412f](https://github.com/openedx/tutor-contrib-aspects/commit/27e412fe6ec71f26851438415902dd79832e5e26))
+* Bump event-routing-backends to v9.2.1 ([#850](https://github.com/openedx/tutor-contrib-aspects/issues/850)) ([8651843](https://github.com/openedx/tutor-contrib-aspects/commit/8651843e217537be29c7b29c7808250342d268d8))
+* Bump platform-plugin-aspects to 0.9.7 ([3441da7](https://github.com/openedx/tutor-contrib-aspects/commit/3441da7944a707154b489371a8eda4220cd2c90b))
+* Course Dash limit label lengths, require course key ([03e7d1f](https://github.com/openedx/tutor-contrib-aspects/commit/03e7d1f87f8c3de42899e3ef25dcefcae334a20e))
+* Display issues with "problems attempted by section/subsection" ([5fd4f26](https://github.com/openedx/tutor-contrib-aspects/commit/5fd4f267c8c706c39ca6e9bbd1dbaefae23658e8))
+* Enrollment pii fix, use 2 dbt threads by default ([b307164](https://github.com/openedx/tutor-contrib-aspects/commit/b307164876e3f59e5b26c7ec780e418d319ebed4))
+* Fix KeyError in compile_translations ([#807](https://github.com/openedx/tutor-contrib-aspects/issues/807)) ([d4a02db](https://github.com/openedx/tutor-contrib-aspects/commit/d4a02dbe12c1691af2afb006d0df5e741975da75))
+* increase gunicorn keep alive to 5 ([477497b](https://github.com/openedx/tutor-contrib-aspects/commit/477497ba3fee0ff3e5b75fe75e696d200bc93bd3))
+* load query context as json at import ([714e660](https://github.com/openedx/tutor-contrib-aspects/commit/714e66025624ce880f7cc182dd788bd655231416))
+* new strings for translation ([#842](https://github.com/openedx/tutor-contrib-aspects/issues/842)) ([8c0c4bb](https://github.com/openedx/tutor-contrib-aspects/commit/8c0c4bbc0b8593d812d9a5fdcdc8bde646d567e6))
+* Operator dash user counts, performance ([0cc17dc](https://github.com/openedx/tutor-contrib-aspects/commit/0cc17dcb4ba886432a07673aa57336fcd9781f46))
+* Performance enhancements for at-risk dashboards ([22bf042](https://github.com/openedx/tutor-contrib-aspects/commit/22bf0421c8222173e1720f0459958a16351a2138))
+* Performance enhancements for at-risk dashboards ([ee191a3](https://github.com/openedx/tutor-contrib-aspects/commit/ee191a37e4d571029eec4631ddfbae166d89006f))
+* Performance fixes for learner summary, fix grade % ([4fc17cc](https://github.com/openedx/tutor-contrib-aspects/commit/4fc17cc0f38cafe2e8aa8ab5e8657f00b59d6b03))
+* Performance fixes, more dataset strings, new help text ([1aa24cd](https://github.com/openedx/tutor-contrib-aspects/commit/1aa24cd6371b3e706ab0514835dd370eb384bd4c))
+* Problem results correct/incorrect to percentages ([d44b650](https://github.com/openedx/tutor-contrib-aspects/commit/d44b650c2417d97dbf4951c1de38a8eb62b0de88))
+* Re-add jinja filters for performance ([c8200e3](https://github.com/openedx/tutor-contrib-aspects/commit/c8200e37eff63821597a252450f66d8c0c2ea405))
+* re-serialize assets for query context ([bb2a553](https://github.com/openedx/tutor-contrib-aspects/commit/bb2a5531a3db8cd8ae76c3b5c37b19a8b120a19d))
+* re-serialize partial views assets ([c58daae](https://github.com/openedx/tutor-contrib-aspects/commit/c58daae4f47c188aba32bae03a9c9a48a7c744bc))
+* Remove all references to JSON column and setting ([#806](https://github.com/openedx/tutor-contrib-aspects/issues/806)) ([2ca930f](https://github.com/openedx/tutor-contrib-aspects/commit/2ca930f92a32125dc2955d639d185949021eca6d))
+* remove leftUT8 references ([f85a328](https://github.com/openedx/tutor-contrib-aspects/commit/f85a32835c2ab38c3b5514aeb3e58978d8c78d93))
+* remove leftUT8 references ([91c597f](https://github.com/openedx/tutor-contrib-aspects/commit/91c597f7d1118da2f2175a8c7368407fd799c9f3))
+* serialize query performance asset ([557d2eb](https://github.com/openedx/tutor-contrib-aspects/commit/557d2eb6f50d6d4e84c9753a9cff30d59525cf67))
+* show correct value on watched segments x-axis ([ade8379](https://github.com/openedx/tutor-contrib-aspects/commit/ade837938cb6bfd2e838ca410775636149592cfe))
+* Translate "graded" data strings in Course Dash ([0fb0aa0](https://github.com/openedx/tutor-contrib-aspects/commit/0fb0aa0d637133bb221c23c1ed2ddeb6a09e4709))
+* Use correct schema, coerce actor_id, move include ([aab080b](https://github.com/openedx/tutor-contrib-aspects/commit/aab080b3a26457d53ddce1bd68cac8dabcb0337a))
+* Use enrolled date if last visited is not set ([0b4ea8a](https://github.com/openedx/tutor-contrib-aspects/commit/0b4ea8a69cec1e5a461c1a649a0c04e5828d991a))
+* Use new column name for fact_learner_last_course_visit ([416299b](https://github.com/openedx/tutor-contrib-aspects/commit/416299b7ffccc0070fb12043ce03b691e70dbd4f))
+* verify event bus producer config is defined ([ed4b4f4](https://github.com/openedx/tutor-contrib-aspects/commit/ed4b4f46bf4b843a9e7fc6398cca4f4a33375c13))
+
+#### Styles
+
+* formatting ([a0731b7](https://github.com/openedx/tutor-contrib-aspects/commit/a0731b79c0a69ad4c606dcb50f5fb3bb60ff52f3))
+* only check new filename ([d386b45](https://github.com/openedx/tutor-contrib-aspects/commit/d386b45d9385faa37a72a4e9e2e7b38ee032c12a))
+* Sqlfmt fix ([230ed54](https://github.com/openedx/tutor-contrib-aspects/commit/230ed54c897d05e86e50b6cfc7b6497dc5dadb2b))
+
+#### Build Systems
+
+* **deps:** bump stefanzweifel/changelog-updater-action ([#819](https://github.com/openedx/tutor-contrib-aspects/issues/819)) ([f0bb4dd](https://github.com/openedx/tutor-contrib-aspects/commit/f0bb4dde6f54a7bfc236cb651f4aa7eb91bf971b))
+* don't tag this in Open edX releases ([#810](https://github.com/openedx/tutor-contrib-aspects/issues/810)) ([839460a](https://github.com/openedx/tutor-contrib-aspects/commit/839460a6969d471a50bc2eccadc181eef8bf218d))
+* fail on error on every environment ([8cda924](https://github.com/openedx/tutor-contrib-aspects/commit/8cda924fcf713cc550353ec3ee1febe7129c495f))
+* **deps:** bump docker/login-action from 3.1.0 to 3.2.0 ([#847](https://github.com/openedx/tutor-contrib-aspects/issues/847)) ([1b963c7](https://github.com/openedx/tutor-contrib-aspects/commit/1b963c7e24c27fbc0d22e75c91d7d84d156a57b7))
+* Make CI force course_overviews dump ([#856](https://github.com/openedx/tutor-contrib-aspects/issues/856)) ([03b45d1](https://github.com/openedx/tutor-contrib-aspects/commit/03b45d1f3e3d3721365bb183bb96657a9b2e1deb))
+* Speed up CI by limiting languages ([307c60a](https://github.com/openedx/tutor-contrib-aspects/commit/307c60a3b6fd129fd80176b8c823241b0d998023))
+
 ## v1.0.0 - 2024-05-09
 
 ### Release 1.0!
