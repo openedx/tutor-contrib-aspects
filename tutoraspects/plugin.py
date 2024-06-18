@@ -6,6 +6,7 @@ import os.path
 import random
 import string
 from glob import glob
+import typing as t
 
 import bcrypt
 import importlib_resources
@@ -439,6 +440,18 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
         ("SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY", "xapi_course_id"),
     ]
 )
+
+
+@hooks.Filters.APP_PUBLIC_HOSTS.add()
+def _aspects_public_hosts(
+    hosts: list[str], context_name: t.Literal["local", "dev"]
+) -> list[str]:
+    if context_name == "dev":
+        hosts += ["{{ SUPERSET_HOST }}:{{ SUPERSET_PORT }}"]
+    else:
+        hosts += ["{{ SUPERSET_HOST }}"]
+    return hosts
+
 
 ########################################
 # INITIALIZATION TASKS
