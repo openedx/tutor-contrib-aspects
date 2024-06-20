@@ -35,25 +35,30 @@ params:
   - email
   - course_name
   - course_run
-  - expressionType: SQL
+  - datasourceWarning: false
+    expressionType: SQL
     label: Enrollment Date
     sqlExpression: emission_time
   - last_visited
-  - expressionType: SQL
+  - datasourceWarning: false
+    expressionType: SQL
     label: Passed/Failed
     sqlExpression: |-
       {% raw %}{{translate_column('approving_state')}}{% endraw %}
-  - expressionType: SQL
+  - datasourceWarning: false
+    expressionType: SQL
     label: Enrollment Track
     sqlExpression: |-
       {% raw %}{{translate_column('enrollment_mode')}}{% endraw %}
-  - expressionType: SQL
+  - datasourceWarning: false
+    expressionType: SQL
     label: Enrollment Status
     sqlExpression: |-
       {% raw %}{{translate_column('enrollment_status')}}{% endraw %}
-  - expressionType: SQL
+  - datasourceWarning: false
+    expressionType: SQL
     label: Grade Range
-    sqlExpression: grade_bucket  
+    sqlExpression: grade_bucket
   - expressionType: SQL
     label: Course Grade %
     sqlExpression: ROUND(course_grade*100, 2)
@@ -85,7 +90,6 @@ query_context:
       operator: TEMPORAL_RANGE
       subject: emission_time
     all_columns: []
-    annotation_layers: []
     color_pn: true
     conditional_formatting:
     - colorScheme: '#ACE1C4'
@@ -110,18 +114,28 @@ query_context:
     - email
     - course_name
     - course_run
-    - expressionType: SQL
+    - datasourceWarning: false
+      expressionType: SQL
       label: Enrollment Date
       sqlExpression: emission_time
     - last_visited
-    - expressionType: SQL
+    - datasourceWarning: false
+      expressionType: SQL
       label: Passed/Failed
-      sqlExpression: approving_state
-    - expressionType: SQL
+      sqlExpression: |-
+        {% raw %}{{translate_column('approving_state')}}{% endraw %}
+    - datasourceWarning: false
+      expressionType: SQL
       label: Enrollment Track
-      sqlExpression: enrollment_mode
-    - enrollment_status
-    - expressionType: SQL
+      sqlExpression: |-
+        {% raw %}{{translate_column('enrollment_mode')}}{% endraw %}
+    - datasourceWarning: false
+      expressionType: SQL
+      label: Enrollment Status
+      sqlExpression: |-
+        {% raw %}{{translate_column('enrollment_status')}}{% endraw %}
+    - datasourceWarning: false
+      expressionType: SQL
       label: Grade Range
       sqlExpression: grade_bucket
     - course_grade
@@ -152,7 +166,8 @@ query_context:
     - email
     - course_name
     - course_run
-    - expressionType: SQL
+    - datasourceWarning: false
+      expressionType: SQL
       label: Enrollment Date
       sqlExpression: emission_time
     - columnType: BASE_AXIS
@@ -160,14 +175,23 @@ query_context:
       label: last_visited
       sqlExpression: last_visited
       timeGrain: P1D
-    - expressionType: SQL
+    - datasourceWarning: false
+      expressionType: SQL
       label: Passed/Failed
-      sqlExpression: approving_state
-    - expressionType: SQL
+      sqlExpression: |-
+        {% raw %}{{translate_column('approving_state')}}{% endraw %}
+    - datasourceWarning: false
+      expressionType: SQL
       label: Enrollment Track
-      sqlExpression: enrollment_mode
-    - enrollment_status
-    - expressionType: SQL
+      sqlExpression: |-
+        {% raw %}{{translate_column('enrollment_mode')}}{% endraw %}
+    - datasourceWarning: false
+      expressionType: SQL
+      label: Enrollment Status
+      sqlExpression: |-
+        {% raw %}{{translate_column('enrollment_status')}}{% endraw %}
+    - datasourceWarning: false
+      expressionType: SQL
       label: Grade Range
       sqlExpression: grade_bucket
     - course_grade
@@ -197,7 +221,8 @@ query_context:
     - email
     - course_name
     - course_run
-    - expressionType: SQL
+    - datasourceWarning: false
+      expressionType: SQL
       label: Enrollment Date
       sqlExpression: emission_time
     - columnType: BASE_AXIS
@@ -205,14 +230,23 @@ query_context:
       label: last_visited
       sqlExpression: last_visited
       timeGrain: P1D
-    - expressionType: SQL
+    - datasourceWarning: false
+      expressionType: SQL
       label: Passed/Failed
-      sqlExpression: approving_state
-    - expressionType: SQL
+      sqlExpression: |-
+        {% raw %}{{translate_column('approving_state')}}{% endraw %}
+    - datasourceWarning: false
+      expressionType: SQL
       label: Enrollment Track
-      sqlExpression: enrollment_mode
-    - enrollment_status
-    - expressionType: SQL
+      sqlExpression: |-
+        {% raw %}{{translate_column('enrollment_mode')}}{% endraw %}
+    - datasourceWarning: false
+      expressionType: SQL
+      label: Enrollment Status
+      sqlExpression: |-
+        {% raw %}{{translate_column('enrollment_status')}}{% endraw %}
+    - datasourceWarning: false
+      expressionType: SQL
       label: Grade Range
       sqlExpression: grade_bucket
     - course_grade
