@@ -23,8 +23,13 @@ git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }} aspects-dbt
 
 cd aspects-dbt
 
-echo "Installing dbt python requirements"
-pip install -r ./requirements.txt
+if [ -e "./requirements.txt" ]
+then
+  echo "Installing dbt python requirements"
+  pip install -r ./requirements.txt
+else
+  echo "No requirements.txt file found; skipping"
+fi
 
 export ASPECTS_EVENT_SINK_DATABASE={{ASPECTS_EVENT_SINK_DATABASE}}
 export ASPECTS_XAPI_DATABASE={{ASPECTS_XAPI_DATABASE}}
