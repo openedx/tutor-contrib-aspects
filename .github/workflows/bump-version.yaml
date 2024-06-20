@@ -1,13 +1,6 @@
 name: Bump version and changelog
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'The version to release (e.g 1.2.3)'
-        required: true
-        default: ''
-        type: string
-
+  workflow_dispatch
 
 jobs:
   bumpversion:
@@ -15,7 +8,7 @@ jobs:
     permissions:
       contents: write
     outputs:
-      version: ${{ github.event.inputs.version }}
+      version:  ${{ steps.tag_version.outputs.new_version }}
       previous_tag: ${{ steps.tag_version.outputs.previous_tag }}
       bump_commit_sha: ${{ steps.bumpversion.outputs.commit_hash }}
       pr_number: ${{ steps.cpr.outputs.pull-request-number }}
@@ -26,7 +19,7 @@ jobs:
         uses: mathieudutour/github-tag-action@v6.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          default_bump: ${{ github.event.inputs.version }}
+          default_bump: false
           default_prerelease_bump: false
           dry_run: true
       - name: Set up Python 3.12
@@ -35,19 +28,20 @@ jobs:
           python-version: "3.12"
       - name: Create bumpversion
         if: github.event.inputs.version
+        id: bumpversion
         run: |
           pip install bump2version
-          bump2version --new-version ${{ github.event.inputs.version }} setup.cfg tutoraspects/__about__.py .ci/config.yml
+          bump2version --new-version ${{ steps.tag_version.outputs.new_version }} setup.cfg tutoraspects/__about__.py .ci/config.yml
       - name: Update Changelog
         if: github.event.inputs.version
         uses: stefanzweifel/changelog-updater-action@v1.11.0
         with:
-          latest-version: v${{ github.event.inputs.version }}
+          latest-version: v${{ steps.tag_version.outputs.new_version }}
           release-notes: ${{ steps.tag_version.outputs.changelog }}
       - name: Push branch
         if: github.event.inputs.version
         run: |
-          branch_name="bot/v${{ github.event.inputs.version }}"
+          branch_name="bot/v${{ steps.tag_version.outputs.new_version }}"
           git fetch --prune origin
           if git show-ref --quiet refs/remotes/origin/$branch_name; then
             git push --delete origin $branch_name
@@ -59,16 +53,16 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}
-          title: "chore: preparing release ${{ github.event.inputs.version }}"
-          commit-message: "chore: preparing release ${{ github.event.inputs.version }}"
-          branch: "bot/v${{github.event.inputs.version}}"
+          title: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
+          commit-message: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
+          branch: "bot/v${{ steps.tag_version.outputs.new_version }}"
           base: main
           body: |
-            Automated version bump for release ${{ github.event.inputs.version }}.
+            Automated version bump for release ${{ steps.tag_version.outputs.new_version }}.
 
             This pull request was automatically generated. It includes the following changes:
 
-            - Version: v${{ github.event.inputs.version }}
+            - Version: v${{ steps.tag_version.outputs.new_version }}
             - Previous version: ${{ steps.tag_version.outputs.previous_tag }}
 
             ${{ steps.tag_version.outputs.changelog }}
