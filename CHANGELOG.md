@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.0.2 - 2024-06-20
+
+### [1.0.2](https://github.com/openedx/tutor-contrib-aspects/compare/v1.0.1...v1.0.2) (2024-06-20)
+
+### Bug Fixes
+
+* add fallback for public hosts ([#876](https://github.com/openedx/tutor-contrib-aspects/issues/876)) ([7bbebb1](https://github.com/openedx/tutor-contrib-aspects/commit/7bbebb1fe70b4c5df5d32ec9fff65ac748e37166))
+* At-risk chart text rotation ([fdd15f9](https://github.com/openedx/tutor-contrib-aspects/commit/fdd15f9958423cc2e96e41bd1887d57b22b95242))
+* Course dash problem responses/results without PII ([1621790](https://github.com/openedx/tutor-contrib-aspects/commit/162179093174e0c3cbfd38b68d6cf4a26512133e))
+* Individual learner dash translations ([de4faff](https://github.com/openedx/tutor-contrib-aspects/commit/de4faffb1a7644f3e3ab94ea6e85b4a69ba287b6))
+
+### Build Systems
+
+* **deps:** bump urllib3 from 2.2.1 to 2.2.2 in /requirements ([#865](https://github.com/openedx/tutor-contrib-aspects/issues/865)) ([1df1e6c](https://github.com/openedx/tutor-contrib-aspects/commit/1df1e6c47ec0f07987e4f3405b8b6a95f0ea0de9))
+* build images on releases merges ([#875](https://github.com/openedx/tutor-contrib-aspects/issues/875)) ([4c5ec22](https://github.com/openedx/tutor-contrib-aspects/commit/4c5ec229fe4b861b17edb646eb424448e5a297a3))
+
 ## v1.0.1 - 2024-06-18
 
 ### [1.0.1](https://github.com/openedx/tutor-contrib-aspects/compare/v1.0.0...v1.0.1) (2024-06-18)
