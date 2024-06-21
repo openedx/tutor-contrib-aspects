@@ -193,3 +193,16 @@ However, please keep in mind that the assets declaration is itself a jinja templ
 .. _queries: tutoraspects/templates/openedx-assets/queries/
 
 .. _dim_courses.sql: tutoraspects/templates/openedx-assets/queries/dim_courses.sql
+
+
+Releasing tutor-contrib-aspects
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Changelog, package version, PyPI release, and image building are all handled via manually triggered Githib Actions. 
+
+To trigger a build you must have access to manually trigger the "Bump version and changelog" action. This will update the version and changelog in a new PR. If the PR looks good, you can approve and merge it. Merging this PR will:
+
+- Trigger the "release" workflow which will tag a Github release with the new version number, and then push the release to PyPI
+- Trigger the "build-image" workflow, which builds our images for aspects, aspects-superset, and openedx to the EduNEXT DockerHub repositories
+
+When the workflows are finished you should confirm that you see the new version on PyPI and images in DockerHub.
