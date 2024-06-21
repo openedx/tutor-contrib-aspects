@@ -65,7 +65,7 @@ def create_assets():
                 process_asset(asset, roles)
 
     with open(ASSETS_FILE_PATH, "r") as file:
-        extra_assets = yaml.safe_load(file)
+        extra_assets = yaml.safe_load_all(file)
 
         if extra_assets:
             # For each asset, create a file in the right folder

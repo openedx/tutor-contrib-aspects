@@ -60,12 +60,12 @@ class Asset:
         if not self.path:
             raise NotImplementedError("Asset is an abstract class.")
 
-        self.assets_path = os.path.join(ASSETS_PATH, self.path)
-
-    def get_path(self):
+    def get_path(self, all_assets_path):
         """
         Returns the full path to the asset file type.
         """
+        self.assets_path = os.path.join(all_assets_path, self.path)
+
         if self.assets_path:
             return self.assets_path
         raise NotImplementedError
@@ -230,7 +230,9 @@ ASSET_TYPE_MAP = {
 }
 
 
-def validate_asset_file(asset_path, content, echo):  # pylint: disable=too-many-branches
+def validate_asset_file(
+    asset_path, content, echo, all_assets_path
+):  # pylint: disable=too-many-branches
     """
     Check various aspects of the asset file based on its type.
 
@@ -253,7 +255,7 @@ def validate_asset_file(asset_path, content, echo):  # pylint: disable=too-many-
     needs_review = False
     for key, cls in ASSET_TYPE_MAP.items():
         if key in content:
-            out_path = cls.get_path()
+            out_path = cls.get_path(all_assets_path)
 
             existing = None
 
@@ -306,10 +308,13 @@ def validate_asset_file(asset_path, content, echo):  # pylint: disable=too-many-
             cls.process(content, existing)
             # We found the correct class, we can stop looking.
             break
+
     return out_path, needs_review
 
 
-def import_superset_assets(file, echo):  # pylint: disable=too-many-locals
+def import_superset_assets(
+    file, echo, assets_path=ASSETS_PATH
+):  # pylint: disable=too-many-locals
     """
     Import assets from a Superset export zip file to the openedx-assets directory.
     """
@@ -324,7 +329,9 @@ def import_superset_assets(file, echo):  # pylint: disable=too-many-locals
                 continue
             with zip_file.open(asset_path) as asset_file:
                 content = yaml.safe_load(asset_file)
-                out_path, needs_review = validate_asset_file(asset_path, content, echo)
+                out_path, needs_review = validate_asset_file(
+                    asset_path, content, echo, assets_path
+                )
 
                 # This can happen if it's an unknown asset type
                 if not out_path:
@@ -339,6 +346,8 @@ def import_superset_assets(file, echo):  # pylint: disable=too-many-locals
                 out_path = os.path.join(out_path, content[FILE_NAME_ATTRIBUTE])
                 written_assets.append(out_path)
 
+                # Make sure the various asset subdirectories exist before writing
+                os.makedirs(os.path.dirname(out_path), exist_ok=True)
                 with open(out_path, "w", encoding="utf-8") as out_f:
                     yaml.dump(content, out_f, encoding="utf-8")
 
