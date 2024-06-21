@@ -9,6 +9,7 @@ import click
 from tutor import env
 
 from tutoraspects.asset_command_helpers import (
+    ASSETS_PATH,
     SupersetCommandError,
     check_asset_names,
     check_orphan_assets,
@@ -335,13 +336,21 @@ def aspects() -> None:
 
 
 @aspects.command("import_superset_zip")
+@click.option(
+    "--base_assets_path",
+    type=click.Path(
+        exists=True, file_okay=False, dir_okay=True, readable=True, writable=True
+    ),
+    default=ASSETS_PATH,
+    help="Path where you want the assets imported to. This is only necessary when importing assets to an Aspects extension. If you are updating Aspects itself you can leave the default.",
+)
 @click.argument("file", type=click.File("r"))
-def serialize_zip(file):
+def serialize_zip(file, base_assets_path):
     """
     Script that serializes a zip file to the assets.yaml file.
     """
     try:
-        import_superset_assets(file, click.echo)
+        import_superset_assets(file, click.echo, base_assets_path)
     except SupersetCommandError:
         click.echo()
         click.echo("Errors found on import. Please correct the issues, then run:")
