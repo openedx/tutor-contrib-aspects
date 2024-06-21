@@ -58,6 +58,11 @@ else
   dbt "${@:2}" --profiles-dir /app/aspects/dbt/
 fi
 
-rm -rf ${DBT_STATE}/*
-cp -r ./target/manifest.json ${DBT_STATE}
+if [ -e "./target/manifest.json" ]
+then
+  echo "Updating dbt state..."
+  rm -rf ${DBT_STATE}/*
+  cp -r ./target/manifest.json ${DBT_STATE}
+fi
+
 rm -rf aspects-dbt
