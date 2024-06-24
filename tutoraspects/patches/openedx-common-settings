@@ -56,6 +56,6 @@ EVENT_BUS_PRODUCER_CONFIG.update(
        }
     }
 )
-
-INSTALLED_APPS.append("openedx_events")
+if not "openedx_events" in INSTALLED_APPS:
+	INSTALLED_APPS.append("openedx_events")
 {% endif %}
