@@ -9,7 +9,7 @@ appdirs==1.4.4
 asttokens==2.4.1
     # via transifex-python
 bcrypt==4.1.3
-    # via -r base.in
+    # via -r requirements/base.in
 cachetools==5.3.3
     # via google-auth
 certifi==2024.6.2
@@ -20,7 +20,7 @@ charset-normalizer==3.3.2
     # via requests
 click==8.1.7
     # via
-    #   -r base.in
+    #   -r requirements/base.in
     #   transifex-python
     #   tutor
 future==1.0.0
@@ -29,11 +29,11 @@ google-auth==2.30.0
     # via kubernetes
 idna==3.7
     # via requests
-importlib-metadata==7.1.0
+importlib-metadata==7.2.1
     # via tutor
 importlib-resources==6.4.0
     # via
-    #   -r base.in
+    #   -r requirements/base.in
     #   tutor
 jinja2==3.1.4
     # via tutor
@@ -50,7 +50,7 @@ oauthlib==3.2.2
     #   kubernetes
     #   requests-oauthlib
 openedx-atlas==0.6.1
-    # via -r base.in
+    # via -r requirements/base.in
 parsimonious==0.10.0
     # via pyseeyou
 pyasn1==0.6.0
@@ -81,7 +81,7 @@ requests-oauthlib==2.0.0
 rsa==4.9
     # via google-auth
 ruamel-yaml==0.18.6
-    # via -r base.in
+    # via -r requirements/base.in
 ruamel-yaml-clib==0.2.8
     # via ruamel-yaml
 six==1.16.0
@@ -94,9 +94,9 @@ tomli==2.0.1
 toolz==0.12.1
     # via pyseeyou
 transifex-python==3.5.0
-    # via -r base.in
-tutor==17.0.5
-    # via -r base.in
+    # via -r requirements/base.in
+tutor==18.0.0
+    # via -r requirements/base.in
 typing-extensions==4.12.2
     # via
     #   mypy
