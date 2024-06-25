@@ -33,6 +33,7 @@ fi
 
 export ASPECTS_EVENT_SINK_DATABASE={{ASPECTS_EVENT_SINK_DATABASE}}
 export ASPECTS_XAPI_DATABASE={{ASPECTS_XAPI_DATABASE}}
+export CLICKHOUSE_CLUSTER_NAME={{CLICKHOUSE_CLUSTER_NAME}}
 export DBT_STATE={{ DBT_STATE_DIR }}
 export ASPECTS_DATA_TTL_EXPRESSION="{{ ASPECTS_DATA_TTL_EXPRESSION }}"
 export DBT_PROFILE_TARGET_DATABASE="{{ DBT_PROFILE_TARGET_DATABASE }}"
@@ -57,6 +58,11 @@ else
   dbt "${@:2}" --profiles-dir /app/aspects/dbt/
 fi
 
-rm -rf ${DBT_STATE}/*
-cp -r ./target/manifest.json ${DBT_STATE}
+if [ -e "./target/manifest.json" ]
+then
+  echo "Updating dbt state..."
+  rm -rf ${DBT_STATE}/*
+  cp -r ./target/manifest.json ${DBT_STATE}
+fi
+
 rm -rf aspects-dbt
