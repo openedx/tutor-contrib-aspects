@@ -19,14 +19,13 @@ def upgrade():
     """
     op.execute(
         f"""
-        CREATE OR REPLACE FUNCTION get_org_from_course_url
+        CREATE OR REPLACE FUNCTION {on_cluster} get_org_from_course_url
         AS (
         course_url) ->
         nullIf(EXTRACT(course_url, 'course-v1:([a-zA-Z0-9]*)'), '');
-        {on_cluster}
         """
     )
 
 
 def downgrade():
-    op.execute(f"DROP FUNCTION IF EXISTS get_org_from_course_url {on_cluster};")
+    op.execute(f"DROP FUNCTION IF EXISTS {on_cluster} get_org_from_course_url;")
