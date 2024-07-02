@@ -24,8 +24,13 @@ aspects: # this needs to match the profile in your dbt_project.yml file
       compress_block_size: 1048576
       threads: 2
 
-      # Without this dbt queries populating tables can be killed for using too much memory
       custom_settings:
+        # Without this dbt queries populating tables can be killed for using too much memory
         memory_overcommit_ratio_denominator_for_user: 0
+        # Drop tables immediately so they can be recreated
+        database_atomic_delay_before_drop_table_sec: 0
+        # Make sure all drops and detaches complete before continuing
+        database_atomic_wait_for_drop_and_detach_synchronously: 1
+
 
       {{ patch("dbt-profiles") | indent(6)}}
