@@ -27,19 +27,19 @@ jobs:
         with:
           python-version: "3.12"
       - name: Create bumpversion
-        if: github.event.inputs.version
+        if: steps.tag_version.outputs.new_version
         id: bumpversion
         run: |
           pip install bump2version
           bump2version --new-version ${{ steps.tag_version.outputs.new_version }} setup.cfg tutoraspects/__about__.py .ci/config.yml
       - name: Update Changelog
-        if: github.event.inputs.version
+        if: steps.tag_version.outputs.new_version
         uses: stefanzweifel/changelog-updater-action@v1.11.0
         with:
           latest-version: v${{ steps.tag_version.outputs.new_version }}
           release-notes: ${{ steps.tag_version.outputs.changelog }}
       - name: Push branch
-        if: github.event.inputs.version
+        if: steps.tag_version.outputs.new_version
         run: |
           branch_name="bot/v${{ steps.tag_version.outputs.new_version }}"
           git fetch --prune origin
