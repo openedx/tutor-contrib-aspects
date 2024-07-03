@@ -25,7 +25,7 @@ jobs:
         run: make pull_translations
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+        run: echo "date=$(date +'%Y-%m-%d')"
       - name: Push branch
         run: |
           branch_name="bot/translations/${{ steps.date.outputs.date }}"
