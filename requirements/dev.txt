@@ -28,7 +28,7 @@ cachetools==5.3.3
     # via
     #   -r requirements/base.txt
     #   google-auth
-certifi==2024.6.2
+certifi==2024.7.4
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -56,7 +56,7 @@ future==1.0.0
     # via
     #   -r requirements/base.txt
     #   pyseeyou
-google-auth==2.30.0
+google-auth==2.31.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -123,7 +123,7 @@ mypy-extensions==1.0.0
     #   -r requirements/base.txt
     #   black
     #   mypy
-nh3==0.2.17
+nh3==0.2.18
     # via readme-renderer
 oauthlib==3.2.2
     # via
@@ -169,7 +169,7 @@ pygments==2.18.0
     # via
     #   readme-renderer
     #   rich
-pyinstaller==6.8.0
+pyinstaller==6.9.0
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2024.7
     # via pyinstaller
@@ -249,7 +249,7 @@ tqdm==4.66.4
     # via shandy-sqlfmt
 transifex-python==3.5.0
     # via -r requirements/base.txt
-tutor==18.1.0
+tutor==18.1.1
     # via -r requirements/base.txt
 twine==5.1.1
     # via -r requirements/dev.in
