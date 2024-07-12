@@ -17,9 +17,9 @@ from tutor import env
 
          Examples:
 
-         tutor local do dbt -c "test"
+         tutor local do dbt -c "dbt test"
 
-         tutor local do dbt -c "run -m enrollments_by_day --threads 4"
+         tutor local do dbt -c "dbt run -m enrollments_by_day --threads 4"
          """,
 )
 @click.option(
