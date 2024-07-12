@@ -14,10 +14,20 @@ spec:
         env:
           - name: VENV_DIR
             value: /opt/venv
-          - name: XAPI_SCHEMA
-            value: {{ ASPECTS_XAPI_DATABASE }}
+          - name: ASPECTS_EVENT_SINK_DATABASE
+            value: {{ASPECTS_EVENT_SINK_DATABASE}}
+          - name: ASPECTS_XAPI_DATABASE
+            value: {{ASPECTS_XAPI_DATABASE}}
+          - name: CLICKHOUSE_CLUSTER_NAME
+            value: {{CLICKHOUSE_CLUSTER_NAME}}
           - name: DBT_STATE
             value: {{ DBT_STATE_DIR }}
+          - name: ASPECTS_DATA_TTL_EXPRESSION
+            value: "{{ ASPECTS_DATA_TTL_EXPRESSION }}"
+          - name: DBT_PROFILE_TARGET_DATABASE
+            value: "{{ DBT_PROFILE_TARGET_DATABASE }}"
+          - name: DBT_PROFILES_DIR
+            value: /app/aspects/dbt/
         image: {{ DOCKER_IMAGE_ASPECTS }}
         securityContext:
           allowPrivilegeEscalation: false

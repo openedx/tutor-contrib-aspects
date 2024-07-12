@@ -123,3 +123,28 @@ aspects-consumer:
     {% if RUN_MONGODB %}- mongodb{% endif %}
     {% if RUN_REDIS %}- redis{% endif %}
 {% endif %}
+
+aspects:
+  user: root
+  image: {{ DOCKER_IMAGE_ASPECTS }}
+  environment:
+    ASPECTS_EVENT_SINK_DATABASE: {{ASPECTS_EVENT_SINK_DATABASE}}
+    ASPECTS_XAPI_DATABASE: {{ASPECTS_XAPI_DATABASE}}
+    CLICKHOUSE_CLUSTER_NAME: {{CLICKHOUSE_CLUSTER_NAME}}
+    DBT_STATE: {{ DBT_STATE_DIR }}
+    ASPECTS_DATA_TTL_EXPRESSION: "{{ ASPECTS_DATA_TTL_EXPRESSION }}"
+    DBT_PROFILE_TARGET_DATABASE: "{{ DBT_PROFILE_TARGET_DATABASE }}"
+    DBT_PROFILES_DIR: /app/aspects/dbt/
+  command: |
+    dbt docs serve
+  ports:
+    - 8090:8080
+  volumes:
+    - ../../env/plugins/aspects/apps/aspects:/app/aspects
+    - ../../env/plugins/aspects/apps/aspects/scripts/:/app/aspects/scripts:ro
+    - ../../data/aspects-dbt:{{ DBT_STATE_DIR }}
+  {% if RUN_SUPERSET or RUN_CLICKHOUSE or RUN_RALPH %}depends_on:{% if RUN_SUPERSET %}
+    - superset{% endif %}{% if RUN_CLICKHOUSE%}
+    - clickhouse{% endif %}{% if RUN_RALPH %}
+    - ralph{% endif %}
+  {% endif %}

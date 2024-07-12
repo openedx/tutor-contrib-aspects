@@ -53,3 +53,18 @@ spec:
   selector:
     app.kubernetes.io/name: superset
 {% endif %}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aspects
+  labels:
+    app.kubernetes.io/name: aspects
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8080
+      protocol: TCP
+  selector:
+    app.kubernetes.io/name: aspects
