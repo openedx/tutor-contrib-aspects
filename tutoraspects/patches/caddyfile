@@ -10,3 +10,7 @@
     import proxy "superset:{{SUPERSET_PORT}}"
 }
 {% endif %}
+
+{{ DBT_HOST }}{$default_site_port} {
+    import proxy "aspects-documentation:8090"
+}

@@ -31,15 +31,8 @@ else
   echo "No requirements.txt file found; skipping"
 fi
 
-export ASPECTS_EVENT_SINK_DATABASE={{ASPECTS_EVENT_SINK_DATABASE}}
-export ASPECTS_XAPI_DATABASE={{ASPECTS_XAPI_DATABASE}}
-export CLICKHOUSE_CLUSTER_NAME={{CLICKHOUSE_CLUSTER_NAME}}
-export DBT_STATE={{ DBT_STATE_DIR }}
-export ASPECTS_DATA_TTL_EXPRESSION="{{ ASPECTS_DATA_TTL_EXPRESSION }}"
-export DBT_PROFILE_TARGET_DATABASE="{{ DBT_PROFILE_TARGET_DATABASE }}"
-
 echo "Installing dbt dependencies"
-dbt deps --profiles-dir /app/aspects/dbt/
+dbt deps
 
 echo "Running dbt ${@:2}"
 
@@ -52,10 +45,10 @@ fi
 if [ "$1" == "True" ] && [ -e "${DBT_STATE}/manifest.json" ]
 then
   echo "Found {{DBT_STATE_DIR}}/manifest.json so only running modified items and their downstreams"
-  dbt "${@:2}" --profiles-dir /app/aspects/dbt/ -s state:modified+
+  dbt "${@:2}" -s state:modified+
 else
   echo "Running command *without* state:modified+ this may take a long time."
-  dbt "${@:2}" --profiles-dir /app/aspects/dbt/
+  dbt "${@:2}"
 fi
 
 if [ -e "./target/manifest.json" ]
