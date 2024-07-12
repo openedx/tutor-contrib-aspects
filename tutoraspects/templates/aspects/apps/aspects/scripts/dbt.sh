@@ -3,38 +3,7 @@
 
 set -eo pipefail
 
-## WARNING: If you modify this block, make sure to also update the
-##          corresponding block in the init-aspects.sh file.
-
-{% if DBT_SSH_KEY %}
-mkdir -p /root/.ssh
-echo "{{ DBT_SSH_KEY}}" | tr -d '\r' > /root/.ssh/id_rsa
-chmod 600 /root/.ssh/id_rsa
-eval `ssh-agent -s`
-ssh -o StrictHostKeyChecking=no git@github.com || true
-ssh-add /root/.ssh/id_rsa
-{% endif %}
-
-rm -rf aspects-dbt
-
-echo "Installing aspects-dbt"
-echo "git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }}"
-git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }} aspects-dbt
-
-cd aspects-dbt
-
-if [ -e "./requirements.txt" ]
-then
-  echo "Installing dbt python requirements"
-  pip install -r ./requirements.txt
-else
-  echo "No requirements.txt file found; skipping"
-fi
-
-echo "Installing dbt dependencies"
-dbt deps
-
-echo "Running dbt ${@:2}"
+echo "Running ${@:2}"
 
 if [ "$1" == "True" ]
 then
@@ -45,10 +14,10 @@ fi
 if [ "$1" == "True" ] && [ -e "${DBT_STATE}/manifest.json" ]
 then
   echo "Found {{DBT_STATE_DIR}}/manifest.json so only running modified items and their downstreams"
-  dbt "${@:2}" -s state:modified+
+  ${@:2} -s state:modified+
 else
   echo "Running command *without* state:modified+ this may take a long time."
-  dbt "${@:2}"
+  ${@:2}
 fi
 
 if [ -e "./target/manifest.json" ]
