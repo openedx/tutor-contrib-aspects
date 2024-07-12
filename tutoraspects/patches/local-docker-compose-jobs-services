@@ -26,5 +26,4 @@ superset-job:
   depends_on:
     - mysql
     - redis
-    - superset
 {% endif %}
