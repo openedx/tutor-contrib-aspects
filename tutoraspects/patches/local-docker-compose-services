@@ -55,8 +55,6 @@ superset:
   depends_on:
     - mysql
     - redis
-    - superset-worker
-    - superset-worker-beat
 
 superset-worker:
   {% include 'base-docker-compose-services' %}
@@ -143,8 +141,5 @@ aspects:
     - ../../env/plugins/aspects/apps/aspects:/app/aspects
     - ../../env/plugins/aspects/apps/aspects/scripts/:/app/aspects/scripts:ro
     - ../../data/aspects-dbt:{{ DBT_STATE_DIR }}
-  {% if RUN_SUPERSET or RUN_CLICKHOUSE or RUN_RALPH %}depends_on:{% if RUN_SUPERSET %}
-    - superset{% endif %}{% if RUN_CLICKHOUSE%}
-    - clickhouse{% endif %}{% if RUN_RALPH %}
-    - ralph{% endif %}
-  {% endif %}
+  depends_on:
+  {% if RUN_CLICKHOUSE %}  - clickhouse{% endif %}
