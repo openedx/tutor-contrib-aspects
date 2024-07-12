@@ -63,9 +63,9 @@ jobs:
       # 3. Successfully run tests
       - name: Test dbt
         run: |
-          tutor local do dbt -c "run"
-          tutor local do dbt --only_changed False -c "run"
-          tutor local do dbt --only_changed False -c "test"
+          tutor local do dbt -c "dbt run"
+          tutor local do dbt --only_changed False -c "dbt run"
+          tutor local do dbt --only_changed False -c "dbt test"
       - name: Load test
         run: tutor local do load-xapi-test-data
       - name: Import demo course
@@ -131,9 +131,9 @@ jobs:
       # 3. Successfully run tests
       - name: Test dbt
         run: |
-          tutor dev do dbt -c "run"
-          tutor dev do dbt --only_changed False -c "run"
-          tutor dev do dbt --only_changed False -c "test"
+          tutor dev do dbt -c "dbt run"
+          tutor dev do dbt --only_changed False -c "dbt run"
+          tutor dev do dbt --only_changed False -c "dbt test"
       - name: Load test
         run: tutor dev do load-xapi-test-data
       - name: Import demo course
@@ -217,9 +217,9 @@ jobs:
       # 3. Successfully run tests
       - name: Test DBT
         run: |
-          tutor k8s do dbt -c "run"
-          tutor k8s do dbt --only_changed False -c "run"
-          tutor k8s do dbt --only_changed False -c "test"
+          tutor k8s do dbt -c "dbt run"
+          tutor k8s do dbt --only_changed False -c "dbt run"
+          tutor k8s do dbt --only_changed False -c "dbt test"
       - name: Load test
         run: tutor k8s do load-xapi-test-data
       - name: Import demo course
