@@ -45,11 +45,11 @@ def load_xapi_test_data(config_file) -> list[tuple[str, str]]:
     help="""The full dbt command to run configured ClickHouse database, wrapped in
          double quotes. The list of commands can be found in the CLI section here:
          https://docs.getdbt.com/reference/dbt-commands
-         
-         Examples: 
-         
+
+         Examples:
+
          tutor local do dbt -c "test"
-         
+
          tutor local do dbt -c "run -m enrollments_by_day --threads 4"
          """,
 )
@@ -58,12 +58,12 @@ def load_xapi_test_data(config_file) -> list[tuple[str, str]]:
     default=True,
     type=click.UNPROCESSED,
     help="""Whether to only run models that have changed since the last dbt run. Since
-         re-running materialized views will recreate potentially huge datasets and 
+         re-running materialized views will recreate potentially huge datasets and
          incur downtime, this defaults to true.
-         
+
          If no prior state is found, the command will run as if this was False.
-         
-         If your command fails due to an issue with "state:modified", you may need to 
+
+         If your command fails due to an issue with "state:modified", you may need to
          set this to False.
          """,
 )
@@ -93,7 +93,7 @@ def dbt(only_changed: bool, command: string) -> list[tuple[str, str]]:
             double quotes. The list of commands can be found in the CLI section here:
             https://alembic.sqlalchemy.org/en/latest/cli.html#command-reference
             Examples:
-            
+
             tutor local do alembic -c "current" # Show current revision
             tutor local do alembic -c "history" # Show revision history
             tutor local do alembic -c "revision --autogenerate -m 'Add new table'" # Create new revision

@@ -10,7 +10,6 @@ on:
       - setup.cfg
       - tutoraspects/__about__.py
 
-
 env:
   TUTOR_ROOT: ./.ci/
 

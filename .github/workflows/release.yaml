@@ -36,7 +36,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v5
         with:
-            python-version: 3.12
+          python-version: 3.12
       - name: Install pip
         run: pip install -r requirements/pip.txt
       - name: Build package
@@ -44,5 +44,5 @@ jobs:
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@master
         with:
-            user: __token__
-            password: ${{ secrets.PYPI_UPLOAD_TOKEN }}
+          user: __token__
+          password: ${{ secrets.PYPI_UPLOAD_TOKEN }}
