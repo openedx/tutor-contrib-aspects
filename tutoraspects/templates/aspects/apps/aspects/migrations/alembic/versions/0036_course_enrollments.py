@@ -12,7 +12,6 @@ engine = "ReplicatedMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "MergeTree"
 def upgrade():
     op.execute(
         f"""
-        -- Raw table that Ralph writes to
         CREATE TABLE IF NOT EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_enrollment
         {on_cluster}
         (
@@ -26,8 +25,8 @@ def upgrade():
             dump_id UUID NOT NULL,
             time_last_dumped String NOT NULL
         ) ENGINE {engine}
-        ORDER BY (course_key, id, time_last_dumped)
-        PRIMARY KEY (course_key, id, time_last_dumped);
+        ORDER BY (course_key, user_id, time_last_dumped)
+        PRIMARY KEY (course_key, user_id, time_last_dumped);
         """
     )
 
