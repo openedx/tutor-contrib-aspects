@@ -130,8 +130,8 @@ spec:
             value: "{{ REDIS_PORT }}"
           - name: REDIS_PASSWORD
             value: "{{ REDIS_PASSWORD }}"
-          - name: FLASK_ENV
-            value: "production"
+          - name: FLASK_DEBUG
+            value: "0"
           - name: SUPERSET_ENV
             value: "production"
           - name: SUPERSET_HOST
@@ -214,8 +214,8 @@ spec:
               value: "{{ REDIS_PORT }}"
             - name: REDIS_PASSWORD
               value: "{{ REDIS_PASSWORD }}"
-            - name: FLASK_ENV
-              value: "production"
+            - name: FLASK_DEBUG
+              value: "0"
             - name: SUPERSET_ENV
               value: "production"
             - name: SUPERSET_HOST

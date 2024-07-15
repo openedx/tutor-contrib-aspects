@@ -377,7 +377,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
 # Ralph requires us to write out a file with pre-encrypted values, so we encrypt
 # them here per: https://openfun.github.io/ralph/api/#creating_a_credentials_file
 #
-# They will remain unchanged between config saves as usual and the unencryted
+# They will remain unchanged between config saves as usual and the unencrypted
 # passwords will still be able to be printed.
 RALPH_ADMIN_PASSWORD = "".join(random.choice(string.ascii_lowercase) for i in range(36))
 RALPH_LMS_PASSWORD = "".join(random.choice(string.ascii_lowercase) for i in range(36))
