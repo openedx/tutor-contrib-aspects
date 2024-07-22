@@ -43,9 +43,13 @@ Aspects is implemented as a Tutor plugin. Documentation will be coming soon to c
 
     tutor config save
 
-#. Because we're installing new applications in LMS (event-routing-backends, event-sink-clickhouse) you will need to rebuild your openedx image::
+#. Because we're installing new applications in LMS (event-routing-backends, event-sink-clickhouse) you will need to rebuild your openedx Docker image::
 
     tutor images build openedx --no-cache
+
+#. Build the Aspects-flavored Superset image to bake your settings (such as database passwords) into the Superset assets::
+
+    tutor images build aspects-superset
 
 #. Run the initialization scripts::
 
@@ -198,7 +202,7 @@ However, please keep in mind that the assets declaration is itself a jinja templ
 Releasing tutor-contrib-aspects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Changelog, package version, PyPI release, and image building are all handled via manually triggered Githib Actions. 
+Changelog, package version, PyPI release, and image building are all handled via manually triggered Githib Actions.
 
 To trigger a build you must have access to manually trigger the "Bump version and changelog" action. This will update the version and changelog in a new PR. If the PR looks good, you can approve and merge it. Merging this PR will:
 
