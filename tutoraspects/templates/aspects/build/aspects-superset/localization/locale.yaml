@@ -1957,330 +1957,272 @@ es_ES:
   '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 fa:
-  '': ''
-  <div>Filter these results by selecting various options from the filters panel.</div>: <div
-    style=";text-align:right;direction:rtl">این نتایج را با انتخاب گزینه های مختلف
-    از پانل فیلترها فیلتر کنید.</div>
-  <div>Select a course from the Filters panel to populate these charts.</div>: <div
-    style=";text-align:right;direction:rtl">یک دوره را از پانل فیلترها برای پر کردن
-    این نمودارها انتخاب کنید.</div>
-  <div>Select a problem from the Filters panel to populate the charts.</div>: <div
-    style=";text-align:right;direction:rtl">یک مشکل را از پانل فیلترها برای پر کردن
-    نمودارها انتخاب کنید.</div>
-  <div>Select a video from the Filters panel to populate these charts.</div>: <div
-    style=";text-align:right;direction:rtl">برای پر کردن این نمودارها، ویدیویی را
-    از پانل فیلترها انتخاب کنید.</div>
-  ? A count of the number of enrollments and un-enrollments per day. Learners can
-    enroll and unenroll multiple times, in this chart each individual enrollment and
-    unenrollment will be counted.
-  : شمارش تعداد ثبت نام و لغو ثبت نام در روز. فراگیران می توانند چندین بار ثبت نام
-    و لغو ثبت نام کنند، در این نمودار هر ثبت نام و عدم ثبت نام فردی محاسبه می شود.
-  Action: عمل
-  Action Cluster: Action Cluster
+  ? '## Help<br>* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/reference/learner_groups_dashboard.html)<br>*
+    [Superset Resources](https://github.com/apache/superset#resources)<br>'
+  : '## کمک<br> * [مرجع جنبه‌ها](https://docs.openedx.org/projects/openedx-aspects/page/reference/learner_groups_dashboard.html)<br>
+    * [منابع Superset] (https://github.com/apache/superset#resources)<br>'
+  '% Correct': ٪ درست
+  '% Incorrect': ٪ غلط
+  Action: اقدام
   Action Count: تعداد اقدام
   Action Date: تاریخ اقدام
   Active: فعال
-  Active Users Over Time v2: کاربران فعال در طول زمان نسخه 2
-  Active Users Per Organization: کاربران فعال در هر سازمان
-  Actor ID: شناسه بازیگر
-  Actor IDs over time: شناسه بازیگران در طول زمان
-  Actor Id: شناسه بازیگر
-  Answers Chosen: پاسخ ها انتخاب شده است
-  Attempts: تلاش ها
-  Bio: بیوگرافی
+  Active Courses: دوره‌های فعال
+  Active Learners: فراگیران فعال
+  Active Users Per Organization: کاربران فعال در هرسازمان
+  Actor ID: شناسۀ بازیگر
+  Actor Id: شناسۀ بازیگر
+  Actors Count: تعداد بازیگران
+  At-Risk Learners: فراگیران در معرض خطر
+  Attempted All Problems: تمام مسائل، امتحان شد
+  Attempted At Least One Problem: تلاش برای حداقل یک مسئله
+  Attempts: تلاش‌ها
+  Avg Attempts: میانگین تلاش‌ها
+  Avg Course Grade: میانگین نمرۀ دوره
+  Block ID: شناسۀ انسداد
+  Block Id: شناسۀ بلوک
   COUNT(*): شمردن(*)
-  CSS: CSS
-  Cache Timeout: زمان اتمام حافظه پنهان
-  Certification Details: جزئیات صدور گواهینامه
-  Certified By: تایید شده توسط
   Changed By Fk: تغییر توسط Fk
-  Changed On: تغییر کرد
-  Chart Count: تعداد نمودار
-  Chart showing the number of Superset actions taken by each user over the selected time period.: نمودار
-    تعداد اقدامات Superset انجام شده توسط هر کاربر در بازه زمانی انتخاب شده را نشان
-    می دهد.
+  Changed On: اعمال تغییر در
   Chart showing the number of Superset actions taken on each chart in the selected time period.: نمودار
-    تعداد اقدامات Superset انجام شده در هر نمودار در بازه زمانی انتخاب شده را نشان
-    می دهد.
+    تعداد اقدامات ابرمجموعه در هر نمودار در بازۀ زمانی انتخاب‌شده را نشان می دهد.
   Chart showing the number of Superset actions taken on each dashboard in the selected time period.: نمودار
-    تعداد اقدامات Superset انجام شده در هر داشبورد در بازه زمانی انتخاب شده را نشان
-    می دهد.
+    تعداد اقدامات ابرمجموعه در هر پیشخوان در بازۀ زمانی انتخاب‌شده را نشان می‌دهد.
   Chart showing the number of registered users over the selected time period.: نموداری
-    که تعداد کاربران ثبت نام شده را در بازه زمانی انتخاب شده نشان می دهد.
-  Charts by Type: نمودارها بر اساس نوع
-  City: شهر
+    که تعداد کاربران ثبت‌نام شده را در بازۀ زمانی انتخاب‌شده نشان می‌دهد.
   ClickHouse: کلیک هاوس
   ClickHouse metrics: معیارهای کلیک هاوس
-  Count of charts created in Superset over the selected time period.: تعداد نمودارهای
-    ایجاد شده در Superset در بازه زمانی انتخاب شده.
-  Count of dashboards created in Superset over the selected time period.: تعداد داشبوردهای
-    ایجاد شده در Superset در بازه زمانی انتخاب شده.
-  Count of the various types of charts created in Superset over the selected time period.: تعداد
-    انواع نمودارهای ایجاد شده در Superset در بازه زمانی انتخاب شده.
+  Content Level: سطح محتوا
+  Correct Attempts: تلاش‌های صحیح
+  Count: تعداد
   Count of unique users who performed an action in Superset over the selected time period.: تعداد
-    کاربران منحصر به فردی که در بازه زمانی انتخاب شده اقدامی را در Superset انجام
+    کاربران منحصربه‌فردی که در بازۀ زمانی انتخاب‌شده اقدامی را در ابرمجموعه انجام
     دادند.
   Count over time of unique users who performed an action in Superset over the selected time period.: تعداد
-    کاربران منحصربه‌فردی که در بازه زمانی انتخاب‌شده در Superset انجام داده‌اند در
-    طول زمان شمارش کنید.
-  Country: کشور
-  Course Data JSON: داده های دوره JSON
+    کاربران منحصربه‌فردی که در بازۀ زمانی انتخاب‌شده در ابرمجموعه اقداماتی انجام داده‌اند
+    در طول زمان بشمارید.
+  Course Dashboard: پیشخوان دوره
+  Course Data JSON: داده‌های دوره JSON
   Course End: پایان دوره
-  Course Enrollment: ثبت نام دوره
-  Course Enrollments Over Time: ثبت نام دوره در طول زمان
-  Course Grade (out of 100%): نمره درس (از 100%)
-  Course Grade Distribution: توزیع نمرات دوره
-  Course ID: شناسه دوره
+  Course Enrollment Mode Status Cnt: وضعیت حالت ثبت‌نام دوره Cnt
+  Course Enrollments Over Time: ثبت‌نام دوره در طول زمان
+  Course Grade: نمرۀ درس
+  Course Grade %: درصدنمرۀ درس
+  Course ID: شناسۀ دوره
+  Course Information: اطلاعات دوره
   Course Key: کلید دوره
   Course Key Short: کلید دوره کوتاه
   Course Name: نام دوره
-  Course Run: دوره اجرا
+  Course Order: سفارش دوره
+  Course Run: اجرای دوره
   Course Start: شروع دوره
+  Course grade: نمرۀ درس
   Course name: نام دوره
-  Course run: دوره اجرا شود
-  Courses: دوره های آموزشی
-  Courses Per Organization: دوره های آموزشی در هر سازمان
-  Courseware: دوره آموزشی
-  Created: ایجاد شده
-  Created By Fk: ایجاد شده توسط Fk
+  Course run: اجرای دوره
+  Courses: دوره‌های آموزشی
+  Courses Cnt: دروس Cnt
+  Courses Per Organization: دوره‌های آموزشی در هر سازمان
+  Created: ایجادشده
+  Created By Fk: ایجادشده توسط Fk
   Created On: ایجاد شد
-  Currently Enrolled Learners Per Day: در حال حاضر زبان آموزان ثبت نام شده در روز
-  Dashboard Count: تعداد داشبورد
-  Dashboard ID: شناسه داشبورد
-  Dashboard Status: وضعیت داشبورد
-  Dashboard Title: عنوان داشبورد
-  Datasource ID: شناسه منبع داده
+  Cumulative Enrollments by Track: ثبت‌نام تجمعی بر اساس مسیر
+  Cumulative Interactions: تعاملات تجمعی
+  Current Active Enrollments By Mode: ثبت‌نام های فعال فعلی بر اساس حالت
+  Current Enrollees: ثبت‌نام‌کنندگان فعلی
+  Currently Enrolled Users: کاربران ثبت‌نام شده در حال حاضر
+  Dashboard ID: شناسۀ پیشخوان
+  Dashboard Status: وضعیت پیشخوان
+  Dashboard Title: عنوان پیشخوان
+  Datasource ID: شناسۀ منبع داده
   Datasource Name: نام منبع داده
   Datasource Type: نوع منبع داده
+  Date: تاریخ
   Description: شرح
   Display Name: نام نمایشی
-  Distinct forum users: کاربران متمایز انجمن
-  Distribution Of Attempts: توزیع تلاش ها
-  Distribution Of Hints Per Correct Answer: توزیع نکات به ازای پاسخ صحیح
-  Distribution Of Problem Grades: توزیع نمرات مشکل
-  Distribution Of Responses: توزیع پاسخ ها
-  Dump ID: شناسه تخلیه
+  Distribution of Course Grades: توزیع نمرات دروس
+  Distribution of Current Course Grade: توزیع نمرۀ درس فعلی
+  Dump ID: شناسۀ روبرداری
   Duration (Seconds): مدت زمان (ثانیه)
-  Edited On: ویرایش شد
   Email: پست الکترونیک
+  Emission Day: روز انتشار
+  Emission Hour: ساعت انتشار
   Emission Time: زمان انتشار
-  Enrollment End: پایان ثبت نام
-  Enrollment Events Per Day: رویدادهای ثبت نام در روز
-  Enrollment Mode: حالت ثبت نام
-  Enrollment Start: شروع ثبت نام
-  Enrollment Status: وضعیت ثبت نام
-  Enrollment Status Date: تاریخ وضعیت ثبت نام
-  Enrollments: ثبت نام ها
-  Enrollments By Enrollment Mode: ثبت نام با حالت ثبت نام
-  Enrollments By Type: ثبت نام بر اساس نوع
-  Entity Name: نام نهاد
-  Event ID: شناسه رویداد
-  Event String: رشته رویداد
+  Engagement: اشتغال
+  Enrolled At: ثبت‌نام در
+  Enrollees by Enrollment Track: ثبت‌نام‌کنندگان بر اساس مسیر ثبت‌نام
+  Enrollees per Enrollment Track: ثبت‌نام‌کنندگان در هر مسیر ثبت‌نام
+  Enrollment: ثبت‌نام
+  Enrollment Date: تاریخ ثبت‌نام
+  Enrollment Dates: تاریخ‌های ثبت‌نام
+  Enrollment End: پایان ثبت‌نام
+  Enrollment Mode: حالت ثبت‌نام
+  Enrollment Start: آغاز ثبت‌نام
+  Enrollment Status: وضعیت ثبت‌نام
+  Enrollment Track: مسیر ثبت‌نام
+  Enrollment status: وضعیت ثبت‌نام
+  Enrollment track: مسیر ثبت‌نام
+  Enrollments: ثبت‌نام‌ها
+  Event Activity: فعالیت رویداد
+  Event ID: شناسۀ رویداد
+  Event String: رشتۀ رویداد
   Event Time: زمان رویداد
-  Event type: نوع رویداد
-  Events per course: رویدادها در هر دوره
-  External ID Type: نوع شناسه خارجی
-  External Url: آدرس خارجی
-  External User ID: شناسه کاربری خارجی
+  Events Cnt: رویدادها Cnt
   Fail Login Count: تعداد ورود ناموفق
   First Name: نام کوچک
-  Forum Interaction: تعامل انجمن
-  Gender: جنسیت
-  Goals: اهداف
+  Full Views: مشاهدۀ کامل
   Grade Bucket: سطل درجه
-  Grade Type: نوع درجه
-  Help: کمک
-  Hints / Answer Displayed Before Correct Answer Chosen: نکات / پاسخ قبل از انتخاب
-    پاسخ صحیح نمایش داده می شود
-  ID: شناسه
+  Grade Range: دامنۀ درجه
+  Grade range: دامنۀ درجه
+  Graded: درجه‌بندی شد
+  Graded Learners: فراگیران درجه‌بندی‌شده
+  Help: راهنما
+  Http User Agent: عامل کاربر Http
   Id: شناسه
+  Incorrect Attempts: تلاش‌های نادرست
+  Individual Learner: فراگیر انفرادی
   Instance Health: سلامتی نمونه
-  Instructor Dashboard: داشبورد مربی
-  Is Managed Externally: به صورت خارجی مدیریت می شود
-  JSON Metadata: فراداده JSON
-  Language: زبان
+  Interaction Type: نوع تعامل
+  Last Course Published: آخرین دورۀ انتشار
   Last Login: آخرین ورود
   Last Name: نام خانوادگی
-  Last Received Event: آخرین رویداد دریافت شده
-  Last Saved At: آخرین ذخیره در
-  Last Saved By Fk: آخرین ذخیره شده توسط Fk
-  Last course syncronized: آخرین دوره هماهنگ شده
-  Level of Education: سطح تحصیلات
-  Location: محل
+  Last Received Event: آخرین رویداد دریافت‌شده
+  Last Visit Date: تاریخ آخرین بازدید
+  Last Visited: آخرین بازدید
+  Last course syncronized: آخرین دورۀ هماهنگ‌شده
+  Learner Summary: خلاصۀ فراگیر
+  Learners: فراگیران
+  Learners with Passing Grade: فراگیران با نمرۀ قبولی
   Login Count: تعداد ورود
-  Mailing Address: آدرس پستی
-  Memory Usage (KB): استفاده از حافظه (KB)
-  Meta: متا
-  Modified: اصلاح شده
-  Most Active Courses Per Day: فعال ترین دوره های آموزشی در روز
-  Most-used Charts: نمودارهای پر استفاده
-  Most-used Dashboards: داشبوردهای پر استفاده
+  Median Attempts: تلاش‌های متوسط
+  Median Course Grade: میانۀ نمرۀ درس
+  Memory Usage (KB): استفاده از حافظه (کیلوبایت)
+  Memory Usage Mb: استفاده از حافظه مگابایت
+  Modified: اصلاح‌شده
+  Most-used Charts: نمودارهای پرمصرف
+  Most-used Dashboards: پیشخوان‌های پرمصرف
   Name: نام
-  Number Of Attempts To Find Correct Answer: تعداد تلاش برای یافتن پاسخ صحیح
-  Number Of Students: تعداد دانش اموزان
-  Number Of Users: تعداد کاربران
-  Number Of Viewers / Views: تعداد بینندگان / بازدیدها
-  Number of Answers Displayed: تعداد پاسخ های نمایش داده شده
-  Number of Hints Displayed: تعداد نکات نمایش داده شده
-  Number of Posts: تعداد پست ها
-  Number of Users / Uses: تعداد کاربران / موارد استفاده
-  Number of Views / Viewers: تعداد بازدیدها / بینندگان
-  Number of users: تعداد کاربران
-  Object ID: شناسه شی
-  Object Type: نوع شی
-  Operator Dashboard: داشبورد اپراتور
-  Order: سفارش
+  Number of Learners: تعداد فراگیران
+  Number of Learners who Attempted the Problem: تعداد فراگیرانی که برای حل مسئله تلاش
+    کردند
+  Object ID: شناسۀ شیء
+  Object Type: نوع شیء
+  Operator Dashboard: پیشخوان متصدی
+  Org: سازمان
   Organization: سازمان
-  Organizations: سازمان های
-  Parameters: مولفه های
-  Password: کلمه عبور
-  Percentage Grade: درجه درصد
-  Perm: پرم
-  Phone Number: شماره تلفن
-  Position Json: موقعیت جیسون
-  Posts per user: پست به ازای هر کاربر
-  Problem Engagement: درگیری مشکل
-  Problem Id: شناسه مشکل
-  Problem Name: نام مشکل
-  Problem Name With Location: نام مشکل با مکان
-  Problem Performance: عملکرد مشکل
-  Problem name: نام مشکل
-  Profile Image Uploaded At: تصویر نمایه آپلود شده در
-  Published: منتشر شده
-  Query: پرس و جو
-  Query Context: زمینه پرس و جو
-  Query performance: عملکرد پرس و جو
-  Question Title: عنوان سوال
-  Read Rows: ردیف ها را بخوانید
+  Organizations: سازمان‌ها
+  Overview: بررسی اجمالی
+  Page Count: تعداد صفحات
+  Page Engagement Over Time: تعامل صفحه در طول زمان
+  Page Engagement per Section: تعامل صفحه در هربخش
+  Page Engagement per Section/Subsection: تعامل صفحه در هر بخش/زیربخش
+  Page Engagement per Subsection: تعامل صفحه در هر زیربخش
+  Pages: صفحات
+  Partial Views: نماهای جزئی
+  Partial and Full Video Views: بازدیدهای جزئی و کامل ویدیو
+  Passed/Failed: قبول/رد
+  Password: گذرواژه
+  Performance: کارایی
+  Problem Attempts: دفعات تلاش برای حل مسئله
+  Problem Engagement per Section: درگیری مسئله در هربخش
+  Problem Engagement per Section/Subsection: درگیری مسئله در هر بخش/فرع
+  Problem Engagement per Subsection: درگیری مسئله در هر زیربخش
+  Problem ID: شناسۀ مسئله
+  Problem Id: شناسۀ مسئله
+  Problem Link: پیوند مسئله
+  Problem Location and Name: محل و نام مسئله
+  Problem Name: نام مسئله
+  Problem Name With Location: نام مسئله با مکان
+  Problem Results: نتایج مسئله
+  Problems: مسائل
+  Query: پرس‌وجو
+  Query Duration Ms: 'مدت‌زمان استعلام '
+  Query performance: عملکرد پرس‌وجو
+  Read Rows: خواندن ردیف‌ها
   Repeat Views: تکرار نماها
-  Responses: پاسخ
-  Responses Per Problem: پاسخ به هر مشکل
-  Scaled Score: امتیاز مقیاس شده
-  Schema Perm: طرحواره پرم
-  Seconds Of Video: ثانیه های ویدیو
+  Responses: پاسخ‌ها
+  Result: نتیجه
+  Result Rows: ردیف‌های نتیجه
+  Section Location and Name: محل و نام بخش
+  Section Name: نام بخش
+  Section Subsection Video Engagement: بخش زیربخش تعامل ویدیویی
+  Section Summary: خلاصۀ بخش
+  Section With Name: بخش با نام
+  Section with name: بخش با نام
+  Section/Subsection Name: نام بخش/فرع
+  Section/Subsection Page Enggagement: بخش/زیربخش تعامل با صفحه
+  Section/Subsection Problem Engagement: بخش/فرعی تعامل مسئله
+  Section/Subsection Video Engagement: بخش/زیربخش تعامل ویدیویی
+  Segment Range: دامنۀ بخش
   Segment Start: شروع بخش
-  Self Paced: خود گام
-  Slice ID: شناسه برش
+  Self Paced: خودگام
+  Slice ID: شناسۀ برش
   Slice Name: نام برش
-  Slowest ClickHouse Queries: کندترین پرس و جوهای ClickHouse
-  Slug: حلزون حرکت کردن
-  Started At: آغاز شده در
-  State: حالت
-  Students: دانش آموزان
+  Slowest ClickHouse Queries: کندترین پرس‌وجوهای ClickHouse
+  Start Position: نقطۀ شروع
+  Started At: آغاز در
+  Subsection Location and Name: قسمت فرعی مکان و نام
+  Subsection Name: نام زیر بخش
+  Subsection Summary: خلاصۀ زیربخش
+  Subsection With Name: زیربخش با نام
+  Subsection with name: زیربخش با نام
   Success: موفقیت
-  Superset: سوپرست
-  Superset Active Users: کاربران فعال Superset
-  Superset Active Users Over Time: کاربران فعال Superset در طول زمان
-  Superset Registered Users Over Time: کاربران ثبت نام شده Superset در طول زمان
-  ? The cumulative total of unique enrolled learners based on their enrollment state
-    at the end of each day. If a learner was enrolled previously, but has left the
-    course since, they are not counted as of the date they left. If they re-enroll
-    in the course they will be counted again.
-  : مجموع تجمعی فراگیران ثبت نام شده منحصر به فرد بر اساس وضعیت ثبت نام آنها در پایان
-    هر روز. اگر دانش آموزی قبلا ثبت نام کرده باشد، اما از آن زمان دوره را ترک کرده
-    باشد، از تاریخ خروج حساب نمی شود. در صورت ثبت نام مجدد در دوره مجدداً شمارش می
-    شوند.
-  ? The current count of active enrollments by their most recent enrollment type,
-    so if a learner upgraded from Audit to Verified they will only be counted once
-    as Verified. Learners who have un-enrolled in the course are not counted.
-  : تعداد فعلی ثبت‌نام‌های فعال بر اساس آخرین نوع ثبت‌نام، بنابراین اگر زبان‌آموزی
-    از حسابرسی به تأیید شده ارتقا یابد، فقط یک بار به‌عنوان تأییدشده شمارش می‌شود.
-    فراگیرانی که در دوره انصراف داده اند به حساب نمی آیند.
-  The distribution of grades for a course, out of 100%. Grades are grouped in ranges of 10%.: توزیع
-    نمرات برای یک دوره، از 100٪. نمرات در محدوده 10٪ گروه بندی می شوند.
-  ? The number of students who have responded to a question, and whether they have
-    ever answered correctly. Students can answer some questions multiple times, but
-    this chart counts each student only once per question.
-  : تعداد دانش‌آموزانی که به یک سؤال پاسخ داده‌اند و اینکه آیا تا به حال پاسخ صحیحی
-    داده‌اند یا خیر. دانش‌آموزان می‌توانند چندین بار به برخی سؤالات پاسخ دهند، اما
-    این نمودار برای هر سؤال فقط یک بار برای هر دانش‌آموز محاسبه می‌شود.
-  ? This chart displays counts of the number of times hints (including displaying
-    the answer itself) were displayed for each learner who eventually answered the
-    problem correctly. If the problem had no hint or answer display configured this
-    chart will group everyone into "0".
-  : این نمودار تعداد دفعاتی را نشان می دهد که نکات (از جمله نمایش خود پاسخ) برای هر
-    زبان آموزی که در نهایت به مشکل پاسخ صحیح داده است، نمایش داده شده است. اگر مشکل
-    هیچ راهنمایی یا نمایش پاسخی پیکربندی نشده بود، این نمودار همه را در &quot;0&quot;
-    گروه بندی می کند.
-  ? This chart helps understand how many learners are using the video's transcripts
-    or closed captions. If the video has not transcripts or captions the chart will
-    be empty.
-  : این نمودار به درک اینکه چه تعداد از زبان‌آموزان از رونوشت‌ها یا شرح‌های بسته ویدیو
-    استفاده می‌کنند کمک می‌کند. اگر ویدیو رونوشت یا شرح نداشته باشد، نمودار خالی خواهد
-    بود.
-  ? This chart shows how many unique learners have watched each video, and how many
-    repeat views each has gotten. If a video has never been played it will not appear
-    in this chart.
-  : این نمودار نشان می‌دهد که چند یادگیرنده منحصر به فرد هر ویدیو را تماشا کرده‌اند
-    و هر کدام چند بازدید تکراری داشته‌اند. اگر ویدیویی هرگز پخش نشده باشد در این نمودار
-    ظاهر نمی شود.
-  ? This chart shows how often an answer or combination of answers (for multi-select)
-    is selected by learners. Some problems allow learners to submit a response more
-    than once, this chart will include all of the responses in that case.
-  : این نمودار نشان می‌دهد که هر چند وقت یک‌بار یک پاسخ یا ترکیبی از پاسخ‌ها (برای
-    چند انتخابی) توسط زبان‌آموزان انتخاب می‌شود. برخی از مشکلات به زبان آموزان اجازه
-    می دهد تا پاسخی را بیش از یک بار ارسال کنند، این نمودار شامل تمام پاسخ ها در آن
-    مورد می شود.
-  ? This chart shows the number of attempts that students needed to make before getting
-    the problem's answer correct. This only counts students who eventually answered
-    correctly.
-  : این نمودار تعداد تلاش‌هایی را که دانش‌آموزان قبل از دریافت پاسخ صحیح مسئله باید
-    انجام دهند را نشان می‌دهد. این فقط دانش‌آموزانی را در نظر می‌گیرد که در نهایت
-    پاسخ صحیح داده‌اند.
-  ? 'This chart shows the number of students who scored within a certain percentage
-    of points for this problem. For problems that are pass/fail it will only show
-    the lowest and highest percentage ranges. '
-  : 'این نمودار تعداد دانش‌آموزانی را نشان می‌دهد که در درصد معینی امتیاز برای این
-    مشکل کسب کرده‌اند. برای مشکلاتی که قبول/شکست هستند، فقط پایین‌ترین و بالاترین
-    محدوده درصد را نشان می‌دهد. '
-  ? This chart shows which parts of a video are most watched, and which are most re-watched.
-    Each segment represents 5 seconds of the video.
-  : این نمودار نشان می‌دهد که کدام قسمت‌های یک ویدیو بیشتر تماشا می‌شوند و کدام قسمت‌ها
-    بیشتر تماشا می‌شوند. هر بخش نشان دهنده 5 ثانیه از ویدیو است.
-  Time Last Dumped: زمان آخرین تخلیه
-  Time Range: محدوده زمانی
-  Time range: محدوده زمانی
-  Total Actors v2: Total Actors v2
-  Total Hints: کل نکات
-  Total Organizations: کل سازمان ها
+  Superset: ابرمجموعه
+  Superset Active Users: کاربران فعال ابرمجموعه
+  Superset Active Users Over Time: کاربران فعال ابرمجموعه در طول زمان
+  Superset Registered Users Over Time: کاربران ثبت‌نام‌شده ابرمجموعه در طول زمان
+  Tables: جداول
+  Time Grain: زمان هسته
+  Time Last Dumped: زمان آخرین روبرداری
+  Time Range: محدودۀ زمانی
+  Total Courses: مجموع دوره‌ها
+  Total Organizations: کل سازمان‌ها
   Total Views: کل بازدیدها
-  Total plays: مجموع بازی ها
-  Total transcript usage: کل استفاده از رونوشت
-  Transcripts / Captions Per Video: رونوشت / زیرنویس در هر ویدیو
-  UUID: UUID
-  Unique Transcript Users: کاربران رونوشت منحصر به فرد
-  Unique Viewers: بینندگان منحصر به فرد
-  Unique Watchers: ناظران منحصر به فرد
-  Unique actors: بازیگران بی نظیر
-  User Actions: اقدامات کاربر
-  User ID: شناسه کاربر
+  Unique Viewers: بینندگان منحصربه‌فرد
+  User ID: شناسۀ کاربر
+  User Info: اطلاعات کاربر
   User Name: نام کاربری
-  User Registration Date: تاریخ ثبت نام کاربر
+  User Registration Date: تاریخ ثبت‌نام کاربر
   Username: نام کاربری
   Value: ارزش
   Verb: فعل
-  Verb ID: شناسه فعل
+  Verb ID: شناسۀ فعل
+  Video Duration: مدت‌زمان ویدیو
   Video Engagement: تعامل ویدیویی
+  Video Engagement per Section: تعامل ویدیویی در هربخش
+  Video Engagement per Section/Subsection: تعامل ویدیویی در هر بخش/زیربخش
+  Video Engagement per Subsection: تعامل ویدیویی در هر زیربخش
   Video Event: رویداد ویدیویی
-  Video Id: شناسه ویدیو
+  Video ID: شناسۀ ویدیو
+  Video Link: پیوند ویدیو
+  Video Location and Name: مکان و نام ویدیو
   Video Name: نام ویدیو
   Video Name With Location: نام ویدیو با موقعیت مکانی
-  Video Performance: عملکرد ویدئو
-  Video Title: عنوان ویدئو
-  Video name: نام ویدیو
-  Viz Type: یعنی نوع
-  Watched Video Segments: بخش های ویدیویی تماشا شده
-  Watches Per Video: ساعت در هر ویدئو
-  XBlock Data JSON: XBlock Data JSON
-  Year of Birth: سال تولد
+  Video Position: جایگاه ویدیو
+  Video Segment Count: تعداد بخش ویدیو
+  Videos: ویدیوها
+  Viewed All Pages: مشاهدۀ همۀ صفحات
+  Viewed All Videos: همه ویدیوها مشاهده شد
+  Viewed At Least One Page: حداقل یک صفحه مشاهده شده‌است
+  Viewed At Least One Video: حداقل یک ویدیو مشاهده شده‌است
+  Visited On: بازدیدشده در
+  Visualization Bucket: قسمت مصورسازی
+  Watched Entire Video: کل ویدیو مشاهده شد
+  Watched Segment Count: تعداد بخش مشاهده‌شده
+  Watched Video Segments: بخش‌های ویدیویی مشاهده شده
   audit: حسابرسی
-  honor: افتخار و احترام
-  registered: ثبت شده است
+  failed: ناموفق
+  graded: ارزیابی‌شده
+  honor: با احترام
+  passed: رد
+  registered: ثبت شده
+  section_subsection_name: section_subsection_name
+  section_subsection_page_engagement: section_subsection_page_engagement
+  section_subsection_problem_engagement: section_subsection_problem_engagement
+  ungraded: غیرمدرج
   unregistered: ثبت نشده
-  verified: تایید شده است
-  xAPI Events Over Time: رویدادهای xAPI در طول زمان
-  xAPI Events Over Time v2: رویدادهای xAPI در طول زمان نسخه 2
-  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
+  verified: تاییدشده
+  '{{ASPECTS_COURSE_OVERVIEW_HELP_MARKDOWN}}': '{{ASPECTS_COURSE_OVERVIEW_HELP_MARKDOWN}}'
+  '{{ASPECTS_INDIVIDUAL_LEARNER_HELP_MARKDOWN}}': '{{ASPECTS_INDIVIDUAL_LEARNER_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 fr_CA:
   '': ''
