@@ -85,5 +85,5 @@ join
         and full_responses.problem_id = blocks.block_id
     )
 left outer join
-    event_sink.user_pii users
+    {{ ASPECTS_EVENT_SINK_DATABASE }}.user_pii users
     on full_responses.actor_id = users.external_user_id::String

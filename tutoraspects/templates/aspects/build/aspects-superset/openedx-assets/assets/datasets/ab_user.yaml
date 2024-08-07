@@ -192,7 +192,7 @@ normalize_columns: false
 offset: 0
 params: null
 schema: '{{ SUPERSET_DB_NAME }}'
-sql: select * from ab_user
+sql: select * from {{ SUPERSET_DB_NAME }}.ab_user
 table_name: ab_user
 template_params: null
 uuid: 814ebd7a-00e2-52d0-b2ff-5b4c41dc6207
