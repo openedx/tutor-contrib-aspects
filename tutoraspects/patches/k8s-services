@@ -61,12 +61,12 @@ kind: Service
 metadata:
   name: aspects
   labels:
-    app.kubernetes.io/name: aspects
+    app.kubernetes.io/name: aspects-docs
 spec:
   type: ClusterIP
   ports:
-    - port: 8080
+    - port: 7000
       protocol: TCP
   selector:
-    app.kubernetes.io/name: aspects
+    app.kubernetes.io/name: aspects-docs
 {% endif %}
