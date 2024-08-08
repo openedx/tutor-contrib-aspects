@@ -7,7 +7,6 @@ set -o nounset
 
 if [ -z "${DBT_SSH_KEY+x}"]
 then
-  echo "Found ssh key $DBT_SSH_KEY"
   mkdir -p /root/.ssh
   echo "${DBT_SSH_KEY}" | tr -d '\r' > /root/.ssh/id_rsa
   chmod 600 /root/.ssh/id_rsa

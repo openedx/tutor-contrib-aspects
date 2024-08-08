@@ -145,7 +145,6 @@ aspects-docs:
   volumes:
     - ../../env/plugins/aspects/apps/aspects:/app/aspects
     - ../../env/plugins/aspects/apps/aspects/scripts/:/app/aspects/scripts:ro
-    - ../../data/aspects-dbt:{{ DBT_STATE_DIR }}
   depends_on:
   {% if RUN_CLICKHOUSE %}  - clickhouse{% endif %}
 {% endif %}
