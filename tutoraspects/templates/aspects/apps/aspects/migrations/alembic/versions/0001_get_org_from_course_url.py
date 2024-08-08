@@ -5,7 +5,6 @@ revision = "0001"
 down_revision = None
 branch_labels = None
 depends_on = None
-on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""
 
 
 def upgrade():
@@ -19,7 +18,7 @@ def upgrade():
     """
     op.execute(
         f"""
-        CREATE OR REPLACE FUNCTION get_org_from_course_url {on_cluster}
+        CREATE OR REPLACE FUNCTION get_org_from_course_url
         AS (
         course_url) ->
         nullIf(EXTRACT(course_url, 'course-v1:([a-zA-Z0-9]*)'), '');
@@ -28,4 +27,4 @@ def upgrade():
 
 
 def downgrade():
-    op.execute("DROP FUNCTION IF EXISTS get_org_from_course_url;")
+    op.execute(f"DROP FUNCTION IF EXISTS get_org_from_course_url;")

@@ -27,7 +27,7 @@ def load_xapi_test_data(config_file) -> list[tuple[str, str]]:
     return [
         (
             "aspects",
-            "echo 'Running script...' && "
+            f"echo 'Running script... {config_file}' && "
             "cd /app/aspects/scripts/ && "
             f"bash clickhouse-demo-xapi-data.sh {config_file} && "
             "echo 'Done!';",

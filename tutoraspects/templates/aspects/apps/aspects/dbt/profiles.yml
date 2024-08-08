@@ -4,11 +4,11 @@ aspects: # this needs to match the profile in your dbt_project.yml file
     prod:
       type: clickhouse
       schema: {{ DBT_PROFILE_TARGET_DATABASE }}
-      host: {{ CLICKHOUSE_HOST }}
+      host: {% if CLICKHOUSE_CLUSTER_DDL_NODE_HOST %}{{CLICKHOUSE_CLUSTER_DDL_NODE_HOST}}{% else %}{{ CLICKHOUSE_HOST }}{% endif %}
       port: {{ CLICKHOUSE_INTERNAL_NATIVE_PORT }}
       user: {{ CLICKHOUSE_ADMIN_USER }}
-      password: '{{ CLICKHOUSE_ADMIN_PASSWORD }}'
-      cluster: {{ CLICKHOUSE_CLUSTER_NAME }}
+      password: {{ CLICKHOUSE_ADMIN_PASSWORD }}
+      cluster: "{{ CLICKHOUSE_CLUSTER_NAME }}"
 
       # These are ClickHouse provider values and map directly to ClickHouse connection settings.
       verify: True
@@ -17,15 +17,20 @@ aspects: # this needs to match the profile in your dbt_project.yml file
       compression: lz4
       connect_timeout: 10
       send_receive_timeout: 300
-      cluster_mode: false
+      cluster_mode:  {% if CLICKHOUSE_CLUSTER_NAME %}true{% else %}false{% endif %}
       use_lw_deletes: false
       check_exchange: false
       sync_request_timeout: 5
       compress_block_size: 1048576
       threads: 2
 
-      # Without this dbt queries populating tables can be killed for using too much memory
       custom_settings:
+        # Without this dbt queries populating tables can be killed for using too much memory
         memory_overcommit_ratio_denominator_for_user: 0
+        # Drop tables immediately so they can be recreated
+        database_atomic_delay_before_drop_table_sec: 0
+        # Make sure all drops and detaches complete before continuing
+        database_atomic_wait_for_drop_and_detach_synchronously: 1
+
 
       {{ patch("dbt-profiles") | indent(6)}}
