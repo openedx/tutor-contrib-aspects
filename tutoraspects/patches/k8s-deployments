@@ -590,18 +590,19 @@ spec:
             name: openedx-config
 {% endif %}
 
+{% if RUN_ASPECTS_DOCS %}
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aspects
+  name: aspects-documentation
   labels:
-    app.kubernetes.io/name: aspects
+    app.kubernetes.io/name: aspects-documentation
 spec:
   template:
     spec:
       containers:
-      - name: aspects
+      - name: aspects-documentation
         env:
           - name: VENV_DIR
             value: /opt/venv
@@ -666,3 +667,4 @@ spec:
         - name: versions
           configMap:
             name: aspects-migrations-alembic-versions
+{% endif %}

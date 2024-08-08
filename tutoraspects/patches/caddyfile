@@ -11,6 +11,8 @@
 }
 {% endif %}
 
+{% if RUN_ASPECTS_DOCS %}
 {{ DBT_HOST }}{$default_site_port} {
     import proxy "aspects-documentation:8090"
 }
+{% endif%}
