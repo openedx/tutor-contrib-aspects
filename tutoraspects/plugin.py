@@ -371,6 +371,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DBT_STATE_DIR", "/app/aspects/dbt_state/"),
         # This is the name of the database dbt will write to
         ("DBT_PROFILE_TARGET_DATABASE", "reporting"),
+        ("RUN_ASPECTS_DOCS", False),
         ("DBT_HOST", "dbt.{{LMS_HOST}}"),
     ]
 )

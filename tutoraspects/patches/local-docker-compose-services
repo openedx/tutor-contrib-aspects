@@ -122,7 +122,8 @@ aspects-consumer:
     {% if RUN_REDIS %}- redis{% endif %}
 {% endif %}
 
-aspects:
+{% if RUN_ASPECTS_DOCS %}
+aspects-docs:
   user: root
   image: {{ DOCKER_IMAGE_ASPECTS }}
   environment:
@@ -147,3 +148,4 @@ aspects:
     - ../../data/aspects-dbt:{{ DBT_STATE_DIR }}
   depends_on:
   {% if RUN_CLICKHOUSE %}  - clickhouse{% endif %}
+{% endif %}
