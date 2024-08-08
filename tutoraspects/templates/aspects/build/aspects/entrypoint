@@ -5,20 +5,23 @@ set -o pipefail
 set -o nounset
 
 
-{% if DBT_SSH_KEY %}
-mkdir -p /root/.ssh
-echo "{{ DBT_SSH_KEY}}" | tr -d '\r' > /root/.ssh/id_rsa
-chmod 600 /root/.ssh/id_rsa
-eval `ssh-agent -s`
-ssh -o StrictHostKeyChecking=no git@github.com || true
-ssh-add /root/.ssh/id_rsa
-{% endif %}
+if [ -z "${DBT_SSH_KEY+x}"]
+then
+  echo "Found ssh key $DBT_SSH_KEY"
+  mkdir -p /root/.ssh
+  echo "${DBT_SSH_KEY}" | tr -d '\r' > /root/.ssh/id_rsa
+  chmod 600 /root/.ssh/id_rsa
+  eval `ssh-agent -s`
+
+  ssh -o StrictHostKeyChecking=no git@github.com || true
+  ssh-add /root/.ssh/id_rsa
+fi
 
 rm -rf aspects-dbt
 
 echo "Installing aspects-dbt"
-echo "git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }}"
-git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }} aspects-dbt
+echo "git clone -b ${DBT_BRANCH} ${DBT_REPOSITORY}"
+git clone -b ${DBT_BRANCH} ${DBT_REPOSITORY} aspects-dbt
 
 cd aspects-dbt
 

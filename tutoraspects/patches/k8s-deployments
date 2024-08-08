@@ -619,6 +619,12 @@ spec:
             value: "{{ DBT_PROFILE_TARGET_DATABASE }}"
           - name: DBT_PROFILES_DIR
             value: /app/aspects/dbt/
+          - name: DBT_BRANCH
+            value: "{{ DBT_BRANCH }}"
+          - name: DBT_REPOSITORY
+            value: "{{ DBT_REPOSITORY }}"
+          - name: DBT_SSH_KEY
+            value: "{{ DBT_SSH_KEY }}"
         image: {{ DOCKER_IMAGE_ASPECTS }}
         securityContext:
           allowPrivilegeEscalation: false

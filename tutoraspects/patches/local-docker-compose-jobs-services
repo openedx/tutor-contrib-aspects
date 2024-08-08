@@ -2,6 +2,7 @@ aspects-job:
   user: root
   image: {{ DOCKER_IMAGE_ASPECTS }}
   environment:
+    VENV_DIR: /opt/venv
     ASPECTS_EVENT_SINK_DATABASE: {{ASPECTS_EVENT_SINK_DATABASE}}
     ASPECTS_XAPI_DATABASE: {{ASPECTS_XAPI_DATABASE}}
     CLICKHOUSE_CLUSTER_NAME: {{CLICKHOUSE_CLUSTER_NAME}}
@@ -9,6 +10,9 @@ aspects-job:
     ASPECTS_DATA_TTL_EXPRESSION: "{{ ASPECTS_DATA_TTL_EXPRESSION }}"
     DBT_PROFILE_TARGET_DATABASE: "{{ DBT_PROFILE_TARGET_DATABASE }}"
     DBT_PROFILES_DIR: /app/aspects/dbt/
+    DBT_BRANCH: "{{ DBT_BRANCH }}"
+    DBT_REPOSITORY: "{{ DBT_REPOSITORY }}"
+    DBT_SSH_KEY: "{{ DBT_SSH_KEY }}"
   volumes:
     - ../../env/plugins/aspects/apps/aspects:/app/aspects
     - ../../env/plugins/aspects/apps/aspects/scripts/:/app/aspects/scripts:ro
