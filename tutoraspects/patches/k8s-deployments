@@ -595,14 +595,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aspects-documentation
+  name: aspects-docs
   labels:
-    app.kubernetes.io/name: aspects-documentation
+    app.kubernetes.io/name: aspects-docs
 spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: aspects-docs
   template:
-    spec:
+    metadata:
+      labels:
+        app.kubernetes.io/name: aspects-docs
       containers:
-      - name: aspects-documentation
+      - name: aspects-docs
         env:
           - name: VENV_DIR
             value: /opt/venv
