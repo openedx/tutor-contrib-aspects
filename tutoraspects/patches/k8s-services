@@ -54,6 +54,7 @@ spec:
     app.kubernetes.io/name: superset
 {% endif %}
 
+{% if RUN_ASPECTS_DOCS %}
 ---
 apiVersion: v1
 kind: Service
@@ -68,3 +69,4 @@ spec:
       protocol: TCP
   selector:
     app.kubernetes.io/name: aspects
+{% endif %}
