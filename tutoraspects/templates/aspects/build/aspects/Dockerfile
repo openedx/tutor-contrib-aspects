@@ -13,3 +13,8 @@ WORKDIR /app/aspects-dbt
 RUN pip install -r requirements.txt
 
 RUN dbt deps
+
+COPY ./entrypoint /entrypoint
+RUN chmod +x /entrypoint
+
+ENTRYPOINT ["/entrypoint"]

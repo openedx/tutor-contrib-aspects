@@ -4,4 +4,4 @@ set -e
 
 bash /app/aspects/scripts/alembic.sh upgrade head
 
-bash /app/aspects/scripts/dbt.sh True run
+bash /app/aspects/scripts/dbt.sh True dbt run
