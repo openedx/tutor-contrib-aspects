@@ -33,4 +33,4 @@ fi
 echo "Installing dbt dependencies"
 dbt deps
 
-mkdir target
+mkdir state
