@@ -1,7 +1,12 @@
 import clickhouse_connect
-import os
 import json
 import glob
+import sys
+import os
+
+DBT_PROJECT_ROOT = "/app/aspects-dbt"
+
+DBT_STATE_DIR = "{{DBT_STATE_DIR}}"
 
 client = clickhouse_connect.get_client(
     host="{{CLICKHOUSE_HOST}}",
@@ -9,24 +14,39 @@ client = clickhouse_connect.get_client(
     password='{{CLICKHOUSE_ADMIN_PASSWORD}}'
 )
 
-for file_name in glob.iglob(ASSETS_PATH + "/**/*.yaml", recursive=True):
-    with open(file_name, "r", encoding="utf-8") as file:
-        # We have to remove the jinja for it to parse
-        file_str = file.read()
+def sink_files():
+    files = []
+    file_name = f"{DBT_STATE_DIR}manifest.json"
 
-with open(file_path) as f:
-    file_content = json.load(f)
-    content = json.dumps({"path": file_path, "content": file_content})
-    client.raw_query(
+    with open(file_name, "r") as file:
+        content = file.read()
+        name = file_name.split("/")[-1]
+        print(f"Sinking file: {name}")
+        files.append({
+            "path": name,
+            "content": content
+        })
+
+
+
+    client.query(
     f"""
-    CREATE TABLE if not exists test(
-        path String,
-        content String
-    ) ENGINE Memory
+    INSERT INTO {{ ASPECTS_EVENT_SINK_DATABASE }}.aspects_data FORMAT JSONEachRow {json.dumps(files)}
     """
     )
-    client.raw_query(
-    f"""
-    INSERT INTO test FORMAT JSONEachRow {content}
-    """
-    )
+
+def load_files():
+    result = client.query("SELECT path, content from {{ ASPECTS_EVENT_SINK_DATABASE }}.aspects_data OPTIMIZE FINAL")
+    for row in result.result_rows:
+        path, content = row
+        file_path = f"{DBT_STATE_DIR}manifest.json"
+        with open(file_path, "w") as f:
+            print(f"Loading: {file_path}")
+            f.write(content)
+
+
+if __name__ == '__main__':
+    if sys.argv[1] == "sink":
+        sink_files()
+    if sys.argv[1] == "load":
+        load_files()

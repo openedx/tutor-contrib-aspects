@@ -51,12 +51,7 @@ spec:
             name: alembic
           - mountPath: /app/aspects/migrations/alembic/versions
             name: versions
-          - mountPath: {{ DBT_STATE_DIR }}
-            name: dbt-state
       volumes:
-        - name: dbt-state
-          persistentVolumeClaim:
-            claimName: aspects-dbt
         - name: scripts
           configMap:
             name: aspects-scripts

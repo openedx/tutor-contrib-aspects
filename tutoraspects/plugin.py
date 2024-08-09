@@ -368,7 +368,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
         ("DBT_BRANCH", "v3.30.0"),
         ("DBT_SSH_KEY", ""),
-        ("DBT_STATE_DIR", "/app/aspects/dbt_state/"),
+        ("DBT_STATE_DIR", "/app/aspects-dbt/target"),
         # This is the name of the database dbt will write to
         ("DBT_PROFILE_TARGET_DATABASE", "reporting"),
         ("RUN_ASPECTS_DOCS", False),

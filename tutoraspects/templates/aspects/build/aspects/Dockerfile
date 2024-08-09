@@ -10,11 +10,9 @@ RUN git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }} aspects-dbt
 
 WORKDIR /app/aspects-dbt
 
+RUN mkdir -p {{DBT_STATE_DIR}}
 RUN pip install -r requirements.txt
 
 RUN dbt deps
 
-COPY ./entrypoint /entrypoint
-RUN chmod +x /entrypoint
-
-ENTRYPOINT ["/entrypoint"]
+WORKDIR /app

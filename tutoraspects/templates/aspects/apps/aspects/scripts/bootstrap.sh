@@ -1,11 +1,9 @@
-#!/bin/bash
-
-set -o errexit
-set -o pipefail
-set -o nounset
+#!/usr/bin/env bash
 
 
-if [ -z "${DBT_SSH_KEY+x}"]
+set -eo pipefail
+
+if [ -z "${DBT_SSH_KEY+x}" ]
 then
   mkdir -p /root/.ssh
   echo "${DBT_SSH_KEY}" | tr -d '\r' > /root/.ssh/id_rsa
@@ -34,7 +32,3 @@ fi
 
 echo "Installing dbt dependencies"
 dbt deps
-
-dbt docs generate
-
-exec "$@"
