@@ -18,20 +18,36 @@ import click
 import ruamel.yaml
 from superset.extensions import db
 from superset.models.dashboard import Dashboard
+import clickhouse_connect
 
 
 logger = logging.getLogger("collect_dbt_lineage")
 
-DBT_DATA_PATH = "/app/dbt_manifest/"
-DBT_MANIFEST_PATH = os.path.join(DBT_DATA_PATH, "manifest.json")
+
+
+client = clickhouse_connect.get_client(
+    host="{{CLICKHOUSE_HOST}}",
+    username='{{CLICKHOUSE_ADMIN_USER}}',
+    password='{{CLICKHOUSE_ADMIN_PASSWORD}}'
+)
+
+
+def get_manifests():
+    """
+    Query clickhouse for the manifests state
+    """
+    result = client.query("SELECT content from {{ ASPECTS_EVENT_SINK_DATABASE }}.aspects_data OPTIMIZE FINAL WHERE path = 'manifest.json'")
+    if not result.result_rows:
+        raise ValueError("There is no state in ClickHouse. Run DBT tasks first.")
+
+    return json.loads(result.result_rows[0][0])
 
 
 def get_tables_from_dbt():
     """
     Take generated metadata from the last dbt run to find known models
     """
-    with open(DBT_MANIFEST_PATH) as f:
-        dbt_manifest = json.load(f)
+    dbt_manifest = get_manifests()
 
     tables = {}
     for table_type in ["nodes", "sources"]:
@@ -156,11 +172,24 @@ def write_exposures_yaml(exposure_dashboards):
         'exposures': exposures_yaml
     }
 
-    outfile = os.path.join(DBT_DATA_PATH, "superset_exposures.yaml")
-    logger.info(f"Writing exposures to {outfile}")
+    outfile = os.path.join("/tmp", "superset_exposures.yaml")
+    logger.info(f"Writing exposures to ClickHouse")
     exposures_yaml_file = YamlFormatted()
+
     with open(outfile, 'w+', encoding='utf-8') as f:
         exposures_yaml_file.dump(exposures_yaml_schema, f)
+
+    with open(outfile, 'r+', encoding='utf-8') as f:
+        content = f.read()
+
+    client.query(
+    f"""
+    INSERT INTO {{ ASPECTS_EVENT_SINK_DATABASE }}.aspects_data FORMAT JSONEachRow {json.dumps({
+        'path': 'superset_exposures.yaml',
+        'content': content
+    })}
+    """
+    )
 
 
 @click.command(
@@ -201,5 +230,5 @@ def collect_dbt_lineage():
 
 
 if __name__ == "__main__":
-    logger.info(f"Collecting dbt lineage, will write output to {DBT_DATA_PATH}.")
+    logger.info(f"Collecting dbt lineage, will write output to ClickHouse.")
     collect_dbt_lineage()

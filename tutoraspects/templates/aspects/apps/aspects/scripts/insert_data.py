@@ -41,7 +41,10 @@ def load_files():
         print("There is no state stored.")
     for row in result.result_rows:
         path, content = row
-        file_path = f"{DBT_STATE_DIR}/manifest.json"
+        if path == "manifest.json":
+            file_path = f"{DBT_STATE_DIR}/manifest.json"
+        if path == "superset_exposures.yaml":
+            file_path = f"models/{path}"
         with open(file_path, "w") as f:
             print(f"Loading: {file_path}")
             f.write(content)
