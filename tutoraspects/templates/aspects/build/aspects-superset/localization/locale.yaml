@@ -6192,6 +6192,276 @@ uk:
   xAPI Events Over Time v2: Події xAPI з часом v2
   '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
   '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
+vi:
+  ? '## Help<br>* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/reference/learner_groups_dashboard.html)<br>*
+    [Superset Resources](https://github.com/apache/superset#resources)<br>'
+  : '## Giúp đỡ<br> * [Tham khảo các khía cạnh](https://docs.openedx.org/projects/openedx-aspects/page/reference/learner_groups_dashboard.html)<br>
+    * [Tài nguyên Superset](https://github.com/apache/superset#resources)<br>'
+  '% Correct': '% Chính xác'
+  '% Incorrect': '% Không đúng'
+  Action: Hoạt động
+  Action Count: Số lượng hành động
+  Action Date: Ngày hành động
+  Active: Tích cực
+  Active Courses: Các khóa học đang hoạt động
+  Active Learners: Người học tích cực
+  Active Users Per Organization: Người dùng đang hoạt động trên mỗi tổ chức
+  Actor ID: ID diễn viên
+  Actor Id: Id diễn viên
+  Actors Count: Số lượng diễn viên
+  At-Risk Learners: Người học có nguy cơ
+  Attempted All Problems: Đã thử mọi vấn đề
+  Attempted At Least One Problem: Đã thử ít nhất một vấn đề
+  Attempts: Nỗ lực
+  Avg Attempts: Số lần thử trung bình
+  Avg Course Grade: Điểm trung bình của khóa học
+  Block ID: ID khối
+  Block Id: Mã khối
+  COUNT(*): ĐẾM(*)
+  Changed By Fk: Được thay đổi bởi Fk
+  Changed On: Đã thay đổi
+  Chart showing the number of Superset actions taken on each chart in the selected time period.: Biểu
+    đồ hiển thị số lượng hành động Superset được thực hiện trên mỗi biểu đồ trong
+    khoảng thời gian đã chọn.
+  Chart showing the number of Superset actions taken on each dashboard in the selected time period.: Biểu
+    đồ hiển thị số lượng hành động Superset được thực hiện trên mỗi trang tổng quan
+    trong khoảng thời gian đã chọn.
+  Chart showing the number of registered users over the selected time period.: Biểu
+    đồ hiển thị số lượng người dùng đã đăng ký trong khoảng thời gian đã chọn.
+  ClickHouse: ClickHouse
+  ClickHouse metrics: Số liệu ClickHouse
+  Content Level: Cấp độ nội dung
+  Correct Attempts: Nỗ lực đúng đắn
+  Count: Đếm
+  Count of unique users who performed an action in Superset over the selected time period.: Số
+    lượng người dùng duy nhất đã thực hiện một hành động trong Superset trong khoảng
+    thời gian đã chọn.
+  Count over time of unique users who performed an action in Superset over the selected time period.: Đếm
+    theo thời gian số người dùng duy nhất đã thực hiện một hành động trong Superset
+    trong khoảng thời gian đã chọn.
+  Course Dashboard: Trang tổng quan khóa học
+  Course Data JSON: Dữ liệu khóa học JSON
+  Course End: Kết thúc khóa học
+  Course Enrollment Mode Status Cnt: Trạng thái chế độ ghi danh khóa học Cnt
+  Course Enrollments Over Time: Ghi danh khóa học theo thời gian
+  Course Grade: Lớp khóa học
+  Course Grade %: Điểm khóa học %
+  Course ID: Mã khóa học
+  Course Information: Thông tin khóa học
+  Course Key: Khóa học
+  Course Key Short: Khóa học ngắn hạn
+  Course Name: Tên khóa học
+  Course Order: Thứ tự khóa học
+  Course Run: Chạy khóa học
+  Course Start: Bắt đầu khóa học
+  Course grade: Điểm khóa học
+  Course name: Tên khóa học
+  Course run: Khóa học chạy
+  Courses: Khóa học
+  Courses Cnt: Khóa học Cnt
+  Courses Per Organization: Khóa học cho mỗi tổ chức
+  Created: Tạo
+  Created By Fk: Tạo bởi Fk
+  Created On: Được tạo ra
+  Cumulative Enrollments by Track: Ghi danh tích lũy theo đường đua
+  Cumulative Interactions: Tương tác tích lũy
+  Current Active Enrollments By Mode: Ghi danh hoạt động hiện tại theo chế độ
+  Current Enrollees: Người ghi danh hiện tại
+  Currently Enrolled Users: Người dùng hiện đã ghi danh
+  Dashboard ID: ID trang tổng quan
+  Dashboard Status: Trạng thái trang tổng quan
+  Dashboard Title: Tiêu đề trang tổng quan
+  Datasource ID: ID nguồn dữ liệu
+  Datasource Name: Tên nguồn dữ liệu
+  Datasource Type: Loại nguồn dữ liệu
+  Date: Ngày
+  Description: Sự miêu tả
+  Display Name: Tên hiển thị
+  Distribution of Course Grades: Phân phối điểm khóa học
+  Distribution of Current Course Grade: Phân phối điểm khóa học hiện tại
+  Dump ID: ID kết xuất
+  Duration (Seconds): Thời lượng (Giây)
+  Email: Email
+  Emission Day: Ngày phát thải
+  Emission Hour: Giờ phát thải
+  Emission Time: Thời gian phát thải
+  Engagement: Hôn ước
+  Enrolled At: Đã ghi danh tại
+  Enrollees by Enrollment Track: Người ghi danh theo lộ trình ghi danh
+  Enrollees per Enrollment Track: Người ghi danh theo dõi ghi danh
+  Enrollment: Ghi danh
+  Enrollment Date: Ngày ghi danh
+  Enrollment Dates: Ngày ghi danh
+  Enrollment End: Kết thúc ghi danh
+  Enrollment Mode: Chế độ ghi danh
+  Enrollment Start: Bắt đầu ghi danh
+  Enrollment Status: Tình trạng ghi danh
+  Enrollment Track: Theo dõi ghi danh
+  Enrollment status: Tình trạng ghi danh
+  Enrollment track: lộ trình ghi danh
+  Enrollments: ghi danh
+  Event Activity: Hoạt động sự kiện
+  Event ID: ID sự kiện
+  Event String: Chuỗi sự kiện
+  Event Time: Thời gian sự kiện
+  Events Cnt: Sự kiện Cnt
+  Fail Login Count: Số lần đăng nhập thất bại
+  First Name: Tên đầu tiên
+  Full Views: Lượt xem đầy đủ
+  Grade Bucket: Xô lớp
+  Grade Range: Phạm vi lớp
+  Grade range: phạm vi lớp
+  Graded: Đã chấm điểm
+  Graded Learners: Người học được xếp loại
+  Help: Trợ giúp
+  Http User Agent: Tác nhân người dùng http
+  Id: Nhận dạng
+  Incorrect Attempts: Nỗ lực không chính xác
+  Individual Learner: Người học cá nhân
+  Instance Health: Tình trạng phiên bản
+  Interaction Type: Loại tương tác
+  Last Course Published: Khóa học cuối cùng được xuất bản
+  Last Login: Lân đăng nhập cuôi
+  Last Name: Họ
+  Last Received Event: Sự kiện nhận được lần cuối
+  Last Visit Date: Ngày truy cập lần cuối
+  Last Visited: Lần cuối ghé thăm
+  Last course syncronized: Khóa học cuối cùng đã được đồng bộ hóa
+  Learner Summary: Tóm tắt người học
+  Learners: Người học
+  Learners with Passing Grade: Người học đạt điểm
+  Login Count: Số lần đăng nhập
+  Median Attempts: Số lần thử trung bình
+  Median Course Grade: Điểm khóa học trung bình
+  Memory Usage (KB): Mức sử dụng bộ nhớ (KB)
+  Memory Usage Mb: Mức sử dụng bộ nhớ Mb
+  Modified: Đã sửa đổi
+  Most-used Charts: Biểu đồ được sử dụng nhiều nhất
+  Most-used Dashboards: Bảng điều khiển được sử dụng nhiều nhất
+  Name: Tên
+  Number of Learners: Số lượng người học
+  Number of Learners who Attempted the Problem: Số lượng người học đã cố gắng giải
+    quyết vấn đề
+  Object ID: ID đối tượng
+  Object Type: Loại đối tượng
+  Operator Dashboard: Bảng điều khiển vận hành
+  Org: Tổ chức
+  Organization: Tổ chức
+  Organizations: Tổ chức
+  Overview: Tổng quan
+  Page Count: Đếm trang
+  Page Engagement Over Time: Tương tác trang theo thời gian
+  Page Engagement per Section: Tương tác trang trên mỗi phần
+  Page Engagement per Section/Subsection: Tương tác trang trên mỗi phần/tiểu mục
+  Page Engagement per Subsection: Tương tác trang trên mỗi tiểu mục
+  Pages: Trang
+  Partial Views: Lượt xem một phần
+  Partial and Full Video Views: Lượt xem một phần và toàn bộ video
+  Passed/Failed: Đạt/Không đạt
+  Password: Mật khẩu
+  Performance: Hiệu suất
+  Problem Attempts: Vấn đề cố gắng
+  Problem Engagement per Section: Vấn đề tương tác trên mỗi phần
+  Problem Engagement per Section/Subsection: Vấn đề tương tác trên mỗi phần/tiểu mục
+  Problem Engagement per Subsection: Sự tham gia của mỗi tiểu mục
+  Problem ID: ID sự cố
+  Problem Id: Id sự cố
+  Problem Link: Liên kết vấn đề
+  Problem Location and Name: Vấn đề Vị trí và tên
+  Problem Name: Tên vấn đề
+  Problem Name With Location: Tên vấn đề với vị trí
+  Problem Results: Kết quả vấn đề
+  Problems: Các vấn đề
+  Query: Truy vấn
+  Query Duration Ms: Thời lượng truy vấn Ms
+  Query performance: Hiệu suất truy vấn
+  Read Rows: Đọc hàng
+  Repeat Views: Lặp lại lượt xem
+  Responses: Phản hồi
+  Result: Kết quả
+  Result Rows: Hàng kết quả
+  Section Location and Name: Vị trí và tên phần
+  Section Name: Tên phần
+  Section Subsection Video Engagement: Mục Tiểu mục Tương tác video
+  Section Summary: Phần tóm tắt
+  Section With Name: Phần có tên
+  Section with name: Phần có tên
+  Section/Subsection Name: Tên mục/tiểu mục
+  Section/Subsection Page Enggagement: Tương tác với trang Mục/Tiểu mục
+  Section/Subsection Problem Engagement: Phần/Tiểu mục Tương tác với Vấn đề
+  Section/Subsection Video Engagement: Tương tác video theo phần/tiểu mục
+  Segment Range: Phạm vi phân khúc
+  Segment Start: Bắt đầu phân đoạn
+  Self Paced: tự nhịp độ
+  Slice ID: ID lát
+  Slice Name: Tên lát
+  Slowest ClickHouse Queries: Truy vấn ClickHouse chậm nhất
+  Start Position: Vị trí bắt đầu
+  Started At: Bắt đầu lúc
+  Subsection Location and Name: Tiểu mục Vị trí và Tên
+  Subsection Name: Tên tiểu mục
+  Subsection Summary: Tóm tắt tiểu mục
+  Subsection With Name: Tiểu mục có tên
+  Subsection with name: Tiểu mục có tên
+  Success: Thành công
+  Superset: siêu tập
+  Superset Active Users: Superset người dùng đang hoạt động
+  Superset Active Users Over Time: Superset người dùng hoạt động theo thời gian
+  Superset Registered Users Over Time: Người dùng đã đăng ký Superset theo thời gian
+  Tables: Những cái bàn
+  Time Grain: Hạt thời gian
+  Time Last Dumped: Thời gian đổ lần cuối
+  Time Range: Phạm vi thời gian
+  Total Courses: Tổng số khóa học
+  Total Organizations: Tổng số tổ chức
+  Total Views: Tổng số lượt xem
+  Unique Viewers: Người xem duy nhất
+  User ID: Tên người dùng
+  User Info: thông tin người dùng
+  User Name: Tên tài khoản
+  User Registration Date: Ngày đăng ký người dùng
+  Username: Tên tài khoản
+  Value: Giá trị
+  Verb: Động từ
+  Verb ID: ID động từ
+  Video Duration: Thời lượng video
+  Video Engagement: Tương tác video
+  Video Engagement per Section: Tương tác video trên mỗi phần
+  Video Engagement per Section/Subsection: Tương tác video trên mỗi phần/tiểu mục
+  Video Engagement per Subsection: Tương tác video trên mỗi tiểu mục
+  Video Event: Sự kiện video
+  Video ID: Mã video
+  Video Link: Liên kêt video
+  Video Location and Name: Vị trí và tên video
+  Video Name: Tên Video
+  Video Name With Location: Tên Video Kèm Vị Trí
+  Video Position: Vị trí video
+  Video Segment Count: Số lượng phân đoạn video
+  Videos: Video
+  Viewed All Pages: Đã xem tất cả các trang
+  Viewed All Videos: Đã xem tất cả video
+  Viewed At Least One Page: Đã xem ít nhất một trang
+  Viewed At Least One Video: Đã xem ít nhất một video
+  Visited On: Đã truy cập vào ngày
+  Visualization Bucket: Nhóm trực quan hóa
+  Watched Entire Video: Đã xem toàn bộ video
+  Watched Segment Count: Số lượng phân đoạn đã xem
+  Watched Video Segments: Phân đoạn video đã xem
+  audit: kiểm toán
+  failed: thất bại
+  graded: chấm điểm
+  honor: danh dự
+  passed: đi qua
+  registered: đăng ký
+  section_subsection_name: phần_subsection_name
+  section_subsection_page_engagement: phần_subsection_page_engagement
+  section_subsection_problem_engagement: phần_subsection_problem_engagement
+  ungraded: chưa chấm
+  unregistered: chưa đăng ký
+  verified: đã xác minh
+  '{{ASPECTS_COURSE_OVERVIEW_HELP_MARKDOWN}}': '{{ASPECTS_COURSE_OVERVIEW_HELP_MARKDOWN}}'
+  '{{ASPECTS_INDIVIDUAL_LEARNER_HELP_MARKDOWN}}': '{{ASPECTS_INDIVIDUAL_LEARNER_HELP_MARKDOWN}}'
+  '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
 zh_CN:
   '': ''
   <div>Filter these results by selecting various options from the filters panel.</div>: <div>通过从过滤器面板中选择各种选项来过滤这些结果。</div>
