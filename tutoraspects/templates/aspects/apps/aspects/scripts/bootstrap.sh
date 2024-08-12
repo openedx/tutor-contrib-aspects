@@ -32,11 +32,11 @@ then
     echo "No requirements.txt file found; skipping"
   fi
 
-
   echo "Installing dbt dependencies"
   dbt deps
+
 fi
 
 cd aspects-dbt
 
-mkdir state
+mkdir -p $DBT_STATE
