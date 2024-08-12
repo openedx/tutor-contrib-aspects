@@ -14,23 +14,28 @@ then
   ssh-add /root/.ssh/id_rsa
 fi
 
-rm -rf aspects-dbt
-
-echo "Installing aspects-dbt"
-echo "git clone -b ${DBT_BRANCH} ${DBT_REPOSITORY}"
-git clone -b ${DBT_BRANCH} ${DBT_REPOSITORY} aspects-dbt
-
-cd aspects-dbt
-
-if [ -e "./requirements.txt" ]
+if [ "$DBT_BRANCH" != $(git -C aspects-dbt/ branch --show-current ) ] &&
+   [ "$DBT_REPOSITORY" != $(git -C aspects-dbt/ config --get remote.origin.url ) ]
 then
-  echo "Installing dbt python requirements"
-  pip install -r ./requirements.txt
-else
-  echo "No requirements.txt file found; skipping"
+  rm -rf aspects-dbt
+
+  echo "Installing aspects-dbt"
+  echo "git clone -b ${DBT_BRANCH} ${DBT_REPOSITORY}"
+  git clone -b ${DBT_BRANCH} ${DBT_REPOSITORY} aspects-dbt
+
+  if [ -e "./requirements.txt" ]
+  then
+    echo "Installing dbt python requirements"
+    pip install -r ./requirements.txt
+  else
+    echo "No requirements.txt file found; skipping"
+  fi
+
+
+  echo "Installing dbt dependencies"
+  dbt deps
 fi
 
-echo "Installing dbt dependencies"
-dbt deps
+cd aspects-dbt
 
 mkdir state
