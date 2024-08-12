@@ -16,10 +16,10 @@ dbt parse
 if [ "$1" == "True" ] && [ -e "${DBT_STATE}/manifest.json" ]
 then
   echo "Found ${DBT_STATE}/manifest.json so only running modified items and their downstreams"
-  ${@:2} -s "state:modified+"
+  dbt ${@:2} -s "state:modified+"
 else
   echo "Running command *without* state:modified+ this may take a long time."
-  ${@:2}
+  dbt ${@:2}
 fi
 
 if [ -e "target/manifest.json" ]
