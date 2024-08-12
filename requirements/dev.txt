@@ -33,7 +33,7 @@ certifi==2024.7.4
     #   -r requirements/base.txt
     #   kubernetes
     #   requests
-cffi==1.16.0
+cffi==1.17.0
     # via cryptography
 charset-normalizer==3.3.2
     # via
@@ -56,7 +56,7 @@ future==1.0.0
     # via
     #   -r requirements/base.txt
     #   pyseeyou
-google-auth==2.32.0
+google-auth==2.33.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -107,7 +107,7 @@ mccabe==0.7.0
     # via pylint
 mdurl==0.1.2
     # via markdown-it-py
-more-itertools==10.3.0
+more-itertools==10.4.0
     # via
     #   jaraco-classes
     #   jaraco-functools
@@ -166,9 +166,9 @@ pygments==2.18.0
     # via
     #   readme-renderer
     #   rich
-pyinstaller==6.9.0
+pyinstaller==6.10.0
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2024.7
+pyinstaller-hooks-contrib==2024.8
     # via pyinstaller
 pylint==3.2.6
     # via -r requirements/dev.in
@@ -180,7 +180,7 @@ python-dateutil==2.9.0.post0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-pyyaml==6.0.1
+pyyaml==6.0.2
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -258,7 +258,7 @@ websocket-client==1.8.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-zipp==3.19.2
+zipp==3.20.0
     # via
     #   -r requirements/base.txt
     #   importlib-metadata
