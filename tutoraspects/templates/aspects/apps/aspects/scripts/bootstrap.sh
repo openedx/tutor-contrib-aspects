@@ -24,6 +24,8 @@ then
   echo "git clone -b ${DBT_BRANCH} ${DBT_REPOSITORY}"
   git clone -b ${DBT_BRANCH} ${DBT_REPOSITORY} aspects-dbt
 
+  cd aspects-dbt
+
   if [ -e "./requirements.txt" ]
   then
     echo "Installing dbt python requirements"
@@ -36,7 +38,5 @@ then
   dbt deps
 
 fi
-
-cd aspects-dbt
 
 mkdir -p $DBT_STATE
