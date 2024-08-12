@@ -14,8 +14,9 @@ then
   ssh-add /root/.ssh/id_rsa
 fi
 
-if [ "$DBT_BRANCH" != $(git -C aspects-dbt/ branch --show-current ) ] &&
-   [ "$DBT_REPOSITORY" != $(git -C aspects-dbt/ config --get remote.origin.url ) ]
+export branch=$(git -C aspects-dbt/ branch --show-current)
+export repo=$(git -C aspects-dbt/ config --get remote.origin.url)
+if [ "$DBT_BRANCH" != $branch  ] && [ "$DBT_REPOSITORY" != $repo ]
 then
   rm -rf aspects-dbt
 
