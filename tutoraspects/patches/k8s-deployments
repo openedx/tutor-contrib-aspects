@@ -609,6 +609,9 @@ spec:
     spec:
       containers:
       - name: aspects-docs
+        args:
+          - bash
+          - /app/aspects/scripts/docs.sh
         env:
           - name: VENV_DIR
             value: /opt/venv
