@@ -606,6 +606,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: aspects-docs
+    spec:
       containers:
       - name: aspects-docs
         env:
