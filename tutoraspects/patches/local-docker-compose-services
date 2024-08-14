@@ -134,7 +134,7 @@ aspects-docs:
     DBT_STATE: {{ DBT_STATE_DIR }}
     ASPECTS_DATA_TTL_EXPRESSION: "{{ ASPECTS_DATA_TTL_EXPRESSION }}"
     DBT_PROFILE_TARGET_DATABASE: "{{ DBT_PROFILE_TARGET_DATABASE }}"
-    DBT_PROFILES_DIR: /app/aspects/dbt/
+    DBT_PROFILES_DIR: {{ DBT_PROFILES_DIR }}
     DBT_BRANCH: "{{ DBT_BRANCH }}"
     DBT_REPOSITORY: "{{ DBT_REPOSITORY }}"
     DBT_SSH_KEY: "{{ DBT_SSH_KEY }}"
@@ -144,7 +144,6 @@ aspects-docs:
     - 7000:7000
   volumes:
     - ../../env/plugins/aspects/apps/aspects/dbt:/app/aspects/dbt
-    - ../../env/plugins/aspects/apps/aspects/scripts:/app/aspects/scripts
     - ../../env/plugins/aspects/apps/aspects/scripts/:/app/aspects/scripts:ro
   depends_on:
   {% if RUN_CLICKHOUSE %}  - clickhouse{% endif %}

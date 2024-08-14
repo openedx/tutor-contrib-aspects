@@ -27,7 +27,7 @@ spec:
           - name: DBT_PROFILE_TARGET_DATABASE
             value: "{{ DBT_PROFILE_TARGET_DATABASE }}"
           - name: DBT_PROFILES_DIR
-            value: /app/aspects/dbt/
+            value: {{ DBT_PROFILES_DIR }}
           - name: DBT_BRANCH
             value: "{{ DBT_BRANCH }}"
           - name: DBT_REPOSITORY
