@@ -5,6 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.1.0 - 2024-08-19
+
+### [1.1.0](https://github.com/openedx/tutor-contrib-aspects/compare/v1.0.3...v1.1.0) (2024-08-19)
+
+#### Features
+
+* add course enrollment sink table ([2dbe789](https://github.com/openedx/tutor-contrib-aspects/commit/2dbe789c93eaa043f31e322c1679c118384ae408))
+
+#### Bug Fixes
+
+* fix hardcoded db names ([5c8cd2f](https://github.com/openedx/tutor-contrib-aspects/commit/5c8cd2fc6bde58153fc68f443f5015ebd390494e))
+* flask debug replaced flask env ([#896](https://github.com/openedx/tutor-contrib-aspects/issues/896)) ([115ed05](https://github.com/openedx/tutor-contrib-aspects/commit/115ed05e4faf34d19a2059e87f2f8c79f33564e4))
+* master branch sunset ([#900](https://github.com/openedx/tutor-contrib-aspects/issues/900)) ([16c9b0f](https://github.com/openedx/tutor-contrib-aspects/commit/16c9b0fe6de5e5855487b93afb2a1eaab9d5cd0b))
+* Upgrade aspects-dbt to 3.29.1 ([#898](https://github.com/openedx/tutor-contrib-aspects/issues/898)) ([03395f6](https://github.com/openedx/tutor-contrib-aspects/commit/03395f6ab8bc319ee2405267e1fb5f4d7f7d6563))
+
+#### Code Refactoring
+
+* Upgrade aspects-dbt for performance changes ([#907](https://github.com/openedx/tutor-contrib-aspects/issues/907)) ([1da3d9d](https://github.com/openedx/tutor-contrib-aspects/commit/1da3d9d875307d2671bb7bf0677d86e032b34b16))
+
+#### Documentation
+
+* Update readme to include the Superset image ([#904](https://github.com/openedx/tutor-contrib-aspects/issues/904)) ([8d4e542](https://github.com/openedx/tutor-contrib-aspects/commit/8d4e5424bd11633c218e7a7ac498959d806e0c55))
+
+#### Build Systems
+
+* Updating workflow `add-remove-label-on-comment.yml`. ([#899](https://github.com/openedx/tutor-contrib-aspects/issues/899)) ([84d9f03](https://github.com/openedx/tutor-contrib-aspects/commit/84d9f03c8b33308f96ef574509ef86862b232c7d))
+* **deps:** bump docker/login-action from 3.2.0 to 3.3.0 ([#903](https://github.com/openedx/tutor-contrib-aspects/issues/903)) ([895f6e5](https://github.com/openedx/tutor-contrib-aspects/commit/895f6e5d2ba0574c79ab5223c007f70a3979c9d2))
+
 ## v1.0.3 - 2024-07-03
 
 ### [1.0.3](https://github.com/openedx/tutor-contrib-aspects/compare/v1.0.2...v1.0.3) (2024-07-03)
