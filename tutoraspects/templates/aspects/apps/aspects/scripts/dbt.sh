@@ -3,66 +3,30 @@
 
 set -eo pipefail
 
-## WARNING: If you modify this block, make sure to also update the
-##          corresponding block in the init-aspects.sh file.
+bash /app/aspects/scripts/bootstrap.sh
 
-{% if DBT_SSH_KEY %}
-mkdir -p /root/.ssh
-echo "{{ DBT_SSH_KEY}}" | tr -d '\r' > /root/.ssh/id_rsa
-chmod 600 /root/.ssh/id_rsa
-eval `ssh-agent -s`
-ssh -o StrictHostKeyChecking=no git@github.com || true
-ssh-add /root/.ssh/id_rsa
-{% endif %}
+cd /app/aspects-dbt
+echo "Running ${@:2}"
 
-rm -rf aspects-dbt
+python3 /app/aspects/scripts/insert_data.py load
 
-echo "Installing aspects-dbt"
-echo "git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }}"
-git clone -b {{ DBT_BRANCH }} {{ DBT_REPOSITORY }} aspects-dbt
-
-cd aspects-dbt
-
-if [ -e "./requirements.txt" ]
-then
-  echo "Installing dbt python requirements"
-  pip install -r ./requirements.txt
-else
-  echo "No requirements.txt file found; skipping"
-fi
-
-export ASPECTS_EVENT_SINK_DATABASE={{ASPECTS_EVENT_SINK_DATABASE}}
-export ASPECTS_XAPI_DATABASE={{ASPECTS_XAPI_DATABASE}}
-export CLICKHOUSE_CLUSTER_NAME={{CLICKHOUSE_CLUSTER_NAME}}
-export DBT_STATE={{ DBT_STATE_DIR }}
-export ASPECTS_DATA_TTL_EXPRESSION="{{ ASPECTS_DATA_TTL_EXPRESSION }}"
-export DBT_PROFILE_TARGET_DATABASE="{{ DBT_PROFILE_TARGET_DATABASE }}"
-
-echo "Installing dbt dependencies"
-dbt deps --profiles-dir /app/aspects/dbt/
-
-echo "Running dbt ${@:2}"
-
-if [ "$1" == "True" ]
-then
-  echo "Requested to only run modified state, checking for ${DBT_STATE}/manifest.json"
-fi
+dbt parse
 
 # If state exists and we've asked to only run changed files, add the flag
 if [ "$1" == "True" ] && [ -e "${DBT_STATE}/manifest.json" ]
 then
-  echo "Found {{DBT_STATE_DIR}}/manifest.json so only running modified items and their downstreams"
-  dbt "${@:2}" --profiles-dir /app/aspects/dbt/ -s state:modified+
+  echo "Found ${DBT_STATE}/manifest.json so only running modified items and their downstreams"
+  dbt ${@:2} -s "state:modified+"
 else
   echo "Running command *without* state:modified+ this may take a long time."
-  dbt "${@:2}" --profiles-dir /app/aspects/dbt/
+  dbt ${@:2}
 fi
 
-if [ -e "./target/manifest.json" ]
+if [ -e "target/manifest.json" ]
 then
   echo "Updating dbt state..."
-  rm -rf ${DBT_STATE}/*
-  cp -r ./target/manifest.json ${DBT_STATE}
+  cp target/manifest.json state
+  python3 /app/aspects/scripts/insert_data.py sink
 fi
 
 rm -rf aspects-dbt

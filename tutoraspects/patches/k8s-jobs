@@ -14,10 +14,26 @@ spec:
         env:
           - name: VENV_DIR
             value: /opt/venv
-          - name: XAPI_SCHEMA
-            value: {{ ASPECTS_XAPI_DATABASE }}
+          - name: ASPECTS_EVENT_SINK_DATABASE
+            value: {{ASPECTS_EVENT_SINK_DATABASE}}
+          - name: ASPECTS_XAPI_DATABASE
+            value: {{ASPECTS_XAPI_DATABASE}}
+          - name: CLICKHOUSE_CLUSTER_NAME
+            value: {{CLICKHOUSE_CLUSTER_NAME}}
           - name: DBT_STATE
             value: {{ DBT_STATE_DIR }}
+          - name: ASPECTS_DATA_TTL_EXPRESSION
+            value: "{{ ASPECTS_DATA_TTL_EXPRESSION }}"
+          - name: DBT_PROFILE_TARGET_DATABASE
+            value: "{{ DBT_PROFILE_TARGET_DATABASE }}"
+          - name: DBT_PROFILES_DIR
+            value: {{ DBT_PROFILES_DIR }}
+          - name: DBT_BRANCH
+            value: "{{ DBT_BRANCH }}"
+          - name: DBT_REPOSITORY
+            value: "{{ DBT_REPOSITORY }}"
+          - name: DBT_SSH_KEY
+            value: "{{ DBT_SSH_KEY }}"
         image: {{ DOCKER_IMAGE_ASPECTS }}
         securityContext:
           allowPrivilegeEscalation: false
@@ -35,12 +51,7 @@ spec:
             name: alembic
           - mountPath: /app/aspects/migrations/alembic/versions
             name: versions
-          - mountPath: {{ DBT_STATE_DIR }}
-            name: dbt-state
       volumes:
-        - name: dbt-state
-          persistentVolumeClaim:
-            claimName: aspects-dbt
         - name: scripts
           configMap:
             name: aspects-scripts

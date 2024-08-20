@@ -2,15 +2,23 @@ aspects-job:
   user: root
   image: {{ DOCKER_IMAGE_ASPECTS }}
   environment:
-    - XAPI_SCHEMA={{ ASPECTS_XAPI_DATABASE }}
+    VENV_DIR: /opt/venv
+    ASPECTS_EVENT_SINK_DATABASE: {{ASPECTS_EVENT_SINK_DATABASE}}
+    ASPECTS_XAPI_DATABASE: {{ASPECTS_XAPI_DATABASE}}
+    CLICKHOUSE_CLUSTER_NAME: {{CLICKHOUSE_CLUSTER_NAME}}
+    DBT_STATE: {{ DBT_STATE_DIR }}
+    ASPECTS_DATA_TTL_EXPRESSION: "{{ ASPECTS_DATA_TTL_EXPRESSION }}"
+    DBT_PROFILE_TARGET_DATABASE: "{{ DBT_PROFILE_TARGET_DATABASE }}"
+    DBT_PROFILES_DIR: {{ DBT_PROFILES_DIR }}
+    DBT_BRANCH: "{{ DBT_BRANCH }}"
+    DBT_REPOSITORY: "{{ DBT_REPOSITORY }}"
+    DBT_SSH_KEY: "{{ DBT_SSH_KEY }}"
   volumes:
     - ../../env/plugins/aspects/apps/aspects:/app/aspects
     - ../../env/plugins/aspects/apps/aspects/scripts/:/app/aspects/scripts:ro
-    - ../../data/aspects-dbt:{{ DBT_STATE_DIR }}
-  {% if RUN_SUPERSET or RUN_CLICKHOUSE or RUN_RALPH %}depends_on:{% if RUN_SUPERSET %}
-    - superset{% endif %}{% if RUN_CLICKHOUSE%}
-    - clickhouse{% endif %}{% if RUN_RALPH %}
-    - ralph{% endif %}
+  {% if RUN_CLICKHOUSE %}
+  depends_on:
+    - clickhouse
   {% endif %}
 clickhouse-job:
     image: {{DOCKER_IMAGE_CLICKHOUSE}}
@@ -26,5 +34,4 @@ superset-job:
   depends_on:
     - mysql
     - redis
-    - superset
 {% endif %}

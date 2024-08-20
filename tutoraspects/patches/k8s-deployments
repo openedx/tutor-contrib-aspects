@@ -589,3 +589,86 @@ spec:
           configMap:
             name: openedx-config
 {% endif %}
+
+{% if RUN_ASPECTS_DOCS %}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aspects-docs
+  labels:
+    app.kubernetes.io/name: aspects-docs
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: aspects-docs
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: aspects-docs
+    spec:
+      containers:
+      - name: aspects-docs
+        args:
+          - bash
+          - /app/aspects/scripts/docs.sh
+        env:
+          - name: VENV_DIR
+            value: /opt/venv
+          - name: ASPECTS_EVENT_SINK_DATABASE
+            value: {{ASPECTS_EVENT_SINK_DATABASE}}
+          - name: ASPECTS_XAPI_DATABASE
+            value: {{ASPECTS_XAPI_DATABASE}}
+          - name: CLICKHOUSE_CLUSTER_NAME
+            value: {{CLICKHOUSE_CLUSTER_NAME}}
+          - name: DBT_STATE
+            value: {{ DBT_STATE_DIR }}
+          - name: ASPECTS_DATA_TTL_EXPRESSION
+            value: "{{ ASPECTS_DATA_TTL_EXPRESSION }}"
+          - name: DBT_PROFILE_TARGET_DATABASE
+            value: "{{ DBT_PROFILE_TARGET_DATABASE }}"
+          - name: DBT_PROFILES_DIR
+            value: {{ DBT_PROFILES_DIR }}
+          - name: DBT_BRANCH
+            value: "{{ DBT_BRANCH }}"
+          - name: DBT_REPOSITORY
+            value: "{{ DBT_REPOSITORY }}"
+          - name: DBT_SSH_KEY
+            value: "{{ DBT_SSH_KEY }}"
+        image: {{ DOCKER_IMAGE_ASPECTS }}
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsUser: 0
+        volumeMounts:
+          - mountPath: /app
+            name: app
+          - mountPath: /app/aspects/dbt
+            name: dbt
+          - mountPath: /app/aspects/scripts
+            name: scripts
+          - mountPath: /app/aspects/migrations/
+            name: migrations
+          - mountPath: /app/aspects/migrations/alembic
+            name: alembic
+          - mountPath: /app/aspects/migrations/alembic/versions
+            name: versions
+      volumes:
+        - name: scripts
+          configMap:
+            name: aspects-scripts
+            defaultMode: 0777
+        - name: dbt
+          configMap:
+            name: aspects-dbt
+        - name: app
+          emptyDir: {}
+        - name: migrations
+          configMap:
+            name: aspects-migrations
+        - name: alembic
+          configMap:
+            name: aspects-migrations-alembic
+        - name: versions
+          configMap:
+            name: aspects-migrations-alembic-versions
+{% endif %}
