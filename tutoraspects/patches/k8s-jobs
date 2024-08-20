@@ -19,7 +19,7 @@ spec:
           - name: ASPECTS_XAPI_DATABASE
             value: {{ASPECTS_XAPI_DATABASE}}
           - name: CLICKHOUSE_CLUSTER_NAME
-            value: {{CLICKHOUSE_CLUSTER_NAME}}
+            value: "{{CLICKHOUSE_CLUSTER_NAME}}"
           - name: DBT_STATE
             value: {{ DBT_STATE_DIR }}
           - name: ASPECTS_DATA_TTL_EXPRESSION
