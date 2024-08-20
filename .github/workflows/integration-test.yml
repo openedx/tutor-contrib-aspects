@@ -58,11 +58,13 @@ jobs:
       - name: Init clickhouse
         run: tutor local do init-clickhouse
       # This should:
-      # 1. Find no models on the first run, since state should be up to date
-      # 2. Force run all models
-      # 3. Successfully run tests
+      # 1. Run all models, since alembic test removed our state
+      # 2. Find no models on the first run, state should now be up to date now
+      # 3. Force run all models
+      # 4. Successfully run tests
       - name: Test dbt
         run: |
+          tutor local do dbt -c "run"
           tutor local do dbt -c "run"
           tutor local do dbt --only_changed False -c "run"
           tutor local do dbt --only_changed False -c "test"
@@ -126,11 +128,13 @@ jobs:
       - name: Init clickhouse
         run: tutor dev do init-clickhouse
       # This should:
-      # 1. Find no models on the first run, since state should be up to date
-      # 2. Force run all models
-      # 3. Successfully run tests
+      # 1. Run all models, since alembic test removed our state
+      # 2. Find no models on the first run, state should now be up to date now
+      # 3. Force run all models
+      # 4. Successfully run tests
       - name: Test dbt
         run: |
+          tutor dev do dbt -c "run"
           tutor dev do dbt -c "run"
           tutor dev do dbt --only_changed False -c "run"
           tutor dev do dbt --only_changed False -c "test"
@@ -212,11 +216,13 @@ jobs:
       - name: Init clickhouse
         run: tutor k8s do init-clickhouse
       # This should:
-      # 1. Find no models on the first run, since state should be up to date
-      # 2. Force run all models
-      # 3. Successfully run tests
-      - name: Test DBT
+      # 1. Run all models, since alembic test removed our state
+      # 2. Find no models on the first run, state should now be up to date now
+      # 3. Force run all models
+      # 4. Successfully run tests
+      - name: Test dbt
         run: |
+          tutor k8s do dbt -c "run"
           tutor k8s do dbt -c "run"
           tutor k8s do dbt --only_changed False -c "run"
           tutor k8s do dbt --only_changed False -c "test"
