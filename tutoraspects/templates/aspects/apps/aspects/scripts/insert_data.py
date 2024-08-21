@@ -11,7 +11,9 @@ print("Insert data script.")
 client = clickhouse_connect.get_client(
     host="{{CLICKHOUSE_HOST}}",
     username='{{CLICKHOUSE_ADMIN_USER}}',
-    password='{{CLICKHOUSE_ADMIN_PASSWORD}}'
+    password='{{CLICKHOUSE_ADMIN_PASSWORD}}',
+    port={{ CLICKHOUSE_INTERNAL_HTTP_PORT }},
+    secure={{ CLICKHOUSE_SECURE_CONNECTION }}
 )
 
 def sink_files():
