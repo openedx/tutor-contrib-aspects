@@ -6,7 +6,6 @@ image: {{ DOCKER_IMAGE_SUPERSET }}
     - ../../env/plugins/aspects/apps/superset/security:/app/security
     - ../../env/plugins/aspects/apps/superset/superset_home:/app/superset_home
     - ../../env/plugins/aspects/apps/superset/scripts:/app/scripts
-    - ../../env/plugins/aspects/build/aspects-superset/localization:/app/localization
     - ../../env/plugins/aspects/build/aspects-superset/openedx-assets:/app/openedx-assets
   restart: unless-stopped
   environment:
