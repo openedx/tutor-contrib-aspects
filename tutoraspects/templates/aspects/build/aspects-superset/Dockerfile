@@ -8,6 +8,8 @@ FROM apache/superset:4.0.1
 USER root
 
 COPY ./requirements.txt /app/requirements.txt
+COPY ./localization/compile_translations.py /app/localization/compile_translations.py
+COPY ./localization/datasets_strings.yaml /app/localization/datasets_strings.yaml
 
 RUN pip install -r /app/requirements.txt
 
@@ -18,6 +20,7 @@ ARG FIREFOX_VERSION=117.0.1
 
 RUN apt-get update -q \
     && apt-get install -yq --no-install-recommends \
+        git \
         libnss3 \
         libdbus-glib-1-2 \
         libgtk-3-0 \
@@ -33,6 +36,11 @@ RUN apt-get update -q \
     && apt-get autoremove -yqq --purge wget && rm -rf /var/lib/apt/lists/* /var/[log,tmp]/* /tmp/* && apt-get clean
 
 COPY ./openedx-assets /app/openedx-assets
-COPY ./localization/ /app/localization/
+
+# Pull latest aspects translations from openedx-tranlsations repository
+RUN atlas pull translations/tutor-contrib-aspects/tutoraspects/templates/aspects/apps/superset/conf/locale:/app/localization/
+
+# combine the /app/localization/ files into a single `localization/locale.yaml` file in a way Aspects can use
+RUN python /app/localization/compile_translations.py
 
 USER superset
