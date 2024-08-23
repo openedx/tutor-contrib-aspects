@@ -2,7 +2,6 @@
 
 import os
 import glob
-import shutil
 
 import ruamel.yaml
 import ruamel.yaml.comments
