@@ -85,12 +85,6 @@ release-push:
 	git push origin $(TAG)
 
 ###### Additional commands
-pull_translations: translation-requirements
-	atlas pull -g $(OPENEDX_ATLAS_ARGS) translations/tutor-contrib-aspects/tutoraspects/*:tutoraspects/templates/
-
-	@echo "Translations have been pulled via Atlas."
-	python tutoraspects/translations/translate.py . compile
-
 extract_translations: translation-requirements
 	python tutoraspects/translations/translate.py . extract
 

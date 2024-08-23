@@ -12,7 +12,6 @@ site.addsitedir(os.path.join(os.path.dirname(__file__), "../.."))
 
 # pylint: disable=wrong-import-position
 from tutoraspects.translations.translate_utils import (
-    compile_translations,
     extract_translations,
     get_text_for_translations,
 )
@@ -25,8 +24,6 @@ def command(root, action):
     """Interface for the translations."""
     if action == "extract":
         extract_translations(root)
-    elif action == "compile":
-        compile_translations(root)
     elif action == "list":
         get_text_for_translations(root)
     else:
