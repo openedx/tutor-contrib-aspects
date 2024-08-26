@@ -32,6 +32,13 @@ def drop_objects():
 
     op.execute(
         f"""
+        DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names
+        {on_cluster}
+        """
+    )
+
+    op.execute(
+        f"""
         DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_course_blocks
         {on_cluster}
         """

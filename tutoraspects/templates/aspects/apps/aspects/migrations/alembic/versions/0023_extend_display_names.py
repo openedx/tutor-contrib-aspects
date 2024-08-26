@@ -17,20 +17,6 @@ engine = (
 
 
 def drop_objects():
-    op.execute(
-        f"""
-        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_course_blocks
-        {on_cluster}
-        """
-    )
-
-    op.execute(
-        f"""
-        DROP VIEW IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_course_blocks_mv
-        {on_cluster}
-        """
-    )
-
     # We include these drop statements here because "CREATE OR REPLACE DICTIONARY"
     # currently throws a file rename error and you can't drop a dictionary with a
     # table referring to it.
@@ -43,6 +29,19 @@ def drop_objects():
     op.execute(
         f"""
         DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_block_names_dict
+        {on_cluster}
+        """
+    )
+    op.execute(
+        f"""
+        DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_course_blocks
+        {on_cluster}
+        """
+    )
+
+    op.execute(
+        f"""
+        DROP VIEW IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_course_blocks_mv
         {on_cluster}
         """
     )
