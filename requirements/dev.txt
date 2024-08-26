@@ -60,17 +60,17 @@ google-auth==2.34.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-idna==3.7
+idna==3.8
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==8.2.0
+importlib-metadata==8.4.0
     # via
     #   -r requirements/base.txt
     #   keyring
     #   tutor
     #   twine
-importlib-resources==6.4.3
+importlib-resources==6.4.4
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -78,7 +78,7 @@ isort==5.13.2
     # via pylint
 jaraco-classes==3.4.0
     # via keyring
-jaraco-context==5.3.0
+jaraco-context==6.0.1
     # via keyring
 jaraco-functools==4.0.2
     # via keyring
@@ -111,7 +111,7 @@ more-itertools==10.4.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-mypy==1.11.1
+mypy==1.11.2
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -127,7 +127,7 @@ oauthlib==3.2.2
     #   -r requirements/base.txt
     #   kubernetes
     #   requests-oauthlib
-openedx-atlas==0.6.1
+openedx-atlas==0.6.2
     # via -r requirements/base.txt
 packaging==24.1
     # via
