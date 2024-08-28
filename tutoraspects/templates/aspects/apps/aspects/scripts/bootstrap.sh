@@ -16,7 +16,7 @@ fi
 
 export branch=$(git -C aspects-dbt/ branch --show-current)
 export repo=$(git -C aspects-dbt/ config --get remote.origin.url)
-if [ "$DBT_BRANCH" != "$branch"  ] && [ "$DBT_REPOSITORY" != "$repo" ];
+if [ "$DBT_BRANCH" != "$branch"  ] || [ "$DBT_REPOSITORY" != "$repo" ];
 then
   rm -rf aspects-dbt
 
