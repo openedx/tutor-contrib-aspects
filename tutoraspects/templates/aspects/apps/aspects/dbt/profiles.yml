@@ -31,6 +31,8 @@ aspects: # this needs to match the profile in your dbt_project.yml file
         database_atomic_delay_before_drop_table_sec: 0
         # Make sure all drops and detaches complete before continuing
         database_atomic_wait_for_drop_and_detach_synchronously: 1
+        # Allow to drop/rename tables that have dependants. dbt-clickhouse use it for view backups
+        check_table_dependencies: 0
 
 
       {{ patch("dbt-profiles") | indent(6)}}
