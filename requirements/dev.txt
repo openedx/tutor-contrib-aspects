@@ -28,7 +28,7 @@ cachetools==5.5.0
     # via
     #   -r requirements/base.txt
     #   google-auth
-certifi==2024.7.4
+certifi==2024.8.30
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -170,7 +170,7 @@ pyinstaller==6.10.0
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2024.8
     # via pyinstaller
-pylint==3.2.6
+pylint==3.2.7
     # via -r requirements/dev.in
 pyseeyou==1.0.2
     # via
@@ -207,7 +207,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.7.1
+rich==13.8.0
     # via twine
 rsa==4.9
     # via
@@ -258,7 +258,7 @@ websocket-client==1.8.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-zipp==3.20.0
+zipp==3.20.1
     # via
     #   -r requirements/base.txt
     #   importlib-metadata
