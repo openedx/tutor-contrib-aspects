@@ -1,0 +1,621 @@
+_file_name: Course_Comparison_Dashboard.yaml
+_roles:
+- '{{ SUPERSET_ROLES_MAPPING.instructor }}'
+certification_details: ''
+certified_by: ''
+css: ''
+dashboard_title: Course Comparison Dashboard
+description: null
+metadata:
+  chart_configuration:
+    '1081':
+      crossFilters:
+        chartsInScope:
+        - 121
+        - 161
+        - 221
+        - 421
+        - 801
+        - 1181
+        - 1381
+        - 1467
+        scope: global
+      id: 1081
+    '1181':
+      crossFilters:
+        chartsInScope:
+        - 121
+        - 161
+        - 221
+        - 421
+        - 801
+        - 1081
+        - 1381
+        - 1467
+        scope: global
+      id: 1181
+    '121':
+      crossFilters:
+        chartsInScope:
+        - 161
+        - 221
+        - 421
+        - 801
+        - 1081
+        - 1181
+        - 1381
+        - 1467
+        scope: global
+      id: 121
+    '1381':
+      crossFilters:
+        chartsInScope:
+        - 121
+        - 161
+        - 221
+        - 421
+        - 801
+        - 1081
+        - 1181
+        - 1467
+        scope: global
+      id: 1381
+    '1467':
+      crossFilters:
+        chartsInScope:
+        - 121
+        - 161
+        - 221
+        - 421
+        - 801
+        - 1081
+        - 1181
+        - 1381
+        scope: global
+      id: 1467
+    '161':
+      crossFilters:
+        chartsInScope:
+        - 121
+        - 221
+        - 421
+        - 801
+        - 1081
+        - 1181
+        - 1381
+        - 1467
+        scope: global
+      id: 161
+    '221':
+      crossFilters:
+        chartsInScope:
+        - 121
+        - 161
+        - 421
+        - 801
+        - 1081
+        - 1181
+        - 1381
+        - 1467
+        scope: global
+      id: 221
+    '421':
+      crossFilters:
+        chartsInScope:
+        - 121
+        - 161
+        - 221
+        - 801
+        - 1081
+        - 1181
+        - 1381
+        - 1467
+        scope: global
+      id: 421
+    '801':
+      crossFilters:
+        chartsInScope:
+        - 121
+        - 161
+        - 221
+        - 421
+        - 1081
+        - 1181
+        - 1381
+        - 1467
+        scope: global
+      id: 801
+  color_scheme: supersetColors
+  color_scheme_domain:
+  - '#1FA8C9'
+  - '#454E7C'
+  - '#5AC189'
+  - '#FF7F44'
+  - '#666666'
+  - '#E04355'
+  - '#FCC700'
+  - '#A868B7'
+  - '#3CCCCB'
+  - '#A38F79'
+  - '#8FD3E4'
+  - '#A1A6BD'
+  - '#ACE1C4'
+  - '#FEC0A1'
+  - '#B2B2B2'
+  - '#EFA1AA'
+  - '#FDE380'
+  - '#D3B3DA'
+  - '#9EE5E5'
+  - '#D1C6BC'
+  cross_filters_enabled: true
+  default_filters: '{}'
+  expanded_slices:
+    '121': true
+    '221': true
+    '421': true
+    '801': true
+  global_chart_configuration:
+    chartsInScope:
+    - 121
+    - 161
+    - 221
+    - 421
+    - 801
+    - 1081
+    - 1181
+    - 1381
+    - 1467
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+  label_colors: {}
+  native_filter_configuration:
+  - cascadeParentIds: []
+    chartsInScope:
+    - 1273
+    - 1274
+    - 1275
+    - 1276
+    - 1277
+    - 1278
+    - 1279
+    - 1292
+    - 1294
+    - 1295
+    controlValues:
+      defaultToFirstItem: true
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-QrTlO4wBf
+    name: Organization
+    requiredFirst: true
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope:
+    - TAB-J31MdXj-sa
+    - TAB-GuHDMLqRC
+    targets:
+    - column:
+        name: org
+      datasetUuid: 38488934-35ee-5404-9acc-7e67626ddfae
+    type: NATIVE_FILTER
+  - cascadeParentIds: []
+    chartsInScope: []
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+      sortAscending: true
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: Only available in versions Redwood and later
+    filterType: filter_select
+    id: NATIVE_FILTER-M1zEXEB97
+    name: Tag
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    sortMetric: order
+    tabsInScope: []
+    targets:
+    - column:
+        name: tag
+      datasetUuid: 81457874-fd86-4568-a730-9179ab7a7fd5
+    type: NATIVE_FILTER
+  - cascadeParentIds:
+    - NATIVE_FILTER-QrTlO4wBf
+    - NATIVE_FILTER-M1zEXEB97
+    chartsInScope:
+    - 1266
+    - 1273
+    - 1274
+    - 1275
+    - 1276
+    - 1277
+    - 1278
+    - 1279
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-IfS-Rd0ZS
+    name: Course Name
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope:
+    - TAB-J31MdXj-sa
+    - TAB-GuHDMLqRC
+    targets:
+    - column:
+        name: course_name
+      datasetUuid: 38488934-35ee-5404-9acc-7e67626ddfae
+    type: NATIVE_FILTER
+  - cascadeParentIds:
+    - NATIVE_FILTER-M1zEXEB97
+    - NATIVE_FILTER-QrTlO4wBf
+    chartsInScope:
+    - 1266
+    - 1273
+    - 1274
+    - 1275
+    - 1276
+    - 1277
+    - 1278
+    - 1279
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-w863AfFgi
+    name: Course Run
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope:
+    - TAB-J31MdXj-sa
+    - TAB-GuHDMLqRC
+    targets:
+    - column:
+        name: course_run
+      datasetUuid: 38488934-35ee-5404-9acc-7e67626ddfae
+    type: NATIVE_FILTER
+  refresh_frequency: 0
+  shared_label_colors:
+    active: '#1FA8C9'
+    at_risk: '#5AC189'
+    count: '#FCC700'
+    passed: '#666666'
+  timed_refresh_immune_slices: []
+position:
+  CHART-explore-1273-1:
+    children: []
+    id: CHART-explore-1273-1
+    meta:
+      chartId: 1181
+      height: 49
+      sliceName: Course Info
+      uuid: a433e3cc-8ed5-454a-8b17-5dd75cfc84e4
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    - ROW-otbcoXVOj
+    type: CHART
+  CHART-explore-1274-1:
+    children: []
+    id: CHART-explore-1274-1
+    meta:
+      chartId: 1381
+      height: 49
+      sliceName: Course Info
+      uuid: e0098cfe-a312-4c49-8efd-7e74256b6ea4
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    - ROW-vepcifelF
+    type: CHART
+  CHART-explore-1275-1:
+    children: []
+    id: CHART-explore-1275-1
+    meta:
+      chartId: 421
+      height: 67
+      sliceName: Learner Performance Breakdown
+      uuid: 4250c976-a9b7-43ff-b5ad-8dd00a5acef7
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    - ROW-EDze1WWiC
+    type: CHART
+  CHART-explore-1276-1:
+    children: []
+    id: CHART-explore-1276-1
+    meta:
+      chartId: 801
+      height: 67
+      sliceName: Learner Performance Breakdown
+      uuid: 9c3f7291-1bd9-4b2f-abc0-472aad3aff06
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    - ROW-O1XuzgpIo
+    type: CHART
+  CHART-explore-1279-1:
+    children: []
+    id: CHART-explore-1279-1
+    meta:
+      chartId: 121
+      height: 51
+      sliceName: Learner Performance
+      uuid: 4e48b8f9-e757-4263-a9d7-d18018620a24
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    - ROW-y57KZVzDt
+    type: CHART
+  CHART-explore-1292-1:
+    children: []
+    id: CHART-explore-1292-1
+    meta:
+      chartId: 221
+      height: 51
+      sliceName: Learner Performance
+      uuid: dde44a03-649f-4d77-990b-a95be204e1ba
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    - ROW--27JFXNWc
+    type: CHART
+  CHART-explore-1294-1:
+    children: []
+    id: CHART-explore-1294-1
+    meta:
+      chartId: 161
+      height: 49
+      sliceName: Enrollment Counts
+      uuid: 2f2af8b0-94ae-4300-b71f-3bd7f9fc127c
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    - ROW-FolfXlYAh
+    type: CHART
+  CHART-explore-1295-1:
+    children: []
+    id: CHART-explore-1295-1
+    meta:
+      chartId: 1081
+      height: 49
+      sliceName: Enrollment Counts
+      uuid: bd37be7f-6672-4dca-80ae-a54f69d169da
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    - ROW-17CIe_GHN
+    type: CHART
+  CHART-explore-1467-1:
+    children: []
+    id: CHART-explore-1467-1
+    meta:
+      chartId: 1467
+      height: 50
+      sliceName: Video Engagement
+      uuid: 5b00f792-233c-4ee6-9411-7df49f4b5061
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    - ROW-dAYfW3JOym
+    type: CHART
+  DASHBOARD_VERSION_KEY: v2
+  GRID_ID:
+    children: []
+    id: GRID_ID
+    parents:
+    - ROOT_ID
+    type: GRID
+  HEADER_ID:
+    id: HEADER_ID
+    meta:
+      text: Course Comparison Dashboard
+    type: HEADER
+  ROOT_ID:
+    children:
+    - TABS-6vozRyRn2o
+    id: ROOT_ID
+    type: ROOT
+  ROW--27JFXNWc:
+    children:
+    - CHART-explore-1292-1
+    id: ROW--27JFXNWc
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    type: ROW
+  ROW-17CIe_GHN:
+    children:
+    - CHART-explore-1295-1
+    id: ROW-17CIe_GHN
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    type: ROW
+  ROW-EDze1WWiC:
+    children:
+    - CHART-explore-1275-1
+    id: ROW-EDze1WWiC
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    type: ROW
+  ROW-FolfXlYAh:
+    children:
+    - CHART-explore-1294-1
+    id: ROW-FolfXlYAh
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    type: ROW
+  ROW-O1XuzgpIo:
+    children:
+    - CHART-explore-1276-1
+    id: ROW-O1XuzgpIo
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    type: ROW
+  ROW-dAYfW3JOym:
+    children:
+    - CHART-explore-1467-1
+    id: ROW-dAYfW3JOym
+    meta:
+      '0': ROOT_ID
+      '1': TABS-6vozRyRn2o
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    type: ROW
+  ROW-otbcoXVOj:
+    children:
+    - CHART-explore-1273-1
+    id: ROW-otbcoXVOj
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    type: ROW
+  ROW-vepcifelF:
+    children:
+    - CHART-explore-1274-1
+    id: ROW-vepcifelF
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    type: ROW
+  ROW-y57KZVzDt:
+    children:
+    - CHART-explore-1279-1
+    id: ROW-y57KZVzDt
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    type: ROW
+  TAB-GuHDMLqRC:
+    children:
+    - ROW-vepcifelF
+    - ROW-17CIe_GHN
+    - ROW-O1XuzgpIo
+    - ROW--27JFXNWc
+    id: TAB-GuHDMLqRC
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Run Metrics
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    type: TAB
+  TAB-J31MdXj-sa:
+    children:
+    - ROW-otbcoXVOj
+    - ROW-FolfXlYAh
+    - ROW-EDze1WWiC
+    - ROW-y57KZVzDt
+    - ROW-dAYfW3JOym
+    id: TAB-J31MdXj-sa
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Course Metrics
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    type: TAB
+  TABS-6vozRyRn2o:
+    children:
+    - TAB-J31MdXj-sa
+    - TAB-GuHDMLqRC
+    id: TABS-6vozRyRn2o
+    meta: {}
+    parents:
+    - ROOT_ID
+    type: TABS
+published: true
+slug: course-comparison
+uuid: c6c7062d-dd90-4292-b9cf-84f7b9f38e73
+version: 1.0.0

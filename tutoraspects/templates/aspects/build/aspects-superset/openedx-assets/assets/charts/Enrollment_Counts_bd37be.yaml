@@ -1,0 +1,39 @@
+_file_name: Enrollment_Counts_bd37be.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 27a4476b-5a9a-4fc4-ac75-da520b522341
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_time
+  aggregateFunction: Sum
+  annotation_layers: []
+  colOrder: key_a_to_z
+  colSubTotals: false
+  conditional_formatting: []
+  date_format: smart_date
+  extra_form_data: {}
+  groupbyColumns:
+  - enrollment_mode
+  groupbyRows:
+  - course_run
+  metrics:
+  - enrollees
+  metricsLayout: COLUMNS
+  order_desc: false
+  rowOrder: key_a_to_z
+  row_limit: 50000
+  temporal_columns_lookup: {}
+  time_grain_sqla: P1D
+  valueFormat: SMART_NUMBER
+  viz_type: pivot_table_v2
+query_context: null
+slice_name: Enrollment Counts
+uuid: bd37be7f-6672-4dca-80ae-a54f69d169da
+version: 1.0.0
+viz_type: pivot_table_v2
