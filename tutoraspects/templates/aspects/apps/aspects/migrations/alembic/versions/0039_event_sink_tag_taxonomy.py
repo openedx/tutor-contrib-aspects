@@ -24,6 +24,7 @@ def upgrade():
             parent Int32,
             value String,
             external_id String,
+            lineage String,
             dump_id UUID NOT NULL,
             time_last_dumped String NOT NULL
         ) ENGINE {engine}
