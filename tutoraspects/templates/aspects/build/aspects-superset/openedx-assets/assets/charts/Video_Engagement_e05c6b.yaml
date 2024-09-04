@@ -1,0 +1,416 @@
+_file_name: Video_Engagement_e05c6b.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 82cb6b56-c713-4933-93a0-9de15c266c4b
+description: null
+params:
+  adhoc_filters: []
+  all_columns: []
+  color_pn: true
+  column_config:
+    '% Video Seconds Re-Watched':
+      d3NumberFormat: ',.1%'
+    '% Video Seconds Watched':
+      d3NumberFormat: ',.1%'
+  conditional_formatting: []
+  extra_form_data: {}
+  groupby:
+  - course_name
+  metrics:
+  - aggregate: AVG
+    column:
+      advanced_data_type: null
+      changed_on: '2024-08-28T18:28:32'
+      column_name: watched_percent
+      created_on: '2024-08-28T18:28:32'
+      description: null
+      expression: case when rewatched = 0 then watched_duration else 0 end/video_duration
+      extra: '{}'
+      filterable: true
+      groupby: true
+      id: 7800
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: null
+      type_generic: null
+      uuid: 312f07df-6697-449a-8abb-34d72a237075
+      verbose_name: '% Video Seconds Watched'
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: '% Video Seconds Watched'
+    optionName: metric_r99cysqsd4_7y7sodnz76x
+    sqlExpression: null
+  - aggregate: AVG
+    column:
+      advanced_data_type: null
+      changed_on: '2024-08-28T18:28:32'
+      column_name: rewatched_percent
+      created_on: '2024-08-28T18:28:32'
+      description: null
+      expression: case when rewatched = 1 then watched_duration else 0 end/video_duration
+      extra: '{}'
+      filterable: true
+      groupby: true
+      id: 7799
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: null
+      type_generic: null
+      uuid: 1514b517-9eb6-4e69-957c-7bf3c79a83b8
+      verbose_name: '% Video Seconds Re-Watched'
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: '% Video Seconds Re-Watched'
+    optionName: metric_l9dkjvflsqq_fxiymsitu7e
+    sqlExpression: null
+  - aggregate: AVG
+    column:
+      advanced_data_type: null
+      changed_on: '2024-08-28T15:22:03'
+      column_name: count_videos
+      created_on: '2024-08-28T15:22:03'
+      description: null
+      expression: null
+      extra: '{}'
+      filterable: true
+      groupby: true
+      id: 7780
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: UInt64
+      type_generic: 0
+      uuid: aefe5690-0f64-4c48-b38f-18c2a88abeb0
+      verbose_name: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: Number of Videos
+    optionName: metric_hjye74a0is8_yc6bswefuxl
+    sqlExpression: null
+  - aggregate: AVG
+    column:
+      advanced_data_type: null
+      changed_on: '2024-08-28T15:22:03'
+      column_name: avg_video_length
+      created_on: '2024-08-28T15:22:03'
+      description: null
+      expression: null
+      extra: '{}'
+      filterable: true
+      groupby: true
+      id: 7778
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: Float64
+      type_generic: 0
+      uuid: d1bff67f-2ce1-421e-be5e-b5a9ac5e5b68
+      verbose_name: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: Avg Video Length (seconds)
+    optionName: metric_svqegmzro_bmnugdrle86
+    sqlExpression: null
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 50000
+  server_page_length: 10
+  show_cell_bars: false
+  table_timestamp_format: smart_date
+  temporal_columns_lookup: {}
+  viz_type: table
+query_context:
+  datasource:
+    id: 647
+    type: table
+  force: false
+  form_data:
+    adhoc_filters: []
+    all_columns: []
+    color_pn: true
+    column_config:
+      '% Video Seconds Re-Watched':
+        d3NumberFormat: ',.1%'
+      '% Video Seconds Watched':
+        d3NumberFormat: ',.1%'
+    conditional_formatting: []
+    dashboards:
+    - 161
+    datasource: 647__table
+    extra_form_data: {}
+    force: false
+    groupby:
+    - course_name
+    metrics:
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        changed_on: '2024-08-28T18:28:32'
+        column_name: watched_percent
+        created_on: '2024-08-28T18:28:32'
+        description: null
+        expression: case when rewatched = 0 then watched_duration else 0 end/video_duration
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 7800
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: null
+        type_generic: null
+        uuid: 312f07df-6697-449a-8abb-34d72a237075
+        verbose_name: '% Video Seconds Watched'
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: '% Video Seconds Watched'
+      optionName: metric_r99cysqsd4_7y7sodnz76x
+      sqlExpression: null
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        changed_on: '2024-08-28T18:28:32'
+        column_name: rewatched_percent
+        created_on: '2024-08-28T18:28:32'
+        description: null
+        expression: case when rewatched = 1 then watched_duration else 0 end/video_duration
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 7799
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: null
+        type_generic: null
+        uuid: 1514b517-9eb6-4e69-957c-7bf3c79a83b8
+        verbose_name: '% Video Seconds Re-Watched'
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: '% Video Seconds Re-Watched'
+      optionName: metric_l9dkjvflsqq_fxiymsitu7e
+      sqlExpression: null
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        changed_on: '2024-08-28T15:22:03'
+        column_name: count_videos
+        created_on: '2024-08-28T15:22:03'
+        description: null
+        expression: null
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 7780
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: UInt64
+        type_generic: 0
+        uuid: aefe5690-0f64-4c48-b38f-18c2a88abeb0
+        verbose_name: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Number of Videos
+      optionName: metric_hjye74a0is8_yc6bswefuxl
+      sqlExpression: null
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        changed_on: '2024-08-28T15:22:03'
+        column_name: avg_video_length
+        created_on: '2024-08-28T15:22:03'
+        description: null
+        expression: null
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 7778
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: Float64
+        type_generic: 0
+        uuid: d1bff67f-2ce1-421e-be5e-b5a9ac5e5b68
+        verbose_name: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Avg Video Length (seconds)
+      optionName: metric_svqegmzro_bmnugdrle86
+      sqlExpression: null
+    order_by_cols: []
+    order_desc: true
+    percent_metrics: []
+    query_mode: aggregate
+    result_format: json
+    result_type: full
+    row_limit: 50000
+    server_page_length: 10
+    show_cell_bars: false
+    slice_id: 1277
+    table_timestamp_format: smart_date
+    temporal_columns_lookup: {}
+    viz_type: table
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - course_name
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      where: ''
+    filters: []
+    metrics:
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        changed_on: '2024-08-28T18:28:32'
+        column_name: watched_percent
+        created_on: '2024-08-28T18:28:32'
+        description: null
+        expression: case when rewatched = 0 then watched_duration else 0 end/video_duration
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 7800
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: null
+        type_generic: null
+        uuid: 312f07df-6697-449a-8abb-34d72a237075
+        verbose_name: '% Video Seconds Watched'
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: '% Video Seconds Watched'
+      optionName: metric_r99cysqsd4_7y7sodnz76x
+      sqlExpression: null
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        changed_on: '2024-08-28T18:28:32'
+        column_name: rewatched_percent
+        created_on: '2024-08-28T18:28:32'
+        description: null
+        expression: case when rewatched = 1 then watched_duration else 0 end/video_duration
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 7799
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: null
+        type_generic: null
+        uuid: 1514b517-9eb6-4e69-957c-7bf3c79a83b8
+        verbose_name: '% Video Seconds Re-Watched'
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: '% Video Seconds Re-Watched'
+      optionName: metric_l9dkjvflsqq_fxiymsitu7e
+      sqlExpression: null
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        changed_on: '2024-08-28T15:22:03'
+        column_name: count_videos
+        created_on: '2024-08-28T15:22:03'
+        description: null
+        expression: null
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 7780
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: UInt64
+        type_generic: 0
+        uuid: aefe5690-0f64-4c48-b38f-18c2a88abeb0
+        verbose_name: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Number of Videos
+      optionName: metric_hjye74a0is8_yc6bswefuxl
+      sqlExpression: null
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        changed_on: '2024-08-28T15:22:03'
+        column_name: avg_video_length
+        created_on: '2024-08-28T15:22:03'
+        description: null
+        expression: null
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 7778
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: Float64
+        type_generic: 0
+        uuid: d1bff67f-2ce1-421e-be5e-b5a9ac5e5b68
+        verbose_name: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Avg Video Length (seconds)
+      optionName: metric_svqegmzro_bmnugdrle86
+      sqlExpression: null
+    order_desc: true
+    orderby:
+    - - aggregate: AVG
+        column:
+          advanced_data_type: null
+          changed_on: '2024-08-28T18:28:32'
+          column_name: watched_percent
+          created_on: '2024-08-28T18:28:32'
+          description: null
+          expression: case when rewatched = 0 then watched_duration else 0 end/video_duration
+          extra: '{}'
+          filterable: true
+          groupby: true
+          id: 7800
+          is_active: true
+          is_dttm: false
+          python_date_format: null
+          type: null
+          type_generic: null
+          uuid: 312f07df-6697-449a-8abb-34d72a237075
+          verbose_name: '% Video Seconds Watched'
+        datasourceWarning: false
+        expressionType: SIMPLE
+        hasCustomLabel: true
+        label: '% Video Seconds Watched'
+        optionName: metric_r99cysqsd4_7y7sodnz76x
+        sqlExpression: null
+      - false
+    post_processing: []
+    row_limit: 50000
+    series_limit: 0
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Video Engagement
+uuid: e05c6b26-c048-4c98-b91e-d904d754adde
+version: 1.0.0
+viz_type: table

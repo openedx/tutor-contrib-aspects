@@ -1,0 +1,182 @@
+_file_name: watched_video_duration.yaml
+always_filter_main_dttm: false
+cache_timeout: null
+columns:
+- advanced_data_type: null
+  column_name: rewatched_percent
+  description: null
+  expression: case when rewatched = 1 then watched_duration else 0 end/video_duration
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: null
+  verbose_name: '% Video Seconds Re-Watched'
+- advanced_data_type: null
+  column_name: watched_percent
+  description: null
+  expression: case when rewatched = 0 then watched_duration else 0 end/video_duration
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: null
+  verbose_name: '% Video Seconds Watched'
+- advanced_data_type: null
+  column_name: course_name
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Name
+- advanced_data_type: null
+  column_name: course_run
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Run
+- advanced_data_type: null
+  column_name: org
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Org
+- advanced_data_type: null
+  column_name: avg_video_length
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Float64
+  verbose_name: Avg Video Length
+- advanced_data_type: null
+  column_name: count_videos
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: UInt64
+  verbose_name: Count Videos
+- advanced_data_type: null
+  column_name: watched_duration
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int64
+  verbose_name: Watched Duration
+- advanced_data_type: null
+  column_name: video_duration
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int64
+  verbose_name: Video Duration
+- advanced_data_type: null
+  column_name: rewatched
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: UInt8
+  verbose_name: Rewatched
+database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+default_endpoint: null
+description: null
+extra: null
+fetch_values_predicate: null
+filter_select_enabled: true
+main_dttm_col: null
+metrics:
+- currency: null
+  d3format: null
+  description: null
+  expression: count(*) - count(distinct actor_id)
+  extra:
+    warning_markdown: ''
+  metric_name: repeat_views
+  metric_type: null
+  verbose_name: Repeat Views
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: count(distinct actor_id)
+  extra:
+    warning_markdown: ''
+  metric_name: unique_viewers
+  metric_type: null
+  verbose_name: Unique Viewers
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: count(*)
+  extra:
+    warning_markdown: ''
+  metric_name: total_views
+  metric_type: null
+  verbose_name: Total Views
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: COUNT(*)
+  extra:
+    warning_markdown: ''
+  metric_name: count
+  metric_type: count
+  verbose_name: COUNT(*)
+  warning_text: null
+normalize_columns: true
+offset: 0
+params: null
+schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
+sql: |-
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/watched_video_duration.sql' %}{% endfilter %}
+table_name: watched_video_duration
+template_params: null
+uuid: 82cb6b56-c713-4933-93a0-9de15c266c4b
+version: 1.0.0

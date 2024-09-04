@@ -11,3 +11,14 @@
     )
 {% endif %}
 {%- endraw %}
+
+{% raw -%}
+{% if filter_values("tag") != [] %}
+    and course_key in (
+        select course_key
+        from {% endraw -%} {{ DBT_PROFILE_TARGET_DATABASE }}.course_tags{%- raw %}
+        where
+            tag in (select replaceAll(arrayJoin({{ filter_values("tag") }}), '- ', ''))
+    )
+{% endif %}
+{%- endraw %}
