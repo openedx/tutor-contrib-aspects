@@ -40,7 +40,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.30.0-alpine"),
         (
             "EVENT_SINK_MODELS_ENABLED",
-            ["course_overviews"],
+            ["course_overviews", "tag", "taxonomy", "object_tag"],
         ),
         (
             "EVENT_SINK_PII_MODELS",
@@ -376,7 +376,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
-        ("DBT_BRANCH", "v3.30.0"),
+        ("DBT_BRANCH", "v3.31.0"),
         ("DBT_SSH_KEY", ""),
         ("DBT_STATE_DIR", "/app/aspects-dbt/state"),
         ("DBT_PROFILES_DIR", "/app/aspects/dbt/"),
