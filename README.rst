@@ -75,7 +75,7 @@ At this point you should have a working Tutor / Aspects environment, but with no
 
    #. Sink Historical event data to ClickHouse::
 
-       tutor [dev|local] do transform_tracking_logs \
+       tutor [dev|local] do transform-tracking-logs \
          --source_provider LOCAL --source_config '{"key": "/openedx/data", "container":
             "logs", "prefix": "tracking.log"}' \
          --transformer_type xapi
