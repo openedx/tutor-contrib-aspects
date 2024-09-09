@@ -50,7 +50,7 @@ jobs:
           git push origin $branch_name
       - name: Create Pull Request
         id: cpr
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}
           title: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
