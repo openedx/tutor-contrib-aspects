@@ -1,4 +1,4 @@
-_file_name: Video_Engagement_5b00f7.yaml
+_file_name: Video_Engagement_8b0535.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
@@ -7,7 +7,6 @@ description: null
 params:
   adhoc_filters: []
   all_columns: []
-  annotation_layers: []
   color_pn: true
   column_config:
     rewatched_percent:
@@ -17,8 +16,8 @@ params:
   conditional_formatting: []
   extra_form_data: {}
   groupby:
+  - course_run
   - course_name
-  - org
   metrics:
   - watched_percent
   - rewatched_percent
@@ -42,7 +41,6 @@ query_context:
   form_data:
     adhoc_filters: []
     all_columns: []
-    annotation_layers: []
     color_pn: true
     column_config:
       rewatched_percent:
@@ -50,12 +48,14 @@ query_context:
       watched_percent:
         d3NumberFormat: ',.1%'
     conditional_formatting: []
+    dashboards:
+    - 2841
     datasource: 746__table
     extra_form_data: {}
     force: false
     groupby:
+    - course_run
     - course_name
-    - org
     metrics:
     - watched_percent
     - rewatched_percent
@@ -70,7 +70,7 @@ query_context:
     row_limit: 50000
     server_page_length: 10
     show_cell_bars: false
-    slice_id: 1467
+    slice_id: 1499
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     viz_type: table
@@ -78,8 +78,8 @@ query_context:
   - annotation_layers: []
     applied_time_extras: {}
     columns:
+    - course_run
     - course_name
-    - org
     custom_form_data: {}
     custom_params: {}
     extras:
@@ -102,6 +102,6 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Video Engagement
-uuid: 5b00f792-233c-4ee6-9411-7df49f4b5061
+uuid: 8b0535a8-a43f-49bf-9d50-439a16bd3f74
 version: 1.0.0
 viz_type: table

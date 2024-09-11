@@ -19,6 +19,7 @@ metadata:
         - 1181
         - 1381
         - 1467
+        - 1499
         scope: global
       id: 1081
     '1181':
@@ -32,6 +33,7 @@ metadata:
         - 1081
         - 1381
         - 1467
+        - 1499
         scope: global
       id: 1181
     '121':
@@ -45,6 +47,7 @@ metadata:
         - 1181
         - 1381
         - 1467
+        - 1499
         scope: global
       id: 121
     '1381':
@@ -58,6 +61,7 @@ metadata:
         - 1081
         - 1181
         - 1467
+        - 1499
         scope: global
       id: 1381
     '1467':
@@ -71,8 +75,23 @@ metadata:
         - 1081
         - 1181
         - 1381
+        - 1499
         scope: global
       id: 1467
+    '1499':
+      crossFilters:
+        chartsInScope:
+        - 121
+        - 161
+        - 221
+        - 421
+        - 801
+        - 1081
+        - 1181
+        - 1381
+        - 1467
+        scope: global
+      id: 1499
     '161':
       crossFilters:
         chartsInScope:
@@ -84,6 +103,7 @@ metadata:
         - 1181
         - 1381
         - 1467
+        - 1499
         scope: global
       id: 161
     '221':
@@ -97,6 +117,7 @@ metadata:
         - 1181
         - 1381
         - 1467
+        - 1499
         scope: global
       id: 221
     '421':
@@ -110,6 +131,7 @@ metadata:
         - 1181
         - 1381
         - 1467
+        - 1499
         scope: global
       id: 421
     '801':
@@ -123,6 +145,7 @@ metadata:
         - 1181
         - 1381
         - 1467
+        - 1499
         scope: global
       id: 801
   color_scheme: supersetColors
@@ -165,6 +188,7 @@ metadata:
     - 1181
     - 1381
     - 1467
+    - 1499
     scope:
       excluded: []
       rootPath:
@@ -322,6 +346,21 @@ metadata:
     passed: '#666666'
   timed_refresh_immune_slices: []
 position:
+  CHART-cCvwluYyq5:
+    children: []
+    id: CHART-cCvwluYyq5
+    meta:
+      chartId: 1499
+      height: 50
+      sliceName: Video Engagement
+      uuid: 8b0535a8-a43f-49bf-9d50-439a16bd3f74
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    - ROW-ndytg7f9RZ
+    type: CHART
   CHART-explore-1273-1:
     children: []
     id: CHART-explore-1273-1
@@ -496,6 +535,17 @@ position:
     - TABS-6vozRyRn2o
     - TAB-GuHDMLqRC
     type: ROW
+  ROW-6K52dxpSv:
+    children:
+    - CHART-cCvwluYyq5
+    id: ROW-6K52dxpSv
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    type: ROW
   ROW-EDze1WWiC:
     children:
     - CHART-explore-1275-1
@@ -581,6 +631,7 @@ position:
     - ROW-17CIe_GHN
     - ROW-O1XuzgpIo
     - ROW--27JFXNWc
+    - ROW-6K52dxpSv
     id: TAB-GuHDMLqRC
     meta:
       defaultText: Tab title
