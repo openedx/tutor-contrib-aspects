@@ -16,7 +16,8 @@
 {% if filter_values("tag") != [] %}
     and course_key in (
         select course_key
-        from {% endraw -%} {{ DBT_PROFILE_TARGET_DATABASE }}.most_recent_course_tags{%- raw %}
+        from
+            {% endraw -%} {{ DBT_PROFILE_TARGET_DATABASE }}.most_recent_course_tags{%- raw %}
         where
             tag in (select replaceAll(arrayJoin({{ filter_values("tag") }}), '- ', ''))
     )
