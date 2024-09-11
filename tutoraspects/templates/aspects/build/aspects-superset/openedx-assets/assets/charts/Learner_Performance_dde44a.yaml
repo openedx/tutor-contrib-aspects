@@ -22,6 +22,7 @@ params:
     subject: emission_time
   all_columns:
   - success
+  annotation_layers: []
   color_pn: true
   column_config:
     avg_course_grade:

@@ -3,30 +3,6 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: rewatched_percent
-  description: null
-  expression: case when rewatched = 1 then watched_duration else 0 end/video_duration
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: null
-  verbose_name: '% Video Seconds Re-Watched'
-- advanced_data_type: null
-  column_name: watched_percent
-  description: null
-  expression: case when rewatched = 0 then watched_duration else 0 end/video_duration
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: null
-  verbose_name: '% Video Seconds Watched'
-- advanced_data_type: null
   column_name: course_name
   description: null
   expression: ''
@@ -38,6 +14,18 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Course Name
+- advanced_data_type: null
+  column_name: video_duration
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int64
+  verbose_name: Video Duration
 - advanced_data_type: null
   column_name: course_run
   description: null
@@ -60,34 +48,10 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: LowCardinality(String)
+  type: String
   verbose_name: Org
 - advanced_data_type: null
-  column_name: avg_video_length
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Float64
-  verbose_name: Avg Video Length
-- advanced_data_type: null
-  column_name: count_videos
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: UInt64
-  verbose_name: Count Videos
-- advanced_data_type: null
-  column_name: watched_duration
+  column_name: rewatched_time
   description: null
   expression: null
   extra: {}
@@ -97,9 +61,9 @@ columns:
   is_dttm: false
   python_date_format: null
   type: Int64
-  verbose_name: Watched Duration
+  verbose_name: Rewatched Time
 - advanced_data_type: null
-  column_name: video_duration
+  column_name: watched_time
   description: null
   expression: null
   extra: {}
@@ -109,9 +73,9 @@ columns:
   is_dttm: false
   python_date_format: null
   type: Int64
-  verbose_name: Video Duration
+  verbose_name: Watched Time
 - advanced_data_type: null
-  column_name: rewatched
+  column_name: actor_id
   description: null
   expression: null
   extra: {}
@@ -120,8 +84,32 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: UInt8
-  verbose_name: Rewatched
+  type: String
+  verbose_name: Actor Id
+- advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Key
+- advanced_data_type: null
+  column_name: video_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Video Id
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
@@ -133,32 +121,41 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: count(*) - count(distinct actor_id)
+  expression: (sum(rewatched_time)/count(actor_id))/sum(video_duration)
   extra:
     warning_markdown: ''
-  metric_name: repeat_views
+  metric_name: rewatched_percent
   metric_type: null
-  verbose_name: Repeat Views
+  verbose_name: '% Video Seconds Rewatched'
   warning_text: null
 - currency: null
   d3format: null
   description: null
-  expression: count(distinct actor_id)
+  expression: (sum(watched_time)/count(actor_id))/sum(video_duration)
   extra:
     warning_markdown: ''
-  metric_name: unique_viewers
+  metric_name: watched_percent
   metric_type: null
-  verbose_name: Unique Viewers
+  verbose_name: '% Video Seconds Watched'
   warning_text: null
 - currency: null
   d3format: null
   description: null
-  expression: count(*)
+  expression: count(distinct video_id)
   extra:
     warning_markdown: ''
-  metric_name: total_views
+  metric_name: video_count
   metric_type: null
-  verbose_name: Total Views
+  verbose_name: Number of Videos
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: avg(video_duration)
+  extra: {}
+  metric_name: avg_video_length
+  metric_type: null
+  verbose_name: Avg Video Length (seconds)
   warning_text: null
 - currency: null
   d3format: null

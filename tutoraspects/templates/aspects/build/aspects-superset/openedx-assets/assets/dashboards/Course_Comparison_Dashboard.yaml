@@ -8,151 +8,146 @@ dashboard_title: Course Comparison Dashboard
 description: null
 metadata:
   chart_configuration:
-    '1273':
+    '1081':
       crossFilters:
         chartsInScope:
-        - 1274
-        - 1275
-        - 1276
-        - 1277
-        - 1278
-        - 1279
-        - 1292
-        - 1294
-        - 1295
+        - 121
+        - 161
+        - 221
+        - 421
+        - 801
+        - 1181
+        - 1381
+        - 1463
+        - 1464
         scope: global
-      id: 1273
-    '1274':
+      id: 1081
+    '1181':
       crossFilters:
         chartsInScope:
-        - 1273
-        - 1275
-        - 1276
-        - 1277
-        - 1278
-        - 1279
-        - 1292
-        - 1294
-        - 1295
+        - 121
+        - 161
+        - 221
+        - 421
+        - 801
+        - 1081
+        - 1381
+        - 1463
+        - 1464
         scope: global
-      id: 1274
-    '1275':
+      id: 1181
+    '121':
       crossFilters:
         chartsInScope:
-        - 1273
-        - 1274
-        - 1276
-        - 1277
-        - 1278
-        - 1279
-        - 1292
-        - 1294
-        - 1295
+        - 161
+        - 221
+        - 421
+        - 801
+        - 1081
+        - 1181
+        - 1381
+        - 1463
+        - 1464
         scope: global
-      id: 1275
-    '1276':
+      id: 121
+    '1381':
       crossFilters:
         chartsInScope:
-        - 1273
-        - 1274
-        - 1275
-        - 1277
-        - 1278
-        - 1279
-        - 1292
-        - 1294
-        - 1295
+        - 121
+        - 161
+        - 221
+        - 421
+        - 801
+        - 1081
+        - 1181
+        - 1463
+        - 1464
         scope: global
-      id: 1276
-    '1277':
+      id: 1381
+    '1463':
       crossFilters:
         chartsInScope:
-        - 1273
-        - 1274
-        - 1275
-        - 1276
-        - 1278
-        - 1279
-        - 1292
-        - 1294
-        - 1295
+        - 121
+        - 161
+        - 221
+        - 421
+        - 801
+        - 1081
+        - 1181
+        - 1381
+        - 1464
         scope: global
-      id: 1277
-    '1278':
+      id: 1463
+    '1464':
       crossFilters:
         chartsInScope:
-        - 1273
-        - 1274
-        - 1275
-        - 1276
-        - 1277
-        - 1279
-        - 1292
-        - 1294
-        - 1295
+        - 121
+        - 161
+        - 221
+        - 421
+        - 801
+        - 1081
+        - 1181
+        - 1381
+        - 1463
         scope: global
-      id: 1278
-    '1279':
+      id: 1464
+    '161':
       crossFilters:
         chartsInScope:
-        - 1273
-        - 1274
-        - 1275
-        - 1276
-        - 1277
-        - 1278
-        - 1292
-        - 1294
-        - 1295
+        - 121
+        - 221
+        - 421
+        - 801
+        - 1081
+        - 1181
+        - 1381
+        - 1463
+        - 1464
         scope: global
-      id: 1279
-    '1292':
+      id: 161
+    '221':
       crossFilters:
         chartsInScope:
-        - 1273
-        - 1274
-        - 1275
-        - 1276
-        - 1277
-        - 1278
-        - 1279
-        - 1294
-        - 1295
+        - 121
+        - 161
+        - 421
+        - 801
+        - 1081
+        - 1181
+        - 1381
+        - 1463
+        - 1464
         scope: global
-      id: 1292
-    '1294':
+      id: 221
+    '421':
       crossFilters:
         chartsInScope:
-        - 1273
-        - 1274
-        - 1275
-        - 1276
-        - 1277
-        - 1278
-        - 1279
-        - 1292
-        - 1295
-        scope:
-          excluded:
-          - 1294
-          rootPath:
-          - TAB-J31MdXj-sa
-          - TAB-GuHDMLqRC
-      id: 1294
-    '1295':
-      crossFilters:
-        chartsInScope:
-        - 1273
-        - 1274
-        - 1275
-        - 1276
-        - 1277
-        - 1278
-        - 1279
-        - 1292
-        - 1294
+        - 121
+        - 161
+        - 221
+        - 801
+        - 1081
+        - 1181
+        - 1381
+        - 1463
+        - 1464
         scope: global
-      id: 1295
+      id: 421
+    '801':
+      crossFilters:
+        chartsInScope:
+        - 121
+        - 161
+        - 221
+        - 421
+        - 1081
+        - 1181
+        - 1381
+        - 1463
+        - 1464
+        scope: global
+      id: 801
   color_scheme: supersetColors
   color_scheme_domain:
   - '#1FA8C9'
@@ -178,22 +173,22 @@ metadata:
   cross_filters_enabled: true
   default_filters: '{}'
   expanded_slices:
-    '1275': true
-    '1276': true
-    '1279': true
-    '1292': true
+    '121': true
+    '221': true
+    '421': true
+    '801': true
   global_chart_configuration:
     chartsInScope:
-    - 1273
-    - 1274
-    - 1275
-    - 1276
-    - 1277
-    - 1278
-    - 1279
-    - 1292
-    - 1294
-    - 1295
+    - 121
+    - 161
+    - 221
+    - 421
+    - 801
+    - 1081
+    - 1181
+    - 1381
+    - 1463
+    - 1464
     scope:
       excluded: []
       rootPath:
@@ -355,7 +350,7 @@ position:
     children: []
     id: CHART-explore-1273-1
     meta:
-      chartId: 1273
+      chartId: 1181
       height: 49
       sliceName: Course Info
       uuid: a433e3cc-8ed5-454a-8b17-5dd75cfc84e4
@@ -370,7 +365,7 @@ position:
     children: []
     id: CHART-explore-1274-1
     meta:
-      chartId: 1274
+      chartId: 1381
       height: 49
       sliceName: Course Info
       uuid: e0098cfe-a312-4c49-8efd-7e74256b6ea4
@@ -385,7 +380,7 @@ position:
     children: []
     id: CHART-explore-1275-1
     meta:
-      chartId: 1275
+      chartId: 421
       height: 67
       sliceName: Learner Performance Breakdown
       uuid: 4250c976-a9b7-43ff-b5ad-8dd00a5acef7
@@ -400,7 +395,7 @@ position:
     children: []
     id: CHART-explore-1276-1
     meta:
-      chartId: 1276
+      chartId: 801
       height: 67
       sliceName: Learner Performance Breakdown
       uuid: 9c3f7291-1bd9-4b2f-abc0-472aad3aff06
@@ -411,41 +406,11 @@ position:
     - TAB-GuHDMLqRC
     - ROW-O1XuzgpIo
     type: CHART
-  CHART-explore-1277-1:
-    children: []
-    id: CHART-explore-1277-1
-    meta:
-      chartId: 1277
-      height: 50
-      sliceName: Video Engagement
-      uuid: e05c6b26-c048-4c98-b91e-d904d754adde
-      width: 12
-    parents:
-    - ROOT_ID
-    - TABS-6vozRyRn2o
-    - TAB-J31MdXj-sa
-    - ROW-eosCHWz8o
-    type: CHART
-  CHART-explore-1278-1:
-    children: []
-    id: CHART-explore-1278-1
-    meta:
-      chartId: 1278
-      height: 50
-      sliceName: Video Engagement
-      uuid: e26ecce9-32cf-4ac5-8706-14dd9f8e0e42
-      width: 12
-    parents:
-    - ROOT_ID
-    - TABS-6vozRyRn2o
-    - TAB-GuHDMLqRC
-    - ROW-7fC-nHawN
-    type: CHART
   CHART-explore-1279-1:
     children: []
     id: CHART-explore-1279-1
     meta:
-      chartId: 1279
+      chartId: 121
       height: 51
       sliceName: Learner Performance
       uuid: 4e48b8f9-e757-4263-a9d7-d18018620a24
@@ -460,7 +425,7 @@ position:
     children: []
     id: CHART-explore-1292-1
     meta:
-      chartId: 1292
+      chartId: 221
       height: 51
       sliceName: Learner Performance
       uuid: dde44a03-649f-4d77-990b-a95be204e1ba
@@ -475,7 +440,7 @@ position:
     children: []
     id: CHART-explore-1294-1
     meta:
-      chartId: 1294
+      chartId: 161
       height: 49
       sliceName: Enrollment Counts
       uuid: 2f2af8b0-94ae-4300-b71f-3bd7f9fc127c
@@ -490,7 +455,7 @@ position:
     children: []
     id: CHART-explore-1295-1
     meta:
-      chartId: 1295
+      chartId: 1081
       height: 49
       sliceName: Enrollment Counts
       uuid: bd37be7f-6672-4dca-80ae-a54f69d169da
@@ -500,6 +465,36 @@ position:
     - TABS-6vozRyRn2o
     - TAB-GuHDMLqRC
     - ROW-17CIe_GHN
+    type: CHART
+  CHART-explore-1463-1:
+    children: []
+    id: CHART-explore-1463-1
+    meta:
+      chartId: 1463
+      height: 50
+      sliceName: Video Engagement
+      uuid: 443f532c-675f-4c5e-bd1a-254ed3b98920
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    - ROW-5ZoK4K8H4
+    type: CHART
+  CHART-explore-1464-1:
+    children: []
+    id: CHART-explore-1464-1
+    meta:
+      chartId: 1464
+      height: 50
+      sliceName: Video Engagement
+      uuid: 4ceb665e-ceb0-4ac8-8171-513269000d58
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    - ROW-CunHlr7PN2
     type: CHART
   DASHBOARD_VERSION_KEY: v2
   GRID_ID:
@@ -540,16 +535,16 @@ position:
     - TABS-6vozRyRn2o
     - TAB-GuHDMLqRC
     type: ROW
-  ROW-7fC-nHawN:
+  ROW-5ZoK4K8H4:
     children:
-    - CHART-explore-1278-1
-    id: ROW-7fC-nHawN
+    - CHART-explore-1463-1
+    id: ROW-5ZoK4K8H4
     meta:
       background: BACKGROUND_TRANSPARENT
     parents:
     - ROOT_ID
     - TABS-6vozRyRn2o
-    - TAB-GuHDMLqRC
+    - TAB-J31MdXj-sa
     type: ROW
   ROW-EDze1WWiC:
     children:
@@ -584,16 +579,16 @@ position:
     - TABS-6vozRyRn2o
     - TAB-GuHDMLqRC
     type: ROW
-  ROW-eosCHWz8o:
+  ROW-jMHppneXZ:
     children:
-    - CHART-explore-1277-1
-    id: ROW-eosCHWz8o
+    - CHART-explore-1464-1
+    id: ROW-jMHppneXZ
     meta:
       background: BACKGROUND_TRANSPARENT
     parents:
     - ROOT_ID
     - TABS-6vozRyRn2o
-    - TAB-J31MdXj-sa
+    - TAB-GuHDMLqRC
     type: ROW
   ROW-otbcoXVOj:
     children:
@@ -634,7 +629,7 @@ position:
     - ROW-17CIe_GHN
     - ROW-O1XuzgpIo
     - ROW--27JFXNWc
-    - ROW-7fC-nHawN
+    - ROW-jMHppneXZ
     id: TAB-GuHDMLqRC
     meta:
       defaultText: Tab title
@@ -650,7 +645,7 @@ position:
     - ROW-FolfXlYAh
     - ROW-EDze1WWiC
     - ROW-y57KZVzDt
-    - ROW-eosCHWz8o
+    - ROW-5ZoK4K8H4
     id: TAB-J31MdXj-sa
     meta:
       defaultText: Tab title

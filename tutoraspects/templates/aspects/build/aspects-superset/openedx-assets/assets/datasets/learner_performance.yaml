@@ -16,6 +16,19 @@ columns:
   type: LowCardinality(String)
   verbose_name: Course Key
 - advanced_data_type: null
+  column_name: course_grade
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Float64
+  verbose_name: Course Grade
+- advanced_data_type: null
   column_name: actor_id
   description: null
   expression: null
@@ -93,19 +106,6 @@ columns:
   python_date_format: null
   type: Int16
   verbose_name: Attempts
-- advanced_data_type: null
-  column_name: course_grade
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Float64
-  verbose_name: Course Grade
 - advanced_data_type: null
   column_name: success
   description: null
