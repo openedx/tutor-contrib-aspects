@@ -40,7 +40,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.30.0-alpine"),
         (
             "EVENT_SINK_MODELS_ENABLED",
-            ["course_overviews", "tag", "taxonomy", "object_tag"],
+            ["course_overviews", "tag", "taxonomy", "object_tag", "course_enrollment"],
         ),
         (
             "EVENT_SINK_PII_MODELS",
