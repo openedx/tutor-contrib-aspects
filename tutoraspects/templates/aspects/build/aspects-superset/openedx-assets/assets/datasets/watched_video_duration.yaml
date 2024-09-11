@@ -6,7 +6,8 @@ columns:
   column_name: course_name
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -18,7 +19,8 @@ columns:
   column_name: video_duration
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -30,7 +32,8 @@ columns:
   column_name: course_run
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -42,7 +45,8 @@ columns:
   column_name: org
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -122,8 +126,7 @@ metrics:
   d3format: null
   description: null
   expression: (sum(rewatched_time)/count(actor_id))/sum(video_duration)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: rewatched_percent
   metric_type: null
   verbose_name: '% Video Seconds Rewatched'
@@ -132,21 +135,10 @@ metrics:
   d3format: null
   description: null
   expression: (sum(watched_time)/count(actor_id))/sum(video_duration)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: watched_percent
   metric_type: null
   verbose_name: '% Video Seconds Watched'
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: count(distinct video_id)
-  extra:
-    warning_markdown: ''
-  metric_name: video_count
-  metric_type: null
-  verbose_name: Number of Videos
   warning_text: null
 - currency: null
   d3format: null
@@ -156,6 +148,15 @@ metrics:
   metric_name: avg_video_length
   metric_type: null
   verbose_name: Avg Video Length (seconds)
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: count(distinct video_id)
+  extra: {}
+  metric_name: video_count
+  metric_type: null
+  verbose_name: Number of Videos
   warning_text: null
 - currency: null
   d3format: null
