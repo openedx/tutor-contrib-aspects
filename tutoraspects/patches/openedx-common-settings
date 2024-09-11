@@ -59,3 +59,10 @@ EVENT_BUS_PRODUCER_CONFIG.update(
 if not "openedx_events" in INSTALLED_APPS:
 	INSTALLED_APPS.append("openedx_events")
 {% endif %}
+
+
+{% for model in EVENT_SINK_MODELS_ENABLED %}
+EVENT_SINK_CLICKHOUSE_{{model.upper()}}_ENABLED = True{% endfor %}
+{% if ASPECTS_ENABLE_PII %}# User PII models
+{% for model in EVENT_SINK_PII_MODELS %}EVENT_SINK_CLICKHOUSE_{{model.upper()}}_ENABLED = True
+{% endfor %}{% endif %}
