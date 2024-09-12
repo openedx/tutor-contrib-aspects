@@ -19,25 +19,18 @@ params:
     subject: enrolled_at
   annotation_layers: []
   color_scheme: supersetColors
-  comparison_type: values
   contributionMode: null
   extra_form_data: {}
-  forecastInterval: 0.8
-  forecastPeriods: 10
   groupby: []
   legendMargin: 0
-  legendOrientation: bottom
+  legendOrientation: top
   legendType: scroll
-  logAxis: false
   metrics:
   - passed
   - count
   - at_risk
   - active
-  minorSplitLine: false
   minorTicks: false
-  only_total: true
-  order_desc: true
   orientation: horizontal
   rich_tooltip: false
   row_limit: 10
@@ -48,27 +41,17 @@ params:
   sort_series_type: name
   stack: null
   timeseries_limit_metric: null
-  tooltipSortByMetric: false
   tooltipTimeFormat: smart_date
   truncateXAxis: false
-  truncateYAxis: false
   truncate_metric: true
   viz_type: echarts_timeseries_bar
   xAxisLabelRotation: 0
   x_axis: course_run
-  x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
   x_axis_title: ''
   x_axis_title_margin: 15
-  y_axis_bounds:
-  - null
-  - null
-  y_axis_format: SMART_NUMBER
-  y_axis_title: ''
-  y_axis_title_margin: 15
-  y_axis_title_position: Left
   zoomable: false
 query_context:
   datasource:
@@ -89,29 +72,22 @@ query_context:
       subject: enrolled_at
     annotation_layers: []
     color_scheme: supersetColors
-    comparison_type: values
     contributionMode: null
     dashboards:
-    - 3141
+    - 3441
     datasource: 464__table
     extra_form_data: {}
     force: false
-    forecastInterval: 0.8
-    forecastPeriods: 10
     groupby: []
     legendMargin: 0
-    legendOrientation: bottom
+    legendOrientation: top
     legendType: scroll
-    logAxis: false
     metrics:
     - passed
     - count
     - at_risk
     - active
-    minorSplitLine: false
     minorTicks: false
-    only_total: true
-    order_desc: true
     orientation: horizontal
     result_format: json
     result_type: full
@@ -125,27 +101,17 @@ query_context:
     sort_series_type: name
     stack: null
     timeseries_limit_metric: null
-    tooltipSortByMetric: false
     tooltipTimeFormat: smart_date
     truncateXAxis: false
-    truncateYAxis: false
     truncate_metric: true
     viz_type: echarts_timeseries_bar
     xAxisLabelRotation: 0
     x_axis: course_run
-    x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date
     x_axis_title: ''
     x_axis_title_margin: 15
-    y_axis_bounds:
-    - null
-    - null
-    y_axis_format: SMART_NUMBER
-    y_axis_title: ''
-    y_axis_title_margin: 15
-    y_axis_title_position: Left
     zoomable: false
   queries:
   - annotation_layers: []
