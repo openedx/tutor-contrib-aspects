@@ -7,6 +7,8 @@ import os
 import re
 import json
 from zipfile import ZipFile
+from sqlfmt.api import format_string
+from sqlfmt.mode import Mode
 
 import click
 import yaml
@@ -211,6 +213,10 @@ class DatasetAsset(Asset):
         for metric in content.get("metrics", []):
             if not metric.get("verbose_name"):
                 metric["verbose_name"] = metric["metric_name"].replace("_", " ").title()
+
+        content["sql"] = format_string(
+            content["sql"], mode=Mode(dialect_name="clickhouse")
+        )
 
 
 class DatabaseAsset(Asset):
