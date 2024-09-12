@@ -42,9 +42,11 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.8
+          python-version: 3.12
       - name: Install aspects
-        run: pip install .
+        run: |
+          pip install -r requirements/dev.txt
+          pip install -e .
       - name: Save config
         run: tutor config save
       - name: Setup Docker Buildx
