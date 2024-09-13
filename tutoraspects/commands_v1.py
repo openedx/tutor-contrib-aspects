@@ -15,6 +15,7 @@ from tutoraspects.asset_command_helpers import (
     check_orphan_assets,
     deduplicate_superset_assets,
     import_superset_assets,
+    remove_orphan_charts,
 )
 
 
@@ -359,6 +360,9 @@ def serialize_zip(file, base_assets_path):
 
     click.echo()
     deduplicate_superset_assets(click.echo)
+
+    click.echo()
+    remove_orphan_charts(click.echo)
 
     click.echo()
     check_asset_names(click.echo)
