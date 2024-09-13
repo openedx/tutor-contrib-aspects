@@ -474,7 +474,7 @@ def check_asset_names(echo):
     warn = 0
 
     names = set()
-    for file_name, asset in sorted(_get_asset_files()):
+    for _, asset in sorted(_get_asset_files()):
         for k in ("slice_name", "dashboard_title", "database_name"):
             if k in asset:
                 if asset[k] in names:
@@ -491,7 +491,7 @@ def check_asset_names(echo):
 
 def _get_all_dataset_uuids():
     """
-    Return the UUIDs of all datasets and charts in our file assets.
+    Return the UUIDs of all datasets in our file assets.
     """
     all_dataset_uuids = {}
 
@@ -505,7 +505,7 @@ def _get_all_dataset_uuids():
 
 def _get_all_chart_uuids():
     """
-    Return the UUIDs of all datasets and charts in our file assets.
+    Return the UUIDs of all charts in our file assets.
     """
     all_chart_uuids = {}
 
@@ -522,7 +522,7 @@ def _get_all_chart_uuids():
 
 def _get_used_dataset_uuids():
     """
-    Return the UUIDs of all datasets and charts actually used in our file assets.
+    Return the UUIDs of all datasets actually used in our file assets.
     """
     used_dataset_uuids = set()
 
@@ -545,7 +545,7 @@ def _get_used_dataset_uuids():
 
 def _get_used_chart_uuids():
     """
-    Return the UUIDs of all datasets and charts actually used in our file assets.
+    Return the UUIDs of all charts actually used in our file assets.
     """
     used_chart_uuids = set()
 
@@ -615,6 +615,9 @@ def _get_orphan_charts():
 
 
 def remove_orphan_charts(echo):
+    """
+    Remove orphaned chart files
+    """
     orphan_charts = _get_orphan_charts()
 
     for chart in orphan_charts.values():
