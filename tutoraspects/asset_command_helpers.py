@@ -502,6 +502,7 @@ def _get_all_dataset_uuids():
 
     return all_dataset_uuids
 
+
 def _get_all_chart_uuids():
     """
     Return the UUIDs of all datasets and charts in our file assets.
@@ -511,9 +512,13 @@ def _get_all_chart_uuids():
     # First get all known uuid's
     for filename, asset in _get_asset_files():
         if "slice_name" in asset:
-            all_chart_uuids[asset["uuid"]] = {'name': asset["_file_name"], 'file': filename}
+            all_chart_uuids[asset["uuid"]] = {
+                "name": asset["_file_name"],
+                "file": filename,
+            }
 
     return all_chart_uuids
+
 
 def _get_used_dataset_uuids():
     """
@@ -573,7 +578,7 @@ def check_orphan_assets(echo):
             click.echo(
                 click.style(f"WARNING: Dataset {k} used but not found!", fg="red")
             )
-            
+
     echo()
 
     if all_dataset_uuids:
@@ -587,6 +592,7 @@ def check_orphan_assets(echo):
 
     if not all_dataset_uuids and not orphan_chart_uuids:
         echo(f"{len(orphan_chart_uuids) + len(all_dataset_uuids)} orphans detected.")
+
 
 def _get_orphan_charts():
     """
@@ -607,10 +613,10 @@ def _get_orphan_charts():
 
     return all_chart_uuids
 
+
 def remove_orphan_charts(echo):
     orphan_charts = _get_orphan_charts()
 
     for chart in orphan_charts.values():
         echo(f'Removing orphaned chart {chart.get("name")}')
         os.remove(chart.get("file"))
-
