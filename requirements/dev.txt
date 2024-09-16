@@ -60,17 +60,17 @@ google-auth==2.34.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-idna==3.8
+idna==3.10
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==8.4.0
+importlib-metadata==8.5.0
     # via
     #   -r requirements/base.txt
     #   keyring
     #   tutor
     #   twine
-importlib-resources==6.4.4
+importlib-resources==6.4.5
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -142,17 +142,17 @@ pathspec==0.12.1
     # via black
 pkginfo==1.10.0
     # via twine
-platformdirs==4.3.2
+platformdirs==4.3.3
     # via
     #   black
     #   pylint
     #   shandy-sqlfmt
-pyasn1==0.6.0
+pyasn1==0.6.1
     # via
     #   -r requirements/base.txt
     #   pyasn1-modules
     #   rsa
-pyasn1-modules==0.4.0
+pyasn1-modules==0.4.1
     # via
     #   -r requirements/base.txt
     #   google-auth
@@ -187,7 +187,7 @@ pyyaml==6.0.2
     #   tutor
 readme-renderer==44.0
     # via twine
-regex==2024.7.24
+regex==2024.9.11
     # via
     #   -r requirements/base.txt
     #   parsimonious
@@ -207,7 +207,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.8.0
+rich==13.8.1
     # via twine
 rsa==4.9
     # via
@@ -248,7 +248,7 @@ typing-extensions==4.12.2
     #   -r requirements/base.txt
     #   mypy
     #   tutor
-urllib3==2.2.2
+urllib3==2.2.3
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -258,7 +258,7 @@ websocket-client==1.8.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-zipp==3.20.1
+zipp==3.20.2
     # via
     #   -r requirements/base.txt
     #   importlib-metadata
