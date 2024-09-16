@@ -4,24 +4,13 @@ Helpers for Tutor commands and "do" commands.
 
 import glob
 import os
-import re
-import json
-from zipfile import ZipFile
-from sqlfmt.api import format_string
-from sqlfmt.mode import Mode
-
 import click
 import yaml
 
-PLUGIN_PATH = os.path.dirname(os.path.abspath(__file__))
-ASSETS_PATH = os.path.join(
+from tutoraspects.asset_import_helper import (
     PLUGIN_PATH,
-    "templates",
-    "aspects",
-    "build",
-    "aspects-superset",
-    "openedx-assets",
-    "assets",
+    ASSETS_PATH,
+    SupersetCommandError,
 )
 
 
@@ -208,7 +197,9 @@ def _find_orphan_assets(echo):
             echo(click.style(f"WARNING: Chart {k} used but not found!", fg="red"))
 
     # Remove uuids from all list that are in ignored yaml
-    with open(os.path.join(PLUGIN_PATH, "aspects_asset_list.yaml"), "r", encoding="utf-8") as file:
+    with open(
+        os.path.join(PLUGIN_PATH, "aspects_asset_list.yaml"), "r", encoding="utf-8"
+    ) as file:
         aspects_assets = yaml.safe_load_all(file)
 
         for line in aspects_assets:
@@ -257,7 +248,9 @@ def delete_aspects_orphan_assets(echo):
     """
     unused_dataset_uuids, unused_chart_uuids = _find_orphan_assets(echo)
 
-    with open(os.path.join(PLUGIN_PATH, "aspects_asset_list.yaml"), "r") as file:
+    with open(
+        os.path.join(PLUGIN_PATH, "aspects_asset_list.yaml"), "r", encoding="utf-8"
+    ) as file:
         aspects_assets = yaml.safe_load_all(file)
 
         delete_count = 0
@@ -275,9 +268,7 @@ def delete_aspects_orphan_assets(echo):
             for uuid, data in unused_chart_uuids.items():
                 if orphaned_uuids and orphaned_uuids.get("charts"):
                     if uuid in orphaned_uuids.get("charts"):
-                        echo(
-                            f"Deleting orphan chart {data.get('name')} (UUID: {uuid})"
-                        )
+                        echo(f"Deleting orphan chart {data.get('name')} (UUID: {uuid})")
                         os.remove(data.get("file_path"))
                         delete_count += 1
 

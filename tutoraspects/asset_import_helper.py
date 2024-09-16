@@ -2,7 +2,6 @@
 Helpers for importing superset assets
 """
 
-import glob
 import os
 import re
 import json
