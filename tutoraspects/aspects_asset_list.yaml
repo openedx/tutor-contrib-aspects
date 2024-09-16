@@ -1,0 +1,8 @@
+orphaned_uuids:
+  datasets:
+  charts:
+
+ignored_uuids:
+  datasets:
+  charts:
+    - bb13bb31-c797-4ed3-a7f9-7825cc6dc482 # "Query performance" needed for the performance_metrics script

@@ -479,14 +479,11 @@ def check_asset_names(echo):
             if k in asset:
                 if asset[k] in names:
                     warn += 1
-                    echo(
-                        f"WARNING: Duplicate name {asset[k]} in {file_name}, this "
-                        f"could confuse users, consider changing it."
-                    )
+                    echo(f"WARNING: Duplicate {k} {asset[k]} in {asset.get('_file_name')}")
                 names.add(asset[k])
                 break
 
-    echo(f"{warn} duplicate names detected.")
+    echo(f"{warn} duplicate names detected. This could confuse users, consider changing them.")
 
 
 def _get_all_chart_dataset_uuids():
@@ -497,11 +494,11 @@ def _get_all_chart_dataset_uuids():
     all_chart_uuids = {}
 
     # First get all known uuid's
-    for _, asset in _get_asset_files():
+    for file_path, asset in _get_asset_files():
         if "slice_name" in asset:
-            all_chart_uuids[asset["uuid"]] = asset["slice_name"]
+            all_chart_uuids[asset["uuid"]] = {'name': asset["_file_name"],'file_path':file_path}
         elif "table_name" in asset:
-            all_dataset_uuids[asset["uuid"]] = asset["table_name"]
+            all_dataset_uuids[asset["uuid"]] = {'name': asset["table_name"],'file_path':file_path}
 
     return all_dataset_uuids, all_chart_uuids
 
@@ -518,10 +515,9 @@ def _get_used_chart_dataset_uuids():
             filters = asset["metadata"].get("native_filter_configuration", [])
 
             for filter_config in filters:
-                for filter_dataset in filter_config.get("target", {}).get(
-                    "datasetUuid", []
-                ):
-                    used_dataset_uuids.add(filter_dataset)
+                for item in filter_config.get("targets",{}):
+                    if item.get("datasetUuid"):
+                        used_dataset_uuids.add(item.get("datasetUuid"))
 
             for pos in asset["position"]:
                 if pos.startswith("CHART-"):
@@ -537,12 +533,12 @@ def _get_used_chart_dataset_uuids():
     return used_dataset_uuids, used_chart_uuids
 
 
-def check_orphan_assets(echo):
+def _find_orphan_assets(echo):
     """
-    Warn about any potentially unused assets.
+    Find potentially unused assets.
+    UUIDs listed as 'ignored' in aspects_asset_list.yaml are owned
+    by Aspects and will be removed from the list of potential orphans.
     """
-    echo("Looking for potentially orphaned assets...")
-
     all_dataset_uuids, all_chart_uuids = _get_all_chart_dataset_uuids()
     used_dataset_uuids, used_chart_uuids = _get_used_chart_dataset_uuids()
 
@@ -550,29 +546,82 @@ def check_orphan_assets(echo):
         try:
             all_dataset_uuids.pop(k)
         except KeyError:
-            click.echo(
-                click.style(f"WARNING: Dataset {k} used nut not found!", fg="red")
+            echo(
+                click.style(f"WARNING: Dataset {k} used but not found!", fg="red")
             )
-
-    # Remove the "Query performance" chart from the list, it's needed for
-    # the performance_metrics script, but not in any dashboard.
-    all_chart_uuids.pop("bb13bb31-c797-4ed3-a7f9-7825cc6dc482", None)
 
     for k in used_chart_uuids:
         try:
             all_chart_uuids.pop(k)
         except KeyError:
-            click.echo(click.style(f"WARNING: Chart {k} used nut not found!", fg="red"))
+            echo(click.style(f"WARNING: Chart {k} used but not found!", fg="red"))
 
-    echo()
+    with open(os.path.join(PLUGIN_PATH,'aspects_asset_list.yaml'), "r") as file:
+        aspects_assets = yaml.safe_load_all(file)
 
-    if all_dataset_uuids:
-        echo(click.style("Potentially unused datasets detected:", fg="yellow"))
-        echo("\n".join(sorted(all_dataset_uuids.values())))
+        for line in aspects_assets:
+            ignored_uuids = line.get('ignored_uuids')
+            if ignored_uuids and ignored_uuids.get('datasets'):
+                for k in ignored_uuids.get('datasets'):
+                    all_dataset_uuids.pop(k, None)
 
-    if all_chart_uuids:
-        echo(click.style("Potentially unused charts detected:", fg="yellow"))
-        echo("\n".join(sorted(all_chart_uuids.values())))
+            if ignored_uuids and ignored_uuids.get('charts'):
+                for k in ignored_uuids.get('charts'):
+                    all_chart_uuids.pop(k, None)
 
     if not all_dataset_uuids and not all_chart_uuids:
         echo(f"{len(all_chart_uuids) + len(all_dataset_uuids)} orphans detected.")
+
+    return all_dataset_uuids, all_chart_uuids
+
+
+def check_orphan_assets(echo):
+    """
+    Warn about any potentially unused assets.
+    """
+    echo("Looking for potentially orphaned assets...")
+    echo()
+
+    all_dataset_uuids, all_chart_uuids = _find_orphan_assets(echo)
+    
+    if all_dataset_uuids:
+        echo(click.style("Potentially unused datasets detected:", fg="yellow"))
+        echo('Add the UUIDs to aspects_asset_list.yaml to be deleted')
+        for x in all_dataset_uuids:
+            echo(f'{all_dataset_uuids[x].get("name")} (UUID: {x})')
+
+    if all_chart_uuids:
+        echo(click.style("Potentially unused charts detected:", fg="yellow"))
+        echo('Add the UUIDs to aspects_asset_list.yaml to be deleted')
+        for x in all_chart_uuids:
+            echo(f'{all_chart_uuids[x].get("name")} (UUID: {x})')
+
+def delete_aspects_orphan_assets(echo):
+    """
+    Delete any unused charts and datasets whose UUIDs are listed in 
+    aspects_assets_list.yaml - these are owned by Aspects and can safely
+    be deleted.
+    """
+    unused_dataset_uuids, unused_chart_uuids = _find_orphan_assets(echo)
+
+    with open(os.path.join(PLUGIN_PATH,'aspects_asset_list.yaml'), "r") as file:
+        aspects_assets = yaml.safe_load_all(file)
+
+        delete_count = 0
+        for line in aspects_assets:
+            orphaned_uuids = line.get('orphaned_uuids')
+            for uuid in unused_dataset_uuids:
+                if orphaned_uuids and orphaned_uuids.get('datasets'):
+                    if uuid in orphaned_uuids.get('datasets'):
+                        echo(f"Deleting orphan dataset {unused_dataset_uuids[uuid].get('name')} (UUID: {uuid})")
+                        os.remove(unused_dataset_uuids[uuid].get('file_path'))
+                        delete_count += 1
+
+            for uuid in unused_chart_uuids:
+                if orphaned_uuids and orphaned_uuids.get('charts'):
+                    if uuid in orphaned_uuids.get('charts'):
+                        echo(f"Deleting orphan chart {unused_chart_uuids[uuid].get('name')} (UUID: {uuid})")
+                        os.remove(unused_chart_uuids[uuid].get('file_path'))
+                        delete_count += 1
+
+        echo(f'Deleted {delete_count} assets')

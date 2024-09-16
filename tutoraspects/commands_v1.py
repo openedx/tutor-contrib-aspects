@@ -15,8 +15,8 @@ from tutoraspects.asset_command_helpers import (
     check_orphan_assets,
     deduplicate_superset_assets,
     import_superset_assets,
+    delete_aspects_orphan_assets
 )
-
 
 @click.command()
 @click.option("-c", "--config_file", default="./xapi-db-load-config.yaml")
@@ -394,6 +394,15 @@ def check_superset_assets():
         )
     )
 
+
+@aspects.command("delete_aspects_orphans")
+def delete_aspects_orphans():
+    """    
+    Delete any unused charts and datasets whose UUIDs are listed in 
+    aspects_assets_list.yaml - these are owned by Aspects and can safely
+    be deleted.
+    """
+    delete_aspects_orphan_assets(click.echo)
 
 DO_COMMANDS = (
     load_xapi_test_data,
