@@ -1,0 +1,143 @@
+_file_name: learner_performance_breakdown.yaml
+always_filter_main_dttm: false
+cache_timeout: null
+columns:
+- advanced_data_type: null
+  column_name: actor_id
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Actor Id
+- advanced_data_type: null
+  column_name: approving_state
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Approving State
+- advanced_data_type: null
+  column_name: course_name
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Name
+- advanced_data_type: null
+  column_name: course_run
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Run
+- advanced_data_type: null
+  column_name: learner_status
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Learner Status
+- advanced_data_type: null
+  column_name: org
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Org
+database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+default_endpoint: null
+description: null
+extra: null
+fetch_values_predicate: null
+filter_select_enabled: true
+main_dttm_col: enrolled_at
+metrics:
+- currency: null
+  d3format: null
+  description: null
+  expression: |-
+    count(case when learner_status='at-risk' then actor_id else null end)
+  extra:
+    warning_markdown: ''
+  metric_name: at_risk
+  metric_type: null
+  verbose_name: At Risk
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: |-
+    count(case when learner_status='active' then actor_id else null end)
+  extra:
+    warning_markdown: ''
+  metric_name: active
+  metric_type: null
+  verbose_name: Active
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: |-
+    count(case when approving_state='passed' then actor_id else null end)
+  extra:
+    warning_markdown: ''
+  metric_name: passed
+  metric_type: null
+  verbose_name: Passed
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: COUNT(actor_id)
+  extra:
+    warning_markdown: ''
+  metric_name: count
+  metric_type: count
+  verbose_name: Total
+  warning_text: null
+normalize_columns: false
+offset: 0
+params: null
+schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
+sql: |-
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/learner_performance_breakdown.sql' %}{% endfilter %}
+table_name: learner_performance_breakdown
+template_params: null
+uuid: 1970f934-cffb-4c5a-8a13-69dab22755c7
+version: 1.0.0

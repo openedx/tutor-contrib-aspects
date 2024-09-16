@@ -1,0 +1,672 @@
+_file_name: Course_Comparison_Dashboard.yaml
+_roles:
+- '{{ SUPERSET_ROLES_MAPPING.instructor }}'
+certification_details: ''
+certified_by: ''
+css: ''
+dashboard_title: Course Comparison Dashboard
+description: null
+metadata:
+  chart_configuration:
+    '1467':
+      crossFilters:
+        chartsInScope:
+        - 1500
+        - 1501
+        - 1502
+        - 1503
+        - 1504
+        - 1505
+        - 1506
+        - 1507
+        - 1508
+        scope: global
+      id: 1467
+    '1500':
+      crossFilters:
+        chartsInScope:
+        - 1467
+        - 1501
+        - 1502
+        - 1503
+        - 1504
+        - 1505
+        - 1506
+        - 1507
+        - 1508
+        scope: global
+      id: 1500
+    '1501':
+      crossFilters:
+        chartsInScope:
+        - 1467
+        - 1500
+        - 1502
+        - 1503
+        - 1504
+        - 1505
+        - 1506
+        - 1507
+        - 1508
+        scope: global
+      id: 1501
+    '1502':
+      crossFilters:
+        chartsInScope:
+        - 1467
+        - 1500
+        - 1501
+        - 1503
+        - 1504
+        - 1505
+        - 1506
+        - 1507
+        - 1508
+        scope: global
+      id: 1502
+    '1503':
+      crossFilters:
+        chartsInScope:
+        - 1467
+        - 1500
+        - 1501
+        - 1502
+        - 1504
+        - 1505
+        - 1506
+        - 1507
+        - 1508
+        scope: global
+      id: 1503
+    '1504':
+      crossFilters:
+        chartsInScope:
+        - 1467
+        - 1500
+        - 1501
+        - 1502
+        - 1503
+        - 1505
+        - 1506
+        - 1507
+        - 1508
+        scope: global
+      id: 1504
+    '1505':
+      crossFilters:
+        chartsInScope:
+        - 1467
+        - 1500
+        - 1501
+        - 1502
+        - 1503
+        - 1504
+        - 1506
+        - 1507
+        - 1508
+        scope: global
+      id: 1505
+    '1506':
+      crossFilters:
+        chartsInScope:
+        - 1467
+        - 1500
+        - 1501
+        - 1502
+        - 1503
+        - 1504
+        - 1505
+        - 1507
+        - 1508
+        scope: global
+      id: 1506
+    '1507':
+      crossFilters:
+        chartsInScope:
+        - 1467
+        - 1500
+        - 1501
+        - 1502
+        - 1503
+        - 1504
+        - 1505
+        - 1506
+        - 1508
+        scope: global
+      id: 1507
+    '1508':
+      crossFilters:
+        chartsInScope:
+        - 1467
+        - 1500
+        - 1501
+        - 1502
+        - 1503
+        - 1504
+        - 1505
+        - 1506
+        - 1507
+        scope: global
+      id: 1508
+  color_scheme: supersetColors
+  color_scheme_domain:
+  - '#1FA8C9'
+  - '#454E7C'
+  - '#5AC189'
+  - '#FF7F44'
+  - '#666666'
+  - '#E04355'
+  - '#FCC700'
+  - '#A868B7'
+  - '#3CCCCB'
+  - '#A38F79'
+  - '#8FD3E4'
+  - '#A1A6BD'
+  - '#ACE1C4'
+  - '#FEC0A1'
+  - '#B2B2B2'
+  - '#EFA1AA'
+  - '#FDE380'
+  - '#D3B3DA'
+  - '#9EE5E5'
+  - '#D1C6BC'
+  cross_filters_enabled: true
+  default_filters: '{}'
+  expanded_slices:
+    '1504': true
+    '1505': true
+    '1506': true
+    '1507': true
+  global_chart_configuration:
+    chartsInScope:
+    - 1467
+    - 1500
+    - 1501
+    - 1502
+    - 1503
+    - 1504
+    - 1505
+    - 1506
+    - 1507
+    - 1508
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+  label_colors: {}
+  native_filter_configuration:
+  - cascadeParentIds: []
+    chartsInScope:
+    - 1273
+    - 1274
+    - 1275
+    - 1276
+    - 1277
+    - 1278
+    - 1279
+    - 1292
+    - 1294
+    - 1295
+    controlValues:
+      defaultToFirstItem: true
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-QrTlO4wBf
+    name: Organization
+    requiredFirst: true
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope:
+    - TAB-J31MdXj-sa
+    - TAB-GuHDMLqRC
+    targets:
+    - column:
+        name: org
+      datasetUuid: 38488934-35ee-5404-9acc-7e67626ddfae
+    type: NATIVE_FILTER
+  - cascadeParentIds: []
+    chartsInScope: []
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+      sortAscending: true
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: Only available in versions Redwood and later
+    filterType: filter_select
+    id: NATIVE_FILTER-M1zEXEB97
+    name: Tag
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    sortMetric: order
+    tabsInScope: []
+    targets:
+    - column:
+        name: tag
+      datasetUuid: 81457874-fd86-4568-a730-9179ab7a7fd5
+    type: NATIVE_FILTER
+  - cascadeParentIds:
+    - NATIVE_FILTER-QrTlO4wBf
+    - NATIVE_FILTER-M1zEXEB97
+    chartsInScope:
+    - 1266
+    - 1273
+    - 1274
+    - 1275
+    - 1276
+    - 1277
+    - 1278
+    - 1279
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-IfS-Rd0ZS
+    name: Course Name
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope:
+    - TAB-J31MdXj-sa
+    - TAB-GuHDMLqRC
+    targets:
+    - column:
+        name: course_name
+      datasetUuid: 38488934-35ee-5404-9acc-7e67626ddfae
+    type: NATIVE_FILTER
+  - cascadeParentIds:
+    - NATIVE_FILTER-M1zEXEB97
+    - NATIVE_FILTER-QrTlO4wBf
+    chartsInScope:
+    - 1266
+    - 1273
+    - 1274
+    - 1275
+    - 1276
+    - 1277
+    - 1278
+    - 1279
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-w863AfFgi
+    name: Course Run
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope:
+    - TAB-J31MdXj-sa
+    - TAB-GuHDMLqRC
+    targets:
+    - column:
+        name: course_run
+      datasetUuid: 38488934-35ee-5404-9acc-7e67626ddfae
+    type: NATIVE_FILTER
+  refresh_frequency: 0
+  shared_label_colors:
+    active: '#1FA8C9'
+    at_risk: '#5AC189'
+    count: '#FCC700'
+    passed: '#666666'
+  timed_refresh_immune_slices: []
+position:
+  CHART-explore-1467-1:
+    children: []
+    id: CHART-explore-1467-1
+    meta:
+      chartId: 1467
+      height: 50
+      sliceName: Video Engagement
+      uuid: 5b00f792-233c-4ee6-9411-7df49f4b5061
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    - ROW-dAYfW3JOym
+    type: CHART
+  CHART-explore-1500-1:
+    children: []
+    id: CHART-explore-1500-1
+    meta:
+      chartId: 1500
+      height: 50
+      sliceName: Course Info
+      uuid: b2fff8a7-3ace-4075-9a3f-5fa5b99f81bb
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    - ROW-Ixcwhxrj1
+    type: CHART
+  CHART-explore-1501-1:
+    children: []
+    id: CHART-explore-1501-1
+    meta:
+      chartId: 1501
+      height: 50
+      sliceName: Course Info
+      uuid: ccdd7d98-4722-490b-a0b2-077380a7c7eb
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    - ROW-_txCTpD7V
+    type: CHART
+  CHART-explore-1502-1:
+    children: []
+    id: CHART-explore-1502-1
+    meta:
+      chartId: 1502
+      height: 50
+      sliceName: Enrollment Counts
+      uuid: 7eaf5bc2-0067-424b-a50b-607cf54c086a
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    - ROW-RgmR2MvEK
+    type: CHART
+  CHART-explore-1503-1:
+    children: []
+    id: CHART-explore-1503-1
+    meta:
+      chartId: 1503
+      height: 50
+      sliceName: Enrollment Counts
+      uuid: 8230a366-957d-4667-a2ff-3cbcb2f25f60
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    - ROW-bpejHEOdb
+    type: CHART
+  CHART-explore-1504-1:
+    children: []
+    id: CHART-explore-1504-1
+    meta:
+      chartId: 1504
+      height: 50
+      sliceName: Learner Performance Breakdown
+      uuid: b73b0a5c-4861-402e-a39c-d73333a4d911
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    - ROW-dwdD7OF9Z
+    type: CHART
+  CHART-explore-1505-1:
+    children: []
+    id: CHART-explore-1505-1
+    meta:
+      chartId: 1505
+      height: 50
+      sliceName: Learner Performance Breakdown
+      uuid: d414b144-467b-456b-b899-9cfb3579faba
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    - ROW-XddLr_99f
+    type: CHART
+  CHART-explore-1506-1:
+    children: []
+    id: CHART-explore-1506-1
+    meta:
+      chartId: 1506
+      height: 50
+      sliceName: Learner Performance
+      uuid: b518f341-9ed4-4c23-bb88-6c1d497aa260
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    - ROW-hgxCVRi9M
+    type: CHART
+  CHART-explore-1507-1:
+    children: []
+    id: CHART-explore-1507-1
+    meta:
+      chartId: 1507
+      height: 50
+      sliceName: Learner Performance
+      uuid: b0e170ce-26f1-4452-a3c0-49b41fa6e529
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    - ROW-kZVNsJuoh
+    type: CHART
+  CHART-explore-1508-1:
+    children: []
+    id: CHART-explore-1508-1
+    meta:
+      chartId: 1508
+      height: 50
+      sliceName: Video Engagement
+      uuid: 6b7610a7-41d0-4d14-be81-62a5a8f22d62
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    - ROW-hKzUoke28
+    type: CHART
+  DASHBOARD_VERSION_KEY: v2
+  GRID_ID:
+    children: []
+    id: GRID_ID
+    parents:
+    - ROOT_ID
+    type: GRID
+  HEADER_ID:
+    id: HEADER_ID
+    meta:
+      text: Course Comparison Dashboard
+    type: HEADER
+  ROOT_ID:
+    children:
+    - TABS-6vozRyRn2o
+    id: ROOT_ID
+    type: ROOT
+  ROW--qwRXTzHx:
+    children:
+    - CHART-explore-1507-1
+    id: ROW--qwRXTzHx
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    type: ROW
+  ROW-Ixcwhxrj1:
+    children:
+    - CHART-explore-1500-1
+    id: ROW-Ixcwhxrj1
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    type: ROW
+  ROW-RgmR2MvEK:
+    children:
+    - CHART-explore-1502-1
+    id: ROW-RgmR2MvEK
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    type: ROW
+  ROW-XddLr_99f:
+    children:
+    - CHART-explore-1505-1
+    id: ROW-XddLr_99f
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    type: ROW
+  ROW-_txCTpD7V:
+    children:
+    - CHART-explore-1501-1
+    id: ROW-_txCTpD7V
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    type: ROW
+  ROW-bpejHEOdb:
+    children:
+    - CHART-explore-1503-1
+    id: ROW-bpejHEOdb
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    type: ROW
+  ROW-dAYfW3JOym:
+    children:
+    - CHART-explore-1467-1
+    id: ROW-dAYfW3JOym
+    meta:
+      '0': ROOT_ID
+      '1': TABS-6vozRyRn2o
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    type: ROW
+  ROW-dwdD7OF9Z:
+    children:
+    - CHART-explore-1504-1
+    id: ROW-dwdD7OF9Z
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    type: ROW
+  ROW-hgxCVRi9M:
+    children:
+    - CHART-explore-1506-1
+    id: ROW-hgxCVRi9M
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-J31MdXj-sa
+    type: ROW
+  ROW-iMG3T4uBu:
+    children:
+    - CHART-explore-1508-1
+    id: ROW-iMG3T4uBu
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-GuHDMLqRC
+    type: ROW
+  TAB-GuHDMLqRC:
+    children:
+    - ROW-_txCTpD7V
+    - ROW-bpejHEOdb
+    - ROW-XddLr_99f
+    - ROW--qwRXTzHx
+    - ROW-iMG3T4uBu
+    id: TAB-GuHDMLqRC
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Run Metrics
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    type: TAB
+  TAB-J31MdXj-sa:
+    children:
+    - ROW-Ixcwhxrj1
+    - ROW-RgmR2MvEK
+    - ROW-dwdD7OF9Z
+    - ROW-hgxCVRi9M
+    - ROW-dAYfW3JOym
+    id: TAB-J31MdXj-sa
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Course Metrics
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    type: TAB
+  TABS-6vozRyRn2o:
+    children:
+    - TAB-J31MdXj-sa
+    - TAB-GuHDMLqRC
+    id: TABS-6vozRyRn2o
+    meta: {}
+    parents:
+    - ROOT_ID
+    type: TABS
+published: true
+slug: course-comparison
+uuid: c6c7062d-dd90-4292-b9cf-84f7b9f38e73
+version: 1.0.0

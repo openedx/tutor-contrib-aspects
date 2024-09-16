@@ -27,11 +27,11 @@ future==1.0.0
     # via pyseeyou
 google-auth==2.34.0
     # via kubernetes
-idna==3.8
+idna==3.10
     # via requests
-importlib-metadata==8.4.0
+importlib-metadata==8.5.0
     # via tutor
-importlib-resources==6.4.4
+importlib-resources==6.4.5
     # via
     #   -r requirements/base.in
     #   tutor
@@ -53,11 +53,11 @@ openedx-atlas==0.6.2
     # via -r requirements/base.in
 parsimonious==0.10.0
     # via pyseeyou
-pyasn1==0.6.0
+pyasn1==0.6.1
     # via
     #   pyasn1-modules
     #   rsa
-pyasn1-modules==0.4.0
+pyasn1-modules==0.4.1
     # via google-auth
 pycryptodome==3.20.0
     # via tutor
@@ -69,7 +69,7 @@ pyyaml==6.0.2
     # via
     #   kubernetes
     #   tutor
-regex==2024.7.24
+regex==2024.9.11
     # via parsimonious
 requests==2.32.3
     # via
@@ -99,11 +99,11 @@ typing-extensions==4.12.2
     # via
     #   mypy
     #   tutor
-urllib3==2.2.2
+urllib3==2.2.3
     # via
     #   kubernetes
     #   requests
 websocket-client==1.8.0
     # via kubernetes
-zipp==3.20.1
+zipp==3.20.2
     # via importlib-metadata
