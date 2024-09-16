@@ -1,0 +1,157 @@
+_file_name: Learner_Performance_Breakdown_b73b0a.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 1970f934-cffb-4c5a-8a13-69dab22755c7
+description: Displays the top 10 highest enrollment courses. Selecting different courses
+  in the filter will display those courses.
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: enrolled_at
+  annotation_layers: []
+  color_scheme: supersetColors
+  contributionMode: null
+  extra_form_data: {}
+  groupby: []
+  legendMargin: null
+  legendOrientation: top
+  legendType: scroll
+  metrics:
+  - count
+  - passed
+  - active
+  - at_risk
+  minorTicks: false
+  orientation: horizontal
+  rich_tooltip: false
+  row_limit: 10
+  show_empty_columns: false
+  show_legend: true
+  show_value: false
+  sort_series_ascending: true
+  sort_series_type: name
+  stack: null
+  tooltipTimeFormat: smart_date
+  truncateXAxis: false
+  truncate_metric: false
+  viz_type: echarts_timeseries_bar
+  xAxisLabelRotation: 0
+  x_axis: course_name
+  x_axis_sort_series: sum
+  x_axis_sort_series_ascending: false
+  x_axis_time_format: smart_date
+  x_axis_title: ''
+  x_axis_title_margin: 15
+  zoomable: false
+query_context:
+  datasource:
+    id: 464
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: enrolled_at
+    annotation_layers: []
+    color_scheme: supersetColors
+    contributionMode: null
+    dashboards:
+    - 3441
+    datasource: 464__table
+    extra_form_data: {}
+    force: false
+    groupby: []
+    legendMargin: null
+    legendOrientation: top
+    legendType: scroll
+    metrics:
+    - count
+    - passed
+    - active
+    - at_risk
+    minorTicks: false
+    orientation: horizontal
+    result_format: json
+    result_type: full
+    rich_tooltip: false
+    row_limit: 10
+    show_empty_columns: false
+    show_legend: true
+    show_value: false
+    slice_id: 1504
+    sort_series_ascending: true
+    sort_series_type: name
+    stack: null
+    tooltipTimeFormat: smart_date
+    truncateXAxis: false
+    truncate_metric: false
+    viz_type: echarts_timeseries_bar
+    xAxisLabelRotation: 0
+    x_axis: course_name
+    x_axis_sort_series: sum
+    x_axis_sort_series_ascending: false
+    x_axis_time_format: smart_date
+    x_axis_title: ''
+    x_axis_title_margin: 15
+    zoomable: false
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: course_name
+      sqlExpression: course_name
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      where: ''
+    filters:
+    - col: enrolled_at
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics:
+    - count
+    - passed
+    - active
+    - at_risk
+    order_desc: true
+    orderby:
+    - - count
+      - false
+    post_processing:
+    - operation: pivot
+      options:
+        aggregates:
+          active:
+            operator: mean
+          at_risk:
+            operator: mean
+          count:
+            operator: mean
+          passed:
+            operator: mean
+        columns: []
+        drop_missing_columns: true
+        index:
+        - course_name
+    - operation: flatten
+    row_limit: 10
+    series_columns: []
+    series_limit: 0
+    time_offsets: []
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Learner Performance Breakdown
+uuid: b73b0a5c-4861-402e-a39c-d73333a4d911
+version: 1.0.0
+viz_type: echarts_timeseries_bar

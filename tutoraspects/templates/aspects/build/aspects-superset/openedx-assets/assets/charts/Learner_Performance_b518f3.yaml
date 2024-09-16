@@ -1,0 +1,122 @@
+_file_name: Learner_Performance_b518f3.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: ffc33796-bcd4-4e8b-a4e4-ab6517b72116
+description: |-
+  <dl>
+  <dt>Avg % Correct on 1st Attempt </dt>
+  <dd> The average percentage of correct answers on the first attempt </dd>
+  </dl>
+params:
+  adhoc_filters: []
+  all_columns:
+  - success
+  color_pn: true
+  column_config:
+    avg_course_grade:
+      d3NumberFormat: ',.1%'
+    first_try_correct:
+      d3NumberFormat: ',.1%'
+      showCellBars: false
+    med_course_grade:
+      d3NumberFormat: ',.1%'
+  conditional_formatting: []
+  extra_form_data: {}
+  groupby:
+  - course_name
+  - org
+  metrics:
+  - first_try_correct
+  - count_passing
+  - avg_course_grade
+  - med_course_grade
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 50000
+  server_page_length: 10
+  show_cell_bars: false
+  table_timestamp_format: smart_date
+  temporal_columns_lookup: {}
+  time_grain_sqla: P1M
+  viz_type: table
+query_context:
+  datasource:
+    id: 61
+    type: table
+  force: false
+  form_data:
+    adhoc_filters: []
+    all_columns:
+    - success
+    color_pn: true
+    column_config:
+      avg_course_grade:
+        d3NumberFormat: ',.1%'
+      first_try_correct:
+        d3NumberFormat: ',.1%'
+        showCellBars: false
+      med_course_grade:
+        d3NumberFormat: ',.1%'
+    conditional_formatting: []
+    dashboards:
+    - 3141
+    datasource: 61__table
+    extra_form_data: {}
+    force: false
+    groupby:
+    - course_name
+    - org
+    metrics:
+    - first_try_correct
+    - count_passing
+    - avg_course_grade
+    - med_course_grade
+    order_by_cols: []
+    order_desc: true
+    percent_metrics: []
+    query_mode: aggregate
+    result_format: json
+    result_type: full
+    row_limit: 50000
+    server_page_length: 10
+    show_cell_bars: false
+    slice_id: 1506
+    table_timestamp_format: smart_date
+    temporal_columns_lookup: {}
+    time_grain_sqla: P1M
+    viz_type: table
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - course_name
+    - org
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1M
+      where: ''
+    filters: []
+    metrics:
+    - first_try_correct
+    - count_passing
+    - avg_course_grade
+    - med_course_grade
+    order_desc: true
+    orderby:
+    - - first_try_correct
+      - false
+    post_processing: []
+    row_limit: 50000
+    series_limit: 0
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Learner Performance
+uuid: b518f341-9ed4-4c23-bb88-6c1d497aa260
+version: 1.0.0
+viz_type: table

@@ -1,0 +1,132 @@
+_file_name: Course_Info_ccdd7d.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 27a4476b-5a9a-4fc4-ac75-da520b522341
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_time
+  all_columns: []
+  color_pn: false
+  column_config:
+    Current Enrollees:
+      columnWidth: 150
+    active_count:
+      columnWidth: 200
+    course_name:
+      columnWidth: 200
+    course_run:
+      columnWidth: 300
+    tag_list:
+      truncateLongCells: true
+  conditional_formatting: []
+  extra_form_data: {}
+  groupby:
+  - course_run
+  - course_name
+  metrics:
+  - active_count
+  - tag_list
+  - enrollees
+  order_by_cols: []
+  order_desc: false
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 50000
+  server_page_length: 10
+  show_cell_bars: false
+  table_timestamp_format: smart_date
+  temporal_columns_lookup: {}
+  time_grain_sqla: P1M
+  viz_type: table
+query_context:
+  datasource:
+    id: 221
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: emission_time
+    all_columns: []
+    color_pn: false
+    column_config:
+      Current Enrollees:
+        columnWidth: 150
+      active_count:
+        columnWidth: 200
+      course_name:
+        columnWidth: 200
+      course_run:
+        columnWidth: 300
+      tag_list:
+        truncateLongCells: true
+    conditional_formatting: []
+    dashboards:
+    - 3141
+    datasource: 221__table
+    extra_form_data: {}
+    force: false
+    groupby:
+    - course_run
+    - course_name
+    metrics:
+    - active_count
+    - tag_list
+    - enrollees
+    order_by_cols: []
+    order_desc: false
+    percent_metrics: []
+    query_mode: aggregate
+    result_format: json
+    result_type: full
+    row_limit: 50000
+    server_page_length: 10
+    show_cell_bars: false
+    slice_id: 1381
+    table_timestamp_format: smart_date
+    temporal_columns_lookup: {}
+    time_grain_sqla: P1M
+    viz_type: table
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - course_run
+    - course_name
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1M
+      where: ''
+    filters:
+    - col: emission_time
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics:
+    - active_count
+    - tag_list
+    - enrollees
+    order_desc: false
+    orderby:
+    - - active_count
+      - false
+    post_processing: []
+    row_limit: 50000
+    series_limit: 0
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Course Info
+uuid: ccdd7d98-4722-490b-a0b2-077380a7c7eb
+version: 1.0.0
+viz_type: table
