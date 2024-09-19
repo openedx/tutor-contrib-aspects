@@ -111,4 +111,30 @@ def translate_column_bool(column_name):
     """
 
 
+SQL_LINK_FORMAT = """
+concat('<a href="{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ SUPERSET_HOST }}/superset/dashboard/{dashboard_slug}/?native_filters=(NATIVE_FILTER-{filter_id}:(__cache:(label:''', 
+    {column}, 
+    ''',validateStatus:!f,value:!(''', 
+    {column}, 
+    ''')),extraFormData:(filters:!((col:{column},op:IN,val:!(''', 
+    {column}, 
+    ''')))),filterState:(label:''', 
+    {column}, 
+    ''',validateStatus:!f,value:!(''', 
+    {column}, 
+    ''')),id:NATIVE_FILTER-IfS-Rd0ZS,ownState:()))">', 
+    {column}, 
+    '</a>'
+)
+"""
+def filtered_dashboard(dashboard_slug, column_name, filter_id):
+    """
+    Creates a link to a dashboard with filters preloaded given a dashboard-slug, a column_name and a filter_id
+    """
+    lang = security_manager.get_preferences(g.user.username)
+
+    hlink = SQL_LINK_FORMAT.format(dashboard_slug=f"{dashboard_slug}-{lang}", column=column_name, filter_id=filter_id)
+
+    return hlink
+
 {{patch("superset-jinja-filters")}}
