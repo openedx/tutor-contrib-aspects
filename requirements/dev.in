@@ -4,4 +4,3 @@ black
 pyinstaller
 pylint
 twine
-shandy-sqlfmt[jinjafmt]==0.21.2
