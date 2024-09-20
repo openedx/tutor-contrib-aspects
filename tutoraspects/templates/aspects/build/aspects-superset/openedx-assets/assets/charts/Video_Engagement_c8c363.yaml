@@ -28,6 +28,7 @@ params:
       `section_with_name` <> '' and `subsection_with_name` <> ''
     subject: null
   all_columns: []
+  annotation_layers: []
   color_pn: true
   column_config:
     total_plays:

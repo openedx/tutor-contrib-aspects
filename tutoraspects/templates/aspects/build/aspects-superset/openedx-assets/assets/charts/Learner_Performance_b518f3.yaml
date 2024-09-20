@@ -12,6 +12,7 @@ params:
   adhoc_filters: []
   all_columns:
   - success
+  annotation_layers: []
   color_pn: true
   column_config:
     avg_course_grade:

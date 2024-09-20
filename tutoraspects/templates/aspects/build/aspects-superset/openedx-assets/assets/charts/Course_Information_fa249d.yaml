@@ -12,6 +12,7 @@ params:
     operator: TEMPORAL_RANGE
     subject: enrolled_at
   all_columns: []
+  annotation_layers: []
   color_pn: true
   column_config:
     Avg Course Grade:

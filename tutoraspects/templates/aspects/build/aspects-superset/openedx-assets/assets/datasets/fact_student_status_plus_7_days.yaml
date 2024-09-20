@@ -3,6 +3,19 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
+  column_name: active_within_last_7_days
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: UInt64
+  verbose_name: Active Within Last 7 Days
+- advanced_data_type: null
   column_name: course_key
   description: null
   expression: null
@@ -16,45 +29,6 @@ columns:
   type: LowCardinality(String)
   verbose_name: Course Key
 - advanced_data_type: null
-  column_name: course_name
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Name
-- advanced_data_type: null
-  column_name: course_run
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Run
-- advanced_data_type: null
-  column_name: org
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: LowCardinality(String)
-  verbose_name: Organization
-- advanced_data_type: null
   column_name: enrollment_mode
   description: null
   expression: null
@@ -67,19 +41,6 @@ columns:
   python_date_format: null
   type: LowCardinality(String)
   verbose_name: Enrollment Mode
-- advanced_data_type: null
-  column_name: active_within_last_7_days
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: UInt64
-  verbose_name: Active Within Last 7 Days
 - advanced_data_type: null
   column_name: course_grade
   description: null
@@ -107,6 +68,19 @@ columns:
   type: DateTime
   verbose_name: Enrolled At
 - advanced_data_type: null
+  column_name: actor_id
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Actor Id
+- advanced_data_type: null
   column_name: approving_state
   description: null
   expression: null
@@ -133,7 +107,7 @@ columns:
   type: String
   verbose_name: Grade Bucket
 - advanced_data_type: null
-  column_name: actor_id
+  column_name: course_name
   description: null
   expression: null
   extra:
@@ -144,7 +118,20 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Actor Id
+  verbose_name: Course Name
+- advanced_data_type: null
+  column_name: course_run
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Run
 - advanced_data_type: null
   column_name: enrollment_status
   description: null
@@ -159,7 +146,7 @@ columns:
   type: String
   verbose_name: Enrollment Status
 - advanced_data_type: null
-  column_name: username
+  column_name: org
   description: null
   expression: null
   extra:
@@ -169,8 +156,8 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
-  verbose_name: Username
+  type: LowCardinality(String)
+  verbose_name: Organization
 - advanced_data_type: null
   column_name: email
   description: null
@@ -197,6 +184,19 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Name
+- advanced_data_type: null
+  column_name: username
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Username
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
@@ -208,21 +208,21 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: ROUND(AVG(course_grade), 2 ) *100
-  extra: {}
-  metric_name: avg_course_grade
-  metric_type: null
-  verbose_name: Avg Course Grade
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
   expression: SUM(active_within_last_7_days)
   extra:
     warning_markdown: ''
   metric_name: active_within
   metric_type: null
   verbose_name: Active within Last 7 Days
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: ROUND(AVG(course_grade), 2 ) *100
+  extra: {}
+  metric_name: avg_course_grade
+  metric_type: null
+  verbose_name: Avg Course Grade
   warning_text: null
 - currency: null
   d3format: null
