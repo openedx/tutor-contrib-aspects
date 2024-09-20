@@ -122,7 +122,7 @@ concat('<a href="{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ SUPERS
     {column}, 
     ''',validateStatus:!f,value:!(''', 
     {column}, 
-    ''')),id:NATIVE_FILTER-IfS-Rd0ZS,ownState:()))">', 
+    ''')),id:NATIVE_FILTER-{filter_id},ownState:()))">', 
     {column}, 
     '</a>'
 )
