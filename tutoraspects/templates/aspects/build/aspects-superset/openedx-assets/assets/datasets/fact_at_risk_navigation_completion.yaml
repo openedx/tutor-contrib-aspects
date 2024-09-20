@@ -225,8 +225,8 @@ normalize_columns: false
 offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
-sql: |-
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_at_risk_navigation_completion.sql' %}{% endfilter %}
+sql: |
+  {% filter indent(width=2) %} {% include 'openedx-assets/queries/fact_at_risk_navigation_completion.sql' %} {% endfilter %}
 table_name: fact_at_risk_navigation_completion
 template_params: null
 uuid: 649ad1d3-c0b4-48e1-a02b-e1d1e80c94ac

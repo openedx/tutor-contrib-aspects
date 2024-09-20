@@ -19,7 +19,9 @@ params:
     targetValue: 0
   extra_form_data: {}
   groupby:
-  - video_name_with_location
+  - expressionType: SQL
+    label: Video Link
+    sqlExpression: video_link
   metrics:
   - full_views
   - partial_views
@@ -36,7 +38,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 23
+    id: 33
     type: table
   force: false
   form_data:
@@ -53,12 +55,14 @@ query_context:
       operator: '>'
       targetValue: 0
     dashboards:
-    - 29
-    datasource: 23__table
+    - 18
+    datasource: 33__table
     extra_form_data: {}
     force: false
     groupby:
-    - video_name_with_location
+    - expressionType: SQL
+      label: Video Link
+      sqlExpression: video_link
     metrics:
     - full_views
     - partial_views
@@ -71,7 +75,7 @@ query_context:
     row_limit: 10000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 136
+    slice_id: 13
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     time_grain_sqla: P1M
@@ -80,7 +84,9 @@ query_context:
   - annotation_layers: []
     applied_time_extras: {}
     columns:
-    - video_name_with_location
+    - expressionType: SQL
+      label: Video Link
+      sqlExpression: video_link
     custom_form_data: {}
     custom_params: {}
     extras:

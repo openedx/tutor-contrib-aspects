@@ -144,8 +144,8 @@ normalize_columns: true
 offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
-sql: |-
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_at_risk_problem_engagement.sql' %}{% endfilter %}
+sql: |
+  {% filter indent(width=2) %} {% include 'openedx-assets/queries/fact_at_risk_problem_engagement.sql' %} {% endfilter %}
 table_name: fact_at_risk_problem_engagement
 template_params: {}
 uuid: 0f3f86fe-2973-491d-b01a-986ac06096a3

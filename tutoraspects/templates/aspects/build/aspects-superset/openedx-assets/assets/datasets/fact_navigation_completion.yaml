@@ -226,8 +226,8 @@ normalize_columns: false
 offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
-sql: |-
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_navigation_completion.sql' %}{% endfilter %}
+sql: |
+  {% filter indent(width=2) %} {% include 'openedx-assets/queries/fact_navigation_completion.sql' %} {% endfilter %}
 table_name: fact_navigation_completion
 template_params: null
 uuid: 1b1cbf0a-1193-4251-ad52-724c2f0190ae
