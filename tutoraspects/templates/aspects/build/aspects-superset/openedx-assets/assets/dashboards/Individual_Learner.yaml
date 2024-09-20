@@ -317,7 +317,7 @@ metadata:
   - '#D1C6BC'
   cross_filters_enabled: true
   default_filters: '{}'
-  expanded_slices: {}
+  expanded_slices: {"16": true, "64": true, "9": true}
   global_chart_configuration:
     chartsInScope:
     - 2

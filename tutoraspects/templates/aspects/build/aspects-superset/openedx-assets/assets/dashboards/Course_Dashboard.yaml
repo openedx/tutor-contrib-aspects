@@ -346,7 +346,7 @@ metadata:
   - '#9EE5E5'
   - '#D1C6BC'
   cross_filters_enabled: true
-  expanded_slices: {}
+  expanded_slices: {"57": true}
   global_chart_configuration:
     chartsInScope:
     - 2
