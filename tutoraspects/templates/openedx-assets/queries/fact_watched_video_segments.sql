@@ -65,7 +65,8 @@ with
             segments.started_at as started_at,
             segments.start_position - (segments.start_position % 5) as start_position,
             segments.end_position - (segments.end_position % 5) as end_position,
-            segments.video_duration as video_duration
+            segments.video_duration as video_duration,
+            segments.video_id as video_id
         from segments
         join
             {{ DBT_PROFILE_TARGET_DATABASE }}.dim_course_blocks_extended blocks
@@ -84,6 +85,7 @@ select
     subsection_with_name,
     video_name,
     video_name_with_location,
+    video_id,
     actor_id,
     started_at,
     arrayJoin(range(start_position, end_position, 5)) as segment_start,
