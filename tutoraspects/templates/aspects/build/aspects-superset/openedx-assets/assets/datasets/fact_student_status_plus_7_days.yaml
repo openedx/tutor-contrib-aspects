@@ -248,18 +248,7 @@ offset: 0
 params: null
 schema: null
 sql: |
-  with
-      recent_activity as (
-          select course_key, COUNT(DISTINCT actor_id) as active_last_7_days
-          from `reporting`.`navigation_events`
-          where emission_time >= NOW() - INTERVAL 7 DAY
-          group by course_key
-      )
-
-  select fss.*, COALESCE(ra.active_last_7_days, 0) as active_within_last_7_days
-  from `reporting`.`fact_student_status` fss
-  left join recent_activity ra on fss.course_key = ra.course_key
-  ;
+  {% filter indent(width=2) %} {% include 'openedx-assets/queries/active_last_7_days.sql' %} {% endfilter %}
 table_name: fact_student_status_plus_7_days
 template_params: null
 uuid: f25fdc4e-ce79-4f4c-9fc6-3dfe91690493

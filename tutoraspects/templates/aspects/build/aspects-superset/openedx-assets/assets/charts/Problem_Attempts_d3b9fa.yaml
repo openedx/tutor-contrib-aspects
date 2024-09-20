@@ -152,7 +152,7 @@ query_context:
       expressionType: SQL
       label: Graded
       sqlExpression: |-
-        {{translate_column_bool('graded')}}
+        {% raw %}{{translate_column_bool('graded')}}{% endraw %}
     custom_form_data: {}
     custom_params: {}
     extras:
