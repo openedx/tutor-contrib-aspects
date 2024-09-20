@@ -127,7 +127,7 @@ concat('<a href="{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ SUPERS
     '</a>'
 )
 """
-def filtered_dashboard(dashboard_slug, column_name, filter_id):
+def get_filtered_dashboard_link(dashboard_slug, column_name, filter_id):
     """
     Creates a link to a dashboard with filters preloaded given a dashboard-slug, a column_name and a filter_id
     """
