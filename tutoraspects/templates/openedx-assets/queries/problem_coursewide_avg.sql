@@ -3,7 +3,7 @@ with
     successful_responses as (
         select
             org, course_key, problem_id, actor_id::String as actor_id, first_success_at
-        from {{ASPECTS_XAPI_DATABASE}}.responses
+        from {{ ASPECTS_XAPI_DATABASE }}.responses
         where
             isNotNull(first_success_at)
             {% include 'openedx-assets/queries/common_filters.sql' %}
@@ -15,7 +15,7 @@ with
             problem_id,
             actor_id::String as actor_id,
             max(last_attempt_at) as last_attempt_at
-        from {{ASPECTS_XAPI_DATABASE}}.responses
+        from {{ ASPECTS_XAPI_DATABASE }}.responses
         where
             actor_id not in (select distinct actor_id from successful_responses)
             {% include 'openedx-assets/queries/common_filters.sql' %}
@@ -40,7 +40,7 @@ with
             events.success as success,
             events.attempts as attempts,
             events.interaction_type as interaction_type
-        from {{ASPECTS_XAPI_DATABASE}}.problem_events events
+        from {{ ASPECTS_XAPI_DATABASE }}.problem_events events
         join responses using (org, course_key, problem_id, actor_id, emission_time)
     ),
     -- Aggregating course-wide averages and percentages
@@ -113,13 +113,13 @@ select
     ) as selected_learner_percent_incorrect
 from full_responses
 join
-    {{DBT_PROFILE_TARGET_DATABASE}}.dim_course_blocks blocks
+    {{ DBT_PROFILE_TARGET_DATABASE }}.dim_course_blocks blocks
     on (
         full_responses.course_key = blocks.course_key
         and full_responses.problem_id = blocks.block_id
     )
 left outer join
-    {{ASPECTS_EVENT_SINK_DATABASE}}.user_pii users
+    {{ ASPECTS_EVENT_SINK_DATABASE }}.user_pii users
     on full_responses.actor_id = users.external_user_id::String
 join
     coursewide_attempts

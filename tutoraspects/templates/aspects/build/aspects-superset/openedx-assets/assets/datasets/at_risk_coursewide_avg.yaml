@@ -395,7 +395,7 @@ offset: 0
 params: null
 schema: null
 sql: |
-  {% filter indent(width=2) %} {% include 'openedx-assets/queries/at_risk_problem_coursewide_avg.sql' %} {% endfilter %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/at_risk_problem_coursewide_avg.sql' %}{% endfilter %}
 table_name: at_risk_coursewide_avg
 template_params: null
 uuid: a36a7904-c8b3-43ec-ad91-335fcedb8a27

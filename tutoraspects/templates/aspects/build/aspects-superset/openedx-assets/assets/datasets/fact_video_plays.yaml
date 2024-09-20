@@ -298,7 +298,7 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |
-  {% filter indent(width=2) %} {% include 'openedx-assets/queries/fact_video_plays.sql' %} {% endfilter %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_video_plays.sql' %}{% endfilter %}
 table_name: fact_video_plays
 template_params: {}
 uuid: 6ec360a5-e247-42e7-b301-fa8275fc93f9

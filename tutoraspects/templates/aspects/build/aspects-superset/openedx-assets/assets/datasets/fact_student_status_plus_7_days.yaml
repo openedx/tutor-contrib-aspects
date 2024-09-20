@@ -248,7 +248,7 @@ offset: 0
 params: null
 schema: null
 sql: |
-  {% filter indent(width=2) %} {% include 'openedx-assets/queries/active_last_7_days.sql' %} {% endfilter %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/active_last_7_days.sql' %}{% endfilter %}
 table_name: fact_student_status_plus_7_days
 template_params: null
 uuid: f25fdc4e-ce79-4f4c-9fc6-3dfe91690493

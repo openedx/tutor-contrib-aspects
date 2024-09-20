@@ -138,7 +138,7 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |
-  {% filter indent(width=2) %} {% include 'openedx-assets/queries/fact_enrollments.sql' %} {% endfilter %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_enrollments.sql' %}{% endfilter %}
 table_name: fact_enrollments
 template_params: {}
 uuid: a234545d-08ff-480d-8361-961c3d15f14f

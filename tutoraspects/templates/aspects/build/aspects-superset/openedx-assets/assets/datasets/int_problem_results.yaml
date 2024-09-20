@@ -338,7 +338,7 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |
-  {% filter indent(width=2) %} {% include 'openedx-assets/queries/int_problem_results.sql' %} {% endfilter %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/int_problem_results.sql' %}{% endfilter %}
 table_name: int_problem_results
 template_params: null
 uuid: c0c8b8a3-b18a-4c17-a69b-e6befea0159d

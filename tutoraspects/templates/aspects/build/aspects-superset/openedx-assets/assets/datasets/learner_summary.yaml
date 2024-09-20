@@ -205,7 +205,7 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |
-  {% filter indent(width=2) %} {% include 'openedx-assets/queries/fact_learner_summary.sql' %} {% endfilter %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_learner_summary.sql' %}{% endfilter %}
 table_name: learner_summary
 template_params: null
 uuid: da75efef-09ba-4ed0-8b6b-bf11c5c26008

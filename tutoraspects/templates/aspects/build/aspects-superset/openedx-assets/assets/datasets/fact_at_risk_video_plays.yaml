@@ -285,7 +285,7 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |
-  {% filter indent(width=2) %} {% include 'openedx-assets/queries/fact_at_risk_video_plays.sql' %} {% endfilter %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_at_risk_video_plays.sql' %}{% endfilter %}
 table_name: fact_at_risk_video_plays
 template_params: {}
 uuid: 7fe436ef-8a60-4a42-a9d9-39e7cf29ffec
