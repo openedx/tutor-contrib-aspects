@@ -216,7 +216,7 @@ class DatasetAsset(Asset):
 
         content["sql"] = format_string(
             content["sql"], mode=Mode(dialect_name="clickhouse")
-        )
+        ) if "filter indent" not in content["sql"] else content["sql"]
 
 
 class DatabaseAsset(Asset):
