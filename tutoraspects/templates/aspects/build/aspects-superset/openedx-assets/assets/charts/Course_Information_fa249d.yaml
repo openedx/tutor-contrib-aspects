@@ -2,7 +2,7 @@ _file_name: Course_Information_fa249d.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: 633a1d4e-cd40-482f-a5dc-d5901c2181c2
+dataset_uuid: f25fdc4e-ce79-4f4c-9fc6-3dfe91690493
 description: null
 params:
   adhoc_filters:
@@ -22,14 +22,9 @@ params:
       d3SmallNumberFormat: ~g
   conditional_formatting:
   - colorScheme: '#ACE1C4'
-    column: graded_learners
-    operator: '>'
+    column: active_within
+    operator: "\u2265"
     targetValue: 0
-  - colorScheme: '#FDE380'
-    column: avg_course_grade
-    operator: "\u2264 x \u2264"
-    targetValueLeft: '50'
-    targetValueRight: '70'
   - colorScheme: '#EFA1AA'
     column: avg_course_grade
     operator: <
@@ -58,6 +53,7 @@ params:
   - course_name
   - course_run
   metrics:
+  - active_within
   - avg_course_grade
   - median_course_grade
   order_by_cols: []
@@ -74,7 +70,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 54
+    id: 38
     type: table
   force: false
   form_data:
@@ -95,14 +91,9 @@ query_context:
         d3SmallNumberFormat: ~g
     conditional_formatting:
     - colorScheme: '#ACE1C4'
-      column: graded_learners
-      operator: '>'
+      column: active_within
+      operator: "\u2265"
       targetValue: 0
-    - colorScheme: '#FDE380'
-      column: avg_course_grade
-      operator: "\u2264 x \u2264"
-      targetValueLeft: '50'
-      targetValueRight: '70'
     - colorScheme: '#EFA1AA'
       column: avg_course_grade
       operator: <
@@ -125,8 +116,8 @@ query_context:
       operator: <
       targetValue: 50
     dashboards:
-    - 28
-    datasource: 54__table
+    - 17
+    datasource: 38__table
     extra_form_data: {}
     force: false
     groupby:
@@ -135,6 +126,7 @@ query_context:
     - course_name
     - course_run
     metrics:
+    - active_within
     - avg_course_grade
     - median_course_grade
     order_by_cols: []
@@ -146,7 +138,7 @@ query_context:
     row_limit: 1000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 5
+    slice_id: 49
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       enrolled_at: true
@@ -171,11 +163,12 @@ query_context:
       op: TEMPORAL_RANGE
       val: No filter
     metrics:
+    - active_within
     - avg_course_grade
     - median_course_grade
     order_desc: true
     orderby:
-    - - avg_course_grade
+    - - active_within
       - false
     post_processing: []
     row_limit: 1000

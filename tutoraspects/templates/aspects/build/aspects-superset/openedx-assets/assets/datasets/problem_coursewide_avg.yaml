@@ -1,0 +1,582 @@
+_file_name: problem_coursewide_avg.yaml
+always_filter_main_dttm: false
+cache_timeout: null
+columns:
+- advanced_data_type: null
+  column_name: incorrect_attempts_by_learner
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Nullable(Int16)
+  verbose_name: Incorrect Attempts By Learner
+- advanced_data_type: null
+  column_name: correct_attempts_by_learner
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Nullable(Int16)
+  verbose_name: Correct Attempts By Learner
+- advanced_data_type: null
+  column_name: avg_incorrect_attempts_coursewide
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Nullable(Float64)
+  verbose_name: Avg Incorrect Attempts Coursewide
+- advanced_data_type: null
+  column_name: avg_correct_attempts_coursewide
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Nullable(Float64)
+  verbose_name: Avg Correct Attempts Coursewide
+- advanced_data_type: null
+  column_name: interaction_type
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Interaction Type
+- advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Course Key
+- advanced_data_type: null
+  column_name: org
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Org
+- advanced_data_type: null
+  column_name: emission_time
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: Nullable(DateTime)
+  verbose_name: Emission Time
+- advanced_data_type: null
+  column_name: attempts
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int16
+  verbose_name: Attempts
+- advanced_data_type: null
+  column_name: course_order
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int32
+  verbose_name: Course Order
+- advanced_data_type: null
+  column_name: selected_learner_percent_incorrect
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Float64
+  verbose_name: Selected Learner Percent Incorrect
+- advanced_data_type: null
+  column_name: selected_learner_percent_correct
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Float64
+  verbose_name: Selected Learner Percent Correct
+- advanced_data_type: null
+  column_name: coursewide_percent_correct
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Float64
+  verbose_name: Coursewide Percent Correct
+- advanced_data_type: null
+  column_name: graded
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Bool
+  verbose_name: Graded
+- advanced_data_type: null
+  column_name: success
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Bool
+  verbose_name: Success
+- advanced_data_type: null
+  column_name: problem_name_with_location
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Problem Name With Location
+- advanced_data_type: null
+  column_name: problem_name
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Problem Name
+- advanced_data_type: null
+  column_name: actor_id
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Actor Id
+- advanced_data_type: null
+  column_name: course_name
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Name
+- advanced_data_type: null
+  column_name: problem_id
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Problem Id
+- advanced_data_type: null
+  column_name: problem_link
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Problem Link
+- advanced_data_type: null
+  column_name: course_run
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Run
+- advanced_data_type: null
+  column_name: username
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Username
+- advanced_data_type: null
+  column_name: email
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Email
+- advanced_data_type: null
+  column_name: name
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Name
+- advanced_data_type: null
+  column_name: responses
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Responses
+database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+default_endpoint: null
+description: null
+extra: null
+fetch_values_predicate: null
+filter_select_enabled: true
+main_dttm_col: emission_time
+metrics:
+- currency: null
+  d3format: null
+  description: null
+  expression: SUM(correct_attempts_by_learner)
+  extra:
+    warning_markdown: ''
+  metric_name: correct_attempts_by_learner
+  metric_type: null
+  verbose_name: Correct Attempts by Selected Learner
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: SUM(incorrect_attempts_by_learner)
+  extra:
+    warning_markdown: ''
+  metric_name: incorrect_attempts_by_learner
+  metric_type: null
+  verbose_name: Incorrect Attempts by Selected Learner
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: AVG(avg_correct_attempts_coursewide)
+  extra:
+    warning_markdown: ''
+  metric_name: avg_correct_attempts_coursewide
+  metric_type: null
+  verbose_name: Avg Correct Attempts Coursewide
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: AVG(avg_incorrect_attempts_coursewide)
+  extra:
+    warning_markdown: ''
+  metric_name: avg_incorrect_attempts_coursewide
+  metric_type: null
+  verbose_name: Avg Incorrect Attempts Coursewide
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: AVG(selected_learner_percent_correct)
+  extra: {}
+  metric_name: selected_learner_correct_percent
+  metric_type: null
+  verbose_name: Selected Learner % Correct
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: AVG(selected_learner_percent_incorrect)
+  extra: {}
+  metric_name: selected_learner_incorrect_percent
+  metric_type: null
+  verbose_name: Selected Learner % Incorrect
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: AVG(coursewide_percent_correct)
+  extra: {}
+  metric_name: coursewide_correct_percent
+  metric_type: null
+  verbose_name: Coursewide % Correct
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: COUNT(*)
+  extra:
+    warning_markdown: ''
+  metric_name: count
+  metric_type: count
+  verbose_name: COUNT(*)
+  warning_text: null
+normalize_columns: false
+offset: 0
+params: null
+schema: null
+sql: |
+  with
+      successful_responses as (
+          select
+              org, course_key, problem_id, actor_id::String as actor_id, first_success_at
+          from xapi.responses
+          where
+              isNotNull(first_success_at)
+              {% if filter_values("org") != [] %}
+                  and org in {{ filter_values("org") | where_in }}
+              {% endif %}
+
+              {% if filter_values("course_name") != [] %}
+                  and course_key in (
+                      select course_key
+                      from event_sink.course_names
+                      where course_name in {{ filter_values("course_name") | where_in }}
+                  )
+              {% endif %}
+      ),
+      unsuccessful_responses as (
+          select
+              org,
+              course_key,
+              problem_id,
+              actor_id::String as actor_id,
+              max(last_attempt_at) as last_attempt_at
+          from xapi.responses
+          where
+              actor_id not in (select distinct actor_id from successful_responses)
+              {% if filter_values("org") != [] %}
+                  and org in {{ filter_values("org") | where_in }}
+              {% endif %}
+
+              {% if filter_values("course_name") != [] %}
+                  and course_key in (
+                      select course_key
+                      from event_sink.course_names
+                      where course_name in {{ filter_values("course_name") | where_in }}
+                  )
+              {% endif %}
+          group by org, course_key, problem_id, actor_id
+      ),
+      responses as (
+          select org, course_key, problem_id, actor_id, first_success_at as emission_time
+          from successful_responses
+          union all
+          select org, course_key, problem_id, actor_id, last_attempt_at as emission_time
+          from unsuccessful_responses
+      ),
+      full_responses as (
+          select
+              events.emission_time as emission_time,
+              events.org as org,
+              events.course_key as course_key,
+              events.problem_id as problem_id,
+              events.object_id as object_id,
+              events.actor_id as actor_id,
+              events.responses as responses,
+              events.success as success,
+              events.attempts as attempts,
+              events.interaction_type as interaction_type
+          from xapi.problem_events events
+          join responses using (org, course_key, problem_id, actor_id, emission_time)
+      ),
+      -- Aggregating course-wide averages and percentages
+      coursewide_attempts as (
+          select
+              org,
+              course_key,
+              avg(case when success then attempts else null end) as avg_correct_attempts,
+              avg(
+                  case when not success then attempts else null end
+              ) as avg_incorrect_attempts,
+              sum(case when success then 1 else 0 end)::float
+              / count(*) as coursewide_percent_correct
+          from full_responses
+          group by org, course_key
+      )
+
+  select
+      full_responses.emission_time as emission_time,
+      full_responses.org as org,
+      full_responses.course_key as course_key,
+      blocks.course_name as course_name,
+      blocks.course_run as course_run,
+      full_responses.problem_id as problem_id,
+      blocks.block_name as problem_name,
+      blocks.display_name_with_location as problem_name_with_location,
+      blocks.course_order as course_order,
+      concat(
+          '<a href="',
+          full_responses.object_id,
+          '" target="_blank">',
+          blocks.block_name,
+          '</a>'
+      ) as problem_link,
+      full_responses.actor_id as actor_id,
+      full_responses.responses as responses,
+      full_responses.success as success,
+      full_responses.attempts as attempts,
+      full_responses.interaction_type as interaction_type,
+      blocks.graded as graded,
+      users.username as username,
+      users.email as email,
+      users.name as name,
+      -- Aggregated values from the coursewide_attempts CTE
+      coursewide_attempts.avg_correct_attempts as avg_correct_attempts_coursewide,
+      coursewide_attempts.avg_incorrect_attempts as avg_incorrect_attempts_coursewide,
+      coursewide_attempts.coursewide_percent_correct as coursewide_percent_correct,
+      -- Learner-specific calculations (correcting the percentage calculations)
+      (
+          case when full_responses.success then full_responses.attempts else null end
+      ) as correct_attempts_by_learner,
+      (
+          case when not full_responses.success then full_responses.attempts else null end
+      ) as incorrect_attempts_by_learner,
+      -- Ensure we calculate percentage based on total attempts per problem (multiplied
+      -- by 100 only once)
+      (
+          sum(case when full_responses.success then 1 else 0 end) over (
+              partition by full_responses.actor_id, full_responses.problem_id
+          ) / count(*) over (
+              partition by full_responses.actor_id, full_responses.problem_id
+          )
+      ) as selected_learner_percent_correct,
+      (
+          sum(case when not full_responses.success then 1 else 0 end) over (
+              partition by full_responses.actor_id, full_responses.problem_id
+          ) / count(*) over (
+              partition by full_responses.actor_id, full_responses.problem_id
+          )
+      ) as selected_learner_percent_incorrect
+  from full_responses
+  join
+      reporting.dim_course_blocks blocks
+      on (
+          full_responses.course_key = blocks.course_key
+          and full_responses.problem_id = blocks.block_id
+      )
+  left outer join
+      event_sink.user_pii users
+      on full_responses.actor_id = users.external_user_id::String
+  join
+      coursewide_attempts
+      on full_responses.org = coursewide_attempts.org
+      and full_responses.course_key = coursewide_attempts.course_key
+table_name: problem_coursewide_avg
+template_params: null
+uuid: b820067f-8f54-48d4-9b61-532e8f9ae6fe
+version: 1.0.0

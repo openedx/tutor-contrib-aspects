@@ -1,0 +1,469 @@
+_file_name: Problem_Results_3b70ae.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: b820067f-8f54-48d4-9b61-532e8f9ae6fe
+description: Coursewide percentages are based on learners who attempted the problem.
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_yd770pyvxe_mwgme7m4o1
+    isExtra: false
+    isNew: false
+    operator: TEMPORAL_RANGE
+    sqlExpression: null
+    subject: emission_time
+  all_columns: []
+  color_pn: false
+  column_config:
+    Coursewide % Correct:
+      d3NumberFormat: ',.1%'
+      d3SmallNumberFormat: ',.1%'
+    Selected Learner % Correct:
+      d3NumberFormat: ',.1%'
+      d3SmallNumberFormat: ',.1%'
+    Selected Learner % Incorrect:
+      d3NumberFormat: ',.1%'
+      d3SmallNumberFormat: ',.1%'
+  conditional_formatting: []
+  extra_form_data: {}
+  groupby:
+  - expressionType: SQL
+    label: Problem Link
+    sqlExpression: problem_link
+  - datasourceWarning: false
+    expressionType: SQL
+    label: Graded
+    sqlExpression: |-
+      {% raw %}{{translate_column_bool('graded')}}{% endraw %}
+  metrics:
+  - aggregate: AVG
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: coursewide_percent_correct
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 420
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: Float64
+      type_generic: 0
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: Coursewide % Correct
+    optionName: metric_a2sco8o7qdr_hrm69b0n2oi
+    sqlExpression: null
+  - aggregate: AVG
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: selected_learner_percent_correct
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 423
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: Float64
+      type_generic: 0
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: Selected Learner % Correct
+    optionName: metric_ajk80omkp7c_f38xafdup6b
+    sqlExpression: null
+  - aggregate: AVG
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: selected_learner_percent_incorrect
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 424
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: Float64
+      type_generic: 0
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: Selected Learner % Incorrect
+    optionName: metric_3yevtfz91ok_mymfgpi0qz
+    sqlExpression: null
+  order_by_cols: []
+  order_desc: false
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 1000
+  server_page_length: 10
+  server_pagination: false
+  show_cell_bars: false
+  show_totals: false
+  table_timestamp_format: smart_date
+  temporal_columns_lookup:
+    emission_time: true
+  time_grain_sqla: P1M
+  timeseries_limit_metric:
+    aggregate: AVG
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: course_order
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 1348
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: Int32
+      type_generic: 0
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    label: AVG(course_order)
+    optionName: metric_cq2cm641ll8_pcu3pmwa32m
+    sqlExpression: null
+  viz_type: table
+query_context:
+  datasource:
+    id: 37
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      datasourceWarning: false
+      expressionType: SIMPLE
+      filterOptionName: filter_yd770pyvxe_mwgme7m4o1
+      isExtra: false
+      isNew: false
+      operator: TEMPORAL_RANGE
+      sqlExpression: null
+      subject: emission_time
+    all_columns: []
+    color_pn: false
+    column_config:
+      Coursewide % Correct:
+        d3NumberFormat: ',.1%'
+        d3SmallNumberFormat: ',.1%'
+      Selected Learner % Correct:
+        d3NumberFormat: ',.1%'
+        d3SmallNumberFormat: ',.1%'
+      Selected Learner % Incorrect:
+        d3NumberFormat: ',.1%'
+        d3SmallNumberFormat: ',.1%'
+    conditional_formatting: []
+    dashboards:
+    - 18
+    datasource: 37__table
+    extra_form_data: {}
+    force: false
+    groupby:
+    - expressionType: SQL
+      label: Problem Link
+      sqlExpression: problem_link
+    - datasourceWarning: false
+      expressionType: SQL
+      label: Graded
+      sqlExpression: |-
+        {% raw %}{{translate_column_bool('graded')}}{% endraw %}
+    metrics:
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: coursewide_percent_correct
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 420
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: Float64
+        type_generic: 0
+        verbose_name: null
+        warning_markdown: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Coursewide % Correct
+      optionName: metric_a2sco8o7qdr_hrm69b0n2oi
+      sqlExpression: null
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: selected_learner_percent_correct
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 423
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: Float64
+        type_generic: 0
+        verbose_name: null
+        warning_markdown: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Selected Learner % Correct
+      optionName: metric_ajk80omkp7c_f38xafdup6b
+      sqlExpression: null
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: selected_learner_percent_incorrect
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 424
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: Float64
+        type_generic: 0
+        verbose_name: null
+        warning_markdown: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Selected Learner % Incorrect
+      optionName: metric_3yevtfz91ok_mymfgpi0qz
+      sqlExpression: null
+    order_by_cols: []
+    order_desc: false
+    percent_metrics: []
+    query_mode: aggregate
+    result_format: json
+    result_type: full
+    row_limit: 1000
+    server_page_length: 10
+    server_pagination: false
+    show_cell_bars: false
+    show_totals: false
+    slice_id: 64
+    table_timestamp_format: smart_date
+    temporal_columns_lookup:
+      emission_time: true
+    time_grain_sqla: P1M
+    timeseries_limit_metric:
+      aggregate: AVG
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: course_order
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 1348
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: Int32
+        type_generic: 0
+        verbose_name: null
+        warning_markdown: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: false
+      label: AVG(course_order)
+      optionName: metric_cq2cm641ll8_pcu3pmwa32m
+      sqlExpression: null
+    viz_type: table
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - expressionType: SQL
+      label: Problem Link
+      sqlExpression: problem_link
+    - datasourceWarning: false
+      expressionType: SQL
+      label: Graded
+      sqlExpression: |-
+        {% raw %}{{translate_column_bool('graded')}}{% endraw %}
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      time_grain_sqla: P1M
+      where: ''
+    filters:
+    - col: emission_time
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics:
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: coursewide_percent_correct
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 420
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: Float64
+        type_generic: 0
+        verbose_name: null
+        warning_markdown: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Coursewide % Correct
+      optionName: metric_a2sco8o7qdr_hrm69b0n2oi
+      sqlExpression: null
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: selected_learner_percent_correct
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 423
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: Float64
+        type_generic: 0
+        verbose_name: null
+        warning_markdown: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Selected Learner % Correct
+      optionName: metric_ajk80omkp7c_f38xafdup6b
+      sqlExpression: null
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: selected_learner_percent_incorrect
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 424
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: Float64
+        type_generic: 0
+        verbose_name: null
+        warning_markdown: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Selected Learner % Incorrect
+      optionName: metric_3yevtfz91ok_mymfgpi0qz
+      sqlExpression: null
+    order_desc: false
+    orderby:
+    - - aggregate: AVG
+        column:
+          advanced_data_type: null
+          certification_details: null
+          certified_by: null
+          column_name: course_order
+          description: null
+          expression: null
+          filterable: true
+          groupby: true
+          id: 1348
+          is_certified: false
+          is_dttm: false
+          python_date_format: null
+          type: Int32
+          type_generic: 0
+          verbose_name: null
+          warning_markdown: null
+        datasourceWarning: false
+        expressionType: SIMPLE
+        hasCustomLabel: false
+        label: AVG(course_order)
+        optionName: metric_cq2cm641ll8_pcu3pmwa32m
+        sqlExpression: null
+      - true
+    post_processing: []
+    row_limit: 1000
+    series_limit: 0
+    series_limit_metric:
+      aggregate: AVG
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: course_order
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 1348
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: Int32
+        type_generic: 0
+        verbose_name: null
+        warning_markdown: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: false
+      label: AVG(course_order)
+      optionName: metric_cq2cm641ll8_pcu3pmwa32m
+      sqlExpression: null
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Problem Results
+uuid: 3b70aeac-54d3-4aad-86ff-296d2947a7bd
+version: 1.0.0
+viz_type: table
