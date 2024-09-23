@@ -7,7 +7,7 @@ database on import due to is using database primary keys which do not match
 across Superset installations.
 """
 
-from create_assets import BASE_DIR, ASSET_FOLDER_MAPPING, app
+from create_assets import app
 
 import json
 import logging
