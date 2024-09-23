@@ -405,7 +405,7 @@ def delete_orphaned_assets():
     aspects_assets_list.yaml - these are owned by Aspects and can safely
     be deleted.
     """
-    delete_aspects_orphan_assets(click.echo)
+    delete_aspects_orphan_assets()
 
 
 DO_COMMANDS = (

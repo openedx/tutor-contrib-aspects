@@ -240,36 +240,38 @@ def check_orphan_assets(echo):
             echo(f'{y.get("name")} (UUID: {x})')
 
 
-def delete_aspects_orphan_assets(echo):
+def delete_aspects_orphan_assets():
     """
     Delete any unused charts and datasets whose UUIDs are listed in
     aspects_assets_list.yaml - these are owned by Aspects and can safely
     be deleted.
     """
-    unused_dataset_uuids, unused_chart_uuids = _find_orphan_assets(echo)
+    unused_dataset_uuids, unused_chart_uuids = _find_orphan_assets(click.echo)
 
     with open(
         os.path.join(PLUGIN_PATH, "aspects_asset_list.yaml"), "r", encoding="utf-8"
     ) as file:
         aspects_assets = yaml.safe_load_all(file)
 
-        delete_count = 0
+        uuids_to_drop = {}
         for line in aspects_assets:
             orphaned_uuids = line.get("orphaned_uuids")
             for uuid, data in unused_dataset_uuids.items():
                 if orphaned_uuids and orphaned_uuids.get("datasets"):
                     if uuid in orphaned_uuids.get("datasets"):
-                        echo(
+                        uuids_to_drop['datasets'].append({uuid: data.get("file_path")})
+                        click.echo(
                             f"Deleting orphan dataset {data.get('name')} (UUID: {uuid})"
                         )
                         os.remove(data.get("file_path"))
-                        delete_count += 1
 
             for uuid, data in unused_chart_uuids.items():
                 if orphaned_uuids and orphaned_uuids.get("charts"):
                     if uuid in orphaned_uuids.get("charts"):
-                        echo(f"Deleting orphan chart {data.get('name')} (UUID: {uuid})")
+                        uuids_to_drop['charts'].append({uuid: data.get("file_path")})
+                        click.echo(f"Deleting orphan chart {data.get('name')} (UUID: {uuid})")
                         os.remove(data.get("file_path"))
-                        delete_count += 1
 
-    echo(f"Deleted {delete_count} assets")
+    click.echo(f"Deleted {len(uuids_to_drop)} assets")
+
+    return uuids_to_drop

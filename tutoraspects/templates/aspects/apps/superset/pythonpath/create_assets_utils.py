@@ -28,13 +28,12 @@ import json
 from pathlib import Path
 
 from flask import g
-from superset.commands.exceptions import CommandInvalidError
-# , ObjectNotFoundError
+from superset.commands.exceptions import CommandInvalidError, ObjectNotFoundError
 from superset.commands.importers.v1.assets import ImportAssetsCommand
 from superset.commands.importers.v1.utils import METADATA_FILE_NAME
 from superset.commands.database.importers.v1.utils import security_manager
-# from superset.commands.chart.delete import DeleteChartCommand
-# from superset.commands.dataset.delete import DeleteDatasetCommand
+from superset.commands.chart.delete import DeleteChartCommand
+from superset.commands.dataset.delete import DeleteDatasetCommand
 
 logger = logging.getLogger(__name__)
 
@@ -90,12 +89,12 @@ def load_configs_from_directory(
         logger.error("An error occurred: %s", ex.normalized_messages())
 
 
-# def delete_aspects_assets(model_uuids: dict):
-#     logger.error("Deleting unneeded Aspect assets")
-#     if model_uuids:
-#         if model_uuids.get('charts'):
-#             for chart in model_uuids.get('charts'):
-#                 DeleteChartCommand(chart)
-#         if model_uuids.get('datasets'):
-#             for dataset in model_uuids.get('datasets'):
-#                 DeleteDatasetCommand(dataset)
+def delete_aspects_assets(model_uuids: dict):
+    logger.error("Deleting unneeded Aspect assets")
+    if model_uuids:
+        if model_uuids.get('charts'):
+            for uuid, filepath in model_uuids.get('charts').items():
+                DeleteChartCommand(filepath)
+        if model_uuids.get('datasets'):
+            for uuid, filepath in model_uuids.get('datasets').items():
+                DeleteDatasetCommand(filepath)

@@ -19,8 +19,8 @@ from superset.connectors.sqla.models import SqlaTable
 from superset.utils.database import get_or_create_db
 from superset.models.embedded_dashboard import EmbeddedDashboard
 
-from pythonpath.create_assets_utils import load_configs_from_directory
-#, delete_aspects_assets
+from pythonpath.create_assets_utils import load_configs_from_directory, delete_aspects_assets
+from tutoraspects.asset_command_helpers import delete_aspects_orphan_assets
 from pythonpath.localization import get_translation
 from pythonpath.create_row_level_security import create_rls_filters
 
@@ -74,11 +74,11 @@ def create_assets():
                 process_asset(asset, roles)
 
     import_assets()
+    delete_assets()
     update_dashboard_roles(roles)
     update_embeddable_uuids()
     update_datasets()
     create_rls_filters()
-    # delete_assets()
 
 
 def process_asset(asset, roles):
@@ -245,17 +245,11 @@ def import_assets():
             o.owners = owners
     db.session.commit()
 
-# def delete_assets():
-#     """Delete assets from aspects_asset_list.yaml"""
-#     owners = get_owners()
-#     with open(
-#         os.path.join(os.path.dirname(os.path.abspath(__file__)), "aspects_asset_list.yaml"), "r", encoding="utf-8"
-#     ) as file:
-#         aspects_assets = yaml.safe_load_all(file)
-#         for line in aspects_assets:
-#             orphaned_uuids = line.get("orphaned_uuids")
-
-#             delete_aspects_assets(orphaned_uuids)
+def delete_assets():
+    """Delete assets from aspects_asset_list.yaml"""
+    uuids_to_drop = delete_aspects_orphan_assets()
+    
+    delete_aspects_assets(uuids_to_drop)
 
 
 def update_dashboard_roles(roles):
