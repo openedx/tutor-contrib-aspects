@@ -10,6 +10,8 @@ asttokens==2.4.1
     # via transifex-python
 bcrypt==4.2.0
     # via -r requirements/base.in
+black==24.8.0
+    # via shandy-sqlfmt
 cachetools==5.5.0
     # via google-auth
 certifi==2024.8.30
@@ -21,11 +23,15 @@ charset-normalizer==3.3.2
 click==8.1.7
     # via
     #   -r requirements/base.in
+    #   black
+    #   shandy-sqlfmt
     #   transifex-python
     #   tutor
+durationpy==0.7
+    # via kubernetes
 future==1.0.0
     # via pyseeyou
-google-auth==2.34.0
+google-auth==2.35.0
     # via kubernetes
 idna==3.10
     # via requests
@@ -36,23 +42,35 @@ importlib-resources==6.4.5
     #   -r requirements/base.in
     #   tutor
 jinja2==3.1.4
-    # via tutor
-kubernetes==30.1.0
+    # via
+    #   shandy-sqlfmt
+    #   tutor
+kubernetes==31.0.0
     # via tutor
 markupsafe==2.1.5
     # via jinja2
 mypy==1.11.2
     # via tutor
 mypy-extensions==1.0.0
-    # via mypy
+    # via
+    #   black
+    #   mypy
 oauthlib==3.2.2
     # via
     #   kubernetes
     #   requests-oauthlib
 openedx-atlas==0.6.2
     # via -r requirements/base.in
+packaging==24.1
+    # via black
 parsimonious==0.10.0
     # via pyseeyou
+pathspec==0.12.1
+    # via black
+platformdirs==4.3.6
+    # via
+    #   black
+    #   shandy-sqlfmt
 pyasn1==0.6.1
     # via
     #   pyasn1-modules
@@ -84,6 +102,8 @@ ruamel-yaml==0.18.6
     # via -r requirements/base.in
 ruamel-yaml-clib==0.2.8
     # via ruamel-yaml
+shandy-sqlfmt[jinjafmt]==0.21.2
+    # via -r requirements/base.in
 six==1.16.0
     # via
     #   asttokens
@@ -91,6 +111,8 @@ six==1.16.0
     #   python-dateutil
 toolz==0.12.1
     # via pyseeyou
+tqdm==4.66.5
+    # via shandy-sqlfmt
 transifex-python==3.5.0
     # via -r requirements/base.in
 tutor==18.1.3

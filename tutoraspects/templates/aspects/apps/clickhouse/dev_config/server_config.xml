@@ -2,7 +2,7 @@
     {{patch("clickhouse-server-config")}}
 
     <logger>
-        <level>information</level>
+        <level>debug</level>
         <console>1</console>
     </logger>
 </clickhouse>
