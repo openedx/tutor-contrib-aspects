@@ -11,10 +11,9 @@ from tutor import env
 from tutoraspects.asset_command_helpers import (
     ASSETS_PATH,
     SupersetCommandError,
-    check_asset_names,
-    check_orphan_assets,
     deduplicate_superset_assets,
     import_superset_assets,
+    delete_aspects_unused_assets,
 )
 
 
@@ -359,9 +358,7 @@ def serialize_zip(file, base_assets_path):
 
     click.echo()
     deduplicate_superset_assets(click.echo)
-
-    click.echo()
-    check_asset_names(click.echo)
+    delete_aspects_unused_assets(click.echo)
 
     click.echo()
     click.echo("Asset merge complete!")
@@ -380,11 +377,7 @@ def check_superset_assets():
     Deduplicate assets by UUID, and check for duplicate asset names.
     """
     deduplicate_superset_assets(click.echo)
-
-    click.echo()
-    check_asset_names(click.echo)
-    click.echo()
-    check_orphan_assets(click.echo)
+    delete_aspects_unused_assets(click.echo)
 
     click.echo()
     click.echo(

@@ -10,6 +10,7 @@ import uuid
 import yaml
 from copy import deepcopy
 from pathlib import Path
+from collections import defaultdict
 
 from superset import security_manager
 from superset.extensions import db
@@ -18,8 +19,10 @@ from superset.models.slice import Slice
 from superset.connectors.sqla.models import SqlaTable
 from superset.utils.database import get_or_create_db
 from superset.models.embedded_dashboard import EmbeddedDashboard
-
 from pythonpath.create_assets_utils import load_configs_from_directory
+from pythonpath.delete_assets import delete_assets
+from yaml.representer import Representer
+
 from pythonpath.localization import get_translation
 from pythonpath.create_row_level_security import create_rls_filters
 
@@ -42,7 +45,7 @@ for folder in ASSET_FOLDER_MAPPING.values():
 
 FILE_NAME_ATTRIBUTE = "_file_name"
 
-ASSETS_FILE_PATH = "/app/pythonpath/assets.yaml"
+PYTHONPATH = "/app/pythonpath"
 ASSETS_PATH = "/app/openedx-assets/assets"
 
 
@@ -54,6 +57,9 @@ def create_assets():
     """Create assets from a yaml file."""
     roles = {}
 
+    yaml.add_representer(defaultdict, Representer.represent_dict)
+    translated_asset_uuids = defaultdict(set)
+
     for root, dirs, files in os.walk(ASSETS_PATH):
         for file in files:
             if not file.endswith(".yaml"):
@@ -62,24 +68,39 @@ def create_assets():
             path = os.path.join(root, file)
             with open(path, "r") as file:
                 asset = yaml.safe_load(file)
-                process_asset(asset, roles)
+                process_asset(asset, roles, translated_asset_uuids)
 
-    with open(ASSETS_FILE_PATH, "r") as file:
+    # Get extra assets
+    with open(os.path.join(PYTHONPATH,"assets.yaml"), "r") as file:
         extra_assets = yaml.safe_load_all(file)
 
         if extra_assets:
             # For each asset, create a file in the right folder
             for asset in extra_assets:
-                process_asset(asset, roles)
-
-    import_assets()
-    update_dashboard_roles(roles)
-    update_embeddable_uuids()
-    update_datasets()
-    create_rls_filters()
+                process_asset(asset, roles, translated_asset_uuids)
 
 
-def process_asset(asset, roles):
+    for uuid in translated_asset_uuids:
+        translated_asset_uuids[uuid] = list(translated_asset_uuids[uuid])
+
+    # Write parent UUID & translated child UUIDs to yaml file
+    path = os.path.join(PYTHONPATH,"translated_asset_mapping.yaml")
+    with open(path, "w") as file:
+        yaml.dump(translated_asset_uuids, file, default_flow_style=False)
+
+    # import_assets()
+    # update_dashboard_roles(roles)
+    # update_embeddable_uuids()
+    # update_datasets()
+    # create_rls_filters()
+
+    # Delete unused UUIDs from yaml list
+    with open(os.path.join(PYTHONPATH,"aspects_asset_list.yaml"), "r", encoding="utf-8") as file:
+        assets = yaml.safe_load(file)
+    unused_aspect_uuids = assets['unused_uuids']
+    delete_assets(unused_aspect_uuids)
+
+def process_asset(asset, roles, translated_asset_uuids):
     if FILE_NAME_ATTRIBUTE not in asset:
         raise Exception(f"Asset {asset} has no {FILE_NAME_ATTRIBUTE}")
     file_name = asset.pop(FILE_NAME_ATTRIBUTE)
@@ -87,7 +108,7 @@ def process_asset(asset, roles):
     # Find the right folder to create the asset in
     for asset_name, folder in ASSET_FOLDER_MAPPING.items():
         if asset_name in asset:
-            write_asset_to_file(asset, asset_name, folder, file_name, roles)
+            write_asset_to_file(asset, asset_name, folder, file_name, roles, translated_asset_uuids)
             return
 
 
@@ -99,9 +120,8 @@ def get_localized_uuid(base_uuid, language):
     base_namespace = uuid.uuid5(base_uuid, "superset")
     normalized_language = language.lower().replace("-", "_")
     return str(uuid.uuid5(base_namespace, normalized_language))
-
-
-def write_asset_to_file(asset, asset_name, folder, file_name, roles):
+    
+def write_asset_to_file(asset, asset_name, folder, file_name, roles, translated_asset_uuids):
     """Write an asset to a file and generated translated assets"""
     if folder == "databases":
         # Update the sqlalchery_uri from the asset override pre-generated values
@@ -109,7 +129,7 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
     if folder in ["charts", "dashboards", "datasets"]:
         for locale in DASHBOARD_LOCALES:
             updated_asset = generate_translated_asset(
-                asset, asset_name, folder, locale, roles
+                asset, asset_name, folder, locale, roles, translated_asset_uuids
             )
 
             # Clean up old localized dashboards
@@ -142,11 +162,15 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
     db.session.commit()
 
 
-def generate_translated_asset(asset, asset_name, folder, language, roles):
+def generate_translated_asset(asset, asset_name, folder, language, roles, translated_asset_uuids):
     """Generate a translated asset with their elements updated"""
     copy = deepcopy(asset)
+    parent_uuid = copy['uuid']
     copy["uuid"] = str(get_localized_uuid(copy["uuid"], language))
     copy[asset_name] = get_translation(copy[asset_name], language)
+
+    # Save parent & translated uuids in yaml file
+    translated_asset_uuids[parent_uuid].add(copy['uuid'])
 
     if folder == "dashboards":
         copy["slug"] = f"{copy['slug']}-{language}"
