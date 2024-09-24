@@ -12,8 +12,11 @@ params:
     operator: TEMPORAL_RANGE
     subject: emission_time
   all_columns: []
-  annotation_layers: []
   color_pn: true
+  column_config:
+    Course Grade %:
+      d3NumberFormat: ',.1%'
+      d3SmallNumberFormat: ',.1%'
   conditional_formatting:
   - colorScheme: '#ACE1C4'
     column: course_grade
@@ -61,7 +64,7 @@ params:
     sqlExpression: grade_bucket
   - expressionType: SQL
     label: Course Grade %
-    sqlExpression: ROUND(course_grade*100, 2)
+    sqlExpression: ROUND(course_grade, 2)
   order_by_cols: []
   order_desc: true
   percent_metrics: []
@@ -79,7 +82,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 992
+    id: 12
     type: table
   force: false
   form_data:
@@ -91,6 +94,10 @@ query_context:
       subject: emission_time
     all_columns: []
     color_pn: true
+    column_config:
+      Course Grade %:
+        d3NumberFormat: ',.1%'
+        d3SmallNumberFormat: ',.1%'
     conditional_formatting:
     - colorScheme: '#ACE1C4'
       column: course_grade
@@ -105,7 +112,9 @@ query_context:
       column: course_grade
       operator: <
       targetValue: 0.5
-    datasource: 992__table
+    dashboards:
+    - 18
+    datasource: 12__table
     extra_form_data: {}
     force: false
     groupby:
@@ -138,7 +147,9 @@ query_context:
       expressionType: SQL
       label: Grade Range
       sqlExpression: grade_bucket
-    - course_grade
+    - expressionType: SQL
+      label: Course Grade %
+      sqlExpression: ROUND(course_grade, 2)
     order_by_cols: []
     order_desc: true
     percent_metrics: []
@@ -150,7 +161,7 @@ query_context:
     server_pagination: true
     show_cell_bars: true
     show_totals: true
-    slice_id: 4364
+    slice_id: 32
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true
@@ -194,7 +205,9 @@ query_context:
       expressionType: SQL
       label: Grade Range
       sqlExpression: grade_bucket
-    - course_grade
+    - expressionType: SQL
+      label: Course Grade %
+      sqlExpression: ROUND(course_grade, 2)
     custom_form_data: {}
     custom_params: {}
     extras:
@@ -249,7 +262,9 @@ query_context:
       expressionType: SQL
       label: Grade Range
       sqlExpression: grade_bucket
-    - course_grade
+    - expressionType: SQL
+      label: Course Grade %
+      sqlExpression: ROUND(course_grade, 2)
     custom_form_data: {}
     custom_params: {}
     extras:

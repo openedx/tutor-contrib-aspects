@@ -226,7 +226,7 @@ normalize_columns: false
 offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
-sql: |-
+sql: |
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_navigation_completion.sql' %}{% endfilter %}
 table_name: fact_navigation_completion
 template_params: null

@@ -246,7 +246,7 @@ normalize_columns: true
 offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
-sql: |-
+sql: |
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_at_risk_watched_video_segments.sql' %}{% endfilter %}
 table_name: fact_at_risk_watched_video_segments
 template_params: null

@@ -17,6 +17,7 @@ params:
     sqlExpression: null
     subject: emission_time
   all_columns: []
+  annotation_layers: []
   color_pn: true
   column_config:
     Avg Attempts:

@@ -96,7 +96,7 @@ normalize_columns: false
 offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
-sql: |-
+sql: |
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_enrollment_pii.sql' %}{% endfilter %}
 table_name: fact_enrollment_pii
 template_params: null

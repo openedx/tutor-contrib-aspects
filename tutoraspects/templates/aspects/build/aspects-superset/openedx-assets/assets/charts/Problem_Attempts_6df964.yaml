@@ -1,9 +1,9 @@
-_file_name: Problem_Results_6df964.yaml
+_file_name: Problem_Attempts_6df964.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: c0c8b8a3-b18a-4c17-a69b-e6befea0159d
-description: null
+dataset_uuid: b820067f-8f54-48d4-9b61-532e8f9ae6fe
+description: Coursewide averages are based on learners who attempted the problem.
 params:
   adhoc_filters:
   - clause: WHERE
@@ -36,18 +36,20 @@ params:
     targetValue: 0
   extra_form_data: {}
   groupby:
-  - problem_link
-  - problem_name_with_location
+  - datasourceWarning: false
+    expressionType: SQL
+    label: Problem Link
+    sqlExpression: problem_link
   - datasourceWarning: false
     expressionType: SQL
     label: Graded
     sqlExpression: |-
       {% raw %}{{translate_column_bool('graded')}}{% endraw %}
   metrics:
-  - correct_attempts
-  - incorrect_attempts
-  - correct_percent
-  - incorrect_percent
+  - avg_correct_attempts_coursewide
+  - correct_attempts_by_learner
+  - avg_incorrect_attempts_coursewide
+  - incorrect_attempts_by_learner
   order_by_cols: []
   order_desc: false
   percent_metrics: []
@@ -89,7 +91,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 34
+    id: 37
     type: table
   force: false
   form_data:
@@ -123,24 +125,25 @@ query_context:
       operator: "\u2265"
       targetValue: 0
     dashboards:
-    - 28
-    - 29
-    datasource: 34__table
+    - 18
+    datasource: 37__table
     extra_form_data: {}
     force: false
     groupby:
-    - problem_link
-    - problem_name_with_location
+    - datasourceWarning: false
+      expressionType: SQL
+      label: Problem Link
+      sqlExpression: problem_link
     - datasourceWarning: false
       expressionType: SQL
       label: Graded
       sqlExpression: |-
         {% raw %}{{translate_column_bool('graded')}}{% endraw %}
     metrics:
-    - correct_attempts
-    - incorrect_attempts
-    - correct_percent
-    - incorrect_percent
+    - avg_correct_attempts_coursewide
+    - correct_attempts_by_learner
+    - avg_incorrect_attempts_coursewide
+    - incorrect_attempts_by_learner
     order_by_cols: []
     order_desc: false
     percent_metrics: []
@@ -152,7 +155,7 @@ query_context:
     server_pagination: false
     show_cell_bars: true
     show_totals: false
-    slice_id: 92
+    slice_id: 16
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true
@@ -187,8 +190,10 @@ query_context:
   - annotation_layers: []
     applied_time_extras: {}
     columns:
-    - problem_link
-    - problem_name_with_location
+    - datasourceWarning: false
+      expressionType: SQL
+      label: Problem Link
+      sqlExpression: problem_link
     - datasourceWarning: false
       expressionType: SQL
       label: Graded
@@ -205,10 +210,10 @@ query_context:
       op: TEMPORAL_RANGE
       val: No filter
     metrics:
-    - correct_attempts
-    - incorrect_attempts
-    - correct_percent
-    - incorrect_percent
+    - avg_correct_attempts_coursewide
+    - correct_attempts_by_learner
+    - avg_incorrect_attempts_coursewide
+    - incorrect_attempts_by_learner
     order_desc: false
     orderby:
     - - aggregate: AVG
@@ -267,7 +272,7 @@ query_context:
     url_params: {}
   result_format: json
   result_type: full
-slice_name: Problem Results
+slice_name: Problem Attempts
 uuid: 6df96404-8c09-4a52-96c8-9a60a92cec29
 version: 1.0.0
 viz_type: table

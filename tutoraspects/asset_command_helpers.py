@@ -214,8 +214,10 @@ class DatasetAsset(Asset):
             if not metric.get("verbose_name"):
                 metric["verbose_name"] = metric["metric_name"].replace("_", " ").title()
 
-        content["sql"] = format_string(
-            content["sql"], mode=Mode(dialect_name="clickhouse")
+        content["sql"] = (
+            format_string(content["sql"], mode=Mode(dialect_name="clickhouse"))
+            if "filter indent" not in content["sql"]
+            else content["sql"]
         )
 
 

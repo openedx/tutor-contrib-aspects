@@ -33,7 +33,6 @@ params:
     label: Subsection Name
     sqlExpression: subsection_with_name
   - video_link
-  - video_name_with_location
   metrics:
   - unique_watchers
   - total_plays
@@ -76,7 +75,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 88
+    id: 4
     type: table
   force: false
   form_data:
@@ -98,8 +97,8 @@ query_context:
       operator: "\u2265"
       targetValue: 0
     dashboards:
-    - 30
-    datasource: 88__table
+    - 19
+    datasource: 4__table
     extra_form_data: {}
     force: false
     groupby:
@@ -112,7 +111,6 @@ query_context:
       label: Subsection Name
       sqlExpression: subsection_with_name
     - video_link
-    - video_name_with_location
     metrics:
     - unique_watchers
     - total_plays
@@ -125,7 +123,7 @@ query_context:
     row_limit: 1000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 156
+    slice_id: 57
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true
@@ -169,7 +167,6 @@ query_context:
       label: Subsection Name
       sqlExpression: subsection_with_name
     - video_link
-    - video_name_with_location
     custom_form_data: {}
     custom_params: {}
     extras:
