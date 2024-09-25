@@ -12,9 +12,7 @@ select
     subsection_with_name,
     video_name,
     video_name_with_location,
-    concat(
-        '<a href="', video_id, '" target="_blank">', video_name_with_location, '</a>'
-    ) as video_link,
+    video_link,
     actor_id,
     username,
     email,
@@ -44,6 +42,7 @@ group by
     subsection_with_name,
     video_name,
     video_name_with_location,
+    video_link,
     actor_id,
     video_id,
     video_segment_count,

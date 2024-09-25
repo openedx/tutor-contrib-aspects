@@ -73,7 +73,7 @@ select
         '<a href="',
         full_responses.object_id,
         '" target="_blank">',
-        blocks.problem_name_with_location,
+        problem_name_with_location,
         '</a>'
     ) as problem_link,
     full_responses.actor_id as actor_id,
@@ -91,10 +91,10 @@ select
     coursewide_attempts.coursewide_percent_correct as coursewide_percent_correct,
     -- Learner-specific calculations (correcting the percentage calculations)
     (
-        case when full_responses.success then full_responses.attempts else null end
+        case when full_responses.success then full_responses.attempts else 0 end
     ) as correct_attempts_by_learner,
     (
-        case when not full_responses.success then full_responses.attempts else null end
+        case when not full_responses.success then full_responses.attempts else 0 end
     ) as incorrect_attempts_by_learner,
     -- Ensure we calculate percentage based on total attempts per problem (multiplied
     -- by 100 only once)
