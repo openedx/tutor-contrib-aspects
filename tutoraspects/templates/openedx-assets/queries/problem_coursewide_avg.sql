@@ -48,14 +48,15 @@ with
         select
             org,
             course_key,
-            avg(case when success then attempts else null end) as avg_correct_attempts,
+            problem_id,
+            avg(case when success then attempts else 0 end) as avg_correct_attempts,
             avg(
-                case when not success then attempts else null end
+                case when not success then attempts else 0 end
             ) as avg_incorrect_attempts,
             sum(case when success then 1 else 0 end)::float
             / count(*) as coursewide_percent_correct
         from full_responses
-        group by org, course_key
+        group by org, course_key, problem_id
     )
 
 select
@@ -72,7 +73,7 @@ select
         '<a href="',
         full_responses.object_id,
         '" target="_blank">',
-        blocks.block_name,
+        blocks.problem_name_with_location,
         '</a>'
     ) as problem_link,
     full_responses.actor_id as actor_id,
@@ -125,3 +126,4 @@ join
     coursewide_attempts
     on full_responses.org = coursewide_attempts.org
     and full_responses.course_key = coursewide_attempts.course_key
+    and full_responses.problem_id = coursewide_attempts.problem_id
