@@ -6,7 +6,7 @@ dataset_uuid: ffc33796-bcd4-4e8b-a4e4-ab6517b72116
 description: |-
   <dl>
   <dt>Avg % Correct on 1st Attempt </dt>
-  <dd> The average percentage of correct answers on the first attempt </dd>
+  <dd> The average percentage of correct answers on the first attempt of the learners who attempted the problem. </dd>
   </dl>
 params:
   adhoc_filters: []
