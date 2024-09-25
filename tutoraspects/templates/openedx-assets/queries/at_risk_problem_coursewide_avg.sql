@@ -48,14 +48,15 @@ with
         select
             org,
             course_key,
-            avg(case when success then attempts else null end) as avg_correct_attempts,
+            problem_id,
+            avg(case when success then attempts else 0 end) as avg_correct_attempts,
             avg(
-                case when not success then attempts else null end
+                case when not success then attempts else 0 end
             ) as avg_incorrect_attempts,
             sum(case when success then 1 else 0 end)::float
             / count(*) as coursewide_percent_correct
         from full_responses
-        group by org, course_key
+        group by org, course_key, problem_id
     )
 
 select
