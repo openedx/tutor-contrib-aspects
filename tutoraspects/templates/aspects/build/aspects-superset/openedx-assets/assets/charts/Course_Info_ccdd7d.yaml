@@ -34,9 +34,9 @@ params:
     sqlExpression: |
       {% raw %}{{ get_filtered_dashboard_link('course-dashboard', 'course_run', 'w863AfFgi') }}{% endraw %}
   metrics:
+  - enrollees
   - active_count
   - tag_list
-  - enrollees
   order_by_cols: []
   order_desc: false
   percent_metrics: []
