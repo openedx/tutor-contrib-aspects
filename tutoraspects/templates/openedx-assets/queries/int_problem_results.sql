@@ -63,7 +63,7 @@ select
     blocks.course_order as course_order,
     concat(
         '<a href="',
-        full_responses.object_id,,
+        full_responses.object_id,
         '" target="_blank">',
         problem_name_with_location,
         '</a>'
