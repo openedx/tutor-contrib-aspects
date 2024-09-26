@@ -4,8 +4,7 @@ certification_details: null
 certified_by: null
 dataset_uuid: c2f0e842-738d-41a0-9ea6-51e32b7fab82
 description: To view the number of views across the duration of a single video, click
-  the name of the video in the Video Name With Location column of the Video Engagement
-  table above.
+  the name of the video in the Video Link column of the Video Engagement table above.
 params:
   adhoc_filters:
   - clause: WHERE
