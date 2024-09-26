@@ -663,7 +663,7 @@ metadata:
     - TAB-GeKBNaKbHg
     - TAB-s_n47Pk1I
     targets:
-    - datasetId: 254
+    - datasetUuid: 92eadc61-2931-577e-95b7-34adb1a8f515
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
