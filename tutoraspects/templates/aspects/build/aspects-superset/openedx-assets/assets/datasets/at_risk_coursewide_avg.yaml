@@ -3,18 +3,6 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: incorrect_attempts_by_learner
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Nullable(Int16)
-  verbose_name: Incorrect Attempts By Learner
-- advanced_data_type: null
   column_name: correct_attempts_by_learner
   description: null
   expression: null
@@ -27,7 +15,7 @@ columns:
   type: Nullable(Int16)
   verbose_name: Correct Attempts By Learner
 - advanced_data_type: null
-  column_name: avg_incorrect_attempts_coursewide
+  column_name: incorrect_attempts_by_learner
   description: null
   expression: null
   extra: {}
@@ -36,8 +24,8 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Nullable(Float64)
-  verbose_name: Avg Incorrect Attempts Coursewide
+  type: Nullable(Int16)
+  verbose_name: Incorrect Attempts By Learner
 - advanced_data_type: null
   column_name: avg_correct_attempts_coursewide
   description: null
@@ -48,82 +36,10 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Nullable(Float64)
+  type: Float64
   verbose_name: Avg Correct Attempts Coursewide
 - advanced_data_type: null
-  column_name: interaction_type
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: LowCardinality(String)
-  verbose_name: Interaction Type
-- advanced_data_type: null
-  column_name: course_key
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: LowCardinality(String)
-  verbose_name: Course Key
-- advanced_data_type: null
-  column_name: org
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: LowCardinality(String)
-  verbose_name: Org
-- advanced_data_type: null
-  column_name: emission_time
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: Nullable(DateTime)
-  verbose_name: Emission Time
-- advanced_data_type: null
-  column_name: attempts
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Int16
-  verbose_name: Attempts
-- advanced_data_type: null
-  column_name: course_order
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Int32
-  verbose_name: Course Order
-- advanced_data_type: null
-  column_name: selected_learner_percent_incorrect
+  column_name: avg_incorrect_attempts_coursewide
   description: null
   expression: null
   extra: {}
@@ -133,7 +49,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: Float64
-  verbose_name: Selected Learner Percent Incorrect
+  verbose_name: Avg Incorrect Attempts Coursewide
 - advanced_data_type: null
   column_name: selected_learner_percent_correct
   description: null
@@ -147,7 +63,7 @@ columns:
   type: Float64
   verbose_name: Selected Learner Percent Correct
 - advanced_data_type: null
-  column_name: coursewide_percent_correct
+  column_name: selected_learner_percent_incorrect
   description: null
   expression: null
   extra: {}
@@ -157,31 +73,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: Float64
-  verbose_name: Coursewide Percent Correct
-- advanced_data_type: null
-  column_name: graded
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Bool
-  verbose_name: Graded
-- advanced_data_type: null
-  column_name: success
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Bool
-  verbose_name: Success
+  verbose_name: Selected Learner Percent Incorrect
 - advanced_data_type: null
   column_name: problem_name_with_location
   description: null
@@ -195,7 +87,7 @@ columns:
   type: String
   verbose_name: Problem Name With Location
 - advanced_data_type: null
-  column_name: problem_name
+  column_name: coursewide_percent_correct
   description: null
   expression: null
   extra: {}
@@ -204,8 +96,56 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
-  verbose_name: Problem Name
+  type: Float64
+  verbose_name: Coursewide Percent Correct
+- advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Course Key
+- advanced_data_type: null
+  column_name: interaction_type
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Interaction Type
+- advanced_data_type: null
+  column_name: emission_time
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: Nullable(DateTime)
+  verbose_name: Emission Time
+- advanced_data_type: null
+  column_name: course_order
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int32
+  verbose_name: Course Order
 - advanced_data_type: null
   column_name: actor_id
   description: null
@@ -231,6 +171,18 @@ columns:
   type: String
   verbose_name: Course Name
 - advanced_data_type: null
+  column_name: course_run
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Run
+- advanced_data_type: null
   column_name: problem_id
   description: null
   expression: null
@@ -255,7 +207,7 @@ columns:
   type: String
   verbose_name: Problem Link
 - advanced_data_type: null
-  column_name: course_run
+  column_name: problem_name
   description: null
   expression: null
   extra: {}
@@ -265,9 +217,9 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Course Run
+  verbose_name: Problem Name
 - advanced_data_type: null
-  column_name: username
+  column_name: org
   description: null
   expression: null
   extra: {}
@@ -276,8 +228,44 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
-  verbose_name: Username
+  type: LowCardinality(String)
+  verbose_name: Org
+- advanced_data_type: null
+  column_name: attempts
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int16
+  verbose_name: Attempts
+- advanced_data_type: null
+  column_name: graded
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Bool
+  verbose_name: Graded
+- advanced_data_type: null
+  column_name: success
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Bool
+  verbose_name: Success
 - advanced_data_type: null
   column_name: email
   description: null
@@ -314,6 +302,18 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Responses
+- advanced_data_type: null
+  column_name: username
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Username
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
@@ -325,22 +325,42 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: SUM(correct_attempts_by_learner)
+  expression: AVG(correct_attempts_by_learner)
   extra:
     warning_markdown: ''
   metric_name: correct_attempts_by_learner
   metric_type: null
-  verbose_name: Correct Attempts by Selected Learner
+  verbose_name: Avg Correct Attempts by Selected Learners
   warning_text: null
 - currency: null
   d3format: null
   description: null
-  expression: SUM(incorrect_attempts_by_learner)
+  expression: AVG(incorrect_attempts_by_learner)
   extra:
     warning_markdown: ''
   metric_name: incorrect_attempts_by_learner
   metric_type: null
-  verbose_name: Incorrect Attempts by Selected Learner
+  verbose_name: Avg Incorrect Attempts by Selected Learners
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: AVG(selected_learner_percent_correct)
+  extra:
+    warning_markdown: ''
+  metric_name: selected_learner_correct_percent
+  metric_type: null
+  verbose_name: Selected Learners % Correct
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: AVG(selected_learner_percent_incorrect)
+  extra:
+    warning_markdown: ''
+  metric_name: selected_learner_incorrect_percent
+  metric_type: null
+  verbose_name: Selected Learners % Incorrect
   warning_text: null
 - currency: null
   d3format: null
@@ -351,24 +371,6 @@ metrics:
   metric_name: avg_correct_attemps_coursewide
   metric_type: null
   verbose_name: Avg Correct Attempts Coursewide
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: AVG(selected_learner_percent_correct)
-  extra: {}
-  metric_name: selected_learner_correct_percent
-  metric_type: null
-  verbose_name: Selected Learner % Correct
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: AVG(selected_learner_percent_incorrect)
-  extra: {}
-  metric_name: selected_learner_incorrect_percent
-  metric_type: null
-  verbose_name: Selected Learner % Incorrect
   warning_text: null
 - currency: null
   d3format: null

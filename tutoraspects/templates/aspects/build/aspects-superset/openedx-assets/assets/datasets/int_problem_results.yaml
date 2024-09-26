@@ -7,7 +7,8 @@ columns:
   description: null
   expression: "  CASE\r\n    WHEN success THEN 'Correct'\r\n    ELSE 'Incorrect'\r\
     \n  END"
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -19,7 +20,8 @@ columns:
   column_name: problem_name_with_location
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -31,7 +33,8 @@ columns:
   column_name: emission_time
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -43,7 +46,8 @@ columns:
   column_name: course_order
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -55,7 +59,8 @@ columns:
   column_name: actor_id
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -67,7 +72,8 @@ columns:
   column_name: course_key
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -79,7 +85,8 @@ columns:
   column_name: course_name
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -91,7 +98,8 @@ columns:
   column_name: course_run
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -103,7 +111,8 @@ columns:
   column_name: problem_id
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -115,7 +124,8 @@ columns:
   column_name: interaction_type
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -127,7 +137,8 @@ columns:
   column_name: problem_link
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -139,7 +150,8 @@ columns:
   column_name: problem_name
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -151,7 +163,8 @@ columns:
   column_name: attempts
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -163,7 +176,8 @@ columns:
   column_name: graded
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -175,7 +189,8 @@ columns:
   column_name: success
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -187,7 +202,8 @@ columns:
   column_name: org
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -199,7 +215,8 @@ columns:
   column_name: responses
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -211,7 +228,8 @@ columns:
   column_name: email
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -223,7 +241,8 @@ columns:
   column_name: name
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -235,7 +254,8 @@ columns:
   column_name: username
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true

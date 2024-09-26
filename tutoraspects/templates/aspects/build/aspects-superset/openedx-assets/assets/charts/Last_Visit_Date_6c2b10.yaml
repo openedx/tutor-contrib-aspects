@@ -5,10 +5,18 @@ certified_by: null
 dataset_uuid: 92eadc61-2931-577e-95b7-34adb1a8f515
 description: null
 params:
-  adhoc_filters: []
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: last_visited
   annotation_layers: []
   color_scheme: supersetColors
+  comparison_type: values
   extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
   groupby: []
   legendOrientation: top
   legendType: scroll
@@ -37,42 +45,43 @@ params:
     label: Number of Learners
     optionName: metric_orthejcnotd_6ealxq45fqk
     sqlExpression: null
-  only_total: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
   show_empty_columns: true
   show_legend: true
   sort_series_type: sum
+  time_grain_sqla: P1M
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncate_metric: true
   viz_type: echarts_timeseries_bar
-  xAxisLabelRotation: 45
   x_axis: last_visited
-  x_axis_time_format: '%Y-%m-%d'
-  x_axis_title: Date Visited
-  x_axis_title_margin: 100
-  y_axis_bounds:
-  - null
-  - null
   y_axis_format: SMART_NUMBER
   y_axis_title_margin: 15
   y_axis_title_position: Left
 query_context:
   datasource:
-    id: 33
+    id: 254
     type: table
   force: false
   form_data:
-    adhoc_filters: []
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: last_visited
     annotation_layers: []
     color_scheme: supersetColors
+    comparison_type: values
     dashboards:
-    - 364
-    datasource: 33__table
+    - 315
+    datasource: 254__table
     extra_form_data: {}
     force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
     groupby: []
     legendOrientation: top
     legendType: scroll
@@ -101,7 +110,6 @@ query_context:
       label: Number of Learners
       optionName: metric_orthejcnotd_6ealxq45fqk
       sqlExpression: null
-    only_total: true
     orientation: vertical
     result_format: json
     result_type: full
@@ -109,20 +117,14 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    slice_id: 52
+    slice_id: 173
     sort_series_type: sum
+    time_grain_sqla: P1M
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
     viz_type: echarts_timeseries_bar
-    xAxisLabelRotation: 45
     x_axis: last_visited
-    x_axis_time_format: '%Y-%m-%d'
-    x_axis_title: Date Visited
-    x_axis_title_margin: 100
-    y_axis_bounds:
-    - null
-    - null
     y_axis_format: SMART_NUMBER
     y_axis_title_margin: 15
     y_axis_title_position: Left
@@ -134,12 +136,17 @@ query_context:
       expressionType: SQL
       label: last_visited
       sqlExpression: last_visited
+      timeGrain: P1M
     custom_form_data: {}
     custom_params: {}
     extras:
       having: ''
+      time_grain_sqla: P1M
       where: ''
-    filters: []
+    filters:
+    - col: last_visited
+      op: TEMPORAL_RANGE
+      val: No filter
     metrics:
     - aggregate: COUNT
       column:
