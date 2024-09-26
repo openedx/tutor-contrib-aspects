@@ -614,7 +614,7 @@ metadata:
     targets:
     - column:
         name: email
-      datasetId: 210
+      datasetUuid: 64427d2b-790e-450f-84f4-5f00ca9bdc6c
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
