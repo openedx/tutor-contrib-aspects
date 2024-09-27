@@ -174,6 +174,10 @@ def get_slice_query_context(slice, query_contexts, extra_filters=None):
         "filters": extra_filters
     }
 
+    if extra_filters:
+        for query in query_context["queries"]:
+            query["filters"] += extra_filters
+
     return query_context
 
 
