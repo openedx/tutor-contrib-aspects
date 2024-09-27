@@ -50,9 +50,9 @@ query_format = (
 
 @click.command()
 @click.option(
-    "--course_key",
+    "--course_name",
     default="",
-    help="A course_key to apply as a filter, you must include the 'course-v1:'.")
+    help="A course_name to apply as a filter, you must include the 'course-v1:'.")
 @click.option(
     "--dashboard_slug",
     default="",
@@ -71,7 +71,7 @@ query_format = (
 @click.option(
     "--fail_on_error", is_flag=True, default=False, help="Allow errors to fail the run."
 )
-def performance_metrics(course_key, dashboard_slug, slice_name, print_sql,
+def performance_metrics(course_name, dashboard_slug, slice_name, print_sql,
                         fail_on_error):
     """
     Measure the performance of the dashboard.
@@ -79,8 +79,8 @@ def performance_metrics(course_key, dashboard_slug, slice_name, print_sql,
     # Mock the client name to identify the queries in the clickhouse system.query_log
     # table by by the http_user_agent field.
     extra_filters = []
-    if course_key:
-        extra_filters += [{"col": "course_key", "op": "==", "val": course_key}]
+    if course_name:
+        extra_filters += [{"col": "course_name", "op": "IN", "val": course_name}]
 
     with patch("clickhouse_connect.common.build_client_name") as mock_build_client_name:
         mock_build_client_name.return_value = RUN_ID

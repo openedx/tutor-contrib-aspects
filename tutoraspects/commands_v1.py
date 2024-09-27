@@ -149,9 +149,9 @@ def init_clickhouse() -> list[tuple[str, str]]:
 # Ex: "tutor local do performance-metrics "
 @click.command(context_settings={"ignore_unknown_options": True})
 @click.option(
-    "--course_key",
+    "--course_name",
     default="",
-    help="A course_key to apply as a filter, you must include the 'course-v1:'.",
+    help="A course_name to apply as a filter.",
 )
 @click.option(
     "--dashboard_slug", default="", help="Only run charts for the given dashboard."
@@ -169,12 +169,12 @@ def init_clickhouse() -> list[tuple[str, str]]:
     "--fail_on_error", is_flag=True, default=False, help="Allow errors to fail the run."
 )
 def performance_metrics(
-    course_key, dashboard_slug, slice_name, print_sql, fail_on_error
+    course_name, dashboard_slug, slice_name, print_sql, fail_on_error
 ) -> (list)[tuple[str, str]]:
     """
     Job to measure performance metrics of charts and its queries in Superset and ClickHouse.
     """
-    options = f"--course_key {course_key}" if course_key else ""
+    options = f"--course_name '{course_name}'" if course_name else ""
     options += f" --dashboard_slug {dashboard_slug}" if dashboard_slug else ""
     options += f' --slice_name "{slice_name}"' if slice_name else ""
     options += " --print_sql" if print_sql else ""
