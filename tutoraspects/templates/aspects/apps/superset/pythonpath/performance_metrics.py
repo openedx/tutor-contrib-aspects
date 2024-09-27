@@ -42,7 +42,10 @@ query_format = (
     "Result rows: {result_rows}\n"
     "Memory Usage (MB): {memory_usage_mb}\n"
     "Row count (superset) {rowcount:}\n"
-    "Filters: {filters}\n\n"
+    "Filters: {filters}\n"
+    "SQL:\n"
+    "{sql}\n\n\n"
+
 )
 
 @click.command()
@@ -123,7 +126,7 @@ def performance_metrics(course_key, dashboard_slug, slice_name, print_sql,
             return report
 
         logger.info("Waiting for clickhouse log...")
-        time.sleep(20)
+        time.sleep(30)
         get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_error)
         return report
 
@@ -184,10 +187,12 @@ def measure_chart(slice, query_context, fail_on_error):
     query_context = ChartDataQueryContextSchema().load(query_context)
     command = ChartDataCommand(query_context)
 
-    start_time = datetime.now()
     try:
+        start_time = datetime.now()
         result = command.run()
-
+        end_time = datetime.now()
+        result["time_elapsed"] = (end_time - start_time).total_seconds()
+        result["slice"] = slice
         for query in result["queries"]:
             if "error" in query and query["error"]:
                 raise query["error"]
@@ -196,11 +201,6 @@ def measure_chart(slice, query_context, fail_on_error):
         if fail_on_error:
             raise e
         return
-
-    end_time = datetime.now()
-
-    result["time_elapsed"] = (end_time - start_time).total_seconds()
-    result["slice"] = slice
 
     return result
 
@@ -231,39 +231,44 @@ def get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_err
                 logger.info("ClickHouse SQL: ")
                 logger.info(parsed_sql)
 
+
+    for k, chart_result in enumerate(report):
+        for query in chart_result["queries"]:
+            parsed_sql = (
+                str(sqlparse.parse(query["query"])[0]).replace(";", "")
+                + "\n FORMAT Native"
+            )
+            chart_result['sql'] = parsed_sql
+            clickhouse_report = clickhouse_queries.get(parsed_sql, {})
+            chart_result.update(
+                clickhouse_report
+            )
+            chart_result.update({
+                "query_duration_ms": chart_result.get("query_duration_ms", 0)
+            })
+
     # Sort report by slowest queries
-    report = sorted(report, key=lambda x: x["time_elapsed"], reverse=True)
+    report = sorted(report, key=lambda x: x["query_duration_ms"], reverse=True)
 
     report_str = f"\nSuperset Reports: {RUN_ID}\n\n"
-    for i, chart_result in enumerate(report):
+    for k, chart_result in enumerate(report):
         report_str += (
             report_format.format(
-                i=(i + 1),
+                i=(k + 1),
                 dashboard=chart_result["dashboard"],
                 slice=chart_result["slice"],
                 superset_time=chart_result["time_elapsed"]
             )
         )
-        for i, query in enumerate(chart_result["queries"]):
-            parsed_sql = (
-                str(sqlparse.parse(query["query"])[0]).replace(";", "")
-                + "\n FORMAT Native"
-            )
-
-            if print_sql:
-                logger.info("Superset SQL: ")
-                logger.info(parsed_sql)
-
-            clickhouse_report = clickhouse_queries.get(parsed_sql, {})
+        for query in chart_result["queries"]:
             report_str += (
                 query_format.format(
-                    query_duration_ms=clickhouse_report.get(
-                        "query_duration_ms", 0
-                    ) / 1000,
-                    memory_usage_mb=clickhouse_report.get("memory_usage_mb"),
-                    result_rows=clickhouse_report.get("result_rows"),
+                    query_duration_ms=chart_result.get('query_duration_ms') / 1000,
+                    memory_usage_mb=chart_result.get("memory_usage_mb"),
+                    result_rows=chart_result.get("result_rows"),
                     rowcount=query["rowcount"],
                     filters=query["applied_filters"],
+                    sql=chart_result['sql'] if print_sql else '',                    
                 )
             )
     logger.info(report_str)
