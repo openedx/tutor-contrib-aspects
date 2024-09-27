@@ -58,13 +58,11 @@ select
 from student_status fss
 left join
     enrollment_status fes
-    on
-    fss.org = fes.org
+    on fss.org = fes.org
     and fss.course_key = fes.course_key
     and fss.actor_id = fes.actor_id
 left join
     latest_emission_time let
-    on
-    fss.org = let.org
+    on fss.org = let.org
     and fss.course_key = let.course_key
     and fss.actor_id = let.actor_id
