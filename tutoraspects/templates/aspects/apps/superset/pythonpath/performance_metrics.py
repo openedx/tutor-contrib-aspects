@@ -126,7 +126,7 @@ def performance_metrics(course_name, dashboard_slug, slice_name, print_sql,
             return report
 
         logger.info("Waiting for clickhouse log...")
-        time.sleep(30)
+        time.sleep(20)
         get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_error)
         return report
 
@@ -170,6 +170,10 @@ def get_slice_query_context(slice, query_contexts, extra_filters=None):
         }
     )
 
+    query_context["form_data"]["extra_form_data"] = {
+        "filters": extra_filters
+    }
+
     if extra_filters:
         for query in query_context["queries"]:
             query["filters"] += extra_filters
@@ -177,16 +181,17 @@ def get_slice_query_context(slice, query_contexts, extra_filters=None):
     return query_context
 
 
-def measure_chart(slice, query_context, fail_on_error):
+def measure_chart(slice, query_context_dict, fail_on_error):
     """
     Measure the performance of a chart and return the results.
     """
     logger.info(f"Fetching slice data: {slice}")
 
     g.user = security_manager.find_user(username="{{SUPERSET_ADMIN_USERNAME}}")
-    query_context = ChartDataQueryContextSchema().load(query_context)
+    query_context = ChartDataQueryContextSchema().load(query_context_dict)
     command = ChartDataCommand(query_context)
-
+    command.validate()
+    g.form_data = query_context.form_data
     try:
         start_time = datetime.now()
         result = command.run()
