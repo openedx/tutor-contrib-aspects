@@ -174,10 +174,6 @@ def get_slice_query_context(slice, query_contexts, extra_filters=None):
         "filters": extra_filters
     }
 
-    if extra_filters:
-        for query in query_context["queries"]:
-            query["filters"] += extra_filters
-
     return query_context
 
 
@@ -273,7 +269,7 @@ def get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_err
                     result_rows=chart_result.get("result_rows"),
                     rowcount=query["rowcount"],
                     filters=query["applied_filters"],
-                    sql=chart_result['sql'] if print_sql else '',                    
+                    sql=chart_result['sql'] if print_sql else '',
                 )
             )
     logger.info(report_str)
