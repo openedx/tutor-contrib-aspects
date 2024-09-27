@@ -228,10 +228,6 @@ def get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_err
             parsed_sql = str(sqlparse.parse(row.pop("query"))[0])
             clickhouse_queries[parsed_sql] = row
 
-            if print_sql:
-                logger.info("ClickHouse SQL: ")
-                logger.info(parsed_sql)
-
 
     for k, chart_result in enumerate(report):
         for query in chart_result["queries"]:
