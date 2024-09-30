@@ -10,6 +10,8 @@ import uuid
 import yaml
 from copy import deepcopy
 from pathlib import Path
+from sqlfmt.api import format_string
+from sqlfmt.mode import Mode
 
 from superset import security_manager
 from superset.extensions import db
@@ -108,6 +110,9 @@ def write_asset_to_file(asset, asset_name, folder, file_name, roles):
         asset["sqlalchemy_uri"] = DATABASES.get(asset["database_name"])
     if folder in ["charts", "dashboards", "datasets"]:
         for locale in DASHBOARD_LOCALES:
+            if folder == "datasets":
+                asset["sql"] = format_string(asset["sql"], mode=Mode(dialect_name="clickhouse"))
+
             updated_asset = generate_translated_asset(
                 asset, asset_name, folder, locale, roles
             )
@@ -147,7 +152,6 @@ def generate_translated_asset(asset, asset_name, folder, language, roles):
     copy = deepcopy(asset)
     copy["uuid"] = str(get_localized_uuid(copy["uuid"], language))
     copy[asset_name] = get_translation(copy[asset_name], language)
-
     if folder == "dashboards":
         copy["slug"] = f"{copy['slug']}-{language}"
         copy["description"] = get_translation(copy["description"], language)
