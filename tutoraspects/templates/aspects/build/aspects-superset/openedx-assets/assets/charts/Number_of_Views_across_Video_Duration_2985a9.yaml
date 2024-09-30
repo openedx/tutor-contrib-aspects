@@ -4,8 +4,7 @@ certification_details: null
 certified_by: null
 dataset_uuid: c2c391b3-3403-4f05-bc0b-3de53bd366ec
 description: To view the number of views across the duration of a single video, click
-  the name of the video in the Video Name With Location column of the Video Engagement
-  table above.
+  the name of the video in the Video Link column in table above.
 params:
   adhoc_filters:
   - clause: WHERE
@@ -20,10 +19,7 @@ params:
     subject: started_at
   annotation_layers: []
   color_scheme: supersetColors
-  comparison_type: values
   extra_form_data: {}
-  forecastInterval: 0.8
-  forecastPeriods: 10
   groupby: []
   legendOrientation: top
   legendType: scroll
@@ -31,7 +27,6 @@ params:
   - total_views
   - repeat_views
   only_total: true
-  order_desc: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
@@ -39,14 +34,12 @@ params:
   show_legend: true
   sort_series_type: sum
   stack: Stack
-  time_grain_sqla: P1M
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncate_metric: true
   viz_type: echarts_timeseries_bar
   xAxisForceCategorical: true
   x_axis: segment_start
-  x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
@@ -62,7 +55,7 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 27
+    id: 483
     type: table
   force: false
   form_data:
@@ -79,15 +72,12 @@ query_context:
       subject: started_at
     annotation_layers: []
     color_scheme: supersetColors
-    comparison_type: values
     dashboards:
-    - 17
-    - 18
-    datasource: 27__table
+    - 303
+    - 307
+    datasource: 483__table
     extra_form_data: {}
     force: false
-    forecastInterval: 0.8
-    forecastPeriods: 10
     groupby: []
     legendOrientation: top
     legendType: scroll
@@ -95,7 +85,6 @@ query_context:
     - total_views
     - repeat_views
     only_total: true
-    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
@@ -103,17 +92,15 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    slice_id: 9
+    slice_id: 193
     sort_series_type: sum
     stack: Stack
-    time_grain_sqla: P1M
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
     viz_type: echarts_timeseries_bar
     xAxisForceCategorical: true
     x_axis: segment_start
-    x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date
@@ -135,12 +122,10 @@ query_context:
       expressionType: SQL
       label: segment_start
       sqlExpression: segment_start
-      timeGrain: P1M
     custom_form_data: {}
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1M
       where: ''
     filters:
     - col: started_at

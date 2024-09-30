@@ -8,321 +8,321 @@ dashboard_title: Course Dashboard
 description: null
 metadata:
   chart_configuration:
-    '10':
+    '1019':
       crossFilters:
         chartsInScope:
-        - 2
-        - 9
         - 11
-        - 17
-        - 21
-        - 29
-        - 30
-        - 34
-        - 38
-        - 39
-        - 41
-        - 42
-        - 53
-        - 57
-        - 60
-        - 64
+        - 81
+        - 169
+        - 193
+        - 217
+        - 220
+        - 337
+        - 405
+        - 409
+        - 423
+        - 451
+        - 487
+        - 736
+        - 769
+        - 1039
+        - 1115
         scope: global
-      id: 10
+      id: 1019
+    '1039':
+      crossFilters:
+        chartsInScope:
+        - 11
+        - 81
+        - 169
+        - 193
+        - 217
+        - 220
+        - 337
+        - 405
+        - 409
+        - 423
+        - 451
+        - 487
+        - 736
+        - 769
+        - 1019
+        - 1115
+        scope: global
+      id: 1039
     '11':
       crossFilters:
         chartsInScope:
-        - 2
-        - 9
-        - 10
-        - 17
-        - 21
-        - 29
-        - 30
-        - 34
-        - 38
-        - 39
-        - 41
-        - 42
-        - 53
-        - 57
-        - 60
-        - 64
+        - 81
+        - 169
+        - 193
+        - 217
+        - 220
+        - 337
+        - 405
+        - 409
+        - 423
+        - 451
+        - 487
+        - 736
+        - 769
+        - 1019
+        - 1039
+        - 1115
         scope: global
       id: 11
-    '2':
+    '169':
       crossFilters:
         chartsInScope:
-        - 9
-        - 10
         - 11
-        - 17
-        - 21
-        - 29
-        - 30
-        - 34
-        - 38
-        - 39
-        - 41
-        - 42
-        - 53
-        - 57
-        - 60
-        - 64
+        - 81
+        - 193
+        - 217
+        - 220
+        - 337
+        - 405
+        - 409
+        - 423
+        - 451
+        - 487
+        - 736
+        - 769
+        - 1019
+        - 1039
+        - 1115
         scope: global
-      id: 2
-    '21':
+      id: 169
+    '193':
       crossFilters:
         chartsInScope:
-        - 2
-        - 9
-        - 10
         - 11
-        - 17
-        - 29
-        - 30
-        - 34
-        - 38
-        - 39
-        - 41
-        - 42
-        - 53
-        - 57
-        - 60
-        - 64
+        - 81
+        - 169
+        - 217
+        - 220
+        - 337
+        - 405
+        - 409
+        - 423
+        - 451
+        - 487
+        - 736
+        - 769
+        - 1019
+        - 1039
+        - 1115
         scope: global
-      id: 21
-    '29':
+      id: 193
+    '217':
       crossFilters:
         chartsInScope:
-        - 2
-        - 9
-        - 10
         - 11
-        - 17
-        - 21
-        - 30
-        - 34
-        - 38
-        - 39
-        - 41
-        - 42
-        - 53
-        - 57
-        - 60
-        - 64
+        - 81
+        - 169
+        - 193
+        - 220
+        - 337
+        - 405
+        - 409
+        - 423
+        - 451
+        - 487
+        - 736
+        - 769
+        - 1019
+        - 1039
+        - 1115
         scope: global
-      id: 29
-    '30':
+      id: 217
+    '220':
       crossFilters:
         chartsInScope:
-        - 2
-        - 9
-        - 10
         - 11
-        - 17
-        - 21
-        - 29
-        - 34
-        - 38
-        - 39
-        - 41
-        - 42
-        - 53
-        - 57
-        - 60
-        - 64
+        - 81
+        - 169
+        - 193
+        - 217
+        - 337
+        - 405
+        - 409
+        - 423
+        - 451
+        - 487
+        - 736
+        - 769
+        - 1019
+        - 1039
+        - 1115
         scope: global
-      id: 30
-    '34':
+      id: 220
+    '337':
       crossFilters:
         chartsInScope:
-        - 2
-        - 9
-        - 10
         - 11
-        - 17
-        - 21
-        - 29
-        - 30
-        - 38
-        - 39
-        - 41
-        - 42
-        - 53
-        - 57
-        - 60
-        - 64
+        - 81
+        - 169
+        - 193
+        - 217
+        - 220
+        - 405
+        - 409
+        - 423
+        - 451
+        - 487
+        - 736
+        - 769
+        - 1019
+        - 1039
+        - 1115
         scope: global
-      id: 34
-    '39':
+      id: 337
+    '405':
       crossFilters:
         chartsInScope:
-        - 2
-        - 9
-        - 10
         - 11
-        - 17
-        - 21
-        - 29
-        - 30
-        - 34
-        - 38
-        - 41
-        - 42
-        - 53
-        - 57
-        - 60
-        - 64
+        - 81
+        - 169
+        - 193
+        - 217
+        - 220
+        - 337
+        - 409
+        - 423
+        - 451
+        - 487
+        - 736
+        - 769
+        - 1019
+        - 1039
+        - 1115
         scope: global
-      id: 39
-    '41':
+      id: 405
+    '409':
       crossFilters:
         chartsInScope:
-        - 2
-        - 9
-        - 10
         - 11
-        - 17
-        - 21
-        - 29
-        - 30
-        - 34
-        - 38
-        - 39
-        - 42
-        - 53
-        - 57
-        - 60
-        - 64
+        - 81
+        - 169
+        - 193
+        - 217
+        - 220
+        - 337
+        - 405
+        - 423
+        - 451
+        - 487
+        - 736
+        - 769
+        - 1019
+        - 1039
+        - 1115
         scope: global
-      id: 41
-    '42':
+      id: 409
+    '451':
       crossFilters:
         chartsInScope:
-        - 2
-        - 9
-        - 10
         - 11
-        - 17
-        - 21
-        - 29
-        - 30
-        - 34
-        - 38
-        - 39
-        - 41
-        - 53
-        - 57
-        - 60
-        - 64
+        - 81
+        - 169
+        - 193
+        - 217
+        - 220
+        - 337
+        - 405
+        - 409
+        - 423
+        - 487
+        - 736
+        - 769
+        - 1019
+        - 1039
+        - 1115
         scope: global
-      id: 42
-    '53':
+      id: 451
+    '487':
       crossFilters:
         chartsInScope:
-        - 2
-        - 9
-        - 10
         - 11
-        - 17
-        - 21
-        - 29
-        - 30
-        - 34
-        - 38
-        - 39
-        - 41
-        - 42
-        - 57
-        - 60
-        - 64
+        - 81
+        - 169
+        - 193
+        - 217
+        - 220
+        - 337
+        - 405
+        - 409
+        - 423
+        - 451
+        - 736
+        - 769
+        - 1019
+        - 1039
+        - 1115
         scope: global
-      id: 53
-    '57':
+      id: 487
+    '736':
       crossFilters:
         chartsInScope:
-        - 2
-        - 9
-        - 10
         - 11
-        - 17
-        - 21
-        - 29
-        - 30
-        - 34
-        - 38
-        - 39
-        - 41
-        - 42
-        - 53
-        - 60
-        - 64
+        - 81
+        - 169
+        - 193
+        - 217
+        - 220
+        - 337
+        - 405
+        - 409
+        - 423
+        - 451
+        - 487
+        - 769
+        - 1019
+        - 1039
+        - 1115
         scope: global
-      id: 57
-    '60':
+      id: 736
+    '769':
       crossFilters:
         chartsInScope:
-        - 2
-        - 9
-        - 10
         - 11
-        - 17
-        - 21
-        - 29
-        - 30
-        - 34
-        - 38
-        - 39
-        - 41
-        - 42
-        - 53
-        - 57
-        - 64
+        - 81
+        - 169
+        - 193
+        - 217
+        - 220
+        - 337
+        - 405
+        - 409
+        - 423
+        - 451
+        - 487
+        - 736
+        - 1019
+        - 1039
+        - 1115
         scope: global
-      id: 60
-    '64':
+      id: 769
+    '81':
       crossFilters:
         chartsInScope:
-        - 2
-        - 9
-        - 10
         - 11
-        - 17
-        - 21
-        - 29
-        - 30
-        - 34
-        - 38
-        - 39
-        - 41
-        - 42
-        - 53
-        - 57
-        - 60
+        - 169
+        - 193
+        - 217
+        - 220
+        - 337
+        - 405
+        - 409
+        - 423
+        - 451
+        - 487
+        - 736
+        - 769
+        - 1019
+        - 1039
+        - 1115
         scope: global
-      id: 64
-    '9':
-      crossFilters:
-        chartsInScope:
-        - 2
-        - 10
-        - 11
-        - 17
-        - 21
-        - 29
-        - 30
-        - 34
-        - 38
-        - 39
-        - 41
-        - 42
-        - 53
-        - 57
-        - 60
-        - 64
-        scope: global
-      id: 9
+      id: 81
   color_scheme: supersetColors
   color_scheme_domain:
   - '#1FA8C9'
@@ -346,26 +346,27 @@ metadata:
   - '#9EE5E5'
   - '#D1C6BC'
   cross_filters_enabled: true
-  expanded_slices: {"57": true}
+  expanded_slices:
+    '193': true
   global_chart_configuration:
     chartsInScope:
-    - 2
-    - 9
-    - 10
     - 11
-    - 17
-    - 21
-    - 29
-    - 30
-    - 34
-    - 38
-    - 39
-    - 41
-    - 42
-    - 53
-    - 57
-    - 60
-    - 64
+    - 81
+    - 169
+    - 193
+    - 217
+    - 220
+    - 337
+    - 405
+    - 409
+    - 423
+    - 451
+    - 487
+    - 736
+    - 769
+    - 1019
+    - 1039
+    - 1115
     scope:
       excluded: []
       rootPath:
@@ -375,23 +376,23 @@ metadata:
   - cascadeParentIds:
     - NATIVE_FILTER-IfS-Rd0ZS
     chartsInScope:
-    - 2
-    - 9
-    - 10
     - 11
-    - 17
-    - 21
-    - 29
-    - 30
-    - 34
-    - 38
-    - 39
-    - 41
-    - 42
-    - 53
-    - 57
-    - 60
-    - 64
+    - 81
+    - 169
+    - 193
+    - 217
+    - 220
+    - 337
+    - 405
+    - 409
+    - 423
+    - 451
+    - 487
+    - 736
+    - 769
+    - 1019
+    - 1039
+    - 1115
     controlValues:
       defaultToFirstItem: false
       enableEmptyFilter: false
@@ -425,25 +426,25 @@ metadata:
   - cascadeParentIds:
     - NATIVE_FILTER-QrTlO4wBf
     chartsInScope:
-    - 2
-    - 9
-    - 10
     - 11
-    - 17
-    - 21
-    - 29
-    - 30
-    - 34
-    - 38
-    - 39
-    - 41
-    - 42
-    - 53
-    - 57
-    - 60
-    - 64
+    - 81
+    - 169
+    - 193
+    - 217
+    - 220
+    - 337
+    - 405
+    - 409
+    - 423
+    - 451
+    - 487
+    - 736
+    - 769
+    - 1019
+    - 1039
+    - 1115
     controlValues:
-      defaultToFirstItem: false
+      defaultToFirstItem: true
       enableEmptyFilter: false
       inverseSelection: false
       multiSelect: false
@@ -456,6 +457,7 @@ metadata:
     filterType: filter_select
     id: NATIVE_FILTER-IfS-Rd0ZS
     name: Course Name
+    requiredFirst: true
     scope:
       excluded: []
       rootPath:
@@ -559,10 +561,10 @@ metadata:
     name: Date
     scope:
       excluded:
-      - 11
-      - 60
-      - 21
-      - 34
+      - 1039
+      - 451
+      - 217
+      - 81
       rootPath:
       - TAB-4ptSkqs5MS
       - TAB-_Ey4nPhFr
@@ -599,16 +601,16 @@ metadata:
     name: Time Grain
     scope:
       excluded:
-      - 29
-      - 57
+      - 169
+      - 193
+      - 1039
+      - 451
+      - 217
+      - 81
       - 11
-      - 60
-      - 21
-      - 34
-      - 53
-      - 9
-      - 39
-      - 2
+      - 736
+      - 487
+      - 337
       rootPath:
       - TAB-4ptSkqs5MS
       - TAB-_Ey4nPhFr
@@ -622,22 +624,28 @@ metadata:
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
-    all_pages_viewed: '#FF7F44'
-    at_leat_one_page_viewed: '#FCC700'
-    attempted_all_problems: '#A38F79'
-    attempted_at_least_one_problem: '#E04355'
-    audit: '#666666'
+    all_pages_viewed: '#454E7C'
+    all_videos_viewed: '#454E7C'
+    at_least_one_viewed: '#1FA8C9'
+    at_leat_one_page_viewed: '#1FA8C9'
+    attempted_all_problems: '#1FA8C9'
+    attempted_at_least_one_problem: '#454E7C'
+    audit: '#5AC189'
+    full_views: '#454E7C'
     honor: '#1FA8C9'
-    number_of_learners: '#454E7C'
-    verified: '#5AC189'
-    views: '#A868B7'
+    number_of_learners: '#1FA8C9'
+    partial_views: '#1FA8C9'
+    repeat_views: '#454E7C'
+    total_views: '#1FA8C9'
+    verified: '#454E7C'
+    views: '#454E7C'
   timed_refresh_immune_slices: []
 position:
   CHART-XNUtUvjGrL:
     children: []
     id: CHART-XNUtUvjGrL
     meta:
-      chartId: 64
+      chartId: 405
       height: 50
       sliceName: Page Engagement Over Time
       uuid: d7bfef35-d35a-405f-ae59-73472845cd59
@@ -655,7 +663,7 @@ position:
     children: []
     id: CHART-explore-119-1
     meta:
-      chartId: 29
+      chartId: 169
       height: 50
       sliceName: Problem Attempts
       uuid: ba14d2ea-8c53-4f79-aa1b-434011f3c725
@@ -673,7 +681,7 @@ position:
     children: []
     id: CHART-explore-121-1
     meta:
-      chartId: 57
+      chartId: 193
       height: 54
       sliceName: Number of Views across Video Duration
       uuid: 2985a9db-c338-4008-af52-2930b81ee2e5
@@ -691,7 +699,7 @@ position:
     children: []
     id: CHART-explore-122-1
     meta:
-      chartId: 11
+      chartId: 1039
       height: 53
       sliceName: Partial and Full Video Views
       uuid: bfffb9fe-07bd-4b2f-b437-522d45f6cd2c
@@ -709,7 +717,7 @@ position:
     children: []
     id: CHART-explore-123-1
     meta:
-      chartId: 60
+      chartId: 451
       height: 61
       sliceName: Page Engagement per Section/Subsection
       uuid: bf2d6219-d633-48c1-a9b5-742eac6a4c0a
@@ -727,7 +735,7 @@ position:
     children: []
     id: CHART-explore-124-1
     meta:
-      chartId: 42
+      chartId: 220
       height: 50
       sliceName: Distribution of Current Course Grade
       uuid: ea565658-6796-40e8-9d1e-01ffd0778bc9
@@ -744,7 +752,7 @@ position:
     children: []
     id: CHART-explore-125-1
     meta:
-      chartId: 21
+      chartId: 217
       height: 61
       sliceName: Problem Engagement per Section/Subsection
       uuid: 8cdcd4aa-1fa2-41dc-b38d-f1112134592e
@@ -762,7 +770,7 @@ position:
     children: []
     id: CHART-explore-126-1
     meta:
-      chartId: 34
+      chartId: 81
       height: 69
       sliceName: Video Engagement per Section/Subsection
       uuid: c1f77432-e55f-4473-b7d0-7a1c3976e6a8
@@ -780,7 +788,7 @@ position:
     children: []
     id: CHART-explore-127-1
     meta:
-      chartId: 53
+      chartId: 11
       height: 39
       sliceName: Video Engagement
       uuid: c8c363f8-8dbc-4a78-841d-4976f4404884
@@ -798,7 +806,7 @@ position:
     children: []
     id: CHART-explore-128-1
     meta:
-      chartId: 41
+      chartId: 1019
       height: 29
       sliceName: Course Information
       uuid: fa249dda-78da-4ccc-9ef3-39177e6aae0c
@@ -812,7 +820,7 @@ position:
     children: []
     id: CHART-explore-129-1
     meta:
-      chartId: 38
+      chartId: 1115
       height: 27
       sliceName: Learners with Passing Grade
       uuid: b40cdabc-b265-48d2-913d-a9dfee0b6ab1
@@ -829,7 +837,7 @@ position:
     children: []
     id: CHART-explore-185-1
     meta:
-      chartId: 17
+      chartId: 423
       height: 29
       sliceName: Current Enrollees
       uuid: 00de2f72-b3ed-4994-b231-fd3cf29d758d
@@ -843,7 +851,7 @@ position:
     children: []
     id: CHART-explore-188-1
     meta:
-      chartId: 9
+      chartId: 736
       height: 51
       sliceName: Enrollees per Enrollment Track
       uuid: e584199e-0ed6-42bf-afb9-db3b9fe4132b
@@ -859,7 +867,7 @@ position:
     children: []
     id: CHART-explore-189-1
     meta:
-      chartId: 30
+      chartId: 409
       height: 51
       sliceName: Cumulative Enrollments by Track
       uuid: f207c896-030a-462b-b69f-6416230d50b6
@@ -876,7 +884,7 @@ position:
     children: []
     id: CHART-explore-191-1
     meta:
-      chartId: 39
+      chartId: 487
       height: 50
       sliceName: Section Summary
       uuid: 47417136-acd1-44a1-b41e-644eb2c237c3
@@ -894,7 +902,7 @@ position:
     children: []
     id: CHART-explore-192-1
     meta:
-      chartId: 2
+      chartId: 337
       height: 50
       sliceName: Subsection Summary
       uuid: 2a8d96be-687d-4918-98fe-ae9fbd599152
@@ -912,7 +920,7 @@ position:
     children: []
     id: CHART-explore-195-1
     meta:
-      chartId: 10
+      chartId: 769
       height: 50
       sliceName: Cumulative Interactions
       uuid: c44e43b5-ba69-4805-8d01-3b04dcbf2cb6

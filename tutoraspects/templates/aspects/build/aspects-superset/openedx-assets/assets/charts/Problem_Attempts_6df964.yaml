@@ -17,6 +17,7 @@ params:
     sqlExpression: null
     subject: emission_time
   all_columns: []
+  allow_render_html: true
   color_pn: true
   column_config:
     correct_percent:
@@ -25,6 +26,8 @@ params:
     incorrect_percent:
       d3NumberFormat: ',.1%'
       d3SmallNumberFormat: ',.1%'
+  comparison_color_scheme: Green
+  comparison_type: values
   conditional_formatting:
   - colorScheme: '#ACE1C4'
     column: correct_percent
@@ -36,10 +39,7 @@ params:
     targetValue: 0
   extra_form_data: {}
   groupby:
-  - datasourceWarning: false
-    expressionType: SQL
-    label: Problem Link
-    sqlExpression: problem_link
+  - problem_link
   - datasourceWarning: false
     expressionType: SQL
     label: Graded
@@ -91,7 +91,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 37
+    id: 659
     type: table
   force: false
   form_data:
@@ -107,6 +107,7 @@ query_context:
       sqlExpression: null
       subject: emission_time
     all_columns: []
+    allow_render_html: true
     color_pn: true
     column_config:
       correct_percent:
@@ -115,6 +116,8 @@ query_context:
       incorrect_percent:
         d3NumberFormat: ',.1%'
         d3SmallNumberFormat: ',.1%'
+    comparison_color_scheme: Green
+    comparison_type: values
     conditional_formatting:
     - colorScheme: '#ACE1C4'
       column: correct_percent
@@ -125,15 +128,12 @@ query_context:
       operator: "\u2265"
       targetValue: 0
     dashboards:
-    - 18
-    datasource: 37__table
+    - 307
+    datasource: 659__table
     extra_form_data: {}
     force: false
     groupby:
-    - datasourceWarning: false
-      expressionType: SQL
-      label: Problem Link
-      sqlExpression: problem_link
+    - problem_link
     - datasourceWarning: false
       expressionType: SQL
       label: Graded
@@ -155,7 +155,7 @@ query_context:
     server_pagination: false
     show_cell_bars: true
     show_totals: false
-    slice_id: 16
+    slice_id: 388
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true
@@ -190,10 +190,7 @@ query_context:
   - annotation_layers: []
     applied_time_extras: {}
     columns:
-    - datasourceWarning: false
-      expressionType: SQL
-      label: Problem Link
-      sqlExpression: problem_link
+    - problem_link
     - datasourceWarning: false
       expressionType: SQL
       label: Graded
@@ -269,6 +266,7 @@ query_context:
       label: AVG(course_order)
       optionName: metric_cq2cm641ll8_pcu3pmwa32m
       sqlExpression: null
+    time_offsets: []
     url_params: {}
   result_format: json
   result_type: full

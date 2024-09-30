@@ -5,6 +5,7 @@ with
             org,
             course_key,
             splitByString('/xblock/', object_id)[-1] as video_id,
+            object_id,
             actor_id,
             verb_id,
             video_position,
@@ -34,6 +35,7 @@ with
             starts.course_key as course_key,
             starts.video_id as video_id,
             starts.actor_id,
+            starts.object_id as object_id,
             cast(starts.video_position as Int32) as start_position,
             cast(ends.video_position as Int32) as end_position,
             starts.emission_time as started_at,
@@ -62,6 +64,7 @@ with
             blocks.block_name as video_name,
             blocks.display_name_with_location as video_name_with_location,
             segments.actor_id as actor_id,
+            segments.object_id as object_id,
             segments.started_at as started_at,
             segments.start_position - (segments.start_position % 5) as start_position,
             segments.end_position - (segments.end_position % 5) as end_position,
@@ -86,6 +89,9 @@ select
     video_name,
     video_name_with_location,
     video_id,
+    concat(
+        '<a href="', object_id, '" target="_blank">', video_name_with_location, '</a>'
+    ) as video_link,
     actor_id,
     started_at,
     arrayJoin(range(start_position, end_position, 5)) as segment_start,

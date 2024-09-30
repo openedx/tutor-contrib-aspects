@@ -40,7 +40,6 @@ params:
   show_empty_columns: true
   show_legend: true
   sort_series_type: sum
-  time_grain_sqla: P1D
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncate_metric: true
@@ -62,7 +61,7 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 99
+    id: 434
     type: table
   force: false
   form_data:
@@ -71,8 +70,8 @@ query_context:
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 30
-    datasource: 99__table
+    - 315
+    datasource: 434__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -106,9 +105,8 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    slice_id: 178
+    slice_id: 672
     sort_series_type: sum
-    time_grain_sqla: P1D
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
@@ -136,12 +134,10 @@ query_context:
       expressionType: SQL
       label: video_name_with_location
       sqlExpression: video_name_with_location
-      timeGrain: P1D
     custom_form_data: {}
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1D
       where: ''
     filters: []
     metrics:

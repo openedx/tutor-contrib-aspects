@@ -65,7 +65,7 @@ select
         '<a href="',
         full_responses.object_id,
         '" target="_blank">',
-        blocks.block_name,
+        problem_name_with_location,
         '</a>'
     ) as problem_link,
     full_responses.actor_id as actor_id,

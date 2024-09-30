@@ -8,18 +8,23 @@ params:
   adhoc_filters:
   - clause: WHERE
     comparator: No filter
+    datasourceWarning: false
     expressionType: SIMPLE
+    filterOptionName: filter_jlgsuwermni_gm7wfrgevbb
+    isExtra: false
+    isNew: false
     operator: TEMPORAL_RANGE
+    sqlExpression: null
     subject: emission_time
   all_columns: []
+  allow_render_html: true
   color_pn: false
+  comparison_color_scheme: Green
+  comparison_type: values
   conditional_formatting: []
   extra_form_data: {}
   groupby:
-  - datasourceWarning: false
-    expressionType: SQL
-    label: Problem Link
-    sqlExpression: problem_link
+  - problem_link
   - datasourceWarning: false
     expressionType: SQL
     label: Graded
@@ -34,7 +39,6 @@ params:
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
-  server_page_length: 10
   show_cell_bars: false
   table_timestamp_format: smart_date
   temporal_columns_lookup:
@@ -68,29 +72,34 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 39
+    id: 660
     type: table
   force: false
   form_data:
     adhoc_filters:
     - clause: WHERE
       comparator: No filter
+      datasourceWarning: false
       expressionType: SIMPLE
+      filterOptionName: filter_jlgsuwermni_gm7wfrgevbb
+      isExtra: false
+      isNew: false
       operator: TEMPORAL_RANGE
+      sqlExpression: null
       subject: emission_time
     all_columns: []
+    allow_render_html: true
     color_pn: false
+    comparison_color_scheme: Green
+    comparison_type: values
     conditional_formatting: []
     dashboards:
-    - 19
-    datasource: 39__table
+    - 315
+    datasource: 660__table
     extra_form_data: {}
     force: false
     groupby:
-    - datasourceWarning: false
-      expressionType: SQL
-      label: Problem Link
-      sqlExpression: problem_link
+    - problem_link
     - datasourceWarning: false
       expressionType: SQL
       label: Graded
@@ -107,9 +116,8 @@ query_context:
     result_format: json
     result_type: full
     row_limit: 1000
-    server_page_length: 10
     show_cell_bars: false
-    slice_id: 34
+    slice_id: 592
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true
@@ -144,10 +152,7 @@ query_context:
   - annotation_layers: []
     applied_time_extras: {}
     columns:
-    - datasourceWarning: false
-      expressionType: SQL
-      label: Problem Link
-      sqlExpression: problem_link
+    - problem_link
     - datasourceWarning: false
       expressionType: SQL
       label: Graded
@@ -222,6 +227,7 @@ query_context:
       label: SUM(Course Order)
       optionName: metric_e6em2cwdb15_pm8kp83b9ed
       sqlExpression: null
+    time_offsets: []
     url_params: {}
   result_format: json
   result_type: full

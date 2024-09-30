@@ -4,8 +4,7 @@ certification_details: null
 certified_by: null
 dataset_uuid: c2f0e842-738d-41a0-9ea6-51e32b7fab82
 description: To view the number of views across the duration of a single video, click
-  the name of the video in the Video Name With Location column of the Video Engagement
-  table above.
+  the name of the video in the Video Link column in table above.
 params:
   adhoc_filters:
   - clause: WHERE
@@ -33,7 +32,6 @@ params:
   show_empty_columns: true
   show_legend: true
   sort_series_type: sum
-  time_grain_sqla: P1D
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncateYAxis: false
@@ -56,7 +54,7 @@ params:
   y_axis_title_position: Left
 query_context:
   datasource:
-    id: 18
+    id: 356
     type: table
   force: false
   form_data:
@@ -70,8 +68,8 @@ query_context:
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 19
-    datasource: 18__table
+    - 315
+    datasource: 356__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -91,9 +89,8 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    slice_id: 30
+    slice_id: 556
     sort_series_type: sum
-    time_grain_sqla: P1D
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncateYAxis: false
@@ -122,12 +119,10 @@ query_context:
       expressionType: SQL
       label: segment_start
       sqlExpression: segment_start
-      timeGrain: P1D
     custom_form_data: {}
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1D
       where: ''
     filters:
     - col: started_at
