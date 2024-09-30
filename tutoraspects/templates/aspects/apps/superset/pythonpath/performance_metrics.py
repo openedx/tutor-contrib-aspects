@@ -7,9 +7,6 @@ database on import due to is using database primary keys which do not match
 across Superset installations.
 """
 
-from create_assets import BASE_DIR, ASSET_FOLDER_MAPPING, app
-
-import json
 import logging
 import os
 import time
@@ -20,10 +17,12 @@ from unittest.mock import patch
 import click
 import sqlparse
 import yaml
+from create_assets import app
+
 from flask import g
 from superset import security_manager
-from superset.commands.chart.data.get_data_command import ChartDataCommand
 from superset.charts.schemas import ChartDataQueryContextSchema
+from superset.commands.chart.data.get_data_command import ChartDataCommand
 from superset.extensions import db
 from superset.models.dashboard import Dashboard
 from superset.models.slice import Slice
@@ -45,38 +44,34 @@ query_format = (
     "Filters: {filters}\n"
     "SQL:\n"
     "{sql}\n\n\n"
-
 )
 
+
 @click.command()
-@click.option(
-    "--org",
-    default="",
-    help="An organization to apply as a filter.")
+@click.option("--org", default="", help="An organization to apply as a filter.")
 @click.option(
     "--course_name",
     default="",
-    help="A course_name to apply as a filter, you must include the 'course-v1:'.")
+    help="A course_name to apply as a filter, you must include the 'course-v1:'.",
+)
 @click.option(
-    "--dashboard_slug",
-    default="",
-    help="Only run charts for the given dashboard.")
+    "--dashboard_slug", default="", help="Only run charts for the given dashboard."
+)
 @click.option(
     "--slice_name",
     default="",
     help="Only run charts for the given slice name, if the name appears in more than "
-         "one dashboard it will be run for each.")
+    "one dashboard it will be run for each.",
+)
 @click.option(
-    "--print_sql",
-    is_flag=True,
-    default=False,
-    help="Whether to print the SQL run."
+    "--print_sql", is_flag=True, default=False, help="Whether to print the SQL run."
 )
 @click.option(
     "--fail_on_error", is_flag=True, default=False, help="Allow errors to fail the run."
 )
-def performance_metrics(org, course_name, dashboard_slug, slice_name, print_sql,
-                        fail_on_error):
+def performance_metrics(
+    org, course_name, dashboard_slug, slice_name, print_sql, fail_on_error
+):
     """
     Measure the performance of the dashboard.
     """
@@ -90,7 +85,9 @@ def performance_metrics(org, course_name, dashboard_slug, slice_name, print_sql,
 
     with patch("clickhouse_connect.common.build_client_name") as mock_build_client_name:
         mock_build_client_name.return_value = RUN_ID
-        target_dashboards = [dashboard_slug] if dashboard_slug else {{SUPERSET_EMBEDDABLE_DASHBOARDS}}
+        target_dashboards = (
+            [dashboard_slug] if dashboard_slug else {{SUPERSET_EMBEDDABLE_DASHBOARDS}}
+        )
 
         dashboards = (
             db.session.query(Dashboard)
@@ -107,14 +104,13 @@ def performance_metrics(org, course_name, dashboard_slug, slice_name, print_sql,
             logger.info(f"Dashboard: {dashboard.slug}")
             for slice in dashboard.slices:
                 if slice_name and not slice_name == slice.slice_name:
-                    logger.info(f"{slice.slice_name} doesn't match {slice_name}, "
-                             f"skipping.")
+                    logger.info(
+                        f"{slice.slice_name} doesn't match {slice_name}, " f"skipping."
+                    )
                     continue
 
                 query_context = get_slice_query_context(
-                    slice,
-                    query_contexts,
-                    extra_filters
+                    slice, query_contexts, extra_filters
                 )
                 result = measure_chart(slice, query_context, fail_on_error)
                 if not result:
@@ -176,9 +172,7 @@ def get_slice_query_context(slice, query_contexts, extra_filters=None):
         }
     )
 
-    query_context["form_data"]["extra_form_data"] = {
-        "filters": extra_filters
-    }
+    query_context["form_data"]["extra_form_data"] = {"filters": extra_filters}
 
     if extra_filters:
         for query in query_context["queries"]:
@@ -238,45 +232,38 @@ def get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_err
             parsed_sql = str(sqlparse.parse(row.pop("query"))[0])
             clickhouse_queries[parsed_sql] = row
 
-
     for k, chart_result in enumerate(report):
         for query in chart_result["queries"]:
             parsed_sql = (
                 str(sqlparse.parse(query["query"])[0]).replace(";", "")
                 + "\n FORMAT Native"
             )
-            chart_result['sql'] = parsed_sql
+            chart_result["sql"] = parsed_sql
             clickhouse_report = clickhouse_queries.get(parsed_sql, {})
+            chart_result.update(clickhouse_report)
             chart_result.update(
-                clickhouse_report
+                {"query_duration_ms": chart_result.get("query_duration_ms", 0)}
             )
-            chart_result.update({
-                "query_duration_ms": chart_result.get("query_duration_ms", 0)
-            })
 
     # Sort report by slowest queries
     report = sorted(report, key=lambda x: x["query_duration_ms"], reverse=True)
 
     report_str = f"\nSuperset Reports: {RUN_ID}\n\n"
     for k, chart_result in enumerate(report):
-        report_str += (
-            report_format.format(
-                i=(k + 1),
-                dashboard=chart_result["dashboard"],
-                slice=chart_result["slice"],
-                superset_time=chart_result["time_elapsed"]
-            )
+        report_str += report_format.format(
+            i=(k + 1),
+            dashboard=chart_result["dashboard"],
+            slice=chart_result["slice"],
+            superset_time=chart_result["time_elapsed"],
         )
         for query in chart_result["queries"]:
-            report_str += (
-                query_format.format(
-                    query_duration_ms=chart_result.get('query_duration_ms') / 1000,
-                    memory_usage_mb=chart_result.get("memory_usage_mb"),
-                    result_rows=chart_result.get("result_rows"),
-                    rowcount=query["rowcount"],
-                    filters=query["applied_filters"],
-                    sql=chart_result['sql'] if print_sql else '',
-                )
+            report_str += query_format.format(
+                query_duration_ms=chart_result.get("query_duration_ms") / 1000,
+                memory_usage_mb=chart_result.get("memory_usage_mb"),
+                result_rows=chart_result.get("result_rows"),
+                rowcount=query["rowcount"],
+                filters=query["applied_filters"],
+                sql=chart_result["sql"] if print_sql else "",
             )
     logger.info(report_str)
 
