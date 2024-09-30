@@ -66,3 +66,4 @@ left join
     on fss.org = let.org
     and fss.course_key = let.course_key
     and fss.actor_id = let.actor_id
+where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}

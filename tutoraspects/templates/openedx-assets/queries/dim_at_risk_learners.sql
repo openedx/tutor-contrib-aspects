@@ -29,3 +29,4 @@ where
     approving_state = 'failed'
     and enrollment_status = 'registered'
     and page_visits.last_visited < subtractDays(now(), 7)
+    {% include 'openedx-assets/queries/common_filters.sql' %}

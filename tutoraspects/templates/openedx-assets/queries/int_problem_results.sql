@@ -49,6 +49,7 @@ with
             events.interaction_type as interaction_type
         from {{ ASPECTS_XAPI_DATABASE }}.problem_events events
         join responses using (org, course_key, problem_id, actor_id, emission_time)
+        where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
     )
 
 select
@@ -87,3 +88,4 @@ join
 left outer join
     {{ ASPECTS_EVENT_SINK_DATABASE }}.user_pii users
     on full_responses.actor_id = users.external_user_id::String
+    {% include 'openedx-assets/queries/common_filters.sql' %}

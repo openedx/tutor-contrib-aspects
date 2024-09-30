@@ -51,3 +51,4 @@ join
 left outer join
     {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii users
     on toUUID(pe.actor_id) = users.external_user_id
+where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}

@@ -77,6 +77,7 @@ with
                 segments.course_key = blocks.course_key
                 and segments.video_id = blocks.block_id
             )
+        where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
     )
 
 select

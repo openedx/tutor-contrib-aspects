@@ -1,4 +1,6 @@
-{% include 'openedx-assets/queries/fact_problem_engagement.sql' %}
+with fact_problem_engagement as
+    ({% include 'openedx-assets/queries/fact_problem_engagement.sql' %})
+select fact_problem_engagement.* from fact_problem_engagement pe
 join
     (
         {% include 'openedx-assets/queries/at_risk_learner_filter.sql' %}

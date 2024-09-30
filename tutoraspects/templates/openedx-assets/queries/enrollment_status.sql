@@ -12,3 +12,4 @@ left join
     {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names cn
     on fes.org = cn.org
     and fes.course_key = cn.course_key
+where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
