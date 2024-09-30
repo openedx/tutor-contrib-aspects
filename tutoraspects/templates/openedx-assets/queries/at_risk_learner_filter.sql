@@ -12,4 +12,6 @@ with
 select org, course_key, learners.actor_id as actor_id
 from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_student_status learners
 join page_visits using (org, course_key, actor_id)
-where approving_state = 'failed' and enrollment_status = 'registered'
+where
+    approving_state = 'failed' and enrollment_status = 'registered'
+    {% include 'openedx-assets/queries/common_filters.sql' %}

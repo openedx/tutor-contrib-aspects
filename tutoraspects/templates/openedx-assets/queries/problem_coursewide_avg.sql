@@ -127,3 +127,4 @@ join
     on full_responses.org = coursewide_attempts.org
     and full_responses.course_key = coursewide_attempts.course_key
     and full_responses.problem_id = coursewide_attempts.problem_id
+where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
