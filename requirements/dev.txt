@@ -10,7 +10,7 @@ appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   tutor
-astroid==3.3.3
+astroid==3.3.4
     # via pylint
 asttokens==2.4.1
     # via
@@ -49,7 +49,7 @@ click==8.1.7
     #   tutor
 cryptography==43.0.1
     # via secretstorage
-dill==0.3.8
+dill==0.3.9
     # via pylint
 docutils==0.21.2
     # via readme-renderer
@@ -85,7 +85,7 @@ jaraco-classes==3.4.0
     # via keyring
 jaraco-context==6.0.1
     # via keyring
-jaraco-functools==4.0.2
+jaraco-functools==4.1.0
     # via keyring
 jeepney==0.8.0
     # via
@@ -179,7 +179,7 @@ pyinstaller==6.10.0
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2024.8
     # via pyinstaller
-pylint==3.3.0
+pylint==3.3.1
     # via -r requirements/dev.in
 pyseeyou==1.0.2
     # via
