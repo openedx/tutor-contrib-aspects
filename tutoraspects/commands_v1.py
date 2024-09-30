@@ -173,7 +173,7 @@ def init_clickhouse() -> list[tuple[str, str]]:
 @click.option(
     "--fail_on_error", is_flag=True, default=False, help="Allow errors to fail the run."
 )
-def performance_metrics(
+def performance_metrics(  # pylint: disable=too-many-arguments
     org, course_name, dashboard_slug, slice_name, print_sql, fail_on_error
 ) -> (list)[tuple[str, str]]:
     """
