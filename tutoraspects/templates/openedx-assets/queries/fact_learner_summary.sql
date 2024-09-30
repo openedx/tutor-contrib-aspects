@@ -1,21 +1,21 @@
 with
     latest_emission_time as (
-        select course_key, actor_id, MAX(emission_time) as last_visited
-        from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_navigation
+        select org, course_key, actor_id, MAX(emission_time) as last_visited
+        from {{ ASPECTS_XAPI_DATABASE }}.fact_learner_last_course_visit
         where
             1 = 1
             {% include 'openedx-assets/queries/common_filters.sql' %}
             {% include 'openedx-assets/queries/user_filters.sql' %}
-        group by course_key, actor_id
+        group by org, course_key, actor_id
     ),
     enrollment_status as (
-        select course_key, actor_id, MAX(emission_time) as max_emission_time
+        select org, course_key, actor_id, MAX(emission_time) as max_emission_time
         from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_enrollment_status
         where
             1 = 1
             {% include 'openedx-assets/queries/common_filters.sql' %}
             {% include 'openedx-assets/queries/user_filters.sql' %}
-        group by course_key, actor_id
+        group by org, course_key, actor_id
     ),
     student_status as (
         select
@@ -58,9 +58,11 @@ select
 from student_status fss
 left join
     enrollment_status fes
-    on fss.course_key = fes.course_key
+    on fss.org = fes.org
+    and fss.course_key = fes.course_key
     and fss.actor_id = fes.actor_id
 left join
     latest_emission_time let
-    on fss.course_key = let.course_key
+    on fss.org = let.org
+    and fss.course_key = let.course_key
     and fss.actor_id = let.actor_id
