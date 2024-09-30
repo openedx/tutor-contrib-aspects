@@ -88,5 +88,4 @@ join
 left outer join
     {{ ASPECTS_EVENT_SINK_DATABASE }}.user_pii users
     on full_responses.actor_id = users.external_user_id::String
-where 1=1
-    {% include 'openedx-assets/queries/common_filters.sql' %}
+where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
