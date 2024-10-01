@@ -33,6 +33,8 @@ ASPECTS_VERSION = "{{ASPECTS_VERSION}}"
 UUID = str(uuid.uuid4())[0:6]
 RUN_ID = f"aspects-{ASPECTS_VERSION}-{UUID}"
 CHART_PATH = "/app/openedx-assets/assets/charts/"
+DASHBOARDS = {{SUPERSET_EMBEDDABLE_DASHBOARDS}}
+DASHBOARDS.update({{SUPERSET_DASHBOARDS}})
 
 report_format = "{i}. {dashboard} - {slice}\n" "Superset time: {superset_time} (s).\n"
 
@@ -86,7 +88,7 @@ def performance_metrics(
     with patch("clickhouse_connect.common.build_client_name") as mock_build_client_name:
         mock_build_client_name.return_value = RUN_ID
         target_dashboards = (
-            [dashboard_slug] if dashboard_slug else {{SUPERSET_EMBEDDABLE_DASHBOARDS}}
+            [dashboard_slug] if dashboard_slug else DASHBOARDS
         )
 
         dashboards = (

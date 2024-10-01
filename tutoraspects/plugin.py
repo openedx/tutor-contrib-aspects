@@ -146,7 +146,15 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "course-dashboard": "c0e64194-33d1-4d5a-8c10-4f51530c5ee9",
                 "learner-groups": "8661d20c-cee6-4245-9fcc-610daea5fd24",
                 "individual-learner": "abae8a25-1ba4-4653-81bd-d3937a162a11",
+            },
+        ),
+        (
+            "SUPERSET_DASHBOARDS",
+            {
                 "course-comparison": "c6c7062d-dd90-4292-b9cf-84f7b9f38e73",
+                # Leaving this out for now while query context is generated
+                # for operator-dashboard slices.
+                # "operator-dashboard": "02c0121c-40e9-4d8a-b86a-6b996a1cc6fe",
             },
         ),
         # ClickHouse xAPI settings
