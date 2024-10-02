@@ -522,7 +522,7 @@ def _get_used_uuids():
     return used_uuids
 
 
-def _find_unused_assets(echo):
+def _find_unused_assets():
     """
     Find potentially unused assets.
     UUIDs listed as 'ignored' in aspects_asset_list.yaml are owned
@@ -532,13 +532,15 @@ def _find_unused_assets(echo):
     used_uuids = _get_used_uuids()
 
     # Remove uuids from 'all' list that are in used list
-    for type in used_uuids:
-        for uuid in used_uuids[type] or []:
+    for asset_type, uuids in used_uuids.items():
+        for uuid in uuids or []:
             try:
-                all_uuids[type].pop(uuid)
+                all_uuids[asset_type].pop(uuid)
             except KeyError:
                 click.echo(
-                    click.style(f"WARNING: {type} {uuid} used but not found!", fg="red")
+                    click.style(
+                        f"WARNING: {asset_type} {uuid} used but not found!", fg="red"
+                    )
                 )
 
     # Remove uuids from 'all' list that are in ignored yaml
@@ -546,9 +548,9 @@ def _find_unused_assets(echo):
         aspects_assets = yaml.safe_load(file)
 
     ignored_uuids = aspects_assets.get("ignored_uuids")
-    for type in ignored_uuids:
-        for uuid in ignored_uuids[type] or []:
-            all_uuids[type].pop(uuid, None)
+    for asset_type in ignored_uuids:
+        for uuid in ignored_uuids[asset_type] or []:
+            all_uuids[asset_type].pop(uuid, None)
 
     return all_uuids
 
@@ -560,25 +562,26 @@ def delete_aspects_unused_assets(echo):
     aspects_assets_list.yaml - these are owned by Aspects and can safely
     be deleted.
     """
-    unused_uuids = _find_unused_assets(echo)
+    unused_uuids = _find_unused_assets()
 
-    count_unused_uuids = sum(len(unused_uuids[type].values()) for type in unused_uuids)
+    count_unused_uuids = sum(len(uuids) for asset_type, uuids in unused_uuids.items())
     if count_unused_uuids:
         with open(ASPECT_ASSET_LIST, "r", encoding="utf-8") as file:
             aspects_assets = yaml.safe_load(file)
 
         unused_aspects_uuids = aspects_assets.get("unused_uuids")
-        for type in unused_aspects_uuids:
-            for uuid in unused_aspects_uuids[type] or []:
-                if uuid in unused_uuids[type]:
+        for asset_type in unused_aspects_uuids:
+            for uuid in unused_aspects_uuids[asset_type] or []:
+                if uuid in unused_uuids[asset_type]:
+                    data = unused_uuids[asset_type][uuid]
                     echo(
-                        f"Deleting unused {type} yaml {unused_uuids[type][uuid].get('name')} (UUID: {uuid})"
+                        f"Deleting unused {asset_type} yaml {data.get('name')} (UUID: {uuid})"
                     )
-                    os.remove(unused_uuids[type][uuid].get("file_path"))
-                    unused_uuids[type].pop(uuid)
+                    os.remove(data.get("file_path"))
+                    unused_uuids[asset_type].pop(uuid)
 
         new_count_unused_uuids = sum(
-            len(unused_uuids[type].values()) for type in unused_uuids
+            len(uuids) for asset_type, uuids in unused_uuids.items()
         )
 
         if new_count_unused_uuids:
@@ -589,6 +592,6 @@ def delete_aspects_unused_assets(echo):
                 )
             )
 
-            for type in unused_uuids:
-                for uuid, data in unused_uuids[type].items():
-                    echo(f'{type} {data.get("name")} (UUID: {uuid})')
+            for asset_type, uuids in unused_uuids.items():
+                for uuid, data in uuids:
+                    echo(f'{asset_type} {data.get("name")} (UUID: {uuid})')
