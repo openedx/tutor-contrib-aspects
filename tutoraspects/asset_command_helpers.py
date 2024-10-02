@@ -593,5 +593,5 @@ def delete_aspects_unused_assets(echo):
             )
 
             for asset_type, uuids in unused_uuids.items():
-                for uuid, data in uuids:
+                for uuid, data in uuids.items():
                     echo(f'{asset_type} {data.get("name")} (UUID: {uuid})')
