@@ -15,7 +15,9 @@ import yaml
 
 FILE_NAME_ATTRIBUTE = "_file_name"
 
-PLUGIN_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),"templates","aspects")
+PLUGIN_PATH = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "templates", "aspects"
+)
 ASPECT_ASSET_LIST = os.path.join(
     PLUGIN_PATH,
     "apps",
@@ -477,17 +479,17 @@ def _get_all_uuids():
     """
     Return the UUIDs of all assets.
     """
-    all_uuids = {'charts':{},'datasets':{}}
+    all_uuids = {"charts": {}, "datasets": {}}
 
     # First get all known uuid's
     for file_path, asset in _get_asset_files():
         if "slice_name" in asset:
-            all_uuids['charts'][asset["uuid"]] = {
+            all_uuids["charts"][asset["uuid"]] = {
                 "name": asset["_file_name"],
                 "file_path": file_path,
             }
         elif "table_name" in asset:
-            all_uuids['datasets'][asset["uuid"]] = {
+            all_uuids["datasets"][asset["uuid"]] = {
                 "name": asset["table_name"],
                 "file_path": file_path,
             }
@@ -499,7 +501,7 @@ def _get_used_uuids():
     """
     Return the UUIDs of all datasets and charts actually used in our file assets.
     """
-    used_uuids = {'charts':set(),'datasets':set()}
+    used_uuids = {"charts": set(), "datasets": set()}
 
     for _, asset in _get_asset_files():
         if "dashboard_title" in asset:
@@ -508,14 +510,14 @@ def _get_used_uuids():
             for filter_config in filters:
                 for item in filter_config.get("targets", {}):
                     if item.get("datasetUuid"):
-                        used_uuids['datasets'].add(item.get("datasetUuid"))
+                        used_uuids["datasets"].add(item.get("datasetUuid"))
 
             for pos in asset["position"]:
                 if pos.startswith("CHART-"):
-                    used_uuids['charts'].add(asset["position"][pos]["meta"].get("uuid"))
+                    used_uuids["charts"].add(asset["position"][pos]["meta"].get("uuid"))
 
         if "slice_name" in asset:
-            used_uuids['datasets'].add(asset["dataset_uuid"])
+            used_uuids["datasets"].add(asset["dataset_uuid"])
 
     return used_uuids
 
@@ -575,11 +577,17 @@ def delete_aspects_unused_assets(echo):
                     os.remove(unused_uuids[type][uuid].get("file_path"))
                     unused_uuids[type].pop(uuid)
 
-        new_count_unused_uuids = sum(len(unused_uuids[type].values()) for type in unused_uuids)
+        new_count_unused_uuids = sum(
+            len(unused_uuids[type].values()) for type in unused_uuids
+        )
 
         if new_count_unused_uuids:
             echo(click.style("Potentially unused assets detected:", fg="yellow"))
-            echo(click.style("Add the UUIDs to aspects_asset_list.yaml to be deleted", fg="green"))
+            echo(
+                click.style(
+                    "Add the UUIDs to aspects_asset_list.yaml to be deleted", fg="green"
+                )
+            )
 
             for type in unused_uuids:
                 for uuid, data in unused_uuids[type].items():
