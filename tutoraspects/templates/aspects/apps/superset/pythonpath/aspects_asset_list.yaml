@@ -1,9 +1,6 @@
 unused_uuids:
   datasets:
   charts:
-    - ccdd7d98-4722-490b-a0b2-077380a7c7eb
-    - b73b0a5c-4861-402e-a39c-d73333a4d911
-    - 4e48b8f9-e757-4263-a9d7-d18018620a24
 
 ignored_uuids:
   datasets:

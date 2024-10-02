@@ -90,11 +90,11 @@ def create_assets():
     with open(path, "w") as file:
         yaml.dump(translated_asset_uuids, file, default_flow_style=False)
 
-    # import_assets()
-    # update_dashboard_roles(roles)
-    # update_embeddable_uuids()
-    # update_datasets()
-    # create_rls_filters()
+    import_assets()
+    update_dashboard_roles(roles)
+    update_embeddable_uuids()
+    update_datasets()
+    create_rls_filters()
 
     # Delete unused UUIDs from yaml list
     with open(os.path.join(PYTHONPATH,"aspects_asset_list.yaml"), "r", encoding="utf-8") as file:
