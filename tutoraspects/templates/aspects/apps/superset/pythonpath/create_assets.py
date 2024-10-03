@@ -81,10 +81,6 @@ def create_assets():
             for asset in extra_assets:
                 process_asset(asset, roles, translated_asset_uuids)
 
-
-    # for uuid in translated_asset_uuids:
-    #     translated_asset_uuids[uuid] = list(translated_asset_uuids[uuid])
-
     import_assets()
     update_dashboard_roles(roles)
     update_embeddable_uuids()
