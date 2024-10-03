@@ -30,6 +30,10 @@ from pythonpath.create_row_level_security import create_rls_filters
 
 
 logger = logging.getLogger("create_assets")
+# Supress output from black (sqlfmt) formatting
+blib2to3_logger = logging.getLogger('blib2to3.pgen2.driver')
+blib2to3_logger.setLevel(logging.WARN)
+
 BASE_DIR = "/app/assets/superset"
 ASSET_FOLDER_MAPPING = {
     "dashboard_title": "dashboards",
