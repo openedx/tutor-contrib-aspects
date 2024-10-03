@@ -1,9 +1,5 @@
 """Delete all unused Aspects assets from Superset tables"""
-import os
-
 import logging
-import yaml
-from collections import defaultdict
 from flask import g
 
 from superset import security_manager
@@ -13,10 +9,8 @@ from superset.connectors.sqla.models import SqlaTable
 from superset.tags.models import TaggedObject, ObjectType
 from superset.commands.chart.delete import DeleteChartCommand
 from superset.commands.dataset.delete import DeleteDatasetCommand
-from superset.commands.tag.delete import DeleteTagsCommand
 from sqlalchemy.exc import NoResultFound
 from superset.commands.exceptions import CommandInvalidError
-
 
 logger = logging.getLogger("delete_assets")
 PYTHONPATH = "/app/pythonpath"
@@ -26,13 +20,8 @@ ASSET_NAME_COLUMN = {'charts': 'slice_name', 'datasets': 'table_name'}
 ASSET_COMMANDS = {'charts': DeleteChartCommand, 'datasets': DeleteDatasetCommand}
 OBJECT_TYPES = {'charts': ObjectType.chart, 'datasets': ObjectType.dataset} 
 
-def delete_assets(unused_uuids):
+def delete_assets(unused_uuids, translated_asset_uuids):
     """Delete unused assets and their translated versions"""
-    with open(os.path.join(PYTHONPATH,"translated_asset_mapping.yaml"),'r', encoding="utf-8") as file:
-        mapping = yaml.safe_load_all(file)
-        for line in mapping:
-            translated_ids = line
-
     for type in unused_uuids:
         id_list = []
         asset_list = set()
@@ -42,8 +31,8 @@ def delete_assets(unused_uuids):
                 id_list.append(row.id)
                 asset_list.add(getattr(row,ASSET_NAME_COLUMN[type]))
 
-                if uuid in translated_ids:
-                    for child_uuid in translated_ids[uuid]:
+                if uuid in translated_asset_uuids:
+                    for child_uuid in translated_asset_uuids[uuid]:
                         row = db.session.query(ASSET_TABLES[type]).filter_by(uuid=child_uuid).one()
                         id_list.append(row.id)
                         asset_list.add(getattr(row,ASSET_NAME_COLUMN[type]))

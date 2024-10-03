@@ -19,11 +19,9 @@ from superset.extensions import db
 from superset.models.dashboard import Dashboard
 from superset.models.slice import Slice
 from superset.connectors.sqla.models import SqlaTable
-from superset.utils.database import get_or_create_db
 from superset.models.embedded_dashboard import EmbeddedDashboard
 from pythonpath.create_assets_utils import load_configs_from_directory
 from pythonpath.delete_assets import delete_assets
-from yaml.representer import Representer
 
 from pythonpath.localization import get_translation
 from pythonpath.create_row_level_security import create_rls_filters
@@ -62,8 +60,6 @@ def main():
 def create_assets():
     """Create assets from a yaml file."""
     roles = {}
-
-    yaml.add_representer(defaultdict, Representer.represent_dict)
     translated_asset_uuids = defaultdict(set)
 
     for root, dirs, files in os.walk(ASSETS_PATH):
@@ -86,13 +82,8 @@ def create_assets():
                 process_asset(asset, roles, translated_asset_uuids)
 
 
-    for uuid in translated_asset_uuids:
-        translated_asset_uuids[uuid] = list(translated_asset_uuids[uuid])
-
-    # Write parent UUID & translated child UUIDs to yaml file
-    path = os.path.join(PYTHONPATH,"translated_asset_mapping.yaml")
-    with open(path, "w") as file:
-        yaml.dump(translated_asset_uuids, file, default_flow_style=False)
+    # for uuid in translated_asset_uuids:
+    #     translated_asset_uuids[uuid] = list(translated_asset_uuids[uuid])
 
     import_assets()
     update_dashboard_roles(roles)
@@ -100,11 +91,11 @@ def create_assets():
     update_datasets()
     create_rls_filters()
 
-    # Delete unused UUIDs from yaml list
+    # Delete unused assets
     with open(os.path.join(PYTHONPATH,"aspects_asset_list.yaml"), "r", encoding="utf-8") as file:
         assets = yaml.safe_load(file)
     unused_aspect_uuids = assets['unused_uuids']
-    delete_assets(unused_aspect_uuids)
+    delete_assets(unused_aspect_uuids, translated_asset_uuids)
 
 def process_asset(asset, roles, translated_asset_uuids):
     if FILE_NAME_ATTRIBUTE not in asset:
