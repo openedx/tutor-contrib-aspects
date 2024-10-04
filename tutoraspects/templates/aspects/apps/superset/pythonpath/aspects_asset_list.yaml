@@ -1,0 +1,18 @@
+unused_uuids:
+  datasets:
+  charts:
+  - a433e3cc-8ed5-454a-8b17-5dd75cfc84e4 # Course Info
+  - e0098cfe-a312-4c49-8efd-7e74256b6ea4 # Course info
+  - d3ae0546-37a8-4841-a57b-8087a6c33049 # Evolution of engagement
+  - 2f2af8b0-94ae-4300-b71f-3bd7f9fc127c # Enrollment counts
+  - bd37be7f-6672-4dca-80ae-a54f69d169da # Enrollment counts
+  - dde44a03-649f-4d77-990b-a95be204e1ba # Learner performance
+  - 4e48b8f9-e757-4263-a9d7-d18018620a24 # Learner performance
+  - 4250c976-a9b7-43ff-b5ad-8dd00a5acef7 # Learner performance breakdown
+  - 9c3f7291-1bd9-4b2f-abc0-472aad3aff06 # Learner performance breakdown
+  - 8b0535a8-a43f-49bf-9d50-439a16bd3f74 # Video engagement
+
+ignored_uuids:
+  datasets:
+  charts:
+    - bb13bb31-c797-4ed3-a7f9-7825cc6dc482 # "Query performance" needed for the performance_metrics script

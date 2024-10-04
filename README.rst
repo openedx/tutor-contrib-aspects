@@ -112,6 +112,11 @@ asset by editing the asset in Superset and selecting "Save As" to save it to a n
 # Note: If you are using custom assets you will need to rebuild your aspects-superset
 # image on your local machine with `tutor images build aspects-superset --no-cache`.
 
+Assets (charts/datasets) created for Aspects that are no longer used can be listed in 
+`aspects_asset_list.yaml`. These assets & any translated assets created from them, 
+are deleted from Superset during `init` (specifically `import-assets`). The corresponding 
+YAML files are deleted during `import_superset_zip` or and `check_superset_assets`.
+
 Sharing Charts and Dashboards
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
