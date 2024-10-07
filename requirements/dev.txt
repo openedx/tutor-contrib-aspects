@@ -10,7 +10,7 @@ appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   tutor
-astroid==3.3.4
+astroid==3.3.5
     # via pylint
 asttokens==2.4.1
     # via
@@ -53,7 +53,7 @@ dill==0.3.9
     # via pylint
 docutils==0.21.2
     # via readme-renderer
-durationpy==0.7
+durationpy==0.9
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -167,7 +167,7 @@ pyasn1-modules==0.4.1
     #   google-auth
 pycparser==2.22
     # via cffi
-pycryptodome==3.20.0
+pycryptodome==3.21.0
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -216,7 +216,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.8.1
+rich==13.9.2
     # via twine
 rsa==4.9
     # via
@@ -240,7 +240,7 @@ six==1.16.0
     #   python-dateutil
 tomlkit==0.13.2
     # via pylint
-toolz==0.12.1
+toolz==1.0.0
     # via
     #   -r requirements/base.txt
     #   pyseeyou
