@@ -10,7 +10,7 @@ asttokens==2.4.1
     # via transifex-python
 bcrypt==4.2.0
     # via -r requirements/base.in
-black==24.8.0
+black==24.10.0
     # via shandy-sqlfmt
 cachetools==5.5.0
     # via google-auth
@@ -18,7 +18,7 @@ certifi==2024.8.30
     # via
     #   kubernetes
     #   requests
-charset-normalizer==3.3.2
+charset-normalizer==3.4.0
     # via requests
 click==8.1.7
     # via
@@ -47,7 +47,7 @@ jinja2==3.1.4
     #   tutor
 kubernetes==31.0.0
     # via tutor
-markupsafe==2.1.5
+markupsafe==3.0.1
     # via jinja2
 mypy==1.11.2
     # via tutor
