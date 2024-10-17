@@ -129,12 +129,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                     "uuid": "abae8a25-1ba4-4653-81bd-d3937a162a11",
                     "allow_translations": True,
                 },
-                {
-                    "name": "Course Comparison Dashboard",
-                    "slug": "course-comparison",
-                    "uuid": "c6c7062d-dd90-4292-b9cf-84f7b9f38e73",
-                    "allow_translations": True,
-                },
             ],
         ),
         # The following settings are used to configure the Superset dashboards
@@ -391,7 +385,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
-        ("DBT_BRANCH", "v3.33.1"),
+        ("DBT_BRANCH", "v3.33.2"),
         ("DBT_SSH_KEY", ""),
         ("DBT_STATE_DIR", "/app/aspects-dbt/state"),
         ("DBT_PROFILES_DIR", "/app/aspects/dbt/"),
