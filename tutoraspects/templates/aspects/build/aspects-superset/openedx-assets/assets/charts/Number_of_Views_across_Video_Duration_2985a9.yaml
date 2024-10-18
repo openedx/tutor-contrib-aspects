@@ -55,7 +55,7 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 483
+    id: 59
     type: table
   force: false
   form_data:
@@ -72,10 +72,7 @@ query_context:
       subject: started_at
     annotation_layers: []
     color_scheme: supersetColors
-    dashboards:
-    - 303
-    - 307
-    datasource: 483__table
+    datasource: 59__table
     extra_form_data: {}
     force: false
     groupby: []
@@ -92,7 +89,7 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    slice_id: 193
+    slice_id: 124
     sort_series_type: sum
     stack: Stack
     tooltipTimeFormat: smart_date

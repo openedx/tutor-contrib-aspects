@@ -8,11 +8,15 @@ params:
   adhoc_filters:
   - clause: WHERE
     comparator: No filter
+    datasourceWarning: false
     expressionType: SIMPLE
+    filterOptionName: filter_6yivq3tfsx5_ple4axtqz6
+    isExtra: false
+    isNew: false
     operator: TEMPORAL_RANGE
+    sqlExpression: null
     subject: enrolled_at
   all_columns: []
-  annotation_layers: []
   color_pn: true
   column_config:
     Avg Course Grade:
@@ -22,10 +26,6 @@ params:
       d3NumberFormat: ~g
       d3SmallNumberFormat: ~g
   conditional_formatting:
-  - colorScheme: '#ACE1C4'
-    column: active_within
-    operator: "\u2265"
-    targetValue: 0
   - colorScheme: '#EFA1AA'
     column: avg_course_grade
     operator: <
@@ -47,6 +47,10 @@ params:
     column: median_course_grade
     operator: <
     targetValue: 50
+  - colorScheme: '#ACE1C4'
+    column: active_within_7_days
+    operator: '>'
+    targetValue: 0
   extra_form_data: {}
   groupby:
   - org
@@ -54,7 +58,7 @@ params:
   - course_name
   - course_run
   metrics:
-  - active_within
+  - active_within_7_days
   - avg_course_grade
   - median_course_grade
   order_by_cols: []
@@ -67,19 +71,23 @@ params:
   table_timestamp_format: smart_date
   temporal_columns_lookup:
     enrolled_at: true
-  time_grain_sqla: P1D
   viz_type: table
 query_context:
   datasource:
-    id: 38
+    id: 301
     type: table
   force: false
   form_data:
     adhoc_filters:
     - clause: WHERE
       comparator: No filter
+      datasourceWarning: false
       expressionType: SIMPLE
+      filterOptionName: filter_6yivq3tfsx5_ple4axtqz6
+      isExtra: false
+      isNew: false
       operator: TEMPORAL_RANGE
+      sqlExpression: null
       subject: enrolled_at
     all_columns: []
     color_pn: true
@@ -91,10 +99,6 @@ query_context:
         d3NumberFormat: ~g
         d3SmallNumberFormat: ~g
     conditional_formatting:
-    - colorScheme: '#ACE1C4'
-      column: active_within
-      operator: "\u2265"
-      targetValue: 0
     - colorScheme: '#EFA1AA'
       column: avg_course_grade
       operator: <
@@ -116,9 +120,13 @@ query_context:
       column: median_course_grade
       operator: <
       targetValue: 50
+    - colorScheme: '#ACE1C4'
+      column: active_within_7_days
+      operator: '>'
+      targetValue: 0
     dashboards:
-    - 17
-    datasource: 38__table
+    - 581
+    datasource: 301__table
     extra_form_data: {}
     force: false
     groupby:
@@ -127,7 +135,7 @@ query_context:
     - course_name
     - course_run
     metrics:
-    - active_within
+    - active_within_7_days
     - avg_course_grade
     - median_course_grade
     order_by_cols: []
@@ -139,11 +147,10 @@ query_context:
     row_limit: 1000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 49
+    slice_id: 1481
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       enrolled_at: true
-    time_grain_sqla: P1D
     viz_type: table
   queries:
   - annotation_layers: []
@@ -157,19 +164,18 @@ query_context:
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1D
       where: ''
     filters:
     - col: enrolled_at
       op: TEMPORAL_RANGE
       val: No filter
     metrics:
-    - active_within
+    - active_within_7_days
     - avg_course_grade
     - median_course_grade
     order_desc: true
     orderby:
-    - - active_within
+    - - active_within_7_days
       - false
     post_processing: []
     row_limit: 1000

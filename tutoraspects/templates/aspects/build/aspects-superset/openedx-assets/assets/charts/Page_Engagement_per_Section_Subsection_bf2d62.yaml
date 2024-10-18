@@ -13,18 +13,13 @@ params:
     subject: visited_on
   annotation_layers: []
   color_scheme: supersetColors
-  comparison_type: values
   extra_form_data: {}
-  forecastInterval: 0.8
-  forecastPeriods: 10
   groupby: []
   legendOrientation: top
   legendType: scroll
   metrics:
   - all_pages_viewed
   - at_leat_one_page_viewed
-  only_total: true
-  order_desc: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
@@ -32,29 +27,21 @@ params:
   show_legend: true
   show_value: false
   sort_series_type: sum
-  time_grain_sqla: P1M
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncate_metric: true
   viz_type: echarts_timeseries_bar
-  xAxisLabelRotation: 0
   x_axis: section_subsection_name
-  x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
-  x_axis_time_format: smart_date
-  x_axis_title_margin: 75
-  y_axis_bounds:
-  - null
-  - null
-  y_axis_format: ',d'
+  y_axis_format: SMART_NUMBER
   y_axis_title: Number of Learners
   y_axis_title_margin: 30
   y_axis_title_position: Left
   zoomable: true
 query_context:
   datasource:
-    id: 6
+    id: 35
     type: table
   force: false
   form_data:
@@ -66,23 +53,18 @@ query_context:
       subject: visited_on
     annotation_layers: []
     color_scheme: supersetColors
-    comparison_type: values
     dashboards:
-    - 28
-    - 29
-    datasource: 6__table
+    - 24
+    - 25
+    datasource: 35__table
     extra_form_data: {}
     force: false
-    forecastInterval: 0.8
-    forecastPeriods: 10
     groupby: []
     legendOrientation: top
     legendType: scroll
     metrics:
     - all_pages_viewed
     - at_leat_one_page_viewed
-    only_total: true
-    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
@@ -91,24 +73,16 @@ query_context:
     show_empty_columns: true
     show_legend: true
     show_value: false
-    slice_id: 7
+    slice_id: 47
     sort_series_type: sum
-    time_grain_sqla: P1M
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
     viz_type: echarts_timeseries_bar
-    xAxisLabelRotation: 0
     x_axis: section_subsection_name
-    x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
-    x_axis_time_format: smart_date
-    x_axis_title_margin: 75
-    y_axis_bounds:
-    - null
-    - null
-    y_axis_format: ',d'
+    y_axis_format: SMART_NUMBER
     y_axis_title: Number of Learners
     y_axis_title_margin: 30
     y_axis_title_position: Left
@@ -121,12 +95,10 @@ query_context:
       expressionType: SQL
       label: section_subsection_name
       sqlExpression: section_subsection_name
-      timeGrain: P1M
     custom_form_data: {}
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1M
       where: ''
     filters:
     - col: visited_on

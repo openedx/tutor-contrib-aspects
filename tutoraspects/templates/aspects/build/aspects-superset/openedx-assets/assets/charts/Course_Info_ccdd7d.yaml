@@ -12,6 +12,7 @@ params:
     operator: TEMPORAL_RANGE
     subject: emission_time
   all_columns: []
+  annotation_layers: []
   color_pn: false
   column_config:
     Current Enrollees:

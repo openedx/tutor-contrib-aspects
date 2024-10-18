@@ -6,8 +6,7 @@ columns:
   column_name: active_within_last_7_days
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -19,8 +18,7 @@ columns:
   column_name: course_key
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -32,8 +30,7 @@ columns:
   column_name: enrollment_mode
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -45,8 +42,7 @@ columns:
   column_name: course_grade
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -58,8 +54,7 @@ columns:
   column_name: enrolled_at
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -71,8 +66,7 @@ columns:
   column_name: actor_id
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -84,8 +78,7 @@ columns:
   column_name: approving_state
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -97,8 +90,7 @@ columns:
   column_name: grade_bucket
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -110,8 +102,7 @@ columns:
   column_name: course_name
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -123,8 +114,7 @@ columns:
   column_name: course_run
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -136,8 +126,7 @@ columns:
   column_name: enrollment_status
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -149,8 +138,7 @@ columns:
   column_name: org
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -162,8 +150,7 @@ columns:
   column_name: email
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -175,8 +162,7 @@ columns:
   column_name: name
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -188,8 +174,7 @@ columns:
   column_name: username
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -208,18 +193,9 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: SUM(active_within_last_7_days)
+  expression: ROUND(AVG(course_grade), 2 ) *100
   extra:
     warning_markdown: ''
-  metric_name: active_within
-  metric_type: null
-  verbose_name: Active within Last 7 Days
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: ROUND(AVG(course_grade), 2 ) *100
-  extra: {}
   metric_name: avg_course_grade
   metric_type: null
   verbose_name: Avg Course Grade
@@ -228,10 +204,21 @@ metrics:
   d3format: null
   description: null
   expression: quantile(0.5)(round(course_grade,2) * 100)
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: median_course_grade
   metric_type: null
   verbose_name: Median Course Grade
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: AVG(active_within_last_7_days)
+  extra:
+    warning_markdown: ''
+  metric_name: active_within_7_days
+  metric_type: null
+  verbose_name: Active Within Last 7 Days
   warning_text: null
 - currency: null
   d3format: null

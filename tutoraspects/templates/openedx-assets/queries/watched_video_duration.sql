@@ -4,7 +4,7 @@ select
     names.course_name as course_name,
     names.course_run as course_run,
     actor_id,
-    video_id,
+    video_count,
     video_duration,
     watched_time,
     rewatched_time
