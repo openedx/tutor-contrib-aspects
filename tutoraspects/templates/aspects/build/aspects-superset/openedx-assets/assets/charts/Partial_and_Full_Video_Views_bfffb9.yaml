@@ -47,7 +47,7 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 576
+    id: 73
     type: table
   force: false
   form_data:
@@ -55,10 +55,7 @@ query_context:
     annotation_layers: []
     color_scheme: supersetColors
     comparison_type: values
-    dashboards:
-    - 303
-    - 307
-    datasource: 576__table
+    datasource: 73__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -78,7 +75,7 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    slice_id: 1039
+    slice_id: 123
     sort_series_type: sum
     tooltipTimeFormat: smart_date
     truncateXAxis: true

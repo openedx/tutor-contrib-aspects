@@ -46,7 +46,7 @@ params:
   y_axis_title_position: Left
 query_context:
   datasource:
-    id: 54
+    id: 63
     type: table
   force: false
   form_data:
@@ -54,7 +54,7 @@ query_context:
     annotation_layers: []
     color_scheme: supersetColors
     comparison_type: values
-    datasource: 54__table
+    datasource: 63__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -75,7 +75,7 @@ query_context:
     show_empty_columns: true
     show_legend: true
     show_value: false
-    slice_id: 95
+    slice_id: 23
     sort_series_type: sum
     tooltipTimeFormat: smart_date
     truncateXAxis: true

@@ -1,4 +1,4 @@
-_file_name: Course_Information_fa249d.yaml
+_file_name: Course_Information_f909e0.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
@@ -12,7 +12,6 @@ params:
     operator: TEMPORAL_RANGE
     subject: enrolled_at
   all_columns: []
-  annotation_layers: []
   color_pn: true
   column_config:
     Avg Course Grade:
@@ -22,10 +21,6 @@ params:
       d3NumberFormat: ~g
       d3SmallNumberFormat: ~g
   conditional_formatting:
-  - colorScheme: '#ACE1C4'
-    column: active_within
-    operator: "\u2265"
-    targetValue: 0
   - colorScheme: '#EFA1AA'
     column: avg_course_grade
     operator: <
@@ -47,6 +42,10 @@ params:
     column: median_course_grade
     operator: <
     targetValue: 50
+  - colorScheme: '#ACE1C4'
+    column: Active Within Last 7 Days
+    operator: '>'
+    targetValue: 0
   extra_form_data: {}
   groupby:
   - org
@@ -54,7 +53,30 @@ params:
   - course_name
   - course_run
   metrics:
-  - active_within
+  - aggregate: AVG
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: active_within_last_7_days
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 683
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: UInt64
+      type_generic: 0
+      verbose_name: Active Within Last 7 Days
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: Active Within Last 7 Days
+    optionName: metric_9ysvoht7z9_7zzqrfsnybt
+    sqlExpression: null
   - avg_course_grade
   - median_course_grade
   order_by_cols: []
@@ -62,16 +84,14 @@ params:
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
-  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
   temporal_columns_lookup:
     enrolled_at: true
-  time_grain_sqla: P1D
   viz_type: table
 query_context:
   datasource:
-    id: 38
+    id: 60
     type: table
   force: false
   form_data:
@@ -91,10 +111,6 @@ query_context:
         d3NumberFormat: ~g
         d3SmallNumberFormat: ~g
     conditional_formatting:
-    - colorScheme: '#ACE1C4'
-      column: active_within
-      operator: "\u2265"
-      targetValue: 0
     - colorScheme: '#EFA1AA'
       column: avg_course_grade
       operator: <
@@ -116,9 +132,13 @@ query_context:
       column: median_course_grade
       operator: <
       targetValue: 50
+    - colorScheme: '#ACE1C4'
+      column: Active Within Last 7 Days
+      operator: '>'
+      targetValue: 0
     dashboards:
-    - 17
-    datasource: 38__table
+    - 24
+    datasource: 60__table
     extra_form_data: {}
     force: false
     groupby:
@@ -127,7 +147,30 @@ query_context:
     - course_name
     - course_run
     metrics:
-    - active_within
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: active_within_last_7_days
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 683
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: UInt64
+        type_generic: 0
+        verbose_name: Active Within Last 7 Days
+        warning_markdown: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Active Within Last 7 Days
+      optionName: metric_9ysvoht7z9_7zzqrfsnybt
+      sqlExpression: null
     - avg_course_grade
     - median_course_grade
     order_by_cols: []
@@ -137,13 +180,11 @@ query_context:
     result_format: json
     result_type: full
     row_limit: 1000
-    server_page_length: 10
     show_cell_bars: true
-    slice_id: 49
+    slice_id: 119
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       enrolled_at: true
-    time_grain_sqla: P1D
     viz_type: table
   queries:
   - annotation_layers: []
@@ -157,19 +198,64 @@ query_context:
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1D
       where: ''
     filters:
     - col: enrolled_at
       op: TEMPORAL_RANGE
       val: No filter
     metrics:
-    - active_within
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: active_within_last_7_days
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 683
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: UInt64
+        type_generic: 0
+        verbose_name: Active Within Last 7 Days
+        warning_markdown: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Active Within Last 7 Days
+      optionName: metric_9ysvoht7z9_7zzqrfsnybt
+      sqlExpression: null
     - avg_course_grade
     - median_course_grade
     order_desc: true
     orderby:
-    - - active_within
+    - - aggregate: AVG
+        column:
+          advanced_data_type: null
+          certification_details: null
+          certified_by: null
+          column_name: active_within_last_7_days
+          description: null
+          expression: null
+          filterable: true
+          groupby: true
+          id: 683
+          is_certified: false
+          is_dttm: false
+          python_date_format: null
+          type: UInt64
+          type_generic: 0
+          verbose_name: Active Within Last 7 Days
+          warning_markdown: null
+        datasourceWarning: false
+        expressionType: SIMPLE
+        hasCustomLabel: true
+        label: Active Within Last 7 Days
+        optionName: metric_9ysvoht7z9_7zzqrfsnybt
+        sqlExpression: null
       - false
     post_processing: []
     row_limit: 1000
@@ -178,6 +264,6 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Course Information
-uuid: fa249dda-78da-4ccc-9ef3-39177e6aae0c
+uuid: f909e03a-06a9-4d04-9ea0-243a576093d4
 version: 1.0.0
 viz_type: table
