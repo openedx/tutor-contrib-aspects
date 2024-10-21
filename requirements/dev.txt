@@ -47,7 +47,7 @@ click==8.1.7
     #   shandy-sqlfmt
     #   transifex-python
     #   tutor
-cryptography==43.0.1
+cryptography==43.0.3
     # via secretstorage
 dill==0.3.9
     # via pylint
@@ -104,7 +104,7 @@ kubernetes==31.0.0
     #   tutor
 markdown-it-py==3.0.0
     # via rich
-markupsafe==3.0.1
+markupsafe==3.0.2
     # via
     #   -r requirements/base.txt
     #   jinja2
@@ -116,7 +116,7 @@ more-itertools==10.5.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-mypy==1.11.2
+mypy==1.12.1
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -175,9 +175,9 @@ pygments==2.18.0
     # via
     #   readme-renderer
     #   rich
-pyinstaller==6.10.0
+pyinstaller==6.11.0
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2024.8
+pyinstaller-hooks-contrib==2024.9
     # via pyinstaller
 pylint==3.3.1
     # via -r requirements/dev.in
@@ -224,7 +224,7 @@ rsa==4.9
     #   google-auth
 ruamel-yaml==0.18.6
     # via -r requirements/base.txt
-ruamel-yaml-clib==0.2.8
+ruamel-yaml-clib==0.2.12
     # via
     #   -r requirements/base.txt
     #   ruamel-yaml
