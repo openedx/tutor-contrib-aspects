@@ -12,7 +12,6 @@ unused_uuids:
   - 4250c976-a9b7-43ff-b5ad-8dd00a5acef7 # Learner performance breakdown
   - 9c3f7291-1bd9-4b2f-abc0-472aad3aff06 # Learner performance breakdown
   - 8b0535a8-a43f-49bf-9d50-439a16bd3f74 # Video engagement
-  - fa249dda-78da-4ccc-9ef3-39177e6aae0c # Course Information
 
 ignored_uuids:
   datasets:

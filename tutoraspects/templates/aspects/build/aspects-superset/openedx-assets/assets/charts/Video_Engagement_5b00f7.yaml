@@ -7,6 +7,7 @@ description: null
 params:
   adhoc_filters: []
   all_columns: []
+  annotation_layers: []
   color_pn: true
   column_config:
     rewatched_percent:
@@ -18,28 +19,30 @@ params:
   groupby:
   - course_name
   - org
-  - video_count
   metrics:
   - watched_percent
   - rewatched_percent
+  - video_count
   - avg_video_length
   order_by_cols: []
   order_desc: true
   percent_metrics: []
   query_mode: aggregate
   row_limit: 50000
+  server_page_length: 10
   show_cell_bars: false
   table_timestamp_format: smart_date
   temporal_columns_lookup: {}
   viz_type: table
 query_context:
   datasource:
-    id: 161
+    id: 65
     type: table
   force: false
   form_data:
     adhoc_filters: []
     all_columns: []
+    annotation_layers: []
     color_pn: true
     column_config:
       rewatched_percent:
@@ -47,18 +50,16 @@ query_context:
       watched_percent:
         d3NumberFormat: ',.1%'
     conditional_formatting: []
-    dashboards:
-    - 441
-    datasource: 161__table
+    datasource: 65__table
     extra_form_data: {}
     force: false
     groupby:
     - course_name
     - org
-    - video_count
     metrics:
     - watched_percent
     - rewatched_percent
+    - video_count
     - avg_video_length
     order_by_cols: []
     order_desc: true
@@ -67,8 +68,9 @@ query_context:
     result_format: json
     result_type: full
     row_limit: 50000
+    server_page_length: 10
     show_cell_bars: false
-    slice_id: 1121
+    slice_id: 82
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     viz_type: table
@@ -78,7 +80,6 @@ query_context:
     columns:
     - course_name
     - org
-    - video_count
     custom_form_data: {}
     custom_params: {}
     extras:
@@ -88,6 +89,7 @@ query_context:
     metrics:
     - watched_percent
     - rewatched_percent
+    - video_count
     - avg_video_length
     order_desc: true
     orderby:
