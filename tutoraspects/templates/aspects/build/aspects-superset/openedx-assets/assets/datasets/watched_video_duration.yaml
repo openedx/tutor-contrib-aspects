@@ -106,6 +106,18 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Org
+- advanced_data_type: null
+  column_name: video_count
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int32
+  verbose_name: Video Count
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
