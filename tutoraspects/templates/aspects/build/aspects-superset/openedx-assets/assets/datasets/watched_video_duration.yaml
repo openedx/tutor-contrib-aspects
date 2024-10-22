@@ -3,6 +3,19 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
+  column_name: video_count
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: UInt64
+  verbose_name: Number of Videos
+- advanced_data_type: null
   column_name: course_name
   description: null
   expression: ''
@@ -29,6 +42,58 @@ columns:
   type: Int64
   verbose_name: Video Duration
 - advanced_data_type: null
+  column_name: rewatched_time
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int64
+  verbose_name: Rewatched Time
+- advanced_data_type: null
+  column_name: watched_time
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int64
+  verbose_name: Watched Time
+- advanced_data_type: null
+  column_name: actor_id
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Actor Id
+- advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Key
+- advanced_data_type: null
   column_name: course_run
   description: null
   expression: null
@@ -54,66 +119,6 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Org
-- advanced_data_type: null
-  column_name: rewatched_time
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Int64
-  verbose_name: Rewatched Time
-- advanced_data_type: null
-  column_name: watched_time
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Int64
-  verbose_name: Watched Time
-- advanced_data_type: null
-  column_name: actor_id
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Actor Id
-- advanced_data_type: null
-  column_name: course_key
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Key
-- advanced_data_type: null
-  column_name: video_id
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Video Id
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
@@ -126,7 +131,8 @@ metrics:
   d3format: null
   description: null
   expression: (sum(rewatched_time)/count(actor_id))/sum(video_duration)
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: rewatched_percent
   metric_type: null
   verbose_name: '% Video Seconds Rewatched'
@@ -135,7 +141,8 @@ metrics:
   d3format: null
   description: null
   expression: (sum(watched_time)/count(actor_id))/sum(video_duration)
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: watched_percent
   metric_type: null
   verbose_name: '% Video Seconds Watched'
@@ -144,7 +151,8 @@ metrics:
   d3format: null
   description: null
   expression: avg(video_duration)
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: avg_video_length
   metric_type: null
   verbose_name: Avg Video Length (seconds)
@@ -152,9 +160,9 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: count(distinct video_id)
+  expression: avg(video_count)
   extra: {}
-  metric_name: video_count
+  metric_name: num_videos
   metric_type: null
   verbose_name: Number of Videos
   warning_text: null
