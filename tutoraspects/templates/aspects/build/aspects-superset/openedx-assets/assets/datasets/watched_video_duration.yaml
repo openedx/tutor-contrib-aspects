@@ -161,7 +161,8 @@ metrics:
   d3format: null
   description: null
   expression: avg(video_count)
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: num_videos
   metric_type: null
   verbose_name: Number of Videos

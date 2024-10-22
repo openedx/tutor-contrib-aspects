@@ -7,7 +7,6 @@ description: null
 params:
   adhoc_filters: []
   all_columns: []
-  annotation_layers: []
   color_pn: true
   column_config:
     rewatched_percent:
@@ -20,16 +19,15 @@ params:
   - course_run
   - course_name
   metrics:
+  - num_videos
   - watched_percent
   - rewatched_percent
-  - video_count
   - avg_video_length
   order_by_cols: []
   order_desc: true
   percent_metrics: []
   query_mode: aggregate
   row_limit: 50000
-  server_page_length: 10
   show_cell_bars: false
   table_timestamp_format: smart_date
   temporal_columns_lookup: {}
@@ -42,7 +40,6 @@ query_context:
   form_data:
     adhoc_filters: []
     all_columns: []
-    annotation_layers: []
     color_pn: true
     column_config:
       rewatched_percent:
@@ -50,6 +47,8 @@ query_context:
       watched_percent:
         d3NumberFormat: ',.1%'
     conditional_formatting: []
+    dashboards:
+    - 22
     datasource: 65__table
     extra_form_data: {}
     force: false
@@ -57,9 +56,9 @@ query_context:
     - course_run
     - course_name
     metrics:
+    - num_videos
     - watched_percent
     - rewatched_percent
-    - video_count
     - avg_video_length
     order_by_cols: []
     order_desc: true
@@ -68,7 +67,6 @@ query_context:
     result_format: json
     result_type: full
     row_limit: 50000
-    server_page_length: 10
     show_cell_bars: false
     slice_id: 145
     table_timestamp_format: smart_date
@@ -87,13 +85,13 @@ query_context:
       where: ''
     filters: []
     metrics:
+    - num_videos
     - watched_percent
     - rewatched_percent
-    - video_count
     - avg_video_length
     order_desc: true
     orderby:
-    - - watched_percent
+    - - num_videos
       - false
     post_processing: []
     row_limit: 50000
