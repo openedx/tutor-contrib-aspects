@@ -104,7 +104,7 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: uniq(active_learner,course_run)
+  expression: uniq((active_learner,course_run))
   extra:
     warning_markdown: ''
   metric_name: active_count
@@ -125,7 +125,7 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: uniq(actor_id,course_run)
+  expression: uniq((actor_id,course_run))
   extra:
     warning_markdown: ''
   metric_name: enrollees

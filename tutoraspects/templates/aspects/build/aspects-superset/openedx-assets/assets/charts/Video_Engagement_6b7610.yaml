@@ -18,8 +18,8 @@ params:
   groupby:
   - course_run
   - course_name
+  - video_count
   metrics:
-  - num_videos
   - watched_percent
   - rewatched_percent
   - avg_video_length
@@ -55,8 +55,8 @@ query_context:
     groupby:
     - course_run
     - course_name
+    - video_count
     metrics:
-    - num_videos
     - watched_percent
     - rewatched_percent
     - avg_video_length
@@ -78,6 +78,7 @@ query_context:
     columns:
     - course_run
     - course_name
+    - video_count
     custom_form_data: {}
     custom_params: {}
     extras:
@@ -85,13 +86,12 @@ query_context:
       where: ''
     filters: []
     metrics:
-    - num_videos
     - watched_percent
     - rewatched_percent
     - avg_video_length
     order_desc: true
     orderby:
-    - - num_videos
+    - - watched_percent
       - false
     post_processing: []
     row_limit: 50000
