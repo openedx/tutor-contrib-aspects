@@ -18,6 +18,7 @@ params:
     subject: emission_time
   all_columns: []
   allow_render_html: true
+  annotation_layers: []
   color_pn: false
   column_config:
     Coursewide % Correct:

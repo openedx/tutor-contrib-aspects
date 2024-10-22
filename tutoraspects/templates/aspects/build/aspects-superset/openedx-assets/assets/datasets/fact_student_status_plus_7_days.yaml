@@ -6,7 +6,8 @@ columns:
   column_name: active_within_last_7_days
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -18,7 +19,8 @@ columns:
   column_name: course_key
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -30,7 +32,8 @@ columns:
   column_name: enrollment_mode
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -42,7 +45,8 @@ columns:
   column_name: course_grade
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -54,7 +58,8 @@ columns:
   column_name: enrolled_at
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -66,7 +71,8 @@ columns:
   column_name: actor_id
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -78,7 +84,8 @@ columns:
   column_name: approving_state
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -90,7 +97,8 @@ columns:
   column_name: grade_bucket
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -102,7 +110,8 @@ columns:
   column_name: course_name
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -114,7 +123,8 @@ columns:
   column_name: course_run
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -126,7 +136,8 @@ columns:
   column_name: enrollment_status
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -138,7 +149,8 @@ columns:
   column_name: org
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -150,7 +162,8 @@ columns:
   column_name: email
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -162,7 +175,8 @@ columns:
   column_name: name
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -174,7 +188,8 @@ columns:
   column_name: username
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -214,8 +229,7 @@ metrics:
   d3format: null
   description: null
   expression: AVG(active_within_last_7_days)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: active_within_7_days
   metric_type: null
   verbose_name: Active Within Last 7 Days

@@ -50,7 +50,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 651
+    id: 50
     type: table
   force: false
   form_data:
@@ -61,6 +61,7 @@ query_context:
       operator: TEMPORAL_RANGE
       subject: emission_time
     all_columns: []
+    annotation_layers: []
     color_pn: false
     column_config:
       Current Enrollees:
@@ -74,9 +75,7 @@ query_context:
       tag_list:
         truncateLongCells: true
     conditional_formatting: []
-    dashboards:
-    - 355
-    datasource: 651__table
+    datasource: 50__table
     extra_form_data: {}
     force: false
     groupby:
@@ -87,9 +86,9 @@ query_context:
       sqlExpression: |
         {% raw %}{{ get_filtered_dashboard_link('course-dashboard', 'course_run', 'w863AfFgi') }}{% endraw %}
     metrics:
+    - enrollees
     - active_count
     - tag_list
-    - enrollees
     order_by_cols: []
     order_desc: false
     percent_metrics: []
@@ -98,7 +97,7 @@ query_context:
     result_type: full
     row_limit: 50000
     show_cell_bars: false
-    slice_id: 1286
+    slice_id: 125
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     time_grain_sqla: P1M
@@ -124,12 +123,12 @@ query_context:
       op: TEMPORAL_RANGE
       val: No filter
     metrics:
+    - enrollees
     - active_count
     - tag_list
-    - enrollees
     order_desc: false
     orderby:
-    - - active_count
+    - - enrollees
       - false
     post_processing: []
     row_limit: 50000
