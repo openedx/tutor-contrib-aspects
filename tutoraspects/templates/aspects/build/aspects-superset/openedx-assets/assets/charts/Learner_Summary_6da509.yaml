@@ -83,7 +83,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 12
+    id: 29
     type: table
   force: false
   form_data:
@@ -94,6 +94,7 @@ query_context:
       operator: TEMPORAL_RANGE
       subject: emission_time
     all_columns: []
+    annotation_layers: []
     color_pn: true
     column_config:
       Course Grade %:
@@ -113,9 +114,7 @@ query_context:
       column: course_grade
       operator: <
       targetValue: 0.5
-    dashboards:
-    - 18
-    datasource: 12__table
+    datasource: 29__table
     extra_form_data: {}
     force: false
     groupby:
@@ -162,7 +161,7 @@ query_context:
     server_pagination: true
     show_cell_bars: true
     show_totals: true
-    slice_id: 32
+    slice_id: 67
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true

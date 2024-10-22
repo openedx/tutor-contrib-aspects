@@ -34,7 +34,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 161
+    id: 65
     type: table
   force: false
   form_data:
@@ -48,8 +48,8 @@ query_context:
         d3NumberFormat: ',.1%'
     conditional_formatting: []
     dashboards:
-    - 441
-    datasource: 161__table
+    - 22
+    datasource: 65__table
     extra_form_data: {}
     force: false
     groupby:
@@ -68,7 +68,7 @@ query_context:
     result_type: full
     row_limit: 50000
     show_cell_bars: false
-    slice_id: 641
+    slice_id: 145
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     viz_type: table
