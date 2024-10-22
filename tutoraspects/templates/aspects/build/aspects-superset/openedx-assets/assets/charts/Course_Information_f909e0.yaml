@@ -1,0 +1,269 @@
+_file_name: Course_Information_f909e0.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: f25fdc4e-ce79-4f4c-9fc6-3dfe91690493
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: enrolled_at
+  all_columns: []
+  color_pn: true
+  column_config:
+    Avg Course Grade:
+      d3NumberFormat: ~g
+      d3SmallNumberFormat: ~g
+    Median Course Grade:
+      d3NumberFormat: ~g
+      d3SmallNumberFormat: ~g
+  conditional_formatting:
+  - colorScheme: '#EFA1AA'
+    column: avg_course_grade
+    operator: <
+    targetValue: 50
+  - colorScheme: '#ACE1C4'
+    column: avg_course_grade
+    operator: "\u2265"
+    targetValue: 70
+  - colorScheme: '#ACE1C4'
+    column: median_course_grade
+    operator: "\u2265"
+    targetValue: 70
+  - colorScheme: '#FDE380'
+    column: median_course_grade
+    operator: "\u2264 x \u2264"
+    targetValueLeft: '50'
+    targetValueRight: '70'
+  - colorScheme: '#EFA1AA'
+    column: median_course_grade
+    operator: <
+    targetValue: 50
+  - colorScheme: '#ACE1C4'
+    column: Active Within Last 7 Days
+    operator: '>'
+    targetValue: 0
+  extra_form_data: {}
+  groupby:
+  - org
+  - course_key
+  - course_name
+  - course_run
+  metrics:
+  - aggregate: AVG
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: active_within_last_7_days
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 683
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: UInt64
+      type_generic: 0
+      verbose_name: Active Within Last 7 Days
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: Active Within Last 7 Days
+    optionName: metric_9ysvoht7z9_7zzqrfsnybt
+    sqlExpression: null
+  - avg_course_grade
+  - median_course_grade
+  order_by_cols: []
+  order_desc: true
+  percent_metrics: []
+  query_mode: aggregate
+  row_limit: 1000
+  show_cell_bars: true
+  table_timestamp_format: smart_date
+  temporal_columns_lookup:
+    enrolled_at: true
+  viz_type: table
+query_context:
+  datasource:
+    id: 60
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: enrolled_at
+    all_columns: []
+    color_pn: true
+    column_config:
+      Avg Course Grade:
+        d3NumberFormat: ~g
+        d3SmallNumberFormat: ~g
+      Median Course Grade:
+        d3NumberFormat: ~g
+        d3SmallNumberFormat: ~g
+    conditional_formatting:
+    - colorScheme: '#EFA1AA'
+      column: avg_course_grade
+      operator: <
+      targetValue: 50
+    - colorScheme: '#ACE1C4'
+      column: avg_course_grade
+      operator: "\u2265"
+      targetValue: 70
+    - colorScheme: '#ACE1C4'
+      column: median_course_grade
+      operator: "\u2265"
+      targetValue: 70
+    - colorScheme: '#FDE380'
+      column: median_course_grade
+      operator: "\u2264 x \u2264"
+      targetValueLeft: '50'
+      targetValueRight: '70'
+    - colorScheme: '#EFA1AA'
+      column: median_course_grade
+      operator: <
+      targetValue: 50
+    - colorScheme: '#ACE1C4'
+      column: Active Within Last 7 Days
+      operator: '>'
+      targetValue: 0
+    dashboards:
+    - 24
+    datasource: 60__table
+    extra_form_data: {}
+    force: false
+    groupby:
+    - org
+    - course_key
+    - course_name
+    - course_run
+    metrics:
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: active_within_last_7_days
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 683
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: UInt64
+        type_generic: 0
+        verbose_name: Active Within Last 7 Days
+        warning_markdown: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Active Within Last 7 Days
+      optionName: metric_9ysvoht7z9_7zzqrfsnybt
+      sqlExpression: null
+    - avg_course_grade
+    - median_course_grade
+    order_by_cols: []
+    order_desc: true
+    percent_metrics: []
+    query_mode: aggregate
+    result_format: json
+    result_type: full
+    row_limit: 1000
+    show_cell_bars: true
+    slice_id: 119
+    table_timestamp_format: smart_date
+    temporal_columns_lookup:
+      enrolled_at: true
+    viz_type: table
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - org
+    - course_key
+    - course_name
+    - course_run
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      where: ''
+    filters:
+    - col: enrolled_at
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics:
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        certification_details: null
+        certified_by: null
+        column_name: active_within_last_7_days
+        description: null
+        expression: null
+        filterable: true
+        groupby: true
+        id: 683
+        is_certified: false
+        is_dttm: false
+        python_date_format: null
+        type: UInt64
+        type_generic: 0
+        verbose_name: Active Within Last 7 Days
+        warning_markdown: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Active Within Last 7 Days
+      optionName: metric_9ysvoht7z9_7zzqrfsnybt
+      sqlExpression: null
+    - avg_course_grade
+    - median_course_grade
+    order_desc: true
+    orderby:
+    - - aggregate: AVG
+        column:
+          advanced_data_type: null
+          certification_details: null
+          certified_by: null
+          column_name: active_within_last_7_days
+          description: null
+          expression: null
+          filterable: true
+          groupby: true
+          id: 683
+          is_certified: false
+          is_dttm: false
+          python_date_format: null
+          type: UInt64
+          type_generic: 0
+          verbose_name: Active Within Last 7 Days
+          warning_markdown: null
+        datasourceWarning: false
+        expressionType: SIMPLE
+        hasCustomLabel: true
+        label: Active Within Last 7 Days
+        optionName: metric_9ysvoht7z9_7zzqrfsnybt
+        sqlExpression: null
+      - false
+    post_processing: []
+    row_limit: 1000
+    series_limit: 0
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Course Information
+uuid: f909e03a-06a9-4d04-9ea0-243a576093d4
+version: 1.0.0
+viz_type: table
