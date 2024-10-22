@@ -173,7 +173,7 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
         if decoded_access_token.get("superuser", False):
             return ["admin", f"admin-{locale}"]
         elif decoded_access_token.get("administrator", False):
-            return ["alpha", "operator", f"operator-{locale}"]
+            return ["alpha", "operator", f"operator-{locale}", "instructor", f"instructor-{locale}"]
         else:
             # User has to have staff access to one or more courses to view any content
             # here. Since this is only called on login, we take the opportunity
