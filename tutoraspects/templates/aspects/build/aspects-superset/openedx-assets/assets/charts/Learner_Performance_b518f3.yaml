@@ -45,14 +45,13 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 18
+    id: 61
     type: table
   force: false
   form_data:
     adhoc_filters: []
     all_columns:
     - success
-    annotation_layers: []
     color_pn: true
     column_config:
       avg_course_grade:
@@ -63,7 +62,9 @@ query_context:
       med_course_grade:
         d3NumberFormat: ',.1%'
     conditional_formatting: []
-    datasource: 18__table
+    dashboards:
+    - 3141
+    datasource: 61__table
     extra_form_data: {}
     force: false
     groupby:
@@ -83,7 +84,7 @@ query_context:
     row_limit: 50000
     server_page_length: 10
     show_cell_bars: false
-    slice_id: 109
+    slice_id: 1506
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     time_grain_sqla: P1M

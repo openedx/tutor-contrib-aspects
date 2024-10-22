@@ -49,7 +49,7 @@ params:
   zoomable: false
 query_context:
   datasource:
-    id: 84
+    id: 464
     type: table
   force: false
   form_data:
@@ -62,7 +62,9 @@ query_context:
     annotation_layers: []
     color_scheme: supersetColors
     contributionMode: null
-    datasource: 84__table
+    dashboards:
+    - 3441
+    datasource: 464__table
     extra_form_data: {}
     force: false
     groupby: []
@@ -83,7 +85,7 @@ query_context:
     show_empty_columns: false
     show_legend: true
     show_value: false
-    slice_id: 75
+    slice_id: 1504
     sort_series_ascending: true
     sort_series_type: name
     stack: null

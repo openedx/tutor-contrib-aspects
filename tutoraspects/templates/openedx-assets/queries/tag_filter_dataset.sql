@@ -1,15 +1,12 @@
-select id, rownum, tag, course_key
-from
-    (
+with
+    data as (
         select
             id,
-            multiIf(parent = 0, id, CAST(parent, 'int')) as sort_order_1,
-            multiIf(parent = 0, 0, 1) as sort_order_2,
+            case when parent = 0 then id else cast(parent as int) end as sort_order_1,
+            case when parent = 0 then 0 else 1 end as sort_order_2,
             concat(repeat('- ', countMatches(lineage, ',')), value) as tag,
-            row_number() over (
-                order by sort_order_1 ASC, sort_order_2 ASC, value ASC
-            ) as rownum
+            row_number() over (order by sort_order_1, sort_order_2, value) as rownum
         from {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_tags
-    ) as t
-left join
-    {{ DBT_PROFILE_TARGET_DATABASE }}.most_recent_course_tags ct on ct.tag_id = t.id
+    )
+select id, rownum, tag
+from data
