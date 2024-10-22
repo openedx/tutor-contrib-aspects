@@ -12,7 +12,6 @@ params:
     operator: TEMPORAL_RANGE
     subject: emission_time
   all_columns: []
-  annotation_layers: []
   color_pn: false
   column_config:
     active_count:
@@ -30,7 +29,8 @@ params:
   groupby:
   - course_name
   - org
-  - expressionType: SQL
+  - datasourceWarning: false
+    expressionType: SQL
     label: More details
     sqlExpression: |-
       {% raw %}{{ get_filtered_dashboard_link('course-dashboard', 'course_name', 'IfS-Rd0ZS') }}{% endraw %}
@@ -50,7 +50,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 651
+    id: 50
     type: table
   force: false
   form_data:
@@ -75,14 +75,15 @@ query_context:
         truncateLongCells: true
     conditional_formatting: []
     dashboards:
-    - 355
-    datasource: 651__table
+    - 22
+    datasource: 50__table
     extra_form_data: {}
     force: false
     groupby:
     - course_name
     - org
-    - expressionType: SQL
+    - datasourceWarning: false
+      expressionType: SQL
       label: More details
       sqlExpression: |-
         {% raw %}{{ get_filtered_dashboard_link('course-dashboard', 'course_name', 'IfS-Rd0ZS') }}{% endraw %}
@@ -98,7 +99,7 @@ query_context:
     result_type: full
     row_limit: 50000
     show_cell_bars: false
-    slice_id: 1298
+    slice_id: 25
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     time_grain_sqla: P1M
@@ -109,7 +110,8 @@ query_context:
     columns:
     - course_name
     - org
-    - expressionType: SQL
+    - datasourceWarning: false
+      expressionType: SQL
       label: More details
       sqlExpression: |-
         {% raw %}{{ get_filtered_dashboard_link('course-dashboard', 'course_name', 'IfS-Rd0ZS') }}{% endraw %}

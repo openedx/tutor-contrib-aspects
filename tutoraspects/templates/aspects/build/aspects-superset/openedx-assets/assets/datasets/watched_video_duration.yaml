@@ -160,6 +160,15 @@ metrics:
 - currency: null
   d3format: null
   description: null
+  expression: avg(video_count)
+  extra: {}
+  metric_name: num_videos
+  metric_type: null
+  verbose_name: Number of Videos
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
   expression: COUNT(*)
   extra:
     warning_markdown: ''
