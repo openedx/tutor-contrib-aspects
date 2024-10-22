@@ -3,19 +3,6 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: video_count
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: UInt64
-  verbose_name: Number of Videos
-- advanced_data_type: null
   column_name: course_name
   description: null
   expression: ''
@@ -156,6 +143,16 @@ metrics:
   metric_name: avg_video_length
   metric_type: null
   verbose_name: Avg Video Length (seconds)
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: avg(video_count)
+  extra:
+    warning_markdown: ''
+  metric_name: num_videos
+  metric_type: null
+  verbose_name: Number of Videos
   warning_text: null
 - currency: null
   d3format: null
