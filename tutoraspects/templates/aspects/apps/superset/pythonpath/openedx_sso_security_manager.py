@@ -181,6 +181,8 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
             # the course permissions cache if necessary by logging out and back in.
             courses = self.get_courses(username, force=True)
             if courses:
+                if {{ SUPERSET_BLOCK_INSTRUCTOR_ACCESS }}:
+                    raise Exception(f"Instructor {username} tried to access Superset")
                 return ["instructor", f"instructor-{locale}"]
             else:
                 roles = self.extra_get_user_roles(username, decoded_access_token)
