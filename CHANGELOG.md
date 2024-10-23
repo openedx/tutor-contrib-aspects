@@ -5,6 +5,121 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.2.0 - 2024-10-23
+
+### [1.2.0](https://github.com/openedx/tutor-contrib-aspects/compare/v1.1.0...v1.2.0) (2024-10-23)
+
+#### Features
+
+* add course dashboard link to course info chart ([7fcb1d5](https://github.com/openedx/tutor-contrib-aspects/commit/7fcb1d548bc6e67cbfa6edd4e1ef7f2c635a414d))
+* add jinja filter to render a link to a dashboard ([a2f0c44](https://github.com/openedx/tutor-contrib-aspects/commit/a2f0c4466e1f9c762ff0587c9aa1bf0663cb8311))
+* add tag related tables ([fd333c5](https://github.com/openedx/tutor-contrib-aspects/commit/fd333c55fe0b91a08eb53040633446671f2c6a75))
+* Delete unused assets owned by Aspects on imports ([97b4e11](https://github.com/openedx/tutor-contrib-aspects/commit/97b4e118823b1e56d5532bd3a9a930fd76e36eba))
+* fix enrollment count, fix tag filter, misc updates ([b914ac2](https://github.com/openedx/tutor-contrib-aspects/commit/b914ac28519e44446d414ea568f4e96ef1bcb066))
+* import dasboard changes for UI de-clutter ([f331026](https://github.com/openedx/tutor-contrib-aspects/commit/f3310262429ed14cf75256883124a8fbc5d02cf7))
+* new course comparison dashboard ([0466fdb](https://github.com/openedx/tutor-contrib-aspects/commit/0466fdb34d117a05d5fee53f09d1a87e607acf46))
+* Upgrade ClickHouse to 24.8 ([4afdbc8](https://github.com/openedx/tutor-contrib-aspects/commit/4afdbc83b874281ddc09d739e37cdb9c82d0c2cb))
+* upgrade dbt to v3.11.0 ([3e8c2a8](https://github.com/openedx/tutor-contrib-aspects/commit/3e8c2a8e9b08118fbb2fde50acf2d983305ecdf9))
+* upgrade platform-plugin-aspects to v0.11.0 ([90679f1](https://github.com/openedx/tutor-contrib-aspects/commit/90679f1495bb85165a0455b97e3a2e3362650e37))
+* **assets:** format sql templates fore import ([98f7544](https://github.com/openedx/tutor-contrib-aspects/commit/98f75440d41aa0c7d5abfc826a2a3a4136a57849))
+* **load:** bump xapi-db-load to v1.4 ([1bc3bf9](https://github.com/openedx/tutor-contrib-aspects/commit/1bc3bf95b10013f83c13d6ebae413b151164a314))
+* **metrics:** add organization filter option ([f5a7533](https://github.com/openedx/tutor-contrib-aspects/commit/f5a7533e7fdaefa7ee5ddad51205a55a0a27320b))
+* **metrics:** sort metrics by clickhouse query time ([2777db2](https://github.com/openedx/tutor-contrib-aspects/commit/2777db22fb1cba9a0bdd9f4fba82c62f74c65016))
+
+#### Bug Fixes
+
+* add missing query context for last_visit dataset ([a3da2d5](https://github.com/openedx/tutor-contrib-aspects/commit/a3da2d555a1c22c36abeee52f2f4a6cc468453a4))
+* add sqlfmt as a base dependency ([f22849a](https://github.com/openedx/tutor-contrib-aspects/commit/f22849a528cc3ac8f0700e860f1afd5a92719b24))
+* add sqlfmt as a base dependency ([3728514](https://github.com/openedx/tutor-contrib-aspects/commit/3728514d8bd80947f9f0ac3e74d2f6b36a485d23))
+* add video_link to fact_video_watches dataset ([3032313](https://github.com/openedx/tutor-contrib-aspects/commit/3032313c82048d90f8a8b57f36c965f12ee1a53e))
+* clone dbt repo if branch or repo has changed ([34e7077](https://github.com/openedx/tutor-contrib-aspects/commit/34e70779925a69fe31a89f96dcafc3b0370bae5d))
+* disable check_table_dependencies clickhouse setting for dbt ([d071f96](https://github.com/openedx/tutor-contrib-aspects/commit/d071f96c87fd4f52f0bd0ecc2b5ffb1473d2c7aa))
+* drop dependent dictionaries before dropping tables ([1f64b89](https://github.com/openedx/tutor-contrib-aspects/commit/1f64b89144030b8e0697b1e1ac80b3c60dfacd63))
+* enable course_enrollment sink ([7100cdc](https://github.com/openedx/tutor-contrib-aspects/commit/7100cdc79cbe3cf23e5d68c3fce48bc56cd60516))
+* get query context ([534583c](https://github.com/openedx/tutor-contrib-aspects/commit/534583cade79cc38b884e0b73409154938435434))
+* open chart descriptions ([7265658](https://github.com/openedx/tutor-contrib-aspects/commit/72656583c9417fe25e36a9ea1c404541717c0207))
+* remove trailing whitespace for include statements ([b171222](https://github.com/openedx/tutor-contrib-aspects/commit/b171222e28640f6e779148aa18c48c54e55eb852))
+* remove trailing whitespace for include statements ([6fea9a1](https://github.com/openedx/tutor-contrib-aspects/commit/6fea9a1060b15fd844e907cf34a10c781e674391))
+* split datasets and their sql ([36dca8b](https://github.com/openedx/tutor-contrib-aspects/commit/36dca8b553c0e272f888d7311b8ed80aaec413ed))
+* update database ([1091f8c](https://github.com/openedx/tutor-contrib-aspects/commit/1091f8cc47d00a6282a2426662a6ef9695e17af9))
+* updates ([09dc281](https://github.com/openedx/tutor-contrib-aspects/commit/09dc28116bd40f55e17ff90ae6c4c87cbc4aa045))
+* upgrade platform-plugin-aspects to v0.11.1 ([a45b981](https://github.com/openedx/tutor-contrib-aspects/commit/a45b981e1c4af6c12941c0704c1e8a7cf3c5eb2d))
+* upgrade superset ([ab59aad](https://github.com/openedx/tutor-contrib-aspects/commit/ab59aad4bab7fa5863862517669edc58011c8cee))
+* upgrade superset and change legend location ([7867629](https://github.com/openedx/tutor-contrib-aspects/commit/7867629fad5341b8cd9efb5476cdcba515e335ce))
+* **assets:** make filters work again ([c2e03c7](https://github.com/openedx/tutor-contrib-aspects/commit/c2e03c736a61c329d86bdfe5a51557682746b9ce))
+* **assets:** move enrolles before tags ([973af96](https://github.com/openedx/tutor-contrib-aspects/commit/973af9602827ee71d94d977ff3bb2d1e2e121d53))
+* **assets:** update description of learner performance charts ([29b5126](https://github.com/openedx/tutor-contrib-aspects/commit/29b5126afc4e645a02508a24088fa7b5c05d97cf))
+* **assets:** update description of number of views chart ([47a685b](https://github.com/openedx/tutor-contrib-aspects/commit/47a685bbd9742ae58613778faae3c94e4ce785ac))
+* **assets:** update description of number of views chart ([0304804](https://github.com/openedx/tutor-contrib-aspects/commit/0304804dd0a9501de667299deedfb723c1840628))
+* **assets:** update metadata for dataset fact_watched_video_segments ([ad50b30](https://github.com/openedx/tutor-contrib-aspects/commit/ad50b30ba078be96d5899bd5aadcfc2527811979))
+* **assets:** use dataset uuid instead of dataset id ([a7e2d61](https://github.com/openedx/tutor-contrib-aspects/commit/a7e2d6124bfd83ec4b3ca0e948b9e72813e3cac5))
+* **dev:** sql parse dataset SQL statement ([52fee94](https://github.com/openedx/tutor-contrib-aspects/commit/52fee9424b99121388593a84f45b9210014723b2))
+* use filter id ([7671ecd](https://github.com/openedx/tutor-contrib-aspects/commit/7671ecdab4fa567eaf2f72aceec71e333dc0be61))
+* **embedded:** remove course-comparison dashboard from embeddable dashboards ([2866b3e](https://github.com/openedx/tutor-contrib-aspects/commit/2866b3e5e6bd2c171a801b3f108da177446d679b))
+* **metrics:** restore extra filter per query ([4cb45ad](https://github.com/openedx/tutor-contrib-aspects/commit/4cb45adf3f3a623c6e6ff20d3f2f3f800ff6dccd))
+* **metrics:** set global form data to allow prewhere filters ([a428882](https://github.com/openedx/tutor-contrib-aspects/commit/a42888262cc121e9fb55eab3d147163a15d042d6))
+* **metrics:** use course name filter ([c71a90e](https://github.com/openedx/tutor-contrib-aspects/commit/c71a90e390b92c6c57ce63f0f59c2fdf53ff09ec))
+* **sql:** add object_id to watched video segments ([3827252](https://github.com/openedx/tutor-contrib-aspects/commit/3827252edbcaf88c915907bab39178d28f35873f))
+* **sql:** add where 1=1 for int_problem_results ([715c55f](https://github.com/openedx/tutor-contrib-aspects/commit/715c55ff3cfa5e4f021e35da15009302364e4689))
+* **sql:** coursewide attempts grouped by problem_id ([fb6231c](https://github.com/openedx/tutor-contrib-aspects/commit/fb6231cbe5a189f77521633b7d74b4573443f899))
+* **sql:** join at risk dataset with problem_coursewide_avg ([d0a1ea8](https://github.com/openedx/tutor-contrib-aspects/commit/d0a1ea8661e2df21013fb7bba77152586d9d7932))
+* **sql:** remove duplicated comma ([f1f2f65](https://github.com/openedx/tutor-contrib-aspects/commit/f1f2f65bdf3a6f3127aab33d8d5c82456ccb6636))
+* **sql:** use 0 instead of null ([7fd5c15](https://github.com/openedx/tutor-contrib-aspects/commit/7fd5c15cb6a703bc9858843aa3e991feff8e8310))
+* add instructor role to operators too ([#970](https://github.com/openedx/tutor-contrib-aspects/issues/970)) ([3ffdbb9](https://github.com/openedx/tutor-contrib-aspects/commit/3ffdbb9d067adbc7f7776f48fcc7fa069c87c649))
+* at risk ([563327b](https://github.com/openedx/tutor-contrib-aspects/commit/563327b44b4ff5aa8fe044a6b66bf53625b90b88))
+* Bump platform-plugin-aspects to v0.11.3 ([97eda17](https://github.com/openedx/tutor-contrib-aspects/commit/97eda17e4bbd7af15b0b31a8cc6b9e7be25f1b2f))
+* cleanup ([ab20125](https://github.com/openedx/tutor-contrib-aspects/commit/ab201253e66cdda1875eaf9235435bfc48d055c5))
+* course ([9a84d66](https://github.com/openedx/tutor-contrib-aspects/commit/9a84d66994b81562ce5838e1e52dba27f3b28972))
+* course compare ([a56258d](https://github.com/openedx/tutor-contrib-aspects/commit/a56258dceade6038a2dfd1491e5fffb684979ce0))
+* format ([129c165](https://github.com/openedx/tutor-contrib-aspects/commit/129c1656a4d922d62014b8b333b0eb8a19816547))
+* individual learner ([f5e17d1](https://github.com/openedx/tutor-contrib-aspects/commit/f5e17d10ef7938525f5a99c2abca1db06cedfa04))
+* merge conflicts ([75d749b](https://github.com/openedx/tutor-contrib-aspects/commit/75d749bcb046675709a73fa0539e8f871ace6ca7))
+* merge main ([fe08281](https://github.com/openedx/tutor-contrib-aspects/commit/fe0828107be871ea7a18b3e6ebb6ce05fa56cc43))
+* pass translated uuids directly to method ([ca60ad7](https://github.com/openedx/tutor-contrib-aspects/commit/ca60ad79a4af824a4a323417f9c8dfabd6c0fcd6))
+* point aspects docs to the right service ([18cd2f8](https://github.com/openedx/tutor-contrib-aspects/commit/18cd2f8deed7c6356909d2280b6a276d6244dbf8))
+* pr comments ([fce4fe3](https://github.com/openedx/tutor-contrib-aspects/commit/fce4fe3d4ff7d3c9c4928de2986b433f02a89dfe))
+* pr comments ([4351953](https://github.com/openedx/tutor-contrib-aspects/commit/4351953b3f749bcbe7f561c94216d3cc46a04817))
+* real list of unused charts ([1412de7](https://github.com/openedx/tutor-contrib-aspects/commit/1412de70e6be5a2eb3ffc19884773aea4ecb97d7))
+* reformat ([c3b8639](https://github.com/openedx/tutor-contrib-aspects/commit/c3b86397be9800979cd8d18a714cfd29a0bdc68e))
+* reformat ([3e7a872](https://github.com/openedx/tutor-contrib-aspects/commit/3e7a872d3d2baa0ca8d787d23695d15260ac31e4))
+* remove pagination ([117fe68](https://github.com/openedx/tutor-contrib-aspects/commit/117fe68b41734be74113a70cfddf6edf94ea0b80))
+* reset assets ([7992108](https://github.com/openedx/tutor-contrib-aspects/commit/799210806efec041609c40fea1cfb5775d7d56b5))
+* reset assets ([16185fb](https://github.com/openedx/tutor-contrib-aspects/commit/16185fb61561887492a671df479da9119262d9a4))
+* supress formatting logs ([ecdd0da](https://github.com/openedx/tutor-contrib-aspects/commit/ecdd0da95680d21a4be1d192e5b7ad0f76fc645d))
+* update readme ([fff47c1](https://github.com/openedx/tutor-contrib-aspects/commit/fff47c1635b2315748b7c0fdf02e35de36a7d762))
+* update video count chart ([7b21854](https://github.com/openedx/tutor-contrib-aspects/commit/7b218543d63ab95e407e45c8abb837312330a132))
+* update y axis type and video count ([a651f45](https://github.com/openedx/tutor-contrib-aspects/commit/a651f4563a56c5ad4ff55427907f500aef22232a))
+* updates ([a5dd979](https://github.com/openedx/tutor-contrib-aspects/commit/a5dd979b013de0de5b956c0a1e931bae0b6e4c0c))
+* updates ([1990460](https://github.com/openedx/tutor-contrib-aspects/commit/199046064cc13c734487943c63484505aa8e1062))
+* video count ([f6497d1](https://github.com/openedx/tutor-contrib-aspects/commit/f6497d1d793d2f90f2e64a1c86c1858df102c235))
+* video watch fix ([69f386e](https://github.com/openedx/tutor-contrib-aspects/commit/69f386e899fd14e0f022d221ea5dbfd04facc88e))
+
+#### Performance Improvements
+
+* improve init lms tasks time by using settings instead of waffle flags ([69b4bea](https://github.com/openedx/tutor-contrib-aspects/commit/69b4bea486113ce02c52c64d3fe6791671dfcbac))
+* **sql:** bring int_problem_resuts from dbt to superset ([d718052](https://github.com/openedx/tutor-contrib-aspects/commit/d7180521a35b8a61e55d347ca9a3d83c9ddb7a07))
+* **sql:** use last_course_visit mv for learner summary query ([68c4d12](https://github.com/openedx/tutor-contrib-aspects/commit/68c4d12e2529baaf544889b8bc1be7d8413f1ca1))
+* **sql:** use org and course_key filters to use primary key indexes ([4e531d4](https://github.com/openedx/tutor-contrib-aspects/commit/4e531d482df45a440dfc51a5ef2b8456649e0b86))
+
+#### Tests
+
+* install dev requirements for CI ([6409f39](https://github.com/openedx/tutor-contrib-aspects/commit/6409f3949475493087b38c580ffa6b108ae18ae9))
+
+#### Documentation
+
+* correct the transform-tracking-logs do command name ([5ce0633](https://github.com/openedx/tutor-contrib-aspects/commit/5ce063339ae9dfbb76b39b373c9a3015afd36830))
+
+#### Styles
+
+* Remove unused import ([94695eb](https://github.com/openedx/tutor-contrib-aspects/commit/94695ebe34ae278ccef68912cab70eca3fbc2b82))
+
+#### Build Systems
+
+* Move translations pull to Docker build time ([fd6cc2c](https://github.com/openedx/tutor-contrib-aspects/commit/fd6cc2c2b512d59af410274e687ae2209a5115bc))
+* Remove pull translations action and make target ([0b0dad1](https://github.com/openedx/tutor-contrib-aspects/commit/0b0dad135f7d7cfe4dd9adcf17db381b108879d9))
+* **deps:** bump cryptography from 43.0.0 to 43.0.1 in /requirements ([b5789d5](https://github.com/openedx/tutor-contrib-aspects/commit/b5789d508747828e745f560acf3d7fc52e61dff5))
+* **deps:** bump peter-evans/create-pull-request from 6 to 7 ([6629e96](https://github.com/openedx/tutor-contrib-aspects/commit/6629e962ba44205623e5d5331068a1260506eade))
+
 ## v1.1.0 - 2024-08-20
 
 ### [1.1.0](https://github.com/openedx/tutor-contrib-aspects/compare/v1.0.3...v1.1.0) (2024-08-20)
