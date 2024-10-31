@@ -26,5 +26,8 @@ select
 from enrollments
 inner join
     {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii as users
-    on (enrollments.actor_id like 'mailto:%' and SUBSTRING(enrollments.actor_id, 8) = users.email)
+    on (
+        enrollments.actor_id like 'mailto:%'
+        and SUBSTRING(enrollments.actor_id, 8) = users.email
+    )
     or enrollments.actor_id = toString(users.external_user_id)
