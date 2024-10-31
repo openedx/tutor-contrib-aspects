@@ -105,5 +105,6 @@ select
 from enriched_segments
 left outer join
     {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii users
-    on toUUID(actor_id) = users.external_user_id
+    on (actor_id like 'mailto:%' and SUBSTRING(actor_id, 8) = users.email)
+    or actor_id = toString(users.external_user_id)
 order by segment_start
