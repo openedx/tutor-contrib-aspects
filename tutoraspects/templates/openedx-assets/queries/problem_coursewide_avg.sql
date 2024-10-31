@@ -121,7 +121,8 @@ join
     )
 left outer join
     {{ ASPECTS_EVENT_SINK_DATABASE }}.user_pii users
-    on full_responses.actor_id = users.external_user_id::String
+    on (full_responses.actor_id like 'mailto:%' and SUBSTRING(full_responses.actor_id, 8) = users.email)
+    or full_responses.actor_id = toString(users.external_user_id)
 join
     coursewide_attempts
     on full_responses.org = coursewide_attempts.org
