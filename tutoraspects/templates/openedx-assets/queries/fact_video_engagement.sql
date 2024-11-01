@@ -49,5 +49,6 @@ join
     )
 left outer join
     {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii users
-    on toUUID(ve.actor_id) = users.external_user_id
+    on (ve.actor_id like 'mailto:%' and SUBSTRING(ve.actor_id, 8) = users.email)
+    or ve.actor_id = toString(users.external_user_id)
 where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
