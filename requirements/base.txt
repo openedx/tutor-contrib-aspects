@@ -113,7 +113,7 @@ six==1.16.0
     #   python-dateutil
 toolz==1.0.0
     # via pyseeyou
-tqdm==4.66.5
+tqdm==4.66.6
     # via shandy-sqlfmt
 transifex-python==3.5.0
     # via -r requirements/base.in
