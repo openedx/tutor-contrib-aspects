@@ -1,6 +1,8 @@
 """Filters usage."""
 
-from tutorpod_autoscaling.hooks import AUTOSCALING_CONFIG
+from tutorpod_autoscaling.hooks import (  # pylint: disable=import-error
+    AUTOSCALING_CONFIG,
+)
 
 
 @AUTOSCALING_CONFIG.add()
