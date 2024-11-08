@@ -636,3 +636,11 @@ else:
 # file for now.
 for f in TUTOR_V1_COMMANDS:
     hooks.Filters.CLI_COMMANDS.add_item(f)
+
+# Autoscaling
+try:
+    from tutoraspects.filters import (  # pylint: disable=unused-import
+        add_aspects_autoscaling,
+    )
+except ImportError:
+    pass

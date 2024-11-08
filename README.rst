@@ -97,6 +97,14 @@ At this point you should have a working Tutor / Aspects environment, but with no
 
 You should now have data to look at in Superset! Log in to https://superset.local.overhang.io/ with your admin account and you should see charts with your data.
 
+Aspects Autoscaling
+-------------------
+
+Aspects adds default autoscaling values for `Ralph`, `Superset` and the `Superset Worker` deployments via
+`tutor-contrib-pod-autoscaling <https://github.com/eduNEXT/tutor-contrib-pod-autoscaling>`_. To apply the
+autoscaling settings make sure to install the plugin and enable it. To modify the autoscaling values
+see the `Configuration <https://github.com/eduNEXT/tutor-contrib-pod-autoscaling?tab=readme-ov-file#configuration>`_ section.
+
 Superset Assets
 ---------------
 
