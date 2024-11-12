@@ -4,4 +4,4 @@ black
 pyinstaller
 pylint
 twine
-git+https://github.com/edunext/tutor-contrib-pod-autoscaling@18.0.1
+git+https://github.com/edunext/tutor-contrib-pod-autoscaling@v18.0.1
