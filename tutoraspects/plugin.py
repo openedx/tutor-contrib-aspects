@@ -368,6 +368,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # course cache anyway.
         ("SUPERSET_USER_PERMISSIONS_CACHE_TIMEOUT", 120),
         ("SUPERSET_BLOCK_STUDENT_ACCESS", True),
+        ("SUPERSET_BLOCK_INSTRUCTOR_ACCESS", False),
         # This setting allows Superset to run behind a reverse proxy in HTTPS and
         # redirect to the correct http/s based on the headers sent from the proxy.
         # By default it is on if Caddy is enabled, but it can be set separately in
