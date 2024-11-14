@@ -76,13 +76,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
         ),
         (
-            "ASPECTS_INSTRUCTOR_HELP_MARKDOWN",
-            "## Help<br>"
-            "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
-            "reference/course_overview_dashboard.html)<br>"
-            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
-        ),
-        (
             "ASPECTS_LEARNER_GROUPS_HELP_MARKDOWN",
             "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
@@ -101,6 +94,13 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
             "reference/individual_learner_dashboard.html)<br>"
+            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
+        ),
+        (
+            "ASPECTS_COURSE_COMPARISON_HELP_MARKDOWN",
+            "## Help<br>"
+            "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
+            "reference/course_comparison_dashboard.html)<br>"
             "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
         ),
         ("ASPECTS_ENABLE_INSTRUCTOR_DASHBOARD_PLUGIN", True),

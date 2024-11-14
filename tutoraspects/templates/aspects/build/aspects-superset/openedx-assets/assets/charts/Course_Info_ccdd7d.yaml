@@ -32,8 +32,9 @@ params:
   - course_name
   - expressionType: SQL
     label: More details
-    sqlExpression: |
-      {% raw %}{{ get_filtered_dashboard_link('course-dashboard', 'course_run', 'w863AfFgi') }}{% endraw %}
+    sqlExpression: |-
+      {% raw %}{{ get_filtered_dashboard_link('course-dashboard', 'course_run', 'w863AfFgi') }}
+      {% endraw %}
   metrics:
   - enrollees
   - active_count
@@ -83,8 +84,9 @@ query_context:
     - course_name
     - expressionType: SQL
       label: More details
-      sqlExpression: |
-        {% raw %}{{ get_filtered_dashboard_link('course-dashboard', 'course_run', 'w863AfFgi') }}{% endraw %}
+      sqlExpression: |-
+        {% raw %}{{ get_filtered_dashboard_link('course-dashboard', 'course_run', 'w863AfFgi') }}
+        {% endraw %}
     metrics:
     - enrollees
     - active_count
@@ -110,8 +112,9 @@ query_context:
     - course_name
     - expressionType: SQL
       label: More details
-      sqlExpression: |
-        {% raw %}{{ get_filtered_dashboard_link('course-dashboard', 'course_run', 'w863AfFgi') }}{% endraw %}
+      sqlExpression: |-
+        {% raw %}{{ get_filtered_dashboard_link('course-dashboard', 'course_run', 'w863AfFgi') }}
+        {% endraw %}
     custom_form_data: {}
     custom_params: {}
     extras:
