@@ -8,146 +8,146 @@ dashboard_title: Course Comparison Dashboard
 description: null
 metadata:
   chart_configuration:
-    '1467':
+    '1154':
       crossFilters:
         chartsInScope:
-        - 1500
-        - 1501
-        - 1502
-        - 1503
-        - 1504
-        - 1505
-        - 1506
-        - 1507
-        - 1508
+        - 314
+        - 399
+        - 407
+        - 422
+        - 757
+        - 776
+        - 963
+        - 1252
+        - 1407
         scope: global
-      id: 1467
-    '1500':
+      id: 1154
+    '1252':
       crossFilters:
         chartsInScope:
-        - 1467
-        - 1501
-        - 1502
-        - 1503
-        - 1504
-        - 1505
-        - 1506
-        - 1507
-        - 1508
+        - 314
+        - 399
+        - 407
+        - 422
+        - 757
+        - 776
+        - 963
+        - 1154
+        - 1407
         scope: global
-      id: 1500
-    '1501':
+      id: 1252
+    '1407':
       crossFilters:
         chartsInScope:
-        - 1467
-        - 1500
-        - 1502
-        - 1503
-        - 1504
-        - 1505
-        - 1506
-        - 1507
-        - 1508
+        - 314
+        - 399
+        - 407
+        - 422
+        - 757
+        - 776
+        - 963
+        - 1154
+        - 1252
         scope: global
-      id: 1501
-    '1502':
+      id: 1407
+    '314':
       crossFilters:
         chartsInScope:
-        - 1467
-        - 1500
-        - 1501
-        - 1503
-        - 1504
-        - 1505
-        - 1506
-        - 1507
-        - 1508
+        - 399
+        - 407
+        - 422
+        - 757
+        - 776
+        - 963
+        - 1154
+        - 1252
+        - 1407
         scope: global
-      id: 1502
-    '1503':
+      id: 314
+    '399':
       crossFilters:
         chartsInScope:
-        - 1467
-        - 1500
-        - 1501
-        - 1502
-        - 1504
-        - 1505
-        - 1506
-        - 1507
-        - 1508
+        - 314
+        - 407
+        - 422
+        - 757
+        - 776
+        - 963
+        - 1154
+        - 1252
+        - 1407
         scope: global
-      id: 1503
-    '1504':
+      id: 399
+    '407':
       crossFilters:
         chartsInScope:
-        - 1467
-        - 1500
-        - 1501
-        - 1502
-        - 1503
-        - 1505
-        - 1506
-        - 1507
-        - 1508
+        - 314
+        - 399
+        - 422
+        - 757
+        - 776
+        - 963
+        - 1154
+        - 1252
+        - 1407
         scope: global
-      id: 1504
-    '1505':
+      id: 407
+    '422':
       crossFilters:
         chartsInScope:
-        - 1467
-        - 1500
-        - 1501
-        - 1502
-        - 1503
-        - 1504
-        - 1506
-        - 1507
-        - 1508
+        - 314
+        - 399
+        - 407
+        - 757
+        - 776
+        - 963
+        - 1154
+        - 1252
+        - 1407
         scope: global
-      id: 1505
-    '1506':
+      id: 422
+    '757':
       crossFilters:
         chartsInScope:
-        - 1467
-        - 1500
-        - 1501
-        - 1502
-        - 1503
-        - 1504
-        - 1505
-        - 1507
-        - 1508
+        - 314
+        - 399
+        - 407
+        - 422
+        - 776
+        - 963
+        - 1154
+        - 1252
+        - 1407
         scope: global
-      id: 1506
-    '1507':
+      id: 757
+    '776':
       crossFilters:
         chartsInScope:
-        - 1467
-        - 1500
-        - 1501
-        - 1502
-        - 1503
-        - 1504
-        - 1505
-        - 1506
-        - 1508
+        - 314
+        - 399
+        - 407
+        - 422
+        - 757
+        - 963
+        - 1154
+        - 1252
+        - 1407
         scope: global
-      id: 1507
-    '1508':
+      id: 776
+    '963':
       crossFilters:
         chartsInScope:
-        - 1467
-        - 1500
-        - 1501
-        - 1502
-        - 1503
-        - 1504
-        - 1505
-        - 1506
-        - 1507
+        - 314
+        - 399
+        - 407
+        - 422
+        - 757
+        - 776
+        - 1154
+        - 1252
+        - 1407
         scope: global
-      id: 1508
+      id: 963
   color_scheme: supersetColors
   color_scheme_domain:
   - '#1FA8C9'
@@ -171,23 +171,24 @@ metadata:
   - '#9EE5E5'
   - '#D1C6BC'
   cross_filters_enabled: true
+  default_filters: '{}'
   expanded_slices:
-    '104': true
-    '109': true
-    '56': true
-    '75': true
+    '1252': true
+    '399': true
+    '422': true
+    '776': true
   global_chart_configuration:
     chartsInScope:
-    - 1467
-    - 1500
-    - 1501
-    - 1502
-    - 1503
-    - 1504
-    - 1505
-    - 1506
-    - 1507
-    - 1508
+    - 314
+    - 399
+    - 407
+    - 422
+    - 757
+    - 776
+    - 963
+    - 1154
+    - 1252
+    - 1407
     scope:
       excluded: []
       rootPath:
@@ -349,7 +350,7 @@ position:
     children: []
     id: CHART-explore-1467-1
     meta:
-      chartId: 82
+      chartId: 963
       height: 50
       sliceName: Video Engagement
       uuid: 5b00f792-233c-4ee6-9411-7df49f4b5061
@@ -364,7 +365,7 @@ position:
     children: []
     id: CHART-explore-1500-1
     meta:
-      chartId: 25
+      chartId: 314
       height: 50
       sliceName: Course Info
       uuid: b2fff8a7-3ace-4075-9a3f-5fa5b99f81bb
@@ -379,7 +380,7 @@ position:
     children: []
     id: CHART-explore-1501-1
     meta:
-      chartId: 125
+      chartId: 757
       height: 50
       sliceName: Course Info
       uuid: ccdd7d98-4722-490b-a0b2-077380a7c7eb
@@ -394,7 +395,7 @@ position:
     children: []
     id: CHART-explore-1502-1
     meta:
-      chartId: 19
+      chartId: 1154
       height: 50
       sliceName: Enrollment Counts
       uuid: 7eaf5bc2-0067-424b-a50b-607cf54c086a
@@ -409,7 +410,7 @@ position:
     children: []
     id: CHART-explore-1503-1
     meta:
-      chartId: 63
+      chartId: 407
       height: 50
       sliceName: Enrollment Counts
       uuid: 8230a366-957d-4667-a2ff-3cbcb2f25f60
@@ -424,7 +425,7 @@ position:
     children: []
     id: CHART-explore-1504-1
     meta:
-      chartId: 75
+      chartId: 399
       height: 50
       sliceName: Learner Performance Breakdown
       uuid: b73b0a5c-4861-402e-a39c-d73333a4d911
@@ -439,7 +440,7 @@ position:
     children: []
     id: CHART-explore-1505-1
     meta:
-      chartId: 104
+      chartId: 776
       height: 50
       sliceName: Learner Performance Breakdown
       uuid: d414b144-467b-456b-b899-9cfb3579faba
@@ -454,7 +455,7 @@ position:
     children: []
     id: CHART-explore-1506-1
     meta:
-      chartId: 109
+      chartId: 1252
       height: 50
       sliceName: Learner Performance
       uuid: b518f341-9ed4-4c23-bb88-6c1d497aa260
@@ -469,7 +470,7 @@ position:
     children: []
     id: CHART-explore-1507-1
     meta:
-      chartId: 56
+      chartId: 422
       height: 50
       sliceName: Learner Performance
       uuid: b0e170ce-26f1-4452-a3c0-49b41fa6e529
@@ -478,13 +479,13 @@ position:
     - ROOT_ID
     - TABS-6vozRyRn2o
     - TAB-GuHDMLqRC
-    - ROW-kZVNsJuoh
+    - ROW--qwRXTzHx
     type: CHART
   CHART-explore-1508-1:
     children: []
     id: CHART-explore-1508-1
     meta:
-      chartId: 145
+      chartId: 1407
       height: 50
       sliceName: Video Engagement
       uuid: 6b7610a7-41d0-4d14-be81-62a5a8f22d62
@@ -493,7 +494,7 @@ position:
     - ROOT_ID
     - TABS-6vozRyRn2o
     - TAB-GuHDMLqRC
-    - ROW-hKzUoke28
+    - ROW-iMG3T4uBu
     type: CHART
   DASHBOARD_VERSION_KEY: v2
   GRID_ID:
@@ -507,6 +508,19 @@ position:
     meta:
       text: Course Comparison Dashboard
     type: HEADER
+  MARKDOWN--58PhJEjOUMAiLp5cc3Ke:
+    children: []
+    id: MARKDOWN--58PhJEjOUMAiLp5cc3Ke
+    meta:
+      code: '{{ASPECTS_COURSE_COMPARISON_HELP_MARKDOWN}}'
+      height: 50
+      width: 12
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-pNxBWKV3CpZWotDqqnxUm
+    - ROW-NDV_0Ufsw2LFn5TKvNs6w
+    type: MARKDOWN
   ROOT_ID:
     children:
     - TABS-6vozRyRn2o
@@ -533,6 +547,17 @@ position:
     - ROOT_ID
     - TABS-6vozRyRn2o
     - TAB-J31MdXj-sa
+    type: ROW
+  ROW-NDV_0Ufsw2LFn5TKvNs6w:
+    children:
+    - MARKDOWN--58PhJEjOUMAiLp5cc3Ke
+    id: ROW-NDV_0Ufsw2LFn5TKvNs6w
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    - TAB-pNxBWKV3CpZWotDqqnxUm
     type: ROW
   ROW-RgmR2MvEK:
     children:
@@ -656,10 +681,23 @@ position:
     - ROOT_ID
     - TABS-6vozRyRn2o
     type: TAB
+  TAB-pNxBWKV3CpZWotDqqnxUm:
+    children:
+    - ROW-NDV_0Ufsw2LFn5TKvNs6w
+    id: TAB-pNxBWKV3CpZWotDqqnxUm
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Help
+    parents:
+    - ROOT_ID
+    - TABS-6vozRyRn2o
+    type: TAB
   TABS-6vozRyRn2o:
     children:
     - TAB-J31MdXj-sa
     - TAB-GuHDMLqRC
+    - TAB-pNxBWKV3CpZWotDqqnxUm
     id: TABS-6vozRyRn2o
     meta: {}
     parents:

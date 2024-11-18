@@ -989,8 +989,7 @@ position:
     children: []
     id: MARKDOWN-mH--KD6qFl
     meta:
-      code: '## Help<br>* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/reference/learner_groups_dashboard.html)<br>*
-        [Superset Resources](https://github.com/apache/superset#resources)<br>'
+      code: '{{ASPECTS_LEARNER_GROUPS_HELP_MARKDOWN}}'
       height: 50
       width: 12
     parents:
