@@ -31,7 +31,7 @@ durationpy==0.9
     # via kubernetes
 future==1.0.0
     # via pyseeyou
-google-auth==2.35.0
+google-auth==2.36.0
     # via kubernetes
 idna==3.10
     # via requests
@@ -61,7 +61,7 @@ oauthlib==3.2.2
     #   requests-oauthlib
 openedx-atlas==0.6.2
     # via -r requirements/base.in
-packaging==24.1
+packaging==24.2
     # via
     #   black
     #   tutor
@@ -89,7 +89,7 @@ pyyaml==6.0.2
     # via
     #   kubernetes
     #   tutor
-regex==2024.9.11
+regex==2024.11.6
     # via parsimonious
 requests==2.32.3
     # via
@@ -113,7 +113,7 @@ six==1.16.0
     #   python-dateutil
 toolz==1.0.0
     # via pyseeyou
-tqdm==4.66.6
+tqdm==4.67.0
     # via shandy-sqlfmt
 transifex-python==3.5.0
     # via -r requirements/base.in
@@ -129,5 +129,5 @@ urllib3==2.2.3
     #   requests
 websocket-client==1.8.0
     # via kubernetes
-zipp==3.20.2
+zipp==3.21.0
     # via importlib-metadata

@@ -61,7 +61,7 @@ future==1.0.0
     # via
     #   -r requirements/base.txt
     #   pyseeyou
-google-auth==2.35.0
+google-auth==2.36.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -134,7 +134,7 @@ oauthlib==3.2.2
     #   requests-oauthlib
 openedx-atlas==0.6.2
     # via -r requirements/base.txt
-packaging==24.1
+packaging==24.2
     # via
     #   -r requirements/base.txt
     #   black
@@ -176,9 +176,9 @@ pygments==2.18.0
     # via
     #   readme-renderer
     #   rich
-pyinstaller==6.11.0
+pyinstaller==6.11.1
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2024.9
+pyinstaller-hooks-contrib==2024.10
     # via pyinstaller
 pylint==3.3.1
     # via -r requirements/dev.in
@@ -197,7 +197,7 @@ pyyaml==6.0.2
     #   tutor
 readme-renderer==44.0
     # via twine
-regex==2024.9.11
+regex==2024.11.6
     # via
     #   -r requirements/base.txt
     #   parsimonious
@@ -245,14 +245,18 @@ toolz==1.0.0
     # via
     #   -r requirements/base.txt
     #   pyseeyou
-tqdm==4.66.6
+tqdm==4.67.0
     # via
     #   -r requirements/base.txt
     #   shandy-sqlfmt
 transifex-python==3.5.0
     # via -r requirements/base.txt
 tutor==18.1.4
-    # via -r requirements/base.txt
+    # via
+    #   -r requirements/base.txt
+    #   tutor-contrib-pod-autoscaling
+tutor-contrib-pod-autoscaling @ git+https://github.com/edunext/tutor-contrib-pod-autoscaling@v18.0.1
+    # via -r requirements/dev.in
 twine==5.1.1
     # via -r requirements/dev.in
 typing-extensions==4.12.2
@@ -270,7 +274,7 @@ websocket-client==1.8.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-zipp==3.20.2
+zipp==3.21.0
     # via
     #   -r requirements/base.txt
     #   importlib-metadata
