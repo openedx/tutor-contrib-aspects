@@ -7,6 +7,9 @@ image: {{ DOCKER_IMAGE_SUPERSET }}
     - ../../env/plugins/aspects/apps/superset/superset_home:/app/superset_home
     - ../../env/plugins/aspects/apps/superset/scripts:/app/scripts
     - ../../env/plugins/aspects/build/aspects-superset/openedx-assets:/app/openedx-assets
+    {%- for mount in iter_mounts(MOUNTS, "superset") %}
+    - {{ mount }}
+    {%- endfor %}        
   restart: unless-stopped
   environment:
     DATABASE_DIALECT: {{ SUPERSET_DB_DIALECT }}

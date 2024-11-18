@@ -481,6 +481,34 @@ except AttributeError:
     pass
 
 
+@hooks.Filters.IMAGES_BUILD_MOUNTS.add()
+def _mount_superset_on_build(
+    mounts: list[tuple[str, str]], host_path: str
+) -> list[tuple[str, str]]:
+    """
+    Automatically add superset repo from the host to the build context whenever
+    it is added to the `MOUNTS` setting.
+    """
+    if os.path.basename(host_path) == "superset":
+        mounts += [
+            ("aspects-superset", "superset"),
+        ]
+    return mounts
+
+
+@hooks.Filters.COMPOSE_MOUNTS.add()
+def _mount_superset_compose(
+    volumes: list[tuple[str, str]], name: str
+) -> list[tuple[str, str]]:
+    """
+    When mounting superset with `tutor mounts add /path/to/superset"
+    bind-mount the host repo in the superset container.
+    """
+    if name == "superset":
+        volumes += [("superset", "/app")]
+    return volumes
+
+
 ########################################
 # INITIALIZATION TASKS
 ########################################
