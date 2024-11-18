@@ -34,7 +34,7 @@ jobs:
           bump2version --new-version ${{ steps.tag_version.outputs.new_version }} setup.cfg tutoraspects/__about__.py .ci/config.yml
       - name: Update Changelog
         if: steps.tag_version.outputs.new_version
-        uses: stefanzweifel/changelog-updater-action@v1.11.0
+        uses: stefanzweifel/changelog-updater-action@v1.12.0
         with:
           latest-version: v${{ steps.tag_version.outputs.new_version }}
           release-notes: ${{ steps.tag_version.outputs.changelog }}
