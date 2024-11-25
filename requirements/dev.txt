@@ -18,7 +18,7 @@ asttokens==2.4.1
     #   transifex-python
 backports-tarfile==1.2.0
     # via jaraco-context
-bcrypt==4.2.0
+bcrypt==4.2.1
     # via -r requirements/base.txt
 black==24.10.0
     # via
@@ -245,7 +245,7 @@ toolz==1.0.0
     # via
     #   -r requirements/base.txt
     #   pyseeyou
-tqdm==4.67.0
+tqdm==4.67.1
     # via
     #   -r requirements/base.txt
     #   shandy-sqlfmt
