@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.3.0 - 2024-11-26
+
+### [1.3.0](https://github.com/openedx/tutor-contrib-aspects/compare/v1.2.0...v1.3.0) (2024-11-26)
+
+#### Features
+
+* add autoscaling values for ralph and superset ([ac1a9be](https://github.com/openedx/tutor-contrib-aspects/commit/ac1a9bea7ea8d18f91a7494290626ec08bc97d26))
+* add bind and compose mount settings for superset ([c9d0c9e](https://github.com/openedx/tutor-contrib-aspects/commit/c9d0c9e91fc5bd8090d4d3cd63e323250c57d2e9))
+* allow to block instructor access ([b90e22b](https://github.com/openedx/tutor-contrib-aspects/commit/b90e22baa6beaecfdffbdacdc6d53c14f0c150ca))
+* update dbt and use new param view ([4f466ea](https://github.com/openedx/tutor-contrib-aspects/commit/4f466ea699643fd9dae5d97f3df5dfc51dac2970))
+
+#### Bug Fixes
+
+* add configurable help tab for at-risk and comparison dashboard ([205acd9](https://github.com/openedx/tutor-contrib-aspects/commit/205acd9566714232e971643ab4b56b4a2b8761ed))
+* add username to user_profile ([7e6e607](https://github.com/openedx/tutor-contrib-aspects/commit/7e6e607d8d457736d9801f484879b3a2a505a996))
+* add username to user_profile serializer ([ed71f06](https://github.com/openedx/tutor-contrib-aspects/commit/ed71f0615c6e26903d575aac96474c7c671359c7))
+* dbt version ([8fd7fee](https://github.com/openedx/tutor-contrib-aspects/commit/8fd7feeaac18dbb58d7b4010834d89fb3c3cc07a))
+* dbt version ([5a84ec7](https://github.com/openedx/tutor-contrib-aspects/commit/5a84ec726664dc009a90cd5033cf77c1d860643f))
+* formatting ([8a1e2f6](https://github.com/openedx/tutor-contrib-aspects/commit/8a1e2f627fb8a4d17a5762a83b7c75a0805fb3f0))
+* parse external_id to string instead of actor_id to uuid ([6b792d1](https://github.com/openedx/tutor-contrib-aspects/commit/6b792d16e646461a1c83863dfd090d6c27ec173b))
+* parse external_id to string instead of actor_id to uuid ([bdf4058](https://github.com/openedx/tutor-contrib-aspects/commit/bdf4058c49fd3427b1a6adfd517258a009777c38))
+* video engagement updates ([7839b65](https://github.com/openedx/tutor-contrib-aspects/commit/7839b65a44e5198b7ca9ce8e4c72cc95c1be44b1))
+
 ## v1.2.0 - 2024-10-23
 
 ### [1.2.0](https://github.com/openedx/tutor-contrib-aspects/compare/v1.1.0...v1.2.0) (2024-10-23)
