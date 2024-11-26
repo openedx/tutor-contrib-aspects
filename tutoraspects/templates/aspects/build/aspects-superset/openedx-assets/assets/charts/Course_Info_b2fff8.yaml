@@ -50,7 +50,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 651
+    id: 261
     type: table
   force: false
   form_data:
@@ -61,6 +61,7 @@ query_context:
       operator: TEMPORAL_RANGE
       subject: emission_time
     all_columns: []
+    annotation_layers: []
     color_pn: false
     column_config:
       active_count:
@@ -74,9 +75,7 @@ query_context:
       tag_list:
         truncateLongCells: true
     conditional_formatting: []
-    dashboards:
-    - 355
-    datasource: 651__table
+    datasource: 261__table
     extra_form_data: {}
     force: false
     groupby:
@@ -98,7 +97,7 @@ query_context:
     result_type: full
     row_limit: 50000
     show_cell_bars: false
-    slice_id: 1298
+    slice_id: 561
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     time_grain_sqla: P1M
