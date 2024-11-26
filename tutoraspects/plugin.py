@@ -384,7 +384,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # For the most part you shouldn't have to touch these
         # DBT_PROFILE_* settings get passed into the dbt_profile.yml file.
         # For now we are pulling this from github, which should allow maximum
-        # flexibility for forking, running branches, specific versions, etc.        
+        # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
         ("DBT_BRANCH", "v3.33.8"),
         ("DBT_SSH_KEY", ""),
