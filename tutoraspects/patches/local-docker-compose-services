@@ -53,7 +53,7 @@ superset:
   ports:
     - 8088:{{ SUPERSET_PORT }}
   depends_on:
-    - mysql
+    {% if RUN_MYSQL %}- mysql{% endif %}
     - redis
 
 superset-worker:
@@ -65,7 +65,7 @@ superset-worker:
   healthcheck:
     test: ["CMD-SHELL", "celery inspect ping -A superset.tasks.celery_app:app -d celery@$$HOSTNAME"]
   depends_on:
-    - mysql
+    {% if RUN_MYSQL %}- mysql{% endif %}
     - redis
 
 superset-worker-beat:
@@ -77,7 +77,7 @@ superset-worker-beat:
   healthcheck:
     disable: true
   depends_on:
-    - mysql
+    {% if RUN_MYSQL %}- mysql{% endif %}
     - redis
 {% endif %}
 
