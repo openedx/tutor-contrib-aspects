@@ -32,6 +32,6 @@ superset-job:
     OPENEDX_LMS_ROOT_URL: "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}"
     OAUTH2_CLIENT_ID: {{ SUPERSET_OAUTH2_CLIENT_ID }}
   depends_on:
-    - mysql
+    {% if RUN_MYSQL %}- mysql{% endif %}
     - redis
 {% endif %}
