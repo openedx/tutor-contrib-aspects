@@ -12,7 +12,7 @@ appdirs==1.4.4
     #   tutor
 astroid==3.3.5
     # via pylint
-asttokens==2.4.1
+asttokens==3.0.0
     # via
     #   -r requirements/base.txt
     #   transifex-python
@@ -47,7 +47,7 @@ click==8.1.7
     #   shandy-sqlfmt
     #   transifex-python
     #   tutor
-cryptography==43.0.3
+cryptography==44.0.0
     # via secretstorage
 dill==0.3.9
     # via pylint
@@ -74,7 +74,6 @@ importlib-metadata==8.5.0
     #   -r requirements/base.txt
     #   keyring
     #   tutor
-    #   twine
 importlib-resources==6.4.5
     # via
     #   -r requirements/base.txt
@@ -125,7 +124,7 @@ mypy-extensions==1.0.0
     #   -r requirements/base.txt
     #   black
     #   mypy
-nh3==0.2.18
+nh3==0.2.19
     # via readme-renderer
 oauthlib==3.2.2
     # via
@@ -141,6 +140,7 @@ packaging==24.2
     #   pyinstaller
     #   pyinstaller-hooks-contrib
     #   tutor
+    #   twine
 parsimonious==0.10.0
     # via
     #   -r requirements/base.txt
@@ -149,7 +149,7 @@ pathspec==0.12.1
     # via
     #   -r requirements/base.txt
     #   black
-pkginfo==1.10.0
+pkginfo==1.11.2
     # via twine
 platformdirs==4.3.6
     # via
@@ -180,7 +180,7 @@ pyinstaller==6.11.1
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2024.10
     # via pyinstaller
-pylint==3.3.1
+pylint==3.3.2
     # via -r requirements/dev.in
 pyseeyou==1.0.2
     # via
@@ -236,7 +236,6 @@ shandy-sqlfmt[jinjafmt]==0.21.2
 six==1.16.0
     # via
     #   -r requirements/base.txt
-    #   asttokens
     #   kubernetes
     #   python-dateutil
 tomlkit==0.13.2
@@ -257,7 +256,7 @@ tutor==18.1.4
     #   tutor-contrib-pod-autoscaling
 tutor-contrib-pod-autoscaling @ git+https://github.com/edunext/tutor-contrib-pod-autoscaling@v18.0.1
     # via -r requirements/dev.in
-twine==5.1.1
+twine==6.0.1
     # via -r requirements/dev.in
 typing-extensions==4.12.2
     # via
