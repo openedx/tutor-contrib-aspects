@@ -1,0 +1,1 @@
+{% if RUN_CLICKHOUSE %}setowner 101 /mounts/clickhouse{% endif %}
