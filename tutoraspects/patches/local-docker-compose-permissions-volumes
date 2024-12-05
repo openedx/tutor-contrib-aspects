@@ -1,0 +1,1 @@
+{% if RUN_CLICKHOUSE %}- ../../data/clickhouse:/mounts/clickhouse/{% endif %}
