@@ -10,7 +10,7 @@ appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   tutor
-astroid==3.3.5
+astroid==3.3.6
     # via pylint
 asttokens==3.0.0
     # via
@@ -149,7 +149,7 @@ pathspec==0.12.1
     # via
     #   -r requirements/base.txt
     #   black
-pkginfo==1.11.2
+pkginfo==1.12.0
     # via twine
 platformdirs==4.3.6
     # via
@@ -233,7 +233,7 @@ secretstorage==3.3.3
     # via keyring
 shandy-sqlfmt[jinjafmt]==0.21.2
     # via -r requirements/base.txt
-six==1.16.0
+six==1.17.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -250,7 +250,7 @@ tqdm==4.67.1
     #   shandy-sqlfmt
 transifex-python==3.5.0
     # via -r requirements/base.txt
-tutor==18.1.4
+tutor==18.2.0
     # via
     #   -r requirements/base.txt
     #   tutor-contrib-pod-autoscaling
