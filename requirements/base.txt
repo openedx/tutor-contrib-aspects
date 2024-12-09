@@ -106,7 +106,7 @@ ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
 shandy-sqlfmt[jinjafmt]==0.21.2
     # via -r requirements/base.in
-six==1.16.0
+six==1.17.0
     # via
     #   kubernetes
     #   python-dateutil
@@ -116,7 +116,7 @@ tqdm==4.67.1
     # via shandy-sqlfmt
 transifex-python==3.5.0
     # via -r requirements/base.in
-tutor==18.1.4
+tutor==18.2.0
     # via -r requirements/base.in
 typing-extensions==4.12.2
     # via
