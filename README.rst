@@ -1,225 +1,145 @@
-The Aspects plugin for Tutor
-============================
+=============================
+The Aspects Plugin for Tutor
+=============================
 
-Aspects Learner Analytics combines several free, open source, tools to add analytics and reporting capabilities to the Open edX platform. This plugin offers easy installation, configuration, and deployment of these tools using `Tutor <https://docs.tutor.overhang.io>`__. The tools Aspects uses are:
+Aspects Learner Analytics integrates several open-source tools to add powerful analytics and reporting capabilities to the Open edX platform. This plugin enables seamless installation, configuration, and deployment of these tools via `Tutor <https://docs.tutor.overhang.io>`_. The tools integrated by Aspects are:
 
-- `ClickHouse <https://clickhouse.com>`__, a fast, scalable analytics database that can be run anywhere
-- `Apache Superset <https://superset.apache.org>`__, a data visualization platform and data API
-- `OpenFUN Ralph <https://openfun.github.io/ralph/>`__, a Learning Record store (and more) that can validate and store xAPI statements in ClickHouse
-- `Vector <https://vector.dev/>`__, a log forwarding tool that can be used to forward tracking log and xAPI data to ClickHouse
-- `event-routing-backends <https://event-routing-backends.readthedocs.io/en/latest/>`__, an Open edX plugin that transforms tracking logs into xAPI and optionally forwards them to one or more Learning Record Stores in near real time
-- `event-sink-clickhouse <https://github.com/openedx/openedx-event-sink-clickhouse>`__, an Open edX plugin that exports course structure and high level data to ClickHouse at publish time
-- `dbt <https://www.getdbt.com/>`__, a tool to build data pipelines from SQL queries. The dbt project used by this plugin is `aspects-dbt <https://github.com/openedx/aspects-dbt>`__.
+- `ClickHouse <https://clickhouse.com>`_: A fast and scalable analytics database.
+- `Apache Superset <https://superset.apache.org>`_: A data visualization and exploration platform.
+- `OpenFUN Ralph <https://openfun.github.io/ralph/>`_: A Learning Record Store that validates and stores xAPI statements in ClickHouse.
+- `Vector <https://vector.dev>`_: A tool for forwarding logs and xAPI data to ClickHouse.
+- `Event-Routing-Backends <https://event-routing-backends.readthedocs.io/en/latest/>`_: An Open edX plugin that transforms tracking logs into xAPI and forwards them to Learning Record Stores in near real-time.
+- `Event-Sink-ClickHouse <https://github.com/openedx/openedx-event-sink-clickhouse>`_: An Open edX plugin exporting course structure and data to ClickHouse.
+- `dbt <https://www.getdbt.com>`_: A SQL-based data pipeline builder, utilizing the `aspects-dbt <https://github.com/openedx/aspects-dbt>`_ project.
 
-See https://github.com/openedx/openedx-aspects for more details about the Aspects architecture and high level documentation.
+For more information, refer to the `Aspects architecture documentation <https://github.com/openedx/openedx-aspects>`_.
 
-Aspects is a community developed effort combining the Cairn project by Overhang.io and the OARS project by EduNEXT, OpenCraft, and Axim Collaborative.
+Key Features
+============
 
-Note: Aspects is beta and not yet production ready! Please feel free to experiment with the system and offer feedback about what you'd like to see by adding Issues in this repository. Current details on the beta progress can be found here: https://openedx.atlassian.net/wiki/spaces/COMM/pages/3861512203/Aspects+Beta
+- Streamlined deployment of analytics and reporting tools.
+- Integration with Open edX for real-time and historical data analytics.
+- Extensible architecture supporting customization.
+
+.. note::
+Aspects is currently in beta and not production-ready. Feedback and contributions are welcome through GitHub Issues.
 
 Compatibility
--------------
+=============
 
-This plugin is compatible with Tutor 15.0.0 and later and is expected to be compatible with Open edX releases from Nutmeg forward.
+The plugin is compatible with Tutor 15.0.0 and later and supports Open edX releases from Nutmeg onward.
 
 Installation
-------------
+============
 
-Aspects is implemented as a Tutor plugin. Documentation will be coming soon to cover how to install Aspects in non-Tutor environments, but by far the easiest way to try and install it is via Tutor. These instructions assume you are running a `tutor local` install, which is the fastest and easiest way to get started.
+Aspects is implemented as a Tutor plugin. For now, the easiest installation method is via Tutor. Follow these steps for a ``tutor local`` installation:
 
-#. Install Tutor: https://docs.tutor.overhang.io/install.html#install
+1. **Install Tutor**:
+   Follow the instructions at `Tutor Installation Guide <https://docs.tutor.overhang.io/install.html#install>`_.
 
-#. Create an admin user on the LMS: https://docs.tutor.overhang.io/whatnext.html#logging-in-as-administrator
+2. **Create an Admin User**:
+   Refer to the `Tutor Setup Guide <https://docs.tutor.overhang.io/whatnext.html#logging-in-as-administrator>`_.
 
-#. Install the Aspects plugin (in your Tutor Python environment)::
+3. **Install and Enable the Plugin**:
 
-    pip install tutor-contrib-aspects
+   .. code-block:: bash
 
-#. Enable the plugins::
+      pip install tutor-contrib-aspects
+      tutor plugins enable aspects
+      tutor config save
 
-    tutor plugins enable aspects
+4. **Rebuild Docker Images**:
 
-#. Save the changes to the environment::
+   .. code-block:: bash
 
-    tutor config save
+      tutor images build openedx --no-cache
+      tutor images build aspects-superset
 
-#. Because we're installing new applications in LMS (event-routing-backends, event-sink-clickhouse) you will need to rebuild your openedx Docker image::
+5. **Initialize the Environment**:
 
-    tutor images build openedx --no-cache
+   .. code-block:: bash
 
-#. Build the Aspects-flavored Superset image to bake your settings (such as database passwords) into the Superset assets::
+      tutor local do init
 
-    tutor images build aspects-superset
+Data Population Options
+------------------------
 
-#. Run the initialization scripts::
+To visualize data:
 
-    tutor local do init
+- Generate test data:
 
-At this point you should have a working Tutor / Aspects environment, but with no way to create data! There are a few options for how to proceed.
+  .. code-block:: bash
 
-#. If you would just like to see some data populated in the charts without loading a real course in the LMS you can create test data in the database (use ``--help`` for usage)::
+     tutor local do load-xapi-test-data
 
-        tutor local do load-xapi-test-data
+- Import a demo course and create real data:
 
-#. OR Load the test course and generate real data from the LMS:
+  Follow `these steps <https://docs.tutor.overhang.io/whatnext.html#importing-a-demo-course>`_.
 
-   #. https://docs.tutor.overhang.io/whatnext.html#importing-a-demo-course
+- Sync data from an existing LMS:
 
-   #. Log into the LMS with your admin user and enroll / proceed through the demo course
+  .. code-block:: bash
 
-#. OR If you are adding Aspects to an existing LMS that already has data
+     tutor local do dump-data-to-clickhouse --options "--object course_overviews"
+     tutor [dev|local] do transform-tracking-logs --source_provider LOCAL --source_config '{"key": "/openedx/data", "container": "logs", "prefix": "tracking.log"}' --transformer_type xapi
 
-   #. Sink course data from the LMS to clickhouse (see https://github.com/openedx/openedx-event-sink-clickhouse for more information)::
-
-       tutor local do dump-data-to-clickhouse --options "--object course_overviews"
-
-   #. Sink Historical event data to ClickHouse::
-
-       tutor [dev|local] do transform-tracking-logs \
-         --source_provider LOCAL --source_config '{"key": "/openedx/data", "container":
-            "logs", "prefix": "tracking.log"}' \
-         --transformer_type xapi
-
-       # Note that this will work only for default tutor installation. If you store your tracking logs any other way, you need to change the source_config option accordingly.
-       # See https://event-routing-backends.readthedocs.io/en/latest/howto/how_to_bulk_transform.html#sources-and-destinations for details on how to change the source_config option.
-
-#. If your assets have changed since the last time you ran init, you will need to rebuild the aspects-superset image and re-import the assets::
-
-    tutor images build aspects-superset --no-cache
-    tutor local do import-assets
-
-#. Make sure to build and push your Superset image in the following cases:
-
-   #. If you have made changes to the Superset assets.
-   #. If you have made changes to the Clickhouse/DBT schema.
-   #. If you are using custom translations.
-
-
-You should now have data to look at in Superset! Log in to https://superset.local.overhang.io/ with your admin account and you should see charts with your data.
-
-Aspects Autoscaling
--------------------
-
-Aspects adds default autoscaling values for `Ralph`, `Superset` and the `Superset Worker` deployments via
-`tutor-contrib-pod-autoscaling <https://github.com/eduNEXT/tutor-contrib-pod-autoscaling>`_. To apply the
-autoscaling settings make sure to install the plugin and enable it. To modify the autoscaling values
-see the `Configuration <https://github.com/eduNEXT/tutor-contrib-pod-autoscaling?tab=readme-ov-file#configuration>`_ section.
+Superset and Autoscaling
+=========================
 
 Superset Assets
 ---------------
 
-Aspects maintains the Superset assets in this repository, specifically the dashboards,
-charts, datasets, and databases. That means that any updates made here will be reflected
-on your Superset instance when you update your deployment.
+Aspects maintains its Superset assets (dashboards, charts, datasets) in the repository. Local changes to these assets will be overwritten during updates unless saved as new assets.
 
-But it also means that any local changes you make to these assets will be overwritten
-when you update your deployment. To prevent your local changes from being overwritten,
-please create new assets and make your changes there instead. You can copy an existing
-asset by editing the asset in Superset and selecting "Save As" to save it to a new name.
+To rebuild and re-import assets:
 
-# Note: If you are using custom assets you will need to rebuild your aspects-superset
-# image on your local machine with `tutor images build aspects-superset --no-cache`.
+.. code-block:: bash
 
-Assets (charts/datasets) created for Aspects that are no longer used can be listed in 
-`aspects_asset_list.yaml`. These assets & any translated assets created from them, 
-are deleted from Superset during `init` (specifically `import-assets`). The corresponding 
-YAML files are deleted during `import_superset_zip` or and `check_superset_assets`.
+   tutor images build aspects-superset --no-cache
+   tutor local do import-assets
 
-Sharing Charts and Dashboards
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Autoscaling
+-----------
 
-To share your charts with others in the community, use Superset's "Export" button to
-save a zip file of your charts and related datasets.
+Aspects supports autoscaling configurations for Ralph, Superset, and Superset Worker via the `Pod Autoscaling plugin <https://github.com/eduNEXT/tutor-contrib-pod-autoscaling>`_. Modify autoscaling settings as needed.
 
-.. warning::
-    The exported datasets will contain hard-coded references to your particular
-    databases, including your database hostname, port, and username, in some cases
-    it may also contain database passwords. It is vital that you review the
-    database and dataset files before sharing them.
+Contributing Charts and Dashboards
+===================================
 
-To import charts or dashboards shared by someone in the community:
+To contribute Superset assets:
 
-#. Expand the zip file and look for any files added under ``databases``.
-   Update the ``sqlalchemy_uri`` to match your database's connection details.
-#. Compress the files back into a ``.zip`` file.
-#. On the Charts or Dashboards page, use the "Import" button to upload your ``.zip`` file.
+1. Fork this repository and set up a local Tutor instance with Aspects installed.
+2. Export the desired assets using Superset’s “Export” feature.
+3. Use the command:
 
+   .. code-block:: bash
 
-Contributing Charts and Dashboards to Aspects
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      tutor aspects import_superset_zip ~/Downloads/your_file.zip
 
-The Superset assets provided by Aspects can be found in the templated
-`tutoraspects/templates/aspects/build/aspects-superset/openedx-assets/assets/` directory. For the most part,
-these files are what Superset exports, but with some crucial differences
-which make these assets usable across all Tutor deployments.
+4. Update database connection strings to use template variables.
+5. Validate and rebuild:
 
-To contribute assets to Aspects:
+   .. code-block:: bash
 
-#. Fork this repository and have a locally running Tutor set up with this plugin
-   installed.
-#. Export the assets you want to contribute as described in `Sharing Charts and Dashboards`
-#. Run the command:
-   `tutor aspects import_superset_zip ~/Downloads/your_file.zip`
-#. This command will copy the files from your zip to the assets directory and
-   attempt to warn you if there are hard coded connection settings where it expects
-   template variables. These are usually in database and dataset assets, and those are
-   often assets that already exist. The warnings look like:
+      tutor images build aspects-superset --no-cache
+      tutor aspects check_superset_assets
+      tutor local do import-assets
 
-   `WARN: fact_enrollments.yaml has schema set to reporting instead of a setting.`
-#. Check the diff of files and update any database connection strings or table names
-   to use Tutor configuration template variables instead of hard-coded strings, e.g.
-   replace ``clickhouse`` with ``{{CLICKHOUSE_HOST}}``. Passwords can be left as
-   ``{{CLICKHOUSE_PASSWORD}}``, though be aware that if you are adding new
-   databases, you'll need to update ``SUPERSET_DB_PASSWORDS`` in the init scripts.
-   Here is the default connection string for reference::
+6. Submit a pull request with screenshots and details of your contributions.
 
-   ``clickhousedb+connect://{{CLICKHOUSE_REPORT_URL}}``
-#. You will likely also run into issues where our SQL templates have been expanded into
-   their actual SQL. If you haven't changed the SQL of these queries (stored in
-   `tutoraspects/templates/openedx-assets/queries` you can just revert that change back
-   to their `include` values such as:
-   `sql: "{% include 'openedx-assets/queries/fact_enrollments_by_day.sql' %}"`
-#. The script will also warn about missing `_roles` in dashboards. Superset does not export
-   these, so you will need to manually add this key with the roles that are necessary to
-   view the dashboard. See the existing dashboards for how this is done.
-#. Re-build your ``aspects-superset`` image with `tutor images build aspects-superset --no-cache`
-#. Run the command `tutor aspects check_superset_assets` to confirm there are no
-   duplicate assets, which can happen when you rename an asset, and will cause import
-   to fail. The command will automatically delete the older file if it finds a duplicate.
-#. Check that everything imports correctly by running `tutor local do import-assets`
-   and confirming there are no errors.
-#. Double check that your database password did not get exported before committing!
-#. Commit and submit a PR with screenshots of your new chart or dashboards, along with an
-   explanation of what data question they answer.
+Release Workflow
+================
 
+Releases are handled via GitHub Actions:
 
-Virtual datasets in Superset
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- Trigger the **Bump version and changelog** action to update the version and changelog.
+- Merge the PR to initiate the **release** and **build-image** workflows.
 
-Superset supports creating virtual datasets, which are datasets defined using a SQL query instead of mapping directly to an underlying database object. Aspects leverages virtual datasets, along with `SQL templating <https://superset.apache.org/docs/installation/sql-templating/>`_, to make better use of table indexes.
+Ensure the updated version appears on `PyPI <https://pypi.org>`_ and DockerHub.
 
-To make it easier for developers to manage virtual datasets, there is an extra step that can be done on the output of ``tutor aspects serialize``. The ``sql`` section of the dataset yaml can be moved to its own file in the `queries`_ directory and included in the yaml like so:
+Additional Resources
+=====================
 
-.. code-block:: yaml
+- `Tutor Documentation <https://docs.tutor.overhang.io>`_
+- `Aspects Beta Progress <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3861512203/Aspects+Beta>`_
 
-   sql: "{% include 'openedx-assets/queries/query.sql' %}"
-
-
-However, please keep in mind that the assets declaration is itself a jinja template. That means that any jinja used in the dataset definition should be escaped. There are examples of how to handle this in the existing queries, such as `dim_courses.sql`_.
-
-.. _queries: tutoraspects/templates/openedx-assets/queries/
-
-.. _dim_courses.sql: tutoraspects/templates/openedx-assets/queries/dim_courses.sql
-
-
-Releasing tutor-contrib-aspects
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Changelog, package version, PyPI release, and image building are all handled via manually triggered Githib Actions.
-
-To trigger a build you must have access to manually trigger the "Bump version and changelog" action. This will update the version and changelog in a new PR. If the PR looks good, you can approve and merge it. Merging this PR will:
-
-- Trigger the "release" workflow which will tag a Github release with the new version number, and then push the release to PyPI
-- Trigger the "build-image" workflow, which builds our images for aspects, aspects-superset, and openedx to the EduNEXT DockerHub repositories
-
-When the workflows are finished you should confirm that you see the new version on PyPI and images in DockerHub.
