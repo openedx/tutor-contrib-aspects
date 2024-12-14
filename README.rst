@@ -21,6 +21,8 @@ Key Features
 - Integration with Open edX for real-time and historical data analytics.
 - Extensible architecture supporting customization.
 
+
+
 .. note::
 Aspects is currently in beta and not production-ready. Feedback and contributions are welcome through GitHub Issues.
 
@@ -142,4 +144,7 @@ Additional Resources
 
 - `Tutor Documentation <https://docs.tutor.overhang.io>`_
 - `Aspects Beta Progress <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3861512203/Aspects+Beta>`_
-
+- `Superset Documentation <https://superset.apache.org/docs>`_
+- `DBT Documentation <https://www.getdbt.com/docs/>`_
+- `Event Routing Backends Documentation <https://event-routing-backends.readthedocs.io/en/latest/>`_
+- `Tracking Logs Documentation <https://vector.dev/docs/>`_
