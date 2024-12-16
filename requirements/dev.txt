@@ -29,7 +29,7 @@ cachetools==5.5.0
     # via
     #   -r requirements/base.txt
     #   google-auth
-certifi==2024.8.30
+certifi==2024.12.14
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -61,7 +61,7 @@ future==1.0.0
     # via
     #   -r requirements/base.txt
     #   pyseeyou
-google-auth==2.36.0
+google-auth==2.37.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -250,7 +250,7 @@ tqdm==4.67.1
     #   shandy-sqlfmt
 transifex-python==3.5.0
     # via -r requirements/base.txt
-tutor==18.2.0
+tutor==18.2.2
     # via
     #   -r requirements/base.txt
     #   tutor-contrib-pod-autoscaling
