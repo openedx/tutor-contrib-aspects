@@ -194,7 +194,7 @@ jobs:
       - name: Tutor build openedx
         run: tutor images build openedx aspects aspects-superset
       - name: Create k8s Kind Cluster
-        uses: helm/kind-action@v1.10.0
+        uses: helm/kind-action@v1.11.0
       - name: Mount docker image
         run: |
           kind get clusters
