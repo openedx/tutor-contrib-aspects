@@ -22,8 +22,6 @@ Key Features
 
 
 
-.. note::
-Aspects is currently in beta and not production-ready. Feedback and contributions are welcome through GitHub Issues.
 
 Compatibility
 =============
