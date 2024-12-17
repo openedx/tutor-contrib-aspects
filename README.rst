@@ -9,7 +9,6 @@ Aspects Learner Analytics integrates several open-source tools to add powerful a
 - `OpenFUN Ralph <https://openfun.github.io/ralph/>`_: A Learning Record Store that validates and stores xAPI statements in ClickHouse.
 - `Vector <https://vector.dev>`_: A tool for forwarding logs and xAPI data to ClickHouse.
 - `Event-Routing-Backends <https://event-routing-backends.readthedocs.io/en/latest/>`_: An Open edX plugin that transforms tracking logs into xAPI and forwards them to Learning Record Stores in near real-time.
-- `Event-Sink-ClickHouse <https://github.com/openedx/openedx-event-sink-clickhouse>`_: An Open edX plugin exporting course structure and data to ClickHouse.
 - `dbt <https://www.getdbt.com>`_: A SQL-based data pipeline builder, utilizing the `aspects-dbt <https://github.com/openedx/aspects-dbt>`_ project.
 
 For more information, refer to the `Aspects architecture documentation <https://github.com/openedx/openedx-aspects>`_.
