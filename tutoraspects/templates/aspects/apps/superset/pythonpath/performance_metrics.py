@@ -116,9 +116,9 @@ def performance_metrics(
                     slice, query_contexts, extra_filters
                 )
                 result = measure_chart(slice, query_context, fail_on_error)
-                chart_count += 1
                 if not result:
                     continue
+                chart_count += 1
                 for query in result["queries"]:
                     # Remove the data from the query to avoid memory issues on large
                     # datasets.

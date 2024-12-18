@@ -118,7 +118,7 @@ sql: |
       query,
       http_user_agent
   FROM system.query_log
-  WHERE databases <> ['system'] AND (http_user_agent LIKE 'aspects-%') AND (type <> 'QueryStart')
+  WHERE databases <> ['system'] AND (http_user_agent LIKE 'aspects-%') AND (type = 'QueryFinish')
   ORDER BY event_time DESC
 table_name: query_log
 template_params: null
