@@ -11,7 +11,7 @@ Aspects Learner Analytics integrates several open-source tools to add powerful a
 - `Event-Routing-Backends <https://event-routing-backends.readthedocs.io/en/latest/>`_: An Open edX plugin that transforms tracking logs into xAPI and forwards them to Learning Record Stores in near real-time.
 - `dbt <https://www.getdbt.com>`_: A SQL-based data pipeline builder, utilizing the `aspects-dbt <https://github.com/openedx/aspects-dbt>`_ project.
 
-For more information, refer to the `Aspects architecture documentation <https://github.com/openedx/openedx-aspects>`_.
+For more information, refer to the `Aspects architecture documentation <https://docs.openedx.org/projects/openedx-aspects/en/latest/technical_documentation/concepts/aspects_overview.html>`_.
 
 Key Features
 ============
