@@ -118,7 +118,7 @@ sql: |
       query,
       http_user_agent
   FROM system.query_log
-  WHERE (has(databases, '{{ASPECTS_XAPI_DATABASE}}') OR has(databases, '{{ASPECTS_EVENT_SINK_DATABASE}}') OR has(databases, '{{DBT_PROFILE_TARGET_DATABASE}}')) AND (http_user_agent LIKE 'aspects-%') AND (type = 'QueryFinish')
+  WHERE databases <> ['system'] AND (http_user_agent LIKE 'aspects-%') AND (type <> 'QueryStart')
   ORDER BY event_time DESC
 table_name: query_log
 template_params: null

@@ -85,6 +85,7 @@ def performance_metrics(
     if org:
         extra_filters += [{"col": "org", "op": "IN", "val": org}]
 
+    chart_count = 0
     with patch("clickhouse_connect.common.build_client_name") as mock_build_client_name:
         mock_build_client_name.return_value = RUN_ID
         target_dashboards = (
@@ -115,6 +116,7 @@ def performance_metrics(
                     slice, query_contexts, extra_filters
                 )
                 result = measure_chart(slice, query_context, fail_on_error)
+                chart_count += 1
                 if not result:
                     continue
                 for query in result["queries"]:
@@ -129,9 +131,7 @@ def performance_metrics(
             logger.warning("No target charts found!")
             return report
 
-        logger.info("Waiting for clickhouse log...")
-        time.sleep(20)
-        get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_error)
+        get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_error, chart_count)
         return report
 
 
@@ -187,7 +187,7 @@ def measure_chart(slice, query_context_dict, fail_on_error):
     """
     Measure the performance of a chart and return the results.
     """
-    logger.info(f"Fetching slice data: {slice}")
+    logger.info(f"Fetching slice data: {slice} {slice.uuid}")
 
     g.user = security_manager.find_user(username="{{SUPERSET_ADMIN_USERNAME}}")
     query_context = ChartDataQueryContextSchema().load(query_context_dict)
@@ -200,6 +200,7 @@ def measure_chart(slice, query_context_dict, fail_on_error):
         end_time = datetime.now()
         result["time_elapsed"] = (end_time - start_time).total_seconds()
         result["slice"] = slice
+        result["uuid"] = slice.uuid
         for query in result["queries"]:
             if "error" in query and query["error"]:
                 raise query["error"]
@@ -212,7 +213,7 @@ def measure_chart(slice, query_context_dict, fail_on_error):
     return result
 
 
-def get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_error):
+def get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_error, chart_count):
     """
     Get the query log from clickhouse and print the results.
     """
@@ -228,6 +229,17 @@ def get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_err
 
     ch_chart_result = measure_chart(slice, query_context, fail_on_error)
 
+    # Run CH query until results for all slices are returned
+    ch_count = 6
+    while ch_count > 0:
+        if ch_chart_result["queries"][0]["rowcount"] < chart_count:
+            logger.info("Waiting for clickhouse log...")
+            time.sleep(5)
+            ch_chart_result = measure_chart(slice, query_context, fail_on_error)
+            ch_count -= 1
+        else:
+            break
+
     clickhouse_queries = {}
     for query in ch_chart_result["queries"]:
         for row in query["data"]:
@@ -237,7 +249,7 @@ def get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_err
     for k, chart_result in enumerate(report):
         for query in chart_result["queries"]:
             parsed_sql = (
-                str(sqlparse.parse(query["query"])[0]).replace(";", "")
+                str(sqlparse.parse(query["query"].strip())[0]).replace(";", "")
                 + "\n FORMAT Native"
             )
             chart_result["sql"] = parsed_sql
@@ -255,7 +267,7 @@ def get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_err
         report_str += report_format.format(
             i=(k + 1),
             dashboard=chart_result["dashboard"],
-            slice=chart_result["slice"],
+            slice=f'{chart_result["slice"]} {chart_result["uuid"]}',
             superset_time=chart_result["time_elapsed"],
         )
         for query in chart_result["queries"]:
