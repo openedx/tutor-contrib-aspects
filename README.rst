@@ -75,6 +75,12 @@ To visualize data:
 
   Follow `these steps <https://docs.tutor.overhang.io/whatnext.html#importing-a-demo-course>`_.
 
+- Interact with the course to generate data:
+
+  Complete a few activities within the course (e.g., enroll, take quizzes, watch videos) to generate real data. This will provide a more realistic dataset for analytics.
+   
+
+
 - Sync data from an existing Tutor installation with default settings:
 
   .. code-block:: bash
