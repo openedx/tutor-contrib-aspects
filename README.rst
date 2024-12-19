@@ -108,7 +108,7 @@ Contributing Charts and Dashboards
 To contribute Superset assets:
 
 1. Fork this repository and set up a local Tutor instance with Aspects installed.
-2. Export the desired assets using Superset’s “Export” feature.
+2. You should work on the non-localized versions of the Superset dashboards. Export the new or updated dashboard(s) using Superset’s “Export” feature. It is best to export the entire dashboard instead of just charts or datasets to ensure that all of the correct changes are captured.
 3. Use the command:
 
    .. code-block:: bash
