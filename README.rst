@@ -86,7 +86,7 @@ To visualize data:
   .. code-block:: bash
 
      tutor local do dump-data-to-clickhouse --options "--object course_overviews"
-     tutor [dev|local] do transform-tracking-logs --source_provider LOCAL --source_config '{"key": "/openedx/data", "container": "logs", "prefix": "tracking.log"}' --transformer_type xapi
+     tutor local do transform-tracking-logs --source_provider LOCAL --source_config '{"key": "/openedx/data", "container": "logs", "prefix": "tracking.log"}' --transformer_type xapi
 
 Superset and Autoscaling
 =========================
