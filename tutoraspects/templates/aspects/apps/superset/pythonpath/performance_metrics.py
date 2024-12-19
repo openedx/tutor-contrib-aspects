@@ -232,8 +232,9 @@ def get_query_log_from_clickhouse(report, query_contexts, print_sql, fail_on_err
     # Run CH query until results for all slices are returned
     ch_count = 6
     while ch_count > 0:
-        if ch_chart_result["queries"][0]["rowcount"] < chart_count:
-            logger.info("Waiting for clickhouse log...")
+        missing_rows = chart_count - ch_chart_result["queries"][0]["rowcount"]
+        if missing_rows > 0:
+            logger.info(f"Waiting for {missing_rows} clickhouse logs...")
             time.sleep(5)
             ch_chart_result = measure_chart(slice, query_context, fail_on_error)
             ch_count -= 1
