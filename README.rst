@@ -75,7 +75,7 @@ To visualize data:
 
   Follow `these steps <https://docs.tutor.overhang.io/whatnext.html#importing-a-demo-course>`_.
 
-- Sync data from an existing LMS:
+- Sync data from an existing Tutor installation with default settings:
 
   .. code-block:: bash
 
