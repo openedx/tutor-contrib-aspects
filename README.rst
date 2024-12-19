@@ -129,7 +129,7 @@ To contribute Superset assets:
 Release Workflow
 ================
 
-Releases are handled via GitHub Actions:
+Releases are handled by repository maintainers via GitHub Actions:
 
 - Trigger the **Bump version and changelog** action to update the version and changelog.
 - Merge the PR to initiate the **release** and **build-image** workflows.
