@@ -100,7 +100,7 @@ To rebuild and re-import assets:
 Autoscaling
 -----------
 
-Aspects supports autoscaling configurations for Ralph, Superset, and Superset Worker via the `Pod Autoscaling plugin <https://github.com/eduNEXT/tutor-contrib-pod-autoscaling>`_. Modify autoscaling settings as needed.
+Aspects supports Kubernetes autoscaling configurations for Ralph, Superset, and Superset Worker via the `Pod Autoscaling plugin <https://github.com/eduNEXT/tutor-contrib-pod-autoscaling>`_. Modify autoscaling settings as needed.
 
 Contributing Charts and Dashboards
 ===================================
