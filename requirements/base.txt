@@ -9,7 +9,7 @@ appdirs==1.4.4
 asttokens==3.0.0
     # via transifex-python
 bcrypt==4.2.1
-    # via -r requirements/base.in
+    # via -r base.in
 black==24.10.0
     # via shandy-sqlfmt
 cachetools==5.5.0
@@ -22,7 +22,7 @@ charset-normalizer==3.4.0
     # via requests
 click==8.1.7
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   black
     #   shandy-sqlfmt
     #   transifex-python
@@ -39,9 +39,9 @@ importlib-metadata==8.5.0
     # via tutor
 importlib-resources==6.4.5
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   tutor
-jinja2==3.1.4
+jinja2==3.1.5
     # via
     #   shandy-sqlfmt
     #   tutor
@@ -60,7 +60,7 @@ oauthlib==3.2.2
     #   kubernetes
     #   requests-oauthlib
 openedx-atlas==0.6.2
-    # via -r requirements/base.in
+    # via -r base.in
 packaging==24.2
     # via
     #   black
@@ -101,11 +101,11 @@ requests-oauthlib==2.0.0
 rsa==4.9
     # via google-auth
 ruamel-yaml==0.18.6
-    # via -r requirements/base.in
+    # via -r base.in
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
 shandy-sqlfmt[jinjafmt]==0.21.2
-    # via -r requirements/base.in
+    # via -r base.in
 six==1.17.0
     # via
     #   kubernetes
@@ -115,9 +115,9 @@ toolz==1.0.0
 tqdm==4.67.1
     # via shandy-sqlfmt
 transifex-python==3.5.0
-    # via -r requirements/base.in
+    # via -r base.in
 tutor==18.2.2
-    # via -r requirements/base.in
+    # via -r base.in
 typing-extensions==4.12.2
     # via
     #   mypy
