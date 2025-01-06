@@ -10,7 +10,7 @@ appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   tutor
-astroid==3.3.6
+astroid==3.3.8
     # via pylint
 asttokens==3.0.0
     # via
@@ -36,11 +36,11 @@ certifi==2024.12.14
     #   requests
 cffi==1.17.1
     # via cryptography
-charset-normalizer==3.4.0
+charset-normalizer==3.4.1
     # via
     #   -r requirements/base.txt
     #   requests
-click==8.1.7
+click==8.1.8
     # via
     #   -r requirements/base.txt
     #   black
@@ -74,7 +74,7 @@ importlib-metadata==8.5.0
     #   -r requirements/base.txt
     #   keyring
     #   tutor
-importlib-resources==6.4.5
+importlib-resources==6.5.2
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -90,12 +90,12 @@ jeepney==0.8.0
     # via
     #   keyring
     #   secretstorage
-jinja2==3.1.4
+jinja2==3.1.5
     # via
     #   -r requirements/base.txt
     #   shandy-sqlfmt
     #   tutor
-keyring==25.5.0
+keyring==25.6.0
     # via twine
 kubernetes==31.0.0
     # via
@@ -115,7 +115,7 @@ more-itertools==10.5.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-mypy==1.13.0
+mypy==1.14.1
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -124,7 +124,7 @@ mypy-extensions==1.0.0
     #   -r requirements/base.txt
     #   black
     #   mypy
-nh3==0.2.19
+nh3==0.2.20
     # via readme-renderer
 oauthlib==3.2.2
     # via
@@ -172,15 +172,15 @@ pycryptodome==3.21.0
     # via
     #   -r requirements/base.txt
     #   tutor
-pygments==2.18.0
+pygments==2.19.0
     # via
     #   readme-renderer
     #   rich
 pyinstaller==6.11.1
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2024.10
+pyinstaller-hooks-contrib==2024.11
     # via pyinstaller
-pylint==3.3.2
+pylint==3.3.3
     # via -r requirements/dev.in
 pyseeyou==1.0.2
     # via
@@ -223,7 +223,7 @@ rsa==4.9
     # via
     #   -r requirements/base.txt
     #   google-auth
-ruamel-yaml==0.18.6
+ruamel-yaml==0.18.10
     # via -r requirements/base.txt
 ruamel-yaml-clib==0.2.12
     # via
@@ -250,11 +250,11 @@ tqdm==4.67.1
     #   shandy-sqlfmt
 transifex-python==3.5.0
     # via -r requirements/base.txt
-tutor==18.2.2
+tutor==19.0.0
     # via
     #   -r requirements/base.txt
     #   tutor-contrib-pod-autoscaling
-tutor-contrib-pod-autoscaling @ git+https://github.com/edunext/tutor-contrib-pod-autoscaling@v18.0.1
+tutor-contrib-pod-autoscaling==19.0.0
     # via -r requirements/dev.in
 twine==6.0.1
     # via -r requirements/dev.in
@@ -263,7 +263,7 @@ typing-extensions==4.12.2
     #   -r requirements/base.txt
     #   mypy
     #   tutor
-urllib3==2.2.3
+urllib3==2.3.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
