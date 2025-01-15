@@ -113,7 +113,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 600
+    id: 564
     type: table
   force: false
   form_data:
@@ -130,6 +130,7 @@ query_context:
       subject: emission_time
     all_columns: []
     allow_render_html: true
+    annotation_layers: []
     color_pn: true
     column_config:
       correct_percent:
@@ -167,9 +168,7 @@ query_context:
       column: median_attemps
       operator: '>'
       targetValue: 5
-    dashboards:
-    - 303
-    datasource: 600__table
+    datasource: 564__table
     extra_form_data: {}
     force: false
     groupby:
@@ -197,7 +196,7 @@ query_context:
     row_limit: 1000
     server_page_length: 10
     show_cell_bars: true
-    slice_id: 169
+    slice_id: 761
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true
@@ -315,7 +314,6 @@ query_context:
       label: AVG(course_order)
       optionName: metric_fy7mao4qznk_sumf5x11o8i
       sqlExpression: null
-    time_offsets: []
     url_params: {}
   result_format: json
   result_type: full

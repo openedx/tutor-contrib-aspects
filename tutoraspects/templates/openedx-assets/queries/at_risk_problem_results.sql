@@ -1,5 +1,5 @@
 select results.*
-from {{ DBT_PROFILE_TARGET_DATABASE }}.int_problem_results results
+from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_learner_response_attempts results
 join
     (
         {% include 'openedx-assets/queries/at_risk_learner_filter.sql' %}

@@ -389,7 +389,7 @@ metadata:
   - '#D1C6BC'
   cross_filters_enabled: true
   expanded_slices:
-    '144': true
+    '301': true
   global_chart_configuration:
     chartsInScope:
     - 122
@@ -604,10 +604,10 @@ metadata:
     name: Date
     scope:
       excluded:
-      - 80
-      - 9
-      - 93
-      - 92
+      - 1061
+      - 141
+      - 561
+      - 241
       rootPath:
       - TAB-GeKBNaKbHg
       - TAB-ez_vuoah8
@@ -642,18 +642,18 @@ metadata:
     name: Time Grain
     scope:
       excluded:
-      - 80
-      - 134
-      - 9
-      - 120
-      - 142
-      - 93
-      - 121
-      - 129
-      - 70
-      - 72
-      - 92
-      - 144
+      - 1061
+      - 341
+      - 141
+      - 601
+      - 181
+      - 561
+      - 321
+      - 1181
+      - 721
+      - 1201
+      - 241
+      - 301
       rootPath:
       - TAB-s_n47Pk1I
       - TAB-CRJ0LHIfEa
@@ -680,7 +680,7 @@ position:
     children: []
     id: CHART-LmLX-39lXb
     meta:
-      chartId: 80
+      chartId: 1061
       height: 72
       sliceName: Partial and Full Video Views
       uuid: 2232c302-cd41-406f-a45d-0f674344166b
@@ -698,7 +698,7 @@ position:
     children: []
     id: CHART-NSSaeQX_nX
     meta:
-      chartId: 134
+      chartId: 341
       height: 50
       sliceName: Video Engagement
       uuid: 8266ce91-d0b3-4c3b-aa3d-2be4d90e64a8
@@ -716,7 +716,7 @@ position:
     children: []
     id: CHART-explore-2108-1
     meta:
-      chartId: 9
+      chartId: 141
       height: 62
       sliceName: Problem Engagement per Section/Subsection
       uuid: 5015477d-d166-4823-868d-c7883d195bab
@@ -734,7 +734,7 @@ position:
     children: []
     id: CHART-explore-2128-1
     meta:
-      chartId: 120
+      chartId: 601
       height: 50
       sliceName: Learners
       uuid: 447a194b-dbed-4a82-a899-2df8e01e84b1
@@ -750,7 +750,7 @@ position:
     children: []
     id: CHART-explore-2148-1
     meta:
-      chartId: 17
+      chartId: 361
       height: 50
       sliceName: Last Visit Date
       uuid: 6c2b1008-96c9-426d-b2fe-68aa1de7b10d
@@ -766,7 +766,7 @@ position:
     children: []
     id: CHART-explore-2168-1
     meta:
-      chartId: 142
+      chartId: 181
       height: 50
       sliceName: Enrollees by Enrollment Track
       uuid: f8beeb8c-b35c-47fc-8370-96b493f9c1b8
@@ -782,7 +782,7 @@ position:
     children: []
     id: CHART-explore-2188-1
     meta:
-      chartId: 93
+      chartId: 561
       height: 63
       sliceName: Page Engagement per Section/Subsection
       uuid: 29a5cf7e-41cd-4b60-a63a-c921d6ebd997
@@ -800,7 +800,7 @@ position:
     children: []
     id: CHART-explore-2208-1
     meta:
-      chartId: 121
+      chartId: 321
       height: 50
       sliceName: Section Summary
       uuid: eec3a432-153f-42bc-8d37-52b200a77acd
@@ -818,7 +818,7 @@ position:
     children: []
     id: CHART-explore-2209-1
     meta:
-      chartId: 40
+      chartId: 621
       height: 50
       sliceName: Cumulative Interactions
       uuid: 3a22091f-4686-4a1d-a66d-b36541844b36
@@ -836,7 +836,7 @@ position:
     children: []
     id: CHART-explore-2210-1
     meta:
-      chartId: 129
+      chartId: 1181
       height: 50
       sliceName: Subsection Summary
       uuid: f60f12f3-f4f1-41af-8b10-d2cf3cb94f69
@@ -854,7 +854,7 @@ position:
     children: []
     id: CHART-explore-2211-1
     meta:
-      chartId: 99
+      chartId: 1361
       height: 50
       sliceName: Page Engagement Over Time
       uuid: ffa98e7f-7bed-4435-a1c1-472a46a4d269
@@ -872,7 +872,7 @@ position:
     children: []
     id: CHART-explore-2664-1
     meta:
-      chartId: 70
+      chartId: 721
       height: 50
       sliceName: Problem Attempts
       uuid: d3b9fa1e-f0ab-41e5-9705-27c7c58e620c
@@ -890,7 +890,7 @@ position:
     children: []
     id: CHART-explore-2665-1
     meta:
-      chartId: 72
+      chartId: 1201
       height: 50
       sliceName: Problem Results
       uuid: 003e60b9-907d-4002-bf2e-7d315225ec29
@@ -908,7 +908,7 @@ position:
     children: []
     id: CHART-explore-2707-1
     meta:
-      chartId: 92
+      chartId: 241
       height: 64
       sliceName: Video Engagement per Section/Subsection
       uuid: 5d0329f4-2a4a-4cd4-8b4e-926568d1bbcc
@@ -926,7 +926,7 @@ position:
     children: []
     id: CHART-explore-2708-1
     meta:
-      chartId: 144
+      chartId: 301
       height: 50
       sliceName: Watched Video Segments
       uuid: a7947bdb-65a2-49ed-815e-850423bfeacc
@@ -944,7 +944,7 @@ position:
     children: []
     id: CHART-explore-2785-1
     meta:
-      chartId: 89
+      chartId: 921
       height: 50
       sliceName: Enrollment Dates
       uuid: ded61855-48ea-4705-9385-690bf7dba53b
@@ -960,7 +960,7 @@ position:
     children: []
     id: CHART-explore-2805-1
     meta:
-      chartId: 57
+      chartId: 1381
       height: 50
       sliceName: Distribution of Course Grades
       uuid: cd3479d8-3574-4b77-9e1e-2ad176989b4d

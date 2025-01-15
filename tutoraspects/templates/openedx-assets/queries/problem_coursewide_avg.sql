@@ -1,9 +1,9 @@
--- See int_problem_results.sql for more context
+-- See learner_response_attempts.sql for more context
 with
     successful_responses as (
         select
             org, course_key, problem_id, actor_id::String as actor_id, first_success_at
-        from {{ ASPECTS_XAPI_DATABASE }}.responses
+        from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_learner_response_attempt
         where
             isNotNull(first_success_at)
             {% include 'openedx-assets/queries/common_filters.sql' %}
@@ -15,7 +15,7 @@ with
             problem_id,
             actor_id::String as actor_id,
             max(last_attempt_at) as last_attempt_at
-        from {{ ASPECTS_XAPI_DATABASE }}.responses
+        from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_learner_response_attempt
         where
             actor_id not in (select distinct actor_id from successful_responses)
             {% include 'openedx-assets/queries/common_filters.sql' %}
