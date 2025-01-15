@@ -62,8 +62,7 @@ metrics:
   d3format: null
   description: null
   expression: COUNT(*)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: count
   metric_type: count
   verbose_name: COUNT(*)
@@ -72,8 +71,7 @@ metrics:
   d3format: null
   description: null
   expression: min(rownum)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: order
   metric_type: null
   verbose_name: order
