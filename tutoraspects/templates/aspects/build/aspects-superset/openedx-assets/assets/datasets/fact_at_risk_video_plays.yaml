@@ -51,6 +51,18 @@ columns:
   type: Decimal(9, 2)
   verbose_name: Video Position
 - advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Course Key
+- advanced_data_type: null
   column_name: course_order
   description: null
   expression: ''
@@ -98,18 +110,6 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Visualization Bucket
-- advanced_data_type: null
-  column_name: course_key
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Key
 - advanced_data_type: null
   column_name: course_name
   description: null
@@ -183,6 +183,18 @@ columns:
   type: String
   verbose_name: Video Name
 - advanced_data_type: null
+  column_name: org
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Organization
+- advanced_data_type: null
   column_name: graded
   description: null
   expression: ''
@@ -218,18 +230,6 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Name
-- advanced_data_type: null
-  column_name: org
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Organization
 - advanced_data_type: null
   column_name: username
   description: null

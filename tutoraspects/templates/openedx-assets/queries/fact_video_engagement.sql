@@ -7,7 +7,7 @@ with
             actor_id,
             subsection_block_id as block_id,
             engagement_level as section_subsection_video_engagement
-        from {{ ASPECTS_XAPI_DATABASE }}.subsection_video_engagement
+        from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_subsection_video_engagement
         where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
     ),
     section_engagement as (
@@ -18,7 +18,7 @@ with
             actor_id,
             section_block_id as block_id,
             engagement_level as section_subsection_video_engagement
-        from {{ ASPECTS_XAPI_DATABASE }}.section_video_engagement
+        from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_section_video_engagement
         where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
     ),
     video_engagement as (

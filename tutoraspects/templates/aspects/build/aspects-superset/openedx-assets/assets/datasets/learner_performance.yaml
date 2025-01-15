@@ -6,8 +6,7 @@ columns:
   column_name: course_key
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -16,11 +15,34 @@ columns:
   type: LowCardinality(String)
   verbose_name: Course Key
 - advanced_data_type: null
+  column_name: org
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Org
+- advanced_data_type: null
+  column_name: attempts
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int16
+  verbose_name: Attempts
+- advanced_data_type: null
   column_name: course_grade
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -29,24 +51,46 @@ columns:
   type: Float64
   verbose_name: Course Grade
 - advanced_data_type: null
-  column_name: actor_id
+  column_name: success
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Bool
+  verbose_name: Success
+- advanced_data_type: null
+  column_name: approving_state
+  description: null
+  expression: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Actor ID
+  verbose_name: Approving State
+- advanced_data_type: null
+  column_name: actor_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Actor Id
 - advanced_data_type: null
   column_name: course_name
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -58,8 +102,7 @@ columns:
   column_name: course_run
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -67,58 +110,6 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Course Run
-- advanced_data_type: null
-  column_name: org
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: LowCardinality(String)
-  verbose_name: Org
-- advanced_data_type: null
-  column_name: approving_state
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Pass/Fail
-- advanced_data_type: null
-  column_name: attempts
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Int16
-  verbose_name: Attempts
-- advanced_data_type: null
-  column_name: success
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Bool
-  verbose_name: Success
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null

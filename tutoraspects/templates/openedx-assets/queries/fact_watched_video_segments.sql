@@ -72,7 +72,7 @@ with
             segments.video_id as video_id
         from segments
         join
-            {{ DBT_PROFILE_TARGET_DATABASE }}.dim_course_blocks_extended blocks
+            {{ DBT_PROFILE_TARGET_DATABASE }}.dim_course_blocks blocks
             on (
                 segments.course_key = blocks.course_key
                 and segments.video_id = blocks.block_id

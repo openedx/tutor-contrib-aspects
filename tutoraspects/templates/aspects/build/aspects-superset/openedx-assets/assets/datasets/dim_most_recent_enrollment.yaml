@@ -1,4 +1,4 @@
-_file_name: fact_enrollment_status.yaml
+_file_name: dim_most_recent_enrollment.yaml
 always_filter_main_dttm: false
 cache_timeout: null
 columns:
@@ -16,9 +16,9 @@ columns:
   type: DATETIME
   verbose_name: Emission Time
 - advanced_data_type: null
-  column_name: actor_id
+  column_name: actor_idfr
   description: null
-  expression: null
+  expression: nulluy
   extra:
     warning_markdown: null
   filterable: true
@@ -102,8 +102,8 @@ normalize_columns: false
 offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
-sql: select * from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_enrollment_status
-table_name: fact_enrollment_status
+sql: select * from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_most_recent_enrollment
+table_name: dim_most_recent_enrollment
 template_params: null
 uuid: 3dde421d-c0d0-43ab-8087-ca470985e88e
 version: 1.0.0

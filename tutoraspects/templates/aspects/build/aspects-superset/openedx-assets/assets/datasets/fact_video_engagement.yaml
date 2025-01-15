@@ -6,8 +6,7 @@ columns:
   column_name: section_subsection_video_engagement
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -16,11 +15,22 @@ columns:
   type: String
   verbose_name: Section Subsection Video Engagement
 - advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Course Key
+- advanced_data_type: null
   column_name: actor_id
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -29,24 +39,10 @@ columns:
   type: String
   verbose_name: Actor Id
 - advanced_data_type: null
-  column_name: course_key
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Key
-- advanced_data_type: null
   column_name: content_level
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -58,8 +54,7 @@ columns:
   column_name: course_run
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -68,11 +63,22 @@ columns:
   type: String
   verbose_name: Course Run
 - advanced_data_type: null
+  column_name: org
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Org
+- advanced_data_type: null
   column_name: email
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -84,8 +90,7 @@ columns:
   column_name: name
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -94,24 +99,10 @@ columns:
   type: String
   verbose_name: Name
 - advanced_data_type: null
-  column_name: org
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Org
-- advanced_data_type: null
   column_name: username
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -123,8 +114,7 @@ columns:
   column_name: section_subsection_name
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true

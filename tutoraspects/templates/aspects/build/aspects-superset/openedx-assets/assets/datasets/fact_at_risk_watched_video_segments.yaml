@@ -6,8 +6,7 @@ columns:
   column_name: video_name_with_location
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -19,8 +18,7 @@ columns:
   column_name: subsection_with_name
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -32,8 +30,7 @@ columns:
   column_name: section_with_name
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -45,8 +42,7 @@ columns:
   column_name: course_key
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -58,8 +54,7 @@ columns:
   column_name: video_duration
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -71,21 +66,19 @@ columns:
   column_name: segment_start
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Int64
+  type: UInt8
   verbose_name: Segment Start
 - advanced_data_type: null
   column_name: actor_id
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -97,8 +90,7 @@ columns:
   column_name: started_at
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -110,8 +102,7 @@ columns:
   column_name: course_name
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -123,8 +114,7 @@ columns:
   column_name: course_run
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -136,8 +126,7 @@ columns:
   column_name: video_name
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -149,8 +138,7 @@ columns:
   column_name: start_position
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -162,8 +150,7 @@ columns:
   column_name: video_id
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -175,8 +162,7 @@ columns:
   column_name: video_link
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -188,8 +174,7 @@ columns:
   column_name: segment_range
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -201,8 +186,7 @@ columns:
   column_name: org
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -214,8 +198,7 @@ columns:
   column_name: email
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -227,8 +210,7 @@ columns:
   column_name: name
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -240,8 +222,7 @@ columns:
   column_name: username
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true

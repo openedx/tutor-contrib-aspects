@@ -1,4 +1,4 @@
-_file_name: course_names.yaml
+_file_name: dim_course_names.yaml
 always_filter_main_dttm: false
 cache_timeout: null
 columns:
@@ -50,6 +50,18 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Organization
+- advanced_data_type: null
+  column_name: tags_str
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Tags Str
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
@@ -62,7 +74,8 @@ metrics:
   d3format: null
   description: null
   expression: COUNT(*)
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: count
   metric_type: count
   verbose_name: COUNT(*)
@@ -71,10 +84,10 @@ normalize_columns: true
 offset: 0
 params: null
 schema: '{{ASPECTS_EVENT_SINK_DATABASE}}'
-sql: 'select * from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names
+sql: 'select * from {{ ASPECTS_EVENT_SINK_DATABASE }}.dim_course_names
 
   '
-table_name: course_names
+table_name: dim_course_names
 template_params: null
 uuid: 38488934-35ee-5404-9acc-7e67626ddfae
 version: 1.0.0

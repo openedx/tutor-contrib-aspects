@@ -6,8 +6,7 @@ columns:
   column_name: subsection_with_name
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -19,8 +18,7 @@ columns:
   column_name: section_with_name
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -29,11 +27,22 @@ columns:
   type: String
   verbose_name: Section Location and Name
 - advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Course Key
+- advanced_data_type: null
   column_name: course_order
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -45,8 +54,7 @@ columns:
   column_name: page_count
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -58,8 +66,7 @@ columns:
   column_name: actor_id
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -71,8 +78,7 @@ columns:
   column_name: block_id
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -81,24 +87,10 @@ columns:
   type: String
   verbose_name: Block ID
 - advanced_data_type: null
-  column_name: course_key
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Key
-- advanced_data_type: null
   column_name: course_name
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -110,8 +102,7 @@ columns:
   column_name: course_run
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -123,8 +114,7 @@ columns:
   column_name: visited_on
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -133,11 +123,22 @@ columns:
   type: Date
   verbose_name: Visited On
 - advanced_data_type: null
+  column_name: org
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Organization
+- advanced_data_type: null
   column_name: email
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -149,8 +150,7 @@ columns:
   column_name: name
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -159,24 +159,10 @@ columns:
   type: String
   verbose_name: Name
 - advanced_data_type: null
-  column_name: org
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Organization
-- advanced_data_type: null
   column_name: username
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -205,21 +191,22 @@ metrics:
 - currency: null
   d3format: null
   description: null
+  expression: SUM(page_count)
+  extra:
+    warning_markdown: ''
+  metric_name: views
+  metric_type: null
+  verbose_name: Total Views
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
   expression: COUNT(*)
   extra:
     warning_markdown: ''
   metric_name: count
   metric_type: count
   verbose_name: COUNT(*)
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: SUM(page_count)
-  extra: {}
-  metric_name: views
-  metric_type: null
-  verbose_name: Total Views
   warning_text: null
 normalize_columns: false
 offset: 0

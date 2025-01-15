@@ -1,4 +1,4 @@
-_file_name: int_problem_results.yaml
+_file_name: fact_learner_response_attempts.yaml
 always_filter_main_dttm: false
 cache_timeout: null
 columns:
@@ -7,8 +7,7 @@ columns:
   description: null
   expression: "  CASE\r\n    WHEN success THEN 'Correct'\r\n    ELSE 'Incorrect'\r\
     \n  END"
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -20,8 +19,7 @@ columns:
   column_name: problem_name_with_location
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -30,11 +28,34 @@ columns:
   type: String
   verbose_name: Problem Location and Name
 - advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Course Key
+- advanced_data_type: null
+  column_name: interaction_type
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Interaction Type
+- advanced_data_type: null
   column_name: emission_time
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -46,8 +67,7 @@ columns:
   column_name: course_order
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -59,8 +79,7 @@ columns:
   column_name: actor_id
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -69,24 +88,10 @@ columns:
   type: String
   verbose_name: Actor Id
 - advanced_data_type: null
-  column_name: course_key
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Key
-- advanced_data_type: null
   column_name: course_name
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -98,8 +103,7 @@ columns:
   column_name: course_run
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -111,8 +115,7 @@ columns:
   column_name: problem_id
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -121,24 +124,10 @@ columns:
   type: String
   verbose_name: Problem Id
 - advanced_data_type: null
-  column_name: interaction_type
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Interaction Type
-- advanced_data_type: null
   column_name: problem_link
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -150,8 +139,7 @@ columns:
   column_name: problem_name
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -160,11 +148,22 @@ columns:
   type: String
   verbose_name: Problem Name
 - advanced_data_type: null
+  column_name: org
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Org
+- advanced_data_type: null
   column_name: attempts
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -176,8 +175,7 @@ columns:
   column_name: graded
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -189,8 +187,7 @@ columns:
   column_name: success
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -199,24 +196,10 @@ columns:
   type: Bool
   verbose_name: Success
 - advanced_data_type: null
-  column_name: org
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Org
-- advanced_data_type: null
   column_name: responses
   description: null
   expression: ''
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -228,8 +211,7 @@ columns:
   column_name: email
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -241,8 +223,7 @@ columns:
   column_name: name
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -254,8 +235,7 @@ columns:
   column_name: username
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -356,10 +336,10 @@ metrics:
 normalize_columns: false
 offset: 0
 params: null
-schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
+schema: reporting
 sql: |
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/int_problem_results.sql' %}{% endfilter %}
-table_name: int_problem_results
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_learner_response_attempts.sql' %}{% endfilter %}
+table_name: fact_learner_response_attempts
 template_params: null
 uuid: c0c8b8a3-b18a-4c17-a69b-e6befea0159d
 version: 1.0.0

@@ -1,9 +1,9 @@
-_file_name: watched_video_duration.yaml
+_file_name: dim_student_status_plus_7_days.yaml
 always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: rewatched_time
+  column_name: active_within_last_7_days
   description: null
   expression: null
   extra: {}
@@ -12,10 +12,10 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Decimal(9, 2)
-  verbose_name: Rewatched Time
+  type: UInt64
+  verbose_name: Active Within Last 7 Days
 - advanced_data_type: null
-  column_name: watched_time
+  column_name: course_key
   description: null
   expression: null
   extra: {}
@@ -24,22 +24,10 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Decimal(9, 2)
-  verbose_name: Watched Time
+  type: LowCardinality(String)
+  verbose_name: Course Key
 - advanced_data_type: null
-  column_name: course_name
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Name
-- advanced_data_type: null
-  column_name: video_count
+  column_name: enrollment_mode
   description: null
   expression: null
   extra: {}
@@ -48,10 +36,10 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Int32
-  verbose_name: Video Count
+  type: LowCardinality(String)
+  verbose_name: Enrollment Mode
 - advanced_data_type: null
-  column_name: video_duration
+  column_name: course_grade
   description: null
   expression: null
   extra: {}
@@ -60,8 +48,20 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Int64
-  verbose_name: Video Duration
+  type: Float64
+  verbose_name: Course Grade
+- advanced_data_type: null
+  column_name: enrolled_at
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DateTime
+  verbose_name: Enrolled At
 - advanced_data_type: null
   column_name: actor_id
   description: null
@@ -75,7 +75,7 @@ columns:
   type: String
   verbose_name: Actor Id
 - advanced_data_type: null
-  column_name: course_key
+  column_name: approving_state
   description: null
   expression: null
   extra: {}
@@ -85,7 +85,31 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Course Key
+  verbose_name: Approving State
+- advanced_data_type: null
+  column_name: grade_bucket
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Grade Bucket
+- advanced_data_type: null
+  column_name: course_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Name
 - advanced_data_type: null
   column_name: course_run
   description: null
@@ -99,6 +123,18 @@ columns:
   type: String
   verbose_name: Course Run
 - advanced_data_type: null
+  column_name: enrollment_status
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Enrollment Status
+- advanced_data_type: null
   column_name: org
   description: null
   expression: null
@@ -108,10 +144,10 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
-  verbose_name: Org
+  type: LowCardinality(String)
+  verbose_name: Organization
 - advanced_data_type: null
-  column_name: object_id
+  column_name: email
   description: null
   expression: null
   extra: {}
@@ -121,82 +157,82 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Object Id
+  verbose_name: Email
+- advanced_data_type: null
+  column_name: name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Name
+- advanced_data_type: null
+  column_name: username
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Username
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
 extra: null
 fetch_values_predicate: null
 filter_select_enabled: true
-main_dttm_col: null
+main_dttm_col: enrolled_at
 metrics:
 - currency: null
   d3format: null
   description: null
-  expression: if(sum(video_duration) > 0,sum(rewatched_time)/sum(video_duration),0)
-  extra:
-    warning_markdown: ''
-  metric_name: rewatched_percent
+  expression: ROUND(AVG(course_grade), 2 ) *100
+  extra: {}
+  metric_name: avg_course_grade
   metric_type: null
-  verbose_name: '% Video Seconds Rewatched'
+  verbose_name: Avg Course Grade
   warning_text: null
 - currency: null
   d3format: null
   description: null
-  expression: count(distinct object_id)
-  extra:
-    warning_markdown: ''
-  metric_name: num_videos_watched
+  expression: quantile(0.5)(round(course_grade,2) * 100)
+  extra: {}
+  metric_name: median_course_grade
   metric_type: null
-  verbose_name: Number of Videos Watched
+  verbose_name: Median Course Grade
   warning_text: null
 - currency: null
   d3format: null
   description: null
-  expression: if(sum(watched_time)>0,sum(watched_time)/sum(video_duration),0)
-  extra:
-    warning_markdown: ''
-  metric_name: watched_percent
+  expression: AVG(active_within_last_7_days)
+  extra: {}
+  metric_name: active_within_7_days
   metric_type: null
-  verbose_name: '% Video Seconds Watched'
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: avg(video_duration)
-  extra:
-    warning_markdown: ''
-  metric_name: avg_video_length
-  metric_type: null
-  verbose_name: Avg Video Length (seconds)
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: avg(video_count)
-  extra:
-    warning_markdown: ''
-  metric_name: num_videos
-  metric_type: null
-  verbose_name: Number of Videos
+  verbose_name: Active Within Last 7 Days
   warning_text: null
 - currency: null
   d3format: null
   description: null
   expression: COUNT(*)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: count
   metric_type: count
   verbose_name: COUNT(*)
   warning_text: null
-normalize_columns: true
+normalize_columns: false
 offset: 0
 params: null
-schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
-sql: |-
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/watched_video_duration.sql' %}{% endfilter %}
-table_name: watched_video_duration
+schema: null
+sql: |
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/active_last_7_days.sql' %}{% endfilter %}
+table_name: dim_student_status_plus_7_days
 template_params: null
-uuid: 82cb6b56-c713-4933-93a0-9de15c266c4b
+uuid: f25fdc4e-ce79-4f4c-9fc6-3dfe91690493
 version: 1.0.0

@@ -6,60 +6,55 @@ columns:
   column_name: correct_attempts_by_learner
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Nullable(Int16)
+  type: Int16
   verbose_name: Correct Attempts By Learner
 - advanced_data_type: null
   column_name: incorrect_attempts_by_learner
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Nullable(Int16)
+  type: Int16
   verbose_name: Incorrect Attempts By Learner
 - advanced_data_type: null
   column_name: avg_correct_attempts_coursewide
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Nullable(Float64)
+  type: Float64
   verbose_name: Avg Correct Attempts Coursewide
 - advanced_data_type: null
   column_name: avg_incorrect_attempts_coursewide
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Nullable(Float64)
+  type: Float64
   verbose_name: Avg Incorrect Attempts Coursewide
 - advanced_data_type: null
   column_name: selected_learner_percent_correct
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -71,8 +66,7 @@ columns:
   column_name: selected_learner_percent_incorrect
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -84,8 +78,7 @@ columns:
   column_name: problem_name_with_location
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -97,8 +90,7 @@ columns:
   column_name: coursewide_percent_correct
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -110,8 +102,7 @@ columns:
   column_name: course_key
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -123,8 +114,7 @@ columns:
   column_name: interaction_type
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -136,8 +126,7 @@ columns:
   column_name: emission_time
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -149,8 +138,7 @@ columns:
   column_name: course_order
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -162,8 +150,7 @@ columns:
   column_name: actor_id
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -175,8 +162,7 @@ columns:
   column_name: course_name
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -188,8 +174,7 @@ columns:
   column_name: course_run
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -201,8 +186,7 @@ columns:
   column_name: problem_id
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -214,8 +198,7 @@ columns:
   column_name: problem_link
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -227,8 +210,7 @@ columns:
   column_name: problem_name
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -240,8 +222,7 @@ columns:
   column_name: org
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -253,8 +234,7 @@ columns:
   column_name: attempts
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -266,8 +246,7 @@ columns:
   column_name: graded
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -279,8 +258,7 @@ columns:
   column_name: success
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -292,8 +270,7 @@ columns:
   column_name: email
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -305,8 +282,7 @@ columns:
   column_name: name
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -318,8 +294,7 @@ columns:
   column_name: responses
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true
@@ -331,8 +306,7 @@ columns:
   column_name: username
   description: null
   expression: null
-  extra:
-    warning_markdown: null
+  extra: {}
   filterable: true
   groupby: true
   is_active: true

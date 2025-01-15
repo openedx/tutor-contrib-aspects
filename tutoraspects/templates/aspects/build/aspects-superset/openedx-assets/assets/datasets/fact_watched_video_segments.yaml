@@ -97,7 +97,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Int64
+  type: UInt8
   verbose_name: Segment Start
 - advanced_data_type: null
   column_name: started_at

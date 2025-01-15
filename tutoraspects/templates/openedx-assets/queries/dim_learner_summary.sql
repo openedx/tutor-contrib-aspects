@@ -1,7 +1,7 @@
 with
     latest_emission_time as (
         select org, course_key, actor_id, MAX(emission_time) as last_visited
-        from {{ ASPECTS_XAPI_DATABASE }}.fact_learner_last_course_visit
+        from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_learner_last_course_visit
         where
             1 = 1
             {% include 'openedx-assets/queries/common_filters.sql' %}
@@ -10,7 +10,7 @@ with
     ),
     enrollment_status as (
         select org, course_key, actor_id, MAX(emission_time) as max_emission_time
-        from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_enrollment_status
+        from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_most_recent_enrollment
         where
             1 = 1
             {% include 'openedx-assets/queries/common_filters.sql' %}
@@ -33,7 +33,7 @@ with
             fss.name as name,
             fss.email as email,
             fss.enrolled_at as enrolled_at
-        from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_student_status fss
+        from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_student_status fss
         where
             1 = 1
             {% include 'openedx-assets/queries/common_filters.sql' %}

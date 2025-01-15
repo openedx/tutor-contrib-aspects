@@ -86,7 +86,7 @@ metrics:
 normalize_columns: true
 offset: 0
 params: null
-schema: '{{ ASPECTS_XAPI_DATABASE }}'
+schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: ''
 table_name: fact_instance_enrollments
 template_params: {}

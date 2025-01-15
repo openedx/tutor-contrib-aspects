@@ -338,25 +338,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "SUPERSET_DASHBOARD_LOCALES",
             [
-                "ar",
-                "da",
-                "de_DE",
-                "el",
                 "en",
-                "es_419",
-                "es_ES",
-                "fr_CA",
-                "he",
-                "hi",
-                "id",
-                "it_IT",
-                "pt_BR",
-                "pt_PT",
-                "ru",
-                "th",
-                "tr_TR",
-                "uk",
-                "zh_CN",
             ],
         ),
         ("SUPERSET_EXTRA_JINJA_FILTERS", {}),
@@ -385,8 +367,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # DBT_PROFILE_* settings get passed into the dbt_profile.yml file.
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
-        ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
-        ("DBT_BRANCH", "v3.33.9"),
+        ("DBT_REPOSITORY", "https://github.com/saraburns1/aspects-dbt"),
+        ("DBT_BRANCH", "rearrangemodels"),
         ("DBT_SSH_KEY", ""),
         ("DBT_STATE_DIR", "/app/aspects-dbt/state"),
         ("DBT_PROFILES_DIR", "/app/aspects/dbt/"),
