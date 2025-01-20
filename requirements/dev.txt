@@ -111,7 +111,7 @@ mccabe==0.7.0
     # via pylint
 mdurl==0.1.2
     # via markdown-it-py
-more-itertools==10.5.0
+more-itertools==10.6.0
     # via
     #   jaraco-classes
     #   jaraco-functools
@@ -178,7 +178,7 @@ pygments==2.19.1
     #   rich
 pyinstaller==6.11.1
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2024.11
+pyinstaller-hooks-contrib==2025.0
     # via pyinstaller
 pylint==3.3.3
     # via -r requirements/dev.in
