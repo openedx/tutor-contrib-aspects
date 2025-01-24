@@ -1,5 +1,5 @@
 # alembic packages
-alembic==1.11.1
-clickhouse-sqlalchemy==0.1.9
+alembic==1.14.1
+clickhouse-sqlalchemy==0.3.2
 git+https://github.com/openedx/xapi-db-load@1.5.0
 pyyaml
