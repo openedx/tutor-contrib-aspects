@@ -163,7 +163,7 @@ setup(
     long_description=load_readme(),
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
-    python_requires=">=3.7",
+    python_requires=">=3.11",
     install_requires=load_requirements("requirements/base.in"),
     entry_points={"tutor.plugin.v1": ["aspects = tutoraspects.plugin"]},
     classifiers=[
@@ -172,9 +172,6 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
     ],
