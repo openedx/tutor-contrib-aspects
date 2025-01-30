@@ -5,3 +5,5 @@ ruamel-yaml==0.18.10
 sentry-sdk[flask]
 urllib3>=2,<3
 shandy-sqlfmt[jinjafmt]>=0.24,<0.25
+gevent # Used to improve celery worker performance on I/O tasks
+mysqlclient==2.1.0
