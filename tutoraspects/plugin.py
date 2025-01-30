@@ -356,7 +356,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "th",
                 "tr_TR",
                 "uk",
-                "zh_CN",            
+                "zh_CN",
             ],
         ),
         ("SUPERSET_EXTRA_JINJA_FILTERS", {}),
