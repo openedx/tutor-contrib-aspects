@@ -70,9 +70,21 @@ class OpenEdxSsoSecurityManager(SupersetSecurityManager):
 
         if locale_preference not in current_app.config["DASHBOARD_LOCALES"]:
             log.warning(
-                f"Language {locale_preference} is not supported by Superset"
+                f"Locale {locale_preference} is not supported by Superset DASHBOARD_LOCALES"
             )
-            return locale_preference
+
+        # Use the full locale if it's supported
+        if locale_preference in current_app.config["LANGUAGES"]:
+            session["locale"] = locale_preference
+        else:
+            # Otherwise, try just the language part of the locale
+            lang_preference = locale_preference.split('_')[0]
+            if lang_preference in current_app.config["LANGUAGES"]:
+                session["locale"] = lang_preference
+            else:
+                log.warning(
+                    f"Locale {locale_preference} and language {lang_preference} are not supported by Superset LANGUAGES"
+                )
 
         return locale_preference
 
