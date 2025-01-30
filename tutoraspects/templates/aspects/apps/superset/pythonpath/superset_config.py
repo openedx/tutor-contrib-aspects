@@ -30,6 +30,7 @@ import os
 from datetime import timedelta
 from typing import Optional
 
+from redis import Redis
 from cachelib.redis import RedisCache
 from celery.schedules import crontab
 from superset.superset_typing import CacheConfig
@@ -74,7 +75,13 @@ REDIS_RESULTS_DB = get_env_variable("REDIS_RESULTS_DB", "4")
 REDIS_CACHE_DB = get_env_variable("REDIS_CACHE_DB", "5")
 REDIS_PASSWORD = get_env_variable("REDIS_PASSWORD", "")
 
-RESULTS_BACKEND = RedisCache(host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD, db=REDIS_RESULTS_DB, key_prefix='superset_results')
+RESULTS_BACKEND = RedisCache(
+    host=REDIS_HOST,
+    port=REDIS_PORT,
+    password=REDIS_PASSWORD,
+    db=REDIS_RESULTS_DB,
+    key_prefix='superset_results',
+)
 
 CACHE_CONFIG = {
     "CACHE_TYPE": "redis",
@@ -123,6 +130,21 @@ class CeleryConfig(object):
 
 
 CELERY_CONFIG = CeleryConfig
+
+# Persistant sessions
+SESSION_SERVER_SIDE = True
+SESSION_TYPE = "redis"
+# Using a key prefix so we can share the redis cache db
+SESSION_KEY_PREFIX = "session:"
+SESSION_REDIS = Redis(
+    host=REDIS_HOST,
+    port=REDIS_PORT,
+    password=REDIS_PASSWORD,
+    db=REDIS_CACHE_DB,
+)
+# sign the session cookie sid
+SESSION_USE_SIGNER = True
+SESSION_SERIALIZATION_FORMAT = 'json'  # FIXME debugging
 
 # Email configuration
 SMTP_HOST = "{{SMTP_HOST}}" # change to your host

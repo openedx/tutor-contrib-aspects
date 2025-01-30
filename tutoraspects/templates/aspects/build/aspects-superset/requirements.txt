@@ -5,3 +5,8 @@ ruamel-yaml==0.18.6
 sentry-sdk[flask]
 urllib3>=1.26.15,<2
 shandy-sqlfmt[jinjafmt]==0.21.2
+
+# This has already been fixed in Superset>4.0.2,>4.1.x
+# but I need to hack it in here because we haven't upgraded yet.
+# cf fix: https://github.com/apache/superset/issues/29695
+flask-session==0.8.0
