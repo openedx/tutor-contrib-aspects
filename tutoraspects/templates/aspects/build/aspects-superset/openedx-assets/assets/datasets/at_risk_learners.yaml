@@ -1,19 +1,7 @@
-_file_name: fact_at_risk_problem_engagement.yaml
+_file_name: at_risk_learners.yaml
 always_filter_main_dttm: false
 cache_timeout: null
 columns:
-- advanced_data_type: null
-  column_name: section_subsection_problem_engagement
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Section/Subsection Problem Engagement
 - advanced_data_type: null
   column_name: course_key
   description: null
@@ -27,7 +15,7 @@ columns:
   type: LowCardinality(String)
   verbose_name: Course Key
 - advanced_data_type: null
-  column_name: section_subsection_name
+  column_name: enrollment_mode
   description: null
   expression: ''
   extra: {}
@@ -36,8 +24,32 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
-  verbose_name: Section/Subsection Name
+  type: LowCardinality(String)
+  verbose_name: Enrollment Mode
+- advanced_data_type: null
+  column_name: course_grade
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Float64
+  verbose_name: Course Grade
+- advanced_data_type: null
+  column_name: enrolled_at
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DateTime
+  verbose_name: Enrolled At
 - advanced_data_type: null
   column_name: actor_id
   description: null
@@ -51,7 +63,7 @@ columns:
   type: String
   verbose_name: Actor ID
 - advanced_data_type: null
-  column_name: content_level
+  column_name: grade_bucket
   description: null
   expression: ''
   extra: {}
@@ -61,7 +73,19 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Content Level
+  verbose_name: Grade Bucket
+- advanced_data_type: null
+  column_name: course_name
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Name
 - advanced_data_type: null
   column_name: course_run
   description: null
@@ -74,6 +98,18 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Course Run
+- advanced_data_type: null
+  column_name: last_visited
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DateTime
+  verbose_name: Last Visited
 - advanced_data_type: null
   column_name: org
   description: null
@@ -145,8 +181,8 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_at_risk_problem_engagement.sql' %}{% endfilter %}
-table_name: fact_at_risk_problem_engagement
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/at_risk_learners.sql' %}{% endfilter %}
+table_name: at_risk_learners
 template_params: {}
-uuid: 0f3f86fe-2973-491d-b01a-986ac06096a3
+uuid: 92eadc61-2931-577e-95b7-34adb1a8f515
 version: 1.0.0

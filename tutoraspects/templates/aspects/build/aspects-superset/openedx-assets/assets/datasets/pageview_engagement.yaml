@@ -1,19 +1,7 @@
-_file_name: fact_video_engagement.yaml
+_file_name: pageview_engagement.yaml
 always_filter_main_dttm: false
 cache_timeout: null
 columns:
-- advanced_data_type: null
-  column_name: section_subsection_video_engagement
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Section Subsection Video Engagement
 - advanced_data_type: null
   column_name: course_key
   description: null
@@ -111,6 +99,18 @@ columns:
   type: String
   verbose_name: Username
 - advanced_data_type: null
+  column_name: section_subsection_page_engagement
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: section_subsection_page_engagement
+- advanced_data_type: null
   column_name: section_subsection_name
   description: null
   expression: ''
@@ -134,23 +134,23 @@ metrics:
   d3format: null
   description: null
   expression: |-
-    countIf("section_subsection_video_engagement" = 'At least one video viewed' or "section_subsection_video_engagement" = 'All videos viewed')
+    countIf("section_subsection_page_engagement" = 'At least one page viewed' or "section_subsection_page_engagement" = 'All pages viewed')
   extra:
     warning_markdown: ''
-  metric_name: at_least_one_viewed
+  metric_name: at_leat_one_page_viewed
   metric_type: null
-  verbose_name: Viewed At Least One Video
+  verbose_name: Viewed At Least One Page
   warning_text: null
 - currency: null
   d3format: null
   description: null
   expression: |-
-    countIf("section_subsection_video_engagement" = 'All videos viewed')
+    countIf("section_subsection_page_engagement" = 'All pages viewed')
   extra:
     warning_markdown: ''
-  metric_name: all_videos_viewed
+  metric_name: all_pages_viewed
   metric_type: null
-  verbose_name: Viewed All Videos
+  verbose_name: Viewed All Pages
   warning_text: null
 - currency: null
   d3format: null
@@ -167,8 +167,8 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_video_engagement.sql' %}{% endfilter %}
-table_name: fact_video_engagement
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/page_engagement.sql' %}{% endfilter %}
+table_name: pageview_engagement
 template_params: {}
-uuid: 247a55b3-d44e-442e-ba92-71bf7976b192
+uuid: 9febd6be-5102-4dbf-86b9-45ebd3cbbc45
 version: 1.0.0

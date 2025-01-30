@@ -1,4 +1,4 @@
-with watches as ({% include 'openedx-assets/queries/fact_watched_video_segments.sql' %})
+with watches as ({% include 'openedx-assets/queries/video_watches.sql' %})
 
 select watches.*
 from watches

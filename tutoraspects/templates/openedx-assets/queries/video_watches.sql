@@ -1,6 +1,6 @@
 with
     watched_segments as (
-        {% include 'openedx-assets/queries/fact_watched_video_segments.sql' %}
+        {% include 'openedx-assets/queries/watched_video_segments.sql' %}
     )
 
 select

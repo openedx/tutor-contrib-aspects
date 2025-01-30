@@ -1,4 +1,4 @@
-with video_plays as ({% include 'openedx-assets/queries/fact_video_plays.sql' %})
+with video_plays as ({% include 'openedx-assets/queries/video_plays.sql' %})
 
 select video_plays.*
 from video_plays

@@ -1,9 +1,9 @@
 with
-    fact_problem_engagement as (
-        {% include 'openedx-assets/queries/fact_problem_engagement.sql' %}
+    problem_engagement_sql as (
+        {% include 'openedx-assets/queries/problem_engagement.sql' %}
     )
-select fact_problem_engagement.*
-from fact_problem_engagement pe
+select problem_engagement_sql.*
+from problem_engagement_sql pe
 join
     (
         {% include 'openedx-assets/queries/at_risk_learner_filter.sql' %}

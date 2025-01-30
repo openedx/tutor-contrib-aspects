@@ -1,4 +1,4 @@
--- See fact_learner_response_attempts.sql for more context
+-- See learner_response_attempts.sql for more context
 with
     successful_responses as (
         select
