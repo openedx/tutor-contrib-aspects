@@ -80,6 +80,14 @@ def downgrade():
         f"{on_cluster}"
     )
     op.execute(
+        "DROP DICTIONARY IF EXISTS {{ DBT_PROFILE_TARGET_DATABASE }}.dim_most_recent_course_tags"
+        f"{on_cluster}"
+    )
+    op.execute(
+        "DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.dim_course_names"
+        f"{on_cluster}"
+    )
+    op.execute(
         "DROP TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_overviews"
         f"{on_cluster}"
     )
