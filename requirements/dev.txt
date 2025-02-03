@@ -20,7 +20,7 @@ backports-tarfile==1.2.0
     # via jaraco-context
 bcrypt==4.2.1
     # via -r requirements/base.txt
-black==24.10.0
+black==25.1.0
     # via
     #   -r requirements/base.txt
     #   -r requirements/dev.in
@@ -29,7 +29,7 @@ cachetools==5.5.1
     # via
     #   -r requirements/base.txt
     #   google-auth
-certifi==2024.12.14
+certifi==2025.1.31
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -80,7 +80,7 @@ importlib-resources==6.5.2
     # via
     #   -r requirements/base.txt
     #   tutor
-isort==5.13.2
+isort==6.0.0
     # via pylint
 jaraco-classes==3.4.0
     # via keyring
@@ -178,9 +178,9 @@ pygments==2.19.1
     #   rich
 pyinstaller==6.11.1
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2025.0
+pyinstaller-hooks-contrib==2025.1
     # via pyinstaller
-pylint==3.3.3
+pylint==3.3.4
     # via -r requirements/dev.in
 pyseeyou==1.0.2
     # via

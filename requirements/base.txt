@@ -10,11 +10,11 @@ asttokens==3.0.0
     # via transifex-python
 bcrypt==4.2.1
     # via -r requirements/base.in
-black==24.10.0
+black==25.1.0
     # via shandy-sqlfmt
 cachetools==5.5.1
     # via google-auth
-certifi==2024.12.14
+certifi==2025.1.31
     # via
     #   kubernetes
     #   requests
