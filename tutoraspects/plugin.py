@@ -13,7 +13,6 @@ import importlib_resources
 from tutor import hooks
 
 from .__about__ import __version__
-from .commands_v0 import COMMANDS as TUTOR_V0_COMMANDS
 from .commands_v1 import COMMANDS as TUTOR_V1_COMMANDS
 from .commands_v1 import DO_COMMANDS as TUTOR_V1_DO_COMMANDS
 
@@ -647,19 +646,10 @@ for path in glob(
 ########################################
 # CUSTOM JOBS (a.k.a. "do-commands")
 ########################################
-# To keep compatibility with tutor14 we need to add the commands
-# directly to the dev|k8s|local command groups.
-try:
-    CLI_DO_COMMANDS = hooks.Filters.CLI_DO_COMMANDS
-except AttributeError:
-    from tutor.commands import dev, k8s, local
+CLI_DO_COMMANDS = hooks.Filters.CLI_DO_COMMANDS
 
-    for f in TUTOR_V0_COMMANDS:
-        for mode in [dev.dev, local.local, k8s.k8s]:
-            mode.add_command(f)
-else:
-    for f in TUTOR_V1_DO_COMMANDS:
-        CLI_DO_COMMANDS.add_item(f)
+for f in TUTOR_V1_DO_COMMANDS:
+    CLI_DO_COMMANDS.add_item(f)
 
 # These commands work in both versions, but we're keeping them in the V1
 # file for now.

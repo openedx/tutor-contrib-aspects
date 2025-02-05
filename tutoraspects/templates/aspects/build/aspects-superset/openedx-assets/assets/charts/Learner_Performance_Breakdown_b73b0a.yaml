@@ -26,6 +26,7 @@ params:
   - active
   - at_risk
   minorTicks: false
+  only_total: true
   orientation: horizontal
   rich_tooltip: false
   row_limit: 10
@@ -40,16 +41,22 @@ params:
   truncate_metric: false
   viz_type: echarts_timeseries_bar
   xAxisLabelRotation: 0
-  x_axis: course_name
+  x_axis: name_org
   x_axis_sort_series: sum
   x_axis_sort_series_ascending: false
   x_axis_time_format: smart_date
   x_axis_title: ''
   x_axis_title_margin: 15
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  y_axis_title_margin: 15
+  y_axis_title_position: Left
   zoomable: false
 query_context:
   datasource:
-    id: 464
+    id: 504
     type: table
   force: false
   form_data:
@@ -63,8 +70,8 @@ query_context:
     color_scheme: supersetColors
     contributionMode: null
     dashboards:
-    - 3441
-    datasource: 464__table
+    - 1111
+    datasource: 504__table
     extra_form_data: {}
     force: false
     groupby: []
@@ -77,6 +84,7 @@ query_context:
     - active
     - at_risk
     minorTicks: false
+    only_total: true
     orientation: horizontal
     result_format: json
     result_type: full
@@ -85,7 +93,7 @@ query_context:
     show_empty_columns: false
     show_legend: true
     show_value: false
-    slice_id: 1504
+    slice_id: 461
     sort_series_ascending: true
     sort_series_type: name
     stack: null
@@ -94,12 +102,18 @@ query_context:
     truncate_metric: false
     viz_type: echarts_timeseries_bar
     xAxisLabelRotation: 0
-    x_axis: course_name
+    x_axis: name_org
     x_axis_sort_series: sum
     x_axis_sort_series_ascending: false
     x_axis_time_format: smart_date
     x_axis_title: ''
     x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title_margin: 15
+    y_axis_title_position: Left
     zoomable: false
   queries:
   - annotation_layers: []
@@ -107,8 +121,8 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: course_name
-      sqlExpression: course_name
+      label: name_org
+      sqlExpression: name_org
     custom_form_data: {}
     custom_params: {}
     extras:
@@ -142,7 +156,7 @@ query_context:
         columns: []
         drop_missing_columns: true
         index:
-        - course_name
+        - name_org
     - operation: flatten
     row_limit: 10
     series_columns: []
