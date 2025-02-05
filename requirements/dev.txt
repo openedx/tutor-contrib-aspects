@@ -20,16 +20,16 @@ backports-tarfile==1.2.0
     # via jaraco-context
 bcrypt==4.2.1
     # via -r requirements/base.txt
-black==24.10.0
+black==25.1.0
     # via
     #   -r requirements/base.txt
     #   -r requirements/dev.in
     #   shandy-sqlfmt
-cachetools==5.5.0
+cachetools==5.5.1
     # via
     #   -r requirements/base.txt
     #   google-auth
-certifi==2024.12.14
+certifi==2025.1.31
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -61,15 +61,17 @@ future==1.0.0
     # via
     #   -r requirements/base.txt
     #   pyseeyou
-google-auth==2.37.0
+google-auth==2.38.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
+id==1.5.0
+    # via twine
 idna==3.10
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==8.5.0
+importlib-metadata==8.6.1
     # via
     #   -r requirements/base.txt
     #   keyring
@@ -78,7 +80,7 @@ importlib-resources==6.5.2
     # via
     #   -r requirements/base.txt
     #   tutor
-isort==5.13.2
+isort==6.0.0
     # via pylint
 jaraco-classes==3.4.0
     # via keyring
@@ -97,7 +99,7 @@ jinja2==3.1.5
     #   tutor
 keyring==25.6.0
     # via twine
-kubernetes==31.0.0
+kubernetes==32.0.0
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -149,8 +151,6 @@ pathspec==0.12.1
     # via
     #   -r requirements/base.txt
     #   black
-pkginfo==1.12.0
-    # via twine
 platformdirs==4.3.6
     # via
     #   -r requirements/base.txt
@@ -178,9 +178,9 @@ pygments==2.19.1
     #   rich
 pyinstaller==6.11.1
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2025.0
+pyinstaller-hooks-contrib==2025.1
     # via pyinstaller
-pylint==3.3.3
+pylint==3.3.4
     # via -r requirements/dev.in
 pyseeyou==1.0.2
     # via
@@ -204,6 +204,7 @@ regex==2024.11.6
 requests==2.32.3
     # via
     #   -r requirements/base.txt
+    #   id
     #   kubernetes
     #   requests-oauthlib
     #   requests-toolbelt
@@ -256,7 +257,7 @@ tutor==19.0.1
     #   tutor-contrib-pod-autoscaling
 tutor-contrib-pod-autoscaling==19.0.0
     # via -r requirements/dev.in
-twine==6.0.1
+twine==6.1.0
     # via -r requirements/dev.in
 typing-extensions==4.12.2
     # via

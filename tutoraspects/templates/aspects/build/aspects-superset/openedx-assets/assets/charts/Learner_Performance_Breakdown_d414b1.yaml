@@ -9,13 +9,8 @@ params:
   adhoc_filters:
   - clause: WHERE
     comparator: No filter
-    datasourceWarning: false
     expressionType: SIMPLE
-    filterOptionName: filter_noj2mkjbumn_edkgbebkld8
-    isExtra: false
-    isNew: false
     operator: TEMPORAL_RANGE
-    sqlExpression: null
     subject: enrolled_at
   annotation_layers: []
   color_scheme: supersetColors
@@ -31,6 +26,7 @@ params:
   - at_risk
   - active
   minorTicks: false
+  only_total: true
   orientation: horizontal
   rich_tooltip: false
   row_limit: 10
@@ -40,42 +36,42 @@ params:
   sort_series_ascending: true
   sort_series_type: name
   stack: null
-  timeseries_limit_metric: null
   tooltipTimeFormat: smart_date
   truncateXAxis: false
   truncate_metric: true
   viz_type: echarts_timeseries_bar
   xAxisLabelRotation: 0
-  x_axis: course_run
+  x_axis: run_name
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
   x_axis_title: ''
   x_axis_title_margin: 15
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  y_axis_title_margin: 15
+  y_axis_title_position: Left
   zoomable: false
 query_context:
   datasource:
-    id: 464
+    id: 504
     type: table
   force: false
   form_data:
     adhoc_filters:
     - clause: WHERE
       comparator: No filter
-      datasourceWarning: false
       expressionType: SIMPLE
-      filterOptionName: filter_noj2mkjbumn_edkgbebkld8
-      isExtra: false
-      isNew: false
       operator: TEMPORAL_RANGE
-      sqlExpression: null
       subject: enrolled_at
     annotation_layers: []
     color_scheme: supersetColors
     contributionMode: null
     dashboards:
-    - 3441
-    datasource: 464__table
+    - 1111
+    datasource: 504__table
     extra_form_data: {}
     force: false
     groupby: []
@@ -88,6 +84,7 @@ query_context:
     - at_risk
     - active
     minorTicks: false
+    only_total: true
     orientation: horizontal
     result_format: json
     result_type: full
@@ -96,22 +93,27 @@ query_context:
     show_empty_columns: false
     show_legend: true
     show_value: false
-    slice_id: 1505
+    slice_id: 101
     sort_series_ascending: true
     sort_series_type: name
     stack: null
-    timeseries_limit_metric: null
     tooltipTimeFormat: smart_date
     truncateXAxis: false
     truncate_metric: true
     viz_type: echarts_timeseries_bar
     xAxisLabelRotation: 0
-    x_axis: course_run
+    x_axis: run_name
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date
     x_axis_title: ''
     x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title_margin: 15
+    y_axis_title_position: Left
     zoomable: false
   queries:
   - annotation_layers: []
@@ -119,8 +121,8 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: course_run
-      sqlExpression: course_run
+      label: run_name
+      sqlExpression: run_name
     custom_form_data: {}
     custom_params: {}
     extras:
@@ -154,7 +156,7 @@ query_context:
         columns: []
         drop_missing_columns: true
         index:
-        - course_run
+        - run_name
     - operation: flatten
     row_limit: 10
     series_columns: []
