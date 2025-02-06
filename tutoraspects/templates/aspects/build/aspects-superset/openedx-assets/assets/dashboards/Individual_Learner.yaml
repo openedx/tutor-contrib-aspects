@@ -317,9 +317,9 @@ metadata:
   - '#D1C6BC'
   cross_filters_enabled: true
   expanded_slices:
-    '112': true
-    '124': true
-    '5': true
+    '401': true
+    '481': true
+    '501': true
   global_chart_configuration:
     chartsInScope:
     - 81
@@ -630,7 +630,7 @@ position:
     children: []
     id: CHART-3L0xSxskX4
     meta:
-      chartId: 22
+      chartId: 861
       height: 56
       sliceName: Problem Engagement per Section/Subsection
       uuid: 8cdcd4aa-1fa2-41dc-b38d-f1112134592e
@@ -646,7 +646,7 @@ position:
     children: []
     id: CHART-4zWYZE6VQm
     meta:
-      chartId: 47
+      chartId: 1281
       height: 50
       sliceName: Page Engagement per Section/Subsection
       uuid: bf2d6219-d633-48c1-a9b5-742eac6a4c0a
@@ -662,7 +662,7 @@ position:
     children: []
     id: CHART-BmEG_m0R8l
     meta:
-      chartId: 124
+      chartId: 501
       height: 50
       sliceName: Watched Video Segments
       uuid: 2985a9db-c338-4008-af52-2930b81ee2e5
@@ -678,7 +678,7 @@ position:
     children: []
     id: CHART-OJrXW113HX
     meta:
-      chartId: 5
+      chartId: 401
       height: 50
       sliceName: Problem Attempts
       uuid: 6df96404-8c09-4a52-96c8-9a60a92cec29
@@ -694,7 +694,7 @@ position:
     children: []
     id: CHART-explore-191-1
     meta:
-      chartId: 12
+      chartId: 1101
       height: 50
       sliceName: Page Engagement per Subsection
       uuid: 18f85781-d604-4edf-a3e6-429e16c3040a
@@ -710,7 +710,7 @@ position:
     children: []
     id: CHART-explore-192-1
     meta:
-      chartId: 73
+      chartId: 221
       height: 50
       sliceName: Page Engagement per Section
       uuid: 834ec7c4-ead8-4dea-b227-1c8be5fbb1d3
@@ -726,7 +726,7 @@ position:
     children: []
     id: CHART-explore-194-1
     meta:
-      chartId: 96
+      chartId: 1041
       height: 50
       sliceName: Problem Engagement per Section
       uuid: 1d00bbc3-f0d5-4c17-b9f3-8cc4d5516950
@@ -742,7 +742,7 @@ position:
     children: []
     id: CHART-explore-195-1
     meta:
-      chartId: 15
+      chartId: 421
       height: 50
       sliceName: Problem Engagement per Subsection
       uuid: b3516698-35fe-4934-862a-7f5fb869d322
@@ -758,7 +758,7 @@ position:
     children: []
     id: CHART-explore-196-1
     meta:
-      chartId: 140
+      chartId: 521
       height: 50
       sliceName: Video Engagement per Section
       uuid: 0744f1bf-1636-4735-861b-18a6f1e825a2
@@ -774,7 +774,7 @@ position:
     children: []
     id: CHART-explore-197-1
     meta:
-      chartId: 135
+      chartId: 681
       height: 50
       sliceName: Video Engagement per Subsection
       uuid: cf5b6eb7-d22c-4dda-bd4e-ee2401f337cc
@@ -790,7 +790,7 @@ position:
     children: []
     id: CHART-explore-198-1
     meta:
-      chartId: 28
+      chartId: 981
       height: 50
       sliceName: Partial and Full Video Views
       uuid: 54a1551c-7eb3-43fb-abd1-005816da0769
@@ -806,7 +806,7 @@ position:
     children: []
     id: CHART-explore-64-1
     meta:
-      chartId: 112
+      chartId: 481
       height: 50
       sliceName: Problem Results
       uuid: 3b70aeac-54d3-4aad-86ff-296d2947a7bd
@@ -820,7 +820,7 @@ position:
     children: []
     id: CHART-hZ8cIzkMoC
     meta:
-      chartId: 123
+      chartId: 381
       height: 50
       sliceName: Partial and Full Video Views
       uuid: bfffb9fe-07bd-4b2f-b437-522d45f6cd2c
@@ -836,7 +836,7 @@ position:
     children: []
     id: CHART-nw620qu42a
     meta:
-      chartId: 67
+      chartId: 1321
       height: 50
       sliceName: Learner Summary
       uuid: 6da50964-000e-4342-a931-3881feb02c13
@@ -850,7 +850,7 @@ position:
     children: []
     id: CHART-ykpHXAV6JN
     meta:
-      chartId: 7
+      chartId: 1261
       height: 50
       sliceName: Video Engagement per Section/Subsection
       uuid: c1f77432-e55f-4473-b7d0-7a1c3976e6a8
