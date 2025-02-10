@@ -117,7 +117,7 @@ more-itertools==10.6.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-mypy==1.14.1
+mypy==1.15.0
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -176,7 +176,7 @@ pygments==2.19.1
     # via
     #   readme-renderer
     #   rich
-pyinstaller==6.11.1
+pyinstaller==6.12.0
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2025.1
     # via pyinstaller
