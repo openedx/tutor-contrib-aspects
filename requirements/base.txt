@@ -49,7 +49,7 @@ kubernetes==32.0.0
     # via tutor
 markupsafe==3.0.2
     # via jinja2
-mypy==1.14.1
+mypy==1.15.0
     # via tutor
 mypy-extensions==1.0.0
     # via
