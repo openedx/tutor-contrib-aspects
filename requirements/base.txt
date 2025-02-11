@@ -104,7 +104,7 @@ ruamel-yaml==0.18.10
     # via -r requirements/base.in
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-shandy-sqlfmt[jinjafmt]==0.21.2
+shandy-sqlfmt[jinjafmt]==0.26.0
     # via -r requirements/base.in
 six==1.17.0
     # via
