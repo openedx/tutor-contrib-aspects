@@ -3,7 +3,7 @@ with
         select course_key, COUNT(DISTINCT actor_id) as active_last_7_days
         from {{ ASPECTS_XAPI_DATABASE }}.navigation_events
         where
-            emission_time >= NOW() - INTERVAL 7 DAY
+            emission_time >= NOW() - interval 7 DAY
             {% include 'openedx-assets/queries/common_filters.sql' %}
         group by course_key
     )

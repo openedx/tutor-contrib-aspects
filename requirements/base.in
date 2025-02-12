@@ -5,4 +5,4 @@ openedx-atlas
 transifex-python
 tutor>=18
 ruamel.yaml
-shandy-sqlfmt[jinjafmt]==0.21.2
+shandy-sqlfmt[jinjafmt]==0.26.0
