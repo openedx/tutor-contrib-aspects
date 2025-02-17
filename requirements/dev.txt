@@ -5,9 +5,7 @@
 #    make upgrade
 #
 altgraph==0.17.4
-    # via
-    #   macholib
-    #   pyinstaller
+    # via pyinstaller
 appdirs==1.4.4
     # via
     #   -r requirements/base.txt
@@ -36,6 +34,8 @@ certifi==2025.1.31
     #   -r requirements/base.txt
     #   kubernetes
     #   requests
+cffi==1.17.1
+    # via cryptography
 charset-normalizer==3.4.1
     # via
     #   -r requirements/base.txt
@@ -47,6 +47,8 @@ click==8.1.8
     #   shandy-sqlfmt
     #   transifex-python
     #   tutor
+cryptography==44.0.1
+    # via secretstorage
 dill==0.3.9
     # via pylint
 docutils==0.21.2
@@ -86,6 +88,10 @@ jaraco-context==6.0.1
     # via keyring
 jaraco-functools==4.1.0
     # via keyring
+jeepney==0.8.0
+    # via
+    #   keyring
+    #   secretstorage
 jinja2==3.1.5
     # via
     #   -r requirements/base.txt
@@ -97,8 +103,6 @@ kubernetes==32.0.0
     # via
     #   -r requirements/base.txt
     #   tutor
-macholib==1.16.3
-    # via pyinstaller
 markdown-it-py==3.0.0
     # via rich
 markupsafe==3.0.2
@@ -162,6 +166,8 @@ pyasn1-modules==0.4.1
     # via
     #   -r requirements/base.txt
     #   google-auth
+pycparser==2.22
+    # via cffi
 pycryptodome==3.21.0
     # via
     #   -r requirements/base.txt
@@ -224,6 +230,8 @@ ruamel-yaml-clib==0.2.12
     # via
     #   -r requirements/base.txt
     #   ruamel-yaml
+secretstorage==3.3.3
+    # via keyring
 shandy-sqlfmt[jinjafmt]==0.26.0
     # via -r requirements/base.txt
 six==1.17.0
@@ -243,7 +251,7 @@ tqdm==4.67.1
     #   shandy-sqlfmt
 transifex-python==3.5.0
     # via -r requirements/base.txt
-tutor==19.0.1
+tutor==19.0.2
     # via
     #   -r requirements/base.txt
     #   tutor-contrib-pod-autoscaling
