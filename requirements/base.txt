@@ -116,7 +116,7 @@ tqdm==4.67.1
     # via shandy-sqlfmt
 transifex-python==3.5.0
     # via -r requirements/base.in
-tutor==19.0.1
+tutor==19.0.2
     # via -r requirements/base.in
 typing-extensions==4.12.2
     # via
