@@ -170,7 +170,13 @@ TALISMAN_CONFIG = {
     }
 }
 {% endif %}
+
+{% if LANGUAGE_CODE|lower in SUPERSET_SUPPORTED_LANGUAGES %}
+BABEL_DEFAULT_LOCALE = "{{ LANGUAGE_CODE|lower }}"
+{% else %}
 BABEL_DEFAULT_LOCALE = "en"
+print(f"LANGUAGE_CODE='{{ LANGUAGE_CODE|lower }}' not supported by Superset, falling back to 'en'")
+{% endif %}
 
 {{ patch('superset-config')}}
 
