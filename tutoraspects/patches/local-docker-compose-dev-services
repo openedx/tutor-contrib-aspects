@@ -54,3 +54,22 @@ aspects-consumer:
   command: |
     ./manage.py lms consume_events -t analytics -g event_routing_backends --extra '{"consumer_name": "aspects"}'
 {% endif %}
+
+{% if ASPECTS_RUN_ALTINITY_CONNECTOR %}
+debezium:
+  image: altinity/clickhouse-sink-connector:{{ALTINITY_SINK_LIGHTWEIGHT_VERSION}}
+  # image: clickhouse_debezium_embedded:{{ALTINITY_SINK_LIGHTWEIGHT_VERSION}}
+  restart: "no"
+  ports:
+    - "8083:8083"
+    - "5005:5005"
+    - "7000:7000"
+  depends_on:
+      - mysql
+      - clickhouse
+  extra_hosts:
+      - "host.docker.internal:host-gateway"
+  volumes:
+      # - ./config.yml:/config.yml
+      - ../../env/plugins/aspects/apps/debezium/config.yml:/config.yml
+{% endif %}

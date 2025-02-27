@@ -169,6 +169,13 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_VECTOR_RAW_TRACKING_LOGS_TABLE", "_tracking"),
         ("ASPECTS_VECTOR_RAW_XAPI_TABLE", "xapi_events_all"),
         ("ASPECTS_DATA_TTL_EXPRESSION", "toDateTime(emission_time) + INTERVAL 1 YEAR"),
+        # Altinity sink connector settings
+        ("ASPECTS_RUN_ALTINITY_CONNECTOR", True),
+        ("ALTINITY_SINK_LIGHTWEIGHT_VERSION", "2.7.1-lt"),
+        (
+            "ALTINITY_SINK_TABLE_LIST",
+            "openedx.auth_user,openedx.student_courseenrollment,openedx.grades_persistentcoursegrade,openedx.grades_persistentsubsectiongrade",
+        ),
         # Make sure LMS / CMS have event-routing-backends installed
         ######################
         # ClickHouse Settings
@@ -544,9 +551,7 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
 # run it as part of the `init` job.
 try:
     for service, template_path, priority in MY_INIT_TASKS:
-        hooks.Filters.COMMANDS_INIT.add_item(
-            (service, template_path)
-        )  # pylint: disable=no-member
+        hooks.Filters.COMMANDS_INIT.add_item((service, template_path))  # pylint: disable=no-member
 except AttributeError:
     for service, template_path, priority in MY_INIT_TASKS:
         full_path = os.path.join(
