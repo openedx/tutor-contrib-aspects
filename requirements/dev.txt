@@ -18,7 +18,7 @@ asttokens==3.0.0
     #   transifex-python
 backports-tarfile==1.2.0
     # via jaraco-context
-bcrypt==4.2.1
+bcrypt==4.3.0
     # via -r requirements/base.txt
 black==25.1.0
     # via
@@ -47,7 +47,7 @@ click==8.1.8
     #   shandy-sqlfmt
     #   transifex-python
     #   tutor
-cryptography==44.0.1
+cryptography==44.0.2
     # via secretstorage
 dill==0.3.9
     # via pylint
@@ -80,7 +80,7 @@ importlib-resources==6.5.2
     # via
     #   -r requirements/base.txt
     #   tutor
-isort==6.0.0
+isort==6.0.1
     # via pylint
 jaraco-classes==3.4.0
     # via keyring
@@ -88,7 +88,7 @@ jaraco-context==6.0.1
     # via keyring
 jaraco-functools==4.1.0
     # via keyring
-jeepney==0.8.0
+jeepney==0.9.0
     # via
     #   keyring
     #   secretstorage
@@ -126,7 +126,7 @@ mypy-extensions==1.0.0
     #   -r requirements/base.txt
     #   black
     #   mypy
-nh3==0.2.20
+nh3==0.2.21
     # via readme-renderer
 oauthlib==3.2.2
     # via
