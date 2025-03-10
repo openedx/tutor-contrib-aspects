@@ -1,2 +1,3 @@
-// frontend-app-authoring definges "CourseAuthoring" as an alias for it's src folder.
-const OutlineAnalytics = await import('CourseAuthoring/course-outline/outline-analytics/OutlineAnalytics');
+
+      // frontend-app-authoring definges "CourseAuthoring" as an alias for it's src folder.
+      const { default: OutlineAnalytics } = await import('CourseAuthoring/course-outline/outline-analytics/OutlineAnalytics');
