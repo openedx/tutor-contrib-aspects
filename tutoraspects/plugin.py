@@ -11,6 +11,7 @@ import typing as t
 import bcrypt
 import importlib_resources
 from tutor import hooks
+from tutormfe.hooks import PLUGIN_SLOTS
 
 from .__about__ import __version__
 from .commands_v1 import COMMANDS as TUTOR_V1_COMMANDS
@@ -393,6 +394,10 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DBT_PROFILE_TARGET_DATABASE", "reporting"),
         ("RUN_ASPECTS_DOCS", False),
         ("DBT_HOST", "dbt.{{LMS_HOST}}"),
+        #####################
+        # MFE Customizations
+        # Aspects can enable plugins to show in-context metrics in the Authoring MFE
+        ("ASPECTS_ENABLE_STUDIO_IN_CONTEXT_METRICS", True),
     ]
 )
 
@@ -643,6 +648,14 @@ for path in glob(
     with open(path, encoding="utf-8") as patch_file:
         hooks.Filters.ENV_PATCHES.add_item((os.path.basename(path), patch_file.read()))
 
+hooks.Filters.ENV_PATCHES.add_item(
+    (
+        "mfe-dockerfile-post-npm-install-authoring",
+        """
+RUN --mount=type=cache,target=/root/.npm,sharing=shared echo "installing custom slots" && npm install --legacy-peer-deps openedx/frontend-plugin-aspects#pull/19/head && echo "done"
+""",
+    )
+)
 ########################################
 # CUSTOM JOBS (a.k.a. "do-commands")
 ########################################
@@ -663,3 +676,114 @@ try:
     )
 except ImportError:
     pass
+
+
+########################################
+# MFE Customizations
+########################################
+
+PLUGIN_SLOTS.add_items(
+    [
+        (
+          "authoring",
+          "course_outline_sidebar",
+          """
+          {
+            op: PLUGIN_OPERATIONS.Insert,
+            widget: {
+                id: 'outline-sidebar',
+                priority: 1,
+                type: DIRECT_PLUGIN,
+                RenderWidget: AspectsSidebar,
+            },
+          }"""
+        ),
+        (
+          "authoring",
+          "course_outline_sidebar",
+          """
+          {
+            op: PLUGIN_OPERATIONS.Wrap,
+            widgetId: 'default_contents',
+            wrapper: SidebarToggleWrapper,
+          }"""
+        ),
+        (
+          "authoring",
+          "course_unit_sidebar",
+          """
+          {
+            op: PLUGIN_OPERATIONS.Insert,
+            widget: {
+                id: 'course-unit-sidebar',
+                priority: 1,
+                type: DIRECT_PLUGIN,
+                RenderWidget: AspectsSidebar,
+            },
+          }""",
+        ),
+
+        (
+          "authoring",
+          "course_unit_sidebar",
+          """
+          {
+            op: PLUGIN_OPERATIONS.Wrap,
+            widgetId: 'default_contents',
+            wrapper: SidebarToggleWrapper,
+          }"""
+        ),
+        (
+          "authoring",
+          "course_unit_header_actions_slot",
+          """
+          {
+              op: PLUGIN_OPERATIONS.Insert,
+              widget: {
+                  id: 'unit-header-aspects-button',
+                  priority: 60,
+                  type: DIRECT_PLUGIN,
+                  RenderWidget: CourseHeaderButton,
+              },
+          }"""
+        ),
+        (
+          "authoring",
+          "course_outline_header_actions_slot",
+          """
+          {
+              op: PLUGIN_OPERATIONS.Insert,
+              widget: {
+                  id: 'outline-header-aspects-button',
+                  priority: 60,
+                  type: DIRECT_PLUGIN,
+                  RenderWidget: CourseHeaderButton,
+              },
+          }"""
+        ),
+        (
+          "authoring",
+          "course_outline_header_slot",
+          """
+          {
+            op: PLUGIN_OPERATIONS.Insert,
+            widget: {
+                id: 'units-action-aspects-button',
+                priority: 60,
+                type: DIRECT_PLUGIN,
+                RenderWidget: UnitActionsButton,
+            },
+          }"""
+        ),
+        (
+          "authoring",
+          "authoring_app_wrapper",
+          """
+          {
+            op: PLUGIN_OPERATIONS.Wrap,
+            widgetId: 'default_contents',
+            wrapper: AspectsSidebarProvider,
+          }"""
+        ),
+    ]
+)
