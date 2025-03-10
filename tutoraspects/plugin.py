@@ -681,7 +681,7 @@ PLUGIN_SLOTS.add_items([
             id: 'outline-analytics',
             type: DIRECT_PLUGIN,
             priority: 1,
-            RenderWidget: OutlineAnaltytics,
+            RenderWidget: OutlineAnalytics,
           },
         }"""
     ),
