@@ -11,6 +11,7 @@ import typing as t
 import bcrypt
 import importlib_resources
 from tutor import hooks
+from tutormfe.hooks import PLUGIN_SLOTS
 
 from .__about__ import __version__
 from .commands_v1 import COMMANDS as TUTOR_V1_COMMANDS
@@ -663,3 +664,25 @@ try:
     )
 except ImportError:
     pass
+
+
+########################################
+# MFE Customizations
+########################################
+PLUGIN_SLOTS.add_items([
+    # In context metrics for authoring mfe
+    (
+        "authoring",
+        "course_outline_analytics_slot",
+        """
+        {
+          op: PLUGIN_OPERATIONS.Insert,
+          widget: {
+            id: 'outline-analytics',
+            type: DIRECT_PLUGIN,
+            priority: 1,
+            RenderWidget: OutlineAnaltytics,
+          },
+        }"""
+    ),
+])
