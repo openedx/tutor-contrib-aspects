@@ -1,3 +1,2 @@
 
-      // frontend-app-authoring definges "CourseAuthoring" as an alias for it's src folder.
-      const { default: OutlineAnalytics } = await import('CourseAuthoring/course-outline/outline-analytics/OutlineAnalytics');
+      const { default: OutlineAnalytics } = await import('@openedx-plugins/aspects-outline-analytics/OutlineAnalytics');
