@@ -674,11 +674,12 @@ except ImportError:
 # MFE Customizations
 ########################################
 
-PLUGIN_SLOTS.add_items([
-    (
-        "authoring",
-        "course_outline_analytics_slot",
-        """
+PLUGIN_SLOTS.add_items(
+    [
+        (
+            "authoring",
+            "course_outline_analytics_slot",
+            """
         {
           op: PLUGIN_OPERATIONS.Insert,
           widget: {
@@ -687,12 +688,12 @@ PLUGIN_SLOTS.add_items([
             priority: 1,
             RenderWidget: OutlineAnalytics,
           },
-        }"""
-    ),
-    (
-        "authoring",
-        "course_unit_analytics_slot",
-        """
+        }""",
+        ),
+        (
+            "authoring",
+            "course_unit_analytics_slot",
+            """
         {
           op: PLUGIN_OPERATIONS.Insert,
           widget: {
@@ -701,6 +702,7 @@ PLUGIN_SLOTS.add_items([
             priority: 1,
             RenderWidget: UnitAnalytics,
           },
-        }"""
-    ),
-])
+        }""",
+        ),
+    ]
+)
