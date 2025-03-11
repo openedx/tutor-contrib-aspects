@@ -1,2 +1,10 @@
 
+{% if ASPECTS_ENABLE_STUDIO_IN_CONTEXT_METRICS %}
       const { default: OutlineAnalytics } = await import('@openedx-plugins/aspects-outline-analytics/OutlineAnalytics');
+      const { default: UnitAnalytics } = await import('@openedx-plugins/aspects-unit-analytics/UnitAnalytics');
+{% else %}
+      // Currently there is no way to conditionally add plugin slot configuration from tutor-mfe.
+      // So, as a workaround, tutor-contrib-aspects simply defines the components added to the plugin as empty components.
+      const OutlineAnalytics = () => (<></>);
+      const UnitAnalytics = () => (<></>);
+{% endif %}
