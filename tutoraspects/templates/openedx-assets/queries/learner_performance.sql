@@ -16,7 +16,7 @@ with
             events.success as success,
             events.attempts as attempts,
             events.interaction_type as interaction_type
-        from {{ ASPECTS_XAPI_DATABASE }}.responses
+        from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_learner_response_attempt
         join
             {{ ASPECTS_XAPI_DATABASE }}.problem_events events using (
                 org, course_key, problem_id, actor_id, emission_time
@@ -67,7 +67,7 @@ select
     attempts,
     course_grade,
     approving_state
-from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_student_status
+from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_student_status
 left join int_problem_results
 using org, course_key, course_run, actor_id, course_name
 where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}

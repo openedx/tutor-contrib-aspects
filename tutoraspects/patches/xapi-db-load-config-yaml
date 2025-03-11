@@ -12,20 +12,20 @@ lrs_password: "{{RALPH_LMS_PASSWORD}}"
 
 # Run options
 log_dir:
-num_batches: 3
-batch_size: 100
+num_batches: 5
+batch_size: 1000
 
 # Overall start and end date for the entire run
-start_date: 2014-01-01
-end_date: 2023-11-27
+start_date: 2020-01-01
+end_date: 2025-12-31
 
 # All courses will be this long, and be fit into the start / end dates
 # This must be less than end_date - start_date days.
 course_length_days: 120
 
 # The size of the test
-num_organizations: 3
-num_actors: 10
+num_organizations: 10
+num_actors: 100
 
 # This replicates users updating their profiles several times, creating
 # more rows
@@ -34,10 +34,10 @@ num_actor_profile_changes: 5
 # How many of each size course to create. The sum of these is the total number
 # of courses created for the test.
 num_course_sizes:
-  small: 1
-  medium: 1
-  large: 1
-  huge: 1
+  small: 15
+  medium: 15
+  large: 15
+  huge: 15
 
 # How many times each course will be "published", this creates a more realistic
 # distribution of course blocks where each course can be published dozens or
@@ -50,34 +50,34 @@ num_course_publishes: 100
 # "num_course_sizes".
 course_size_makeup:
   small:
-    actors: 5
-    problems: 20
+    actors: 10
+    problems: 40
     videos: 10
-    chapters: 3
+    chapters: 5
     sequences: 10
     verticals: 20
     forum_posts: 20
   medium:
-    actors: 7
-    problems: 40
+    actors: 20
+    problems: 50
     videos: 20
-    chapters: 4
+    chapters: 10
     sequences: 20
     verticals: 30
     forum_posts: 40
   large:
-    actors: 10
+    actors: 30
     problems: 80
     videos: 30
-    chapters: 5
+    chapters: 25
     sequences: 40
     verticals: 80
     forum_posts: 200
   huge:
-    actors: 10
+    actors: 40
     problems: 160
     videos: 40
-    chapters: 10
+    chapters: 30
     sequences: 50
     verticals: 100
     forum_posts: 1000
