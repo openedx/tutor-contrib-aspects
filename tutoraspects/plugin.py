@@ -11,6 +11,7 @@ import typing as t
 import bcrypt
 import importlib_resources
 from tutor import hooks
+from tutormfe.hooks import PLUGIN_SLOTS
 
 from .__about__ import __version__
 from .commands_v1 import COMMANDS as TUTOR_V1_COMMANDS
@@ -393,6 +394,10 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DBT_PROFILE_TARGET_DATABASE", "reporting"),
         ("RUN_ASPECTS_DOCS", False),
         ("DBT_HOST", "dbt.{{LMS_HOST}}"),
+        #####################
+        # MFE Customizations
+        # Aspects can enable plugins to show in-context metrics in the Authoring MFE
+        ("ASPECTS_ENABLE_STUDIO_IN_CONTEXT_METRICS", True),
     ]
 )
 
@@ -663,3 +668,41 @@ try:
     )
 except ImportError:
     pass
+
+
+########################################
+# MFE Customizations
+########################################
+
+PLUGIN_SLOTS.add_items(
+    [
+        (
+            "authoring",
+            "course_outline_analytics_slot",
+            """
+        {
+          op: PLUGIN_OPERATIONS.Insert,
+          widget: {
+            id: 'outline-analytics',
+            type: DIRECT_PLUGIN,
+            priority: 1,
+            RenderWidget: OutlineAnalytics,
+          },
+        }""",
+        ),
+        (
+            "authoring",
+            "course_unit_analytics_slot",
+            """
+        {
+          op: PLUGIN_OPERATIONS.Insert,
+          widget: {
+            id: 'unit-analytics',
+            type: DIRECT_PLUGIN,
+            priority: 1,
+            RenderWidget: UnitAnalytics,
+          },
+        }""",
+        ),
+    ]
+)
