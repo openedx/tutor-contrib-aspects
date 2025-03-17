@@ -168,7 +168,7 @@ pyasn1-modules==0.4.1
     #   google-auth
 pycparser==2.22
     # via cffi
-pycryptodome==3.21.0
+pycryptodome==3.22.0
     # via
     #   -r requirements/base.txt
     #   tutor
