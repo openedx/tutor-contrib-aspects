@@ -12,6 +12,7 @@ params:
     operator: TEMPORAL_RANGE
     subject: enrolled_at
   all_columns: []
+  annotation_layers: []
   color_pn: true
   column_config:
     Avg Course Grade:
@@ -91,7 +92,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 60
+    id: 281
     type: table
   force: false
   form_data:
@@ -102,6 +103,7 @@ query_context:
       operator: TEMPORAL_RANGE
       subject: enrolled_at
     all_columns: []
+    annotation_layers: []
     color_pn: true
     column_config:
       Avg Course Grade:
@@ -136,9 +138,7 @@ query_context:
       column: Active Within Last 7 Days
       operator: '>'
       targetValue: 0
-    dashboards:
-    - 24
-    datasource: 60__table
+    datasource: 281__table
     extra_form_data: {}
     force: false
     groupby:
@@ -181,7 +181,7 @@ query_context:
     result_type: full
     row_limit: 1000
     show_cell_bars: true
-    slice_id: 119
+    slice_id: 121
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       enrolled_at: true

@@ -44,6 +44,7 @@ query_context:
       operator: TEMPORAL_RANGE
       subject: emission_time
     aggregateFunction: Sum
+    annotation_layers: []
     colOrder: key_a_to_z
     colSubTotals: false
     conditional_formatting: []

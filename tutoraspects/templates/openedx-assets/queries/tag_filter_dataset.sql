@@ -9,7 +9,7 @@ from
             row_number() over (
                 order by sort_order_1 ASC, sort_order_2 ASC, value ASC
             ) as rownum
-        from {{ ASPECTS_EVENT_SINK_DATABASE }}.most_recent_tags
+        from {{ ASPECTS_EVENT_SINK_DATABASE }}.dim_most_recent_tags
     ) as t
 left join
-    {{ DBT_PROFILE_TARGET_DATABASE }}.most_recent_course_tags ct on ct.tag_id = t.id
+    {{ DBT_PROFILE_TARGET_DATABASE }}.dim_most_recent_course_tags ct on ct.tag_id = t.id

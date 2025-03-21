@@ -3,6 +3,30 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Course Key
+- advanced_data_type: null
+  column_name: enrollment_mode
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Enrollment Track
+- advanced_data_type: null
   column_name: course_grade
   description: null
   expression: ''
@@ -26,18 +50,6 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Actor Id
-- advanced_data_type: null
-  column_name: course_key
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Key
 - advanced_data_type: null
   column_name: course_name
   description: null
@@ -99,18 +111,6 @@ columns:
   type: String
   verbose_name: Enrollment Status
 - advanced_data_type: null
-  column_name: enrollment_mode
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Enrollment Track
-- advanced_data_type: null
   column_name: grade_bucket
   description: null
   expression: ''
@@ -122,6 +122,18 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Grade Range
+- advanced_data_type: null
+  column_name: org
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Organization
 - advanced_data_type: null
   column_name: approving_state
   description: null
@@ -159,18 +171,6 @@ columns:
   type: String
   verbose_name: Name
 - advanced_data_type: null
-  column_name: org
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Organization
-- advanced_data_type: null
   column_name: username
   description: null
   expression: ''
@@ -205,7 +205,7 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_learner_summary.sql' %}{% endfilter %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/learner_summary.sql' %}{% endfilter %}
 table_name: learner_summary
 template_params: null
 uuid: da75efef-09ba-4ed0-8b6b-bf11c5c26008
