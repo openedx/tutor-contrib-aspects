@@ -5,6 +5,51 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v2.0.0-bump-version-fix.0 - 2025-03-24
+
+### [2.0.0-bump-version-fix.0](https://github.com/openedx/tutor-contrib-aspects/compare/v1.3.2...v2.0.0-bump-version-fix.0) (2025-03-24)
+
+#### ⚠ BREAKING CHANGES
+
+* Remove python < 3.11 references and Tutor < 18
+* use new dbt models and rename datasets to adhere to dim/fact convention
+
+#### Features
+
+* add course name and org ([d3c40f6](https://github.com/openedx/tutor-contrib-aspects/commit/d3c40f6f2009cf11b8e25e6c28a2651e82667526))
+* add course name to run charts ([491569a](https://github.com/openedx/tutor-contrib-aspects/commit/491569a91cf94d07c4aecbc1b3d4bcd0532b8f1d))
+* enable tagging of charts and dashboards ([28817e4](https://github.com/openedx/tutor-contrib-aspects/commit/28817e4ddecdff8e2d231bfd275d4f0df3c96fbb))
+* set the session locale from the Open edX preferred language ([#1017](https://github.com/openedx/tutor-contrib-aspects/issues/1017)) ([df9518c](https://github.com/openedx/tutor-contrib-aspects/commit/df9518c63299cf76c6c2db36c1c2378f8e506bb6))
+* upgrade to superset v4.1.0 ([0286448](https://github.com/openedx/tutor-contrib-aspects/commit/0286448470367f238e974b3458424d635b90c821))
+* upgrade to superset v4.1.1 ([e5a7d53](https://github.com/openedx/tutor-contrib-aspects/commit/e5a7d53f0760c09b373949116a747daf4915643a))
+* use new dbt models and rename datasets to adhere to dim/fact convention ([fc48835](https://github.com/openedx/tutor-contrib-aspects/commit/fc48835e3f5ed8fbe482421691669cb392c4f1bb))
+
+#### Bug Fixes
+
+* correctly mount pythonpath module ([807646d](https://github.com/openedx/tutor-contrib-aspects/commit/807646d17ea0de41425d9c8a6990ece0c6d337a5))
+* format ([7295cc2](https://github.com/openedx/tutor-contrib-aspects/commit/7295cc2874e34a9b432cd859577904c59bc47794))
+* formatting ([e2dcd2b](https://github.com/openedx/tutor-contrib-aspects/commit/e2dcd2ba4fc6b2f3b509456517629acc6d67529c))
+* load template processor for lineage data ([d48f89e](https://github.com/openedx/tutor-contrib-aspects/commit/d48f89ee45fcd6949f87329f92912de3e9d65865))
+* manually install mysql client ([9f090b0](https://github.com/openedx/tutor-contrib-aspects/commit/9f090b01b54a33025609e554a5976f7fbeada2d7))
+* new dbt version ([d069756](https://github.com/openedx/tutor-contrib-aspects/commit/d0697560243b5630edae5cffc7320b953b08205f))
+* reset xapi ([d299a23](https://github.com/openedx/tutor-contrib-aspects/commit/d299a23e570b6a0a6f37c354e11d03896ae6a120))
+* update sqlfmt version ([5839eac](https://github.com/openedx/tutor-contrib-aspects/commit/5839eacff353120295609a89aba3bfe85234cbd1))
+* upgrade dbt ([2b2557f](https://github.com/openedx/tutor-contrib-aspects/commit/2b2557f560b7be4562054b3073fdf050463987bd))
+* upgrade requirements ([35312f6](https://github.com/openedx/tutor-contrib-aspects/commit/35312f64e42ab9620b56a24ff34eb33804205de8))
+* use new branch ([d6de4da](https://github.com/openedx/tutor-contrib-aspects/commit/d6de4dabff465082cf4747a690fae5d0a45c2333))
+* use new branch ([8e105ba](https://github.com/openedx/tutor-contrib-aspects/commit/8e105ba603bac2f2ee99b3e23fb4cf004ec04513))
+* use new branch ([b1fca1e](https://github.com/openedx/tutor-contrib-aspects/commit/b1fca1e1f2a814d4e5326a3724fe786b573049f9))
+* use new branch ([bb7e19c](https://github.com/openedx/tutor-contrib-aspects/commit/bb7e19c2839d5817e8face57422c1fdf41e17d33))
+* use new branch ([2ed0d6d](https://github.com/openedx/tutor-contrib-aspects/commit/2ed0d6d90331937a52573228d0d79c545df0e252))
+* use new branch ([a7422e3](https://github.com/openedx/tutor-contrib-aspects/commit/a7422e3ba6ee2a3d5ce4f10bb997a3dd65f40424))
+* use new branch ([05663b4](https://github.com/openedx/tutor-contrib-aspects/commit/05663b40ed6fdf14dabb95e4b3e86f1e0b01f9f4))
+* use new branch ([92ec34c](https://github.com/openedx/tutor-contrib-aspects/commit/92ec34ccf275d4feec89b7d20ab1fb89b5176457))
+* use pip to install ([c721dc1](https://github.com/openedx/tutor-contrib-aspects/commit/c721dc10217efdd0502aba35237076f98b795bcb))
+
+#### chore
+
+* Remove python < 3.11 references and Tutor < 18 ([4bad282](https://github.com/openedx/tutor-contrib-aspects/commit/4bad28282483d7fcfc2c479dfaaec51b012ce5ca))
+
 ## v1.3.0 - 2024-11-26
 
 ### [1.3.0](https://github.com/openedx/tutor-contrib-aspects/compare/v1.2.0...v1.3.0) (2024-11-26)
