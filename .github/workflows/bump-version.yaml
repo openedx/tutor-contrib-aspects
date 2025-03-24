@@ -22,6 +22,9 @@ jobs:
           default_bump: false
           default_prerelease_bump: false
           dry_run: true
+          tag_prefix: None
+          release_branches: master,main,feat/support-different-commit-analyzer-presets
+          commit_analyzer_preset: conventionalcommits
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
