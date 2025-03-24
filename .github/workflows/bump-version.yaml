@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Get next version
         id: tag_version
-        uses: codymaust/github-tag-action@feat/support-different-commit-analyzer-presets
+        uses: mathieudutour/github-tag-action@feat/support-different-commit-analyzer-presets
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           default_bump: false
