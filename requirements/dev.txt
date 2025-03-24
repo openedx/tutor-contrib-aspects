@@ -151,7 +151,7 @@ pathspec==0.12.1
     # via
     #   -r requirements/base.txt
     #   black
-platformdirs==4.3.6
+platformdirs==4.3.7
     # via
     #   -r requirements/base.txt
     #   black
@@ -178,9 +178,9 @@ pygments==2.19.1
     #   rich
 pyinstaller==6.12.0
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2025.1
+pyinstaller-hooks-contrib==2025.2
     # via pyinstaller
-pylint==3.3.5
+pylint==3.3.6
     # via -r requirements/dev.in
 pyseeyou==1.0.2
     # via
