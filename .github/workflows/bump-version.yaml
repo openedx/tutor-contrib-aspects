@@ -16,12 +16,13 @@ jobs:
       - uses: actions/checkout@v4
       - name: Get next version
         id: tag_version
-        uses: mathieudutour/github-tag-action@v6.2
+        uses: mathieudutour/github-tag-action@codymaust:feat/support-different-commit-analyzer-presets
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           default_bump: false
           default_prerelease_bump: false
           dry_run: true
+          commit_analyzer_preset: conventionalcommits
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
