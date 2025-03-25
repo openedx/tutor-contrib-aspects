@@ -18,3 +18,10 @@ ignored_uuids:
   datasets:
   charts:
     - bb13bb31-c797-4ed3-a7f9-7825cc6dc482 # "Query performance" needed for the performance_metrics script
+  
+ignored_files:
+  queries:
+    # These queries are used in other query files
+    - user_filters.sql 
+    - common_filters.sql
+    - at_risk_learner_filter.sql

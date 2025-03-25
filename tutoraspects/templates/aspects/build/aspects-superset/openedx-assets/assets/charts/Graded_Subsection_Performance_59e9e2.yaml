@@ -1,4 +1,4 @@
-_file_name: Subsection_Performance_59e9e2.yaml
+_file_name: Graded_Subsection_Performance_59e9e2.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
@@ -25,7 +25,7 @@ params:
   annotation_layers: []
   area: false
   areaB: false
-  color_scheme: supersetColors
+  color_scheme: aspects_default
   extra_form_data: {}
   groupby: []
   groupby_b: []
@@ -99,14 +99,14 @@ params:
   - 0
   - 1
   y_axis_format: SMART_NUMBER
-  y_axis_format_secondary: ',.1%'
+  y_axis_format_secondary: '%'
   y_axis_title: Respondents
-  y_axis_title_margin: 30
-  y_axis_title_position: Left
+  y_axis_title_margin: 15
+  y_axis_title_position: Top
   zoomable: false
 query_context:
   datasource:
-    id: 7
+    id: 382
     type: table
   force: false
   form_data:
@@ -119,10 +119,10 @@ query_context:
     annotation_layers: []
     area: false
     areaB: false
-    color_scheme: supersetColors
+    color_scheme: aspects_default
     dashboards:
-    - 124
-    datasource: 7__table
+    - 4741
+    datasource: 382__table
     extra_form_data: {}
     force: false
     groupby: []
@@ -149,7 +149,7 @@ query_context:
     show_legend: false
     show_value: false
     show_valueB: false
-    slice_id: 1669
+    slice_id: 581
     stack: false
     stackB: false
     tooltipTimeFormat: smart_date
@@ -170,10 +170,10 @@ query_context:
     - 0
     - 1
     y_axis_format: SMART_NUMBER
-    y_axis_format_secondary: ',.1%'
+    y_axis_format_secondary: '%'
     y_axis_title: Respondents
-    y_axis_title_margin: 30
-    y_axis_title_position: Left
+    y_axis_title_margin: 15
+    y_axis_title_position: Top
     zoomable: false
   queries:
   - annotation_layers: []
@@ -300,7 +300,7 @@ query_context:
     url_params: {}
   result_format: json
   result_type: full
-slice_name: Subsection Performance
+slice_name: Graded Subsection Performance
 uuid: 59e9e2ea-1188-4500-87da-dbc9c977b720
 version: 1.0.0
 viz_type: mixed_timeseries

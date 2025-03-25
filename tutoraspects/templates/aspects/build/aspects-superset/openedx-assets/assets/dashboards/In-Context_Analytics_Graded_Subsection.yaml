@@ -1,35 +1,46 @@
 _file_name: In-Context_Analytics_Graded_Subsection.yaml
 _roles:
 - '{{ SUPERSET_ROLES_MAPPING.instructor }}'
-certification_details: ''
-certified_by: ''
-css: ".dashboard-content > .grid-container {\n  margin: 0;\n}\n\n\
-  \ .dashboard-component-chart-holder {\n  padding: 0;\n}\n"
+certification_details: null
+certified_by: null
+css: |2-
+
+  .dashboard-content > .grid-container {
+    margin: 0;
+  }
+  .dashboard-component-chart-holder {
+    padding: 0;
+  }
+  .filter-counts {
+    display: none;
+  }
+  .header-title {
+    font-size: 80%;
+  }
 dashboard_title: 'In-Context Analytics: Graded Subsection'
 description: null
 metadata:
   chart_configuration:
-    '1669':
+    '1341':
       crossFilters:
         chartsInScope:
-        - 1670
+        - 581
         scope: global
-      id: 1669
-    '1670':
+      id: 1341
+    '581':
       crossFilters:
         chartsInScope:
-        - 1669
+        - 1341
         scope: global
-      id: 1670
-  color_scheme: ''
+      id: 581
+  color_scheme: aspects_default
   color_scheme_domain: []
   cross_filters_enabled: true
-  default_filters: '{}'
   expanded_slices: {}
   global_chart_configuration:
     chartsInScope:
-    - 1669
-    - 1670
+    - 581
+    - 1341
     scope:
       excluded: []
       rootPath:
@@ -94,17 +105,17 @@ metadata:
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
-    Correct: '#FF7F44'
-    Incorrect: '#FCC700'
-    Total Average Score: '#5AC189'
-    count: '#1FA8C9'
+    Correct: '#7B144D'
+    Incorrect: '#29A399'
+    Total Average Score: '#7B144D'
+    count: '#29A399'
   timed_refresh_immune_slices: []
 position:
   CHART-explore-1669-1:
     children: []
     id: CHART-explore-1669-1
     meta:
-      chartId: 1669
+      chartId: 581
       height: 50
       sliceName: Subsection Performance
       uuid: 59e9e2ea-1188-4500-87da-dbc9c977b720
@@ -118,7 +129,7 @@ position:
     children: []
     id: CHART-explore-1670-1
     meta:
-      chartId: 1670
+      chartId: 1341
       height: 50
       sliceName: Final Response Results
       uuid: ab43eb1d-eef8-43a9-b5fd-9899780120f2
@@ -126,7 +137,7 @@ position:
     parents:
     - ROOT_ID
     - GRID_ID
-    - ROW-fvdD4BxKEa
+    - ROW-tKABNtNje
     type: CHART
   DASHBOARD_VERSION_KEY: v2
   GRID_ID:

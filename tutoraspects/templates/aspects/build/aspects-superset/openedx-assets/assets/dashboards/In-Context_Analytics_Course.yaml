@@ -1,45 +1,55 @@
 _file_name: In-Context_Analytics_Course.yaml
 _roles:
 - '{{ SUPERSET_ROLES_MAPPING.instructor }}'
-certification_details: ''
-certified_by: ''
-css: ".dashboard-content > .grid-container {\n  margin: 0;\n}\n\n\
-  \ .dashboard-component-chart-holder {\n  padding: 0;\n}\n"
+certification_details: null
+certified_by: null
+css: |-
+  .dashboard-content > .grid-container {
+    margin: 0;
+  }
+  .dashboard-component-chart-holder {
+    padding: 0;
+  }
+  .filter-counts {
+    display: none;
+  }
+  .header-title {
+    font-size: 80%;
+  }
 dashboard_title: 'In-Context Analytics: Course'
 description: null
 metadata:
   chart_configuration:
-    '1301':
+    '1261':
       crossFilters:
         chartsInScope:
-        - 159
-        - 282
+        - 281
+        - 421
         scope: global
-      id: 1301
-    '159':
+      id: 1261
+    '281':
       crossFilters:
         chartsInScope:
-        - 282
-        - 1301
+        - 421
+        - 1261
         scope: global
-      id: 159
-    '282':
+      id: 281
+    '421':
       crossFilters:
         chartsInScope:
-        - 159
-        - 1301
+        - 281
+        - 1261
         scope: global
-      id: 282
-  color_scheme: ''
+      id: 421
+  color_scheme: aspects_default
   color_scheme_domain: []
   cross_filters_enabled: true
-  default_filters: '{}'
   expanded_slices: {}
   global_chart_configuration:
     chartsInScope:
-    - 159
-    - 282
-    - 1301
+    - 281
+    - 421
+    - 1261
     scope:
       excluded: []
       rootPath:
@@ -79,19 +89,19 @@ metadata:
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
-    Respondents: '#454E7C'
-    actor_count: '#1FA8C9'
-    avg_score: '#5AC189'
-    perc_correct_first: '#666666'
-    repeat_views: '#FCC700'
-    unique_viewers: '#FF7F44'
+    Respondents: '#29A399'
+    actor_count: '#29A399'
+    avg_score: '#7B144D'
+    perc_correct_first: '#7B144D'
+    repeat_views: '#7B144D'
+    unique_viewers: '#29A399'
   timed_refresh_immune_slices: []
 position:
   CHART-GnyQPJ18hu:
     children: []
     id: CHART-GnyQPJ18hu
     meta:
-      chartId: 159
+      chartId: 421
       height: 50
       sliceName: Subsection Engagement
       uuid: 765e8acf-c304-4ec5-ac5d-b13a7b08c87d
@@ -105,7 +115,7 @@ position:
     children: []
     id: CHART-JcUPmDmZgw
     meta:
-      chartId: 282
+      chartId: 1261
       height: 50
       sliceName: Video Engagement
       uuid: ace4c769-00f4-4708-887b-14fd9e5f384e
@@ -119,7 +129,7 @@ position:
     children: []
     id: CHART-ijzuRYly2K
     meta:
-      chartId: 1301
+      chartId: 281
       height: 50
       sliceName: Problem Engagement
       uuid: 8a6f9753-ef72-46f5-8788-9e02f55456ea

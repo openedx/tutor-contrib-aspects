@@ -14,6 +14,7 @@ from tutoraspects.asset_command_helpers import (
     deduplicate_superset_assets,
     import_superset_assets,
     delete_aspects_unused_assets,
+    find_unused_queries,
 )
 
 
@@ -366,6 +367,7 @@ def serialize_zip(file, base_assets_path):
     click.echo()
     deduplicate_superset_assets(click.echo)
     delete_aspects_unused_assets(click.echo)
+    find_unused_queries(click.echo)
 
     click.echo()
     click.echo("Asset merge complete!")
@@ -385,6 +387,7 @@ def check_superset_assets():
     """
     deduplicate_superset_assets(click.echo)
     delete_aspects_unused_assets(click.echo)
+    find_unused_queries(click.echo)
 
     click.echo()
     click.echo(

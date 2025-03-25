@@ -32,6 +32,9 @@ ASSETS_PATH = os.path.join(
     "openedx-assets",
     "assets",
 )
+QUERIES_PATH = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "templates", "openedx-assets", "queries"
+)
 
 
 def str_presenter(dumper, data):
@@ -595,3 +598,42 @@ def delete_aspects_unused_assets(echo):
             for asset_type, uuids in unused_uuids.items():
                 for uuid, data in uuids.items():
                     echo(f'{asset_type} {data.get("name")} (UUID: {uuid})')
+
+
+def find_unused_queries(echo):
+    """
+    Compare all sql files in openedx-assets/queries to the file names referenced
+    in each dataset's yaml. List any .sql files that are not referenced as
+    possible unused queries. Ignore any sql files listed in `aspects_asset_list`
+    under ignored_files.
+    """
+    dataset_query_list = []
+    for query_file in glob.iglob(QUERIES_PATH + "/*.sql", recursive=True):
+        match = re.search(r"\w+\b.sql", query_file)
+        if match:
+            dataset_query_list.append(match.group())
+
+    for file_name in glob.iglob(ASSETS_PATH + "/datasets/*.yaml", recursive=True):
+        with open(file_name, "r", encoding="utf-8") as file:
+            # We have to remove the jinja for it to parse
+            file_str = file.read()
+            file_str = file_str.replace("{{", "").replace("}}", "")
+            asset = yaml.safe_load(file_str)
+            sql = asset["sql"].strip()
+            match = re.search(r"\w+\b.sql", sql)
+            if match:
+                dataset_query_list.remove(match.group())
+
+    # Remove uuids from 'all' list that are in ignored yaml
+    with open(ASPECT_ASSET_LIST, "r", encoding="utf-8") as file:
+        aspects_assets = yaml.safe_load(file)
+
+    ignored_uuids = aspects_assets.get("ignored_files")
+    if ignored_uuids["queries"]:
+        for file_name in ignored_uuids["queries"]:
+            dataset_query_list.remove(file_name)
+
+    if dataset_query_list:
+        echo(click.style("Potentially unused query files detected:"))
+        for file in dataset_query_list:
+            echo(f"{file}")

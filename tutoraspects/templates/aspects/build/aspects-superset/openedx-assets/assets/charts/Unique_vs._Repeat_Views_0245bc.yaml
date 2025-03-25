@@ -55,12 +55,12 @@ params:
   - null
   y_axis_format: SMART_NUMBER
   y_axis_title: Views
-  y_axis_title_margin: 30
-  y_axis_title_position: Left
+  y_axis_title_margin: 15
+  y_axis_title_position: Top
   zoomable: true
 query_context:
   datasource:
-    id: 321
+    id: 444
     type: table
   force: false
   form_data:
@@ -74,8 +74,8 @@ query_context:
     color_scheme: supersetColors
     comparison_type: values
     dashboards:
-    - 122
-    datasource: 321__table
+    - 3701
+    datasource: 444__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -99,7 +99,7 @@ query_context:
     show_empty_columns: true
     show_legend: false
     show_value: false
-    slice_id: 1166
+    slice_id: 521
     sort_series_ascending: false
     sort_series_type: name
     stack: Stack
@@ -121,8 +121,8 @@ query_context:
     - null
     y_axis_format: SMART_NUMBER
     y_axis_title: Views
-    y_axis_title_margin: 30
-    y_axis_title_position: Left
+    y_axis_title_margin: 15
+    y_axis_title_position: Top
     zoomable: true
   queries:
   - annotation_layers: []
