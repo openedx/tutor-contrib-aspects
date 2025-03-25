@@ -34,7 +34,7 @@ with
             starts.org as org,
             starts.course_key as course_key,
             starts.video_id as video_id,
-            starts.actor_id,
+            starts.actor_id as actor_id,
             starts.object_id as object_id,
             cast(starts.video_position as Int32) as start_position,
             cast(ends.video_position as Int32) as end_position,
@@ -69,7 +69,8 @@ with
             segments.start_position - (segments.start_position % 5) as start_position,
             segments.end_position - (segments.end_position % 5) as end_position,
             segments.video_duration as video_duration,
-            segments.video_id as video_id
+            segments.video_id as video_id,
+            blocks.subsection_number as video_number
         from segments
         join
             {{ DBT_PROFILE_TARGET_DATABASE }}.dim_course_blocks blocks
@@ -78,8 +79,53 @@ with
                 and segments.video_id = blocks.block_id
             )
         where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
+    ),
+    final_results as (
+        select
+            org,
+            course_key,
+            course_name,
+            course_run,
+            section_with_name,
+            subsection_with_name,
+            video_name,
+            video_name_with_location,
+            video_id,
+            concat(
+                '<a href="',
+                object_id,
+                '" target="_blank">',
+                video_name_with_location,
+                '</a>'
+            ) as video_link,
+            actor_id,
+            started_at,
+            arrayJoin(range(end_position, start_position, 5)) as segment_start,
+            video_duration,
+            CONCAT(
+                toString(segment_start), '-', toString(segment_start + 4)
+            ) as segment_range,
+            start_position,
+            formatDateTime(
+                toDate(now()) + toIntervalSecond(segment_start), '%T'
+            ) as time_stamp,
+            arrayStringConcat(
+                arrayMap(
+                    x -> (leftPad(x, 2, char(917768))), splitByString(':', video_number)
+                ),
+                ':'
+            ) as video_location,
+            splitByString(' - ', video_name_with_location) as _video_with_name,
+            arrayStringConcat(
+                arrayMap(
+                    x -> (leftPad(x, 2, char(917768))),
+                    splitByString(':', _video_with_name[1])
+                ),
+                ':'
+            ) as video_number,
+            concat(video_number, ' - ', _video_with_name[2]) as video_name_location
+        from enriched_segments
     )
-
 select
     org,
     course_key,
@@ -90,19 +136,20 @@ select
     video_name,
     video_name_with_location,
     video_id,
-    concat(
-        '<a href="', object_id, '" target="_blank">', video_name_with_location, '</a>'
-    ) as video_link,
+    video_link,
     actor_id,
     started_at,
-    arrayJoin(range(start_position, end_position, 5)) as segment_start,
+    segment_start,
     video_duration,
-    CONCAT(toString(segment_start), '-', toString(segment_start + 4)) as segment_range,
+    segment_range,
     start_position,
-    username,
-    name,
-    email
-from enriched_segments
+    users.username as username,
+    users.name as name,
+    users.email as email,
+    time_stamp,
+    video_number,
+    video_name_location
+from final_results
 left outer join
     {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii users
     on (actor_id like 'mailto:%' and SUBSTRING(actor_id, 8) = users.email)

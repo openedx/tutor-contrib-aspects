@@ -1,0 +1,306 @@
+_file_name: Subsection_Performance_ad37be.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: cf42fc53-39e1-4c3c-a7f6-3d0d17a947dc
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: avg_score
+  adhoc_filters_b:
+  - clause: WHERE
+    comparator: No filter
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_u4v8n9nlgp_8r04cg2x8kq
+    isExtra: false
+    isNew: false
+    operator: TEMPORAL_RANGE
+    sqlExpression: null
+    subject: avg_score
+  annotation_layers: []
+  area: false
+  areaB: false
+  color_scheme: supersetColors
+  extra_form_data: {}
+  groupby: []
+  groupby_b: []
+  legendOrientation: top
+  legendType: scroll
+  logAxis: false
+  markerEnabled: true
+  markerEnabledB: true
+  markerSize: 22
+  markerSizeB: 7
+  metrics:
+  - count
+  metrics_b:
+  - aggregate: AVG
+    column:
+      advanced_data_type: null
+      changed_on: '2025-02-20T20:49:54'
+      column_name: total_avg
+      created_on: '2025-02-20T20:49:54'
+      description: null
+      expression: null
+      extra: '{}'
+      filterable: true
+      groupby: true
+      id: 9669
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: Float64
+      type_generic: 0
+      uuid: 678a0775-487c-4280-9c70-f89b033fb4b6
+      verbose_name: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: Total Average Score
+    optionName: metric_lu7wv14cpw_2cgjhwtiqwx
+    sqlExpression: null
+  minorSplitLine: false
+  minorTicks: false
+  opacity: 0
+  opacityB: 0.6
+  order_desc: false
+  order_desc_b: false
+  rich_tooltip: true
+  row_limit: 10000
+  row_limit_b: 10000
+  seriesType: bar
+  seriesTypeB: line
+  show_legend: false
+  show_value: false
+  show_valueB: false
+  stack: false
+  stackB: false
+  tooltipTimeFormat: smart_date
+  truncateXAxis: false
+  truncate_metric: false
+  truncate_metric_b: true
+  viz_type: mixed_timeseries
+  x_axis: avg_score
+  x_axis_time_format: smart_date
+  x_axis_title: Subsection Score (%)
+  x_axis_title_margin: 30
+  yAxisIndex: 0
+  yAxisIndexB: 1
+  yAxisTitleSecondary: Average Score
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_bounds_secondary:
+  - 0
+  - 1
+  y_axis_format: SMART_NUMBER
+  y_axis_format_secondary: ',.1%'
+  y_axis_title: Respondents
+  y_axis_title_margin: 30
+  y_axis_title_position: Left
+  zoomable: false
+query_context:
+  datasource:
+    id: 789
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: avg_score
+    annotation_layers: []
+    area: false
+    areaB: false
+    color_scheme: supersetColors
+    dashboards:
+    - 2974
+    datasource: 789__table
+    extra_form_data: {}
+    force: false
+    groupby: []
+    legendOrientation: top
+    legendType: scroll
+    logAxis: false
+    markerEnabled: true
+    markerEnabledB: true
+    markerSize: 22
+    markerSizeB: 7
+    metrics:
+    - count
+    minorSplitLine: false
+    minorTicks: false
+    opacity: 0
+    opacityB: 0.6
+    order_desc: false
+    result_format: json
+    result_type: full
+    rich_tooltip: true
+    row_limit: 10000
+    seriesType: bar
+    seriesTypeB: line
+    show_legend: false
+    show_value: false
+    show_valueB: false
+    slice_id: 1490
+    stack: false
+    stackB: false
+    tooltipTimeFormat: smart_date
+    truncateXAxis: false
+    truncate_metric: false
+    viz_type: mixed_timeseries
+    x_axis: avg_score
+    x_axis_time_format: smart_date
+    x_axis_title: Subsection Score (%)
+    x_axis_title_margin: 30
+    yAxisIndex: 0
+    yAxisIndexB: 1
+    yAxisTitleSecondary: Average Score
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_bounds_secondary:
+    - 0
+    - 1
+    y_axis_format: SMART_NUMBER
+    y_axis_format_secondary: ',.1%'
+    y_axis_title: Respondents
+    y_axis_title_margin: 30
+    y_axis_title_position: Left
+    zoomable: false
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: avg_score
+      sqlExpression: avg_score
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      where: ''
+    filters:
+    - col: avg_score
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics:
+    - count
+    orderby:
+    - - count
+      - true
+    post_processing:
+    - operation: pivot
+      options:
+        aggregates:
+          count:
+            operator: mean
+        columns: []
+        drop_missing_columns: true
+        index:
+        - avg_score
+    - operation: flatten
+    row_limit: 10000
+    series_columns: []
+    series_limit: 0
+    time_offsets: []
+    url_params: {}
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: avg_score
+      sqlExpression: avg_score
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      where: ''
+    filters:
+    - col: avg_score
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics:
+    - aggregate: AVG
+      column:
+        advanced_data_type: null
+        changed_on: '2025-02-20T20:49:54'
+        column_name: total_avg
+        created_on: '2025-02-20T20:49:54'
+        description: null
+        expression: null
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 9669
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: Float64
+        type_generic: 0
+        uuid: 678a0775-487c-4280-9c70-f89b033fb4b6
+        verbose_name: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Total Average Score
+      optionName: metric_lu7wv14cpw_2cgjhwtiqwx
+      sqlExpression: null
+    orderby:
+    - - aggregate: AVG
+        column:
+          advanced_data_type: null
+          changed_on: '2025-02-20T20:49:54'
+          column_name: total_avg
+          created_on: '2025-02-20T20:49:54'
+          description: null
+          expression: null
+          extra: '{}'
+          filterable: true
+          groupby: true
+          id: 9669
+          is_active: true
+          is_dttm: false
+          python_date_format: null
+          type: Float64
+          type_generic: 0
+          uuid: 678a0775-487c-4280-9c70-f89b033fb4b6
+          verbose_name: null
+        datasourceWarning: false
+        expressionType: SIMPLE
+        hasCustomLabel: true
+        label: Total Average Score
+        optionName: metric_lu7wv14cpw_2cgjhwtiqwx
+        sqlExpression: null
+      - true
+    post_processing:
+    - operation: pivot
+      options:
+        aggregates:
+          Total Average Score:
+            operator: mean
+        columns: []
+        drop_missing_columns: true
+        index:
+        - avg_score
+    - operation: flatten
+    row_limit: 10000
+    series_columns: []
+    series_limit: 0
+    time_offsets: []
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Subsection Performance
+uuid: ad37be09-46e3-404e-a447-bd82827b8baa
+version: 1.0.0
+viz_type: mixed_timeseries

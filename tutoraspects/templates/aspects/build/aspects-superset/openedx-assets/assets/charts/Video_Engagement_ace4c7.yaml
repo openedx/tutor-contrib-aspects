@@ -1,0 +1,164 @@
+_file_name: Video_Engagement_ace4c7.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: c2c391b3-3403-4f05-bc0b-3de53bd366ec
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: started_at
+  annotation_layers: []
+  color_scheme: supersetColors
+  extra_form_data: {}
+  groupby: []
+  legendOrientation: top
+  legendType: scroll
+  logAxis: false
+  metrics:
+  - repeat_views
+  - unique_viewers
+  minorSplitLine: false
+  minorTicks: false
+  only_total: true
+  orientation: vertical
+  rich_tooltip: true
+  row_limit: 5000
+  show_empty_columns: true
+  show_legend: true
+  show_value: false
+  sort_series_ascending: false
+  sort_series_type: name
+  stack: Stack
+  tooltipSortByMetric: false
+  tooltipTimeFormat: smart_date
+  truncateXAxis: false
+  truncateYAxis: false
+  truncate_metric: true
+  viz_type: echarts_timeseries_bar
+  x_axis: video_number
+  x_axis_sort_series: name
+  x_axis_sort_series_ascending: true
+  x_axis_time_format: smart_date
+  x_axis_title: Video
+  x_axis_title_margin: 30
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  y_axis_title: Views
+  y_axis_title_margin: 30
+  y_axis_title_position: Left
+  zoomable: false
+query_context:
+  datasource:
+    id: 71
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: started_at
+    annotation_layers: []
+    color_scheme: supersetColors
+    dashboards:
+    - 2974
+    datasource: 71__table
+    extra_form_data: {}
+    force: false
+    groupby: []
+    legendOrientation: top
+    legendType: scroll
+    logAxis: false
+    metrics:
+    - repeat_views
+    - unique_viewers
+    minorSplitLine: false
+    minorTicks: false
+    only_total: true
+    orientation: vertical
+    result_format: json
+    result_type: full
+    rich_tooltip: true
+    row_limit: 5000
+    show_empty_columns: true
+    show_legend: true
+    show_value: false
+    slice_id: 1494
+    sort_series_ascending: false
+    sort_series_type: name
+    stack: Stack
+    tooltipSortByMetric: false
+    tooltipTimeFormat: smart_date
+    truncateXAxis: false
+    truncateYAxis: false
+    truncate_metric: true
+    viz_type: echarts_timeseries_bar
+    x_axis: video_number
+    x_axis_sort_series: name
+    x_axis_sort_series_ascending: true
+    x_axis_time_format: smart_date
+    x_axis_title: Video
+    x_axis_title_margin: 30
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title: Views
+    y_axis_title_margin: 30
+    y_axis_title_position: Left
+    zoomable: false
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: video_number
+      sqlExpression: video_number
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      where: ''
+    filters:
+    - col: started_at
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics:
+    - repeat_views
+    - unique_viewers
+    order_desc: true
+    orderby:
+    - - repeat_views
+      - false
+    post_processing:
+    - operation: pivot
+      options:
+        aggregates:
+          repeat_views:
+            operator: mean
+          unique_viewers:
+            operator: mean
+        columns: []
+        drop_missing_columns: false
+        index:
+        - video_number
+    - operation: flatten
+    row_limit: 5000
+    series_columns: []
+    series_limit: 0
+    time_offsets: []
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Video Engagement
+uuid: ace4c769-00f4-4708-887b-14fd9e5f384e
+version: 1.0.0
+viz_type: echarts_timeseries_bar
