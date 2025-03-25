@@ -22,7 +22,7 @@ jobs:
           default_bump: false
           default_prerelease_bump: false
           dry_run: true
-          custom_release_rules: feat:major,fix:major # remove this line when commit_analyzer_preset is an accepted setting
+          # commit_analyzer_preset: conventionalcommits # uncomment this line when commit_analyzer_preset is an accepted setting
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
