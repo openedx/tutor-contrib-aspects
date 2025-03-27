@@ -92,7 +92,18 @@ FEATURE_FLAGS = {
     "EMBEDDED_SUPERSET": True,
     "ENABLE_TEMPLATE_PROCESSING": True,
     "TAGGING_SYSTEM": True,
+    "EXTRA_CATEGORICAL_COLOR_SCHEMES": True
 }
+
+# Custom color schemes
+EXTRA_CATEGORICAL_COLOR_SCHEMES = [
+{
+"id": 'aspects_default',
+"description": 'Aspects color scheme',
+"label": 'Aspects',
+"colors": ['#29A399', '#7B144D', '#F4661F', '#3B3B3B', '#9F81CF', '#11406A']
+}
+]
 
 # Add this custom template processor which returns the list of courses the current user can access
 from openedx_jinja_filters import *
