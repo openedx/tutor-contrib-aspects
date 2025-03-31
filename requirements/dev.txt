@@ -162,7 +162,7 @@ pyasn1==0.6.1
     #   -r requirements/base.txt
     #   pyasn1-modules
     #   rsa
-pyasn1-modules==0.4.1
+pyasn1-modules==0.4.2
     # via
     #   -r requirements/base.txt
     #   google-auth
@@ -218,7 +218,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.9.4
+rich==14.0.0
     # via twine
 rsa==4.9
     # via
@@ -259,7 +259,7 @@ tutor-contrib-pod-autoscaling==19.0.0
     # via -r requirements/dev.in
 twine==6.1.0
     # via -r requirements/dev.in
-typing-extensions==4.12.2
+typing-extensions==4.13.0
     # via
     #   -r requirements/base.txt
     #   mypy

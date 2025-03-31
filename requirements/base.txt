@@ -77,7 +77,7 @@ pyasn1==0.6.1
     # via
     #   pyasn1-modules
     #   rsa
-pyasn1-modules==0.4.1
+pyasn1-modules==0.4.2
     # via google-auth
 pycryptodome==3.22.0
     # via tutor
@@ -118,7 +118,7 @@ transifex-python==3.5.0
     # via -r requirements/base.in
 tutor==19.0.2
     # via -r requirements/base.in
-typing-extensions==4.12.2
+typing-extensions==4.13.0
     # via
     #   mypy
     #   tutor
