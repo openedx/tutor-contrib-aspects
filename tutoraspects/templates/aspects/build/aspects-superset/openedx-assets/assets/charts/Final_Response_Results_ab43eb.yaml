@@ -1,0 +1,270 @@
+_file_name: Final_Response_Results_ab43eb.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: e6134213-e7f4-4081-9861-356c93f376dc
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: emission_time
+  annotation_layers: []
+  color_scheme: supersetColors
+  extra_form_data: {}
+  groupby:
+  - datasourceWarning: false
+    expressionType: SQL
+    label: success
+    sqlExpression: |-
+      if(success,'Correct','Incorrect')
+  legendOrientation: top
+  legendType: scroll
+  logAxis: false
+  metrics:
+  - aggregate: COUNT_DISTINCT
+    column:
+      advanced_data_type: null
+      changed_on: '2025-03-03T14:27:10'
+      column_name: actor_id
+      created_on: '2025-03-03T14:27:10'
+      description: null
+      expression: ''
+      extra: '{"warning_markdown": null}'
+      filterable: true
+      groupby: true
+      id: 10765
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: String
+      type_generic: 1
+      uuid: eaf82be0-d381-46c7-9b7d-f1dec77dfe90
+      verbose_name: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    label: COUNT_DISTINCT(actor_id)
+    optionName: metric_i0duwq19kl_azrkbuc8jve
+    sqlExpression: null
+  minorSplitLine: false
+  only_total: true
+  orientation: vertical
+  rich_tooltip: true
+  row_limit: 10000
+  show_empty_columns: true
+  show_legend: true
+  sort_series_type: sum
+  stack: Stack
+  tooltipTimeFormat: smart_date
+  truncateXAxis: false
+  truncateYAxis: false
+  truncate_metric: true
+  viz_type: echarts_timeseries_bar
+  x_axis: problem_name
+  x_axis_sort_series: name
+  x_axis_sort_series_ascending: true
+  x_axis_time_format: smart_date
+  x_axis_title_margin: 15
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  y_axis_title: Respondents
+  y_axis_title_margin: 30
+  y_axis_title_position: Left
+query_context:
+  datasource:
+    id: 725
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: emission_time
+    annotation_layers: []
+    color_scheme: supersetColors
+    dashboards:
+    - 124
+    datasource: 725__table
+    extra_form_data: {}
+    force: false
+    groupby:
+    - datasourceWarning: false
+      expressionType: SQL
+      label: success
+      sqlExpression: |-
+        if(success,'Correct','Incorrect')
+    legendOrientation: top
+    legendType: scroll
+    logAxis: false
+    metrics:
+    - aggregate: COUNT_DISTINCT
+      column:
+        advanced_data_type: null
+        changed_on: '2025-03-03T14:27:10'
+        column_name: actor_id
+        created_on: '2025-03-03T14:27:10'
+        description: null
+        expression: ''
+        extra: '{"warning_markdown": null}'
+        filterable: true
+        groupby: true
+        id: 10765
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: String
+        type_generic: 1
+        uuid: eaf82be0-d381-46c7-9b7d-f1dec77dfe90
+        verbose_name: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: false
+      label: COUNT_DISTINCT(actor_id)
+      optionName: metric_i0duwq19kl_azrkbuc8jve
+      sqlExpression: null
+    minorSplitLine: false
+    only_total: true
+    orientation: vertical
+    result_format: json
+    result_type: full
+    rich_tooltip: true
+    row_limit: 10000
+    show_empty_columns: true
+    show_legend: true
+    slice_id: 1670
+    sort_series_type: sum
+    stack: Stack
+    tooltipTimeFormat: smart_date
+    truncateXAxis: false
+    truncateYAxis: false
+    truncate_metric: true
+    viz_type: echarts_timeseries_bar
+    x_axis: problem_name
+    x_axis_sort_series: name
+    x_axis_sort_series_ascending: true
+    x_axis_time_format: smart_date
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title: Respondents
+    y_axis_title_margin: 30
+    y_axis_title_position: Left
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: problem_name
+      sqlExpression: problem_name
+    - datasourceWarning: false
+      expressionType: SQL
+      label: success
+      sqlExpression: |-
+        if(success,'Correct','Incorrect')
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      where: ''
+    filters:
+    - col: emission_time
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics:
+    - aggregate: COUNT_DISTINCT
+      column:
+        advanced_data_type: null
+        changed_on: '2025-03-03T14:27:10'
+        column_name: actor_id
+        created_on: '2025-03-03T14:27:10'
+        description: null
+        expression: ''
+        extra: '{"warning_markdown": null}'
+        filterable: true
+        groupby: true
+        id: 10765
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: String
+        type_generic: 1
+        uuid: eaf82be0-d381-46c7-9b7d-f1dec77dfe90
+        verbose_name: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: false
+      label: COUNT_DISTINCT(actor_id)
+      optionName: metric_i0duwq19kl_azrkbuc8jve
+      sqlExpression: null
+    order_desc: true
+    orderby:
+    - - aggregate: COUNT_DISTINCT
+        column:
+          advanced_data_type: null
+          changed_on: '2025-03-03T14:27:10'
+          column_name: actor_id
+          created_on: '2025-03-03T14:27:10'
+          description: null
+          expression: ''
+          extra: '{"warning_markdown": null}'
+          filterable: true
+          groupby: true
+          id: 10765
+          is_active: true
+          is_dttm: false
+          python_date_format: null
+          type: String
+          type_generic: 1
+          uuid: eaf82be0-d381-46c7-9b7d-f1dec77dfe90
+          verbose_name: null
+        datasourceWarning: false
+        expressionType: SIMPLE
+        hasCustomLabel: false
+        label: COUNT_DISTINCT(actor_id)
+        optionName: metric_i0duwq19kl_azrkbuc8jve
+        sqlExpression: null
+      - false
+    post_processing:
+    - operation: pivot
+      options:
+        aggregates:
+          COUNT_DISTINCT(actor_id):
+            operator: mean
+        columns:
+        - success
+        drop_missing_columns: false
+        index:
+        - problem_name
+    - operation: rename
+      options:
+        columns:
+          COUNT_DISTINCT(actor_id): null
+        inplace: true
+        level: 0
+    - operation: flatten
+    row_limit: 10000
+    series_columns:
+    - datasourceWarning: false
+      expressionType: SQL
+      label: success
+      sqlExpression: |-
+        if(success,'Correct','Incorrect')
+    series_limit: 0
+    time_offsets: []
+    url_params: {}
+  result_format: json
+  result_type: full
+slice_name: Final Response Results
+uuid: ab43eb1d-eef8-43a9-b5fd-9899780120f2
+version: 1.0.0
+viz_type: echarts_timeseries_bar

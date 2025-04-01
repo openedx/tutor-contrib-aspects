@@ -1,0 +1,184 @@
+_file_name: In-Context_Analytics_Course.yaml
+_roles:
+- '{{ SUPERSET_ROLES_MAPPING.instructor }}'
+certification_details: ''
+certified_by: ''
+css: ''
+dashboard_title: 'In-Context Analytics: Course'
+description: null
+metadata:
+  chart_configuration:
+    '1301':
+      crossFilters:
+        chartsInScope:
+        - 159
+        - 282
+        scope: global
+      id: 1301
+    '159':
+      crossFilters:
+        chartsInScope:
+        - 282
+        - 1301
+        scope: global
+      id: 159
+    '282':
+      crossFilters:
+        chartsInScope:
+        - 159
+        - 1301
+        scope: global
+      id: 282
+  color_scheme: ''
+  color_scheme_domain: []
+  cross_filters_enabled: true
+  default_filters: '{}'
+  expanded_slices: {}
+  global_chart_configuration:
+    chartsInScope:
+    - 159
+    - 282
+    - 1301
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+  label_colors: {}
+  native_filter_configuration:
+  - cascadeParentIds: []
+    chartsInScope:
+    - 159
+    - 282
+    - 479
+    - 814
+    - 1301
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: false
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-QLQbulmHH
+    name: Course Key
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope: []
+    targets:
+    - column:
+        name: course_key
+      datasetUuid: cee5b433-fe22-4e33-9bfc-613cccbe401a
+    type: NATIVE_FILTER
+  refresh_frequency: 0
+  shared_label_colors:
+    Respondents: '#454E7C'
+    actor_count: '#1FA8C9'
+    avg_score: '#5AC189'
+    perc_correct_first: '#666666'
+    repeat_views: '#FCC700'
+    unique_viewers: '#FF7F44'
+  timed_refresh_immune_slices: []
+position:
+  CHART-GnyQPJ18hu:
+    children: []
+    id: CHART-GnyQPJ18hu
+    meta:
+      chartId: 159
+      height: 50
+      sliceName: Subsection Engagement
+      uuid: 765e8acf-c304-4ec5-ac5d-b13a7b08c87d
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW--jLVu7F57o
+    type: CHART
+  CHART-JcUPmDmZgw:
+    children: []
+    id: CHART-JcUPmDmZgw
+    meta:
+      chartId: 282
+      height: 50
+      sliceName: Video Engagement
+      uuid: ace4c769-00f4-4708-887b-14fd9e5f384e
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-AM6Tgar99L
+    type: CHART
+  CHART-ijzuRYly2K:
+    children: []
+    id: CHART-ijzuRYly2K
+    meta:
+      chartId: 1301
+      height: 50
+      sliceName: Problem Engagement
+      uuid: 8a6f9753-ef72-46f5-8788-9e02f55456ea
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-twXA-kZckt
+    type: CHART
+  DASHBOARD_VERSION_KEY: v2
+  GRID_ID:
+    children:
+    - ROW--jLVu7F57o
+    - ROW-twXA-kZckt
+    - ROW-AM6Tgar99L
+    id: GRID_ID
+    parents:
+    - ROOT_ID
+    type: GRID
+  HEADER_ID:
+    id: HEADER_ID
+    meta:
+      text: 'In-Context Analytics: Course'
+    type: HEADER
+  ROOT_ID:
+    children:
+    - GRID_ID
+    id: ROOT_ID
+    type: ROOT
+  ROW--jLVu7F57o:
+    children:
+    - CHART-GnyQPJ18hu
+    id: ROW--jLVu7F57o
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+  ROW-AM6Tgar99L:
+    children:
+    - CHART-JcUPmDmZgw
+    id: ROW-AM6Tgar99L
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+  ROW-twXA-kZckt:
+    children:
+    - CHART-ijzuRYly2K
+    id: ROW-twXA-kZckt
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+published: true
+slug: in-context-course
+uuid: f2880cc1-63e9-48d7-ac3c-d2ff6f6698e2
+version: 1.0.0

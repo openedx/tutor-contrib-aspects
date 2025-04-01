@@ -1,0 +1,133 @@
+_file_name: In-Context_Analytics_Video.yaml
+_roles:
+- '{{ SUPERSET_ROLES_MAPPING.instructor }}'
+certification_details: ''
+certified_by: ''
+css: ''
+dashboard_title: 'In-Context Analytics: Video'
+description: null
+metadata:
+  chart_configuration:
+    '1665':
+      crossFilters:
+        chartsInScope: []
+        scope: global
+      id: 1665
+  color_scheme: ''
+  color_scheme_domain: []
+  cross_filters_enabled: true
+  default_filters: '{}'
+  expanded_slices: {}
+  global_chart_configuration:
+    chartsInScope:
+    - 1665
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+  label_colors: {}
+  native_filter_configuration:
+  - cascadeParentIds: []
+    chartsInScope:
+    - 1665
+    controlValues:
+      enableEmptyFilter: false
+      defaultToFirstItem: false
+      multiSelect: false
+      searchAllOptions: false
+      inverseSelection: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-uaxvZkSAg
+    name: Course Key
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope: []
+    targets:
+    - column:
+        name: course_key
+      datasetUuid: c2c391b3-3403-4f05-bc0b-3de53bd366ec
+    type: NATIVE_FILTER
+  - cascadeParentIds: []
+    controlValues:
+      enableEmptyFilter: false
+      defaultToFirstItem: false
+      multiSelect: false
+      searchAllOptions: false
+      inverseSelection: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-Fse4rzDW0
+    name: Block ID
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    targets:
+    - column:
+        name: block_id
+      datasetUuid: c2c391b3-3403-4f05-bc0b-3de53bd366ec
+    type: NATIVE_FILTER
+  refresh_frequency: 0
+  shared_label_colors:
+    repeat_views: '#5AC189'
+    unique_viewers: '#1FA8C9'
+  timed_refresh_immune_slices: []
+position:
+  CHART-explore-1665-1:
+    children: []
+    id: CHART-explore-1665-1
+    meta:
+      chartId: 1665
+      height: 50
+      sliceName: Unique vs. Repeat Views
+      uuid: 0245bcf6-8a13-42ee-9817-2a9922e7347b
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-WP2FTJesYm
+    type: CHART
+  DASHBOARD_VERSION_KEY: v2
+  GRID_ID:
+    children:
+    - ROW-WP2FTJesYm
+    id: GRID_ID
+    parents:
+    - ROOT_ID
+    type: GRID
+  HEADER_ID:
+    id: HEADER_ID
+    meta:
+      text: 'In-Context Analytics: Video'
+    type: HEADER
+  ROOT_ID:
+    children:
+    - GRID_ID
+    id: ROOT_ID
+    type: ROOT
+  ROW-WP2FTJesYm:
+    children:
+    - CHART-explore-1665-1
+    id: ROW-WP2FTJesYm
+    meta:
+      '0': ROOT_ID
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+published: true
+slug: in-context-video
+uuid: bc6510fb-027f-4026-a333-d0c42d3cc35c
+version: 1.0.0

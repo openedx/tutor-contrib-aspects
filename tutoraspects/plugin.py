@@ -139,6 +139,10 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "course-dashboard": "c0e64194-33d1-4d5a-8c10-4f51530c5ee9",
                 "learner-groups": "8661d20c-cee6-4245-9fcc-610daea5fd24",
                 "individual-learner": "abae8a25-1ba4-4653-81bd-d3937a162a11",
+                "in-context-course": "f2880cc1-63e9-48d7-ac3c-d2ff6f6698e2",
+                "in-context-graded-subsection": "f0321087-6428-4b97-b32e-2dae7d9cc447",
+                "in-context-problem": "98ff33ff-18dd-48f9-8c58-629ae4f4194b",
+                "in-context-video": "bc6510fb-027f-4026-a333-d0c42d3cc35c",
             },
         ),
         (
