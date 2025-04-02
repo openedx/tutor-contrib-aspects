@@ -1,11 +1,11 @@
 
 {% if ASPECTS_ENABLE_STUDIO_IN_CONTEXT_METRICS %}
 
-    const { default: AspectsSidebar } = await import("@openedx/frontend-plugin-aspects/components/AspectsSidebar");
-    const { default: AspectsSidebarProvider } = await import("@openedx/frontend-plugin-aspects/components/AspectsSidebarContext");
-    const { default: CourseHeaderButton } = await import("@openedx/frontend-plugin-aspects/components/CourseHeaderButton");
-    const { default: SidebarToggleWrapper } = await import("@openedx/frontend-plugin-aspects/components/SidebarToggleWrapper");
-    const { default: UnitActionsButton } = await import("@openedx/frontend-plugin-aspects/components/UnitActionsButton");
+    const { AspectsSidebar } = await import("@openedx/frontend-plugin-aspects/src/components/AspectsSidebar");
+    const { AspectsSidebarProvider } = await import("@openedx/frontend-plugin-aspects/src/components/AspectsSidebarContext");
+    const { CourseHeaderButton } = await import("@openedx/frontend-plugin-aspects/src/components/CourseHeaderButton");
+    const { SidebarToggleWrapper } = await import("@openedx/frontend-plugin-aspects/src/components/SidebarToggleWrapper");
+    const { UnitActionsButton } = await import("@openedx/frontend-plugin-aspects/src/components/UnitActionsButton");
 
 {% else %}
       // Currently there is no way to conditionally add plugin slot configuration from tutor-mfe.
