@@ -6,4 +6,4 @@ transifex-python
 tutor>=18
 ruamel.yaml
 shandy-sqlfmt[jinjafmt]==0.26.0
-tutor-mfe>=19
+git+https://github.com/open-craft/tutor-mfe.git@farhaan/debug-mfe
