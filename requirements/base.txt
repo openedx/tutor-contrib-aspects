@@ -120,7 +120,7 @@ tutor==19.0.2
     # via
     #   -r requirements/base.in
     #   tutor-mfe
-git+https://github.com/open-craft/tutor-mfe.git@farhaan/debug-mfe
+tutor-mfe==19.0.0
     # via -r requirements/base.in
 typing-extensions==4.13.0
     # via
