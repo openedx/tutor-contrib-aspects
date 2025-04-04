@@ -3,19 +3,6 @@ always_filter_main_dttm: false
 cache_timeout: null
 columns:
 - advanced_data_type: null
-  column_name: display_name_with_location
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Display Name With Location
-- advanced_data_type: null
   column_name: course_key
   description: null
   expression: ''
@@ -92,19 +79,6 @@ columns:
   python_date_format: null
   type: LowCardinality(String)
   verbose_name: Org
-- advanced_data_type: null
-  column_name: problem_name_with_location
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Problem
 - advanced_data_type: null
   column_name: response_string
   description: null

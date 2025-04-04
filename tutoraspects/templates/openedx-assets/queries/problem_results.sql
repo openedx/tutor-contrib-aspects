@@ -32,7 +32,7 @@ with
                 '',
                 concat(_problem_location, '(', _problem_id_or_1, ')', _problem_name)
             ) as problem_name_with_location,
-            blocks.display_name_with_location
+            blocks.display_name_with_location as display_name_with_location
         from {{ ASPECTS_XAPI_DATABASE }}.problem_events
         left join
             {{ DBT_PROFILE_TARGET_DATABASE }}.dim_course_blocks blocks
