@@ -5,8 +5,8 @@ from __future__ import annotations
 import os.path
 import random
 import string
-from glob import glob
 import typing as t
+from glob import glob
 
 import bcrypt
 import importlib_resources
@@ -34,7 +34,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("RUN_RALPH", True),
         ("RUN_SUPERSET", True),
         ("DOCKER_IMAGE_ASPECTS", "edunext/aspects:{{ ASPECTS_VERSION }}"),
-        ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:24.8"),
+        ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:25.3"),
         ("DOCKER_IMAGE_RALPH", "fundocker/ralph:4.1.0"),
         ("DOCKER_IMAGE_SUPERSET", "edunext/aspects-superset:{{ ASPECTS_VERSION }}"),
         ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.30.0-alpine"),
@@ -547,7 +547,7 @@ try:
         hooks.Filters.COMMANDS_INIT.add_item(
             (service, template_path)
         )  # pylint: disable=no-member
-except AttributeError as e:
+except AttributeError:
     for service, template_path, priority in MY_INIT_TASKS:
         full_path = os.path.join(
             str(importlib_resources.files("tutoraspects") / "templates"), *template_path
