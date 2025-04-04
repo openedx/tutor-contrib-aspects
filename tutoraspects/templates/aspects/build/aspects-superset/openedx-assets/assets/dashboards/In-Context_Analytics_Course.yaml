@@ -53,8 +53,8 @@ metadata:
     - 814
     - 1301
     controlValues:
-      defaultToFirstItem: true
-      enableEmptyFilter: true
+      defaultToFirstItem: false
+      enableEmptyFilter: false
       inverseSelection: false
       multiSelect: false
       searchAllOptions: false
@@ -66,7 +66,6 @@ metadata:
     filterType: filter_select
     id: NATIVE_FILTER-QLQbulmHH
     name: Course Key
-    requiredFirst: true
     scope:
       excluded: []
       rootPath:

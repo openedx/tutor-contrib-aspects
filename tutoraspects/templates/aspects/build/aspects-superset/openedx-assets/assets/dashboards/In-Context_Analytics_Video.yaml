@@ -31,11 +31,11 @@ metadata:
     chartsInScope:
     - 1665
     controlValues:
-      defaultToFirstItem: true
-      enableEmptyFilter: true
-      inverseSelection: false
+      enableEmptyFilter: false
+      defaultToFirstItem: false
       multiSelect: false
       searchAllOptions: false
+      inverseSelection: false
     defaultDataMask:
       extraFormData: {}
       filterState: {}
@@ -44,7 +44,6 @@ metadata:
     filterType: filter_select
     id: NATIVE_FILTER-uaxvZkSAg
     name: Course Key
-    requiredFirst: true
     scope:
       excluded: []
       rootPath:
@@ -57,11 +56,11 @@ metadata:
     type: NATIVE_FILTER
   - cascadeParentIds: []
     controlValues:
-      defaultToFirstItem: true
-      enableEmptyFilter: true
-      inverseSelection: false
+      enableEmptyFilter: false
+      defaultToFirstItem: false
       multiSelect: false
       searchAllOptions: false
+      inverseSelection: false
     defaultDataMask:
       extraFormData: {}
       filterState: {}
@@ -70,7 +69,6 @@ metadata:
     filterType: filter_select
     id: NATIVE_FILTER-Fse4rzDW0
     name: Block ID
-    requiredFirst: true
     scope:
       excluded: []
       rootPath:

@@ -50,8 +50,8 @@ metadata:
     - 160
     - 1662
     controlValues:
-      defaultToFirstItem: true
-      enableEmptyFilter: true
+      defaultToFirstItem: false
+      enableEmptyFilter: false
       inverseSelection: false
       multiSelect: false
       searchAllOptions: false
@@ -63,7 +63,6 @@ metadata:
     filterType: filter_select
     id: NATIVE_FILTER-29CPcbirK
     name: Course Key
-    requiredFirst: true
     scope:
       excluded:
       - 1663
@@ -81,8 +80,8 @@ metadata:
     - 1662
     - 1663
     controlValues:
-      defaultToFirstItem: true
-      enableEmptyFilter: true
+      defaultToFirstItem: false
+      enableEmptyFilter: false
       inverseSelection: false
       multiSelect: false
       searchAllOptions: false
@@ -94,7 +93,6 @@ metadata:
     filterType: filter_select
     id: NATIVE_FILTER-TJwItQhUI
     name: Block ID
-    requiredFirst: true
     scope:
       excluded: []
       rootPath:
