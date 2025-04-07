@@ -12,8 +12,6 @@ params:
   extra_form_data: {}
   groupby: []
   groupby_b: []
-  legendOrientation: top
-  legendType: scroll
   markerEnabledB: true
   markerSize: 6
   markerSizeB: 6
@@ -41,7 +39,7 @@ params:
   x_axis_title: Subsection
   x_axis_title_margin: 30
   yAxisIndexB: 1
-  yAxisTitleSecondary: Average Score
+  yAxisTitleSecondary: Avg Score
   y_axis_bounds:
   - null
   - null
@@ -49,10 +47,10 @@ params:
   - 0
   - 1
   y_axis_format: SMART_NUMBER
-  y_axis_format_secondary: ',.1%'
+  y_axis_format_secondary: '%'
   y_axis_title: Respondents
-  y_axis_title_margin: 30
-  y_axis_title_position: Left
+  y_axis_title_margin: 15
+  y_axis_title_position: Top
 query_context:
   datasource:
     id: 786
@@ -63,13 +61,11 @@ query_context:
     annotation_layers: []
     color_scheme: supersetColors
     dashboards:
-    - 2974
+    - 3214
     datasource: 786__table
     extra_form_data: {}
     force: false
     groupby: []
-    legendOrientation: top
-    legendType: scroll
     markerEnabledB: true
     markerSize: 6
     markerSizeB: 6
@@ -95,7 +91,7 @@ query_context:
     x_axis_title: Subsection
     x_axis_title_margin: 30
     yAxisIndexB: 1
-    yAxisTitleSecondary: Average Score
+    yAxisTitleSecondary: Avg Score
     y_axis_bounds:
     - null
     - null
@@ -103,10 +99,10 @@ query_context:
     - 0
     - 1
     y_axis_format: SMART_NUMBER
-    y_axis_format_secondary: ',.1%'
+    y_axis_format_secondary: '%'
     y_axis_title: Respondents
-    y_axis_title_margin: 30
-    y_axis_title_position: Left
+    y_axis_title_margin: 15
+    y_axis_title_position: Top
   queries:
   - annotation_layers: []
     applied_time_extras: {}

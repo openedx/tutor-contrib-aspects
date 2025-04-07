@@ -28,7 +28,7 @@ params:
   rich_tooltip: true
   row_limit: 5000
   show_empty_columns: true
-  show_legend: true
+  show_legend: false
   show_value: false
   sort_series_ascending: false
   sort_series_type: name
@@ -50,8 +50,8 @@ params:
   - null
   y_axis_format: SMART_NUMBER
   y_axis_title: Views
-  y_axis_title_margin: 30
-  y_axis_title_position: Left
+  y_axis_title_margin: 15
+  y_axis_title_position: Top
   zoomable: false
 query_context:
   datasource:
@@ -68,7 +68,7 @@ query_context:
     annotation_layers: []
     color_scheme: supersetColors
     dashboards:
-    - 2974
+    - 3214
     datasource: 71__table
     extra_form_data: {}
     force: false
@@ -88,7 +88,7 @@ query_context:
     rich_tooltip: true
     row_limit: 5000
     show_empty_columns: true
-    show_legend: true
+    show_legend: false
     show_value: false
     slice_id: 1494
     sort_series_ascending: false
@@ -111,8 +111,8 @@ query_context:
     - null
     y_axis_format: SMART_NUMBER
     y_axis_title: Views
-    y_axis_title_margin: 30
-    y_axis_title_position: Left
+    y_axis_title_margin: 15
+    y_axis_title_position: Top
     zoomable: false
   queries:
   - annotation_layers: []

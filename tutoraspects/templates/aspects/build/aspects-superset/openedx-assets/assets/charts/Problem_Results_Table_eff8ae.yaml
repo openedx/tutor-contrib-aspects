@@ -16,11 +16,10 @@ params:
   color_pn: false
   column_config:
     perc_correct_all:
-      d3NumberFormat: ',.1%'
+      d3NumberFormat: '%'
     perc_correct_first:
-      d3NumberFormat: ',.1%'
+      d3NumberFormat: '%'
       showCellBars: false
-  comparison_color_scheme: Green
   comparison_type: values
   conditional_formatting: []
   extra_form_data: {}
@@ -37,7 +36,6 @@ params:
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
-  server_page_length: 10
   show_cell_bars: false
   show_totals: true
   table_timestamp_format: smart_date
@@ -60,15 +58,14 @@ query_context:
     color_pn: false
     column_config:
       perc_correct_all:
-        d3NumberFormat: ',.1%'
+        d3NumberFormat: '%'
       perc_correct_first:
-        d3NumberFormat: ',.1%'
+        d3NumberFormat: '%'
         showCellBars: false
-    comparison_color_scheme: Green
     comparison_type: values
     conditional_formatting: []
     dashboards:
-    - 2974
+    - 3214
     datasource: 785__table
     extra_form_data: {}
     force: false
@@ -87,7 +84,6 @@ query_context:
     result_format: json
     result_type: full
     row_limit: 1000
-    server_page_length: 10
     show_cell_bars: false
     show_totals: true
     slice_id: 1495

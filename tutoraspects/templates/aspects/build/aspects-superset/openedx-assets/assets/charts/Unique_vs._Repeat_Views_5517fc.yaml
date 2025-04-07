@@ -13,7 +13,10 @@ params:
     subject: started_at
   annotation_layers: []
   color_scheme: supersetColors
+  comparison_type: values
   extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
   groupby: []
   legendOrientation: top
   legendType: scroll
@@ -24,6 +27,7 @@ params:
   minorSplitLine: false
   minorTicks: false
   only_total: true
+  order_desc: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 5000
@@ -40,6 +44,7 @@ params:
   truncate_metric: true
   viz_type: echarts_timeseries_bar
   x_axis: time_stamp
+  x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
@@ -50,10 +55,119 @@ params:
   - null
   y_axis_format: SMART_NUMBER
   y_axis_title: Views
-  y_axis_title_margin: 30
-  y_axis_title_position: Left
+  y_axis_title_margin: 15
+  y_axis_title_position: Top
   zoomable: true
-query_context: null
+query_context:
+  datasource:
+    id: 71
+    type: table
+  force: false
+  form_data:
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: started_at
+    annotation_layers: []
+    color_scheme: supersetColors
+    comparison_type: values
+    dashboards:
+    - 3214
+    datasource: 71__table
+    extra_form_data: {}
+    force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
+    groupby: []
+    legendOrientation: top
+    legendType: scroll
+    logAxis: false
+    metrics:
+    - repeat_views
+    - unique_viewers
+    minorSplitLine: false
+    minorTicks: false
+    only_total: true
+    order_desc: true
+    orientation: vertical
+    result_format: json
+    result_type: full
+    rich_tooltip: true
+    row_limit: 5000
+    show_empty_columns: true
+    show_legend: false
+    show_value: false
+    slice_id: 1487
+    sort_series_ascending: false
+    sort_series_type: name
+    stack: Stack
+    tooltipSortByMetric: false
+    tooltipTimeFormat: smart_date
+    truncateXAxis: false
+    truncateYAxis: false
+    truncate_metric: true
+    viz_type: echarts_timeseries_bar
+    x_axis: time_stamp
+    x_axis_sort_asc: true
+    x_axis_sort_series: name
+    x_axis_sort_series_ascending: true
+    x_axis_time_format: smart_date
+    x_axis_title: Timestamp
+    x_axis_title_margin: 30
+    y_axis_bounds:
+    - null
+    - null
+    y_axis_format: SMART_NUMBER
+    y_axis_title: Views
+    y_axis_title_margin: 15
+    y_axis_title_position: Top
+    zoomable: true
+  queries:
+  - annotation_layers: []
+    applied_time_extras: {}
+    columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: time_stamp
+      sqlExpression: time_stamp
+    custom_form_data: {}
+    custom_params: {}
+    extras:
+      having: ''
+      where: ''
+    filters:
+    - col: started_at
+      op: TEMPORAL_RANGE
+      val: No filter
+    metrics:
+    - repeat_views
+    - unique_viewers
+    order_desc: true
+    orderby:
+    - - repeat_views
+      - false
+    post_processing:
+    - operation: pivot
+      options:
+        aggregates:
+          repeat_views:
+            operator: mean
+          unique_viewers:
+            operator: mean
+        columns: []
+        drop_missing_columns: false
+        index:
+        - time_stamp
+    - operation: flatten
+    row_limit: 5000
+    series_columns: []
+    series_limit: 0
+    time_offsets: []
+    url_params: {}
+  result_format: json
+  result_type: full
 slice_name: Unique vs. Repeat Views
 uuid: 5517fc06-1f76-45e7-b687-0fa3c4e9099c
 version: 1.0.0

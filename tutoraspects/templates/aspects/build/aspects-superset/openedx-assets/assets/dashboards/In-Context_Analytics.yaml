@@ -148,6 +148,7 @@ metadata:
   - '#9EE5E5'
   - '#D1C6BC'
   cross_filters_enabled: true
+  default_filters: '{}'
   expanded_slices: {}
   global_chart_configuration:
     chartsInScope:
@@ -372,7 +373,7 @@ position:
     meta:
       chartId: 1489
       height: 50
-      sliceName: Initial Responses
+      sliceName: Initial Numeric Responses
       sliceNameOverride: Initial Numeric Responses
       uuid: 832fc2d6-4227-4a64-b64e-82aa254864cc
       width: 4
@@ -418,7 +419,7 @@ position:
     meta:
       chartId: 1492
       height: 50
-      sliceName: Subsection Overview
+      sliceName: Subsection Engagement
       sliceNameOverride: Subsection Engagement
       uuid: 765e8acf-c304-4ec5-ac5d-b13a7b08c87d
       width: 4
@@ -497,7 +498,7 @@ position:
     id: COLUMN-8FJPQ6YdaE
     meta:
       background: BACKGROUND_TRANSPARENT
-      width: 4
+      width: 2
     parents:
     - ROOT_ID
     - GRID_ID
@@ -511,7 +512,7 @@ position:
     id: COLUMN-ZwjTEkQifn
     meta:
       background: BACKGROUND_TRANSPARENT
-      width: 4
+      width: 2
     parents:
     - ROOT_ID
     - GRID_ID
@@ -527,7 +528,7 @@ position:
     id: COLUMN-rQTceopwHK
     meta:
       background: BACKGROUND_TRANSPARENT
-      width: 4
+      width: 2
     parents:
     - ROOT_ID
     - GRID_ID

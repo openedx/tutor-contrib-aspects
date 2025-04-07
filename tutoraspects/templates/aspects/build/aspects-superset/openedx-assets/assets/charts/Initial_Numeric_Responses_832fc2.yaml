@@ -70,6 +70,8 @@ query_context:
     annotation_layers: []
     color_scheme: supersetColors
     contributionMode: null
+    dashboards:
+    - 3214
     datasource: 787__table
     extra_form_data: {}
     force: false

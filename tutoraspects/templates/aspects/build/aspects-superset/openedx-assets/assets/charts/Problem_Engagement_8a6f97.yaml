@@ -22,8 +22,6 @@ params:
   extra_form_data: {}
   groupby: []
   groupby_b: []
-  legendOrientation: top
-  legendType: scroll
   logAxis: false
   markerEnabledB: true
   markerSize: 6
@@ -68,7 +66,7 @@ params:
   seriesTypeB: line
   show_legend: false
   show_valueB: false
-  stack: Stack
+  stack: false
   tooltipTimeFormat: smart_date
   truncateXAxis: false
   truncateYAxis: false
@@ -80,18 +78,18 @@ params:
   x_axis_title: Problem
   x_axis_title_margin: 30
   yAxisIndexB: 1
-  yAxisTitleSecondary: Avg Correct 1st Attempt
+  yAxisTitleSecondary: Correct 1st Try
   y_axis_bounds:
   - null
   - null
   y_axis_bounds_secondary:
-  - null
+  - 0
   - 1
   y_axis_format: SMART_NUMBER
-  y_axis_format_secondary: ',.1%'
+  y_axis_format_secondary: '%'
   y_axis_title: Respondents
-  y_axis_title_margin: 30
-  y_axis_title_position: Left
+  y_axis_title_margin: 15
+  y_axis_title_position: Top
 query_context:
   datasource:
     id: 785
@@ -107,13 +105,11 @@ query_context:
     annotation_layers: []
     color_scheme: supersetColors
     dashboards:
-    - 2974
+    - 3214
     datasource: 785__table
     extra_form_data: {}
     force: false
     groupby: []
-    legendOrientation: top
-    legendType: scroll
     logAxis: false
     markerEnabledB: true
     markerSize: 6
@@ -157,7 +153,7 @@ query_context:
     show_legend: false
     show_valueB: false
     slice_id: 1491
-    stack: Stack
+    stack: false
     tooltipTimeFormat: smart_date
     truncateXAxis: false
     truncateYAxis: false
@@ -168,18 +164,18 @@ query_context:
     x_axis_title: Problem
     x_axis_title_margin: 30
     yAxisIndexB: 1
-    yAxisTitleSecondary: Avg Correct 1st Attempt
+    yAxisTitleSecondary: Correct 1st Try
     y_axis_bounds:
     - null
     - null
     y_axis_bounds_secondary:
-    - null
+    - 0
     - 1
     y_axis_format: SMART_NUMBER
-    y_axis_format_secondary: ',.1%'
+    y_axis_format_secondary: '%'
     y_axis_title: Respondents
-    y_axis_title_margin: 30
-    y_axis_title_position: Left
+    y_axis_title_margin: 15
+    y_axis_title_position: Top
   queries:
   - annotation_layers: []
     applied_time_extras: {}

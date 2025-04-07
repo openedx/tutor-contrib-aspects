@@ -82,7 +82,7 @@ query_context:
     comparison_type: values
     conditional_formatting: []
     dashboards:
-    - 2974
+    - 3214
     datasource: 787__table
     extra_form_data: {}
     force: false
