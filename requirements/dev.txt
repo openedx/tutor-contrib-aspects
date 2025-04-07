@@ -259,7 +259,7 @@ tutor-contrib-pod-autoscaling==19.0.0
     # via -r requirements/dev.in
 twine==6.1.0
     # via -r requirements/dev.in
-typing-extensions==4.13.0
+typing-extensions==4.13.1
     # via
     #   -r requirements/base.txt
     #   mypy
