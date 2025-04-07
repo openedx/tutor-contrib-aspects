@@ -3,7 +3,8 @@ _roles:
 - '{{ SUPERSET_ROLES_MAPPING.instructor }}'
 certification_details: ''
 certified_by: ''
-css: ''
+css: ".dashboard-content > .grid-container {\n  margin: 0;\n}\n\n\
+  \ .dashboard-component-chart-holder {\n  padding: 0;\n}\n"
 dashboard_title: 'In-Context Analytics: Course'
 description: null
 metadata:
