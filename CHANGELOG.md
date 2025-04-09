@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v2.1.0 - 2025-04-09
+
+### [2.1.0](https://github.com/openedx/tutor-contrib-aspects/compare/v2.0.0...v2.1.0) (2025-04-09)
+
+#### Features
+
+* add custom color scheme for data charts ([8cbe697](https://github.com/openedx/tutor-contrib-aspects/commit/8cbe6971d7955d94bcba83efb268a769d8835e80))
+
 ## v2.0.0 - 2025-03-24
 
 ### [2.0.0](https://github.com/openedx/tutor-contrib-aspects/compare/v1.3.2...v2.0.0) (2025-03-24)
