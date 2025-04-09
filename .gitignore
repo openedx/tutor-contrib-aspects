@@ -10,3 +10,5 @@ __pycache__
 venv/
 env/
 transifex_input.yaml
+.mypy_cache
+.venv
