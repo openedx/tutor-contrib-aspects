@@ -6,6 +6,9 @@
 {% else %}
       // Currently there is no way to conditionally add plugin slot configuration from tutor-mfe.
       // So, as a workaround, tutor-contrib-aspects simply defines the components added to the plugin as empty components.
-      const OutlineAnalytics = () => (<></>);
-      const UnitAnalytics = () => (<></>);
+      const AspectsSidebar = () => (<></>);
+      const SidebarToggleWrapper = () => (<></>);
+      const CourseHeaderButton = () => (<></>);
+      const UnitActionsButton = () => (<></>);
+      const AspectsSidebarProvider = () => (<></>);
 {% endif %}

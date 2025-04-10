@@ -648,14 +648,6 @@ for path in glob(
     with open(path, encoding="utf-8") as patch_file:
         hooks.Filters.ENV_PATCHES.add_item((os.path.basename(path), patch_file.read()))
 
-hooks.Filters.ENV_PATCHES.add_item(
-    (
-        "mfe-dockerfile-post-npm-install-authoring",
-        """
-RUN --mount=type=cache,target=/root/.npm,sharing=shared echo "installing custom slots" && npm install --legacy-peer-deps openedx/frontend-plugin-aspects#pull/19/head && echo "done"
-""",
-    )
-)
 ########################################
 # CUSTOM JOBS (a.k.a. "do-commands")
 ########################################
