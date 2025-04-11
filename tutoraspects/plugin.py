@@ -656,7 +656,7 @@ hooks.Filters.ENV_PATCHES.add_item(
     (
         "mfe-dockerfile-post-npm-install-authoring",
         """
-RUN --mount=type=cache,target=/root/.npm,sharing=shared echo "installing custom slots" && npm install --legacy-peer-deps openedx/frontend-plugin-aspects#pull/19/head && echo "done"
+RUN --mount=type=cache,target=/root/.npm,sharing=shared echo "installing custom slots" && npm install --legacy-peer-deps openedx/frontend-plugin-aspects && echo "done"
 """,
     )
 )
@@ -768,6 +768,20 @@ PLUGIN_SLOTS.add_items(
         (
           "authoring",
           "course_outline_unit_card_extra_actions_slot",
+          """
+          {
+            op: PLUGIN_OPERATIONS.Insert,
+            widget: {
+                id: 'units-action-aspects-button',
+                priority: 60,
+                type: DIRECT_PLUGIN,
+                RenderWidget: UnitActionsButton,
+            },
+          }"""
+        ),
+        (
+          "authoring",
+          "course_outline_subsection_card_extra_actions_slot:",
           """
           {
             op: PLUGIN_OPERATIONS.Insert,
