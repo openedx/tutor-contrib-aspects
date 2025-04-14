@@ -133,7 +133,7 @@ oauthlib==3.2.2
     #   -r requirements/base.txt
     #   kubernetes
     #   requests-oauthlib
-openedx-atlas==0.6.2
+openedx-atlas==0.7.0
     # via -r requirements/base.txt
 packaging==24.2
     # via
@@ -259,12 +259,12 @@ tutor-contrib-pod-autoscaling==19.0.0
     # via -r requirements/dev.in
 twine==6.1.0
     # via -r requirements/dev.in
-typing-extensions==4.13.1
+typing-extensions==4.13.2
     # via
     #   -r requirements/base.txt
     #   mypy
     #   tutor
-urllib3==2.3.0
+urllib3==2.4.0
     # via
     #   -r requirements/base.txt
     #   kubernetes

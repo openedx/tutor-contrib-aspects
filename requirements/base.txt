@@ -59,7 +59,7 @@ oauthlib==3.2.2
     # via
     #   kubernetes
     #   requests-oauthlib
-openedx-atlas==0.6.2
+openedx-atlas==0.7.0
     # via -r requirements/base.in
 packaging==24.2
     # via
@@ -118,11 +118,11 @@ transifex-python==3.5.0
     # via -r requirements/base.in
 tutor==19.0.2
     # via -r requirements/base.in
-typing-extensions==4.13.1
+typing-extensions==4.13.2
     # via
     #   mypy
     #   tutor
-urllib3==2.3.0
+urllib3==2.4.0
     # via
     #   kubernetes
     #   requests
