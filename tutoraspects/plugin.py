@@ -690,7 +690,7 @@ PLUGIN_SLOTS.add_items(
     [
         (
           "authoring",
-          "course_outline_sidebar",
+          "course_authoring_outline_sidebar_slot",
           """
           {
             op: PLUGIN_OPERATIONS.Insert,
@@ -698,13 +698,13 @@ PLUGIN_SLOTS.add_items(
                 id: 'outline-sidebar',
                 priority: 1,
                 type: DIRECT_PLUGIN,
-                RenderWidget: AspectsSidebar,
+                RenderWidget: CourseOutlineSidebar,
             },
           }"""
         ),
         (
           "authoring",
-          "course_outline_sidebar",
+          "course_authoring_outline_sidebar_slot",
           """
           {
             op: PLUGIN_OPERATIONS.Wrap,
@@ -714,7 +714,7 @@ PLUGIN_SLOTS.add_items(
         ),
         (
           "authoring",
-          "course_unit_sidebar",
+          "course_authoring_unit_sidebar_slot",
           """
           {
             op: PLUGIN_OPERATIONS.Insert,
@@ -722,14 +722,14 @@ PLUGIN_SLOTS.add_items(
                 id: 'course-unit-sidebar',
                 priority: 1,
                 type: DIRECT_PLUGIN,
-                RenderWidget: AspectsSidebar,
+                RenderWidget: UnitPageSidebar,
             },
           }""",
         ),
 
         (
           "authoring",
-          "course_unit_sidebar",
+          "course_authoring_unit_sidebar_slot",
           """
           {
             op: PLUGIN_OPERATIONS.Wrap,
@@ -795,7 +795,7 @@ PLUGIN_SLOTS.add_items(
         ),
         (
           "authoring",
-          "authoring_app_wrapper",
+          "authoring_app_slot",
           """
           {
             op: PLUGIN_OPERATIONS.Wrap,
