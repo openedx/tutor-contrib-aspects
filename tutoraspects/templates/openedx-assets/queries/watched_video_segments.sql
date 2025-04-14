@@ -83,6 +83,7 @@ with
 select
     org,
     course_key,
+    splitByString('@', video_id)[-1] as block_id,
     course_name,
     course_run,
     section_with_name,
@@ -101,7 +102,8 @@ select
     start_position,
     username,
     name,
-    email
+    email,
+    formatDateTime(toDate(now()) + toIntervalSecond(segment_start), '%T') as time_stamp
 from enriched_segments
 left outer join
     {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii users
