@@ -789,7 +789,7 @@ PLUGIN_SLOTS.add_items(
                 id: 'units-action-aspects-button',
                 priority: 60,
                 type: DIRECT_PLUGIN,
-                RenderWidget: UnitActionsButton,
+                RenderWidget: SubSectionAnalyticsButton,
             },
           }"""
         ),
