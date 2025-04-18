@@ -795,7 +795,7 @@ PLUGIN_SLOTS.add_items(
         ),
         (
           "authoring",
-          "authoring_app_wrapper",
+          "authoring_app_slot",
           """
           {
             op: PLUGIN_OPERATIONS.Wrap,
