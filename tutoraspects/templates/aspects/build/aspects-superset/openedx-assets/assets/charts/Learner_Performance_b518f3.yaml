@@ -10,9 +10,8 @@ description: |-
   </dl>
 params:
   adhoc_filters: []
-  all_columns:
-  - success
-  annotation_layers: []
+  all_columns: []
+  allow_render_html: true
   color_pn: true
   column_config:
     avg_course_grade:
@@ -22,6 +21,8 @@ params:
       showCellBars: false
     med_course_grade:
       d3NumberFormat: ',.1%'
+  comparison_color_scheme: Green
+  comparison_type: values
   conditional_formatting: []
   extra_form_data: {}
   groupby:
@@ -37,21 +38,19 @@ params:
   percent_metrics: []
   query_mode: aggregate
   row_limit: 50000
-  server_page_length: 10
   show_cell_bars: false
   table_timestamp_format: smart_date
   temporal_columns_lookup: {}
-  time_grain_sqla: P1M
   viz_type: table
 query_context:
   datasource:
-    id: 61
+    id: 101
     type: table
   force: false
   form_data:
     adhoc_filters: []
-    all_columns:
-    - success
+    all_columns: []
+    allow_render_html: true
     color_pn: true
     column_config:
       avg_course_grade:
@@ -61,10 +60,12 @@ query_context:
         showCellBars: false
       med_course_grade:
         d3NumberFormat: ',.1%'
+    comparison_color_scheme: Green
+    comparison_type: values
     conditional_formatting: []
     dashboards:
-    - 3141
-    datasource: 61__table
+    - 2689
+    datasource: 101__table
     extra_form_data: {}
     force: false
     groupby:
@@ -82,12 +83,10 @@ query_context:
     result_format: json
     result_type: full
     row_limit: 50000
-    server_page_length: 10
     show_cell_bars: false
-    slice_id: 1506
+    slice_id: 61
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
-    time_grain_sqla: P1M
     viz_type: table
   queries:
   - annotation_layers: []
@@ -99,7 +98,6 @@ query_context:
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1M
       where: ''
     filters: []
     metrics:
@@ -114,6 +112,7 @@ query_context:
     post_processing: []
     row_limit: 50000
     series_limit: 0
+    time_offsets: []
     url_params: {}
   result_format: json
   result_type: full
