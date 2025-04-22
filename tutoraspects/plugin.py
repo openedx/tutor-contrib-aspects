@@ -781,7 +781,7 @@ PLUGIN_SLOTS.add_items(
         ),
         (
           "authoring",
-          "course_outline_subsection_card_extra_actions_slot:",
+          "course_outline_subsection_card_extra_actions_slot",
           """
           {
             op: PLUGIN_OPERATIONS.Insert,
