@@ -1,4 +1,4 @@
-_file_name: at_risk_navigation_completion.yaml
+_file_name: at_risk_fact_navigation.yaml
 always_filter_main_dttm: false
 cache_timeout: null
 columns:
@@ -213,8 +213,8 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/at_risk_navigation_completion.sql' %}{% endfilter %}
-table_name: at_risk_navigation_completion
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/at_risk_fact_navigation.sql' %}{% endfilter %}
+table_name: at_risk_fact_navigation
 template_params: null
 uuid: 649ad1d3-c0b4-48e1-a02b-e1d1e80c94ac
 version: 1.0.0
