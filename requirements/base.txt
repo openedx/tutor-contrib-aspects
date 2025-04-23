@@ -117,6 +117,10 @@ tqdm==4.67.1
 transifex-python==3.5.0
     # via -r requirements/base.in
 tutor==19.0.2
+    # via
+    #   -r requirements/base.in
+    #   tutor-mfe
+tutor-mfe==19.0.0
     # via -r requirements/base.in
 typing-extensions==4.13.2
     # via

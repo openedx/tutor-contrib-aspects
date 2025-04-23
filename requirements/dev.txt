@@ -255,8 +255,11 @@ tutor==19.0.2
     # via
     #   -r requirements/base.txt
     #   tutor-contrib-pod-autoscaling
+    #   tutor-mfe
 tutor-contrib-pod-autoscaling==19.0.0
     # via -r requirements/dev.in
+tutor-mfe==19.0.0
+    # via -r requirements/base.txt
 twine==6.1.0
     # via -r requirements/dev.in
 typing-extensions==4.13.2

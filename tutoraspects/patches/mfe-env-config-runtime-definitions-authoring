@@ -1,0 +1,15 @@
+
+{% if ASPECTS_ENABLE_STUDIO_IN_CONTEXT_METRICS %}
+
+      const { CourseOutlineSidebar, UnitPageSidebar, SidebarToggleWrapper, CourseHeaderButton, UnitActionsButton, SubSectionAnalyticsButton } = await import("@openedx/frontend-plugin-aspects");
+
+{% else %}
+      // Currently there is no way to conditionally add plugin slot configuration from tutor-mfe.
+      // So, as a workaround, tutor-contrib-aspects simply defines the components added to the plugin as empty components.
+      const CourseOutlineSidebar = () => {};
+      const UnitPageSidebar = () => {};
+      const SidebarToggleWrapper = () => {};
+      const CourseHeaderButton = () => {};
+      const UnitActionsButton = () => {};
+      const SubSectionAnalyticsButton = () => {};
+{% endif %}

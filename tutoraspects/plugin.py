@@ -11,6 +11,7 @@ import typing as t
 import bcrypt
 import importlib_resources
 from tutor import hooks
+from tutormfe.hooks import PLUGIN_SLOTS
 
 from .__about__ import __version__
 from .commands_v1 import COMMANDS as TUTOR_V1_COMMANDS
@@ -397,6 +398,15 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DBT_PROFILE_TARGET_DATABASE", "reporting"),
         ("RUN_ASPECTS_DOCS", False),
         ("DBT_HOST", "dbt.{{LMS_HOST}}"),
+        #####################
+        # MFE Customizations
+        # Aspects can enable plugins to show in-context metrics in the Authoring MFE.
+        # This requires the authroring MFE to have sidebar slots and header
+        # slots which is availabe in release Teak and above. This is also
+        # dependent on https://github.com/openedx/frontend-plugin-aspects.
+        # The feature also needs the platform-plugin-aspect to have v1.1.0 and
+        # above.
+        ("ASPECTS_ENABLE_STUDIO_IN_CONTEXT_METRICS", False),
     ]
 )
 
@@ -667,3 +677,117 @@ try:
     )
 except ImportError:
     pass
+
+
+########################################
+# MFE Customizations
+########################################
+
+PLUGIN_SLOTS.add_items(
+    [
+        (
+            "authoring",
+            "course_authoring_outline_sidebar_slot",
+            """
+          {
+            op: PLUGIN_OPERATIONS.Insert,
+            widget: {
+                id: 'outline-sidebar',
+                priority: 1,
+                type: DIRECT_PLUGIN,
+                RenderWidget: CourseOutlineSidebar,
+            },
+          }""",
+        ),
+        (
+            "authoring",
+            "course_authoring_outline_sidebar_slot",
+            """
+          {
+            op: PLUGIN_OPERATIONS.Wrap,
+            widgetId: 'default_contents',
+            wrapper: SidebarToggleWrapper,
+          }""",
+        ),
+        (
+            "authoring",
+            "course_authoring_unit_sidebar_slot",
+            """
+          {
+            op: PLUGIN_OPERATIONS.Insert,
+            widget: {
+                id: 'course-unit-sidebar',
+                priority: 1,
+                type: DIRECT_PLUGIN,
+                RenderWidget: UnitPageSidebar,
+            },
+          }""",
+        ),
+        (
+            "authoring",
+            "course_authoring_unit_sidebar_slot",
+            """
+          {
+            op: PLUGIN_OPERATIONS.Wrap,
+            widgetId: 'default_contents',
+            wrapper: SidebarToggleWrapper,
+          }""",
+        ),
+        (
+            "authoring",
+            "course_unit_header_actions_slot",
+            """
+          {
+              op: PLUGIN_OPERATIONS.Insert,
+              widget: {
+                  id: 'unit-header-aspects-button',
+                  priority: 60,
+                  type: DIRECT_PLUGIN,
+                  RenderWidget: CourseHeaderButton,
+              },
+          }""",
+        ),
+        (
+            "authoring",
+            "course_outline_header_actions_slot",
+            """
+          {
+              op: PLUGIN_OPERATIONS.Insert,
+              widget: {
+                  id: 'outline-header-aspects-button',
+                  priority: 60,
+                  type: DIRECT_PLUGIN,
+                  RenderWidget: CourseHeaderButton,
+              },
+          }""",
+        ),
+        (
+            "authoring",
+            "course_outline_unit_card_extra_actions_slot",
+            """
+          {
+            op: PLUGIN_OPERATIONS.Insert,
+            widget: {
+                id: 'units-action-aspects-button',
+                priority: 60,
+                type: DIRECT_PLUGIN,
+                RenderWidget: UnitActionsButton,
+            },
+          }""",
+        ),
+        (
+            "authoring",
+            "course_outline_subsection_card_extra_actions_slot",
+            """
+          {
+            op: PLUGIN_OPERATIONS.Insert,
+            widget: {
+                id: 'units-action-aspects-button',
+                priority: 60,
+                type: DIRECT_PLUGIN,
+                RenderWidget: SubSectionAnalyticsButton,
+            },
+          }""",
+        ),
+    ]
+)
