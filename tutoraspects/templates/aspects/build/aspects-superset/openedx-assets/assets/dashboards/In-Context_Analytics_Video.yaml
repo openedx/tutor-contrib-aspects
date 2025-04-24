@@ -1,27 +1,38 @@
 _file_name: In-Context_Analytics_Video.yaml
 _roles:
 - '{{ SUPERSET_ROLES_MAPPING.instructor }}'
-certification_details: ''
-certified_by: ''
-css: ".dashboard-content > .grid-container {\n  margin: 0;\n}\n\n\
-  \ .dashboard-component-chart-holder {\n  padding: 0;\n}\n"
+certification_details: null
+certified_by: null
+css: |2-
+
+  .dashboard-content > .grid-container {
+    margin: 0;
+  }
+  .dashboard-component-chart-holder {
+    padding: 0;
+  }
+  .filter-counts {
+    display: none;
+  }
+  .header-title {
+    font-size: 80%;
+  }
 dashboard_title: 'In-Context Analytics: Video'
 description: null
 metadata:
   chart_configuration:
-    '1665':
+    '521':
       crossFilters:
         chartsInScope: []
         scope: global
-      id: 1665
-  color_scheme: ''
+      id: 521
+  color_scheme: aspects_default
   color_scheme_domain: []
   cross_filters_enabled: true
-  default_filters: '{}'
   expanded_slices: {}
   global_chart_configuration:
     chartsInScope:
-    - 1665
+    - 521
     scope:
       excluded: []
       rootPath:
@@ -32,11 +43,11 @@ metadata:
     chartsInScope:
     - 1665
     controlValues:
-      enableEmptyFilter: false
       defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
       multiSelect: false
       searchAllOptions: false
-      inverseSelection: false
     defaultDataMask:
       extraFormData: {}
       filterState: {}
@@ -56,12 +67,14 @@ metadata:
       datasetUuid: c2c391b3-3403-4f05-bc0b-3de53bd366ec
     type: NATIVE_FILTER
   - cascadeParentIds: []
+    chartsInScope:
+    - 521
     controlValues:
-      enableEmptyFilter: false
       defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
       multiSelect: false
       searchAllOptions: false
-      inverseSelection: false
     defaultDataMask:
       extraFormData: {}
       filterState: {}
@@ -74,22 +87,21 @@ metadata:
       excluded: []
       rootPath:
       - ROOT_ID
+    tabsInScope: []
     targets:
     - column:
         name: block_id
       datasetUuid: c2c391b3-3403-4f05-bc0b-3de53bd366ec
     type: NATIVE_FILTER
   refresh_frequency: 0
-  shared_label_colors:
-    repeat_views: '#5AC189'
-    unique_viewers: '#1FA8C9'
+  shared_label_colors: {}
   timed_refresh_immune_slices: []
 position:
   CHART-explore-1665-1:
     children: []
     id: CHART-explore-1665-1
     meta:
-      chartId: 1665
+      chartId: 521
       height: 50
       sliceName: Unique vs. Repeat Views
       uuid: 0245bcf6-8a13-42ee-9817-2a9922e7347b

@@ -22,8 +22,6 @@ params:
   extra_form_data: {}
   groupby: []
   groupby_b: []
-  legendOrientation: top
-  legendType: scroll
   logAxis: false
   markerEnabledB: true
   markerSize: 6
@@ -68,33 +66,33 @@ params:
   seriesTypeB: line
   show_legend: false
   show_valueB: false
-  stack: Stack
+  stack: false
   tooltipTimeFormat: smart_date
   truncateXAxis: false
   truncateYAxis: false
   truncate_metric: true
   truncate_metric_b: true
   viz_type: mixed_timeseries
-  x_axis: problem_name_with_location
+  x_axis: problem_number
   x_axis_time_format: smart_date
   x_axis_title: Problem
   x_axis_title_margin: 30
   yAxisIndexB: 1
-  yAxisTitleSecondary: Avg Correct 1st Attempt
+  yAxisTitleSecondary: Correct 1st Try
   y_axis_bounds:
   - null
   - null
   y_axis_bounds_secondary:
-  - null
+  - 0
   - 1
   y_axis_format: SMART_NUMBER
-  y_axis_format_secondary: ',.1%'
+  y_axis_format_secondary: '%'
   y_axis_title: Respondents
-  y_axis_title_margin: 30
-  y_axis_title_position: Left
+  y_axis_title_margin: 15
+  y_axis_title_position: Top
 query_context:
   datasource:
-    id: 516
+    id: 604
     type: table
   force: false
   form_data:
@@ -106,12 +104,10 @@ query_context:
       subject: emission_time
     annotation_layers: []
     color_scheme: supersetColors
-    datasource: 516__table
+    datasource: 604__table
     extra_form_data: {}
     force: false
     groupby: []
-    legendOrientation: top
-    legendType: scroll
     logAxis: false
     markerEnabledB: true
     markerSize: 6
@@ -154,38 +150,38 @@ query_context:
     seriesTypeB: line
     show_legend: false
     show_valueB: false
-    slice_id: 1301
-    stack: Stack
+    slice_id: 281
+    stack: false
     tooltipTimeFormat: smart_date
     truncateXAxis: false
     truncateYAxis: false
     truncate_metric: true
     viz_type: mixed_timeseries
-    x_axis: problem_name_with_location
+    x_axis: problem_number
     x_axis_time_format: smart_date
     x_axis_title: Problem
     x_axis_title_margin: 30
     yAxisIndexB: 1
-    yAxisTitleSecondary: Avg Correct 1st Attempt
+    yAxisTitleSecondary: Correct 1st Try
     y_axis_bounds:
     - null
     - null
     y_axis_bounds_secondary:
-    - null
+    - 0
     - 1
     y_axis_format: SMART_NUMBER
-    y_axis_format_secondary: ',.1%'
+    y_axis_format_secondary: '%'
     y_axis_title: Respondents
-    y_axis_title_margin: 30
-    y_axis_title_position: Left
+    y_axis_title_margin: 15
+    y_axis_title_position: Top
   queries:
   - annotation_layers: []
     applied_time_extras: {}
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: problem_name_with_location
-      sqlExpression: problem_name_with_location
+      label: problem_number
+      sqlExpression: problem_number
     custom_form_data: {}
     custom_params: {}
     extras:
@@ -257,7 +253,7 @@ query_context:
         columns: []
         drop_missing_columns: true
         index:
-        - problem_name_with_location
+        - problem_number
     - operation: flatten
     row_limit: 10000
     series_columns: []
@@ -269,8 +265,8 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: problem_name_with_location
-      sqlExpression: problem_name_with_location
+      label: problem_number
+      sqlExpression: problem_number
     custom_form_data: {}
     custom_params: {}
     extras:
@@ -294,7 +290,7 @@ query_context:
         columns: []
         drop_missing_columns: true
         index:
-        - problem_name_with_location
+        - problem_number
     - operation: flatten
     row_limit: 10000
     series_columns: []

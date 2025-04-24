@@ -1,11 +1,12 @@
-_file_name: graded_subsections.yaml
+_file_name: graded_subsection_engagement.yaml
 always_filter_main_dttm: false
 cache_timeout: null
+catalog: null
 columns:
 - advanced_data_type: null
   column_name: subsection_with_name
   description: null
-  expression: ''
+  expression: null
   extra:
     warning_markdown: null
   filterable: true
@@ -18,7 +19,7 @@ columns:
 - advanced_data_type: null
   column_name: course_key
   description: null
-  expression: ''
+  expression: null
   extra:
     warning_markdown: null
   filterable: true
@@ -29,9 +30,9 @@ columns:
   type: LowCardinality(String)
   verbose_name: Course Key
 - advanced_data_type: null
-  column_name: avg_score
+  column_name: scaled_score
   description: null
-  expression: ''
+  expression: null
   extra:
     warning_markdown: null
   filterable: true
@@ -40,35 +41,9 @@ columns:
   is_dttm: false
   python_date_format: null
   type: Float64
-  verbose_name: Avg Score
+  verbose_name: Scaled Score
 - advanced_data_type: null
-  column_name: total_avg
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Float64
-  verbose_name: Total Avg
-- advanced_data_type: null
-  column_name: subsection_number
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Subsection Number
-- advanced_data_type: null
-  column_name: block_id
+  column_name: actor_id
   description: null
   expression: null
   extra:
@@ -79,11 +54,24 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Block ID
+  verbose_name: Actor Id
+- advanced_data_type: null
+  column_name: subsection_number
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Subsection Number
 - advanced_data_type: null
   column_name: org
   description: null
-  expression: ''
+  expression: null
   extra:
     warning_markdown: null
   filterable: true
@@ -104,30 +92,40 @@ metrics:
 - currency: null
   d3format: null
   description: null
+  expression: avg(scaled_score)
+  extra:
+    warning_markdown: ''
+  metric_name: avg_score
+  metric_type: null
+  verbose_name: Average Score
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: count(distinct actor_id)
+  extra:
+    warning_markdown: ''
+  metric_name: actor_count
+  metric_type: null
+  verbose_name: Respondents
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
   expression: COUNT(*)
   extra:
     warning_markdown: ''
   metric_name: count
   metric_type: count
-  verbose_name: Count of Scores
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: max(sortnum)
-  extra:
-    warning_markdown: ''
-  metric_name: sort
-  metric_type: null
-  verbose_name: sort
+  verbose_name: COUNT(*)
   warning_text: null
 normalize_columns: false
 offset: 0
 params: null
-schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
-sql: |
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/graded_subsections.sql' %}{% endfilter %}
-table_name: graded_subsections
+schema: reporting
+sql: |-
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/graded_subsection_engagement.sql' %}{% endfilter %}
+table_name: graded_subsection_engagement
 template_params: null
-uuid: cf42fc53-39e1-4c3c-a7f6-3d0d17a947dc
+uuid: cee5b433-fe22-4e33-9bfc-613cccbe401a
 version: 1.0.0

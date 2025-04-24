@@ -1,53 +1,52 @@
 with
-    problem_events as (
+    final_results as (
         select
-            emission_time as emission_time,
-            org as org,
-            course_key as course_key,
-            block_id as block_id,
-            replaceRegexpAll(
-                responses, '<.*?hint.*?<\/.*?hint>|</div>|<div>|\[|\]', ''
-            ) as _response1,
-            replaceRegexpAll(_response1, '",(\s|)"', ',') as _response2,
-            case
-                when responses like '[%'
-                then arrayJoin(splitByChar(',', replaceAll(_response2, '"', '')))
-                else _response2
-            end as response,
-            replaceRegexpAll(
-                replaceRegexpAll(responses, '<div>|</div>|"', ''), '\n', '<div>'
-            ) as responses,
-            success as success,
-            interaction_type as interaction_type,
+            first_success.org as org,
+            first_success.course_key as course_key,
+            first_success.success as success,
+            first_success.attempt as attempt,
+            first_success.actor_id as actor_id,
+            problem_blocks.block_id as block_id,
             substring(
-                regexpExtract(object_id, '(@problem\+block@[\w\d][^_\/]*)(_\d)?', 2), 2
+                regexpExtract(
+                    first_success.object_id, '(@problem+block@[wd][^_/]*)(_d)?', 2
+                ),
+                2
             ) as _problem_id_number,
-            ifNull(nullIf(_problem_id_number, ''), '1') as _problem_id_or_1,
-            splitByString(' - ', blocks.display_name_with_location)[
-                1
-            ] as _problem_location,
-            splitByString('-', blocks.display_name_with_location)[2] as _problem_name,
-            if(
-                blocks.display_name_with_location = '',
-                '',
-                concat(_problem_location, '(', _problem_id_or_1, ')', _problem_name)
-            ) as problem_name_with_location,
-            blocks.display_name_with_location as display_name_with_location
-        from {{ ASPECTS_XAPI_DATABASE }}.problem_events
-        left join
-            {{ DBT_PROFILE_TARGET_DATABASE }}.dim_course_blocks blocks
-            on (course_key = blocks.course_key and problem_id = blocks.block_id)
-        where attempts = 1
+            cast(
+                ifNull(nullIf(_problem_id_number, ''), '1') as Int
+            ) as _problem_id_or_1,
+            splitByString(
+                ' - ', problem_blocks.display_name_with_location
+            ) as _problem_with_name,
+            arrayStringConcat(
+                arrayMap(
+                    x -> (leftPad(x, 2, char(917768))),
+                    splitByString(':', _problem_with_name[1])
+                ),
+                ':'
+            ) as _problem_number,
+            concat(_problem_number, '_', _problem_id_or_1) as problem_number,
+            concat(
+                problem_number, ' - ', _problem_with_name[2]
+            ) as problem_name_location
+        from
+            {{ DBT_PROFILE_TARGET_DATABASE }}.dim_learner_first_success_response
+            as first_success
+        join
+            {{ DBT_PROFILE_TARGET_DATABASE }}.dim_course_blocks problem_blocks
+            on (
+                first_success.course_key = problem_blocks.course_key
+                and first_success.problem_id = problem_blocks.block_id
+            )
     )
 select
-    emission_time,
     org,
     course_key,
-    splitByString('@', block_id)[-1] as block_id,
-    toFloat32OrNull(response) as response_numeric,
-    if(success, 'Correct', 'Incorrect') as success,
-    interaction_type,
-    problem_name_with_location,
-    case when response_numeric is null then response else '' end as response_string,
-    display_name_with_location
-from problem_events
+    success,
+    attempt,
+    actor_id,
+    problem_number,
+    problem_name_location,
+    block_id
+from final_results

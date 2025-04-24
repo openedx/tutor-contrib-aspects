@@ -1,4 +1,4 @@
-_file_name: problem_results.yaml
+_file_name: problem_responses.yaml
 always_filter_main_dttm: false
 cache_timeout: null
 catalog: null
@@ -16,6 +16,18 @@ columns:
   type: String
   verbose_name: Problem Name Location
 - advanced_data_type: null
+  column_name: response_numeric
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Nullable(Float32)
+  verbose_name: Response Numeric
+- advanced_data_type: null
   column_name: course_key
   description: null
   expression: ''
@@ -28,7 +40,7 @@ columns:
   type: LowCardinality(String)
   verbose_name: Course Key
 - advanced_data_type: null
-  column_name: actor_id
+  column_name: interaction_type
   description: null
   expression: ''
   extra: {}
@@ -37,8 +49,20 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
-  verbose_name: Actor Id
+  type: LowCardinality(String)
+  verbose_name: Interaction Type
+- advanced_data_type: null
+  column_name: emission_time
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DateTime
+  verbose_name: Emission Time
 - advanced_data_type: null
   column_name: block_id
   description: null
@@ -76,7 +100,7 @@ columns:
   type: LowCardinality(String)
   verbose_name: Org
 - advanced_data_type: null
-  column_name: attempt
+  column_name: response_string
   description: null
   expression: ''
   extra: {}
@@ -85,8 +109,8 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Int16
-  verbose_name: Attempt
+  type: String
+  verbose_name: Response
 - advanced_data_type: null
   column_name: success
   description: null
@@ -97,7 +121,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Bool
+  type: String
   verbose_name: Success
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
@@ -110,49 +134,20 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: "  ROUND(\r\n    SUM(CASE WHEN success and attempt = 1 THEN 1 ELSE 0\
-    \ END) /\r\n    sum(attempt), 2\r\n  )"
-  extra: {}
-  metric_name: perc_correct_first
-  metric_type: null
-  verbose_name: '% Correct First Attempts'
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: "  ROUND(\r\n    SUM(CASE WHEN success THEN 1 ELSE 0 END) /\r\n    count(1),\
-    \ 2\r\n  )"
-  extra: {}
-  metric_name: perc_correct_last
-  metric_type: null
-  verbose_name: '% Correct Last Attempts'
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: "  ROUND(\r\n    SUM(CASE WHEN success THEN 1 ELSE 0 END) /\r\n    sum(attempt),\
-    \ 2\r\n  )"
-  extra: {}
-  metric_name: perc_correct_all
-  metric_type: null
-  verbose_name: '% Correct All Attempts'
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
   expression: COUNT(*)
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: count
   metric_type: count
-  verbose_name: COUNT(*)
+  verbose_name: Count
   warning_text: null
 normalize_columns: false
 offset: 0
 params: null
-schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
-sql: |
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/problem_results.sql' %}{% endfilter %}
-table_name: problem_results
+schema: reporting
+sql: |-
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/problem_responses.sql' %}{% endfilter %}
+table_name: problem_responses
 template_params: null
-uuid: cd65175d-8065-4bfe-83ed-c545ed3aaf85
+uuid: e173019a-34ff-4b4a-a24e-a4a06c748abe
 version: 1.0.0

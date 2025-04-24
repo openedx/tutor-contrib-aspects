@@ -5,17 +5,12 @@ certified_by: null
 dataset_uuid: e6134213-e7f4-4081-9861-356c93f376dc
 description: null
 params:
-  adhoc_filters:
-  - clause: WHERE
-    comparator: No filter
-    expressionType: SIMPLE
-    operator: TEMPORAL_RANGE
-    subject: emission_time
+  adhoc_filters: []
   annotation_layers: []
-  color_scheme: supersetColors
+  color_scheme: aspects_default
   extra_form_data: {}
   groupby:
-  - datasourceWarning: false
+  - datasourceWarning: true
     expressionType: SQL
     label: success
     sqlExpression: |-
@@ -55,7 +50,7 @@ params:
   rich_tooltip: true
   row_limit: 10000
   show_empty_columns: true
-  show_legend: true
+  show_legend: false
   sort_series_type: sum
   stack: Stack
   tooltipTimeFormat: smart_date
@@ -63,39 +58,35 @@ params:
   truncateYAxis: false
   truncate_metric: true
   viz_type: echarts_timeseries_bar
-  x_axis: problem_name
+  x_axis: subsection_number
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
-  x_axis_title_margin: 15
+  x_axis_title: Subsection
+  x_axis_title_margin: 30
   y_axis_bounds:
   - null
   - null
   y_axis_format: SMART_NUMBER
   y_axis_title: Respondents
-  y_axis_title_margin: 30
-  y_axis_title_position: Left
+  y_axis_title_margin: 15
+  y_axis_title_position: Top
 query_context:
   datasource:
-    id: 725
+    id: 644
     type: table
   force: false
   form_data:
-    adhoc_filters:
-    - clause: WHERE
-      comparator: No filter
-      expressionType: SIMPLE
-      operator: TEMPORAL_RANGE
-      subject: emission_time
+    adhoc_filters: []
     annotation_layers: []
-    color_scheme: supersetColors
+    color_scheme: aspects_default
     dashboards:
-    - 124
-    datasource: 725__table
+    - 4741
+    datasource: 644__table
     extra_form_data: {}
     force: false
     groupby:
-    - datasourceWarning: false
+    - datasourceWarning: true
       expressionType: SQL
       label: success
       sqlExpression: |-
@@ -137,8 +128,8 @@ query_context:
     rich_tooltip: true
     row_limit: 10000
     show_empty_columns: true
-    show_legend: true
-    slice_id: 1670
+    show_legend: false
+    slice_id: 1341
     sort_series_type: sum
     stack: Stack
     tooltipTimeFormat: smart_date
@@ -146,27 +137,28 @@ query_context:
     truncateYAxis: false
     truncate_metric: true
     viz_type: echarts_timeseries_bar
-    x_axis: problem_name
+    x_axis: subsection_number
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date
-    x_axis_title_margin: 15
+    x_axis_title: Subsection
+    x_axis_title_margin: 30
     y_axis_bounds:
     - null
     - null
     y_axis_format: SMART_NUMBER
     y_axis_title: Respondents
-    y_axis_title_margin: 30
-    y_axis_title_position: Left
+    y_axis_title_margin: 15
+    y_axis_title_position: Top
   queries:
   - annotation_layers: []
     applied_time_extras: {}
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: problem_name
-      sqlExpression: problem_name
-    - datasourceWarning: false
+      label: subsection_number
+      sqlExpression: subsection_number
+    - datasourceWarning: true
       expressionType: SQL
       label: success
       sqlExpression: |-
@@ -176,10 +168,7 @@ query_context:
     extras:
       having: ''
       where: ''
-    filters:
-    - col: emission_time
-      op: TEMPORAL_RANGE
-      val: No filter
+    filters: []
     metrics:
     - aggregate: COUNT_DISTINCT
       column:
@@ -244,7 +233,7 @@ query_context:
         - success
         drop_missing_columns: false
         index:
-        - problem_name
+        - subsection_number
     - operation: rename
       options:
         columns:
@@ -254,7 +243,7 @@ query_context:
     - operation: flatten
     row_limit: 10000
     series_columns:
-    - datasourceWarning: false
+    - datasourceWarning: true
       expressionType: SQL
       label: success
       sqlExpression: |-
