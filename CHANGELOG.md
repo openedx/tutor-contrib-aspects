@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v2.2.0 - 2025-04-24
+
+### [2.2.0](https://github.com/openedx/tutor-contrib-aspects/compare/v2.1.0...v2.2.0) (2025-04-24)
+
+#### Features
+
+* add mfe plugin config for authoring metrics ([e22b34a](https://github.com/openedx/tutor-contrib-aspects/commit/e22b34ad0e7060af0c1d662f5009ba848318fc00))
+* in-context analytics dashboards ([d95e6ab](https://github.com/openedx/tutor-contrib-aspects/commit/d95e6abcb9718bc5889e13fadaa31452317b84d9))
+* In-Context metrics dashboard ([f95c351](https://github.com/openedx/tutor-contrib-aspects/commit/f95c351fde35d85f6de3cc5a046f90b68bcba01f))
+* remove padding in embedded dashboards ([bd48763](https://github.com/openedx/tutor-contrib-aspects/commit/bd487639d14b153b1d44b0e7852b1433d82d509e))
+
 ## v2.1.0 - 2025-04-09
 
 ### [2.1.0](https://github.com/openedx/tutor-contrib-aspects/compare/v2.0.0...v2.1.0) (2025-04-09)
