@@ -29,9 +29,8 @@ params:
   extra_form_data: {}
   groupby: []
   groupby_b: []
-  legendOrientation: top
-  legendType: scroll
   logAxis: false
+  logAxisSecondary: false
   markerEnabled: true
   markerEnabledB: false
   markerSize: 22
@@ -85,7 +84,7 @@ params:
   truncate_metric: false
   truncate_metric_b: true
   viz_type: mixed_timeseries
-  x_axis: avg_score
+  x_axis: score_range
   x_axis_time_format: smart_date
   x_axis_title: Subsection Score
   x_axis_title_margin: 30
@@ -121,14 +120,13 @@ query_context:
     areaB: false
     color_scheme: aspects_default
     dashboards:
-    - 4741
+    - 5461
     datasource: 382__table
     extra_form_data: {}
     force: false
     groupby: []
-    legendOrientation: top
-    legendType: scroll
     logAxis: false
+    logAxisSecondary: false
     markerEnabled: true
     markerEnabledB: false
     markerSize: 22
@@ -156,7 +154,7 @@ query_context:
     truncateXAxis: false
     truncate_metric: false
     viz_type: mixed_timeseries
-    x_axis: avg_score
+    x_axis: score_range
     x_axis_time_format: smart_date
     x_axis_title: Subsection Score
     x_axis_title_margin: 30
@@ -181,8 +179,8 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: avg_score
-      sqlExpression: avg_score
+      label: score_range
+      sqlExpression: score_range
     custom_form_data: {}
     custom_params: {}
     extras:
@@ -206,7 +204,7 @@ query_context:
         columns: []
         drop_missing_columns: true
         index:
-        - avg_score
+        - score_range
     - operation: flatten
     row_limit: 10000
     series_columns: []
@@ -218,8 +216,8 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: avg_score
-      sqlExpression: avg_score
+      label: score_range
+      sqlExpression: score_range
     custom_form_data: {}
     custom_params: {}
     extras:
@@ -291,7 +289,7 @@ query_context:
         columns: []
         drop_missing_columns: true
         index:
-        - avg_score
+        - score_range
     - operation: flatten
     row_limit: 10000
     series_columns: []

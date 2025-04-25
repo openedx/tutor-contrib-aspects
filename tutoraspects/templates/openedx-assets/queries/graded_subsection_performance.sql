@@ -23,21 +23,12 @@ with
         where problem_blocks.graded
     ),
     avg_actor as (
-        select
-            org,
-            course_key,
-            block_id,
-            avg(scaled_score) as avg_score,
-            actor_id
+        select org, course_key, block_id, avg(scaled_score) as avg_score, actor_id
         from section_data
         group by org, course_key, block_id, actor_id
     ),
     avg_total as (
-        select
-            org,
-            course_key,
-            block_id,
-            avg(scaled_score) as total_avg
+        select org, course_key, block_id, avg(scaled_score) as total_avg
         from section_data
         group by org, course_key, block_id
     ),
@@ -48,14 +39,19 @@ with
             avg_actor.block_id as block_id,
             round(avg_actor.avg_score * 100, 2) as avg_score,
             round(avg_total.total_avg, 2) as total_avg,
-            case 
-              when avg_score > 90 then '>90%'
-              when avg_score > 70 then '71-90%'
-              when avg_score > 50 then '51-70%'
-              when avg_score > 30 then '31-50%'
-              when avg_score > 0 then '1-30%'
-              else '0%'
-              end as score_range
+            case
+                when avg_score > 90
+                then '>90%'
+                when avg_score > 70
+                then '71-90%'
+                when avg_score > 50
+                then '51-70%'
+                when avg_score > 30
+                then '31-50%'
+                when avg_score > 0
+                then '1-30%'
+                else '0%'
+            end as score_range
         from avg_actor
         join avg_total using (org, course_key, block_id)
     )

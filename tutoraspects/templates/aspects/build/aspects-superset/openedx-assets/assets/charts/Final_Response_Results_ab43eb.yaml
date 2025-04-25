@@ -10,7 +10,7 @@ params:
   color_scheme: aspects_default
   extra_form_data: {}
   groupby:
-  - datasourceWarning: true
+  - datasourceWarning: false
     expressionType: SQL
     label: success
     sqlExpression: |-
@@ -58,11 +58,11 @@ params:
   truncateYAxis: false
   truncate_metric: true
   viz_type: echarts_timeseries_bar
-  x_axis: subsection_number
+  x_axis: problem_number
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
-  x_axis_title: Subsection
+  x_axis_title: Problem
   x_axis_title_margin: 30
   y_axis_bounds:
   - null
@@ -81,12 +81,12 @@ query_context:
     annotation_layers: []
     color_scheme: aspects_default
     dashboards:
-    - 4741
+    - 5461
     datasource: 644__table
     extra_form_data: {}
     force: false
     groupby:
-    - datasourceWarning: true
+    - datasourceWarning: false
       expressionType: SQL
       label: success
       sqlExpression: |-
@@ -137,11 +137,11 @@ query_context:
     truncateYAxis: false
     truncate_metric: true
     viz_type: echarts_timeseries_bar
-    x_axis: subsection_number
+    x_axis: problem_number
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date
-    x_axis_title: Subsection
+    x_axis_title: Problem
     x_axis_title_margin: 30
     y_axis_bounds:
     - null
@@ -156,9 +156,9 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: subsection_number
-      sqlExpression: subsection_number
-    - datasourceWarning: true
+      label: problem_number
+      sqlExpression: problem_number
+    - datasourceWarning: false
       expressionType: SQL
       label: success
       sqlExpression: |-
@@ -233,7 +233,7 @@ query_context:
         - success
         drop_missing_columns: false
         index:
-        - subsection_number
+        - problem_number
     - operation: rename
       options:
         columns:
@@ -243,7 +243,7 @@ query_context:
     - operation: flatten
     row_limit: 10000
     series_columns:
-    - datasourceWarning: true
+    - datasourceWarning: false
       expressionType: SQL
       label: success
       sqlExpression: |-

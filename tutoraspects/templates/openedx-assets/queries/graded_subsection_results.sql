@@ -9,7 +9,7 @@ with
             last_response.success as success,
             substring(
                 regexpExtract(
-                    first_success.object_id, '(@problem+block@[wd][^_/]*)(_d)?', 2
+                    last_response.object_id, '(@problem+block@[wd][^_/]*)(_d)?', 2
                 ),
                 2
             ) as _problem_id_number,
@@ -47,10 +47,5 @@ with
         where problem_blocks.graded
     )
 select
-    org,
-    course_key,
-    subsection_block_id as block_id,
-    problem_number,
-    actor_id,
-    success
+    org, course_key, subsection_block_id as block_id, problem_number, actor_id, success
 from final_results
