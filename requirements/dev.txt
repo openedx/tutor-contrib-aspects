@@ -29,7 +29,7 @@ cachetools==5.5.2
     # via
     #   -r requirements/base.txt
     #   google-auth
-certifi==2025.1.31
+certifi==2025.4.26
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -71,7 +71,7 @@ idna==3.10
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==8.6.1
+importlib-metadata==8.7.0
     # via
     #   -r requirements/base.txt
     #   keyring
@@ -113,7 +113,7 @@ mccabe==0.7.0
     # via pylint
 mdurl==0.1.2
     # via markdown-it-py
-more-itertools==10.6.0
+more-itertools==10.7.0
     # via
     #   jaraco-classes
     #   jaraco-functools
@@ -121,7 +121,7 @@ mypy==1.15.0
     # via
     #   -r requirements/base.txt
     #   tutor
-mypy-extensions==1.0.0
+mypy-extensions==1.1.0
     # via
     #   -r requirements/base.txt
     #   black

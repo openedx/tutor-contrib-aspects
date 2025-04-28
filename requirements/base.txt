@@ -14,7 +14,7 @@ black==25.1.0
     # via shandy-sqlfmt
 cachetools==5.5.2
     # via google-auth
-certifi==2025.1.31
+certifi==2025.4.26
     # via
     #   kubernetes
     #   requests
@@ -35,7 +35,7 @@ google-auth==2.39.0
     # via kubernetes
 idna==3.10
     # via requests
-importlib-metadata==8.6.1
+importlib-metadata==8.7.0
     # via tutor
 importlib-resources==6.5.2
     # via
@@ -51,7 +51,7 @@ markupsafe==3.0.2
     # via jinja2
 mypy==1.15.0
     # via tutor
-mypy-extensions==1.0.0
+mypy-extensions==1.1.0
     # via
     #   black
     #   mypy
