@@ -36,7 +36,7 @@ certifi==2025.4.26
     #   requests
 cffi==1.17.1
     # via cryptography
-charset-normalizer==3.4.1
+charset-normalizer==3.4.2
     # via
     #   -r requirements/base.txt
     #   requests
@@ -47,7 +47,7 @@ click==8.1.8
     #   shandy-sqlfmt
     #   transifex-python
     #   tutor
-cryptography==44.0.2
+cryptography==44.0.3
     # via secretstorage
 dill==0.4.0
     # via pylint
@@ -178,9 +178,9 @@ pygments==2.19.1
     #   rich
 pyinstaller==6.13.0
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2025.3
+pyinstaller-hooks-contrib==2025.4
     # via pyinstaller
-pylint==3.3.6
+pylint==3.3.7
     # via -r requirements/dev.in
 pyseeyou==1.0.2
     # via
