@@ -62,5 +62,5 @@ select
     interaction_type,
     problem_number,
     problem_name_location,
-    block_id
+    splitByChar('@',block_id)[3] as block_id
 from first_response
