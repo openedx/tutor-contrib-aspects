@@ -48,5 +48,5 @@ select
     actor_id,
     problem_number,
     problem_name_location,
-    splitByChar('@',block_id)[3] as block_id
+    splitByChar('@', block_id)[3] as block_id
 from final_results

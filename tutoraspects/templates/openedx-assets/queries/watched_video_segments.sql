@@ -125,7 +125,7 @@ with
                 ':'
             ) as video_number,
             concat(video_number, ' - ', _video_with_name[2]) as video_name_location,
-            splitByChar('@',block_id)[3] as block_id,
+            splitByChar('@', block_id)[3] as block_id,
             username,
             name,
             email

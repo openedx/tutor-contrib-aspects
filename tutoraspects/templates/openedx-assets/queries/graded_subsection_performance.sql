@@ -55,5 +55,11 @@ with
         from avg_actor
         join avg_total using (org, course_key, block_id)
     )
-select org, course_key, splitByChar('@',block_id)[3] as block_id, avg_score, total_avg, score_range
+select
+    org,
+    course_key,
+    splitByChar('@', block_id)[3] as block_id,
+    avg_score,
+    total_avg,
+    score_range
 from combine

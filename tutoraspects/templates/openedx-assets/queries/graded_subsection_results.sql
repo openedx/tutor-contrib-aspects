@@ -47,5 +47,10 @@ with
         where problem_blocks.graded
     )
 select
-    org, course_key, splitByChar('@',subsection_block_id)[3] as block_id, problem_number, actor_id, success
+    org,
+    course_key,
+    splitByChar('@', subsection_block_id)[3] as block_id,
+    problem_number,
+    actor_id,
+    success
 from final_results
