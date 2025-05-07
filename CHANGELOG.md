@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v2.3.0 - 2025-05-07
+
+### [2.3.0](https://github.com/openedx/tutor-contrib-aspects/compare/v2.2.1...v2.3.0) (2025-05-07)
+
+#### Features
+
+* Upgrade ClickHouse to 25.3 ([6bf38d2](https://github.com/openedx/tutor-contrib-aspects/commit/6bf38d20ac03117cb8b8d259a5c51f7b16c09a18))
+
+#### Bug Fixes
+
+* bump dbt ([bb333e7](https://github.com/openedx/tutor-contrib-aspects/commit/bb333e7a62bd9a3a97a397b68415c83cb3fcc861))
+* formatting ([204e8fe](https://github.com/openedx/tutor-contrib-aspects/commit/204e8fe176c1656e688f9d92d1b4843ad2863bb8))
+* restart clickhouse and ralph automatically ([839bbba](https://github.com/openedx/tutor-contrib-aspects/commit/839bbba9dca6266e800c47f8a68b214b5c80503e))
+* use end of block id ([74e1c5a](https://github.com/openedx/tutor-contrib-aspects/commit/74e1c5a9d1575dc37fad57ff739f3016324d520c))
+
 ## v2.2.1 - 2025-04-25
 
 ### [2.2.1](https://github.com/openedx/tutor-contrib-aspects/compare/v2.2.0...v2.2.1) (2025-04-25)
