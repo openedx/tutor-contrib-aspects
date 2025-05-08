@@ -13,7 +13,6 @@ params:
     subject: emission_time
   all_columns: []
   allow_render_html: true
-  annotation_layers: []
   color_pn: false
   column_config:
     perc_correct_all:
@@ -26,7 +25,7 @@ params:
   conditional_formatting: []
   extra_form_data: {}
   groupby:
-  - problem_number
+  - problem_part
   metrics:
   - perc_correct_all
   - perc_correct_first
@@ -42,7 +41,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 604
+    id: 893
     type: table
   force: false
   form_data:
@@ -65,12 +64,12 @@ query_context:
     comparison_type: values
     conditional_formatting: []
     dashboards:
-    - 3621
-    datasource: 604__table
+    - 2027
+    datasource: 893__table
     extra_form_data: {}
     force: false
     groupby:
-    - problem_number
+    - problem_part
     metrics:
     - perc_correct_all
     - perc_correct_first
@@ -91,7 +90,7 @@ query_context:
   - annotation_layers: []
     applied_time_extras: {}
     columns:
-    - problem_number
+    - problem_part
     custom_form_data: {}
     custom_params: {}
     extras:

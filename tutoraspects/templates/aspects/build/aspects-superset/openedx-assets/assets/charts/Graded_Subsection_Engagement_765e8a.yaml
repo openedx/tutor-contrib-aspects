@@ -12,8 +12,6 @@ params:
   extra_form_data: {}
   groupby: []
   groupby_b: []
-  legendOrientation: top
-  legendType: scroll
   markerEnabledB: true
   markerSize: 6
   markerSizeB: 6
@@ -36,9 +34,9 @@ params:
   truncate_metric: false
   truncate_metric_b: true
   viz_type: mixed_timeseries
-  x_axis: subsection_number
+  x_axis: subsection_with_name
   x_axis_time_format: smart_date
-  x_axis_title: Subsection
+  x_axis_title: ''
   x_axis_title_margin: 30
   yAxisIndexB: 1
   yAxisTitleSecondary: Avg Score
@@ -55,7 +53,7 @@ params:
   y_axis_title_position: Top
 query_context:
   datasource:
-    id: 101
+    id: 61
     type: table
   force: false
   form_data:
@@ -63,14 +61,11 @@ query_context:
     annotation_layers: []
     color_scheme: aspects_default
     dashboards:
-    - 4081
-    - 4661
-    datasource: 101__table
+    - 1963
+    datasource: 61__table
     extra_form_data: {}
     force: false
     groupby: []
-    legendOrientation: top
-    legendType: scroll
     markerEnabledB: true
     markerSize: 6
     markerSizeB: 6
@@ -86,14 +81,14 @@ query_context:
     seriesType: bar
     seriesTypeB: line
     show_legend: false
-    slice_id: 421
+    slice_id: 781
     tooltipTimeFormat: smart_date
     truncateXAxis: false
     truncate_metric: false
     viz_type: mixed_timeseries
-    x_axis: subsection_number
+    x_axis: subsection_with_name
     x_axis_time_format: smart_date
-    x_axis_title: Subsection
+    x_axis_title: ''
     x_axis_title_margin: 30
     yAxisIndexB: 1
     yAxisTitleSecondary: Avg Score
@@ -114,8 +109,8 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: subsection_number
-      sqlExpression: subsection_number
+      label: subsection_with_name
+      sqlExpression: subsection_with_name
     custom_form_data: {}
     custom_params: {}
     extras:
@@ -136,7 +131,7 @@ query_context:
         columns: []
         drop_missing_columns: true
         index:
-        - subsection_number
+        - subsection_with_name
     - operation: flatten
     row_limit: 50000
     series_columns: []
@@ -148,8 +143,8 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: subsection_number
-      sqlExpression: subsection_number
+      label: subsection_with_name
+      sqlExpression: subsection_with_name
     custom_form_data: {}
     custom_params: {}
     extras:
@@ -170,7 +165,7 @@ query_context:
         columns: []
         drop_missing_columns: true
         index:
-        - subsection_number
+        - subsection_with_name
     - operation: flatten
     row_limit: 50000
     series_columns: []

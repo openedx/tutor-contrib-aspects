@@ -64,6 +64,18 @@ columns:
   type: String
   verbose_name: Problem Number
 - advanced_data_type: null
+  column_name: problem_part
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Problem Part
+- advanced_data_type: null
   column_name: org
   description: null
   expression: ''
@@ -112,7 +124,8 @@ metrics:
   description: null
   expression: "  ROUND(\r\n    SUM(CASE WHEN success and attempt = 1 THEN 1 ELSE 0\
     \ END) /\r\n    sum(attempt), 2\r\n  )"
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: perc_correct_first
   metric_type: null
   verbose_name: '% Correct First Attempts'
@@ -122,7 +135,8 @@ metrics:
   description: null
   expression: "  ROUND(\r\n    SUM(CASE WHEN success THEN 1 ELSE 0 END) /\r\n    count(1),\
     \ 2\r\n  )"
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: perc_correct_last
   metric_type: null
   verbose_name: '% Correct Last Attempts'
@@ -132,7 +146,8 @@ metrics:
   description: null
   expression: "  ROUND(\r\n    SUM(CASE WHEN success THEN 1 ELSE 0 END) /\r\n    sum(attempt),\
     \ 2\r\n  )"
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: perc_correct_all
   metric_type: null
   verbose_name: '% Correct All Attempts'
@@ -141,7 +156,8 @@ metrics:
   d3format: null
   description: null
   expression: COUNT(*)
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: count
   metric_type: count
   verbose_name: COUNT(*)

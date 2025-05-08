@@ -105,7 +105,7 @@ params:
   zoomable: false
 query_context:
   datasource:
-    id: 382
+    id: 544
     type: table
   force: false
   form_data:
@@ -119,9 +119,7 @@ query_context:
     area: false
     areaB: false
     color_scheme: aspects_default
-    dashboards:
-    - 5461
-    datasource: 382__table
+    datasource: 544__table
     extra_form_data: {}
     force: false
     groupby: []
@@ -147,7 +145,7 @@ query_context:
     show_legend: false
     show_value: false
     show_valueB: false
-    slice_id: 581
+    slice_id: 221
     stack: false
     stackB: false
     tooltipTimeFormat: smart_date
