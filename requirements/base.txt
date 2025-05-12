@@ -20,7 +20,7 @@ certifi==2025.4.26
     #   requests
 charset-normalizer==3.4.2
     # via requests
-click==8.1.8
+click==8.2.0
     # via
     #   -r requirements/base.in
     #   black
@@ -31,7 +31,7 @@ durationpy==0.9
     # via kubernetes
 future==1.0.0
     # via pyseeyou
-google-auth==2.39.0
+google-auth==2.40.1
     # via kubernetes
 idna==3.10
     # via requests
@@ -69,7 +69,7 @@ parsimonious==0.10.0
     # via pyseeyou
 pathspec==0.12.1
     # via black
-platformdirs==4.3.7
+platformdirs==4.3.8
     # via
     #   black
     #   shandy-sqlfmt
