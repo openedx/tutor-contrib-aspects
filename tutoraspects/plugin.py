@@ -73,35 +73,35 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
             "reference/course_overview_dashboard.html)<br>"
-            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
+            "* [Superset Resources](https://github.com/apache/superset?tab=readme-ov-file#resources)<br>",  # pylint: disable=C0301
         ),
         (
             "ASPECTS_LEARNER_GROUPS_HELP_MARKDOWN",
             "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
             "reference/learner_groups_dashboard.html)<br>"
-            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
+            "* [Superset Resources](https://github.com/apache/superset?tab=readme-ov-file#resources)<br>",  # pylint: disable=C0301
         ),
         (
             "ASPECTS_OPERATOR_HELP_MARKDOWN",
             "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
             "reference/operator_reports.html)<br>"
-            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
+            "* [Superset Resources](https://github.com/apache/superset?tab=readme-ov-file#resources)<br>",  # pylint: disable=C0301
         ),
         (
             "ASPECTS_INDIVIDUAL_LEARNER_HELP_MARKDOWN",
             "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
             "reference/individual_learner_dashboard.html)<br>"
-            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
+            "* [Superset Resources](https://github.com/apache/superset?tab=readme-ov-file#resources)<br>",  # pylint: disable=C0301
         ),
         (
             "ASPECTS_COURSE_COMPARISON_HELP_MARKDOWN",
             "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
             "reference/course_comparison_dashboard.html)<br>"
-            "* [Superset Resources](https://github.com/apache/superset#resources)<br>",
+            "* [Superset Resources](https://github.com/apache/superset?tab=readme-ov-file#resources)<br>",  # pylint: disable=C0301
         ),
         ("ASPECTS_ENABLE_INSTRUCTOR_DASHBOARD_PLUGIN", True),
         # Whether to show the link to go to Superset in the instructor dashboard tab
@@ -390,7 +390,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
-        ("DBT_BRANCH", "v4.0.2"),
+        ("DBT_BRANCH", "v4.0.3"),
         ("DBT_SSH_KEY", ""),
         ("DBT_STATE_DIR", "/app/aspects-dbt/state"),
         ("DBT_PROFILES_DIR", "/app/aspects/dbt/"),
