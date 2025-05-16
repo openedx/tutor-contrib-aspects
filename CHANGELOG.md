@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v2.3.1 - 2025-05-16
+
+### [2.3.1](https://github.com/openedx/tutor-contrib-aspects/compare/v2.3.0...v2.3.1) (2025-05-16)
+
+### Bug Fixes
+
+* lint ([40aaae8](https://github.com/openedx/tutor-contrib-aspects/commit/40aaae80fa2310d134b76a67a7d2e9e32cc597c9))
+* uprgade dbt ([75b3208](https://github.com/openedx/tutor-contrib-aspects/commit/75b32088e06d3898b1681924a206de55754ab3ab))
+* use name and location on xaxis, new dbt models ([9d1adae](https://github.com/openedx/tutor-contrib-aspects/commit/9d1adaea06357f3d3dc327c27b90eb1eba21b4a4))
+
 ## v2.3.0 - 2025-05-07
 
 ### [2.3.0](https://github.com/openedx/tutor-contrib-aspects/compare/v2.2.1...v2.3.0) (2025-05-07)
