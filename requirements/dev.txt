@@ -47,13 +47,13 @@ click==8.2.0
     #   shandy-sqlfmt
     #   transifex-python
     #   tutor
-cryptography==44.0.3
+cryptography==45.0.2
     # via secretstorage
 dill==0.4.0
     # via pylint
 docutils==0.21.2
     # via readme-renderer
-durationpy==0.9
+durationpy==0.10
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -168,7 +168,7 @@ pyasn1-modules==0.4.2
     #   google-auth
 pycparser==2.22
     # via cffi
-pycryptodome==3.22.0
+pycryptodome==3.23.0
     # via
     #   -r requirements/base.txt
     #   tutor

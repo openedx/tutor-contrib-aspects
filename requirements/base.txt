@@ -27,7 +27,7 @@ click==8.2.0
     #   shandy-sqlfmt
     #   transifex-python
     #   tutor
-durationpy==0.9
+durationpy==0.10
     # via kubernetes
 future==1.0.0
     # via pyseeyou
@@ -79,7 +79,7 @@ pyasn1==0.6.1
     #   rsa
 pyasn1-modules==0.4.2
     # via google-auth
-pycryptodome==3.22.0
+pycryptodome==3.23.0
     # via tutor
 pyseeyou==1.0.2
     # via transifex-python
