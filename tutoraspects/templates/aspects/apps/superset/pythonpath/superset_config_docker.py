@@ -132,5 +132,11 @@ JINJA_CONTEXT_ADDONS = {
 ENABLE_PROXY_FIX = True
 {% endif %}
 
+# Allows superset to open links in a new tab
+HTML_SANITIZATION_SCHEMA_EXTENSIONS = {
+"attributes": {
+     "a": ["target"],
+  }
+}
 
 {{ patch('superset-config-docker')}}
