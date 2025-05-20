@@ -73,35 +73,35 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
             "reference/course_overview_dashboard.html)<br>"
-            "* [Superset Resources](https://github.com/apache/superset?tab=readme-ov-file#resources)<br>",  # pylint: disable=C0301
+            """* <a href="https://github.com/apache/superset#resources" target="_blank">Superset Resources</a>""",  # pylint: disable=C0301
         ),
         (
             "ASPECTS_LEARNER_GROUPS_HELP_MARKDOWN",
             "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
             "reference/learner_groups_dashboard.html)<br>"
-            "* [Superset Resources](https://github.com/apache/superset?tab=readme-ov-file#resources)<br>",  # pylint: disable=C0301
+            """* <a href="https://github.com/apache/superset#resources" target="_blank">Superset Resources</a>""",  # pylint: disable=C0301
         ),
         (
             "ASPECTS_OPERATOR_HELP_MARKDOWN",
             "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
             "reference/operator_reports.html)<br>"
-            "* [Superset Resources](https://github.com/apache/superset?tab=readme-ov-file#resources)<br>",  # pylint: disable=C0301
+            """* <a href="https://github.com/apache/superset#resources" target="_blank">Superset Resources</a>""",  # pylint: disable=C0301
         ),
         (
             "ASPECTS_INDIVIDUAL_LEARNER_HELP_MARKDOWN",
             "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
             "reference/individual_learner_dashboard.html)<br>"
-            "* [Superset Resources](https://github.com/apache/superset?tab=readme-ov-file#resources)<br>",  # pylint: disable=C0301
+            """* <a href="https://github.com/apache/superset#resources" target="_blank">Superset Resources</a>""",  # pylint: disable=C0301
         ),
         (
             "ASPECTS_COURSE_COMPARISON_HELP_MARKDOWN",
             "## Help<br>"
             "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
             "reference/course_comparison_dashboard.html)<br>"
-            "* [Superset Resources](https://github.com/apache/superset?tab=readme-ov-file#resources)<br>",  # pylint: disable=C0301
+            """* <a href="https://github.com/apache/superset#resources" target="_blank">Superset Resources</a>""",  # pylint: disable=C0301
         ),
         ("ASPECTS_ENABLE_INSTRUCTOR_DASHBOARD_PLUGIN", True),
         # Whether to show the link to go to Superset in the instructor dashboard tab
@@ -323,18 +323,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "SUPERSET_SUPPORTED_LANGUAGES",
             {
                 "en": {"flag": "us", "name": "English"},
-                "es": {"flag": "es", "name": "Español"},
-                "it": {"flag": "it", "name": "Italian"},
-                "fr": {"flag": "fr", "name": "French"},
-                "zh": {"flag": "cn", "name": "Chinese"},
-                "ja": {"flag": "jp", "name": "Japanese"},
-                "de": {"flag": "de", "name": "German"},
-                "pt": {"flag": "pt", "name": "Portuguese"},
-                "ru": {"flag": "ru", "name": "Russian"},
-                "ko": {"flag": "kr", "name": "Korean"},
-                "sk": {"flag": "sk", "name": "Slovak"},
-                "sl": {"flag": "si", "name": "Slovenian"},
-                "nl": {"flag": "nl", "name": "Dutch"},
             },
         ),
         # These are the locales that Open edX supports according to:
@@ -342,25 +330,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "SUPERSET_DASHBOARD_LOCALES",
             [
-                "ar",
-                "da",
-                "de_DE",
-                "el",
                 "en",
-                "es_419",
-                "es_ES",
-                "fr_CA",
-                "he",
-                "hi",
-                "id",
-                "it_IT",
-                "pt_BR",
-                "pt_PT",
-                "ru",
-                "th",
-                "tr_TR",
-                "uk",
-                "zh_CN",
             ],
         ),
         ("SUPERSET_EXTRA_JINJA_FILTERS", {}),
