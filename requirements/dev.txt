@@ -40,14 +40,14 @@ charset-normalizer==3.4.2
     # via
     #   -r requirements/base.txt
     #   requests
-click==8.2.0
+click==8.2.1
     # via
     #   -r requirements/base.txt
     #   black
     #   shandy-sqlfmt
     #   transifex-python
     #   tutor
-cryptography==45.0.2
+cryptography==45.0.3
     # via secretstorage
 dill==0.4.0
     # via pylint
@@ -61,7 +61,7 @@ future==1.0.0
     # via
     #   -r requirements/base.txt
     #   pyseeyou
-google-auth==2.40.1
+google-auth==2.40.2
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -224,7 +224,7 @@ rsa==4.9.1
     # via
     #   -r requirements/base.txt
     #   google-auth
-ruamel-yaml==0.18.10
+ruamel-yaml==0.18.11
     # via -r requirements/base.txt
 ruamel-yaml-clib==0.2.12
     # via
@@ -251,7 +251,7 @@ tqdm==4.67.1
     #   shandy-sqlfmt
 transifex-python==3.5.0
     # via -r requirements/base.txt
-tutor==19.0.2
+tutor==19.0.3
     # via
     #   -r requirements/base.txt
     #   tutor-contrib-pod-autoscaling
