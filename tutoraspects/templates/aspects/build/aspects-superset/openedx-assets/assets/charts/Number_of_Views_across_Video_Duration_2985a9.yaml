@@ -8,18 +8,27 @@ description: To view the number of views across the duration of a single video, 
 params:
   adhoc_filters:
   - clause: WHERE
-    comparator: No filter
+    comparator: '0'
     datasourceWarning: false
     expressionType: SIMPLE
-    filterOptionName: filter_kpkhcnms3c_m156a9ez5ga
+    filterOptionName: filter_nudesyvmwd_udl5q3k0twk
     isExtra: false
     isNew: false
-    operator: TEMPORAL_RANGE
+    operator: '!='
+    operatorId: NOT_EQUALS
     sqlExpression: null
+    subject: segment_start
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
     subject: started_at
   annotation_layers: []
   color_scheme: supersetColors
+  comparison_type: values
   extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
   groupby: []
   legendOrientation: top
   legendType: scroll
@@ -27,9 +36,10 @@ params:
   - total_views
   - repeat_views
   only_total: true
+  order_desc: true
   orientation: vertical
   rich_tooltip: true
-  row_limit: 10000
+  row_limit: 50000
   show_empty_columns: true
   show_legend: true
   sort_series_type: sum
@@ -40,6 +50,7 @@ params:
   viz_type: echarts_timeseries_bar
   xAxisForceCategorical: true
   x_axis: segment_start
+  x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
@@ -55,26 +66,38 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 59
+    id: 765
     type: table
   force: false
   form_data:
     adhoc_filters:
     - clause: WHERE
-      comparator: No filter
+      comparator: '0'
       datasourceWarning: false
       expressionType: SIMPLE
-      filterOptionName: filter_kpkhcnms3c_m156a9ez5ga
+      filterOptionName: filter_nudesyvmwd_udl5q3k0twk
       isExtra: false
       isNew: false
-      operator: TEMPORAL_RANGE
+      operator: '!='
+      operatorId: NOT_EQUALS
       sqlExpression: null
+      subject: segment_start
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
       subject: started_at
     annotation_layers: []
     color_scheme: supersetColors
-    datasource: 59__table
+    comparison_type: values
+    dashboards:
+    - 2579
+    - 2589
+    datasource: 765__table
     extra_form_data: {}
     force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
     groupby: []
     legendOrientation: top
     legendType: scroll
@@ -82,14 +105,15 @@ query_context:
     - total_views
     - repeat_views
     only_total: true
+    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
     rich_tooltip: true
-    row_limit: 10000
+    row_limit: 50000
     show_empty_columns: true
     show_legend: true
-    slice_id: 124
+    slice_id: 561
     sort_series_type: sum
     stack: Stack
     tooltipTimeFormat: smart_date
@@ -98,6 +122,7 @@ query_context:
     viz_type: echarts_timeseries_bar
     xAxisForceCategorical: true
     x_axis: segment_start
+    x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date
@@ -125,6 +150,9 @@ query_context:
       having: ''
       where: ''
     filters:
+    - col: segment_start
+      op: '!='
+      val: '0'
     - col: started_at
       op: TEMPORAL_RANGE
       val: No filter
@@ -148,7 +176,7 @@ query_context:
         index:
         - segment_start
     - operation: flatten
-    row_limit: 10000
+    row_limit: 50000
     series_columns: []
     series_limit: 0
     time_offsets: []

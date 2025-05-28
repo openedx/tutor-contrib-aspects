@@ -31,7 +31,7 @@ params:
   truncate_metric: true
   viz_type: echarts_timeseries_bar
   xAxisLabelRotation: 0
-  x_axis: video_name_with_location
+  x_axis: video_name_location
   x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
@@ -47,7 +47,7 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 73
+    id: 604
     type: table
   force: false
   form_data:
@@ -55,7 +55,7 @@ query_context:
     annotation_layers: []
     color_scheme: supersetColors
     comparison_type: values
-    datasource: 73__table
+    datasource: 604__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -75,14 +75,14 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    slice_id: 123
+    slice_id: 421
     sort_series_type: sum
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
     viz_type: echarts_timeseries_bar
     xAxisLabelRotation: 0
-    x_axis: video_name_with_location
+    x_axis: video_name_location
     x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
@@ -102,8 +102,8 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: video_name_with_location
-      sqlExpression: video_name_with_location
+      label: video_name_location
+      sqlExpression: video_name_location
     custom_form_data: {}
     custom_params: {}
     extras:
@@ -128,7 +128,7 @@ query_context:
         columns: []
         drop_missing_columns: false
         index:
-        - video_name_with_location
+        - video_name_location
     - operation: flatten
     row_limit: 10000
     series_columns: []

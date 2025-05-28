@@ -2,25 +2,71 @@ _file_name: Video_Engagement_ace4c7.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: c2c391b3-3403-4f05-bc0b-3de53bd366ec
+dataset_uuid: d0070c9a-5b1c-4e52-867b-79aa46a8cdcf
 description: null
 params:
-  adhoc_filters:
-  - clause: WHERE
-    comparator: No filter
-    expressionType: SIMPLE
-    operator: TEMPORAL_RANGE
-    subject: started_at
+  adhoc_filters: []
   annotation_layers: []
   color_scheme: aspects_default
   extra_form_data: {}
   groupby: []
+  legendOrientation: top
+  legendType: scroll
   logAxis: false
   metrics:
-  - repeat_views
-  - unique_viewers
+  - aggregate: SUM
+    column:
+      advanced_data_type: null
+      changed_on: '2025-06-10T14:44:59'
+      column_name: video_watched_count
+      created_on: '2025-06-10T14:42:21'
+      description: null
+      expression: null
+      extra: '{}'
+      filterable: true
+      groupby: true
+      id: 10971
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: UInt64
+      type_generic: 0
+      uuid: 1e9d1064-990d-4e08-acb8-d04d6f55c5fd
+      verbose_name: Video Watched Count
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: Total Views
+    optionName: metric_9h0okdo14c8_fe2n9x27sfr
+    sqlExpression: null
+  - aggregate: SUM
+    column:
+      advanced_data_type: null
+      changed_on: '2025-06-11T14:48:10'
+      column_name: video_rewatched_count
+      created_on: '2025-06-11T14:48:10'
+      description: null
+      expression: null
+      extra: '{}'
+      filterable: true
+      groupby: true
+      id: 11020
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: UInt64
+      type_generic: 0
+      uuid: 51dabc33-0cb4-4ee8-8d9d-e529fc6b79a0
+      verbose_name: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: Repeat Views
+    optionName: metric_uh9jf1arf3d_vaqs9qdz57a
+    sqlExpression: null
   minorSplitLine: false
   minorTicks: false
+  only_total: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 5000
@@ -39,6 +85,11 @@ params:
   x_axis: video_name_location
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
+  x_axis_time_format: smart_date
+  x_axis_title_margin: 15
+  y_axis_bounds:
+  - null
+  - null
   y_axis_format: SMART_NUMBER
   y_axis_title: Views
   y_axis_title_margin: 15
@@ -46,30 +97,76 @@ params:
   zoomable: false
 query_context:
   datasource:
-    id: 765
+    id: 604
     type: table
   force: false
   form_data:
-    adhoc_filters:
-    - clause: WHERE
-      comparator: No filter
-      expressionType: SIMPLE
-      operator: TEMPORAL_RANGE
-      subject: started_at
+    adhoc_filters: []
     annotation_layers: []
     color_scheme: aspects_default
     dashboards:
-    - 1963
-    datasource: 765__table
+    - 2737
+    datasource: 604__table
     extra_form_data: {}
     force: false
     groupby: []
+    legendOrientation: top
+    legendType: scroll
     logAxis: false
     metrics:
-    - repeat_views
-    - unique_viewers
+    - aggregate: SUM
+      column:
+        advanced_data_type: null
+        changed_on: '2025-06-10T14:44:59'
+        column_name: video_watched_count
+        created_on: '2025-06-10T14:42:21'
+        description: null
+        expression: null
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 10971
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: UInt64
+        type_generic: 0
+        uuid: 1e9d1064-990d-4e08-acb8-d04d6f55c5fd
+        verbose_name: Video Watched Count
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Total Views
+      optionName: metric_9h0okdo14c8_fe2n9x27sfr
+      sqlExpression: null
+    - aggregate: SUM
+      column:
+        advanced_data_type: null
+        changed_on: '2025-06-11T14:48:10'
+        column_name: video_rewatched_count
+        created_on: '2025-06-11T14:48:10'
+        description: null
+        expression: null
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 11020
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: UInt64
+        type_generic: 0
+        uuid: 51dabc33-0cb4-4ee8-8d9d-e529fc6b79a0
+        verbose_name: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Repeat Views
+      optionName: metric_uh9jf1arf3d_vaqs9qdz57a
+      sqlExpression: null
     minorSplitLine: false
     minorTicks: false
+    only_total: true
     orientation: vertical
     result_format: json
     result_type: full
@@ -91,6 +188,11 @@ query_context:
     x_axis: video_name_location
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
+    x_axis_time_format: smart_date
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
     y_axis_format: SMART_NUMBER
     y_axis_title: Views
     y_axis_title_margin: 15
@@ -109,24 +211,93 @@ query_context:
     extras:
       having: ''
       where: ''
-    filters:
-    - col: started_at
-      op: TEMPORAL_RANGE
-      val: No filter
+    filters: []
     metrics:
-    - repeat_views
-    - unique_viewers
+    - aggregate: SUM
+      column:
+        advanced_data_type: null
+        changed_on: '2025-06-10T14:44:59'
+        column_name: video_watched_count
+        created_on: '2025-06-10T14:42:21'
+        description: null
+        expression: null
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 10971
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: UInt64
+        type_generic: 0
+        uuid: 1e9d1064-990d-4e08-acb8-d04d6f55c5fd
+        verbose_name: Video Watched Count
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Total Views
+      optionName: metric_9h0okdo14c8_fe2n9x27sfr
+      sqlExpression: null
+    - aggregate: SUM
+      column:
+        advanced_data_type: null
+        changed_on: '2025-06-11T14:48:10'
+        column_name: video_rewatched_count
+        created_on: '2025-06-11T14:48:10'
+        description: null
+        expression: null
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 11020
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: UInt64
+        type_generic: 0
+        uuid: 51dabc33-0cb4-4ee8-8d9d-e529fc6b79a0
+        verbose_name: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Repeat Views
+      optionName: metric_uh9jf1arf3d_vaqs9qdz57a
+      sqlExpression: null
     order_desc: true
     orderby:
-    - - repeat_views
+    - - aggregate: SUM
+        column:
+          advanced_data_type: null
+          changed_on: '2025-06-10T14:44:59'
+          column_name: video_watched_count
+          created_on: '2025-06-10T14:42:21'
+          description: null
+          expression: null
+          extra: '{}'
+          filterable: true
+          groupby: true
+          id: 10971
+          is_active: true
+          is_dttm: false
+          python_date_format: null
+          type: UInt64
+          type_generic: 0
+          uuid: 1e9d1064-990d-4e08-acb8-d04d6f55c5fd
+          verbose_name: Video Watched Count
+        datasourceWarning: false
+        expressionType: SIMPLE
+        hasCustomLabel: true
+        label: Total Views
+        optionName: metric_9h0okdo14c8_fe2n9x27sfr
+        sqlExpression: null
       - false
     post_processing:
     - operation: pivot
       options:
         aggregates:
-          repeat_views:
+          Repeat Views:
             operator: mean
-          unique_viewers:
+          Total Views:
             operator: mean
         columns: []
         drop_missing_columns: false
