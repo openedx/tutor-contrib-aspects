@@ -19,17 +19,17 @@ select
     video_duration <= watched_segment_count as watched_entire_video
 from watched_segments
 -- where
---     1 = 1
---     {% raw %}
---     {% if filter_values("Section Name") != [] %}
---         and section_with_name in {{ filter_values("Section Name") | where_in }}
---     {% endif %}
---     {% if filter_values("Subsection Name") != [] %}
---         and subsection_with_name in {{ filter_values("Subsection Name") | where_in }}
---     {% endif %}
---     {% if from_dttm %} and started_at > '{{ from_dttm }}' {% endif %}
---     {% if to_dttm %} and started_at < '{{ to_dttm }}' {% endif %}
---     {% endraw %}
+-- 1 = 1
+-- {% raw %}
+-- {% if filter_values("Section Name") != [] %}
+-- and section_with_name in {{ filter_values("Section Name") | where_in }}
+-- {% endif %}
+-- {% if filter_values("Subsection Name") != [] %}
+-- and subsection_with_name in {{ filter_values("Subsection Name") | where_in }}
+-- {% endif %}
+-- {% if from_dttm %} and started_at > '{{ from_dttm }}' {% endif %}
+-- {% if to_dttm %} and started_at < '{{ to_dttm }}' {% endif %}
+-- {% endraw %}
 group by
     org,
     course_key,
