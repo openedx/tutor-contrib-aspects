@@ -25,12 +25,14 @@ with
             org,
             course_key,
             actor_id,
+            object_id,
             splitByString('/xblock/', object_id)[-1] as video_id,
             case when rewatched_segment > 0 then 'rewatch' else 'watch' end as watch_status,
             case when rewatched_segment > 0 then rewatched_segment else watched_segment end as segment_start,
             formatDateTime(
                 toDate(now()) + toIntervalSecond(segment_start), '%T'
-            ) as time_stamp
+            ) as time_stamp,
+            video_duration
         from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_video_repeat_watches(
             {% raw -%}
             org_filter = coalesce({{ filter_values("org") }}, []),
@@ -57,7 +59,11 @@ with
                 ),
                 ':'
             ) as video_number,
-            concat(video_number, ' - ', _video_with_name[2]) as video_name_location
+            concat(video_number, ' - ', _video_with_name[2]) as video_name_location,
+            concat(
+                '<a href="', repeat_watches.object_id, '" target="_blank">', blocks.display_name_with_location, '</a>'
+            ) as video_link,
+            repeat_watches.video_duration
         from repeat_watches
         join
             {{ DBT_PROFILE_TARGET_DATABASE }}.dim_course_blocks blocks
@@ -79,7 +85,9 @@ select
     time_stamp,
     users.username as username,
     users.name as name,
-    users.email as email
+    users.email as email,
+    video_link,
+    video_duration
 from final_results
 left outer join
     {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii users
