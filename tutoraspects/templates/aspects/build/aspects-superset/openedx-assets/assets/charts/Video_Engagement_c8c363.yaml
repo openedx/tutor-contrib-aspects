@@ -94,7 +94,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 64
+    id: 323
     type: table
   force: false
   form_data:
@@ -142,7 +142,7 @@ query_context:
       column: total_plays
       operator: "\u2265"
       targetValue: 0
-    datasource: 64__table
+    datasource: 323__table
     extra_form_data: {}
     force: false
     groupby:
@@ -160,7 +160,7 @@ query_context:
     result_type: full
     row_limit: 1000
     show_cell_bars: true
-    slice_id: 2
+    slice_id: 1001
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true
@@ -265,6 +265,7 @@ query_context:
       label: AVG(Course Order)
       optionName: metric_x8p49edpe7j_bznnmqd872
       sqlExpression: null
+    time_offsets: []
     url_params: {}
   result_format: json
   result_type: full
