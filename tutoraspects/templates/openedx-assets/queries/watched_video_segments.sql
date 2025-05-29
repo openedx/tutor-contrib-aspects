@@ -1,122 +1,63 @@
+{% raw -%}
 with
-    video_events as (
+    course_keys as (
+        select [] as course_key
+        {% if filter_values("course_name") != [] %}
+            union all
+            select array(course_key) as course_key
+            from
+                {% endraw -%} {{ ASPECTS_EVENT_SINK_DATABASE }}.dim_course_names {% raw -%}
+            where course_name in {{ filter_values("course_name") | where_in }}
+        {% endif %}
+        {% if filter_values("tag") != [] %}
+            union distinct
+            select array(course_key) as course_key
+            from
+                {% endraw -%} {{ DBT_PROFILE_TARGET_DATABASE }}.dim_most_recent_course_tags {% raw -%}
+            where
+                tag
+                in (select replaceAll(arrayJoin({{ filter_values("tag") }}), '- ', ''))
+        {% endif %}
+    ),
+    {%- endraw %}
+    repeat_watches as (
         select
-            emission_time,
             org,
             course_key,
-            splitByString('/xblock/', object_id)[-1] as video_id,
+            actor_id,
             object_id,
-            actor_id,
-            verb_id,
-            video_position,
-            video_duration
-        from {{ ASPECTS_XAPI_DATABASE }}.video_playback_events
-        where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
-    ),
-    starts as (
-        select *
-        from video_events
-        where verb_id = 'https://w3id.org/xapi/video/verbs/played'
-    ),
-    ends as (
-        select *
-        from video_events
-        where
-            verb_id in (
-                'http://adlnet.gov/expapi/verbs/completed',
-                'https://w3id.org/xapi/video/verbs/seeked',
-                'https://w3id.org/xapi/video/verbs/paused',
-                'http://adlnet.gov/expapi/verbs/terminated'
-            )
-    ),
-    segments as (
-        select
-            starts.org as org,
-            starts.course_key as course_key,
-            starts.video_id as video_id,
-            starts.actor_id as actor_id,
-            starts.object_id as object_id,
-            cast(starts.video_position as Int32) as start_position,
-            cast(ends.video_position as Int32) as end_position,
-            starts.emission_time as started_at,
-            ends.emission_time as ended_at,
-            ends.verb_id as end_type,
-            starts.video_duration as video_duration
-        from starts left
-        asof join
-            ends
-            on (
-                starts.org = ends.org
-                and starts.course_key = ends.course_key
-                and starts.video_id = ends.video_id
-                and starts.actor_id = ends.actor_id
-                and starts.emission_time < ends.emission_time
-            )
-    ),
-    enriched_segments as (
-        select
-            segments.org as org,
-            segments.course_key as course_key,
-            blocks.course_name as course_name,
-            blocks.course_run as course_run,
-            blocks.section_with_name as section_with_name,
-            blocks.subsection_with_name as subsection_with_name,
-            blocks.block_name as video_name,
-            blocks.display_name_with_location as video_name_with_location,
-            segments.actor_id as actor_id,
-            segments.object_id as object_id,
-            segments.started_at as started_at,
-            segments.start_position - (segments.start_position % 5) as start_position,
-            segments.end_position - (segments.end_position % 5) as end_position,
-            segments.video_duration as video_duration,
-            segments.video_id as video_id,
-            blocks.subsection_number as video_number,
-            blocks.block_id as block_id
-        from segments
-        join
-            {{ DBT_PROFILE_TARGET_DATABASE }}.dim_course_blocks blocks
-            on (
-                segments.course_key = blocks.course_key
-                and segments.video_id = blocks.block_id
-            )
-        where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
-    ),
-    final_results as (
-        select
-            org,
-            course_key,
-            course_name,
-            course_run,
-            section_with_name,
-            subsection_with_name,
-            video_name,
-            video_name_with_location,
-            video_id,
-            concat(
-                '<a href="',
-                object_id,
-                '" target="_blank">',
-                video_name_with_location,
-                '</a>'
-            ) as video_link,
-            actor_id,
-            started_at,
-            arrayJoin(range(end_position, start_position, 5)) as segment_start,
-            video_duration,
-            CONCAT(
-                toString(segment_start), '-', toString(segment_start + 4)
-            ) as segment_range,
-            start_position,
+            splitByString('/xblock/', object_id)[-1] as video_id,
+            case
+                when rewatched_segment > 0 then 'rewatch' else 'watch'
+            end as watch_status,
+            case
+                when rewatched_segment > 0 then rewatched_segment else watched_segment
+            end as segment_start,
             formatDateTime(
                 toDate(now()) + toIntervalSecond(segment_start), '%T'
             ) as time_stamp,
-            arrayStringConcat(
-                arrayMap(
-                    x -> (leftPad(x, 2, char(917768))), splitByString(':', video_number)
-                ),
-                ':'
-            ) as video_location,
-            splitByString(' - ', video_name_with_location) as _video_with_name,
+            video_duration
+        from
+            {{ DBT_PROFILE_TARGET_DATABASE }}.fact_video_repeat_watches(
+                {% raw -%}
+                org_filter = coalesce({{ filter_values("org") }}, []),
+                course_key_filter
+                = coalesce((select array_concat_agg(course_key) from course_keys), [])
+                {%- endraw %}
+            )
+    ),
+    final_results as (
+        select
+            repeat_watches.org,
+            repeat_watches.course_key,
+            blocks.course_name,
+            blocks.course_run,
+            repeat_watches.actor_id,
+            repeat_watches.video_id,
+            repeat_watches.watch_status,
+            repeat_watches.segment_start,
+            repeat_watches.time_stamp,
+            splitByString(' - ', blocks.display_name_with_location) as _video_with_name,
             arrayStringConcat(
                 arrayMap(
                     x -> (leftPad(x, 2, char(917768))),
@@ -125,16 +66,41 @@ with
                 ':'
             ) as video_number,
             concat(video_number, ' - ', _video_with_name[2]) as video_name_location,
-            splitByChar('@', block_id)[3] as block_id,
-            username,
-            name,
-            email
-        from enriched_segments
-        left outer join
-            {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii users
-            on (actor_id like 'mailto:%' and SUBSTRING(actor_id, 8) = users.email)
-            or actor_id = toString(users.external_user_id)
+            concat(
+                '<a href="',
+                repeat_watches.object_id,
+                '" target="_blank">',
+                blocks.display_name_with_location,
+                '</a>'
+            ) as video_link,
+            repeat_watches.video_duration
+        from repeat_watches
+        join
+            {{ DBT_PROFILE_TARGET_DATABASE }}.dim_course_blocks blocks
+            on (
+                repeat_watches.course_key = blocks.course_key
+                and repeat_watches.video_id = blocks.block_id
+            )
     )
-select * except (_video_with_name)
+select
+    org,
+    course_key,
+    actor_id,
+    course_name,
+    course_run,
+    splitByChar('@', video_id)[3] as block_id,
+    video_name_location,
+    watch_status,
+    segment_start,
+    time_stamp,
+    users.username as username,
+    users.name as name,
+    users.email as email,
+    video_link,
+    video_duration
 from final_results
-order by segment_start
+left outer join
+    {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii users
+    on (actor_id like 'mailto:%' and SUBSTRING(actor_id, 8) = users.email)
+    or actor_id = toString(users.external_user_id)
+where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
