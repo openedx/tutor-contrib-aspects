@@ -30,6 +30,19 @@ columns:
   type: String
   verbose_name: Section Location and Name
 - advanced_data_type: null
+  column_name: video_name_with_location
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Video Name With Location
+- advanced_data_type: null
   column_name: course_key
   description: null
   expression: ''

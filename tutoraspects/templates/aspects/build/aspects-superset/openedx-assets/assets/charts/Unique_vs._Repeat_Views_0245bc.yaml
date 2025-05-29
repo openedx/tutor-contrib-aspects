@@ -99,8 +99,6 @@ query_context:
       subject: segment_start
     annotation_layers: []
     color_scheme: aspects_default
-    dashboards:
-    - 1493
     datasource: 765__table
     extra_form_data: {}
     force: false

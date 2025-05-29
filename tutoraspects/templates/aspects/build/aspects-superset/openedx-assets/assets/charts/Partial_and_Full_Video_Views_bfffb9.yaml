@@ -8,7 +8,10 @@ params:
   adhoc_filters: []
   annotation_layers: []
   color_scheme: supersetColors
+  comparison_type: values
   extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
   groupby: []
   legendOrientation: top
   legendType: scroll
@@ -16,6 +19,7 @@ params:
   - partial_views
   - full_views
   only_total: true
+  order_desc: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
@@ -28,6 +32,7 @@ params:
   viz_type: echarts_timeseries_bar
   xAxisLabelRotation: 0
   x_axis: video_name_location
+  x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
@@ -49,12 +54,15 @@ query_context:
     adhoc_filters: []
     annotation_layers: []
     color_scheme: supersetColors
+    comparison_type: values
     dashboards:
-    - 1589
-    - 1599
+    - 1625
+    - 1635
     datasource: 604__table
     extra_form_data: {}
     force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
     groupby: []
     legendOrientation: top
     legendType: scroll
@@ -62,6 +70,7 @@ query_context:
     - partial_views
     - full_views
     only_total: true
+    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
@@ -77,6 +86,7 @@ query_context:
     viz_type: echarts_timeseries_bar
     xAxisLabelRotation: 0
     x_axis: video_name_location
+    x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date

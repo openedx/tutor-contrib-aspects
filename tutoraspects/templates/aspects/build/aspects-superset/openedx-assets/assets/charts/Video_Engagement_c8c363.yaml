@@ -29,7 +29,6 @@ params:
     subject: null
   all_columns: []
   allow_render_html: true
-  annotation_layers: []
   color_pn: true
   column_config:
     total_plays:
@@ -62,6 +61,7 @@ params:
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
+  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
   temporal_columns_lookup:
@@ -122,7 +122,6 @@ query_context:
       subject: null
     all_columns: []
     allow_render_html: true
-    annotation_layers: []
     color_pn: true
     column_config:
       total_plays:
@@ -142,6 +141,8 @@ query_context:
       column: total_plays
       operator: "\u2265"
       targetValue: 0
+    dashboards:
+    - 1635
     datasource: 323__table
     extra_form_data: {}
     force: false
@@ -159,6 +160,7 @@ query_context:
     result_format: json
     result_type: full
     row_limit: 1000
+    server_page_length: 10
     show_cell_bars: true
     slice_id: 1001
     table_timestamp_format: smart_date

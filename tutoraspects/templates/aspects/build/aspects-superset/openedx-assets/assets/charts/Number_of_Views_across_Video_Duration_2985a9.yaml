@@ -8,16 +8,6 @@ description: To view the number of views across the duration of a single video, 
 params:
   adhoc_filters:
   - clause: WHERE
-    comparator: No filter
-    datasourceWarning: false
-    expressionType: SIMPLE
-    filterOptionName: filter_kpkhcnms3c_m156a9ez5ga
-    isExtra: false
-    isNew: false
-    operator: TEMPORAL_RANGE
-    sqlExpression: null
-    subject: started_at
-  - clause: WHERE
     comparator: '0'
     datasourceWarning: false
     expressionType: SIMPLE
@@ -28,6 +18,11 @@ params:
     operatorId: NOT_EQUALS
     sqlExpression: null
     subject: segment_start
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: started_at
   annotation_layers: []
   color_scheme: supersetColors
   extra_form_data: {}
@@ -72,16 +67,6 @@ query_context:
   form_data:
     adhoc_filters:
     - clause: WHERE
-      comparator: No filter
-      datasourceWarning: false
-      expressionType: SIMPLE
-      filterOptionName: filter_kpkhcnms3c_m156a9ez5ga
-      isExtra: false
-      isNew: false
-      operator: TEMPORAL_RANGE
-      sqlExpression: null
-      subject: started_at
-    - clause: WHERE
       comparator: '0'
       datasourceWarning: false
       expressionType: SIMPLE
@@ -92,11 +77,16 @@ query_context:
       operatorId: NOT_EQUALS
       sqlExpression: null
       subject: segment_start
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: started_at
     annotation_layers: []
     color_scheme: supersetColors
     dashboards:
-    - 1481
-    - 1491
+    - 1625
+    - 1635
     datasource: 765__table
     extra_form_data: {}
     force: false
@@ -150,12 +140,12 @@ query_context:
       having: ''
       where: ''
     filters:
-    - col: started_at
-      op: TEMPORAL_RANGE
-      val: No filter
     - col: segment_start
       op: '!='
       val: '0'
+    - col: started_at
+      op: TEMPORAL_RANGE
+      val: No filter
     metrics:
     - total_views
     - repeat_views

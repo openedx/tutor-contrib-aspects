@@ -8,14 +8,17 @@ params:
   adhoc_filters: []
   annotation_layers: []
   color_scheme: supersetColors
+  comparison_type: values
   extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
   groupby: []
   legendOrientation: top
   legendType: scroll
   metrics:
   - aggregate: null
     column: null
-    datasourceWarning: false
+    datasourceWarning: true
     expressionType: SQL
     hasCustomLabel: true
     label: Partial Views
@@ -23,13 +26,14 @@ params:
     sqlExpression: countIf(not watched_entire_video)
   - aggregate: null
     column: null
-    datasourceWarning: false
+    datasourceWarning: true
     expressionType: SQL
     hasCustomLabel: true
     label: Full Views
     optionName: metric_uqiel1omte_00o0uw5q78fli
     sqlExpression: countIf(watched_entire_video)
   only_total: true
+  order_desc: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
@@ -42,6 +46,7 @@ params:
   viz_type: echarts_timeseries_bar
   xAxisLabelRotation: 0
   x_axis: video_name_location
+  x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
@@ -63,18 +68,21 @@ query_context:
     adhoc_filters: []
     annotation_layers: []
     color_scheme: supersetColors
+    comparison_type: values
     dashboards:
-    - 1615
+    - 1633
     datasource: 261__table
     extra_form_data: {}
     force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
     groupby: []
     legendOrientation: top
     legendType: scroll
     metrics:
     - aggregate: null
       column: null
-      datasourceWarning: false
+      datasourceWarning: true
       expressionType: SQL
       hasCustomLabel: true
       label: Partial Views
@@ -82,13 +90,14 @@ query_context:
       sqlExpression: countIf(not watched_entire_video)
     - aggregate: null
       column: null
-      datasourceWarning: false
+      datasourceWarning: true
       expressionType: SQL
       hasCustomLabel: true
       label: Full Views
       optionName: metric_uqiel1omte_00o0uw5q78fli
       sqlExpression: countIf(watched_entire_video)
     only_total: true
+    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
@@ -104,6 +113,7 @@ query_context:
     viz_type: echarts_timeseries_bar
     xAxisLabelRotation: 0
     x_axis: video_name_location
+    x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date
@@ -133,7 +143,7 @@ query_context:
     metrics:
     - aggregate: null
       column: null
-      datasourceWarning: false
+      datasourceWarning: true
       expressionType: SQL
       hasCustomLabel: true
       label: Partial Views
@@ -141,7 +151,7 @@ query_context:
       sqlExpression: countIf(not watched_entire_video)
     - aggregate: null
       column: null
-      datasourceWarning: false
+      datasourceWarning: true
       expressionType: SQL
       hasCustomLabel: true
       label: Full Views
@@ -151,7 +161,7 @@ query_context:
     orderby:
     - - aggregate: null
         column: null
-        datasourceWarning: false
+        datasourceWarning: true
         expressionType: SQL
         hasCustomLabel: true
         label: Partial Views

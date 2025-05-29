@@ -27,15 +27,16 @@ params:
     targetValue: 0
   extra_form_data: {}
   groupby:
-  - datasourceWarning: false
+  - datasourceWarning: true
     expressionType: SQL
     label: Section Name
     sqlExpression: section_with_name
-  - datasourceWarning: false
+  - datasourceWarning: true
     expressionType: SQL
     label: Subsection Name
     sqlExpression: subsection_with_name
   - video_link
+  - video_name_with_location
   metrics:
   - unique_watchers
   - total_plays
@@ -102,20 +103,21 @@ query_context:
       operator: "\u2265"
       targetValue: 0
     dashboards:
-    - 1615
+    - 1633
     datasource: 825__table
     extra_form_data: {}
     force: false
     groupby:
-    - datasourceWarning: false
+    - datasourceWarning: true
       expressionType: SQL
       label: Section Name
       sqlExpression: section_with_name
-    - datasourceWarning: false
+    - datasourceWarning: true
       expressionType: SQL
       label: Subsection Name
       sqlExpression: subsection_with_name
     - video_link
+    - video_name_with_location
     metrics:
     - unique_watchers
     - total_plays
@@ -162,15 +164,16 @@ query_context:
   - annotation_layers: []
     applied_time_extras: {}
     columns:
-    - datasourceWarning: false
+    - datasourceWarning: true
       expressionType: SQL
       label: Section Name
       sqlExpression: section_with_name
-    - datasourceWarning: false
+    - datasourceWarning: true
       expressionType: SQL
       label: Subsection Name
       sqlExpression: subsection_with_name
     - video_link
+    - video_name_with_location
     custom_form_data: {}
     custom_params: {}
     extras:
