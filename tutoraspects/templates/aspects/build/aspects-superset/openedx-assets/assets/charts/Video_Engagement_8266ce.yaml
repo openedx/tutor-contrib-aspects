@@ -13,7 +13,6 @@ params:
     subject: emission_time
   all_columns: []
   allow_render_html: true
-  annotation_layers: []
   color_pn: true
   comparison_color_scheme: Green
   comparison_type: values
@@ -37,7 +36,6 @@ params:
     label: Subsection Name
     sqlExpression: subsection_with_name
   - video_link
-  - video_name_with_location
   metrics:
   - unique_watchers
   - total_plays
@@ -46,7 +44,6 @@ params:
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
-  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
   temporal_columns_lookup:
@@ -80,7 +77,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 68
+    id: 825
     type: table
   force: false
   form_data:
@@ -105,8 +102,8 @@ query_context:
       operator: "\u2265"
       targetValue: 0
     dashboards:
-    - 315
-    datasource: 68__table
+    - 1615
+    datasource: 825__table
     extra_form_data: {}
     force: false
     groupby:
@@ -119,7 +116,6 @@ query_context:
       label: Subsection Name
       sqlExpression: subsection_with_name
     - video_link
-    - video_name_with_location
     metrics:
     - unique_watchers
     - total_plays
@@ -130,9 +126,8 @@ query_context:
     result_format: json
     result_type: full
     row_limit: 1000
-    server_page_length: 10
     show_cell_bars: true
-    slice_id: 1126
+    slice_id: 381
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true
@@ -176,12 +171,10 @@ query_context:
       label: Subsection Name
       sqlExpression: subsection_with_name
     - video_link
-    - video_name_with_location
     custom_form_data: {}
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1M
       where: ''
     filters:
     - col: emission_time
