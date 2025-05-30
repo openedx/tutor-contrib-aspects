@@ -52,6 +52,7 @@ Aspects is implemented as a Tutor plugin. For now, the easiest installation meth
    .. code-block:: bash
 
       tutor images build openedx --no-cache
+      tutor images build mfe --no-cache  # Only necessary if using in-context metrics
       tutor images build aspects aspects-superset
 
 5. **Initialize the Environment**:
