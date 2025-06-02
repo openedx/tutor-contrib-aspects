@@ -49,7 +49,7 @@ kubernetes==32.0.1
     # via tutor
 markupsafe==3.0.2
     # via jinja2
-mypy==1.15.0
+mypy==1.16.0
     # via tutor
 mypy-extensions==1.1.0
     # via
@@ -68,7 +68,9 @@ packaging==25.0
 parsimonious==0.10.0
     # via pyseeyou
 pathspec==0.12.1
-    # via black
+    # via
+    #   black
+    #   mypy
 platformdirs==4.3.8
     # via
     #   black
@@ -100,7 +102,7 @@ requests-oauthlib==2.0.0
     # via kubernetes
 rsa==4.9.1
     # via google-auth
-ruamel-yaml==0.18.11
+ruamel-yaml==0.18.12
     # via -r requirements/base.in
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
@@ -116,7 +118,7 @@ tqdm==4.67.1
     # via shandy-sqlfmt
 transifex-python==3.5.0
     # via -r requirements/base.in
-tutor==19.0.3
+tutor==19.0.4
     # via
     #   -r requirements/base.in
     #   tutor-mfe
@@ -132,5 +134,5 @@ urllib3==2.4.0
     #   requests
 websocket-client==1.8.0
     # via kubernetes
-zipp==3.21.0
+zipp==3.22.0
     # via importlib-metadata
