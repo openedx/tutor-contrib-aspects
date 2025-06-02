@@ -117,7 +117,7 @@ more-itertools==10.7.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-mypy==1.15.0
+mypy==1.16.0
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -151,6 +151,7 @@ pathspec==0.12.1
     # via
     #   -r requirements/base.txt
     #   black
+    #   mypy
 platformdirs==4.3.8
     # via
     #   -r requirements/base.txt
@@ -224,7 +225,7 @@ rsa==4.9.1
     # via
     #   -r requirements/base.txt
     #   google-auth
-ruamel-yaml==0.18.11
+ruamel-yaml==0.18.12
     # via -r requirements/base.txt
 ruamel-yaml-clib==0.2.12
     # via
@@ -251,7 +252,7 @@ tqdm==4.67.1
     #   shandy-sqlfmt
 transifex-python==3.5.0
     # via -r requirements/base.txt
-tutor==19.0.3
+tutor==19.0.4
     # via
     #   -r requirements/base.txt
     #   tutor-contrib-pod-autoscaling
@@ -277,7 +278,7 @@ websocket-client==1.8.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-zipp==3.21.0
+zipp==3.22.0
     # via
     #   -r requirements/base.txt
     #   importlib-metadata
