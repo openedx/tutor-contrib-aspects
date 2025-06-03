@@ -19,7 +19,7 @@ Key Features
 - Streamlined deployment of analytics and reporting tools.
 - Integration with Open edX for real-time and historical data analytics.
 - Extensible architecture supporting customization.
-
+- `In-context metrics in Studio <https://docs.openedx.org/projects/openedx-aspects/en/latest/reference/in_context.html>`_.
 
 
 
@@ -52,6 +52,7 @@ Aspects is implemented as a Tutor plugin. For now, the easiest installation meth
    .. code-block:: bash
 
       tutor images build openedx --no-cache
+      tutor images build mfe --no-cache  # Only necessary if using in-context metrics
       tutor images build aspects aspects-superset
 
 5. **Initialize the Environment**:
