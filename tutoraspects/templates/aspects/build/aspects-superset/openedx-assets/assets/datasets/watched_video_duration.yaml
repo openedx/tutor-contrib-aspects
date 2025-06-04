@@ -206,7 +206,7 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |-
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/watched_video_time.sql' %}{% endfilter %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/watched_video_duration.sql' %}{% endfilter %}
 table_name: watched_video_duration
 template_params: null
 uuid: 82cb6b56-c713-4933-93a0-9de15c266c4b
