@@ -1,17 +1,34 @@
 with
-    plays as (
-        select *
-        from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_video_plays
-        where
-            {% raw %}
-            {% if get_filters("course_name", remove_filter=True) == [] %} 1 = 1
-            {% elif filter_values("course_name") != [] %}
-                course_name in {{ filter_values("course_name") | where_in }}
-            {% else %} 1 = 0
-            {% endif %}
-            {% endraw %}
-            {% include 'openedx-assets/queries/common_filters.sql' %}
+    watched_video_segments as (
+        {% include 'openedx-assets/queries/watched_video_segments.sql' %}
+    ),
+    segment_count as (
+        select
+            org,
+            course_key,
+            actor_id,
+            video_link,
+            section_with_name,
+            subsection_with_name,
+            segment_start,
+            count(1) as segment_watch_count
+        from watched_video_segments
+        group by
+            org,
+            course_key,
+            actor_id,
+            video_link,
+            section_with_name,
+            subsection_with_name,
+            segment_start
     )
-
-select *
-from plays
+select
+    org,
+    course_key,
+    actor_id,
+    video_link,
+    section_with_name,
+    subsection_with_name,
+    max(segment_watch_count) as video_watch_count
+from segment_count
+group by org, course_key, actor_id, video_link, section_with_name, subsection_with_name

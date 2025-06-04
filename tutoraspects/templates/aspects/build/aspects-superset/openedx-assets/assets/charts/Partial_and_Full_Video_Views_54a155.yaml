@@ -8,7 +8,6 @@ params:
   adhoc_filters: []
   all_columns: []
   allow_render_html: true
-  annotation_layers: []
   color_pn: true
   comparison_color_scheme: Green
   comparison_type: values
@@ -32,13 +31,14 @@ params:
   percent_metrics: []
   query_mode: aggregate
   row_limit: 10000
+  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
   temporal_columns_lookup: {}
   viz_type: table
 query_context:
   datasource:
-    id: 576
+    id: 604
     type: table
   force: false
   form_data:
@@ -58,8 +58,8 @@ query_context:
       operator: '>'
       targetValue: 0
     dashboards:
-    - 307
-    datasource: 576__table
+    - 1589
+    datasource: 604__table
     extra_form_data: {}
     force: false
     groupby:
@@ -74,8 +74,9 @@ query_context:
     result_format: json
     result_type: full
     row_limit: 10000
+    server_page_length: 10
     show_cell_bars: true
-    slice_id: 256
+    slice_id: 1081
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     viz_type: table

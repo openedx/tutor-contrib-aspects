@@ -8,26 +8,38 @@ params:
   adhoc_filters:
   - clause: WHERE
     comparator: No filter
+    datasourceWarning: false
     expressionType: SIMPLE
+    filterOptionName: filter_wede4unhjpp_0wujzar2axlp
+    isExtra: false
+    isNew: false
     operator: TEMPORAL_RANGE
+    sqlExpression: null
     subject: started_at
+  - clause: WHERE
+    comparator: '0'
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_5cok78lliwk_8e8s3jdl7nj
+    isExtra: false
+    isNew: false
+    operator: '!='
+    operatorId: NOT_EQUALS
+    sqlExpression: null
+    subject: segment_start
   annotation_layers: []
-  color_scheme: supersetColors
-  comparison_type: values
+  color_scheme: aspects_default
   extra_form_data: {}
-  forecastInterval: 0.8
-  forecastPeriods: 10
   groupby: []
   legendOrientation: top
   legendType: scroll
   logAxis: false
   metrics:
   - repeat_views
-  - unique_viewers
+  - unique_views
   minorSplitLine: false
   minorTicks: false
   only_total: true
-  order_desc: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 5000
@@ -44,7 +56,6 @@ params:
   truncate_metric: true
   viz_type: echarts_timeseries_bar
   x_axis: time_stamp
-  x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
@@ -60,37 +71,47 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 444
+    id: 765
     type: table
   force: false
   form_data:
     adhoc_filters:
     - clause: WHERE
       comparator: No filter
+      datasourceWarning: false
       expressionType: SIMPLE
+      filterOptionName: filter_wede4unhjpp_0wujzar2axlp
+      isExtra: false
+      isNew: false
       operator: TEMPORAL_RANGE
+      sqlExpression: null
       subject: started_at
+    - clause: WHERE
+      comparator: '0'
+      datasourceWarning: false
+      expressionType: SIMPLE
+      filterOptionName: filter_5cok78lliwk_8e8s3jdl7nj
+      isExtra: false
+      isNew: false
+      operator: '!='
+      operatorId: NOT_EQUALS
+      sqlExpression: null
+      subject: segment_start
     annotation_layers: []
-    color_scheme: supersetColors
-    comparison_type: values
-    dashboards:
-    - 3701
-    datasource: 444__table
+    color_scheme: aspects_default
+    datasource: 765__table
     extra_form_data: {}
     force: false
-    forecastInterval: 0.8
-    forecastPeriods: 10
     groupby: []
     legendOrientation: top
     legendType: scroll
     logAxis: false
     metrics:
     - repeat_views
-    - unique_viewers
+    - unique_views
     minorSplitLine: false
     minorTicks: false
     only_total: true
-    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
@@ -110,7 +131,6 @@ query_context:
     truncate_metric: true
     viz_type: echarts_timeseries_bar
     x_axis: time_stamp
-    x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date
@@ -141,9 +161,12 @@ query_context:
     - col: started_at
       op: TEMPORAL_RANGE
       val: No filter
+    - col: segment_start
+      op: '!='
+      val: '0'
     metrics:
     - repeat_views
-    - unique_viewers
+    - unique_views
     order_desc: true
     orderby:
     - - repeat_views
@@ -154,7 +177,7 @@ query_context:
         aggregates:
           repeat_views:
             operator: mean
-          unique_viewers:
+          unique_views:
             operator: mean
         columns: []
         drop_missing_columns: false
