@@ -61,7 +61,7 @@ future==1.0.0
     # via
     #   -r requirements/base.txt
     #   pyseeyou
-google-auth==2.40.2
+google-auth==2.40.3
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -177,9 +177,9 @@ pygments==2.19.1
     # via
     #   readme-renderer
     #   rich
-pyinstaller==6.13.0
+pyinstaller==6.14.1
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2025.4
+pyinstaller-hooks-contrib==2025.5
     # via pyinstaller
 pylint==3.3.7
     # via -r requirements/dev.in
@@ -225,7 +225,7 @@ rsa==4.9.1
     # via
     #   -r requirements/base.txt
     #   google-auth
-ruamel-yaml==0.18.12
+ruamel-yaml==0.18.13
     # via -r requirements/base.txt
 ruamel-yaml-clib==0.2.12
     # via
@@ -240,7 +240,7 @@ six==1.17.0
     #   -r requirements/base.txt
     #   kubernetes
     #   python-dateutil
-tomlkit==0.13.2
+tomlkit==0.13.3
     # via pylint
 toolz==1.0.0
     # via
@@ -263,7 +263,7 @@ tutor-mfe==19.0.0
     # via -r requirements/base.txt
 twine==6.1.0
     # via -r requirements/dev.in
-typing-extensions==4.13.2
+typing-extensions==4.14.0
     # via
     #   -r requirements/base.txt
     #   mypy
@@ -278,7 +278,7 @@ websocket-client==1.8.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-zipp==3.22.0
+zipp==3.23.0
     # via
     #   -r requirements/base.txt
     #   importlib-metadata
