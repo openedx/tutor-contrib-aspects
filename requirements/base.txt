@@ -31,7 +31,7 @@ durationpy==0.10
     # via kubernetes
 future==1.0.0
     # via pyseeyou
-google-auth==2.40.2
+google-auth==2.40.3
     # via kubernetes
 idna==3.10
     # via requests
@@ -102,7 +102,7 @@ requests-oauthlib==2.0.0
     # via kubernetes
 rsa==4.9.1
     # via google-auth
-ruamel-yaml==0.18.12
+ruamel-yaml==0.18.13
     # via -r requirements/base.in
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
@@ -124,7 +124,7 @@ tutor==19.0.4
     #   tutor-mfe
 tutor-mfe==19.0.0
     # via -r requirements/base.in
-typing-extensions==4.13.2
+typing-extensions==4.14.0
     # via
     #   mypy
     #   tutor
@@ -134,5 +134,5 @@ urllib3==2.4.0
     #   requests
 websocket-client==1.8.0
     # via kubernetes
-zipp==3.22.0
+zipp==3.23.0
     # via importlib-metadata
