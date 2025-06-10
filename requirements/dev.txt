@@ -8,41 +8,41 @@ altgraph==0.17.4
     # via pyinstaller
 appdirs==1.4.4
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   tutor
 astroid==3.3.10
     # via pylint
 asttokens==3.0.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   transifex-python
 backports-tarfile==1.2.0
     # via jaraco-context
 bcrypt==4.3.0
-    # via -r requirements/base.txt
+    # via -r base.txt
 black==25.1.0
     # via
-    #   -r requirements/base.txt
-    #   -r requirements/dev.in
+    #   -r base.txt
+    #   -r dev.in
     #   shandy-sqlfmt
 cachetools==5.5.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   google-auth
 certifi==2025.4.26
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
     #   requests
 cffi==1.17.1
     # via cryptography
 charset-normalizer==3.4.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   requests
 click==8.2.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   black
     #   shandy-sqlfmt
     #   transifex-python
@@ -55,30 +55,30 @@ docutils==0.21.2
     # via readme-renderer
 durationpy==0.10
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
 future==1.0.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   pyseeyou
 google-auth==2.40.3
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
 id==1.5.0
     # via twine
 idna==3.10
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   requests
 importlib-metadata==8.7.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   keyring
     #   tutor
 importlib-resources==6.5.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   tutor
 isort==6.0.1
     # via pylint
@@ -94,20 +94,20 @@ jeepney==0.9.0
     #   secretstorage
 jinja2==3.1.6
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   shandy-sqlfmt
     #   tutor
 keyring==25.6.0
     # via twine
 kubernetes==32.0.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   tutor
 markdown-it-py==3.0.0
     # via rich
 markupsafe==3.0.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   jinja2
 mccabe==0.7.0
     # via pylint
@@ -119,25 +119,25 @@ more-itertools==10.7.0
     #   jaraco-functools
 mypy==1.16.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   tutor
 mypy-extensions==1.1.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   black
     #   mypy
 nh3==0.2.21
     # via readme-renderer
 oauthlib==3.2.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
     #   requests-oauthlib
 openedx-atlas==0.7.0
-    # via -r requirements/base.txt
+    # via -r base.txt
 packaging==25.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   black
     #   pyinstaller
     #   pyinstaller-hooks-contrib
@@ -145,66 +145,66 @@ packaging==25.0
     #   twine
 parsimonious==0.10.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   pyseeyou
 pathspec==0.12.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   black
     #   mypy
 platformdirs==4.3.8
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   black
     #   pylint
     #   shandy-sqlfmt
 pyasn1==0.6.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   pyasn1-modules
     #   rsa
 pyasn1-modules==0.4.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   google-auth
 pycparser==2.22
     # via cffi
 pycryptodome==3.23.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   tutor
 pygments==2.19.1
     # via
     #   readme-renderer
     #   rich
 pyinstaller==6.14.1
-    # via -r requirements/dev.in
+    # via -r dev.in
 pyinstaller-hooks-contrib==2025.5
     # via pyinstaller
 pylint==3.3.7
-    # via -r requirements/dev.in
+    # via -r dev.in
 pyseeyou==1.0.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   transifex-python
 python-dateutil==2.9.0.post0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
 pyyaml==6.0.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
     #   tutor
 readme-renderer==44.0
     # via twine
 regex==2024.11.6
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   parsimonious
-requests==2.32.3
+requests==2.32.4
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   id
     #   kubernetes
     #   requests-oauthlib
@@ -213,7 +213,7 @@ requests==2.32.3
     #   twine
 requests-oauthlib==2.0.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
 requests-toolbelt==1.0.0
     # via twine
@@ -223,64 +223,64 @@ rich==14.0.0
     # via twine
 rsa==4.9.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   google-auth
 ruamel-yaml==0.18.13
-    # via -r requirements/base.txt
+    # via -r base.txt
 ruamel-yaml-clib==0.2.12
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   ruamel-yaml
 secretstorage==3.3.3
     # via keyring
 shandy-sqlfmt[jinjafmt]==0.26.0
-    # via -r requirements/base.txt
+    # via -r base.txt
 six==1.17.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
     #   python-dateutil
 tomlkit==0.13.3
     # via pylint
 toolz==1.0.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   pyseeyou
 tqdm==4.67.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   shandy-sqlfmt
 transifex-python==3.5.0
-    # via -r requirements/base.txt
+    # via -r base.txt
 tutor==19.0.4
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   tutor-contrib-pod-autoscaling
     #   tutor-mfe
 tutor-contrib-pod-autoscaling==19.0.0
-    # via -r requirements/dev.in
+    # via -r dev.in
 tutor-mfe==19.0.0
-    # via -r requirements/base.txt
+    # via -r base.txt
 twine==6.1.0
-    # via -r requirements/dev.in
+    # via -r dev.in
 typing-extensions==4.14.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   mypy
     #   tutor
 urllib3==2.4.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
     #   requests
     #   twine
 websocket-client==1.8.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
 zipp==3.23.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
