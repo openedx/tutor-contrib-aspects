@@ -8,7 +8,7 @@ params:
   adhoc_filters:
   - clause: WHERE
     comparator: null
-    datasourceWarning: false
+    datasourceWarning: true
     expressionType: SQL
     filterOptionName: filter_1eznhnyjr5k_wylhwvlq7z
     isExtra: false
@@ -38,7 +38,6 @@ params:
   show_legend: true
   show_value: false
   sort_series_type: sum
-  time_grain_sqla: P1M
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncate_metric: true
@@ -60,14 +59,14 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 78
+    id: 725
     type: table
   force: false
   form_data:
     adhoc_filters:
     - clause: WHERE
       comparator: null
-      datasourceWarning: false
+      datasourceWarning: true
       expressionType: SQL
       filterOptionName: filter_1eznhnyjr5k_wylhwvlq7z
       isExtra: false
@@ -79,7 +78,7 @@ query_context:
     annotation_layers: []
     color_scheme: supersetColors
     comparison_type: values
-    datasource: 78__table
+    datasource: 725__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -100,9 +99,8 @@ query_context:
     show_empty_columns: true
     show_legend: true
     show_value: false
-    slice_id: 7
+    slice_id: 1421
     sort_series_type: sum
-    time_grain_sqla: P1M
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
@@ -130,12 +128,10 @@ query_context:
       expressionType: SQL
       label: section_subsection_name
       sqlExpression: section_subsection_name
-      timeGrain: P1M
     custom_form_data: {}
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1M
       where: |-
         (`section_subsection_name` <> '')
     filters: []
