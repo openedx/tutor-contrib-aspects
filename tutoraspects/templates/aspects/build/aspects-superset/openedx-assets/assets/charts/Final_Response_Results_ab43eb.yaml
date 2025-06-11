@@ -10,13 +10,11 @@ params:
   color_scheme: aspects_default
   extra_form_data: {}
   groupby:
-  - datasourceWarning: false
+  - datasourceWarning: true
     expressionType: SQL
     label: success
     sqlExpression: |-
       if(success,'Correct','Incorrect')
-  legendOrientation: top
-  legendType: scroll
   logAxis: false
   metrics:
   - aggregate: COUNT_DISTINCT
@@ -45,7 +43,6 @@ params:
     optionName: metric_i0duwq19kl_azrkbuc8jve
     sqlExpression: null
   minorSplitLine: false
-  only_total: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
@@ -58,22 +55,16 @@ params:
   truncateYAxis: false
   truncate_metric: true
   viz_type: echarts_timeseries_bar
-  x_axis: problem_number
+  x_axis: problem_name_location
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
-  x_axis_time_format: smart_date
-  x_axis_title: Problem
-  x_axis_title_margin: 30
-  y_axis_bounds:
-  - null
-  - null
   y_axis_format: SMART_NUMBER
   y_axis_title: Respondents
   y_axis_title_margin: 15
   y_axis_title_position: Top
 query_context:
   datasource:
-    id: 644
+    id: 584
     type: table
   force: false
   form_data:
@@ -81,18 +72,16 @@ query_context:
     annotation_layers: []
     color_scheme: aspects_default
     dashboards:
-    - 5461
-    datasource: 644__table
+    - 2043
+    datasource: 584__table
     extra_form_data: {}
     force: false
     groupby:
-    - datasourceWarning: false
+    - datasourceWarning: true
       expressionType: SQL
       label: success
       sqlExpression: |-
         if(success,'Correct','Incorrect')
-    legendOrientation: top
-    legendType: scroll
     logAxis: false
     metrics:
     - aggregate: COUNT_DISTINCT
@@ -121,7 +110,6 @@ query_context:
       optionName: metric_i0duwq19kl_azrkbuc8jve
       sqlExpression: null
     minorSplitLine: false
-    only_total: true
     orientation: vertical
     result_format: json
     result_type: full
@@ -137,15 +125,9 @@ query_context:
     truncateYAxis: false
     truncate_metric: true
     viz_type: echarts_timeseries_bar
-    x_axis: problem_number
+    x_axis: problem_name_location
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
-    x_axis_time_format: smart_date
-    x_axis_title: Problem
-    x_axis_title_margin: 30
-    y_axis_bounds:
-    - null
-    - null
     y_axis_format: SMART_NUMBER
     y_axis_title: Respondents
     y_axis_title_margin: 15
@@ -156,9 +138,9 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: problem_number
-      sqlExpression: problem_number
-    - datasourceWarning: false
+      label: problem_name_location
+      sqlExpression: problem_name_location
+    - datasourceWarning: true
       expressionType: SQL
       label: success
       sqlExpression: |-
@@ -233,7 +215,7 @@ query_context:
         - success
         drop_missing_columns: false
         index:
-        - problem_number
+        - problem_name_location
     - operation: rename
       options:
         columns:
@@ -243,7 +225,7 @@ query_context:
     - operation: flatten
     row_limit: 10000
     series_columns:
-    - datasourceWarning: false
+    - datasourceWarning: true
       expressionType: SQL
       label: success
       sqlExpression: |-

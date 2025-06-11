@@ -1,6 +1,7 @@
 {% if RUN_CLICKHOUSE %}
 clickhouse:
     image: {{DOCKER_IMAGE_CLICKHOUSE}}
+    restart: unless-stopped
     environment:
         CLICKHOUSE_DB: "{{ ASPECTS_XAPI_DATABASE }}"
         CLICKHOUSE_USER: "{{ CLICKHOUSE_ADMIN_USER }}"
@@ -22,6 +23,7 @@ clickhouse:
 {% if RUN_RALPH %}
 ralph:
     image: {{ DOCKER_IMAGE_RALPH }}
+    restart: unless-stopped
     {% if RUN_CLICKHOUSE %}depends_on:
       - clickhouse{% endif %}
     env_file:

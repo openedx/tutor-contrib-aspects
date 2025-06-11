@@ -88,6 +88,18 @@ columns:
   type: String
   verbose_name: Problem Number
 - advanced_data_type: null
+  column_name: problem_part
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Problem Part
+- advanced_data_type: null
   column_name: org
   description: null
   expression: ''
@@ -123,6 +135,18 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Success
+- advanced_data_type: null
+  column_name: response_count
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: UInt64
+  verbose_name: Response Count
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
@@ -144,7 +168,7 @@ metrics:
 normalize_columns: false
 offset: 0
 params: null
-schema: reporting
+schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |-
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/problem_responses.sql' %}{% endfilter %}
 table_name: problem_responses

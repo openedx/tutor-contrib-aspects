@@ -12,18 +12,15 @@ params:
     operator: TEMPORAL_RANGE
     subject: started_at
   annotation_layers: []
-  color_scheme: supersetColors
+  color_scheme: aspects_default
   extra_form_data: {}
   groupby: []
-  legendOrientation: top
-  legendType: scroll
   logAxis: false
   metrics:
   - repeat_views
   - unique_viewers
   minorSplitLine: false
   minorTicks: false
-  only_total: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 5000
@@ -39,15 +36,9 @@ params:
   truncateYAxis: false
   truncate_metric: true
   viz_type: echarts_timeseries_bar
-  x_axis: video_number
+  x_axis: video_name_location
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
-  x_axis_time_format: smart_date
-  x_axis_title: Video
-  x_axis_title_margin: 30
-  y_axis_bounds:
-  - null
-  - null
   y_axis_format: SMART_NUMBER
   y_axis_title: Views
   y_axis_title_margin: 15
@@ -55,7 +46,7 @@ params:
   zoomable: false
 query_context:
   datasource:
-    id: 321
+    id: 765
     type: table
   force: false
   form_data:
@@ -66,24 +57,19 @@ query_context:
       operator: TEMPORAL_RANGE
       subject: started_at
     annotation_layers: []
-    color_scheme: supersetColors
-    comparison_type: values
-    datasource: 321__table
+    color_scheme: aspects_default
+    dashboards:
+    - 1963
+    datasource: 765__table
     extra_form_data: {}
     force: false
-    forecastInterval: 0.8
-    forecastPeriods: 10
     groupby: []
-    legendOrientation: top
-    legendType: scroll
     logAxis: false
     metrics:
     - repeat_views
     - unique_viewers
     minorSplitLine: false
     minorTicks: false
-    only_total: true
-    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
@@ -92,7 +78,7 @@ query_context:
     show_empty_columns: true
     show_legend: false
     show_value: false
-    slice_id: 282
+    slice_id: 1261
     sort_series_ascending: false
     sort_series_type: name
     stack: Stack
@@ -102,16 +88,9 @@ query_context:
     truncateYAxis: false
     truncate_metric: true
     viz_type: echarts_timeseries_bar
-    x_axis: video_name_with_location
-    x_axis_sort_asc: true
+    x_axis: video_name_location
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
-    x_axis_time_format: smart_date
-    x_axis_title: Video
-    x_axis_title_margin: 30
-    y_axis_bounds:
-    - null
-    - null
     y_axis_format: SMART_NUMBER
     y_axis_title: Views
     y_axis_title_margin: 15
@@ -123,8 +102,8 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
-      label: video_name_with_location
-      sqlExpression: video_name_with_location
+      label: video_name_location
+      sqlExpression: video_name_location
     custom_form_data: {}
     custom_params: {}
     extras:
@@ -152,7 +131,7 @@ query_context:
         columns: []
         drop_missing_columns: false
         index:
-        - video_name_with_location
+        - video_name_location
     - operation: flatten
     row_limit: 5000
     series_columns: []

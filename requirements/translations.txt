@@ -4,9 +4,9 @@
 #
 #    make upgrade
 #
-click==8.1.8
+click==8.2.1
     # via -r requirements/translations.in
-ruamel-yaml==0.18.10
+ruamel-yaml==0.18.11
     # via -r requirements/translations.in
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
