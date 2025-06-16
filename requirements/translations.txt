@@ -6,7 +6,7 @@
 #
 click==8.2.1
     # via -r requirements/translations.in
-ruamel-yaml==0.18.13
+ruamel-yaml==0.18.14
     # via -r requirements/translations.in
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
