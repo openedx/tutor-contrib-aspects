@@ -28,7 +28,7 @@ select
     splitByChar('@', splitByString('/xblock/', object_id)[-1])[3] as block_id,
     rewatched,
     watched_segment as segment_start,
-    count(1) as watched_count,
+    sum(watch_count) as watched_count,
     time_stamp,
     video_number,
     video_name_location,
