@@ -7,20 +7,22 @@ description: null
 params:
   adhoc_filters: []
   all_columns: []
-  annotation_layers: []
+  allow_render_html: true
   color_pn: true
   column_config:
     rewatched_percent:
       d3NumberFormat: ',.1%'
     watched_percent:
       d3NumberFormat: ',.1%'
+  comparison_color_scheme: Green
+  comparison_type: values
   conditional_formatting: []
   extra_form_data: {}
   groupby:
   - course_name
   - org
+  - video_count
   metrics:
-  - num_videos
   - avg_video_length
   - num_videos_watched
   - watched_percent
@@ -30,34 +32,39 @@ params:
   percent_metrics: []
   query_mode: aggregate
   row_limit: 50000
+  server_page_length: 10
   show_cell_bars: false
   table_timestamp_format: smart_date
   temporal_columns_lookup: {}
   viz_type: table
 query_context:
   datasource:
-    id: 161
+    id: 201
     type: table
   force: false
   form_data:
     adhoc_filters: []
     all_columns: []
-    annotation_layers: []
+    allow_render_html: true
     color_pn: true
     column_config:
       rewatched_percent:
         d3NumberFormat: ',.1%'
       watched_percent:
         d3NumberFormat: ',.1%'
+    comparison_color_scheme: Green
+    comparison_type: values
     conditional_formatting: []
-    datasource: 161__table
+    dashboards:
+    - 2725
+    datasource: 201__table
     extra_form_data: {}
     force: false
     groupby:
     - course_name
     - org
+    - video_count
     metrics:
-    - num_videos
     - avg_video_length
     - num_videos_watched
     - watched_percent
@@ -69,8 +76,9 @@ query_context:
     result_format: json
     result_type: full
     row_limit: 50000
+    server_page_length: 10
     show_cell_bars: false
-    slice_id: 1121
+    slice_id: 1221
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     viz_type: table
@@ -80,6 +88,7 @@ query_context:
     columns:
     - course_name
     - org
+    - video_count
     custom_form_data: {}
     custom_params: {}
     extras:
@@ -87,18 +96,18 @@ query_context:
       where: ''
     filters: []
     metrics:
-    - num_videos
     - avg_video_length
     - num_videos_watched
     - watched_percent
     - rewatched_percent
     order_desc: true
     orderby:
-    - - num_videos
+    - - avg_video_length
       - false
     post_processing: []
     row_limit: 50000
     series_limit: 0
+    time_offsets: []
     url_params: {}
   result_format: json
   result_type: full
