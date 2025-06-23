@@ -1,33 +1,37 @@
-
 with
     course_keys as (
-        select '' as course_key
-        {% raw -%}{% if filter_values("course_name") != [] %}{% endraw -%}
+        select '' as course_key {% raw -%}
+        {% if filter_values("course_name") != [] %}
+                {% endraw -%}
             union all
             select course_key as course_key
-            from {{ ASPECTS_EVENT_SINK_DATABASE }}.dim_course_names 
-            where course_name in {% raw -%}{{ filter_values("course_name") | where_in }}
+            from {{ ASPECTS_EVENT_SINK_DATABASE }}.dim_course_names
+            where
+                course_name in {% raw -%} {{ filter_values("course_name") | where_in }}
         {% endif %}
-        {% if filter_values("tag") != [] %}{% endraw -%}
+        {% if filter_values("tag") != [] %}
+                {% endraw -%}
             union distinct
             select course_key as course_key
-            from
-                 {{ DBT_PROFILE_TARGET_DATABASE }}.dim_most_recent_course_tags 
+            from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_most_recent_course_tags
             where
-                tag
-                in {% raw -%}(select replaceAll(arrayJoin({{ filter_values("tag") }}), '- ', ''))
-        {% endif %}{% endraw -%}
+                tag in {% raw -%} (
+                    select replaceAll(arrayJoin({{ filter_values("tag") }}), '- ', '')
+                )
+            {% endif %} {% endraw -%}
     ),
     watched_segments as (
         select *
         from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_video_segments
-        where 
-            {% raw -%}{% if filter_values("org") != [] %}
-                org in {{ filter_values("org") | where_in }} and 
-            {% endif %}{%- endraw %}
-            (course_key in (select course_key from course_keys) or 
-                (select count(1) from course_keys) = 1
-            )       
+        where
+            {% raw -%}
+            {% if filter_values("org") != [] %}
+                org in {{ filter_values("org") | where_in }} and
+            {% endif %} {%- endraw %}
+            (
+                course_key in (select course_key from course_keys)
+                or (select count(1) from course_keys) = 1
+            )
     ),
     watches as (
         select
@@ -51,7 +55,9 @@ with
                 ':'
             ) as video_number,
             concat(
-                video_number, ' - ', splitByString(' - ', blocks.display_name_with_location)[2]
+                video_number,
+                ' - ',
+                splitByString(' - ', blocks.display_name_with_location)[2]
             ) as video_name_location,
             concat(
                 '<a href="',
