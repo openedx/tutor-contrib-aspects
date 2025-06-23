@@ -1,31 +1,33 @@
-{% raw -%}
+
 with
     course_keys as (
-        select [] as course_key
-        {% if filter_values("course_name") != [] %}
+        select '' as course_key
+        {% raw -%}{% if filter_values("course_name") != [] %}{% endraw -%}
             union all
-            select array(course_key) as course_key
-            from
-                {% endraw -%} {{ ASPECTS_EVENT_SINK_DATABASE }}.dim_course_names {% raw -%}
-            where course_name in {{ filter_values("course_name") | where_in }}
+            select course_key as course_key
+            from {{ ASPECTS_EVENT_SINK_DATABASE }}.dim_course_names 
+            where course_name in {% raw -%}{{ filter_values("course_name") | where_in }}
         {% endif %}
-        {% if filter_values("tag") != [] %}
+        {% if filter_values("tag") != [] %}{% endraw -%}
             union distinct
-            select array(course_key) as course_key
+            select course_key as course_key
             from
-                {% endraw -%} {{ DBT_PROFILE_TARGET_DATABASE }}.dim_most_recent_course_tags {% raw -%}
+                 {{ DBT_PROFILE_TARGET_DATABASE }}.dim_most_recent_course_tags 
             where
                 tag
-                in (select replaceAll(arrayJoin({{ filter_values("tag") }}), '- ', ''))
-        {% endif %}
+                in {% raw -%}(select replaceAll(arrayJoin({{ filter_values("tag") }}), '- ', ''))
+        {% endif %}{% endraw -%}
     ),
-    {%- endraw %}
     watched_segments as (
         select *
         from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_video_segments
         where 
-            org in coalesce({{ filter_values("org") }}, [])
-            and course_key in coalesce((select array_concat_agg(course_key) from course_keys), [])
+            {% raw -%}{% if filter_values("org") != [] %}
+                org in {{ filter_values("org") | where_in }} and 
+            {% endif %}{%- endraw %}
+            (course_key in (select course_key from course_keys) or 
+                (select count(1) from course_keys) = 1
+            )       
     ),
     watches as (
         select
@@ -36,7 +38,6 @@ with
             segments.video_duration,
             segments.watched_segment,
             segments.watch_count,
-            segments.watch_count > 1 as rewatched,
             formatDateTime(
                 toDate(now()) + toIntervalSecond(segments.watched_segment), '%T'
             ) as time_stamp,
@@ -75,7 +76,6 @@ select
     actor_id,
     object_id,
     splitByChar('@', splitByString('/xblock/', object_id)[-1])[3] as block_id,
-    rewatched,
     watched_segment as segment_start,
     sum(watch_count) as watched_count,
     time_stamp,
@@ -100,7 +100,6 @@ group by
     actor_id,
     object_id,
     block_id,
-    rewatched,
     watched_segment,
     time_stamp,
     video_number,

@@ -16,7 +16,7 @@ with
             count(segment_start) as _total_segments_watched,
             max(watched_count) as video_watched_count,
             max(
-                case when rewatched = 1 then watched_count else 0 end
+                case when watched_count > 1 then watched_count else 0 end
             ) as video_rewatched_count,
             section_with_name,
             subsection_with_name

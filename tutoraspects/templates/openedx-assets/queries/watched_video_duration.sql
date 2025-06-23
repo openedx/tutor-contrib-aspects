@@ -39,7 +39,7 @@ select
         0,
         count(
             distinct case
-                when rewatched = 1 then watched_video_segments.segment_start else 0
+                when watched_count > 1 then watched_video_segments.segment_start else 0
             end
         )
     ) as segment_count_rewatched,

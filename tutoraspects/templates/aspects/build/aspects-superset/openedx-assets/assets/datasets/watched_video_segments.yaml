@@ -262,7 +262,7 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: sumIf(watched_count,rewatched=0)
+  expression: sumIf(watched_count,watched_count=1)
   extra:
     warning_markdown: ''
   metric_name: unique_views
@@ -272,7 +272,7 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: sumIf(watched_count,rewatched=1)
+  expression: sumIf(watched_count,watched_count>1)
   extra:
     warning_markdown: ''
   metric_name: repeat_views

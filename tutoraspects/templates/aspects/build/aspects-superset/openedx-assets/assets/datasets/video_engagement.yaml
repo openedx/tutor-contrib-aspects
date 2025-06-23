@@ -132,7 +132,7 @@ metrics:
   d3format: null
   description: null
   expression: |-
-    countIf("section_subsection_video_engagement" = 'At least one video viewed' or "section_subsection_video_engagement" = 'All videos viewed')
+    countDistinct(case when section_subsection_video_engagement in ('At least one video viewed','All videos viewed') then actor_id else null end)
   extra:
     warning_markdown: ''
   metric_name: at_least_one_viewed
@@ -143,7 +143,7 @@ metrics:
   d3format: null
   description: null
   expression: |-
-    countIf("section_subsection_video_engagement" = 'All videos viewed')
+    countDistinct(case when "section_subsection_video_engagement" = 'All videos viewed' then actor_id else null end)
   extra:
     warning_markdown: ''
   metric_name: all_videos_viewed
