@@ -1,5 +1,5 @@
 select fnc.*
-from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_navigation_completion fnc
+from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_navigation fnc
 join
     (
         {% include 'openedx-assets/queries/at_risk_learner_filter.sql' %}

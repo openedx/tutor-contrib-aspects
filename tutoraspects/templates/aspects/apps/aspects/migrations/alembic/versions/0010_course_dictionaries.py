@@ -14,7 +14,7 @@ def upgrade():
     # currently throws a file rename error and you can't drop a dictionary with a
     # table referring to it.
     op.execute(f"""
-        DETACH DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names
+        DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names
         {on_cluster}
     """)
     op.execute(f"""

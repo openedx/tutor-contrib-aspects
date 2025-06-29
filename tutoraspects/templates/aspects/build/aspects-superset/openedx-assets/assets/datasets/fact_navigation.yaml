@@ -1,4 +1,4 @@
-_file_name: navigation_completion.yaml
+_file_name: fact_navigation.yaml
 always_filter_main_dttm: false
 cache_timeout: null
 columns:
@@ -227,8 +227,8 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/navigation_completion.sql' %}{% endfilter %}
-table_name: navigation_completion
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_navigation.sql' %}{% endfilter %}
+table_name: fact_navigation
 template_params: null
 uuid: 1b1cbf0a-1193-4251-ad52-724c2f0190ae
 version: 1.0.0
