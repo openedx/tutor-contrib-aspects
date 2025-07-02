@@ -1,6 +1,7 @@
 _file_name: dim_course_names.yaml
 always_filter_main_dttm: false
 cache_timeout: null
+catalog: null
 columns:
 - advanced_data_type: null
   column_name: course_key
@@ -39,18 +40,6 @@ columns:
   type: String
   verbose_name: Course Run
 - advanced_data_type: null
-  column_name: org
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Organization
-- advanced_data_type: null
   column_name: tags_str
   description: null
   expression: null
@@ -62,6 +51,18 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Tags Str
+- advanced_data_type: null
+  column_name: org
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Organization
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
