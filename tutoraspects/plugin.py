@@ -168,8 +168,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_VECTOR_DATABASE", "openedx"),
         ("ASPECTS_VECTOR_RAW_TRACKING_LOGS_TABLE", "_tracking"),
         ("ASPECTS_VECTOR_RAW_XAPI_TABLE", "xapi_events_all"),
-        # ("ASPECTS_DATA_TTL_EXPRESSION", "toDateTime(emission_time) + INTERVAL 1 YEAR"),
-        ("ASPECTS_DATA_TTL_EXPRESSION", "toDateTime(emission_time)"),
+        ("ASPECTS_DATA_TTL_EXPRESSION", "toDateTime(emission_time) + INTERVAL 1 YEAR"),
         # Make sure LMS / CMS have event-routing-backends installed
         ######################
         # ClickHouse Settings
