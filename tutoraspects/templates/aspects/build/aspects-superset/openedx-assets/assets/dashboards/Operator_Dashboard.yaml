@@ -392,10 +392,10 @@ metadata:
     name: Time Range
     scope:
       excluded:
-      - 581
-      - 1021
-      - 261
-      - 1201
+      - 721
+      - 941
+      - 81
+      - 1041
       rootPath:
       - TAB-DE73B5pXm
       - TAB-uKjvZ62aJt
@@ -428,26 +428,26 @@ metadata:
     name: Time Grain
     scope:
       excluded:
-      - 121
-      - 241
-      - 261
-      - 281
-      - 461
-      - 561
-      - 601
-      - 681
-      - 701
+      - 481
+      - 901
+      - 81
+      - 1101
+      - 921
+      - 641
+      - 41
       - 761
-      - 581
-      - 1021
-      - 1141
-      - 1241
+      - 1601
+      - 1621
+      - 721
+      - 941
+      - 1381
+      - 1461
       rootPath:
       - ROOT_ID
     tabsInScope:
     - TAB-DE73B5pXm
     targets:
-    - datasetUuid: f13a4d42-2f44-58a4-99d2-2f480d63fdf1
+    - datasetUuid: f89c07c4-aa3f-527e-84fb-3d4e71ffc777
     type: NATIVE_FILTER
   - cascadeParentIds: []
     chartsInScope:
@@ -638,7 +638,7 @@ position:
     children: []
     id: CHART-4xInxcau02
     meta:
-      chartId: 121
+      chartId: 481
       height: 50
       sliceName: ClickHouse metrics
       uuid: 2f84cbc3-4068-4d4d-bd40-ae348e4be95d
@@ -654,7 +654,7 @@ position:
     children: []
     id: CHART-6cANA_o-Ss
     meta:
-      chartId: 581
+      chartId: 721
       height: 17
       sliceName: Total Users
       uuid: 15620ae6-5452-4a11-bc7e-56c7e5987a4d
@@ -671,7 +671,7 @@ position:
     children: []
     id: CHART-8MbVYXA12V
     meta:
-      chartId: 701
+      chartId: 1601
       height: 50
       sliceName: Most-used Dashboards
       uuid: 36842ef1-d4e9-4cb6-83f7-cb9b34eaab77
@@ -687,7 +687,7 @@ position:
     children: []
     id: CHART-H4NTUWfMqH
     meta:
-      chartId: 601
+      chartId: 41
       height: 50
       sliceName: Course Enrollments Over Time
       uuid: bf4f4671-c276-4185-9b9a-b10864efea6c
@@ -703,7 +703,7 @@ position:
     children: []
     id: CHART-La3O2IbbVV
     meta:
-      chartId: 761
+      chartId: 1621
       height: 50
       sliceName: Slowest ClickHouse Queries
       uuid: 953af3e5-8fc6-441e-bff1-22987735edf0
@@ -719,7 +719,7 @@ position:
     children: []
     id: CHART-SG5jU4pQPt
     meta:
-      chartId: 1241
+      chartId: 1461
       height: 36
       sliceName: Superset Registered Users Over Time
       uuid: 68011361-ea45-4875-9165-c84ddbcd1fc5
@@ -735,7 +735,7 @@ position:
     children: []
     id: CHART-ThgueCCU1Y
     meta:
-      chartId: 181
+      chartId: 1061
       height: 50
       sliceName: Active Courses
       uuid: 138eb72a-f73f-42b5-96d6-3417715c3519
@@ -751,7 +751,7 @@ position:
     children: []
     id: CHART-Yv5sneg3nD
     meta:
-      chartId: 281
+      chartId: 1101
       height: 36
       sliceName: Superset Active Users
       uuid: bc5f7a27-670c-4794-963b-8082b258566f
@@ -767,7 +767,7 @@ position:
     children: []
     id: CHART-dLbZ-a2Mj1
     meta:
-      chartId: 1141
+      chartId: 1381
       height: 36
       sliceName: Superset Active Users Over Time
       uuid: 66ef96e7-9616-4f28-90b6-68f13ce58b0a
@@ -783,7 +783,7 @@ position:
     children: []
     id: CHART-eOEkWVWOcd
     meta:
-      chartId: 241
+      chartId: 901
       height: 50
       sliceName: Most-used Charts
       uuid: 9d5f69e8-f335-42a0-bbfa-272f43d74ad0
@@ -799,7 +799,7 @@ position:
     children: []
     id: CHART-explore-17-1
     meta:
-      chartId: 681
+      chartId: 761
       height: 16
       sliceName: Last Received Event
       uuid: ffdaabc5-8d01-47d7-8f29-66efa643befb
@@ -816,7 +816,7 @@ position:
     children: []
     id: CHART-explore-19-1
     meta:
-      chartId: 461
+      chartId: 921
       height: 16
       sliceName: Last course syncronized
       sliceNameOverride: Last Course Published
@@ -834,7 +834,7 @@ position:
     children: []
     id: CHART-explore-20-1
     meta:
-      chartId: 1021
+      chartId: 941
       height: 14
       sliceName: Total Organizations
       uuid: e66b1cdb-6974-4fa2-a769-4908665118f6
@@ -851,7 +851,7 @@ position:
     children: []
     id: CHART-explore-22-1
     meta:
-      chartId: 261
+      chartId: 81
       height: 15
       sliceName: Courses
       sliceNameOverride: Total Courses
@@ -869,7 +869,7 @@ position:
     children: []
     id: CHART-explore-3561-1
     meta:
-      chartId: 21
+      chartId: 1301
       height: 54
       sliceName: Courses Per Organization
       uuid: ad951d3b-e177-4501-bae3-08370ee3ed2d
@@ -885,7 +885,7 @@ position:
     children: []
     id: CHART-explore-3562-1
     meta:
-      chartId: 1201
+      chartId: 1041
       height: 50
       sliceName: Current Active Enrollments By Mode
       uuid: 3e80132c-ea4d-4e61-9f3a-6164bacf58a0
@@ -901,7 +901,7 @@ position:
     children: []
     id: CHART-explore-788-1
     meta:
-      chartId: 561
+      chartId: 641
       height: 54
       sliceName: Active Users Per Organization
       uuid: 02af00f5-6539-428f-b3ab-632997de7528
@@ -917,7 +917,7 @@ position:
     children: []
     id: CHART-jUpnkQSs-D
     meta:
-      chartId: 1221
+      chartId: 321
       height: 50
       sliceName: Active Learners
       uuid: b9b602ec-001b-4584-aa24-9201f3b8746f
@@ -933,7 +933,7 @@ position:
     children: []
     id: CHART-nyK0NRXUUj
     meta:
-      chartId: 401
+      chartId: 281
       height: 50
       sliceName: Event Activity
       uuid: abc9bf92-2b32-42a5-8cd0-d383de777619
