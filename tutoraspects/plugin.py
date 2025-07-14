@@ -667,7 +667,7 @@ PLUGIN_SLOTS.add_items(
     [
         (
             "authoring",
-            "course_authoring_outline_sidebar_slot",
+            "org.openedx.frontend.authoring.course_outline_sidebar.v1",
             """
           {
             op: PLUGIN_OPERATIONS.Insert,
@@ -681,7 +681,7 @@ PLUGIN_SLOTS.add_items(
         ),
         (
             "authoring",
-            "course_authoring_outline_sidebar_slot",
+            "org.openedx.frontend.authoring.course_outline_sidebar.v1",
             """
           {
             op: PLUGIN_OPERATIONS.Wrap,
@@ -691,7 +691,7 @@ PLUGIN_SLOTS.add_items(
         ),
         (
             "authoring",
-            "course_authoring_unit_sidebar_slot",
+            "org.openedx.frontend.authoring.course_unit_sidebar.v2",
             """
           {
             op: PLUGIN_OPERATIONS.Insert,
@@ -705,7 +705,7 @@ PLUGIN_SLOTS.add_items(
         ),
         (
             "authoring",
-            "course_authoring_unit_sidebar_slot",
+            "org.openedx.frontend.authoring.course_unit_sidebar.v2",
             """
           {
             op: PLUGIN_OPERATIONS.Wrap,
@@ -715,7 +715,7 @@ PLUGIN_SLOTS.add_items(
         ),
         (
             "authoring",
-            "course_unit_header_actions_slot",
+            "org.openedx.frontend.authoring.course_unit_header_actions.v1",
             """
           {
               op: PLUGIN_OPERATIONS.Insert,
@@ -729,7 +729,7 @@ PLUGIN_SLOTS.add_items(
         ),
         (
             "authoring",
-            "course_outline_header_actions_slot",
+            "org.openedx.frontend.authoring.course_outline_header_actions.v1",
             """
           {
               op: PLUGIN_OPERATIONS.Insert,
@@ -743,7 +743,7 @@ PLUGIN_SLOTS.add_items(
         ),
         (
             "authoring",
-            "course_outline_unit_card_extra_actions_slot",
+            "org.openedx.frontend.authoring.course_outline_unit_card_extra_actions.v1",
             """
           {
             op: PLUGIN_OPERATIONS.Insert,
@@ -757,7 +757,7 @@ PLUGIN_SLOTS.add_items(
         ),
         (
             "authoring",
-            "course_outline_subsection_card_extra_actions_slot",
+            "org.openedx.frontend.authoring.course_outline_subsection_card_extra_actions.v1",
             """
           {
             op: PLUGIN_OPERATIONS.Insert,
