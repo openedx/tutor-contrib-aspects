@@ -548,7 +548,9 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
 # run it as part of the `init` job.
 try:
     for service, template_path, priority in MY_INIT_TASKS:
-        hooks.Filters.COMMANDS_INIT.add_item((service, template_path))  # pylint: disable=no-member
+        hooks.Filters.COMMANDS_INIT.add_item(
+            (service, template_path)
+        )  # pylint: disable=no-member
 except AttributeError:
     for service, template_path, priority in MY_INIT_TASKS:
         full_path = os.path.join(
