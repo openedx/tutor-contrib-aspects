@@ -11,7 +11,11 @@ from glob import glob
 import bcrypt
 import importlib_resources
 from tutor import hooks
-from tutormfe.hooks import PLUGIN_SLOTS
+
+try:
+    from tutormfe.hooks import PLUGIN_SLOTS
+except ImportError:
+    PLUGIN_SLOTS = None
 
 from .__about__ import __version__
 from .commands_v1 import COMMANDS as TUTOR_V1_COMMANDS
@@ -544,9 +548,7 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
 # run it as part of the `init` job.
 try:
     for service, template_path, priority in MY_INIT_TASKS:
-        hooks.Filters.COMMANDS_INIT.add_item(
-            (service, template_path)
-        )  # pylint: disable=no-member
+        hooks.Filters.COMMANDS_INIT.add_item((service, template_path))  # pylint: disable=no-member
 except AttributeError:
     for service, template_path, priority in MY_INIT_TASKS:
         full_path = os.path.join(
@@ -683,111 +685,114 @@ except ImportError:
 # MFE Customizations
 ########################################
 
-PLUGIN_SLOTS.add_items(
-    [
-        (
-            "authoring",
-            "org.openedx.frontend.authoring.course_outline_sidebar.v1",
-            """
-          {
-            op: PLUGIN_OPERATIONS.Insert,
-            widget: {
-                id: 'outline-sidebar',
-                priority: 1,
-                type: DIRECT_PLUGIN,
-                RenderWidget: CourseOutlineSidebar,
-            },
-          }""",
-        ),
-        (
-            "authoring",
-            "org.openedx.frontend.authoring.course_outline_sidebar.v1",
-            """
-          {
-            op: PLUGIN_OPERATIONS.Wrap,
-            widgetId: 'default_contents',
-            wrapper: SidebarToggleWrapper,
-          }""",
-        ),
-        (
-            "authoring",
-            "org.openedx.frontend.authoring.course_unit_sidebar.v2",
-            """
-          {
-            op: PLUGIN_OPERATIONS.Insert,
-            widget: {
-                id: 'course-unit-sidebar',
-                priority: 1,
-                type: DIRECT_PLUGIN,
-                RenderWidget: UnitPageSidebar,
-            },
-          }""",
-        ),
-        (
-            "authoring",
-            "org.openedx.frontend.authoring.course_unit_sidebar.v2",
-            """
-          {
-            op: PLUGIN_OPERATIONS.Wrap,
-            widgetId: 'default_contents',
-            wrapper: SidebarToggleWrapper,
-          }""",
-        ),
-        (
-            "authoring",
-            "org.openedx.frontend.authoring.course_unit_header_actions.v1",
-            """
-          {
-              op: PLUGIN_OPERATIONS.Insert,
-              widget: {
-                  id: 'unit-header-aspects-button',
-                  priority: 60,
-                  type: DIRECT_PLUGIN,
-                  RenderWidget: CourseHeaderButton,
-              },
-          }""",
-        ),
-        (
-            "authoring",
-            "org.openedx.frontend.authoring.course_outline_header_actions.v1",
-            """
-          {
-              op: PLUGIN_OPERATIONS.Insert,
-              widget: {
-                  id: 'outline-header-aspects-button',
-                  priority: 60,
-                  type: DIRECT_PLUGIN,
-                  RenderWidget: CourseHeaderButton,
-              },
-          }""",
-        ),
-        (
-            "authoring",
-            "org.openedx.frontend.authoring.course_outline_unit_card_extra_actions.v1",
-            """
-          {
-            op: PLUGIN_OPERATIONS.Insert,
-            widget: {
-                id: 'units-action-aspects-button',
-                priority: 60,
-                type: DIRECT_PLUGIN,
-                RenderWidget: UnitActionsButton,
-            },
-          }""",
-        ),
-        (
-            "authoring",
-            "org.openedx.frontend.authoring.course_outline_subsection_card_extra_actions.v1",
-            """
-          {
-            op: PLUGIN_OPERATIONS.Insert,
-            widget: {
-                id: 'units-action-aspects-button',
-                priority: 60,
-                type: DIRECT_PLUGIN,
-                RenderWidget: SubSectionAnalyticsButton,
-            },
-          }""",
-        ),
-    ]
-)
+# If PLUGIN_SLOTS doesn't exist, we are on Redwood and do not
+# support in-context metrics.
+if PLUGIN_SLOTS:
+    PLUGIN_SLOTS.add_items(
+        [
+            (
+                "authoring",
+                "org.openedx.frontend.authoring.course_outline_sidebar.v1",
+                """
+            {
+                op: PLUGIN_OPERATIONS.Insert,
+                widget: {
+                    id: 'outline-sidebar',
+                    priority: 1,
+                    type: DIRECT_PLUGIN,
+                    RenderWidget: CourseOutlineSidebar,
+                },
+            }""",
+            ),
+            (
+                "authoring",
+                "org.openedx.frontend.authoring.course_outline_sidebar.v1",
+                """
+            {
+                op: PLUGIN_OPERATIONS.Wrap,
+                widgetId: 'default_contents',
+                wrapper: SidebarToggleWrapper,
+            }""",
+            ),
+            (
+                "authoring",
+                "org.openedx.frontend.authoring.course_unit_sidebar.v2",
+                """
+            {
+                op: PLUGIN_OPERATIONS.Insert,
+                widget: {
+                    id: 'course-unit-sidebar',
+                    priority: 1,
+                    type: DIRECT_PLUGIN,
+                    RenderWidget: UnitPageSidebar,
+                },
+            }""",
+            ),
+            (
+                "authoring",
+                "org.openedx.frontend.authoring.course_unit_sidebar.v2",
+                """
+            {
+                op: PLUGIN_OPERATIONS.Wrap,
+                widgetId: 'default_contents',
+                wrapper: SidebarToggleWrapper,
+            }""",
+            ),
+            (
+                "authoring",
+                "org.openedx.frontend.authoring.course_unit_header_actions.v1",
+                """
+            {
+                op: PLUGIN_OPERATIONS.Insert,
+                widget: {
+                    id: 'unit-header-aspects-button',
+                    priority: 60,
+                    type: DIRECT_PLUGIN,
+                    RenderWidget: CourseHeaderButton,
+                },
+            }""",
+            ),
+            (
+                "authoring",
+                "org.openedx.frontend.authoring.course_outline_header_actions.v1",
+                """
+            {
+                op: PLUGIN_OPERATIONS.Insert,
+                widget: {
+                    id: 'outline-header-aspects-button',
+                    priority: 60,
+                    type: DIRECT_PLUGIN,
+                    RenderWidget: CourseHeaderButton,
+                },
+            }""",
+            ),
+            (
+                "authoring",
+                "org.openedx.frontend.authoring.course_outline_unit_card_extra_actions.v1",
+                """
+            {
+                op: PLUGIN_OPERATIONS.Insert,
+                widget: {
+                    id: 'units-action-aspects-button',
+                    priority: 60,
+                    type: DIRECT_PLUGIN,
+                    RenderWidget: UnitActionsButton,
+                },
+            }""",
+            ),
+            (
+                "authoring",
+                "org.openedx.frontend.authoring.course_outline_subsection_card_extra_actions.v1",
+                """
+            {
+                op: PLUGIN_OPERATIONS.Insert,
+                widget: {
+                    id: 'units-action-aspects-button',
+                    priority: 60,
+                    type: DIRECT_PLUGIN,
+                    RenderWidget: SubSectionAnalyticsButton,
+                },
+            }""",
+            ),
+        ]
+    )
