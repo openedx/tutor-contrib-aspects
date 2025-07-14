@@ -252,14 +252,14 @@ tqdm==4.67.1
     #   shandy-sqlfmt
 transifex-python==3.5.0
     # via -r requirements/base.txt
-tutor==20.0.0
+tutor==18.2.2
     # via
     #   -r requirements/base.txt
     #   tutor-contrib-pod-autoscaling
     #   tutor-mfe
-tutor-contrib-pod-autoscaling==20.0.0
+tutor-contrib-pod-autoscaling==18.0.1
     # via -r requirements/dev.in
-tutor-mfe==20.0.0
+tutor-mfe==18.1.0
     # via -r requirements/base.txt
 twine==6.1.0
     # via -r requirements/dev.in
