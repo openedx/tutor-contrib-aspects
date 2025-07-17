@@ -341,7 +341,27 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # https://openedx.atlassian.net/wiki/spaces/COMM/pages/3157524644/Translation+Working+Group
         (
             "SUPERSET_DASHBOARD_LOCALES",
-            ["en"],
+            [
+                "ar",
+                "da",
+                "de_DE",
+                "el",
+                "en",
+                "es_419",
+                "es_ES",
+                "fr_CA",
+                "he",
+                "hi",
+                "id",
+                "it_IT",
+                "pt_BR",
+                "pt_PT",
+                "ru",
+                "th",
+                "tr_TR",
+                "uk",
+                "zh_CN",
+            ],
         ),
         ("SUPERSET_EXTRA_JINJA_FILTERS", {}),
         # This controls the cache time of the can_view_courses
