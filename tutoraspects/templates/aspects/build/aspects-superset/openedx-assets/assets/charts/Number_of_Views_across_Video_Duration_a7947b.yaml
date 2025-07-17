@@ -14,47 +14,33 @@ params:
     subject: started_at
   annotation_layers: []
   color_scheme: supersetColors
-  comparison_type: values
   extra_form_data: {}
-  forecastInterval: 0.8
-  forecastPeriods: 10
   groupby: []
   legendOrientation: top
   legendType: scroll
   metrics:
-  - unique_viewers
+  - total_views
   - repeat_views
-  only_total: true
-  order_desc: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
   show_empty_columns: true
   show_legend: true
   sort_series_type: sum
+  stack: Stack
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncateYAxis: false
   truncate_metric: true
   viz_type: echarts_timeseries_bar
-  xAxisLabelRotation: 0
   x_axis: segment_start
-  x_axis_sort_asc: true
-  x_axis_sort_series: name
-  x_axis_sort_series_ascending: true
-  x_axis_time_format: smart_date
-  x_axis_title: Video Timestamp (in seconds)
-  x_axis_title_margin: 30
-  y_axis_bounds:
-  - null
-  - null
   y_axis_format: SMART_NUMBER
   y_axis_title: Number of Views
   y_axis_title_margin: 30
   y_axis_title_position: Left
 query_context:
   datasource:
-    id: 44
+    id: 685
     type: table
   force: false
   form_data:
@@ -66,20 +52,17 @@ query_context:
       subject: started_at
     annotation_layers: []
     color_scheme: supersetColors
-    comparison_type: values
-    datasource: 44__table
+    dashboards:
+    - 2587
+    datasource: 685__table
     extra_form_data: {}
     force: false
-    forecastInterval: 0.8
-    forecastPeriods: 10
     groupby: []
     legendOrientation: top
     legendType: scroll
     metrics:
-    - unique_viewers
+    - total_views
     - repeat_views
-    only_total: true
-    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
@@ -87,24 +70,15 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    slice_id: 144
+    slice_id: 341
     sort_series_type: sum
+    stack: Stack
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncateYAxis: false
     truncate_metric: true
     viz_type: echarts_timeseries_bar
-    xAxisLabelRotation: 0
     x_axis: segment_start
-    x_axis_sort_asc: true
-    x_axis_sort_series: name
-    x_axis_sort_series_ascending: true
-    x_axis_time_format: smart_date
-    x_axis_title: Video Timestamp (in seconds)
-    x_axis_title_margin: 30
-    y_axis_bounds:
-    - null
-    - null
     y_axis_format: SMART_NUMBER
     y_axis_title: Number of Views
     y_axis_title_margin: 30
@@ -127,11 +101,11 @@ query_context:
       op: TEMPORAL_RANGE
       val: No filter
     metrics:
-    - unique_viewers
+    - total_views
     - repeat_views
     order_desc: true
     orderby:
-    - - unique_viewers
+    - - total_views
       - false
     post_processing:
     - operation: pivot
@@ -139,7 +113,7 @@ query_context:
         aggregates:
           repeat_views:
             operator: mean
-          unique_viewers:
+          total_views:
             operator: mean
         columns: []
         drop_missing_columns: false
