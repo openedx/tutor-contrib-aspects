@@ -29,7 +29,7 @@ cachetools==5.5.2
     # via
     #   -r requirements/base.txt
     #   google-auth
-certifi==2025.7.9
+certifi==2025.7.14
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -117,7 +117,7 @@ more-itertools==10.7.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-mypy==1.16.1
+mypy==1.17.0
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -126,7 +126,7 @@ mypy-extensions==1.1.0
     #   -r requirements/base.txt
     #   black
     #   mypy
-nh3==0.2.21
+nh3==0.3.0
     # via readme-renderer
 oauthlib==3.3.1
     # via
@@ -179,7 +179,7 @@ pygments==2.19.2
     #   rich
 pyinstaller==6.14.2
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2025.5
+pyinstaller-hooks-contrib==2025.6
     # via pyinstaller
 pylint==3.3.7
     # via -r requirements/dev.in
