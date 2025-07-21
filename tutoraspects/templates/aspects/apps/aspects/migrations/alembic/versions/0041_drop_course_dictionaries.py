@@ -21,18 +21,10 @@ def upgrade():
 
 def downgrade():
     op.execute(
-        "DROP DICTIONARY IF EXISTS {{ DBT_PROFILE_TARGET_DATABASE }}.most_recent_course_tags"
+        "DROP DICTIONARY IF EXISTS {{ DBT_PROFILE_TARGET_DATABASE }}.dim_most_recent_course_tags"
         f"{on_cluster}"
     )
     op.execute(
-        "RENAME DICTIONARY {{ DBT_PROFILE_TARGET_DATABASE }}.dim_most_recent_course_tags TO {{ DBT_PROFILE_TARGET_DATABASE }}.most_recent_course_tags"
-        f"{on_cluster}"
-    )
-    op.execute(
-        "DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names"
-        f"{on_cluster}"
-    )
-    op.execute(
-        "RENAME DICTIONARY {{ ASPECTS_EVENT_SINK_DATABASE }}.dim_course_names TO {{ ASPECTS_EVENT_SINK_DATABASE }}.course_names"
+        "DROP DICTIONARY IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.dim_course_names"
         f"{on_cluster}"
     )
