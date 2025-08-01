@@ -19,14 +19,14 @@ Key Features
 - Streamlined deployment of analytics and reporting tools.
 - Integration with Open edX for real-time and historical data analytics.
 - Extensible architecture supporting customization.
-- `In-context metrics in Studio <https://docs.openedx.org/projects/openedx-aspects/en/latest/reference/in_context_dashboards.html>`_.
-
+- Open edX Teak or higher: `In-context metrics in Studio <https://docs.openedx.org/projects/openedx-aspects/en/latest/reference/in_context_dashboards.html>`_.
 
 
 Compatibility
 =============
 
-The plugin is compatible with Tutor 15.0.0 and later and supports Open edX releases from Nutmeg onward.
+Current versions of the plugin are compatible with Tutor 19.0.0 and later and support Open edX releases from Sumac onward. Older releases can support Open edX versions as far back as Nutmeg. Details are available in the `Aspects Documentation <https://docs.openedx.org/projects/openedx-aspects/en/latest/technical_documentation/how-tos/upgrade.html>`_.
+
 
 Installation
 ============
@@ -79,7 +79,7 @@ To visualize data:
 - Interact with the course to generate data:
 
   Complete a few activities within the course (e.g., enroll, take quizzes, watch videos) to generate real data. This will provide a more realistic dataset for analytics.
-   
+
 
 
 - Sync data from an existing Tutor installation with default settings:
