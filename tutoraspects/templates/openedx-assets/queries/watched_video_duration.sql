@@ -1,46 +1,61 @@
-{% raw -%}
 with
-    course_keys as (
-        select [] as course_key
-        {% if filter_values("course_name") != [] %}
-            union all
-            select array(course_key) as course_key
-            from
-                {% endraw -%} {{ ASPECTS_EVENT_SINK_DATABASE }}.dim_course_names {% raw -%}
-            where course_name in {{ filter_values("course_name") | where_in }}
-        {% endif %}
-        {% if filter_values("tag") != [] %}
-            union distinct
-            select array(course_key) as course_key
-            from
-                {% endraw -%} {{ DBT_PROFILE_TARGET_DATABASE }}.dim_most_recent_course_tags {% raw -%}
-            where
-                tag
-                in (select replaceAll(arrayJoin({{ filter_values("tag") }}), '- ', ''))
-        {% endif %}
+    watched_video_segments as (
+        {% include 'openedx-assets/queries/watched_video_segments.sql' %}
+    ),
+    course_data as (
+        select
+            dim_course_blocks.org as org,
+            dim_course_blocks.course_key as course_key,
+            count(distinct dim_course_blocks.block_id) video_count,
+            dim_course_names.course_name as course_name,
+            dim_course_names.course_run as course_run
+        from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_course_blocks
+        left join
+            {{ ASPECTS_EVENT_SINK_DATABASE }}.dim_course_names
+            on dim_course_blocks.org = dim_course_names.org
+            and dim_course_blocks.course_key = dim_course_names.course_key
+        where
+            dim_course_blocks.block_type = 'video'
+            {% include 'openedx-assets/queries/common_filters.sql' %}
+        group by org, course_key, course_name, course_run
     )
-    {%- endraw %}
 select
-    names.org as org,
-    names.course_key as course_key,
-    names.course_name as course_name,
-    names.course_run as course_run,
-    actor_id,
-    video_count,
-    video_duration,
-    watched_time,
-    rewatched_time,
-    object_id
-from
-    {{ DBT_PROFILE_TARGET_DATABASE }}.fact_watched_video_duration(
-        {% raw -%}
-        org_filter = coalesce({{ filter_values("org") }}, []),
-        course_key_filter
-        = coalesce((select array_concat_agg(course_key) from course_keys), [])
-        {%- endraw %}
-    ) as a
-left join
-    {{ ASPECTS_EVENT_SINK_DATABASE }}.dim_course_names as names
-    on a.org = names.org
-    and a.course_key = names.course_key
+    if(course_data.org = '', watched_video_segments.org, course_data.org) as org,
+    if(
+        course_data.course_key = '',
+        watched_video_segments.course_key,
+        course_data.course_key
+    ) as course_key,
+    course_data.course_name as course_name,
+    course_data.course_run as course_run,
+    course_data.video_count as video_count,
+    watched_video_segments.object_id as object_id,
+    watched_video_segments.video_duration as video_duration,
+    if(
+        video_duration = 0, 0, count(distinct watched_video_segments.segment_start)
+    ) as segment_count,
+    if(
+        video_duration = 0,
+        0,
+        count(
+            distinct case
+                when watched_count > 1 then watched_video_segments.segment_start else 0
+            end
+        )
+    ) as segment_count_rewatched,
+    watched_video_segments.video_name_location as video_name_location,
+    watched_video_segments.block_id as block_id
+from course_data
+full join
+    watched_video_segments on watched_video_segments.course_key = course_data.course_key
 where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
+group by
+    org,
+    course_key,
+    course_name,
+    course_run,
+    video_count,
+    object_id,
+    video_duration,
+    video_name_location,
+    block_id
