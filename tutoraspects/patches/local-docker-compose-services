@@ -150,3 +150,20 @@ aspects-docs:
   depends_on:
   {% if RUN_CLICKHOUSE %}  - clickhouse{% endif %}
 {% endif %}
+
+{% if ASPECTS_RUN_ALTINITY_CONNECTOR %}
+debezium:
+  image: altinity/clickhouse-sink-connector:{{ALTINITY_SINK_LIGHTWEIGHT_VERSION}}
+  restart: unless-stopped
+  ports:
+    - "8083:8083"
+    - "5005:5005"
+    - "7100:7000"
+  depends_on:
+      - mysql
+      - clickhouse
+  extra_hosts:
+      - "host.docker.internal:host-gateway"
+  volumes:
+      - ../../env/plugins/aspects/apps/debezium/config.yml:/config.yml
+{% endif %}
