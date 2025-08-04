@@ -23,32 +23,32 @@ metadata:
     '1261':
       crossFilters:
         chartsInScope:
-        - 281
-        - 421
+        - 301
+        - 781
         scope: global
       id: 1261
-    '281':
+    '301':
       crossFilters:
         chartsInScope:
-        - 421
+        - 781
         - 1261
         scope: global
-      id: 281
-    '421':
+      id: 301
+    '781':
       crossFilters:
         chartsInScope:
-        - 281
+        - 301
         - 1261
         scope: global
-      id: 421
+      id: 781
   color_scheme: aspects_default
   color_scheme_domain: []
   cross_filters_enabled: true
   expanded_slices: {}
   global_chart_configuration:
     chartsInScope:
-    - 281
-    - 421
+    - 301
+    - 781
     - 1261
     scope:
       excluded: []
@@ -89,12 +89,10 @@ metadata:
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
+    Repeat Views: '#7B144D'
     Respondents: '#29A399'
-    actor_count: '#29A399'
-    avg_score: '#7B144D'
+    Total Views: '#29A399'
     perc_correct_first: '#7B144D'
-    repeat_views: '#7B144D'
-    unique_viewers: '#29A399'
   timed_refresh_immune_slices: []
 position:
   CHART-GnyQPJ18hu:

@@ -1,11 +1,12 @@
 _file_name: at_risk_video_watches.yaml
 always_filter_main_dttm: false
 cache_timeout: null
+catalog: null
 columns:
 - advanced_data_type: null
-  column_name: video_name_with_location
+  column_name: subsection_with_name
   description: null
-  expression: ''
+  expression: null
   extra: {}
   filterable: true
   groupby: true
@@ -13,31 +14,19 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Video Name With Location
+  verbose_name: Subsection Name and Location
 - advanced_data_type: null
-  column_name: video_segment_count
+  column_name: section_with_name
   description: null
-  expression: ''
+  expression: null
   extra: {}
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Float64
-  verbose_name: Video Segment Count
-- advanced_data_type: null
-  column_name: watched_segment_count
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: UInt64
-  verbose_name: Watched Segment Count
+  type: String
+  verbose_name: Section Name and Location
 - advanced_data_type: null
   column_name: watched_entire_video
   description: null
@@ -50,6 +39,30 @@ columns:
   python_date_format: null
   type: UInt8
   verbose_name: Watched Entire Video
+- advanced_data_type: null
+  column_name: video_watched_count
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: UInt64
+  verbose_name: Video Watched Count
+- advanced_data_type: null
+  column_name: video_name_location
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Video Name Location
 - advanced_data_type: null
   column_name: course_key
   description: null
@@ -74,66 +87,6 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Actor ID
-- advanced_data_type: null
-  column_name: course_name
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Name
-- advanced_data_type: null
-  column_name: course_run
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Run
-- advanced_data_type: null
-  column_name: subsection_with_name
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Subsection Name
-- advanced_data_type: null
-  column_name: section_with_name
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Section Name
-- advanced_data_type: null
-  column_name: video_name
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Video Name
 - advanced_data_type: null
   column_name: video_link
   description: null
@@ -205,16 +158,6 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: count(*) - count(distinct actor_id)
-  extra:
-    warning_markdown: ''
-  metric_name: repeat_views
-  metric_type: null
-  verbose_name: Repeat Views
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
   expression: count(distinct actor_id)
   extra:
     warning_markdown: ''
@@ -225,10 +168,30 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: count(*)
+  expression: sumIf(video_watched_count,watched_entire_video=0)
   extra:
     warning_markdown: ''
-  metric_name: count
+  metric_name: partial_views
+  metric_type: null
+  verbose_name: Partial Views
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: sumIf(video_watched_count,watched_entire_video=1)
+  extra:
+    warning_markdown: ''
+  metric_name: full_views
+  metric_type: null
+  verbose_name: Full Views
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: sum(video_watched_count)
+  extra:
+    warning_markdown: ''
+  metric_name: total_views
   metric_type: null
   verbose_name: Total Views
   warning_text: null

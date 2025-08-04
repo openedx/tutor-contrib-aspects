@@ -1,11 +1,12 @@
 _file_name: at_risk_watched_video_segments.yaml
 always_filter_main_dttm: false
 cache_timeout: null
+catalog: null
 columns:
 - advanced_data_type: null
-  column_name: video_name_with_location
+  column_name: video_name_location
   description: null
-  expression: ''
+  expression: null
   extra: {}
   filterable: true
   groupby: true
@@ -13,7 +14,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Video Name With Location
+  verbose_name: Video Name Location
 - advanced_data_type: null
   column_name: subsection_with_name
   description: null
@@ -72,7 +73,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: UInt8
+  type: Int64
   verbose_name: Segment Start
 - advanced_data_type: null
   column_name: actor_id
@@ -87,55 +88,7 @@ columns:
   type: String
   verbose_name: Actor ID
 - advanced_data_type: null
-  column_name: started_at
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: DateTime
-  verbose_name: Started At
-- advanced_data_type: null
-  column_name: course_name
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Name
-- advanced_data_type: null
-  column_name: course_run
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Run
-- advanced_data_type: null
-  column_name: video_name
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Video Name
-- advanced_data_type: null
-  column_name: start_position
+  column_name: watched_count
   description: null
   expression: null
   extra: {}
@@ -144,10 +97,10 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Int64
-  verbose_name: Start Position
+  type: UInt64
+  verbose_name: Watched Count
 - advanced_data_type: null
-  column_name: video_id
+  column_name: block_id
   description: null
   expression: null
   extra: {}
@@ -157,7 +110,19 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Video ID
+  verbose_name: Block Id
+- advanced_data_type: null
+  column_name: object_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Object Id
 - advanced_data_type: null
   column_name: video_link
   description: null
@@ -171,7 +136,7 @@ columns:
   type: String
   verbose_name: Video Link
 - advanced_data_type: null
-  column_name: segment_range
+  column_name: video_number
   description: null
   expression: null
   extra: {}
@@ -181,7 +146,19 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Segment Range
+  verbose_name: Video Number
+- advanced_data_type: null
+  column_name: time_stamp
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Time Stamp
 - advanced_data_type: null
   column_name: org
   description: null
@@ -194,6 +171,18 @@ columns:
   python_date_format: null
   type: LowCardinality(String)
   verbose_name: Organization
+- advanced_data_type: null
+  column_name: rewatched
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: UInt8
+  verbose_name: Rewatched
 - advanced_data_type: null
   column_name: email
   description: null
@@ -241,17 +230,7 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: count(*) - count(distinct actor_id)
-  extra:
-    warning_markdown: ''
-  metric_name: repeat_views
-  metric_type: null
-  verbose_name: Repeat Views
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: count(distinct actor_id)
+  expression: sumIf(watched_count,watched_count=1)
   extra:
     warning_markdown: ''
   metric_name: unique_viewers
@@ -261,10 +240,29 @@ metrics:
 - currency: null
   d3format: null
   description: null
+  expression: sumIf(watched_count,watched_count>1)
+  extra:
+    warning_markdown: ''
+  metric_name: repeat_views
+  metric_type: null
+  verbose_name: Repeat Views
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
   expression: count(*)
   extra:
     warning_markdown: ''
   metric_name: count
+  metric_type: null
+  verbose_name: Count
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: sum(watched_count)
+  extra: {}
+  metric_name: total_views
   metric_type: null
   verbose_name: Total Views
   warning_text: null
