@@ -29,7 +29,7 @@ cachetools==5.5.2
     # via
     #   -r requirements/base.txt
     #   google-auth
-certifi==2025.7.14
+certifi==2025.8.3
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -51,7 +51,7 @@ cryptography==45.0.5
     # via secretstorage
 dill==0.4.0
     # via pylint
-docutils==0.21.2
+docutils==0.22
     # via readme-renderer
 durationpy==0.10
     # via
@@ -117,7 +117,7 @@ more-itertools==10.7.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-mypy==1.17.0
+mypy==1.17.1
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -177,7 +177,7 @@ pygments==2.19.2
     # via
     #   readme-renderer
     #   rich
-pyinstaller==6.14.2
+pyinstaller==6.15.0
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2025.8
     # via pyinstaller
@@ -198,7 +198,7 @@ pyyaml==6.0.2
     #   tutor
 readme-renderer==44.0
     # via twine
-regex==2024.11.6
+regex==2025.7.34
     # via
     #   -r requirements/base.txt
     #   parsimonious
