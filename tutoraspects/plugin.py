@@ -11,7 +11,11 @@ from glob import glob
 import bcrypt
 import importlib_resources
 from tutor import hooks
-from tutormfe.hooks import PLUGIN_SLOTS
+
+try:
+    from tutormfe.hooks import PLUGIN_SLOTS
+except ImportError:
+    PLUGIN_SLOTS = None
 
 from .__about__ import __version__
 from .commands_v1 import COMMANDS as TUTOR_V1_COMMANDS
@@ -342,25 +346,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "SUPERSET_DASHBOARD_LOCALES",
             [
-                "ar",
-                "da",
-                "de_DE",
-                "el",
                 "en",
-                "es_419",
-                "es_ES",
-                "fr_CA",
-                "he",
-                "hi",
-                "id",
-                "it_IT",
-                "pt_BR",
-                "pt_PT",
-                "ru",
-                "th",
-                "tr_TR",
-                "uk",
-                "zh_CN",
             ],
         ),
         ("SUPERSET_EXTRA_JINJA_FILTERS", {}),
@@ -390,7 +376,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
-        ("DBT_BRANCH", "v4.0.3"),
+        ("DBT_BRANCH", "v5.0.0"),
         ("DBT_SSH_KEY", ""),
         ("DBT_STATE_DIR", "/app/aspects-dbt/state"),
         ("DBT_PROFILES_DIR", "/app/aspects/dbt/"),
@@ -683,111 +669,114 @@ except ImportError:
 # MFE Customizations
 ########################################
 
-PLUGIN_SLOTS.add_items(
-    [
-        (
-            "authoring",
-            "course_authoring_outline_sidebar_slot",
-            """
-          {
-            op: PLUGIN_OPERATIONS.Insert,
-            widget: {
-                id: 'outline-sidebar',
-                priority: 1,
-                type: DIRECT_PLUGIN,
-                RenderWidget: CourseOutlineSidebar,
-            },
-          }""",
-        ),
-        (
-            "authoring",
-            "course_authoring_outline_sidebar_slot",
-            """
-          {
-            op: PLUGIN_OPERATIONS.Wrap,
-            widgetId: 'default_contents',
-            wrapper: SidebarToggleWrapper,
-          }""",
-        ),
-        (
-            "authoring",
-            "course_authoring_unit_sidebar_slot",
-            """
-          {
-            op: PLUGIN_OPERATIONS.Insert,
-            widget: {
-                id: 'course-unit-sidebar',
-                priority: 1,
-                type: DIRECT_PLUGIN,
-                RenderWidget: UnitPageSidebar,
-            },
-          }""",
-        ),
-        (
-            "authoring",
-            "course_authoring_unit_sidebar_slot",
-            """
-          {
-            op: PLUGIN_OPERATIONS.Wrap,
-            widgetId: 'default_contents',
-            wrapper: SidebarToggleWrapper,
-          }""",
-        ),
-        (
-            "authoring",
-            "course_unit_header_actions_slot",
-            """
-          {
-              op: PLUGIN_OPERATIONS.Insert,
-              widget: {
-                  id: 'unit-header-aspects-button',
-                  priority: 60,
-                  type: DIRECT_PLUGIN,
-                  RenderWidget: CourseHeaderButton,
-              },
-          }""",
-        ),
-        (
-            "authoring",
-            "course_outline_header_actions_slot",
-            """
-          {
-              op: PLUGIN_OPERATIONS.Insert,
-              widget: {
-                  id: 'outline-header-aspects-button',
-                  priority: 60,
-                  type: DIRECT_PLUGIN,
-                  RenderWidget: CourseHeaderButton,
-              },
-          }""",
-        ),
-        (
-            "authoring",
-            "course_outline_unit_card_extra_actions_slot",
-            """
-          {
-            op: PLUGIN_OPERATIONS.Insert,
-            widget: {
-                id: 'units-action-aspects-button',
-                priority: 60,
-                type: DIRECT_PLUGIN,
-                RenderWidget: UnitActionsButton,
-            },
-          }""",
-        ),
-        (
-            "authoring",
-            "course_outline_subsection_card_extra_actions_slot",
-            """
-          {
-            op: PLUGIN_OPERATIONS.Insert,
-            widget: {
-                id: 'units-action-aspects-button',
-                priority: 60,
-                type: DIRECT_PLUGIN,
-                RenderWidget: SubSectionAnalyticsButton,
-            },
-          }""",
-        ),
-    ]
-)
+# If PLUGIN_SLOTS doesn't exist, we are on Redwood and do not
+# support in-context metrics.
+if PLUGIN_SLOTS:
+    PLUGIN_SLOTS.add_items(
+        [
+            (
+                "authoring",
+                "org.openedx.frontend.authoring.course_outline_sidebar.v1",
+                """
+            {
+                op: PLUGIN_OPERATIONS.Insert,
+                widget: {
+                    id: 'outline-sidebar',
+                    priority: 1,
+                    type: DIRECT_PLUGIN,
+                    RenderWidget: CourseOutlineSidebar,
+                },
+            }""",
+            ),
+            (
+                "authoring",
+                "org.openedx.frontend.authoring.course_outline_sidebar.v1",
+                """
+            {
+                op: PLUGIN_OPERATIONS.Wrap,
+                widgetId: 'default_contents',
+                wrapper: SidebarToggleWrapper,
+            }""",
+            ),
+            (
+                "authoring",
+                "org.openedx.frontend.authoring.course_unit_sidebar.v2",
+                """
+            {
+                op: PLUGIN_OPERATIONS.Insert,
+                widget: {
+                    id: 'course-unit-sidebar',
+                    priority: 1,
+                    type: DIRECT_PLUGIN,
+                    RenderWidget: UnitPageSidebar,
+                },
+            }""",
+            ),
+            (
+                "authoring",
+                "org.openedx.frontend.authoring.course_unit_sidebar.v2",
+                """
+            {
+                op: PLUGIN_OPERATIONS.Wrap,
+                widgetId: 'default_contents',
+                wrapper: SidebarToggleWrapper,
+            }""",
+            ),
+            (
+                "authoring",
+                "org.openedx.frontend.authoring.course_unit_header_actions.v1",
+                """
+            {
+                op: PLUGIN_OPERATIONS.Insert,
+                widget: {
+                    id: 'unit-header-aspects-button',
+                    priority: 60,
+                    type: DIRECT_PLUGIN,
+                    RenderWidget: CourseHeaderButton,
+                },
+            }""",
+            ),
+            (
+                "authoring",
+                "org.openedx.frontend.authoring.course_outline_header_actions.v1",
+                """
+            {
+                op: PLUGIN_OPERATIONS.Insert,
+                widget: {
+                    id: 'outline-header-aspects-button',
+                    priority: 60,
+                    type: DIRECT_PLUGIN,
+                    RenderWidget: CourseHeaderButton,
+                },
+            }""",
+            ),
+            (
+                "authoring",
+                "org.openedx.frontend.authoring.course_outline_unit_card_extra_actions.v1",
+                """
+            {
+                op: PLUGIN_OPERATIONS.Insert,
+                widget: {
+                    id: 'units-action-aspects-button',
+                    priority: 60,
+                    type: DIRECT_PLUGIN,
+                    RenderWidget: UnitActionsButton,
+                },
+            }""",
+            ),
+            (
+                "authoring",
+                "org.openedx.frontend.authoring.course_outline_subsection_card_extra_actions.v1",
+                """
+            {
+                op: PLUGIN_OPERATIONS.Insert,
+                widget: {
+                    id: 'units-action-aspects-button',
+                    priority: 60,
+                    type: DIRECT_PLUGIN,
+                    RenderWidget: SubSectionAnalyticsButton,
+                },
+            }""",
+            ),
+        ]
+    )
