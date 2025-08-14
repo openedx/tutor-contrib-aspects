@@ -1,4 +1,4 @@
-_file_name: fact_navigation.yaml
+_file_name: navigation.yaml
 always_filter_main_dttm: false
 cache_timeout: null
 columns:
@@ -42,7 +42,7 @@ columns:
   type: Int32
   verbose_name: Course Order
 - advanced_data_type: null
-  column_name: page_count
+  column_name: block_id
   description: null
   expression: ''
   extra:
@@ -52,8 +52,8 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: UInt64
-  verbose_name: Page Count
+  type: String
+  verbose_name: Block ID
 - advanced_data_type: null
   column_name: actor_id
   description: null
@@ -205,7 +205,7 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: SUM(page_count)
+  expression: COUNT(block_id)
   extra:
     warning_markdown: ''
   metric_name: views
@@ -227,8 +227,8 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/fact_navigation.sql' %}{% endfilter %}
-table_name: fact_navigation
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/navigation.sql' %}{% endfilter %}
+table_name: navigation
 template_params: null
 uuid: 1b1cbf0a-1193-4251-ad52-724c2f0190ae
 version: 1.0.0

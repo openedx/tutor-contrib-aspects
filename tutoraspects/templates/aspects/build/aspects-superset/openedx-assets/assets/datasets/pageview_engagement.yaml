@@ -40,18 +40,6 @@ columns:
   type: String
   verbose_name: Content Level
 - advanced_data_type: null
-  column_name: course_run
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Run
-- advanced_data_type: null
   column_name: org
   description: null
   expression: ''
