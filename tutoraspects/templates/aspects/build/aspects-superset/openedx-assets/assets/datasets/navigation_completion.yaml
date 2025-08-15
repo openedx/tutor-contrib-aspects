@@ -42,7 +42,7 @@ columns:
   type: Int32
   verbose_name: Course Order
 - advanced_data_type: null
-  column_name: page_count
+  column_name: block_id
   description: null
   expression: ''
   extra:
@@ -52,8 +52,8 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: UInt64
-  verbose_name: Page Count
+  type: String
+  verbose_name: Block ID
 - advanced_data_type: null
   column_name: actor_id
   description: null
@@ -205,7 +205,7 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: SUM(page_count)
+  expression: COUNT(block_id)
   extra:
     warning_markdown: ''
   metric_name: views

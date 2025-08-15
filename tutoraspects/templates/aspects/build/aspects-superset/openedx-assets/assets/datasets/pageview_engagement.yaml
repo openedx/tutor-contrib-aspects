@@ -40,18 +40,6 @@ columns:
   type: String
   verbose_name: Content Level
 - advanced_data_type: null
-  column_name: course_run
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Run
-- advanced_data_type: null
   column_name: org
   description: null
   expression: ''
@@ -168,7 +156,7 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/page_engagement.sql' %}{% endfilter %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/pageview_engagement.sql' %}{% endfilter %}
 table_name: pageview_engagement
 template_params: {}
 uuid: 9febd6be-5102-4dbf-86b9-45ebd3cbbc45
