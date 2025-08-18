@@ -1,6 +1,7 @@
 _file_name: navigation_completion.yaml
 always_filter_main_dttm: false
 cache_timeout: null
+catalog: null
 columns:
 - advanced_data_type: null
   column_name: subsection_with_name
@@ -41,19 +42,6 @@ columns:
   python_date_format: null
   type: Int32
   verbose_name: Course Order
-- advanced_data_type: null
-  column_name: block_id
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Block ID
 - advanced_data_type: null
   column_name: actor_id
   description: null
