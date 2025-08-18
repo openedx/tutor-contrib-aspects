@@ -2,7 +2,9 @@
 {% if filter_values("org") != [] %}
     and org in {{ filter_values("org") | where_in }}
 {% endif %}
+{%- endraw %}
 
+{% raw -%}
 {% if filter_values("course_name") != [] %}
     and course_key in (
         select course_key
@@ -12,6 +14,7 @@
 {% endif %}
 {%- endraw %}
 
+{% raw -%}
 {% if filter_values("course_run") != [] %}
     and course_key in (
         select course_key

@@ -5,7 +5,7 @@ with
         where
             1 = 1
             {% include 'openedx-assets/queries/common_filters.sql' %}
-            emission_time >= subtractDays(now(), 7)
+            and emission_time >= subtractDays(now(), 7)
         group by course_key
     )
 select fss.*, COALESCE(ra.active_last_7_days, 0) as active_within_last_7_days

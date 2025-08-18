@@ -51,18 +51,6 @@ columns:
   type: Int32
   verbose_name: Course Order
 - advanced_data_type: null
-  column_name: page_count
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: UInt64
-  verbose_name: Page Count
-- advanced_data_type: null
   column_name: actor_id
   description: null
   expression: ''

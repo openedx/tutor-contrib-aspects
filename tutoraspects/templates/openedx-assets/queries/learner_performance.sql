@@ -5,7 +5,7 @@ select
     blocks.course_run as course_run,
     last_response.actor_id as actor_id,
     last_response.success as success,
-    last_response.attempts as attempts,
+    last_response.attempt as attempts,
     status.course_grade as course_grade,
     status.approving_state as approving_state
 from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_learner_last_response as last_response
