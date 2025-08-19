@@ -55,16 +55,14 @@ select
     (
         sum(case when last_response.success then 1 else 0 end) over (
             partition by last_response.actor_id, last_response.problem_id
-        ) / count(*) over (
-            partition by last_response.actor_id, last_response.problem_id
         )
+        / count(*) over (partition by last_response.actor_id, last_response.problem_id)
     ) as selected_learner_percent_correct,
     (
         sum(case when not last_response.success then 1 else 0 end) over (
             partition by last_response.actor_id, last_response.problem_id
-        ) / count(*) over (
-            partition by last_response.actor_id, last_response.problem_id
         )
+        / count(*) over (partition by last_response.actor_id, last_response.problem_id)
     ) as selected_learner_percent_incorrect
 from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_learner_last_response last_response
 join
