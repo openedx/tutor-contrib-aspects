@@ -4,9 +4,9 @@ with
             org,
             course_key,
             problem_id,
-            avg(case when success then attempts else 0 end) as avg_correct_attempts,
+            avg(case when success then attempt else 0 end) as avg_correct_attempts,
             avg(
-                case when not success then attempts else 0 end
+                case when not success then attempt else 0 end
             ) as avg_incorrect_attempts,
             sum(case when success then 1 else 0 end)::float
             / count(*) as coursewide_percent_correct
@@ -33,7 +33,7 @@ select
     last_response.actor_id as actor_id,
     last_response.responses as responses,
     last_response.success as success,
-    last_response.attempts as attempts,
+    last_response.attempt as attempts,
     last_response.interaction_type as interaction_type,
     blocks.graded as graded,
     users.username as username,
@@ -45,10 +45,10 @@ select
     coursewide_attempts.coursewide_percent_correct as coursewide_percent_correct,
     -- Learner-specific calculations (correcting the percentage calculations)
     (
-        case when last_response.success then last_response.attempts else 0 end
+        case when last_response.success then last_response.attempt else 0 end
     ) as correct_attempts_by_learner,
     (
-        case when not last_response.success then last_response.attempts else 0 end
+        case when not last_response.success then last_response.attempt else 0 end
     ) as incorrect_attempts_by_learner,
     -- Ensure we calculate percentage based on total attempts per problem (multiplied
     -- by 100 only once)
