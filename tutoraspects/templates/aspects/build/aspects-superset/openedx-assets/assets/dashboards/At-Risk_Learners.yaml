@@ -667,7 +667,9 @@ metadata:
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
-    Number of Learners: '#1FA8C9'
+    Total Learners: '#1FA8C9'
+    viewed_all: '#454E7C'
+    viewed_one: '#1FA8C9'
   timed_refresh_immune_slices: []
 position:
   CHART-LmLX-39lXb:

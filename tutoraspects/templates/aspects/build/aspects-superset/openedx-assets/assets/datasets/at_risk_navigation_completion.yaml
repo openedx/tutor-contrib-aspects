@@ -1,12 +1,14 @@
 _file_name: at_risk_navigation_completion.yaml
 always_filter_main_dttm: false
 cache_timeout: null
+catalog: null
 columns:
 - advanced_data_type: null
   column_name: subsection_with_name
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -18,7 +20,8 @@ columns:
   column_name: section_with_name
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -30,7 +33,8 @@ columns:
   column_name: course_key
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -42,7 +46,8 @@ columns:
   column_name: course_order
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -51,22 +56,11 @@ columns:
   type: Int32
   verbose_name: Course Order
 - advanced_data_type: null
-  column_name: page_count
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: UInt64
-  verbose_name: Page Count
-- advanced_data_type: null
   column_name: actor_id
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -78,7 +72,8 @@ columns:
   column_name: block_id
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -87,34 +82,11 @@ columns:
   type: String
   verbose_name: Block ID
 - advanced_data_type: null
-  column_name: course_name
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Name
-- advanced_data_type: null
-  column_name: course_run
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Run
-- advanced_data_type: null
   column_name: visited_on
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -123,10 +95,24 @@ columns:
   type: Date
   verbose_name: Visited On
 - advanced_data_type: null
+  column_name: item_count
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: UInt64
+  verbose_name: Item Count
+- advanced_data_type: null
   column_name: org
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -134,42 +120,6 @@ columns:
   python_date_format: null
   type: LowCardinality(String)
   verbose_name: Organization
-- advanced_data_type: null
-  column_name: email
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Email
-- advanced_data_type: null
-  column_name: name
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Name
-- advanced_data_type: null
-  column_name: username
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Username
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
@@ -191,7 +141,7 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: SUM(page_count)
+  expression: COUNT(block_id)
   extra:
     warning_markdown: ''
   metric_name: views
