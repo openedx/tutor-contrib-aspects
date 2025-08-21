@@ -77,7 +77,7 @@ left outer join
         last_response.actor_id like 'mailto:%'
         and SUBSTRING(last_response.actor_id, 8) = users.email
     )
-    or full_responses.actor_id = toString(users.external_user_id)
+    or last_response.actor_id = toString(users.external_user_id)
 join
     coursewide_attempts
     on last_response.org = coursewide_attempts.org
