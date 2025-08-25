@@ -23,13 +23,7 @@ select
     blocks.block_name as problem_name,
     blocks.display_name_with_location as problem_name_with_location,
     blocks.course_order as course_order,
-    concat(
-        '<a href="',
-        last_response.object_id,
-        '" target="_blank">',
-        problem_name_with_location,
-        '</a>'
-    ) as problem_link,
+    last_response.problem_link as problem_link,
     last_response.actor_id as actor_id,
     last_response.responses as responses,
     last_response.success as success,
