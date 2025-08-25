@@ -27,7 +27,7 @@ columns:
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Problem Location and Name
+  verbose_name: Problem Name and Location
 - advanced_data_type: null
   column_name: course_key
   description: null

@@ -111,7 +111,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 564
+    id: 85
     type: table
   force: false
   form_data:
@@ -165,7 +165,9 @@ query_context:
       column: median_attemps
       operator: '>'
       targetValue: 5
-    datasource: 564__table
+    dashboards:
+    - 393
+    datasource: 85__table
     extra_form_data: {}
     force: false
     groupby:
@@ -192,7 +194,7 @@ query_context:
     result_type: full
     row_limit: 1000
     show_cell_bars: true
-    slice_id: 761
+    slice_id: 87
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true
