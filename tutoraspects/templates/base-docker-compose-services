@@ -23,6 +23,7 @@ image: {{ DOCKER_IMAGE_SUPERSET }}
     PYTHONPATH: /app/pythonpath:/app/docker/pythonpath_dev
     REDIS_HOST: {{ REDIS_HOST }}
     REDIS_PORT: {{ REDIS_PORT }}
+    REDIS_USERNAME: {{ REDIS_USERNAME }}
     REDIS_PASSWORD: {{ REDIS_PASSWORD }}
     SUPERSET_HOST: {{ SUPERSET_HOST }}
     SUPERSET_PORT: {{ SUPERSET_PORT }}
