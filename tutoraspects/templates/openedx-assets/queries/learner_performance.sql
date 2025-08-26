@@ -4,9 +4,9 @@ select
     blocks.course_name as course_name,
     blocks.course_run as course_run,
     status.actor_id as actor_id,
-    sum(case when success and attempt = 1 then 1 else 0 end) as first_try_correct_count,
+    sum(case when success and attempts = 1 then 1 else 0 end) as first_try_correct_count,
     count(
-        distinct case when attempt > 1 then last_response.object_id end
+        distinct case when attempts > 1 then last_response.object_id end
     ) as response_count,
     status.course_grade as course_grade,
     status.approving_state as approving_state
