@@ -101,7 +101,7 @@ metadata:
     targets:
     - column:
         name: block_id
-      datasetUuid: 4747572f-a83e-442b-9592-ecdfe646769b
+      datasetUuid: 49057cac-177c-5c2a-ade7-124054656741
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
