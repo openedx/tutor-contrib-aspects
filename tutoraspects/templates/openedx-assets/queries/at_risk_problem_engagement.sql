@@ -1,4 +1,4 @@
-select fact_problem_engagement.*
+select distinct fact_problem_engagement.*
 from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_problem_engagement
 join
     (

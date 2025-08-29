@@ -29,4 +29,4 @@ select
         else '0%'
     end as score_range
 from avg_actor
-join avg_total using (org, course_key, block_id)
+join avg_total using (org, course_key, block_id_short)
