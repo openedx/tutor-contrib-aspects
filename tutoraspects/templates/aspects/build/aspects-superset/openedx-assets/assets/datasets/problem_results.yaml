@@ -122,8 +122,8 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: "  ROUND(\r\n    SUM(CASE WHEN success and attempts = 1 THEN 1 ELSE 0\
-    \ END) /\r\n    sum(attempts), 2\r\n  )"
+  expression: "  ROUND(\r\n    SUM(CASE WHEN success and attempts = 1 THEN 1 ELSE\
+    \ 0 END) /\r\n    sum(attempts), 2\r\n  )"
   extra:
     warning_markdown: ''
   metric_name: perc_correct_first
