@@ -71,7 +71,7 @@ pathspec==0.12.1
     # via
     #   black
     #   mypy
-platformdirs==4.3.8
+platformdirs==4.4.0
     # via
     #   black
     #   shandy-sqlfmt
@@ -91,7 +91,7 @@ pyyaml==6.0.2
     # via
     #   kubernetes
     #   tutor
-regex==2025.7.34
+regex==2025.8.29
     # via parsimonious
 requests==2.32.5
     # via
@@ -124,7 +124,7 @@ tutor==20.0.1
     #   tutor-mfe
 tutor-mfe==20.0.0
     # via -r requirements/base.in
-typing-extensions==4.14.1
+typing-extensions==4.15.0
     # via
     #   mypy
     #   tutor

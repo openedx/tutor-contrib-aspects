@@ -152,7 +152,7 @@ pathspec==0.12.1
     #   -r requirements/base.txt
     #   black
     #   mypy
-platformdirs==4.3.8
+platformdirs==4.4.0
     # via
     #   -r requirements/base.txt
     #   black
@@ -198,7 +198,7 @@ pyyaml==6.0.2
     #   tutor
 readme-renderer==44.0
     # via twine
-regex==2025.7.34
+regex==2025.8.29
     # via
     #   -r requirements/base.txt
     #   parsimonious
@@ -263,7 +263,7 @@ tutor-mfe==20.0.0
     # via -r requirements/base.txt
 twine==6.1.0
     # via -r requirements/dev.in
-typing-extensions==4.14.1
+typing-extensions==4.15.0
     # via
     #   -r requirements/base.txt
     #   mypy
