@@ -47,7 +47,7 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 61
+    id: 46
     type: table
   force: false
   form_data:
@@ -65,10 +65,7 @@ query_context:
       subject: null
     annotation_layers: []
     color_scheme: supersetColors
-    dashboards:
-    - 24
-    - 25
-    datasource: 61__table
+    datasource: 46__table
     extra_form_data: {}
     force: false
     groupby: []
@@ -85,7 +82,7 @@ query_context:
     show_empty_columns: true
     show_legend: true
     show_value: false
-    slice_id: 22
+    slice_id: 97
     sort_series_type: sum
     tooltipTimeFormat: smart_date
     truncateXAxis: true

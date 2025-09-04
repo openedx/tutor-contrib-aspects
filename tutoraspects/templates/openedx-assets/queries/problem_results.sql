@@ -2,7 +2,7 @@ select
     org,
     course_key,
     success,
-    attempt,
+    attempts,
     actor_id,
     problem_number,
     problem_name_location,

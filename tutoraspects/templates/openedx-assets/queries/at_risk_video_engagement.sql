@@ -1,4 +1,4 @@
-select fact_video_engagement.*
+select distinct fact_video_engagement.*
 from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_video_engagement
 join
     (

@@ -172,10 +172,10 @@ metadata:
   - '#D1C6BC'
   cross_filters_enabled: true
   expanded_slices:
-    '101': true
-    '1641': true
-    '501': true
-    '61': true
+    '11': true
+    '165': true
+    '51': true
+    '7': true
   global_chart_configuration:
     chartsInScope:
     - 61
@@ -349,7 +349,7 @@ position:
     children: []
     id: CHART-explore-1467-1
     meta:
-      chartId: 1221
+      chartId: 123
       height: 50
       sliceName: Video Engagement
       uuid: 5b00f792-233c-4ee6-9411-7df49f4b5061
@@ -364,7 +364,7 @@ position:
     children: []
     id: CHART-explore-1500-1
     meta:
-      chartId: 601
+      chartId: 61
       height: 50
       sliceName: Course Info
       uuid: b2fff8a7-3ace-4075-9a3f-5fa5b99f81bb
@@ -379,7 +379,7 @@ position:
     children: []
     id: CHART-explore-1501-1
     meta:
-      chartId: 201
+      chartId: 21
       height: 50
       sliceName: Course Info
       uuid: ccdd7d98-4722-490b-a0b2-077380a7c7eb
@@ -394,7 +394,7 @@ position:
     children: []
     id: CHART-explore-1502-1
     meta:
-      chartId: 161
+      chartId: 17
       height: 50
       sliceName: Enrollment Counts
       uuid: 7eaf5bc2-0067-424b-a50b-607cf54c086a
@@ -409,7 +409,7 @@ position:
     children: []
     id: CHART-explore-1503-1
     meta:
-      chartId: 1281
+      chartId: 129
       height: 50
       sliceName: Enrollment Counts
       uuid: 8230a366-957d-4667-a2ff-3cbcb2f25f60
@@ -424,7 +424,7 @@ position:
     children: []
     id: CHART-explore-1504-1
     meta:
-      chartId: 501
+      chartId: 51
       height: 50
       sliceName: Learner Performance Breakdown
       uuid: b73b0a5c-4861-402e-a39c-d73333a4d911
@@ -439,7 +439,7 @@ position:
     children: []
     id: CHART-explore-1505-1
     meta:
-      chartId: 101
+      chartId: 11
       height: 50
       sliceName: Learner Performance Breakdown
       uuid: d414b144-467b-456b-b899-9cfb3579faba
@@ -454,7 +454,7 @@ position:
     children: []
     id: CHART-explore-1506-1
     meta:
-      chartId: 61
+      chartId: 7
       height: 50
       sliceName: Learner Performance
       uuid: b518f341-9ed4-4c23-bb88-6c1d497aa260
@@ -469,7 +469,7 @@ position:
     children: []
     id: CHART-explore-1507-1
     meta:
-      chartId: 1641
+      chartId: 165
       height: 50
       sliceName: Learner Performance
       uuid: b0e170ce-26f1-4452-a3c0-49b41fa6e529
@@ -484,7 +484,7 @@ position:
     children: []
     id: CHART-explore-1508-1
     meta:
-      chartId: 701
+      chartId: 71
       height: 50
       sliceName: Video Engagement
       uuid: 6b7610a7-41d0-4d14-be81-62a5a8f22d62
