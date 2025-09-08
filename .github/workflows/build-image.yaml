@@ -40,7 +40,7 @@ jobs:
           ASPECTS_VERSION=pr-${{ github.event.pull_request.number }}-${{ steps.vars.outputs.sha_short }}
           sed -i "s/ASPECTS_VERSION: .*/ASPECTS_VERSION: $ASPECTS_VERSION/" .ci/config.yml
       - name: setup python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: 3.12
       - name: Install aspects
