@@ -1,6 +1,6 @@
 with
     page_visits as (
-        select org, course_key, actor_id
+        select org, course_key, actor_id, emission_time as last_visited
         from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_learner_last_course_visit
         where
             1 = 1
