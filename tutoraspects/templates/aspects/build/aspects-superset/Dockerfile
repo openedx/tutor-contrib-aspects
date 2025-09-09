@@ -4,13 +4,14 @@
 # https://github.com/apache/superset/blob/master/Dockerfile
 # https://superset.apache.org/docs/databases/installing-database-drivers
 
-FROM apache/superset:4.1.1
+FROM apache/superset:6.0.0rc2
 
 USER root
 
 COPY ./requirements.txt /app/requirements.txt
 COPY ./localization/compile_translations.py /app/localization/compile_translations.py
 COPY ./localization/datasets_strings.yaml /app/localization/datasets_strings.yaml
+COPY ./openedx-assets /app/openedx-assets
 
 # Extracted from https://superset.apache.org/docs/installation/alerts-reports/#custom-dockerfile
 # https://github.com/apache/superset/blob/3.0.0/Dockerfile#L118-L132
@@ -27,9 +28,9 @@ RUN apt-get update -qq \
     && ln -s /opt/firefox/firefox /usr/local/bin/firefox \
     && apt-get autoremove -yqq --purge wget bzip2 && rm -rf /var/[log,tmp]/* /tmp/* /var/lib/apt/lists/*
 
-RUN pip install -r /app/requirements.txt
+RUN --mount=type=cache,target=${SUPERSET_HOME}/.cache/uv \
+    uv pip install -r /app/requirements.txt
 
-COPY ./openedx-assets /app/openedx-assets
 
 # Pull latest aspects translations from openedx-tranlsations repository
 RUN atlas pull translations/tutor-contrib-aspects/tutoraspects/templates/aspects/apps/superset/conf/locale:/app/localization/
@@ -38,3 +39,4 @@ RUN atlas pull translations/tutor-contrib-aspects/tutoraspects/templates/aspects
 RUN python /app/localization/compile_translations.py
 
 USER superset
+COPY --chmod=755 ./docker-bootstrap.sh /app/docker/
