@@ -129,7 +129,7 @@ JINJA_CONTEXT_ADDONS = {
 {% if SUPERSET_ENABLE_PROXY_FIX %}
 # Caddy is running behind a proxy: Superset needs to handle x-forwarded-* headers
 # https://flask.palletsprojects.com/en/latest/deploying/proxy_fix/
-ENABLE_PROXY_FIX = True
+ENABLE_PROXY_FIX = {{SUPERSET_ENABLE_PROXY_FIX}}
 {% endif %}
 
 # Allows superset to open links in a new tab
