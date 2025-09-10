@@ -1,7 +1,5 @@
 with
-    watched_video_segments as (
-        {% include 'openedx-assets/queries/watched_video_segments.sql' %}
-    ),
+    segments as ({% include 'openedx-assets/queries/watched_video_segments.sql' %}),
     course_data as (
         select
             dim_course_blocks.org as org,
@@ -20,34 +18,31 @@ with
         group by org, course_key, course_name, course_run
     )
 select
-    if(course_data.org = '', watched_video_segments.org, course_data.org) as org,
+    if(course_data.org = '', segments.org, course_data.org) as org,
     if(
-        course_data.course_key = '',
-        watched_video_segments.course_key,
-        course_data.course_key
+        course_data.course_key = '', segments.course_key, course_data.course_key
     ) as course_key,
     course_data.course_name as course_name,
     course_data.course_run as course_run,
     course_data.video_count as video_count,
-    watched_video_segments.object_id as object_id,
-    watched_video_segments.video_duration as video_duration,
+    segments.object_id as object_id,
+    segments.video_duration as video_duration,
     if(
-        video_duration = 0, 0, count(distinct watched_video_segments.segment_start)
+        segments.video_duration = 0, 0, count(distinct segments.segment_start)
     ) as segment_count,
     if(
-        video_duration = 0,
+        segments.video_duration = 0,
         0,
         count(
             distinct case
-                when watched_count > 1 then watched_video_segments.segment_start else 0
+                when segments.watched_count > 1 then segments.segment_start else 0
             end
         )
     ) as segment_count_rewatched,
-    watched_video_segments.video_name_location as video_name_location,
-    watched_video_segments.block_id as block_id
+    segments.video_name_location as video_name_location,
+    segments.block_id as block_id
 from course_data
-full join
-    watched_video_segments on watched_video_segments.course_key = course_data.course_key
+full join segments on segments.course_key = course_data.course_key
 where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
 group by
     org,

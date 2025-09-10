@@ -624,12 +624,17 @@ metadata:
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
-    all_pages_viewed: '#454E7C'
-    at_leat_one_page_viewed: '#1FA8C9'
-    attempted_all_problems: '#454E7C'
-    attempted_at_least_one_problem: '#1FA8C9'
+    Number of Learners: '#1FA8C9'
+    all_videos_viewed: '#454E7C'
+    at_least_one_viewed: '#1FA8C9'
+    audit: '#5AC189'
+    full_views: '#454E7C'
+    honor: '#1FA8C9'
     number_of_learners: '#1FA8C9'
-    views: '#454E7C'
+    partial_views: '#1FA8C9'
+    repeat_views: '#454E7C'
+    total_views: '#1FA8C9'
+    verified: '#454E7C'
   timed_refresh_immune_slices: []
 position:
   CHART-XNUtUvjGrL:

@@ -346,21 +346,21 @@ metadata:
   - cascadeParentIds:
     - NATIVE_FILTER-Yi2j6NjTP
     chartsInScope:
-    - 81
-    - 146
-    - 157
-    - 193
-    - 217
-    - 256
-    - 388
-    - 451
-    - 606
-    - 799
-    - 1039
-    - 1132
-    - 1166
-    - 1483
-    - 1530
+    - 25
+    - 43
+    - 45
+    - 47
+    - 55
+    - 57
+    - 59
+    - 75
+    - 97
+    - 109
+    - 115
+    - 121
+    - 143
+    - 145
+    - 149
     controlValues:
       defaultToFirstItem: false
       enableEmptyFilter: false
@@ -483,20 +483,21 @@ metadata:
     - NATIVE_FILTER-Yi2j6NjTP
     - NATIVE_FILTER-7d8oQvnW_
     chartsInScope:
-    - 7
-    - 22
+    - 25
+    - 43
+    - 45
+    - 47
+    - 55
+    - 57
     - 59
-    - 92
-    - 100
-    - 104
-    - 136
+    - 75
+    - 97
+    - 109
+    - 115
+    - 121
     - 143
-    - 164
-    - 169
-    - 180
-    - 182
-    - 187
-    - 192
+    - 145
+    - 149
     controlValues:
       defaultToFirstItem: false
       enableEmptyFilter: false
@@ -522,27 +523,28 @@ metadata:
     targets:
     - column:
         name: username
-      datasetUuid: 64427d2b-790e-450f-84f4-5f00ca9bdc6c
+      datasetUuid: da75efef-09ba-4ed0-8b6b-bf11c5c26008
     type: NATIVE_FILTER
   - cascadeParentIds:
     - NATIVE_FILTER-MzsGTTmWI
     - NATIVE_FILTER-Yi2j6NjTP
     - NATIVE_FILTER-7d8oQvnW_
     chartsInScope:
-    - 7
-    - 22
+    - 25
+    - 43
+    - 45
+    - 47
+    - 55
+    - 57
     - 59
-    - 92
-    - 100
-    - 104
-    - 136
+    - 75
+    - 97
+    - 109
+    - 115
+    - 121
     - 143
-    - 164
-    - 169
-    - 180
-    - 182
-    - 187
-    - 192
+    - 145
+    - 149
     controlValues:
       defaultToFirstItem: false
       enableEmptyFilter: false
@@ -568,27 +570,28 @@ metadata:
     targets:
     - column:
         name: name
-      datasetUuid: 64427d2b-790e-450f-84f4-5f00ca9bdc6c
+      datasetUuid: da75efef-09ba-4ed0-8b6b-bf11c5c26008
     type: NATIVE_FILTER
   - cascadeParentIds:
     - NATIVE_FILTER-MzsGTTmWI
     - NATIVE_FILTER-Yi2j6NjTP
     - NATIVE_FILTER-7d8oQvnW_
     chartsInScope:
-    - 7
-    - 22
+    - 25
+    - 43
+    - 45
+    - 47
+    - 55
+    - 57
     - 59
-    - 92
-    - 100
-    - 104
-    - 136
+    - 75
+    - 97
+    - 109
+    - 115
+    - 121
     - 143
-    - 164
-    - 169
-    - 180
-    - 182
-    - 187
-    - 192
+    - 145
+    - 149
     controlValues:
       defaultToFirstItem: false
       enableEmptyFilter: false
@@ -614,12 +617,16 @@ metadata:
     targets:
     - column:
         name: email
-      datasetUuid: 64427d2b-790e-450f-84f4-5f00ca9bdc6c
+      datasetUuid: da75efef-09ba-4ed0-8b6b-bf11c5c26008
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
     all_pages_viewed: '#454E7C'
+    all_videos_viewed: '#454E7C'
+    at_least_one_viewed: '#1FA8C9'
     at_leat_one_page_viewed: '#1FA8C9'
+    attempted_all_problems: '#454E7C'
+    attempted_at_least_one_problem: '#1FA8C9'
     full_views: '#454E7C'
     partial_views: '#1FA8C9'
     repeat_views: '#454E7C'
