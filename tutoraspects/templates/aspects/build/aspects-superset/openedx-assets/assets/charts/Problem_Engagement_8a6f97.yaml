@@ -92,7 +92,7 @@ params:
   y_axis_title_position: Top
 query_context:
   datasource:
-    id: 893
+    id: 19
     type: table
   force: false
   form_data:
@@ -104,9 +104,7 @@ query_context:
       subject: emission_time
     annotation_layers: []
     color_scheme: aspects_default
-    dashboards:
-    - 1963
-    datasource: 893__table
+    datasource: 19__table
     extra_form_data: {}
     force: false
     groupby: []
@@ -152,7 +150,7 @@ query_context:
     seriesTypeB: line
     show_legend: false
     show_valueB: false
-    slice_id: 301
+    slice_id: 31
     stack: false
     tooltipTimeFormat: smart_date
     truncateXAxis: false

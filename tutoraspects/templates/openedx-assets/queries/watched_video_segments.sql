@@ -77,28 +77,28 @@ with
             )
     )
 select
-    org,
-    course_key,
-    actor_id,
-    object_id,
-    splitByChar('@', splitByString('/xblock/', object_id)[-1])[3] as block_id,
-    watched_segment as segment_start,
-    sum(watch_count) as watched_count,
-    time_stamp,
-    video_number,
-    video_name_location,
-    video_link,
-    video_duration,
-    section_with_name,
-    subsection_with_name,
+    watches.org as org,
+    watches.course_key as course_key,
+    watches.actor_id as actor_id,
+    watches.object_id as object_id,
+    splitByChar('@', splitByString('/xblock/', watches.object_id)[-1])[3] as block_id,
+    watches.watched_segment as segment_start,
+    sum(watches.watch_count) as watched_count,
+    watches.time_stamp as time_stamp,
+    watches.video_number as video_number,
+    watches.video_name_location as video_name_location,
+    watches.video_link as video_link,
+    watches.video_duration as video_duration,
+    watches.section_with_name as section_with_name,
+    watches.subsection_with_name as subsection_with_name,
     users.username as username,
     users.name as name,
     users.email as email
 from watches
 left outer join
     {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii users
-    on (actor_id like 'mailto:%' and SUBSTRING(actor_id, 8) = users.email)
-    or actor_id = toString(users.external_user_id)
+    on (watches.actor_id like 'mailto:%' and SUBSTRING(actor_id, 8) = users.email)
+    or watches.actor_id = toString(users.external_user_id)
 where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
 group by
     org,

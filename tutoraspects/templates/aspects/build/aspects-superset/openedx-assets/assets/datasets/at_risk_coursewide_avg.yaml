@@ -1,6 +1,7 @@
 _file_name: at_risk_coursewide_avg.yaml
 always_filter_main_dttm: false
 cache_timeout: null
+catalog: null
 columns:
 - advanced_data_type: null
   column_name: correct_attempts_by_learner
@@ -12,7 +13,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Nullable(Int16)
+  type: Int16
   verbose_name: Correct Attempts By Learner
 - advanced_data_type: null
   column_name: incorrect_attempts_by_learner
@@ -24,7 +25,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Nullable(Int16)
+  type: Int16
   verbose_name: Incorrect Attempts By Learner
 - advanced_data_type: null
   column_name: avg_correct_attempts_coursewide
@@ -75,18 +76,6 @@ columns:
   type: Float64
   verbose_name: Selected Learner Percent Incorrect
 - advanced_data_type: null
-  column_name: problem_name_with_location
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Problem Name With Location
-- advanced_data_type: null
   column_name: coursewide_percent_correct
   description: null
   expression: null
@@ -111,30 +100,6 @@ columns:
   type: LowCardinality(String)
   verbose_name: Course Key
 - advanced_data_type: null
-  column_name: interaction_type
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: LowCardinality(String)
-  verbose_name: Interaction Type
-- advanced_data_type: null
-  column_name: emission_time
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: Nullable(DateTime)
-  verbose_name: Emission Time
-- advanced_data_type: null
   column_name: course_order
   description: null
   expression: null
@@ -146,54 +111,6 @@ columns:
   python_date_format: null
   type: Int32
   verbose_name: Course Order
-- advanced_data_type: null
-  column_name: actor_id
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Actor Id
-- advanced_data_type: null
-  column_name: course_name
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Name
-- advanced_data_type: null
-  column_name: course_run
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Run
-- advanced_data_type: null
-  column_name: problem_id
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Problem Id
 - advanced_data_type: null
   column_name: problem_link
   description: null
@@ -207,18 +124,6 @@ columns:
   type: String
   verbose_name: Problem Link
 - advanced_data_type: null
-  column_name: problem_name
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Problem Name
-- advanced_data_type: null
   column_name: org
   description: null
   expression: null
@@ -231,18 +136,6 @@ columns:
   type: LowCardinality(String)
   verbose_name: Org
 - advanced_data_type: null
-  column_name: attempts
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Int16
-  verbose_name: Attempts
-- advanced_data_type: null
   column_name: graded
   description: null
   expression: null
@@ -254,18 +147,6 @@ columns:
   python_date_format: null
   type: Bool
   verbose_name: Graded
-- advanced_data_type: null
-  column_name: success
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Bool
-  verbose_name: Success
 - advanced_data_type: null
   column_name: email
   description: null
@@ -291,18 +172,6 @@ columns:
   type: String
   verbose_name: Name
 - advanced_data_type: null
-  column_name: responses
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Responses
-- advanced_data_type: null
   column_name: username
   description: null
   expression: null
@@ -326,8 +195,7 @@ metrics:
   d3format: null
   description: null
   expression: AVG(correct_attempts_by_learner)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: correct_attempts_by_learner
   metric_type: null
   verbose_name: Avg Correct Attempts by Selected Learners
@@ -336,8 +204,7 @@ metrics:
   d3format: null
   description: null
   expression: AVG(incorrect_attempts_by_learner)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: incorrect_attempts_by_learner
   metric_type: null
   verbose_name: Avg Incorrect Attempts by Selected Learners
@@ -346,8 +213,7 @@ metrics:
   d3format: null
   description: null
   expression: AVG(selected_learner_percent_correct)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: selected_learner_correct_percent
   metric_type: null
   verbose_name: Selected Learners % Correct
@@ -356,8 +222,7 @@ metrics:
   d3format: null
   description: null
   expression: AVG(selected_learner_percent_incorrect)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: selected_learner_incorrect_percent
   metric_type: null
   verbose_name: Selected Learners % Incorrect
@@ -366,8 +231,7 @@ metrics:
   d3format: null
   description: null
   expression: AVG(avg_correct_attempts_coursewide)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: avg_correct_attemps_coursewide
   metric_type: null
   verbose_name: Avg Correct Attempts Coursewide
@@ -376,8 +240,7 @@ metrics:
   d3format: null
   description: null
   expression: AVG(coursewide_percent_correct)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: coursewide_correct_percent
   metric_type: null
   verbose_name: Coursewide % Correct
@@ -386,8 +249,7 @@ metrics:
   d3format: null
   description: null
   expression: COUNT(*)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: count
   metric_type: count
   verbose_name: COUNT(*)
@@ -397,7 +259,100 @@ offset: 0
 params: null
 schema: null
 sql: |
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/at_risk_problem_coursewide_avg.sql' %}{% endfilter %}
+  select
+      avg.org as org,
+      avg.course_key as course_key,
+      avg.course_order as course_order,
+      avg.problem_link as problem_link,
+      avg.graded as graded,
+      avg.username as username,
+      avg.email as email,
+      avg.name as name,
+      avg.avg_correct_attempts_coursewide as avg_correct_attempts_coursewide,
+      avg.avg_incorrect_attempts_coursewide as avg_incorrect_attempts_coursewide,
+      avg.coursewide_percent_correct as coursewide_percent_correct,
+      avg.correct_attempts_by_learner as correct_attempts_by_learner,
+      avg.incorrect_attempts_by_learner as incorrect_attempts_by_learner,
+      avg.selected_learner_percent_correct as selected_learner_percent_correct,
+      avg.selected_learner_percent_incorrect as selected_learner_percent_incorrect
+  from reporting.dim_problem_coursewide_avg avg
+  join
+      (
+          select
+              status.org as org,
+              status.course_key as course_key,
+              status.actor_id as actor_id,
+              status.last_navigated as last_visited
+          from reporting.dim_student_status status
+          where
+              status.last_navigated < subtractDays(now(), 7)
+              and status.approving_state = 'failed'
+              and status.enrollment_status = 'registered'
+              {% if filter_values("org") != [] %}
+                  and org in {{ filter_values("org") | where_in }}
+              {% endif %}
+
+              {% if filter_values("course_name") != [] %}
+                  and course_key in (
+                      select course_key
+                      from event_sink.dim_course_names
+                      where course_name in {{ filter_values("course_name") | where_in }}
+                  )
+              {% endif %}
+
+              {% if filter_values("course_run") != [] %}
+                  and course_key in (
+                      select course_key
+                      from event_sink.dim_course_names
+                      where course_run in {{ filter_values("course_run") | where_in }}
+                  )
+              {% endif %}
+
+              {% if filter_values("tag") != [] %}
+                  and course_key in (
+                      select course_key
+                      from reporting.dim_most_recent_course_tags
+                      where
+                          tag in (
+                              select
+                                  replaceAll(
+                                      arrayJoin({{ filter_values("tag") }}), '- ', ''
+                                  )
+                          )
+                  )
+              {% endif %}
+      ) as at_risk_learners using (org, course_key, actor_id)
+  where
+      1 = 1
+      {% if filter_values("org") != [] %}
+          and org in {{ filter_values("org") | where_in }}
+      {% endif %}
+
+      {% if filter_values("course_name") != [] %}
+          and course_key in (
+              select course_key
+              from event_sink.dim_course_names
+              where course_name in {{ filter_values("course_name") | where_in }}
+          )
+      {% endif %}
+
+      {% if filter_values("course_run") != [] %}
+          and course_key in (
+              select course_key
+              from event_sink.dim_course_names
+              where course_run in {{ filter_values("course_run") | where_in }}
+          )
+      {% endif %}
+
+      {% if filter_values("tag") != [] %}
+          and course_key in (
+              select course_key
+              from reporting.dim_most_recent_course_tags
+              where
+                  tag
+                  in (select replaceAll(arrayJoin({{ filter_values("tag") }}), '- ', ''))
+          )
+      {% endif %}
 table_name: at_risk_coursewide_avg
 template_params: null
 uuid: a36a7904-c8b3-43ec-ad91-335fcedb8a27

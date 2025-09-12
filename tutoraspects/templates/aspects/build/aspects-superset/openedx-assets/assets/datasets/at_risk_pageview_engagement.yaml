@@ -1,6 +1,7 @@
 _file_name: at_risk_pageview_engagement.yaml
 always_filter_main_dttm: false
 cache_timeout: null
+catalog: null
 columns:
 - advanced_data_type: null
   column_name: section_subsection_page_engagement
@@ -63,18 +64,6 @@ columns:
   type: String
   verbose_name: Content Level
 - advanced_data_type: null
-  column_name: course_run
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Run
-- advanced_data_type: null
   column_name: org
   description: null
   expression: ''
@@ -130,6 +119,27 @@ fetch_values_predicate: null
 filter_select_enabled: false
 main_dttm_col: null
 metrics:
+- currency: null
+  d3format: null
+  description: null
+  expression: |-
+    count(distinct if("section_subsection_page_engagement" = 'At least one page viewed' or "section_subsection_page_engagement" = 'All pages viewed',actor_id,null))
+  extra:
+    warning_markdown: ''
+  metric_name: viewed_one
+  metric_type: null
+  verbose_name: Viewed At Least One Page
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: |-
+    count(distinct if("section_subsection_page_engagement" = 'All pages viewed',actor_id,null))
+  extra: {}
+  metric_name: viewed_all
+  metric_type: null
+  verbose_name: Viewed All Pages
+  warning_text: null
 - currency: null
   d3format: null
   description: null

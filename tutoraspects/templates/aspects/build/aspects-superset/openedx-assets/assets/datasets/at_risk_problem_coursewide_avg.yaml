@@ -1,4 +1,4 @@
-_file_name: problem_coursewide_avg.yaml
+_file_name: at_risk_coursewide_avg.yaml
 always_filter_main_dttm: false
 cache_timeout: null
 catalog: null
@@ -209,22 +209,22 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: SUM(correct_attempts_by_learner)
+  expression: AVG(correct_attempts_by_learner)
   extra:
     warning_markdown: ''
   metric_name: correct_attempts_by_learner
   metric_type: null
-  verbose_name: Correct Attempts by Selected Learner
+  verbose_name: Avg Correct Attempts by Selected Learners
   warning_text: null
 - currency: null
   d3format: null
   description: null
-  expression: SUM(incorrect_attempts_by_learner)
+  expression: AVG(incorrect_attempts_by_learner)
   extra:
     warning_markdown: ''
   metric_name: incorrect_attempts_by_learner
   metric_type: null
-  verbose_name: Incorrect Attempts by Selected Learner
+  verbose_name: Avg Incorrect Attempts by Selected Learners
   warning_text: null
 - currency: null
   d3format: null
@@ -234,7 +234,7 @@ metrics:
     warning_markdown: ''
   metric_name: selected_learner_correct_percent
   metric_type: null
-  verbose_name: Selected Learner % Correct
+  verbose_name: Selected Learners % Correct
   warning_text: null
 - currency: null
   d3format: null
@@ -244,7 +244,7 @@ metrics:
     warning_markdown: ''
   metric_name: selected_learner_incorrect_percent
   metric_type: null
-  verbose_name: Selected Learner % Incorrect
+  verbose_name: Selected Learners % Incorrect
   warning_text: null
 - currency: null
   d3format: null
@@ -252,19 +252,9 @@ metrics:
   expression: AVG(avg_correct_attempts_coursewide)
   extra:
     warning_markdown: ''
-  metric_name: avg_correct_attempts_coursewide
+  metric_name: avg_correct_attemps_coursewide
   metric_type: null
   verbose_name: Avg Correct Attempts Coursewide
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: AVG(avg_incorrect_attempts_coursewide)
-  extra:
-    warning_markdown: ''
-  metric_name: avg_incorrect_attempts_coursewide
-  metric_type: null
-  verbose_name: Avg Incorrect Attempts Coursewide
   warning_text: null
 - currency: null
   d3format: null
@@ -291,8 +281,8 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/problem_coursewide_avg.sql' %}{% endfilter %}
-table_name: problem_coursewide_avg
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/at_risk_problem_coursewide_avg.sql' %}{% endfilter %}
+table_name: at_risk_problem_coursewide_avg
 template_params: null
-uuid: b820067f-8f54-48d4-9b61-532e8f9ae6fe
+uuid: a36a7904-c8b3-43ec-ad91-335fcedb8a27
 version: 1.0.0

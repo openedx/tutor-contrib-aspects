@@ -12,15 +12,15 @@ params:
     operator: TEMPORAL_RANGE
     subject: enrolled_at
   all_columns: []
-  annotation_layers: []
+  allow_render_html: true
   color_pn: true
   column_config:
-    Avg Course Grade:
-      d3NumberFormat: ~g
-      d3SmallNumberFormat: ~g
-    Median Course Grade:
-      d3NumberFormat: ~g
-      d3SmallNumberFormat: ~g
+    avg_course_grade:
+      d3NumberFormat: ',.1%'
+    median_course_grade:
+      d3NumberFormat: ',.1%'
+  comparison_color_scheme: Green
+  comparison_type: values
   conditional_formatting:
   - colorScheme: '#EFA1AA'
     column: avg_course_grade
@@ -85,6 +85,7 @@ params:
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
+  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
   temporal_columns_lookup:
@@ -92,7 +93,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 281
+    id: 484
     type: table
   force: false
   form_data:
@@ -103,15 +104,15 @@ query_context:
       operator: TEMPORAL_RANGE
       subject: enrolled_at
     all_columns: []
-    annotation_layers: []
+    allow_render_html: true
     color_pn: true
     column_config:
-      Avg Course Grade:
-        d3NumberFormat: ~g
-        d3SmallNumberFormat: ~g
-      Median Course Grade:
-        d3NumberFormat: ~g
-        d3SmallNumberFormat: ~g
+      avg_course_grade:
+        d3NumberFormat: ',.1%'
+      median_course_grade:
+        d3NumberFormat: ',.1%'
+    comparison_color_scheme: Green
+    comparison_type: values
     conditional_formatting:
     - colorScheme: '#EFA1AA'
       column: avg_course_grade
@@ -138,7 +139,9 @@ query_context:
       column: Active Within Last 7 Days
       operator: '>'
       targetValue: 0
-    datasource: 281__table
+    dashboards:
+    - 2697
+    datasource: 484__table
     extra_form_data: {}
     force: false
     groupby:
@@ -180,6 +183,7 @@ query_context:
     result_format: json
     result_type: full
     row_limit: 1000
+    server_page_length: 10
     show_cell_bars: true
     slice_id: 121
     table_timestamp_format: smart_date
@@ -260,6 +264,7 @@ query_context:
     post_processing: []
     row_limit: 1000
     series_limit: 0
+    time_offsets: []
     url_params: {}
   result_format: json
   result_type: full

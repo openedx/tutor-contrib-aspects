@@ -1,4 +1,4 @@
-select distinct
+select
     page.org as org,
     page.course_key as course_key,
     page.section_subsection_name as section_subsection_name,
@@ -11,8 +11,4 @@ select distinct
     page.name as name,
     page.email as email
 from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_pageview_engagement page
-join
-    (
-        {% include 'openedx-assets/queries/at_risk_learner_filter.sql' %}
-    ) as at_risk_learners using (org, course_key, actor_id)
 where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
