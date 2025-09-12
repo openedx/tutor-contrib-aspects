@@ -52,5 +52,5 @@ schema: '{{ ASPECTS_XAPI_DATABASE }}'
 sql: ''
 table_name: fact_instance_courses
 template_params: null
-uuid: f13a4d42-2f44-58a4-99d2-2f480d63fdf1
+uuid: f89c07c4-aa3f-527e-84fb-3d4e71ffc777
 version: 1.0.0
