@@ -34,7 +34,7 @@ certifi==2025.8.3
     #   -r requirements/base.txt
     #   kubernetes
     #   requests
-cffi==1.17.1
+cffi==2.0.0
     # via cryptography
 charset-normalizer==3.4.3
     # via
@@ -117,7 +117,7 @@ more-itertools==10.8.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-mypy==1.17.1
+mypy==1.18.1
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -167,7 +167,7 @@ pyasn1-modules==0.4.2
     # via
     #   -r requirements/base.txt
     #   google-auth
-pycparser==2.22
+pycparser==2.23
     # via cffi
 pycryptodome==3.23.0
     # via
@@ -177,7 +177,7 @@ pygments==2.19.2
     # via
     #   readme-renderer
     #   rich
-pyinstaller==6.15.0
+pyinstaller==6.16.0
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2025.8
     # via pyinstaller
@@ -231,7 +231,7 @@ ruamel-yaml-clib==0.2.12
     # via
     #   -r requirements/base.txt
     #   ruamel-yaml
-secretstorage==3.3.3
+secretstorage==3.4.0
     # via keyring
 shandy-sqlfmt[jinjafmt]==0.26.0
     # via -r requirements/base.txt
