@@ -1,6 +1,6 @@
 with watches as ({% include 'openedx-assets/queries/video_watches.sql' %})
 
-select watches.*
+select distinct watches.*
 from watches
 join
     (

@@ -21,26 +21,26 @@ dashboard_title: 'In-Context Analytics: Graded Subsection'
 description: null
 metadata:
   chart_configuration:
-    '1341':
+    '135':
       crossFilters:
         chartsInScope:
-        - 581
+        - 23
         scope: global
-      id: 1341
-    '581':
+      id: 135
+    '23':
       crossFilters:
         chartsInScope:
-        - 1341
+        - 135
         scope: global
-      id: 581
+      id: 23
   color_scheme: aspects_default
   color_scheme_domain: []
   cross_filters_enabled: true
   expanded_slices: {}
   global_chart_configuration:
     chartsInScope:
-    - 581
-    - 1341
+    - 23
+    - 135
     scope:
       excluded: []
       rootPath:
@@ -49,8 +49,8 @@ metadata:
   native_filter_configuration:
   - cascadeParentIds: []
     chartsInScope:
-    - 1669
-    - 1670
+    - 23
+    - 135
     controlValues:
       defaultToFirstItem: false
       enableEmptyFilter: false
@@ -73,12 +73,12 @@ metadata:
     targets:
     - column:
         name: course_key
-      datasetUuid: cf42fc53-39e1-4c3c-a7f6-3d0d17a947dc
+      datasetUuid: 38488934-35ee-5404-9acc-7e67626ddfae
     type: NATIVE_FILTER
   - cascadeParentIds: []
     chartsInScope:
-    - 1669
-    - 1670
+    - 23
+    - 135
     controlValues:
       defaultToFirstItem: false
       enableEmptyFilter: false
@@ -101,7 +101,7 @@ metadata:
     targets:
     - column:
         name: block_id
-      datasetUuid: cf42fc53-39e1-4c3c-a7f6-3d0d17a947dc
+      datasetUuid: 49057cac-177c-5c2a-ade7-124054656741
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
@@ -115,7 +115,7 @@ position:
     children: []
     id: CHART-explore-1669-1
     meta:
-      chartId: 221
+      chartId: 23
       height: 50
       sliceName: Subsection Performance
       uuid: 59e9e2ea-1188-4500-87da-dbc9c977b720
@@ -129,7 +129,7 @@ position:
     children: []
     id: CHART-explore-1670-1
     meta:
-      chartId: 1341
+      chartId: 135
       height: 50
       sliceName: Final Response Results
       uuid: ab43eb1d-eef8-43a9-b5fd-9899780120f2

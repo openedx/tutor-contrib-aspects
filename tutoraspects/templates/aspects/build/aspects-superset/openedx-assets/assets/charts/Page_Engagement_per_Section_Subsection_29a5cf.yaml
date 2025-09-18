@@ -16,24 +16,8 @@ params:
   legendOrientation: top
   legendType: scroll
   metrics:
-  - aggregate: null
-    column: null
-    datasourceWarning: false
-    expressionType: SQL
-    hasCustomLabel: true
-    label: Viewed At Least One Page
-    optionName: metric_luga9plford_yed4xbi724
-    sqlExpression: |-
-      countIf("section_subsection_page_engagement" = 'At least one page viewed' or "section_subsection_page_engagement" = 'All pages viewed')
-  - aggregate: null
-    column: null
-    datasourceWarning: false
-    expressionType: SQL
-    hasCustomLabel: true
-    label: Viewed All Pages
-    optionName: metric_u566xrvox2_qv3xavca31l
-    sqlExpression: |-
-      countIf("section_subsection_page_engagement" = 'All pages viewed')
+  - viewed_one
+  - viewed_all
   only_total: true
   order_desc: true
   orientation: vertical
@@ -42,7 +26,6 @@ params:
   show_empty_columns: true
   show_legend: true
   sort_series_type: sum
-  time_grain_sqla: P1D
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncate_metric: true
@@ -64,7 +47,7 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 49
+    id: 384
     type: table
   force: false
   form_data:
@@ -72,7 +55,9 @@ query_context:
     annotation_layers: []
     color_scheme: supersetColors
     comparison_type: values
-    datasource: 49__table
+    dashboards:
+    - 2695
+    datasource: 384__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -81,24 +66,8 @@ query_context:
     legendOrientation: top
     legendType: scroll
     metrics:
-    - aggregate: null
-      column: null
-      datasourceWarning: false
-      expressionType: SQL
-      hasCustomLabel: true
-      label: Viewed At Least One Page
-      optionName: metric_luga9plford_yed4xbi724
-      sqlExpression: |-
-        countIf("section_subsection_page_engagement" = 'At least one page viewed' or "section_subsection_page_engagement" = 'All pages viewed')
-    - aggregate: null
-      column: null
-      datasourceWarning: false
-      expressionType: SQL
-      hasCustomLabel: true
-      label: Viewed All Pages
-      optionName: metric_u566xrvox2_qv3xavca31l
-      sqlExpression: |-
-        countIf("section_subsection_page_engagement" = 'All pages viewed')
+    - viewed_one
+    - viewed_all
     only_total: true
     order_desc: true
     orientation: vertical
@@ -108,9 +77,8 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    slice_id: 93
+    slice_id: 621
     sort_series_type: sum
-    time_grain_sqla: P1D
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
@@ -138,52 +106,26 @@ query_context:
       expressionType: SQL
       label: section_subsection_name
       sqlExpression: section_subsection_name
-      timeGrain: P1D
     custom_form_data: {}
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1D
       where: ''
     filters: []
     metrics:
-    - aggregate: null
-      column: null
-      datasourceWarning: false
-      expressionType: SQL
-      hasCustomLabel: true
-      label: Viewed At Least One Page
-      optionName: metric_luga9plford_yed4xbi724
-      sqlExpression: |-
-        countIf("section_subsection_page_engagement" = 'At least one page viewed' or "section_subsection_page_engagement" = 'All pages viewed')
-    - aggregate: null
-      column: null
-      datasourceWarning: false
-      expressionType: SQL
-      hasCustomLabel: true
-      label: Viewed All Pages
-      optionName: metric_u566xrvox2_qv3xavca31l
-      sqlExpression: |-
-        countIf("section_subsection_page_engagement" = 'All pages viewed')
+    - viewed_one
+    - viewed_all
     order_desc: true
     orderby:
-    - - aggregate: null
-        column: null
-        datasourceWarning: false
-        expressionType: SQL
-        hasCustomLabel: true
-        label: Viewed At Least One Page
-        optionName: metric_luga9plford_yed4xbi724
-        sqlExpression: |-
-          countIf("section_subsection_page_engagement" = 'At least one page viewed' or "section_subsection_page_engagement" = 'All pages viewed')
+    - - viewed_one
       - false
     post_processing:
     - operation: pivot
       options:
         aggregates:
-          Viewed All Pages:
+          viewed_all:
             operator: mean
-          Viewed At Least One Page:
+          viewed_one:
             operator: mean
         columns: []
         drop_missing_columns: false

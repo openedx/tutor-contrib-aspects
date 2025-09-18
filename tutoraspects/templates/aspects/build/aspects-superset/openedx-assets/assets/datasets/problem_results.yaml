@@ -88,7 +88,7 @@ columns:
   type: LowCardinality(String)
   verbose_name: Org
 - advanced_data_type: null
-  column_name: attempt
+  column_name: attempts
   description: null
   expression: ''
   extra: {}
@@ -122,8 +122,8 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: "  ROUND(\r\n    SUM(CASE WHEN success and attempt = 1 THEN 1 ELSE 0\
-    \ END) /\r\n    sum(attempt), 2\r\n  )"
+  expression: "  ROUND(\r\n    SUM(CASE WHEN success and attempts = 1 THEN 1 ELSE\
+    \ 0 END) /\r\n    sum(attempts), 2\r\n  )"
   extra:
     warning_markdown: ''
   metric_name: perc_correct_first
@@ -144,7 +144,7 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: "  ROUND(\r\n    SUM(CASE WHEN success THEN 1 ELSE 0 END) /\r\n    sum(attempt),\
+  expression: "  ROUND(\r\n    SUM(CASE WHEN success THEN 1 ELSE 0 END) /\r\n    sum(attempts),\
     \ 2\r\n  )"
   extra:
     warning_markdown: ''

@@ -1,4 +1,4 @@
-select fnc.*
+select distinct fnc.*
 from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_navigation_completion fnc
 join
     (
