@@ -37,6 +37,3 @@ RUN atlas pull translations/tutor-contrib-aspects/tutoraspects/templates/aspects
 
 # combine the /app/localization/ files into a single `localization/locale.yaml` file in a way Aspects can use
 RUN python /app/localization/compile_translations.py
-
-USER superset
-COPY --chmod=755 ./docker-bootstrap.sh /app/docker/
