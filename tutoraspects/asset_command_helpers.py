@@ -263,7 +263,7 @@ def validate_asset_file(
 
     # make sure to not change the dashboard filename if we happen
     # to have a chart with the same name
-    if not content.get("dashboard_title"):
+    if not content.get("dashboard_title") and content.get('uuid'):
         out_filename_uuid = re.sub(
             r"(_\d*)\.yaml", f"_{content['uuid'][:6]}.yaml", orig_filename
         )
