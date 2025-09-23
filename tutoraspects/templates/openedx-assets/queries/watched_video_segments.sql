@@ -96,7 +96,7 @@ select
     users.email as email
 from watches
 left outer join
-    {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii users
+    {{ ASPECTS_EVENT_SINK_DATABASE }}.user_pii users
     on (watches.actor_id like 'mailto:%' and SUBSTRING(actor_id, 8) = users.email)
     or watches.actor_id = toString(users.external_user_id)
 where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
