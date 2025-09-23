@@ -7,7 +7,8 @@ columns:
   column_name: active_within_last_7_days
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -19,7 +20,8 @@ columns:
   column_name: course_key
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -31,7 +33,8 @@ columns:
   column_name: enrollment_mode
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -43,19 +46,21 @@ columns:
   column_name: course_grade
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Float32
+  type: Float64
   verbose_name: Course Grade
 - advanced_data_type: null
   column_name: enrolled_at
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -67,7 +72,8 @@ columns:
   column_name: actor_id
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -79,7 +85,8 @@ columns:
   column_name: approving_state
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -91,7 +98,8 @@ columns:
   column_name: grade_bucket
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -103,7 +111,8 @@ columns:
   column_name: course_name
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -115,7 +124,8 @@ columns:
   column_name: course_run
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -127,7 +137,8 @@ columns:
   column_name: enrollment_status
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -139,7 +150,8 @@ columns:
   column_name: org
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -151,7 +163,8 @@ columns:
   column_name: email
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -163,7 +176,8 @@ columns:
   column_name: name
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -175,7 +189,8 @@ columns:
   column_name: username
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -183,40 +198,19 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Username
-- advanced_data_type: null
-  column_name: last_visited
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: DateTime
-  verbose_name: Last Visited
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
 extra: null
 fetch_values_predicate: null
 filter_select_enabled: true
+folders: null
 main_dttm_col: enrolled_at
 metrics:
 - currency: null
   d3format: null
   description: null
-  expression: ROUND(AVG(course_grade), 2 )
-  extra:
-    warning_markdown: ''
-  metric_name: avg_course_grade
-  metric_type: null
-  verbose_name: Avg Course Grade
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: AVG(active_within_last_7_days)
+  expression: sum(if last_visited >= subtractDays(now(), 7),1,0)
   extra:
     warning_markdown: ''
   metric_name: active_within_7_days
@@ -226,7 +220,17 @@ metrics:
 - currency: null
   d3format: null
   description: null
-  expression: quantile(0.5)(round(course_grade,2))
+  expression: ROUND(AVG(course_grade), 2 ) *100
+  extra:
+    warning_markdown: ''
+  metric_name: avg_course_grade
+  metric_type: null
+  verbose_name: Avg Course Grade
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: quantile(0.5)(round(course_grade,2) * 100)
   extra:
     warning_markdown: ''
   metric_name: median_course_grade
@@ -248,7 +252,7 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/active_last_7_days.sql' %}{% endfilter %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/student_status.sql' %}{% endfilter %}
 table_name: student_status_plus_7_days
 template_params: null
 uuid: f25fdc4e-ce79-4f4c-9fc6-3dfe91690493
