@@ -623,7 +623,7 @@ def find_unused_queries(echo):
             asset = yaml.safe_load(file_str)
             sql = asset["sql"].strip()
             match = re.search(r"\w+\b.sql", sql)
-            if match:
+            if match and match.group() in dataset_query_list:
                 dataset_query_list.remove(match.group())
 
     # Remove uuids from 'all' list that are in ignored yaml
@@ -633,7 +633,8 @@ def find_unused_queries(echo):
     ignored_uuids = aspects_assets.get("ignored_files")
     if ignored_uuids["queries"]:
         for file_name in ignored_uuids["queries"]:
-            dataset_query_list.remove(file_name)
+            if file_name in dataset_query_list:
+                dataset_query_list.remove(file_name)
 
     if dataset_query_list:
         echo(click.style("Potentially unused query files detected:"))
