@@ -20,7 +20,7 @@ backports-tarfile==1.2.0
     # via jaraco-context
 bcrypt==4.3.0
     # via -r requirements/base.txt
-black==25.1.0
+black==25.9.0
     # via
     #   -r requirements/base.txt
     #   -r requirements/dev.in
@@ -40,18 +40,18 @@ charset-normalizer==3.4.3
     # via
     #   -r requirements/base.txt
     #   requests
-click==8.2.1
+click==8.3.0
     # via
     #   -r requirements/base.txt
     #   black
     #   shandy-sqlfmt
     #   transifex-python
     #   tutor
-cryptography==45.0.7
+cryptography==46.0.1
     # via secretstorage
 dill==0.4.0
     # via pylint
-docutils==0.22
+docutils==0.22.2
     # via readme-renderer
 durationpy==0.10
     # via
@@ -117,7 +117,7 @@ more-itertools==10.8.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-mypy==1.18.1
+mypy==1.18.2
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -191,6 +191,10 @@ python-dateutil==2.9.0.post0
     # via
     #   -r requirements/base.txt
     #   kubernetes
+pytokens==0.1.10
+    # via
+    #   -r requirements/base.txt
+    #   black
 pyyaml==6.0.2
     # via
     #   -r requirements/base.txt
@@ -198,7 +202,7 @@ pyyaml==6.0.2
     #   tutor
 readme-renderer==44.0
     # via twine
-regex==2025.9.1
+regex==2025.9.18
     # via
     #   -r requirements/base.txt
     #   parsimonious
