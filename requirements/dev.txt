@@ -5,17 +5,15 @@
 #    make upgrade
 #
 altgraph==0.17.4
-    # via pyinstaller
+    # via
+    #   macholib
+    #   pyinstaller
 appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   tutor
 astroid==3.3.11
     # via pylint
-asttokens==3.0.0
-    # via
-    #   -r requirements/base.txt
-    #   transifex-python
 backports-tarfile==1.2.0
     # via jaraco-context
 bcrypt==4.3.0
@@ -34,8 +32,6 @@ certifi==2025.8.3
     #   -r requirements/base.txt
     #   kubernetes
     #   requests
-cffi==2.0.0
-    # via cryptography
 charset-normalizer==3.4.3
     # via
     #   -r requirements/base.txt
@@ -45,10 +41,7 @@ click==8.3.0
     #   -r requirements/base.txt
     #   black
     #   shandy-sqlfmt
-    #   transifex-python
     #   tutor
-cryptography==46.0.1
-    # via secretstorage
 dill==0.4.0
     # via pylint
 docutils==0.22.2
@@ -57,10 +50,6 @@ durationpy==0.10
     # via
     #   -r requirements/base.txt
     #   kubernetes
-future==1.0.0
-    # via
-    #   -r requirements/base.txt
-    #   pyseeyou
 google-auth==2.40.3
     # via
     #   -r requirements/base.txt
@@ -88,10 +77,6 @@ jaraco-context==6.0.1
     # via keyring
 jaraco-functools==4.3.0
     # via keyring
-jeepney==0.9.0
-    # via
-    #   keyring
-    #   secretstorage
 jinja2==3.1.6
     # via
     #   -r requirements/base.txt
@@ -103,6 +88,8 @@ kubernetes==33.1.0
     # via
     #   -r requirements/base.txt
     #   tutor
+macholib==1.16.3
+    # via pyinstaller
 markdown-it-py==4.0.0
     # via rich
 markupsafe==3.0.2
@@ -143,10 +130,6 @@ packaging==25.0
     #   pyinstaller-hooks-contrib
     #   tutor
     #   twine
-parsimonious==0.10.0
-    # via
-    #   -r requirements/base.txt
-    #   pyseeyou
 pathspec==0.12.1
     # via
     #   -r requirements/base.txt
@@ -167,8 +150,6 @@ pyasn1-modules==0.4.2
     # via
     #   -r requirements/base.txt
     #   google-auth
-pycparser==2.23
-    # via cffi
 pycryptodome==3.23.0
     # via
     #   -r requirements/base.txt
@@ -179,14 +160,10 @@ pygments==2.19.2
     #   rich
 pyinstaller==6.16.0
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2025.8
+pyinstaller-hooks-contrib==2025.9
     # via pyinstaller
 pylint==3.3.8
     # via -r requirements/dev.in
-pyseeyou==1.0.2
-    # via
-    #   -r requirements/base.txt
-    #   transifex-python
 python-dateutil==2.9.0.post0
     # via
     #   -r requirements/base.txt
@@ -202,10 +179,6 @@ pyyaml==6.0.2
     #   tutor
 readme-renderer==44.0
     # via twine
-regex==2025.9.18
-    # via
-    #   -r requirements/base.txt
-    #   parsimonious
 requests==2.32.5
     # via
     #   -r requirements/base.txt
@@ -213,7 +186,6 @@ requests==2.32.5
     #   kubernetes
     #   requests-oauthlib
     #   requests-toolbelt
-    #   transifex-python
     #   twine
 requests-oauthlib==2.0.0
     # via
@@ -231,12 +203,10 @@ rsa==4.9.1
     #   google-auth
 ruamel-yaml==0.18.15
     # via -r requirements/base.txt
-ruamel-yaml-clib==0.2.12
+ruamel-yaml-clib==0.2.14
     # via
     #   -r requirements/base.txt
     #   ruamel-yaml
-secretstorage==3.4.0
-    # via keyring
 shandy-sqlfmt[jinjafmt]==0.26.0
     # via -r requirements/base.txt
 six==1.17.0
@@ -246,16 +216,10 @@ six==1.17.0
     #   python-dateutil
 tomlkit==0.13.3
     # via pylint
-toolz==1.0.0
-    # via
-    #   -r requirements/base.txt
-    #   pyseeyou
 tqdm==4.67.1
     # via
     #   -r requirements/base.txt
     #   shandy-sqlfmt
-transifex-python==3.5.0
-    # via -r requirements/base.txt
 tutor==20.0.1
     # via
     #   -r requirements/base.txt
@@ -263,7 +227,7 @@ tutor==20.0.1
     #   tutor-mfe
 tutor-contrib-pod-autoscaling==20.0.0
     # via -r requirements/dev.in
-tutor-mfe==20.0.0
+tutor-mfe==20.1.0
     # via -r requirements/base.txt
 twine==6.2.0
     # via -r requirements/dev.in
