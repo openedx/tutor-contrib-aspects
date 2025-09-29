@@ -149,7 +149,7 @@ columns:
   type: String
   verbose_name: Video Link
 - advanced_data_type: null
-  column_name: video_number
+  column_name: video_location
   description: null
   expression: null
   extra: {}

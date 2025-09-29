@@ -8,9 +8,9 @@ select
     end as response_string,
     if(responses.success, 'Correct', 'Incorrect') as success,
     responses.interaction_type as interaction_type,
-    responses.problem_number as problem_number,
+    responses.problem_location as problem_location,
     responses.problem_name_location as problem_name_location,
     responses.block_id_short as block_id,
     responses.response_count as response_count,
-    concat('#', splitByString('_', responses.problem_number)[2]) as problem_part
+    concat('#', splitByString('_', responses.problem_location)[2]) as problem_part
 from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_problem_responses responses

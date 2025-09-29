@@ -7,8 +7,12 @@ select
     page.section_subsection_page_engagement as section_subsection_page_engagement,
     page.section_with_name as section_with_name,
     page.course_order as course_order,
-    page.username as username,
-    page.name as name,
-    page.email as email
+    users.username as username,
+    users.name as name,
+    users.email as email
 from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_pageview_engagement page
+left join
+    {{ ASPECTS_EVENT_SINK_DATABASE }}.user_pii users
+    on (page.actor_id like 'mailto:%' and SUBSTRING(actor_id, 8) = users.email)
+    or page.actor_id = toString(users.external_user_id)
 where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}

@@ -237,7 +237,7 @@ offset: 0
 params: null
 schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |
-  {% filter indent(width=2) %}{% include 'openedx-assets/queries/student_status.sql' %}{% endfilter %}
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/learner_summary.sql' %}{% endfilter %}
 table_name: student_status_plus_7_days
 template_params: null
 uuid: f25fdc4e-ce79-4f4c-9fc6-3dfe91690493
