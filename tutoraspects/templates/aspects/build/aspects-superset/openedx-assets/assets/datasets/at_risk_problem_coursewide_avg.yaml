@@ -1,4 +1,4 @@
-_file_name: at_risk_coursewide_avg.yaml
+_file_name: at_risk_problem_coursewide_avg.yaml
 always_filter_main_dttm: false
 cache_timeout: null
 catalog: null
@@ -284,5 +284,5 @@ sql: |
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/at_risk_problem_coursewide_avg.sql' %}{% endfilter %}
 table_name: at_risk_problem_coursewide_avg
 template_params: null
-uuid: a36a7904-c8b3-43ec-ad91-335fcedb8a27
+uuid: a36a7904-c8b3-43ec-ad91-335fcedb8a28
 version: 1.0.0

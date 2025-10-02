@@ -5,6 +5,8 @@ unused_uuids:
   - 64427d2b-790e-450f-84f4-5f00ca9bdc6c # enrollment_pii
   - cee5b433-fe22-4e33-9bfc-613cccbe401a # graded_subsection_engagement
   - a234545d-08ff-480d-8361-961c3d15f14f # enrollments
+  - 92eadc61-2931-577e-95b7-34adb1a8f515
+  - a36a7904-c8b3-43ec-ad91-335fcedb8a27
   charts:
   - a433e3cc-8ed5-454a-8b17-5dd75cfc84e4 # Course Info
   - e0098cfe-a312-4c49-8efd-7e74256b6ea4 # Course info

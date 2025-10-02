@@ -1,4 +1,4 @@
-_file_name: at_risk_learners.yaml
+_file_name: at_risk_learner_summary.yaml
 always_filter_main_dttm: false
 cache_timeout: null
 columns:
@@ -184,5 +184,5 @@ sql: |
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/at_risk_learner_summary.sql' %}{% endfilter %}
 table_name: at_risk_learner_summary
 template_params: {}
-uuid: 92eadc61-2931-577e-95b7-34adb1a8f515
+uuid: 92eadc61-2931-577e-95b7-34adb1a8f516
 version: 1.0.0
