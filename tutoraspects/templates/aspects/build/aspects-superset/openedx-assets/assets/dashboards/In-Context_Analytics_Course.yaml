@@ -90,6 +90,8 @@ metadata:
     Repeat Views: '#7B144D'
     Respondents: '#29A399'
     Total Views: '#29A399'
+    actor_count: '#29A399'
+    avg_score: '#7B144D'
     perc_correct_first: '#7B144D'
   timed_refresh_immune_slices: []
 position:

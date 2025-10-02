@@ -124,8 +124,7 @@ metrics:
   description: null
   expression: |-
     count(case when learner_status='at-risk' then actor_id else null end)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: at_risk
   metric_type: null
   verbose_name: At Risk
@@ -135,8 +134,7 @@ metrics:
   description: null
   expression: |-
     count(case when learner_status='active' then actor_id else null end)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: active
   metric_type: null
   verbose_name: Active
@@ -146,8 +144,7 @@ metrics:
   description: null
   expression: |-
     count(case when approving_state='passed' then actor_id else null end)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: passed
   metric_type: null
   verbose_name: Passed
@@ -156,8 +153,7 @@ metrics:
   d3format: null
   description: null
   expression: COUNT(actor_id)
-  extra:
-    warning_markdown: ''
+  extra: {}
   metric_name: count
   metric_type: count
   verbose_name: Total
