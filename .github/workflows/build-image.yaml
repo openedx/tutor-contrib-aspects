@@ -25,7 +25,7 @@ jobs:
     steps:
       - name: Log in to Docker Hub
         continue-on-error: true
-        uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1
+        uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef
         with:
           username: ${{ secrets.EDUNEXT_DOCKER_USERNAME }}
           password: ${{ secrets.EDUNEXT_DOCKER_PASSWORD }}
@@ -40,7 +40,7 @@ jobs:
           ASPECTS_VERSION=pr-${{ github.event.pull_request.number }}-${{ steps.vars.outputs.sha_short }}
           sed -i "s/ASPECTS_VERSION: .*/ASPECTS_VERSION: $ASPECTS_VERSION/" .ci/config.yml
       - name: setup python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: 3.12
       - name: Install aspects
