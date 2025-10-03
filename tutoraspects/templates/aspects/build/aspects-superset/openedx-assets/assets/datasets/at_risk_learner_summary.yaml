@@ -184,5 +184,5 @@ sql: |
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/at_risk_learner_summary.sql' %}{% endfilter %}
 table_name: at_risk_learner_summary
 template_params: {}
-uuid: 92eadc61-2931-577e-95b7-34adb1a8f516
+uuid: 92eadc61-2931-577e-95b7-34adb1a8f515
 version: 1.0.0
