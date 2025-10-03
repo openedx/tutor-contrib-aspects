@@ -628,7 +628,7 @@ def find_unused_queries(echo):
             asset = yaml.safe_load(file_str)
             sql = asset["sql"].strip()
             match = re.search(r"\w+\b.sql", sql)
-            if match:
+            if match and match.group() in dataset_query_list:
                 dataset_query_list.remove(match.group())
 
     # Remove uuids from 'all' list that are in ignored yaml
