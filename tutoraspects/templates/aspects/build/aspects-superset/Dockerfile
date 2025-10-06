@@ -39,4 +39,3 @@ RUN atlas pull translations/tutor-contrib-aspects/tutoraspects/templates/aspects
 RUN python /app/localization/compile_translations.py
 
 USER superset
-COPY --chmod=755 ./docker-bootstrap.sh /app/docker/
