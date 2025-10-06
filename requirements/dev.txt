@@ -21,11 +21,11 @@ black==25.9.0
     #   -r requirements/base.txt
     #   -r requirements/dev.in
     #   shandy-sqlfmt
-cachetools==5.5.2
+cachetools==6.2.0
     # via
     #   -r requirements/base.txt
     #   google-auth
-certifi==2025.8.3
+certifi==2025.10.5
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -42,7 +42,7 @@ click==8.3.0
     #   black
     #   shandy-sqlfmt
     #   tutor
-cryptography==46.0.1
+cryptography==46.0.2
     # via secretstorage
 dill==0.4.0
     # via pylint
@@ -52,7 +52,7 @@ durationpy==0.10
     # via
     #   -r requirements/base.txt
     #   kubernetes
-google-auth==2.40.3
+google-auth==2.41.1
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -71,7 +71,7 @@ importlib-resources==6.5.2
     # via
     #   -r requirements/base.txt
     #   tutor
-isort==6.0.1
+isort==6.1.0
     # via pylint
 jaraco-classes==3.4.0
     # via keyring
@@ -90,7 +90,7 @@ jinja2==3.1.6
     #   tutor
 keyring==25.6.0
     # via twine
-kubernetes==33.1.0
+kubernetes==34.1.0
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -122,7 +122,6 @@ nh3==0.3.0
 oauthlib==3.3.1
     # via
     #   -r requirements/base.txt
-    #   kubernetes
     #   requests-oauthlib
 openedx-atlas==0.7.0
     # via -r requirements/base.txt
@@ -168,7 +167,7 @@ pyinstaller==6.16.0
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2025.9
     # via pyinstaller
-pylint==3.3.8
+pylint==3.3.9
     # via -r requirements/dev.in
 python-dateutil==2.9.0.post0
     # via
@@ -244,7 +243,7 @@ typing-extensions==4.15.0
     #   -r requirements/base.txt
     #   mypy
     #   tutor
-urllib3==2.5.0
+urllib3==2.3.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
