@@ -4,9 +4,9 @@ cache_timeout: null
 catalog: null
 columns:
 - advanced_data_type: null
-  column_name: course_key
+  column_name: score_range
   description: null
-  expression: ''
+  expression: null
   extra:
     warning_markdown: null
   filterable: true
@@ -14,25 +14,12 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: LowCardinality(String)
-  verbose_name: Course Key
-- advanced_data_type: null
-  column_name: avg_score
-  description: null
-  expression: ''
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: Float64
-  verbose_name: Avg Score
+  type: String
+  verbose_name: Score Range
 - advanced_data_type: null
   column_name: total_avg
   description: null
-  expression: ''
+  expression: null
   extra:
     warning_markdown: null
   filterable: true
@@ -42,6 +29,19 @@ columns:
   python_date_format: null
   type: Float64
   verbose_name: Total Avg
+- advanced_data_type: null
+  column_name: score_range_count
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: UInt8
+  verbose_name: Score Range Count
 - advanced_data_type: null
   column_name: block_id
   description: null
@@ -56,9 +56,9 @@ columns:
   type: String
   verbose_name: Block Id
 - advanced_data_type: null
-  column_name: org
+  column_name: course_key
   description: null
-  expression: ''
+  expression: null
   extra:
     warning_markdown: null
   filterable: true
@@ -66,20 +66,21 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: LowCardinality(String)
-  verbose_name: Org
+  type: String
+  verbose_name: Course Key
 - advanced_data_type: null
-  column_name: score_range
+  column_name: org
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
   type: String
-  verbose_name: Score Range
+  verbose_name: Org
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
