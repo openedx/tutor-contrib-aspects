@@ -1,3 +1,3 @@
 # Requirements needed to run in openedx-translations to manage localization
-click
+click>=8.0,<8.3.0
 ruamel.yaml
