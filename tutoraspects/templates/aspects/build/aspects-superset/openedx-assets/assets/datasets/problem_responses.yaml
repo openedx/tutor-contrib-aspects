@@ -88,7 +88,7 @@ columns:
   type: String
   verbose_name: Block Id
 - advanced_data_type: null
-  column_name: problem_number
+  column_name: problem_location
   description: null
   expression: null
   extra: {}
