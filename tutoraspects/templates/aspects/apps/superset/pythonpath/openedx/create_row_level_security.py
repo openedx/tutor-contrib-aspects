@@ -6,7 +6,7 @@ from superset.connectors.sqla.models import (
 from superset.extensions import security_manager
 from superset.migrations.shared.security_converge import Role
 
-session = security_manager.get_session()
+session = security_manager.session
 
 ## https://docs.preset.io/docs/row-level-security-rls
 

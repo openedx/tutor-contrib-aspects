@@ -12,6 +12,7 @@ extra:
   engine_params: {}
   metadata_params: {}
   schemas_allowed_for_file_upload: []
+impersonate_user: false
 sqlalchemy_uri: '{{SUPERSET_METADATA_SQLALCHEMY_URI}}'
 uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
 version: 1.0.0

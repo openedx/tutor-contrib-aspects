@@ -20,12 +20,7 @@ css: |2-
 dashboard_title: 'In-Context Analytics: Video'
 description: null
 metadata:
-  chart_configuration:
-    '521':
-      crossFilters:
-        chartsInScope: []
-        scope: global
-      id: 521
+  chart_configuration: {}
   color_scheme: aspects_default
   color_scheme_domain: []
   cross_filters_enabled: true
