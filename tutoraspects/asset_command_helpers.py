@@ -180,6 +180,7 @@ class ChartAsset(Asset):
         "params.dashboards",
         "params.datasource",
         "params.slice_id",
+        "tags"
     ]
     raw_vars = ["sqlExpression", "query_context", "translate_column"]
 
@@ -203,6 +204,7 @@ class DashboardAsset(Asset):
 
     path = "dashboards"
     required_vars = ["_roles"]
+    omitted_vars = ["tags"]
 
 
 class DatasetAsset(Asset):
@@ -212,7 +214,7 @@ class DatasetAsset(Asset):
 
     path = "datasets"
     templated_vars = ["schema", "table_name", "sql"]
-    omitted_vars = ["extra.certification"]
+    omitted_vars = ["extra.certification", "catalog", "folders"]
 
     def process(self, content: dict, existing: dict):
         """
@@ -260,7 +262,6 @@ def validate_asset_file(
     Append last 6 characters of uuid for charts
     """
     orig_filename = os.path.basename(asset_path)
-
     # make sure to not change the dashboard filename if we happen
     # to have a chart with the same name
     if not content.get("dashboard_title"):
@@ -345,7 +346,7 @@ def import_superset_assets(
 
     with ZipFile(file.name) as zip_file:
         for asset_path in zip_file.namelist():
-            if "metadata.yaml" in asset_path:
+            if "metadata.yaml" in asset_path or "tags.yaml" in asset_path:
                 continue
             with zip_file.open(asset_path) as asset_file:
                 content = yaml.safe_load(asset_file)
