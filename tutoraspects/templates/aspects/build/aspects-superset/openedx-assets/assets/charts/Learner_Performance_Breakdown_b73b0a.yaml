@@ -14,8 +14,11 @@ params:
     subject: enrolled_at
   annotation_layers: []
   color_scheme: supersetColors
+  comparison_type: values
   contributionMode: null
   extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
   groupby: []
   legendMargin: null
   legendOrientation: top
@@ -27,23 +30,26 @@ params:
   - at_risk
   minorTicks: false
   only_total: true
+  order_desc: true
   orientation: horizontal
   rich_tooltip: false
   row_limit: 10
+  showTooltipTotal: true
   show_empty_columns: false
   show_legend: true
   show_value: false
   sort_series_ascending: true
   sort_series_type: name
   stack: null
+  time_shift_color: true
   tooltipTimeFormat: smart_date
   truncateXAxis: false
   truncate_metric: false
   viz_type: echarts_timeseries_bar
+  xAxisLabelInterval: auto
   xAxisLabelRotation: 0
   x_axis: name_org
-  x_axis_sort_series: sum
-  x_axis_sort_series_ascending: false
+  x_axis_sort_asc: true
   x_axis_time_format: smart_date
   x_axis_title: ''
   x_axis_title_margin: 15
@@ -68,12 +74,15 @@ query_context:
       subject: enrolled_at
     annotation_layers: []
     color_scheme: supersetColors
+    comparison_type: values
     contributionMode: null
     dashboards:
     - 1111
     datasource: 504__table
     extra_form_data: {}
     force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
     groupby: []
     legendMargin: null
     legendOrientation: top
@@ -85,11 +94,13 @@ query_context:
     - at_risk
     minorTicks: false
     only_total: true
+    order_desc: true
     orientation: horizontal
     result_format: json
     result_type: full
     rich_tooltip: false
     row_limit: 10
+    showTooltipTotal: true
     show_empty_columns: false
     show_legend: true
     show_value: false
@@ -97,14 +108,15 @@ query_context:
     sort_series_ascending: true
     sort_series_type: name
     stack: null
+    time_shift_color: true
     tooltipTimeFormat: smart_date
     truncateXAxis: false
     truncate_metric: false
     viz_type: echarts_timeseries_bar
+    xAxisLabelInterval: auto
     xAxisLabelRotation: 0
     x_axis: name_org
-    x_axis_sort_series: sum
-    x_axis_sort_series_ascending: false
+    x_axis_sort_asc: true
     x_axis_time_format: smart_date
     x_axis_title: ''
     x_axis_title_margin: 15
@@ -132,6 +144,7 @@ query_context:
     - col: enrolled_at
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - count
     - passed

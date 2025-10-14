@@ -30,7 +30,7 @@ params:
   - perc_correct_all
   - perc_correct_first
   order_by_cols: []
-  order_desc: false
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 50000
@@ -74,7 +74,7 @@ query_context:
     - perc_correct_all
     - perc_correct_first
     order_by_cols: []
-    order_desc: false
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
@@ -100,10 +100,11 @@ query_context:
     - col: emission_time
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - perc_correct_all
     - perc_correct_first
-    order_desc: false
+    order_desc: true
     orderby:
     - - perc_correct_all
       - false

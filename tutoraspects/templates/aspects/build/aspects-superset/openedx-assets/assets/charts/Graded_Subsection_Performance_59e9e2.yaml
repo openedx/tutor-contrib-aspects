@@ -26,9 +26,13 @@ params:
   area: false
   areaB: false
   color_scheme: aspects_default
+  comparison_type: values
+  comparison_type_b: values
   extra_form_data: {}
   groupby: []
   groupby_b: []
+  legendOrientation: top
+  legendType: scroll
   logAxis: false
   logAxisSecondary: false
   markerEnabled: true
@@ -65,6 +69,8 @@ params:
     sqlExpression: null
   minorSplitLine: false
   minorTicks: false
+  only_total: true
+  only_totalB: true
   opacity: 0
   opacityB: 0.6
   order_desc: false
@@ -74,16 +80,21 @@ params:
   row_limit_b: 10000
   seriesType: bar
   seriesTypeB: line
+  showTooltipTotal: true
   show_legend: false
   show_value: false
   show_valueB: false
+  sort_series_type: sum
+  sort_series_typeB: sum
   stack: false
   stackB: false
+  time_shift_color: true
   tooltipTimeFormat: smart_date
   truncateXAxis: false
   truncate_metric: false
   truncate_metric_b: true
   viz_type: mixed_timeseries
+  xAxisLabelInterval: auto
   x_axis: score_range
   x_axis_time_format: smart_date
   x_axis_title: Subsection Score
@@ -123,6 +134,8 @@ query_context:
     extra_form_data: {}
     force: false
     groupby: []
+    legendOrientation: top
+    legendType: scroll
     logAxis: false
     logAxisSecondary: false
     markerEnabled: true
@@ -133,6 +146,8 @@ query_context:
     - count
     minorSplitLine: false
     minorTicks: false
+    only_total: true
+    only_totalB: true
     opacity: 0
     opacityB: 0.6
     order_desc: false
@@ -142,16 +157,19 @@ query_context:
     row_limit: 10000
     seriesType: bar
     seriesTypeB: line
+    showTooltipTotal: true
     show_legend: false
     show_value: false
     show_valueB: false
     slice_id: 23
     stack: false
     stackB: false
+    time_shift_color: true
     tooltipTimeFormat: smart_date
     truncateXAxis: false
     truncate_metric: false
     viz_type: mixed_timeseries
+    xAxisLabelInterval: auto
     x_axis: score_range
     x_axis_time_format: smart_date
     x_axis_title: Subsection Score
@@ -188,6 +206,7 @@ query_context:
     - col: avg_score
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - count
     orderby:
@@ -225,6 +244,7 @@ query_context:
     - col: avg_score
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: AVG
       column:
