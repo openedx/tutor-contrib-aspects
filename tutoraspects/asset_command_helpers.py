@@ -180,7 +180,8 @@ class ChartAsset(Asset):
         "params.dashboards",
         "params.datasource",
         "params.slice_id",
-        "tags"
+        "tags",
+        'annotation_layers'
     ]
     raw_vars = ["sqlExpression", "query_context", "translate_column"]
 
