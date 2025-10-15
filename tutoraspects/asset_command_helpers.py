@@ -181,7 +181,7 @@ class ChartAsset(Asset):
         "params.datasource",
         "params.slice_id",
         "tags",
-        'annotation_layers'
+        'params.annotation_layers'
     ]
     raw_vars = ["sqlExpression", "query_context", "translate_column"]
 

@@ -6,7 +6,6 @@ dataset_uuid: b422bdfe-0bbb-4191-888d-d0839878fb31
 description: null
 params:
   adhoc_filters: []
-  annotation_layers: []
   color_scheme: supersetColors
   comparison_type: values
   extra_form_data: {}

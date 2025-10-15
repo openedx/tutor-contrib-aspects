@@ -414,6 +414,7 @@ metadata:
       rootPath:
       - ROOT_ID
   label_colors: {}
+  map_label_colors: {}
   native_filter_configuration:
   - cascadeParentIds:
     - NATIVE_FILTER-_isF30QLx
@@ -667,12 +668,9 @@ metadata:
     type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors:
-    Attempted All Problems: '#454E7C'
-    Attempted At Least One Problem: '#1FA8C9'
-    Number of Learners: '#1FA8C9'
-    Total Learners: '#1FA8C9'
-    viewed_all: '#454E7C'
-    viewed_one: '#1FA8C9'
+  - Number of Learners
+  - Total Learners
+  - views
   timed_refresh_immune_slices: []
 position:
   CHART-LmLX-39lXb:
