@@ -5,14 +5,18 @@ certified_by: null
 dataset_uuid: 814ebd7a-00e2-52d0-b2ff-5b4c41dc6207
 description: Chart showing the number of registered users over the selected time period.
 params:
-  adhoc_filters: []
+  adhoc_filters:
+  - clause: WHERE
+    comparator: Last quarter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: created_on
   annotation_layers: []
-  color_scheme: htg_color_scheme
+  color_scheme: supersetColors
   comparison_type: values
   extra_form_data: {}
   forecastInterval: 0.8
   forecastPeriods: 10
-  granularity_sqla: created_on
   groupby: []
   legendOrientation: bottom
   legendType: scroll
@@ -45,22 +49,27 @@ params:
     sqlExpression: null
   minorSplitLine: false
   only_total: true
-  order_desc: true
+  opacity: 0.2
   rich_tooltip: true
   rolling_type: cumsum
   row_limit: 10000
+  seriesType: line
+  showTooltipTotal: true
+  show_empty_columns: true
   show_legend: false
   show_value: false
+  sort_series_type: sum
   stack: false
   time_grain_sqla: P1D
-  time_range: Last quarter
-  time_range_endpoints:
-  - inclusive
-  - exclusive
+  time_shift_color: true
   tooltipTimeFormat: smart_date
+  truncateXAxis: true
   truncateYAxis: true
-  url_params: {}
+  truncate_metric: true
   viz_type: echarts_timeseries_line
+  xAxisLabelInterval: auto
+  x_axis: created_on
+  x_axis_sort_asc: true
   x_axis_time_format: smart_date
   x_axis_title_margin: 15
   y_axis_bounds:

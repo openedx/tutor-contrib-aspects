@@ -28,12 +28,14 @@ params:
     sqlExpression: null
     subject: enrollment_status
   all_columns: []
-  annotation_layers: []
+  allow_render_html: true
   color_pn: true
   column_config:
     Currently Enrolled Students:
       d3NumberFormat: ',d'
       d3SmallNumberFormat: ',d'
+  comparison_color_scheme: Green
+  comparison_type: values
   conditional_formatting: []
   extra_form_data: {}
   groupby:
@@ -78,10 +80,10 @@ params:
     sqlExpression: null
   order_by_cols: []
   order_desc: false
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 50000
-  server_page_length: 10
   show_cell_bars: true
   show_totals: true
   table_timestamp_format: smart_date
