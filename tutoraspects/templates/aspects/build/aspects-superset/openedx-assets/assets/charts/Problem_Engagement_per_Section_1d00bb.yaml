@@ -29,8 +29,10 @@ params:
     sqlExpression: null
     subject: content_level
   all_columns: []
-  annotation_layers: []
+  allow_render_html: true
   color_pn: true
+  comparison_color_scheme: Green
+  comparison_type: values
   conditional_formatting:
   - colorScheme: '#FDE380'
     column: attempted_at_least_one_problem
@@ -50,11 +52,10 @@ params:
   - attempted_all_problems
   - attempted_at_least_one_problem
   order_by_cols: []
-  order_desc: true
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 10000
-  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
   temporal_columns_lookup: {}
@@ -90,7 +91,10 @@ query_context:
       sqlExpression: null
       subject: content_level
     all_columns: []
+    allow_render_html: true
     color_pn: true
+    comparison_color_scheme: Green
+    comparison_type: values
     conditional_formatting:
     - colorScheme: '#FDE380'
       column: attempted_at_least_one_problem
@@ -114,13 +118,12 @@ query_context:
     - attempted_all_problems
     - attempted_at_least_one_problem
     order_by_cols: []
-    order_desc: true
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
     result_type: full
     row_limit: 10000
-    server_page_length: 10
     show_cell_bars: true
     slice_id: 164
     table_timestamp_format: smart_date
@@ -146,6 +149,7 @@ query_context:
     - col: content_level
       op: ==
       val: section
+    group_others_when_limit_reached: false
     metrics:
     - attempted_all_problems
     - attempted_at_least_one_problem
@@ -156,6 +160,7 @@ query_context:
     post_processing: []
     row_limit: 10000
     series_limit: 0
+    time_offsets: []
     url_params: {}
   result_format: json
   result_type: full

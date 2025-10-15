@@ -17,23 +17,23 @@ params:
   - read_rows
   - memory_usage_kb
   - query
-  annotation_layers: []
+  allow_render_html: true
   color_pn: true
+  comparison_color_scheme: Green
+  comparison_type: values
   extra_form_data: {}
   groupby: []
   metrics: []
   order_by_cols:
   - '["duration_secs", false]'
-  order_desc: true
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: raw
   row_limit: 100
-  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
   temporal_columns_lookup:
     event_time: true
-  time_grain_sqla: P1D
   viz_type: table
 query_context: null
 slice_name: Slowest ClickHouse Queries

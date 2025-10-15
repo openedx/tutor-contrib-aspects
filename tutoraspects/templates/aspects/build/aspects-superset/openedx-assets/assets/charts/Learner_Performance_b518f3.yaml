@@ -4,10 +4,8 @@ certification_details: null
 certified_by: null
 dataset_uuid: ffc33796-bcd4-4e8b-a4e4-ab6517b72116
 description: |-
-  <dl>
-  <dt>Avg % Correct on 1st Attempt </dt>
-  <dd> The average percentage of correct answers on the first attempt of the learners who attempted the problem. </dd>
-  </dl>
+  <b>Avg % Correct on 1st Attempt </b>
+  : The average percentage of correct answers on the first attempt of the learners who attempted the problem.
 params:
   adhoc_filters: []
   all_columns: []
@@ -35,6 +33,7 @@ params:
   - med_course_grade
   order_by_cols: []
   order_desc: true
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 50000
@@ -78,6 +77,7 @@ query_context:
     - med_course_grade
     order_by_cols: []
     order_desc: true
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
@@ -100,6 +100,7 @@ query_context:
       having: ''
       where: ''
     filters: []
+    group_others_when_limit_reached: false
     metrics:
     - first_try_correct
     - count_passing

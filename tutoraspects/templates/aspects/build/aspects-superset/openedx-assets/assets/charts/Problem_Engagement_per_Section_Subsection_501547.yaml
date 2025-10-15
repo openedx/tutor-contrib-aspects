@@ -6,7 +6,6 @@ dataset_uuid: 0f3f86fe-2973-491d-b01a-986ac06096a3
 description: null
 params:
   adhoc_filters: []
-  annotation_layers: []
   color_scheme: supersetColors
   comparison_type: values
   extra_form_data: {}
@@ -35,23 +34,21 @@ params:
     sqlExpression: |-
       countIf("section_subsection_problem_engagement" = 'All problems attempted')
   only_total: true
-  order_desc: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
+  showTooltipTotal: true
   show_empty_columns: true
   show_legend: true
   sort_series_type: sum
-  time_grain_sqla: P1D
+  time_shift_color: true
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncate_metric: true
   viz_type: echarts_timeseries_bar
+  xAxisLabelInterval: auto
   xAxisLabelRotation: 0
   x_axis: section_subsection_name
-  x_axis_sort_asc: true
-  x_axis_sort_series: name
-  x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
   x_axis_title_margin: 15
   y_axis_bounds:
@@ -100,26 +97,24 @@ query_context:
       sqlExpression: |-
         countIf("section_subsection_problem_engagement" = 'All problems attempted')
     only_total: true
-    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
     rich_tooltip: true
     row_limit: 10000
+    showTooltipTotal: true
     show_empty_columns: true
     show_legend: true
     slice_id: 15
     sort_series_type: sum
-    time_grain_sqla: P1D
+    time_shift_color: true
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
     viz_type: echarts_timeseries_bar
+    xAxisLabelInterval: auto
     xAxisLabelRotation: 0
     x_axis: section_subsection_name
-    x_axis_sort_asc: true
-    x_axis_sort_series: name
-    x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date
     x_axis_title_margin: 15
     y_axis_bounds:
@@ -138,14 +133,13 @@ query_context:
       expressionType: SQL
       label: section_subsection_name
       sqlExpression: section_subsection_name
-      timeGrain: P1D
     custom_form_data: {}
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1D
       where: ''
     filters: []
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: null
       column: null

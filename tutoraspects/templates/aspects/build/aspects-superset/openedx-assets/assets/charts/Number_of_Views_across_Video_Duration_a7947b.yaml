@@ -12,28 +12,41 @@ params:
     expressionType: SIMPLE
     operator: TEMPORAL_RANGE
     subject: started_at
-  annotation_layers: []
   color_scheme: supersetColors
+  comparison_type: values
   extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
   groupby: []
   legendOrientation: top
   legendType: scroll
   metrics:
   - total_views
   - repeat_views
+  only_total: true
+  order_desc: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
+  showTooltipTotal: true
   show_empty_columns: true
   show_legend: true
   sort_series_type: sum
   stack: Stack
+  time_shift_color: true
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncateYAxis: false
   truncate_metric: true
   viz_type: echarts_timeseries_bar
+  xAxisLabelInterval: auto
   x_axis: segment_start
+  x_axis_sort_asc: true
+  x_axis_time_format: smart_date
+  x_axis_title_margin: 15
+  y_axis_bounds:
+  - null
+  - null
   y_axis_format: SMART_NUMBER
   y_axis_title: Number of Views
   y_axis_title_margin: 30
@@ -52,33 +65,47 @@ query_context:
       subject: started_at
     annotation_layers: []
     color_scheme: supersetColors
+    comparison_type: values
     dashboards:
     - 2587
     datasource: 685__table
     extra_form_data: {}
     force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
     groupby: []
     legendOrientation: top
     legendType: scroll
     metrics:
     - total_views
     - repeat_views
+    only_total: true
+    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
     rich_tooltip: true
     row_limit: 10000
+    showTooltipTotal: true
     show_empty_columns: true
     show_legend: true
     slice_id: 341
     sort_series_type: sum
     stack: Stack
+    time_shift_color: true
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncateYAxis: false
     truncate_metric: true
     viz_type: echarts_timeseries_bar
+    xAxisLabelInterval: auto
     x_axis: segment_start
+    x_axis_sort_asc: true
+    x_axis_time_format: smart_date
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
     y_axis_format: SMART_NUMBER
     y_axis_title: Number of Views
     y_axis_title_margin: 30
@@ -100,6 +127,7 @@ query_context:
     - col: started_at
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - total_views
     - repeat_views

@@ -16,7 +16,6 @@ params:
     expressionType: SIMPLE
     operator: TEMPORAL_RANGE
     subject: enrolled_at
-  annotation_layers: []
   color_scheme: supersetColors
   comparison_type: values
   extra_form_data: {}
@@ -51,18 +50,23 @@ params:
     optionName: metric_z7m68c6u4i_vpbb6m45cl
     sqlExpression: null
   only_total: true
+  order_desc: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
+  showTooltipTotal: true
   show_empty_columns: true
   show_legend: true
   sort_series_type: sum
   time_grain_sqla: P1M
+  time_shift_color: true
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncate_metric: true
   viz_type: echarts_timeseries_bar
+  xAxisLabelInterval: auto
   x_axis: enrolled_at
+  x_axis_sort_asc: true
   x_axis_time_format: smart_date
   x_axis_title_margin: 15
   y_axis_bounds:
@@ -125,21 +129,26 @@ query_context:
       optionName: metric_z7m68c6u4i_vpbb6m45cl
       sqlExpression: null
     only_total: true
+    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
     rich_tooltip: true
     row_limit: 10000
+    showTooltipTotal: true
     show_empty_columns: true
     show_legend: true
     slice_id: 89
     sort_series_type: sum
     time_grain_sqla: P1M
+    time_shift_color: true
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
     viz_type: echarts_timeseries_bar
+    xAxisLabelInterval: auto
     x_axis: enrolled_at
+    x_axis_sort_asc: true
     x_axis_time_format: smart_date
     x_axis_title_margin: 15
     y_axis_bounds:
@@ -170,6 +179,7 @@ query_context:
     - col: enrolled_at
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: COUNT_DISTINCT
       column:

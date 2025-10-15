@@ -40,23 +40,22 @@ params:
     sqlExpression: uniqCombinedMerge(events_cnt)
   only_total: true
   opacity: 0.2
-  order_desc: true
   rich_tooltip: true
   row_limit: 10000
   seriesType: line
+  showTooltipTotal: true
   show_empty_columns: true
   show_legend: false
   show_value: false
   sort_series_type: sum
   time_grain_sqla: P1D
+  time_shift_color: true
   tooltipTimeFormat: smart_date
   truncateXAxis: false
   truncate_metric: false
   viz_type: echarts_timeseries_line
+  xAxisLabelInterval: auto
   x_axis: emission_day
-  x_axis_sort_asc: true
-  x_axis_sort_series: name
-  x_axis_sort_series_ascending: true
   x_axis_time_format: '%Y-%m-%d'
   x_axis_title_margin: 15
   y_axis_bounds:
@@ -111,26 +110,25 @@ query_context:
       sqlExpression: uniqCombinedMerge(events_cnt)
     only_total: true
     opacity: 0.2
-    order_desc: true
     result_format: json
     result_type: full
     rich_tooltip: true
     row_limit: 10000
     seriesType: line
+    showTooltipTotal: true
     show_empty_columns: true
     show_legend: false
     show_value: false
     slice_id: 3401
     sort_series_type: sum
     time_grain_sqla: P1D
+    time_shift_color: true
     tooltipTimeFormat: smart_date
     truncateXAxis: false
     truncate_metric: false
     viz_type: echarts_timeseries_line
+    xAxisLabelInterval: auto
     x_axis: emission_day
-    x_axis_sort_asc: true
-    x_axis_sort_series: name
-    x_axis_sort_series_ascending: true
     x_axis_time_format: '%Y-%m-%d'
     x_axis_title_margin: 15
     y_axis_bounds:
@@ -159,6 +157,7 @@ query_context:
     - col: emission_day
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: null
       column: null

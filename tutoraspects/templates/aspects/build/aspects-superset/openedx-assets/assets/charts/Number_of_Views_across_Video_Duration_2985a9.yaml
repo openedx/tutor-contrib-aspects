@@ -40,19 +40,20 @@ params:
   orientation: vertical
   rich_tooltip: true
   row_limit: 50000
+  showTooltipTotal: true
   show_empty_columns: true
   show_legend: true
   sort_series_type: sum
   stack: Stack
+  time_shift_color: true
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncate_metric: true
   viz_type: echarts_timeseries_bar
   xAxisForceCategorical: true
+  xAxisLabelInterval: auto
   x_axis: segment_start
   x_axis_sort_asc: true
-  x_axis_sort_series: name
-  x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
   x_axis_title: Video Timestamp (in seconds)
   x_axis_title_margin: 30
@@ -111,20 +112,21 @@ query_context:
     result_type: full
     rich_tooltip: true
     row_limit: 50000
+    showTooltipTotal: true
     show_empty_columns: true
     show_legend: true
     slice_id: 561
     sort_series_type: sum
     stack: Stack
+    time_shift_color: true
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
     viz_type: echarts_timeseries_bar
     xAxisForceCategorical: true
+    xAxisLabelInterval: auto
     x_axis: segment_start
     x_axis_sort_asc: true
-    x_axis_sort_series: name
-    x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date
     x_axis_title: Video Timestamp (in seconds)
     x_axis_title_margin: 30
@@ -156,6 +158,7 @@ query_context:
     - col: started_at
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - total_views
     - repeat_views

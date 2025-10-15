@@ -17,12 +17,18 @@ params:
     operatorId: IS_NOT_NULL
     sqlExpression: null
     subject: dashboard_id
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: action_date
   all_columns: []
-  annotation_layers: []
+  allow_render_html: true
   color_pn: false
+  comparison_color_scheme: Green
+  comparison_type: values
   conditional_formatting: []
   extra_form_data: {}
-  granularity_sqla: action_date
   groupby:
   - dashboard_title
   include_search: true
@@ -51,20 +57,16 @@ params:
     optionName: metric_s8q9hgt4ktk_u149bx4eoq8
     sqlExpression: null
   order_by_cols: []
-  order_desc: true
   page_length: 20
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 100
-  server_page_length: 10
   show_cell_bars: false
   table_timestamp_format: smart_date
-  time_grain_sqla: P1D
-  time_range: No filter
-  time_range_endpoints:
-  - inclusive
-  - exclusive
-  url_params: {}
+  temporal_columns_lookup:
+    action_date: true
+    user_registration_date: true
   viz_type: table
 query_context: null
 slice_name: Most-used Dashboards

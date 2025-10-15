@@ -28,8 +28,10 @@ params:
     sqlExpression: null
     subject: content_level
   all_columns: []
-  annotation_layers: []
+  allow_render_html: true
   color_pn: true
+  comparison_color_scheme: Green
+  comparison_type: values
   conditional_formatting:
   - colorScheme: '#ACE1C4'
     column: all_pages_viewed
@@ -48,11 +50,10 @@ params:
   - all_pages_viewed
   - at_leat_one_page_viewed
   order_by_cols: []
-  order_desc: true
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 10000
-  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
   temporal_columns_lookup: {}
@@ -87,7 +88,10 @@ query_context:
       sqlExpression: null
       subject: content_level
     all_columns: []
+    allow_render_html: true
     color_pn: true
+    comparison_color_scheme: Green
+    comparison_type: values
     conditional_formatting:
     - colorScheme: '#ACE1C4'
       column: all_pages_viewed
@@ -110,13 +114,12 @@ query_context:
     - all_pages_viewed
     - at_leat_one_page_viewed
     order_by_cols: []
-    order_desc: true
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
     result_type: full
     row_limit: 10000
-    server_page_length: 10
     show_cell_bars: true
     slice_id: 192
     table_timestamp_format: smart_date
@@ -143,6 +146,7 @@ query_context:
     - col: content_level
       op: ==
       val: subsection
+    group_others_when_limit_reached: false
     metrics:
     - all_pages_viewed
     - at_leat_one_page_viewed
@@ -153,6 +157,7 @@ query_context:
     post_processing: []
     row_limit: 10000
     series_limit: 0
+    time_offsets: []
     url_params: {}
   result_format: json
   result_type: full

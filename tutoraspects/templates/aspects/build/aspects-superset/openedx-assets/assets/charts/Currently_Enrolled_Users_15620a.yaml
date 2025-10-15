@@ -27,7 +27,6 @@ params:
     operatorId: EQUALS
     sqlExpression: null
     subject: enrollment_status
-  annotation_layers: []
   conditional_formatting: []
   extra_form_data: {}
   force_timestamp_formatting: false
@@ -58,8 +57,8 @@ params:
     label: COUNT_DISTINCT(Actor Id)
     optionName: metric_0s87bb0logr_zgntots557g
     sqlExpression: null
-  subheader: ''
-  subheader_font_size: 0.2
+  metric_name_font_size: 0.15
+  subtitle_font_size: 0.15
   time_format: smart_date
   viz_type: big_number_total
   y_axis_format: ',d'
@@ -125,6 +124,7 @@ query_context:
       label: COUNT_DISTINCT(Actor Id)
       optionName: metric_0s87bb0logr_zgntots557g
       sqlExpression: null
+    metric_name_font_size: 0.15
     result_format: json
     result_type: full
     slice_id: 3001
@@ -149,6 +149,7 @@ query_context:
     - col: enrollment_status
       op: ==
       val: registered
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: COUNT_DISTINCT
       column:

@@ -21,7 +21,6 @@ params:
     Views:
       d3NumberFormat: ',d'
       d3SmallNumberFormat: ',d'
-  comparison_color_scheme: Green
   comparison_type: values
   conditional_formatting:
   - colorScheme: '#ACE1C4'
@@ -29,7 +28,7 @@ params:
     operator: "\u2265"
     targetValue: 0
   - colorScheme: '#ACE1C4'
-    column: Views
+    column: views
     operator: "\u2265"
     targetValue: 0
   extra_form_data: {}
@@ -53,6 +52,7 @@ params:
       python_date_format: null
       type: String
       type_generic: 1
+      uuid: 3d9fc61a-db21-40f6-84cf-ae9b09b17cef
       verbose_name: Actor ID
       warning_markdown: null
     datasourceWarning: false
@@ -61,8 +61,10 @@ params:
     label: Number of Learners
     optionName: metric_snz56umciah_dlk81mwz9gk
     sqlExpression: null
+  - views
   order_by_cols: []
   order_desc: true
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
@@ -118,7 +120,6 @@ query_context:
       Views:
         d3NumberFormat: ',d'
         d3SmallNumberFormat: ',d'
-    comparison_color_scheme: Green
     comparison_type: values
     conditional_formatting:
     - colorScheme: '#ACE1C4'
@@ -126,7 +127,7 @@ query_context:
       operator: "\u2265"
       targetValue: 0
     - colorScheme: '#ACE1C4'
-      column: Views
+      column: views
       operator: "\u2265"
       targetValue: 0
     dashboards:
@@ -154,6 +155,7 @@ query_context:
         python_date_format: null
         type: String
         type_generic: 1
+        uuid: 3d9fc61a-db21-40f6-84cf-ae9b09b17cef
         verbose_name: Actor ID
         warning_markdown: null
       datasourceWarning: false
@@ -162,8 +164,10 @@ query_context:
       label: Number of Learners
       optionName: metric_snz56umciah_dlk81mwz9gk
       sqlExpression: null
+    - views
     order_by_cols: []
     order_desc: true
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
@@ -215,6 +219,7 @@ query_context:
     - col: visited_on
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: COUNT_DISTINCT
       column:
@@ -232,6 +237,7 @@ query_context:
         python_date_format: null
         type: String
         type_generic: 1
+        uuid: 3d9fc61a-db21-40f6-84cf-ae9b09b17cef
         verbose_name: Actor ID
         warning_markdown: null
       datasourceWarning: false
@@ -240,6 +246,7 @@ query_context:
       label: Number of Learners
       optionName: metric_snz56umciah_dlk81mwz9gk
       sqlExpression: null
+    - views
     order_desc: true
     orderby:
     - - aggregate: AVG

@@ -9,9 +9,13 @@ params:
   adhoc_filters_b: []
   annotation_layers: []
   color_scheme: aspects_default
+  comparison_type: values
+  comparison_type_b: values
   extra_form_data: {}
   groupby: []
   groupby_b: []
+  legendOrientation: top
+  legendType: scroll
   markerEnabledB: true
   markerSize: 6
   markerSizeB: 6
@@ -19,6 +23,8 @@ params:
   - actor_count
   metrics_b:
   - avg_score
+  only_total: true
+  only_totalB: true
   opacity: 0.2
   opacityB: 0.2
   order_desc: false
@@ -28,12 +34,17 @@ params:
   row_limit_b: 50000
   seriesType: bar
   seriesTypeB: line
+  showTooltipTotal: true
   show_legend: false
+  sort_series_type: sum
+  sort_series_typeB: sum
+  time_shift_color: true
   tooltipTimeFormat: smart_date
   truncateXAxis: false
   truncate_metric: false
   truncate_metric_b: true
   viz_type: mixed_timeseries
+  xAxisLabelInterval: auto
   x_axis: subsection_with_name
   x_axis_time_format: smart_date
   x_axis_title: ''
@@ -60,17 +71,22 @@ query_context:
     adhoc_filters: []
     annotation_layers: []
     color_scheme: aspects_default
+    comparison_type: values
     dashboards:
     - 1963
     datasource: 61__table
     extra_form_data: {}
     force: false
     groupby: []
+    legendOrientation: top
+    legendType: scroll
     markerEnabledB: true
     markerSize: 6
     markerSizeB: 6
     metrics:
     - actor_count
+    only_total: true
+    only_totalB: true
     opacity: 0.2
     opacityB: 0.2
     order_desc: false
@@ -80,12 +96,14 @@ query_context:
     row_limit: 50000
     seriesType: bar
     seriesTypeB: line
+    showTooltipTotal: true
     show_legend: false
     slice_id: 781
     tooltipTimeFormat: smart_date
     truncateXAxis: false
     truncate_metric: false
     viz_type: mixed_timeseries
+    xAxisLabelInterval: auto
     x_axis: subsection_with_name
     x_axis_time_format: smart_date
     x_axis_title: ''
@@ -117,6 +135,7 @@ query_context:
       having: ''
       where: ''
     filters: []
+    group_others_when_limit_reached: false
     metrics:
     - actor_count
     orderby:
@@ -151,6 +170,7 @@ query_context:
       having: ''
       where: ''
     filters: []
+    group_others_when_limit_reached: false
     metrics:
     - avg_score
     orderby:

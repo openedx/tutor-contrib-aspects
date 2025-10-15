@@ -8,118 +8,6 @@ dashboard_title: Course Comparison Dashboard
 description: null
 metadata:
   chart_configuration:
-    '101':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 161
-        - 201
-        - 501
-        - 601
-        - 701
-        - 1221
-        - 1281
-        - 1641
-        scope: global
-      id: 101
-    '1221':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 101
-        - 161
-        - 201
-        - 501
-        - 601
-        - 701
-        - 1281
-        - 1641
-        scope: global
-      id: 1221
-    '1281':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 101
-        - 161
-        - 201
-        - 501
-        - 601
-        - 701
-        - 1221
-        - 1641
-        scope: global
-      id: 1281
-    '161':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 101
-        - 201
-        - 501
-        - 601
-        - 701
-        - 1221
-        - 1281
-        - 1641
-        scope: global
-      id: 161
-    '1641':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 101
-        - 161
-        - 201
-        - 501
-        - 601
-        - 701
-        - 1221
-        - 1281
-        scope: global
-      id: 1641
-    '201':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 101
-        - 161
-        - 501
-        - 601
-        - 701
-        - 1221
-        - 1281
-        - 1641
-        scope: global
-      id: 201
-    '501':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 101
-        - 161
-        - 201
-        - 601
-        - 701
-        - 1221
-        - 1281
-        - 1641
-        scope: global
-      id: 501
-    '601':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 101
-        - 161
-        - 201
-        - 501
-        - 701
-        - 1221
-        - 1281
-        - 1641
-        scope: global
-      id: 601
     '61':
       crossFilters:
         chartsInScope:
@@ -134,20 +22,6 @@ metadata:
         - 1641
         scope: global
       id: 61
-    '701':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 101
-        - 161
-        - 201
-        - 501
-        - 601
-        - 1221
-        - 1281
-        - 1641
-        scope: global
-      id: 701
   color_scheme: supersetColors
   color_scheme_domain:
   - '#1FA8C9'
@@ -704,5 +578,6 @@ position:
     type: TABS
 published: true
 slug: course-comparison
+theme_uuid: null
 uuid: c6c7062d-dd90-4292-b9cf-84f7b9f38e73
 version: 1.0.0

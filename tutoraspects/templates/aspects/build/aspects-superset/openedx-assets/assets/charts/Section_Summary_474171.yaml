@@ -12,12 +12,14 @@ params:
     operator: TEMPORAL_RANGE
     subject: visited_on
   all_columns: []
-  annotation_layers: []
+  allow_render_html: true
   color_pn: true
   column_config:
     number_of_learners:
       d3NumberFormat: ',d'
       d3SmallNumberFormat: ',d'
+  comparison_color_scheme: Green
+  comparison_type: values
   conditional_formatting:
   - colorScheme: '#ACE1C4'
     column: number_of_learners
@@ -30,15 +32,14 @@ params:
   - number_of_learners
   order_by_cols: []
   order_desc: true
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
-  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
   temporal_columns_lookup:
     visited_on: true
-  time_grain_sqla: P1D
   timeseries_limit_metric:
     aggregate: AVG
     column:
@@ -79,12 +80,14 @@ query_context:
       operator: TEMPORAL_RANGE
       subject: visited_on
     all_columns: []
-    annotation_layers: []
+    allow_render_html: true
     color_pn: true
     column_config:
       number_of_learners:
         d3NumberFormat: ',d'
         d3SmallNumberFormat: ',d'
+    comparison_color_scheme: Green
+    comparison_type: values
     conditional_formatting:
     - colorScheme: '#ACE1C4'
       column: number_of_learners
@@ -99,18 +102,17 @@ query_context:
     - number_of_learners
     order_by_cols: []
     order_desc: true
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
     result_type: full
     row_limit: 1000
-    server_page_length: 10
     show_cell_bars: true
     slice_id: 52
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       visited_on: true
-    time_grain_sqla: P1D
     timeseries_limit_metric:
       aggregate: AVG
       column:
@@ -147,12 +149,12 @@ query_context:
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1D
       where: ''
     filters:
     - col: visited_on
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - number_of_learners
     order_desc: true
@@ -212,6 +214,7 @@ query_context:
       label: AVG(course_order)
       optionName: metric_55fgihnunvg_wqxqn77c8ic
       sqlExpression: null
+    time_offsets: []
     url_params: {}
   result_format: json
   result_type: full

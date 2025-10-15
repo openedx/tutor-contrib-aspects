@@ -4,10 +4,8 @@ certification_details: null
 certified_by: null
 dataset_uuid: ffc33796-bcd4-4e8b-a4e4-ab6517b72116
 description: |-
-  <dl>
-  <dt>Avg % Correct on 1st Attempt </dt>
-  <dd> The average percentage of correct answers on the first attempt of the learners who attempted the problem. </dd>
-  </dl>
+  <b>Avg % Correct on 1st Attempt </b>
+  : The average percentage of correct answers on the first attempt of the learners who attempted the problem.
 params:
   adhoc_filters:
   - clause: WHERE
@@ -22,7 +20,7 @@ params:
     subject: emission_time
   all_columns:
   - success
-  annotation_layers: []
+  allow_render_html: true
   color_pn: true
   column_config:
     avg_course_grade:
@@ -32,6 +30,8 @@ params:
       showCellBars: false
     med_course_grade:
       d3NumberFormat: ',.1%'
+  comparison_color_scheme: Green
+  comparison_type: values
   conditional_formatting: []
   extra_form_data: {}
   groupby:
@@ -43,7 +43,8 @@ params:
   - avg_course_grade
   - med_course_grade
   order_by_cols: []
-  order_desc: false
+  order_desc: true
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 50000
@@ -51,7 +52,6 @@ params:
   show_cell_bars: false
   table_timestamp_format: smart_date
   temporal_columns_lookup: {}
-  time_grain_sqla: P1M
   viz_type: table
 query_context:
   datasource:
@@ -72,6 +72,7 @@ query_context:
       subject: emission_time
     all_columns:
     - success
+    allow_render_html: true
     color_pn: true
     column_config:
       avg_course_grade:
@@ -81,6 +82,8 @@ query_context:
         showCellBars: false
       med_course_grade:
         d3NumberFormat: ',.1%'
+    comparison_color_scheme: Green
+    comparison_type: values
     conditional_formatting: []
     dashboards:
     - 3141
@@ -96,7 +99,8 @@ query_context:
     - avg_course_grade
     - med_course_grade
     order_by_cols: []
-    order_desc: false
+    order_desc: true
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
@@ -107,7 +111,6 @@ query_context:
     slice_id: 1507
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
-    time_grain_sqla: P1M
     viz_type: table
   queries:
   - annotation_layers: []
@@ -119,24 +122,25 @@ query_context:
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1M
       where: ''
     filters:
     - col: emission_time
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - first_try_correct
     - count_passing
     - avg_course_grade
     - med_course_grade
-    order_desc: false
+    order_desc: true
     orderby:
     - - first_try_correct
       - false
     post_processing: []
     row_limit: 50000
     series_limit: 0
+    time_offsets: []
     url_params: {}
   result_format: json
   result_type: full

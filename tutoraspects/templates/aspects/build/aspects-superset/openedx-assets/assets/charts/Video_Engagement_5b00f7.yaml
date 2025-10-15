@@ -28,11 +28,10 @@ params:
   - watched_percent
   - rewatched_percent
   order_by_cols: []
-  order_desc: true
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 50000
-  server_page_length: 10
   show_cell_bars: false
   table_timestamp_format: smart_date
   temporal_columns_lookup: {}
@@ -70,13 +69,12 @@ query_context:
     - watched_percent
     - rewatched_percent
     order_by_cols: []
-    order_desc: true
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
     result_type: full
     row_limit: 50000
-    server_page_length: 10
     show_cell_bars: false
     slice_id: 1221
     table_timestamp_format: smart_date
@@ -95,6 +93,7 @@ query_context:
       having: ''
       where: ''
     filters: []
+    group_others_when_limit_reached: false
     metrics:
     - avg_video_length
     - num_videos_watched

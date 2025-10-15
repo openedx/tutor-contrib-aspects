@@ -18,7 +18,6 @@ params:
     subject: emission_time
   all_columns: []
   allow_render_html: true
-  annotation_layers: []
   color_pn: false
   column_config:
     Coursewide % Correct:
@@ -116,9 +115,11 @@ params:
     sqlExpression: null
   order_by_cols: []
   order_desc: false
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
+  server_page_length: 10
   server_pagination: false
   show_cell_bars: false
   show_totals: false
@@ -272,11 +273,13 @@ query_context:
       sqlExpression: null
     order_by_cols: []
     order_desc: false
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
     result_type: full
     row_limit: 1000
+    server_page_length: 10
     server_pagination: false
     show_cell_bars: false
     show_totals: false
@@ -331,6 +334,7 @@ query_context:
     - col: emission_time
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: AVG
       column:

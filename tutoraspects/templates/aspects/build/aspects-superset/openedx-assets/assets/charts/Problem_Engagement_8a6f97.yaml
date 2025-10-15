@@ -19,9 +19,13 @@ params:
     subject: emission_time
   annotation_layers: []
   color_scheme: aspects_default
+  comparison_type: values
+  comparison_type_b: values
   extra_form_data: {}
   groupby: []
   groupby_b: []
+  legendOrientation: top
+  legendType: scroll
   logAxis: false
   markerEnabledB: true
   markerSize: 6
@@ -55,6 +59,8 @@ params:
   metrics_b:
   - perc_correct_first
   minorSplitLine: false
+  only_total: true
+  only_totalB: true
   opacity: 0.2
   opacityB: 0.2
   order_desc: true
@@ -64,15 +70,20 @@ params:
   row_limit_b: 10000
   seriesType: bar
   seriesTypeB: line
+  showTooltipTotal: true
   show_legend: false
   show_valueB: false
+  sort_series_type: sum
+  sort_series_typeB: sum
   stack: false
+  time_shift_color: true
   tooltipTimeFormat: smart_date
   truncateXAxis: false
   truncateYAxis: false
   truncate_metric: true
   truncate_metric_b: true
   viz_type: mixed_timeseries
+  xAxisLabelInterval: auto
   x_axis: problem_name_location
   x_axis_time_format: smart_date
   x_axis_title: ''
@@ -108,6 +119,8 @@ query_context:
     extra_form_data: {}
     force: false
     groupby: []
+    legendOrientation: top
+    legendType: scroll
     logAxis: false
     markerEnabledB: true
     markerSize: 6
@@ -139,6 +152,8 @@ query_context:
       optionName: metric_jqnn7e088ug_zvz90groe3
       sqlExpression: null
     minorSplitLine: false
+    only_total: true
+    only_totalB: true
     opacity: 0.2
     opacityB: 0.2
     order_desc: true
@@ -148,15 +163,18 @@ query_context:
     row_limit: 10000
     seriesType: bar
     seriesTypeB: line
+    showTooltipTotal: true
     show_legend: false
     show_valueB: false
     slice_id: 31
     stack: false
+    time_shift_color: true
     tooltipTimeFormat: smart_date
     truncateXAxis: false
     truncateYAxis: false
     truncate_metric: true
     viz_type: mixed_timeseries
+    xAxisLabelInterval: auto
     x_axis: problem_name_location
     x_axis_time_format: smart_date
     x_axis_title: ''
@@ -191,6 +209,7 @@ query_context:
     - col: emission_time
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: COUNT_DISTINCT
       column:
@@ -276,6 +295,7 @@ query_context:
     - col: emission_time
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - perc_correct_first
     orderby:

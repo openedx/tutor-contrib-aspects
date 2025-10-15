@@ -1,0 +1,200 @@
+_file_name: superset_action_log_328cca.yaml
+always_filter_main_dttm: false
+cache_timeout: null
+columns:
+- advanced_data_type: null
+  column_name: user_registration_date
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DATETIME
+  verbose_name: User Registration Date
+- advanced_data_type: null
+  column_name: action_date
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DATETIME
+  verbose_name: Action Date
+- advanced_data_type: null
+  column_name: action_count
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INT
+  verbose_name: Action Count
+- advanced_data_type: null
+  column_name: dashboard_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INT
+  verbose_name: Dashboard ID
+- advanced_data_type: null
+  column_name: dashboard_status
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: Dashboard Status
+- advanced_data_type: null
+  column_name: dashboard_title
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: Dashboard Title
+- advanced_data_type: null
+  column_name: slice_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INT
+  verbose_name: Slice ID
+- advanced_data_type: null
+  column_name: user_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: INT
+  verbose_name: User ID
+- advanced_data_type: null
+  column_name: user_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: User Name
+- advanced_data_type: null
+  column_name: datasource_id
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: null
+  verbose_name: Datasource ID
+- advanced_data_type: null
+  column_name: datasource_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: null
+  python_date_format: null
+  type: null
+  verbose_name: Datasource Name
+- advanced_data_type: null
+  column_name: datasource_type
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: null
+  python_date_format: null
+  type: null
+  verbose_name: Datasource Type
+- advanced_data_type: null
+  column_name: slice_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: null
+  python_date_format: null
+  type: null
+  verbose_name: Slice Name
+- advanced_data_type: null
+  column_name: action
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: Action
+database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
+default_endpoint: null
+description: null
+extra: {}
+fetch_values_predicate: null
+filter_select_enabled: false
+main_dttm_col: null
+metrics:
+- currency: null
+  d3format: null
+  description: null
+  expression: count(*)
+  extra:
+    warning_markdown: ''
+  metric_name: count
+  metric_type: null
+  verbose_name: Count
+  warning_text: null
+normalize_columns: false
+offset: 0
+params: null
+schema: '{{ SUPERSET_DB_NAME }}'
+sql: |-
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/superset_action_log.sql' %}{% endfilter %}
+table_name: superset_action_log
+template_params: null
+uuid: 328ccae5-9a44-5e8c-8598-8d1c14b9f9fb
+version: 1.0.0

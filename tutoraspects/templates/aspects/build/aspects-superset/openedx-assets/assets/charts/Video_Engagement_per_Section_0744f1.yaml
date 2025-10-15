@@ -52,10 +52,11 @@ params:
   - all_videos_viewed
   - at_least_one_viewed
   order_by_cols: []
-  order_desc: true
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 10000
+  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
   temporal_columns_lookup: {}
@@ -118,12 +119,13 @@ query_context:
     - all_videos_viewed
     - at_least_one_viewed
     order_by_cols: []
-    order_desc: true
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
     result_type: full
     row_limit: 10000
+    server_page_length: 10
     show_cell_bars: true
     slice_id: 581
     table_timestamp_format: smart_date
@@ -142,12 +144,14 @@ query_context:
     custom_params: {}
     extras:
       having: ''
+      time_grain_sqla: P1M
       where: |-
         (`section_subsection_name` <> '')
     filters:
     - col: content_level
       op: ==
       val: section
+    group_others_when_limit_reached: false
     metrics:
     - all_videos_viewed
     - at_least_one_viewed

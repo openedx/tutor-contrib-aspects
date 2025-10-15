@@ -12,6 +12,7 @@ params:
     operator: TEMPORAL_RANGE
     subject: emission_time
   aggregateFunction: Sum
+  allow_render_html: true
   colOrder: key_a_to_z
   colSubTotals: false
   conditional_formatting: []
@@ -44,7 +45,7 @@ query_context:
       operator: TEMPORAL_RANGE
       subject: emission_time
     aggregateFunction: Sum
-    annotation_layers: []
+    allow_render_html: true
     colOrder: key_a_to_z
     colSubTotals: false
     conditional_formatting: []
@@ -87,6 +88,7 @@ query_context:
     - col: emission_time
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - enrollees
     order_desc: false

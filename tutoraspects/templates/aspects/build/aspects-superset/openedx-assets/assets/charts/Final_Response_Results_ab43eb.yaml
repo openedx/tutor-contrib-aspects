@@ -8,13 +8,18 @@ params:
   adhoc_filters: []
   annotation_layers: []
   color_scheme: aspects_default
+  comparison_type: values
   extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
   groupby:
   - datasourceWarning: true
     expressionType: SQL
     label: success
     sqlExpression: |-
       if(success,'Correct','Incorrect')
+  legendOrientation: top
+  legendType: scroll
   logAxis: false
   metrics:
   - aggregate: COUNT_DISTINCT
@@ -43,21 +48,30 @@ params:
     optionName: metric_i0duwq19kl_azrkbuc8jve
     sqlExpression: null
   minorSplitLine: false
+  only_total: true
+  order_desc: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
+  showTooltipTotal: true
   show_empty_columns: true
   show_legend: false
   sort_series_type: sum
   stack: Stack
+  time_shift_color: true
   tooltipTimeFormat: smart_date
   truncateXAxis: false
   truncateYAxis: false
   truncate_metric: true
   viz_type: echarts_timeseries_bar
+  xAxisLabelInterval: auto
   x_axis: problem_name_location
-  x_axis_sort_series: name
-  x_axis_sort_series_ascending: true
+  x_axis_sort_asc: true
+  x_axis_time_format: smart_date
+  x_axis_title_margin: 15
+  y_axis_bounds:
+  - null
+  - null
   y_axis_format: SMART_NUMBER
   y_axis_title: Respondents
   y_axis_title_margin: 15
@@ -71,17 +85,22 @@ query_context:
     adhoc_filters: []
     annotation_layers: []
     color_scheme: aspects_default
+    comparison_type: values
     dashboards:
     - 2043
     datasource: 584__table
     extra_form_data: {}
     force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
     groupby:
     - datasourceWarning: true
       expressionType: SQL
       label: success
       sqlExpression: |-
         if(success,'Correct','Incorrect')
+    legendOrientation: top
+    legendType: scroll
     logAxis: false
     metrics:
     - aggregate: COUNT_DISTINCT
@@ -110,24 +129,33 @@ query_context:
       optionName: metric_i0duwq19kl_azrkbuc8jve
       sqlExpression: null
     minorSplitLine: false
+    only_total: true
+    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
     rich_tooltip: true
     row_limit: 10000
+    showTooltipTotal: true
     show_empty_columns: true
     show_legend: false
     slice_id: 1341
     sort_series_type: sum
     stack: Stack
+    time_shift_color: true
     tooltipTimeFormat: smart_date
     truncateXAxis: false
     truncateYAxis: false
     truncate_metric: true
     viz_type: echarts_timeseries_bar
+    xAxisLabelInterval: auto
     x_axis: problem_name_location
-    x_axis_sort_series: name
-    x_axis_sort_series_ascending: true
+    x_axis_sort_asc: true
+    x_axis_time_format: smart_date
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
     y_axis_format: SMART_NUMBER
     y_axis_title: Respondents
     y_axis_title_margin: 15
@@ -151,6 +179,7 @@ query_context:
       having: ''
       where: ''
     filters: []
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: COUNT_DISTINCT
       column:

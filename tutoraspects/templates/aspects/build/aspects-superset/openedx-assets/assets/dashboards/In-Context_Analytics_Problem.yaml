@@ -19,19 +19,7 @@ css: |-
 dashboard_title: 'In-Context Analytics: Problem'
 description: null
 metadata:
-  chart_configuration:
-    '1241':
-      crossFilters:
-        chartsInScope:
-        - 821
-        scope: global
-      id: 1241
-    '821':
-      crossFilters:
-        chartsInScope:
-        - 1241
-        scope: global
-      id: 821
+  chart_configuration: {}
   color_scheme: aspects_default
   color_scheme_domain: []
   cross_filters_enabled: true
@@ -176,5 +164,6 @@ position:
     type: ROW
 published: true
 slug: in-context-problem
+theme_uuid: null
 uuid: 98ff33ff-18dd-48f9-8c58-629ae4f4194b
 version: 1.0.0

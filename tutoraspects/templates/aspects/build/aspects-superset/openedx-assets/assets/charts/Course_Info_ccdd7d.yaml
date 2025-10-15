@@ -12,7 +12,7 @@ params:
     operator: TEMPORAL_RANGE
     subject: emission_time
   all_columns: []
-  annotation_layers: []
+  allow_render_html: true
   color_pn: false
   column_config:
     Current Enrollees:
@@ -25,6 +25,8 @@ params:
       columnWidth: 300
     tag_list:
       truncateLongCells: true
+  comparison_color_scheme: Green
+  comparison_type: values
   conditional_formatting: []
   extra_form_data: {}
   groupby:
@@ -40,10 +42,11 @@ params:
   - active_count
   - tag_list
   order_by_cols: []
-  order_desc: false
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 50000
+  server_page_length: 10
   show_cell_bars: false
   table_timestamp_format: smart_date
   temporal_columns_lookup: {}
@@ -62,7 +65,7 @@ query_context:
       operator: TEMPORAL_RANGE
       subject: emission_time
     all_columns: []
-    annotation_layers: []
+    allow_render_html: true
     color_pn: false
     column_config:
       Current Enrollees:
@@ -75,6 +78,8 @@ query_context:
         columnWidth: 300
       tag_list:
         truncateLongCells: true
+    comparison_color_scheme: Green
+    comparison_type: values
     conditional_formatting: []
     datasource: 50__table
     extra_form_data: {}
@@ -92,12 +97,13 @@ query_context:
     - active_count
     - tag_list
     order_by_cols: []
-    order_desc: false
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
     result_type: full
     row_limit: 50000
+    server_page_length: 10
     show_cell_bars: false
     slice_id: 125
     table_timestamp_format: smart_date
@@ -125,17 +131,19 @@ query_context:
     - col: emission_time
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - enrollees
     - active_count
     - tag_list
-    order_desc: false
+    order_desc: true
     orderby:
     - - enrollees
       - false
     post_processing: []
     row_limit: 50000
     series_limit: 0
+    time_offsets: []
     url_params: {}
   result_format: json
   result_type: full

@@ -1307,5 +1307,6 @@ position:
     type: TABS
 published: true
 slug: course-dashboard
+theme_uuid: null
 uuid: c0e64194-33d1-4d5a-8c10-4f51530c5ee9
 version: 1.0.0

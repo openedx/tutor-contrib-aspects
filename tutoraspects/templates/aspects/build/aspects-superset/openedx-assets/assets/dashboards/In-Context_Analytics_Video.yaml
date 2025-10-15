@@ -20,12 +20,7 @@ css: |2-
 dashboard_title: 'In-Context Analytics: Video'
 description: null
 metadata:
-  chart_configuration:
-    '521':
-      crossFilters:
-        chartsInScope: []
-        scope: global
-      id: 521
+  chart_configuration: {}
   color_scheme: aspects_default
   color_scheme_domain: []
   cross_filters_enabled: true
@@ -144,5 +139,6 @@ position:
     type: ROW
 published: true
 slug: in-context-video
+theme_uuid: null
 uuid: bc6510fb-027f-4026-a333-d0c42d3cc35c
 version: 1.0.0

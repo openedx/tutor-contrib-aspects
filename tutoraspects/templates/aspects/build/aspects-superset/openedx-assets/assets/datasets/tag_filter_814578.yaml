@@ -1,0 +1,88 @@
+_file_name: tag_filter_814578.yaml
+always_filter_main_dttm: false
+cache_timeout: null
+columns:
+- advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Key
+- advanced_data_type: null
+  column_name: id
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int32
+  verbose_name: Id
+- advanced_data_type: null
+  column_name: rownum
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: UInt64
+  verbose_name: Rownum
+- advanced_data_type: null
+  column_name: tag
+  description: null
+  expression: ''
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Tag
+database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+default_endpoint: null
+description: null
+extra: null
+fetch_values_predicate: null
+filter_select_enabled: true
+main_dttm_col: null
+metrics:
+- currency: null
+  d3format: null
+  description: null
+  expression: COUNT(*)
+  extra: {}
+  metric_name: count
+  metric_type: count
+  verbose_name: COUNT(*)
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
+  expression: min(rownum)
+  extra: {}
+  metric_name: order
+  metric_type: null
+  verbose_name: order
+  warning_text: null
+normalize_columns: false
+offset: 0
+params: null
+schema: '{{ ASPECTS_EVENT_SINK_DATABASE }}'
+sql: |-
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/tag_filter_dataset.sql' %}{% endfilter %}
+table_name: tag_filter
+template_params: null
+uuid: 81457874-fd86-4568-a730-9179ab7a7fd5
+version: 1.0.0

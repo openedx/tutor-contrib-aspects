@@ -61,7 +61,7 @@ params:
     optionName: metric_ffxc56zyoaj_4cxyy3tz9ld
     sqlExpression: null
   order_by_cols: []
-  order_desc: false
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
@@ -138,7 +138,7 @@ query_context:
       optionName: metric_ffxc56zyoaj_4cxyy3tz9ld
       sqlExpression: null
     order_by_cols: []
-    order_desc: false
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
@@ -167,6 +167,7 @@ query_context:
     - col: emission_time
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: SUM
       column:
@@ -192,7 +193,7 @@ query_context:
       label: Count
       optionName: metric_ffxc56zyoaj_4cxyy3tz9ld
       sqlExpression: null
-    order_desc: false
+    order_desc: true
     orderby:
     - - aggregate: SUM
         column:
