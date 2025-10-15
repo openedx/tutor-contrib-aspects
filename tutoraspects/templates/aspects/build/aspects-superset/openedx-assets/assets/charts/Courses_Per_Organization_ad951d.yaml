@@ -6,7 +6,6 @@ dataset_uuid: 38488934-35ee-5404-9acc-7e67626ddfae
 description: null
 params:
   adhoc_filters: []
-  annotation_layers: []
   color_scheme: supersetColors
   date_format: smart_date
   donut: false

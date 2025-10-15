@@ -18,7 +18,11 @@ params:
     operatorId: IN
     sqlExpression: null
     subject: approving_state
-  annotation_layers: []
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: enrolled_at
   conditional_formatting:
   - colorScheme: '#ACE1C4'
     column: number_of_learners
@@ -27,7 +31,8 @@ params:
   extra_form_data: {}
   header_font_size: 0.5
   metric: number_of_learners
-  subheader_font_size: 0.3
+  metric_name_font_size: 0.15
+  subtitle_font_size: 0.15
   time_format: smart_date
   viz_type: big_number_total
   y_axis_format: SMART_NUMBER
@@ -50,7 +55,11 @@ query_context:
       operatorId: IN
       sqlExpression: null
       subject: approving_state
-    annotation_layers: []
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: enrolled_at
     conditional_formatting:
     - colorScheme: '#ACE1C4'
       column: number_of_learners
@@ -61,6 +70,7 @@ query_context:
     force: false
     header_font_size: 0.5
     metric: number_of_learners
+    metric_name_font_size: 0.15
     result_format: json
     result_type: full
     slice_id: 83
@@ -82,6 +92,10 @@ query_context:
       op: IN
       val:
       - passed
+    - col: enrolled_at
+      op: TEMPORAL_RANGE
+      val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - number_of_learners
     order_desc: true

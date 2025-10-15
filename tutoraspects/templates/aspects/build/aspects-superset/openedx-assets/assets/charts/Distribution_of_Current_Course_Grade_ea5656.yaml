@@ -5,7 +5,12 @@ certified_by: null
 dataset_uuid: 633a1d4e-cd40-482f-a5dc-d5901c2181c2
 description: null
 params:
-  adhoc_filters: []
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: enrolled_at
   annotation_layers: []
   color_scheme: supersetColors
   comparison_type: values
@@ -19,23 +24,21 @@ params:
   metrics:
   - number_of_learners
   only_total: true
-  order_desc: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
+  showTooltipTotal: true
   show_empty_columns: true
   show_legend: true
   show_value: false
   sort_series_type: sum
+  time_shift_color: true
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncate_metric: true
   viz_type: echarts_timeseries_bar
-  xAxisForceCategorical: false
+  xAxisLabelInterval: auto
   x_axis: grade_bucket
-  x_axis_sort_asc: true
-  x_axis_sort_series: name
-  x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
   x_axis_title_margin: 15
   y_axis_bounds:
@@ -46,11 +49,16 @@ params:
   y_axis_title_position: Left
 query_context:
   datasource:
-    id: 63
+    id: 353
     type: table
   force: false
   form_data:
-    adhoc_filters: []
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: enrolled_at
     annotation_layers: []
     color_scheme: supersetColors
     comparison_type: values
@@ -66,26 +74,24 @@ query_context:
     metrics:
     - number_of_learners
     only_total: true
-    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
     rich_tooltip: true
     row_limit: 10000
+    showTooltipTotal: true
     show_empty_columns: true
     show_legend: true
     show_value: false
     slice_id: 23
     sort_series_type: sum
+    time_shift_color: true
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
     viz_type: echarts_timeseries_bar
-    xAxisForceCategorical: false
+    xAxisLabelInterval: auto
     x_axis: grade_bucket
-    x_axis_sort_asc: true
-    x_axis_sort_series: name
-    x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date
     x_axis_title_margin: 15
     y_axis_bounds:
@@ -107,7 +113,11 @@ query_context:
     extras:
       having: ''
       where: ''
-    filters: []
+    filters:
+    - col: enrolled_at
+      op: TEMPORAL_RANGE
+      val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - number_of_learners
     order_desc: true

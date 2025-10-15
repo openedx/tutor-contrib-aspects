@@ -11,7 +11,6 @@ params:
     expressionType: SIMPLE
     operator: TEMPORAL_RANGE
     subject: emission_time
-  annotation_layers: []
   conditional_formatting: []
   extra_form_data: {}
   header_font_size: 0.5
@@ -40,7 +39,8 @@ params:
     label: COUNT(Course Key)
     optionName: metric_72own1pj0bq_yfm1efl7ggi
     sqlExpression: null
-  subheader_font_size: 0.2
+  metric_name_font_size: 0.15
+  subtitle_font_size: 0.15
   time_format: smart_date
   viz_type: big_number_total
   y_axis_format: ',d'

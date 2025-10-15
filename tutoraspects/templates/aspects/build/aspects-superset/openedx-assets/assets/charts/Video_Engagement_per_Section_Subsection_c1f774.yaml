@@ -30,23 +30,22 @@ params:
   - all_videos_viewed
   - at_least_one_viewed
   only_total: true
-  order_desc: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
+  showTooltipTotal: true
   show_empty_columns: true
   show_legend: true
   show_value: false
   sort_series_type: sum
+  time_shift_color: true
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncate_metric: true
   viz_type: echarts_timeseries_bar
+  xAxisLabelInterval: auto
   xAxisLabelRotation: 0
   x_axis: section_subsection_name
-  x_axis_sort_asc: true
-  x_axis_sort_series: name
-  x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
   x_axis_title_margin: 15
   y_axis_bounds:
@@ -90,26 +89,25 @@ query_context:
     - all_videos_viewed
     - at_least_one_viewed
     only_total: true
-    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
     rich_tooltip: true
     row_limit: 10000
+    showTooltipTotal: true
     show_empty_columns: true
     show_legend: true
     show_value: false
     slice_id: 1421
     sort_series_type: sum
+    time_shift_color: true
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
     viz_type: echarts_timeseries_bar
+    xAxisLabelInterval: auto
     xAxisLabelRotation: 0
     x_axis: section_subsection_name
-    x_axis_sort_asc: true
-    x_axis_sort_series: name
-    x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date
     x_axis_title_margin: 15
     y_axis_bounds:
@@ -135,6 +133,7 @@ query_context:
       where: |-
         (`section_subsection_name` <> '')
     filters: []
+    group_others_when_limit_reached: false
     metrics:
     - all_videos_viewed
     - at_least_one_viewed

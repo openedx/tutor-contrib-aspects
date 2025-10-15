@@ -6,7 +6,6 @@ dataset_uuid: ab5988f5-c05a-5a04-8629-78d58cd9e5f2
 description: null
 params:
   adhoc_filters: []
-  annotation_layers: []
   conditional_formatting: []
   extra_form_data: {}
   header_font_size: 0.5
@@ -35,7 +34,8 @@ params:
     label: MAX(time_last_dumped)
     optionName: metric_hjqc6fgxiy8_9wjcb6h864f
     sqlExpression: null
-  subheader_font_size: 0.2
+  metric_name_font_size: 0.15
+  subtitle_font_size: 0.15
   time_format: '%Y-%m-%d %H:%M:%S'
   viz_type: big_number_total
   y_axis_format: SMART_NUMBER
