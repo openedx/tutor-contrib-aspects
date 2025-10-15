@@ -74,9 +74,11 @@ params:
   - incorrect_percent
   order_by_cols: []
   order_desc: false
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
+  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
   temporal_columns_lookup:
@@ -188,11 +190,13 @@ query_context:
     - incorrect_percent
     order_by_cols: []
     order_desc: false
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
     result_type: full
     row_limit: 1000
+    server_page_length: 10
     show_cell_bars: true
     slice_id: 87
     table_timestamp_format: smart_date
@@ -241,11 +245,13 @@ query_context:
     custom_params: {}
     extras:
       having: ''
+      time_grain_sqla: P1M
       where: ''
     filters:
     - col: emission_time
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - number_of_learners
     - median_attemps

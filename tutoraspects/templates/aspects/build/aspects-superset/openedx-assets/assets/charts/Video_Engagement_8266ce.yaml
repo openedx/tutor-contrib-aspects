@@ -9,6 +9,7 @@ params:
   all_columns: []
   allow_render_html: true
   color_pn: true
+  comparison_color_scheme: Green
   comparison_type: values
   conditional_formatting:
   - colorScheme: '#FDE380'
@@ -26,10 +27,11 @@ params:
   - unique_viewers
   - total_views
   order_by_cols: []
-  order_desc: false
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
+  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
   temporal_columns_lookup: {}
@@ -44,6 +46,7 @@ query_context:
     all_columns: []
     allow_render_html: true
     color_pn: true
+    comparison_color_scheme: Green
     comparison_type: values
     conditional_formatting:
     - colorScheme: '#FDE380'
@@ -65,12 +68,13 @@ query_context:
     - unique_viewers
     - total_views
     order_by_cols: []
-    order_desc: false
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
     result_type: full
     row_limit: 1000
+    server_page_length: 10
     show_cell_bars: true
     slice_id: 381
     table_timestamp_format: smart_date
@@ -89,10 +93,11 @@ query_context:
       having: ''
       where: ''
     filters: []
+    group_others_when_limit_reached: false
     metrics:
     - unique_viewers
     - total_views
-    order_desc: false
+    order_desc: true
     orderby:
     - - unique_viewers
       - false

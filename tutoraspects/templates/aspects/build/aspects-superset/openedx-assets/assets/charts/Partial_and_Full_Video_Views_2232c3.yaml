@@ -8,7 +8,10 @@ params:
   adhoc_filters: []
   annotation_layers: []
   color_scheme: supersetColors
+  comparison_type: values
   extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
   groupby: []
   legendOrientation: top
   legendType: scroll
@@ -16,20 +19,23 @@ params:
   - partial_views
   - full_views
   only_total: true
+  order_desc: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
+  showTooltipTotal: true
   show_empty_columns: true
   show_legend: true
   sort_series_type: sum
+  time_shift_color: true
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncate_metric: true
   viz_type: echarts_timeseries_bar
+  xAxisLabelInterval: auto
   xAxisLabelRotation: 0
   x_axis: video_name_location
-  x_axis_sort_series: name
-  x_axis_sort_series_ascending: true
+  x_axis_sort_asc: true
   x_axis_time_format: smart_date
   x_axis_title_margin: 15
   y_axis_bounds:
@@ -49,11 +55,14 @@ query_context:
     adhoc_filters: []
     annotation_layers: []
     color_scheme: supersetColors
+    comparison_type: values
     dashboards:
     - 2569
     datasource: 261__table
     extra_form_data: {}
     force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
     groupby: []
     legendOrientation: top
     legendType: scroll
@@ -61,23 +70,26 @@ query_context:
     - partial_views
     - full_views
     only_total: true
+    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
     rich_tooltip: true
     row_limit: 10000
+    showTooltipTotal: true
     show_empty_columns: true
     show_legend: true
     slice_id: 1161
     sort_series_type: sum
+    time_shift_color: true
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
     viz_type: echarts_timeseries_bar
+    xAxisLabelInterval: auto
     xAxisLabelRotation: 0
     x_axis: video_name_location
-    x_axis_sort_series: name
-    x_axis_sort_series_ascending: true
+    x_axis_sort_asc: true
     x_axis_time_format: smart_date
     x_axis_title_margin: 15
     y_axis_bounds:
@@ -102,6 +114,7 @@ query_context:
       having: ''
       where: ''
     filters: []
+    group_others_when_limit_reached: false
     metrics:
     - partial_views
     - full_views

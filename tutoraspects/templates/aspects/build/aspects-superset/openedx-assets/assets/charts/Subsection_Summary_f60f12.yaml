@@ -63,9 +63,11 @@ params:
     sqlExpression: null
   order_by_cols: []
   order_desc: true
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
+  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
   temporal_columns_lookup:
@@ -164,11 +166,13 @@ query_context:
       sqlExpression: null
     order_by_cols: []
     order_desc: true
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
     result_type: full
     row_limit: 1000
+    server_page_length: 10
     show_cell_bars: true
     slice_id: 1321
     table_timestamp_format: smart_date
@@ -215,6 +219,7 @@ query_context:
     - col: visited_on
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: COUNT_DISTINCT
       column:

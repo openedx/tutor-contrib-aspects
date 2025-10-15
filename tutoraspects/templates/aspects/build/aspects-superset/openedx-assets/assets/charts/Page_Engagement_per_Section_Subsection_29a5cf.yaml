@@ -19,22 +19,21 @@ params:
   - viewed_one
   - viewed_all
   only_total: true
-  order_desc: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
+  showTooltipTotal: true
   show_empty_columns: true
   show_legend: true
   sort_series_type: sum
+  time_shift_color: true
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncate_metric: true
   viz_type: echarts_timeseries_bar
+  xAxisLabelInterval: auto
   xAxisLabelRotation: 0
   x_axis: section_subsection_name
-  x_axis_sort_asc: true
-  x_axis_sort_series: name
-  x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
   x_axis_title_margin: 15
   y_axis_bounds:
@@ -69,25 +68,24 @@ query_context:
     - viewed_one
     - viewed_all
     only_total: true
-    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
     rich_tooltip: true
     row_limit: 10000
+    showTooltipTotal: true
     show_empty_columns: true
     show_legend: true
     slice_id: 621
     sort_series_type: sum
+    time_shift_color: true
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
     viz_type: echarts_timeseries_bar
+    xAxisLabelInterval: auto
     xAxisLabelRotation: 0
     x_axis: section_subsection_name
-    x_axis_sort_asc: true
-    x_axis_sort_series: name
-    x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date
     x_axis_title_margin: 15
     y_axis_bounds:
@@ -112,6 +110,7 @@ query_context:
       having: ''
       where: ''
     filters: []
+    group_others_when_limit_reached: false
     metrics:
     - viewed_one
     - viewed_all

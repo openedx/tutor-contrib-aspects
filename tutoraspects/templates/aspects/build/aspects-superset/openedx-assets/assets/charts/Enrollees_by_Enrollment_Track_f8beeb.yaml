@@ -5,7 +5,12 @@ certified_by: null
 dataset_uuid: 92eadc61-2931-577e-95b7-34adb1a8f515
 description: null
 params:
-  adhoc_filters: []
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: enrolled_at
   annotation_layers: []
   color_scheme: supersetColors
   comparison_type: values
@@ -41,22 +46,20 @@ params:
     optionName: metric_83n2xhwdm4x_srfoil9owpn
     sqlExpression: null
   only_total: true
-  order_desc: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
+  showTooltipTotal: true
   show_empty_columns: true
   show_legend: true
   sort_series_type: sum
-  time_grain_sqla: P1D
+  time_shift_color: true
   tooltipTimeFormat: smart_date
   truncateXAxis: true
   truncate_metric: true
   viz_type: echarts_timeseries_bar
+  xAxisLabelInterval: auto
   x_axis: enrollment_mode
-  x_axis_sort_asc: true
-  x_axis_sort_series: name
-  x_axis_sort_series_ascending: true
   x_axis_time_format: smart_date
   x_axis_title_margin: 15
   y_axis_bounds:
@@ -71,7 +74,12 @@ query_context:
     type: table
   force: false
   form_data:
-    adhoc_filters: []
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: enrolled_at
     annotation_layers: []
     color_scheme: supersetColors
     comparison_type: values
@@ -109,25 +117,23 @@ query_context:
       optionName: metric_83n2xhwdm4x_srfoil9owpn
       sqlExpression: null
     only_total: true
-    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
     rich_tooltip: true
     row_limit: 10000
+    showTooltipTotal: true
     show_empty_columns: true
     show_legend: true
     slice_id: 142
     sort_series_type: sum
-    time_grain_sqla: P1D
+    time_shift_color: true
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
     viz_type: echarts_timeseries_bar
+    xAxisLabelInterval: auto
     x_axis: enrollment_mode
-    x_axis_sort_asc: true
-    x_axis_sort_series: name
-    x_axis_sort_series_ascending: true
     x_axis_time_format: smart_date
     x_axis_title_margin: 15
     y_axis_bounds:
@@ -144,14 +150,16 @@ query_context:
       expressionType: SQL
       label: enrollment_mode
       sqlExpression: enrollment_mode
-      timeGrain: P1D
     custom_form_data: {}
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1D
       where: ''
-    filters: []
+    filters:
+    - col: enrolled_at
+      op: TEMPORAL_RANGE
+      val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: COUNT_DISTINCT
       column:
