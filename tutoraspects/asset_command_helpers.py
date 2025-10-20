@@ -144,7 +144,9 @@ class Asset:
                 continue
             if isinstance(existing[key], str):
                 if "{{" in existing.get(key, "") or "{%" in existing.get(key, ""):
-                    if key in self.get_raw_vars():
+                    if key in self.get_raw_vars() and "{% raw %}" not in existing.get(
+                        key, ""
+                    ):
                         raw_expression = "{% raw %}" + content[key] + "{% endraw %}"
                         content[key] = raw_expression
                     else:

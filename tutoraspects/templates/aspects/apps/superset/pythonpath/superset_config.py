@@ -72,6 +72,7 @@ REDIS_PORT = get_env_variable("REDIS_PORT")
 REDIS_CELERY_DB = get_env_variable("REDIS_CELERY_DB", "3")
 REDIS_RESULTS_DB = get_env_variable("REDIS_RESULTS_DB", "4")
 REDIS_CACHE_DB = get_env_variable("REDIS_CACHE_DB", "5")
+REDIS_USERNAME = get_env_variable("REDIS_USERNAME", "") or "default"
 REDIS_PASSWORD = get_env_variable("REDIS_PASSWORD", "")
 
 RESULTS_BACKEND = RedisCache(host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD, db=REDIS_RESULTS_DB, key_prefix='superset_results')
@@ -83,6 +84,7 @@ CACHE_CONFIG = {
     "CACHE_REDIS_HOST": REDIS_HOST,
     "CACHE_REDIS_PORT": REDIS_PORT,
     'CACHE_REDIS_PASSWORD': REDIS_PASSWORD,
+    'CACHE_REDIS_USERNAME': REDIS_USERNAME,
     "CACHE_REDIS_DB": REDIS_RESULTS_DB,
 }
 DATA_CACHE_CONFIG = CACHE_CONFIG
@@ -103,10 +105,15 @@ EXPLORE_FORM_DATA_CACHE_CONFIG: CacheConfig = {
     **CACHE_CONFIG,
 }
 
-class CeleryConfig(object):
-    BROKER_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_CELERY_DB}"
+class CeleryConfig:
+    if REDIS_PASSWORD:
+        _redis_auth = f"{REDIS_USERNAME + ':' if REDIS_USERNAME else ''}{REDIS_PASSWORD}@"
+    else:
+        _redis_auth = ""
+
+    BROKER_URL = f"redis://{_redis_auth}{REDIS_HOST}:{REDIS_PORT}/{REDIS_CELERY_DB}"
     CELERY_IMPORTS = ("superset.sql_lab", "superset.tasks", "superset.tasks.thumbnails",)
-    CELERY_RESULT_BACKEND = f"redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_RESULTS_DB}"
+    CELERY_RESULT_BACKEND = f"redis://{_redis_auth}{REDIS_HOST}:{REDIS_PORT}/{REDIS_RESULTS_DB}"
     CELERYD_LOG_LEVEL = "DEBUG"
     CELERYD_PREFETCH_MULTIPLIER = 1
     CELERY_ACKS_LATE = False

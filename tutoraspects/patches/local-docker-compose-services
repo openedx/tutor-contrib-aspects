@@ -65,7 +65,9 @@ superset-worker:
     SUPERSET_ENV: production
   command: ["bash", "/app/docker/docker-bootstrap.sh", "worker"]
   healthcheck:
-    test: ["CMD-SHELL", "celery inspect ping -A superset.tasks.celery_app:app -d celery@$$HOSTNAME"]
+    test: ["CMD-SHELL", "celery -A superset.tasks.celery_app:app inspect ping -d celery@$$HOSTNAME"]
+    interval: 30s
+    retries: 3
   depends_on:
     {% if RUN_MYSQL %}- mysql{% endif %}
     - redis

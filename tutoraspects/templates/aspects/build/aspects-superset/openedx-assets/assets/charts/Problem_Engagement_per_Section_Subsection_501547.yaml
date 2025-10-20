@@ -64,7 +64,7 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 5
+    id: 36
     type: table
   force: false
   form_data:
@@ -72,7 +72,7 @@ query_context:
     annotation_layers: []
     color_scheme: supersetColors
     comparison_type: values
-    datasource: 5__table
+    datasource: 36__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -108,7 +108,7 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    slice_id: 9
+    slice_id: 15
     sort_series_type: sum
     time_grain_sqla: P1D
     tooltipTimeFormat: smart_date
