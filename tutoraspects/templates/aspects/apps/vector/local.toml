@@ -8,6 +8,6 @@ type = "docker_logs"
 [transforms.openedx_containers]
 type = "filter"
 inputs = ["docker_logs"]
-condition = 'includes(["lms", "cms", "lms-job", "cms-job"], .label."com.docker.compose.service")'
+condition = 'includes(["lms", "cms", "lms-worker", "cms-worker", "lms-job", "cms-job"], .label."com.docker.compose.service")'
 
 {% include "aspects/apps/vector/partials/common-post.toml" %}

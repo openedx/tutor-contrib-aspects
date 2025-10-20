@@ -31,7 +31,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Each new setting is a pair: (setting_name, default_value).
         # Prefix your setting names with 'ASPECTS_'.
         ("ASPECTS_VERSION", __version__),
-        # For out default deployment we currently use Celery -> Ralph for transport,
+        # For our default deployment we currently use Celery -> Ralph for transport,
         # so Vector is off by default.
         ("RUN_VECTOR", False),
         ("RUN_CLICKHOUSE", True),
@@ -41,7 +41,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:25.3"),
         ("DOCKER_IMAGE_RALPH", "fundocker/ralph:4.1.0"),
         ("DOCKER_IMAGE_SUPERSET", "edunext/aspects-superset:{{ ASPECTS_VERSION }}"),
-        ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.30.0-alpine"),
+        ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.50.0-alpine"),
         (
             "EVENT_SINK_MODELS_ENABLED",
             ["course_overviews", "tag", "taxonomy", "object_tag", "course_enrollment"],
@@ -160,7 +160,11 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             },
         ),
         # ClickHouse xAPI settings
-        ("ASPECTS_XAPI_DATABASE", "xapi"),
+        ("ASPECTS_XAPI_SOURCE", "ralph"),
+        (
+            "ASPECTS_XAPI_DATABASE",
+            "{% if ASPECTS_XAPI_SOURCE == 'vector' %}{{ ASPECTS_VECTOR_DATABASE }}{% else %}{{ RALPH_DATABASE }}{% endif %}",
+        ),
         ("ASPECTS_RAW_XAPI_TABLE", "xapi_events_all"),
         # ClickHouse event sink settings
         ("ASPECTS_EVENT_SINK_DATABASE", "event_sink"),
@@ -275,6 +279,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Change to https:// if the public interface to it is secure
         ("RALPH_HOST", "ralph"),
         ("RALPH_PORT", "8100"),
+        ("RALPH_DATABASE", "xapi"),
         ("RALPH_ENABLE_PUBLIC_URL", False),
         ("RALPH_RUN_HTTPS", False),
         ("RALPH_EXTRA_SETTINGS", {}),
@@ -530,9 +535,7 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
 # run it as part of the `init` job.
 try:
     for service, template_path, priority in MY_INIT_TASKS:
-        hooks.Filters.COMMANDS_INIT.add_item(
-            (service, template_path)
-        )  # pylint: disable=no-member
+        hooks.Filters.COMMANDS_INIT.add_item((service, template_path))  # pylint: disable=no-member
 except AttributeError:
     for service, template_path, priority in MY_INIT_TASKS:
         full_path = os.path.join(
