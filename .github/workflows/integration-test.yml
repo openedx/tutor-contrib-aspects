@@ -278,7 +278,299 @@ jobs:
             echo "------------------------"
           done
       - name: Check jobs logs
-        if: '!cancelled()'
+        if: "!cancelled()"
+        run: |
+          job_list=($(kubectl get jobs | grep job | awk '{print $1}'))
+
+          # Function to print logs for a pod
+          print_pod_logs() {
+            local pod_name="$1"
+            echo "Logs for pod: $pod_name"
+            kubectl logs "$pod_name"
+            echo "------------------------"
+          }
+
+          # Loop through each job-related pod and print logs
+          for job_name in "${job_list[@]}"; do
+            # Get the pods related to the current job
+            job_pod_list=($(kubectl get pods | grep -E "${job_name}-.*" | awk '{print $1}'))
+
+            for pod_name in "${job_pod_list[@]}"; do
+              print_pod_logs "$pod_name"
+            done
+          done
+  local-vector:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: setup python
+        uses: actions/setup-python@v6
+        with:
+          python-version: 3.12
+      - name: Install python reqs
+        run: pip install -r requirements/dev.txt
+      - name: Install aspects
+        run: pip install -e .
+      - name: Tutor config save
+        run: tutor config save --set ASPECTS_XAPI_SOURCE=vector
+      - name: Confirm DB
+        # This should be "openedx"
+        run: tutor config printvalue ASPECTS_XAPI_DATABASE
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
+        with:
+          # this might remove tools that are actually needed,
+          # if set to "true" but frees about 6 GB
+          tool-cache: false
+
+          # all of these default to true, but feel free to set to
+          # "false" if necessary for your workflow
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: false
+          swap-storage: true
+      - name: Tutor build openedx
+        run: tutor images build openedx aspects aspects-superset
+      - name: Tutor start
+        run: tutor local start -d
+      - name: Tutor init
+        run: tutor local do init
+      - name: Test alembic
+        run: |
+          tutor local do alembic -c "downgrade base"
+          tutor local do alembic -c "upgrade head"
+      - name: Init clickhouse
+        run: tutor local do init-clickhouse
+      # This should:
+      # 1. Run all models, since alembic test removed our state
+      # 2. Find no models on the first run, state should now be up to date now
+      # 3. Force run all models
+      # 4. Successfully run tests
+      - name: Test dbt
+        run: |
+          tutor local do dbt -c "run"
+          tutor local do dbt -c "run"
+          tutor local do dbt --only_changed False -c "run"
+          tutor local do dbt --only_changed False -c "test"
+      - name: Load test
+        run: tutor local do load-xapi-test-data
+      - name: Import demo course
+        run: tutor local do importdemocourse
+      - name: Test commands
+        run: |
+          tutor local do dump-data-to-clickhouse --options "--object course_overviews --force"
+          make extract_translations
+          tutor local do import-assets
+          tutor local do collect-dbt-lineage
+          tutor local run lms python manage.py lms transform_tracking_logs --source_provider LOCAL --source_config '{"key": "/openedx/data/", "prefix": "tracking.log", "container": "logs"}' --destination_provider LRS --transformer_type xapi
+      - name: Performance metrics
+        run: tutor local do performance-metrics --fail_on_error
+      - name: Tutor stop
+        run: tutor local stop
+
+  dev-vector:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: setup python
+        uses: actions/setup-python@v6
+        with:
+          python-version: 3.12
+      - name: Install python reqs
+        run: pip install -r requirements/dev.txt
+      - name: Install aspects
+        run: pip install -e .
+      - name: Tutor config save
+        run: tutor config save --set ASPECTS_XAPI_SOURCE=vector
+      - name: Confirm DB
+        # This should be "openedx"
+        run: tutor config printvalue ASPECTS_XAPI_DATABASE
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
+        with:
+          # this might remove tools that are actually needed,
+          # if set to "true" but frees about 6 GB
+          tool-cache: false
+
+          # all of these default to true, but feel free to set to
+          # "false" if necessary for your workflow
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: false
+          swap-storage: true
+      - name: Tutor build openedx
+        run: tutor images build openedx-dev aspects aspects-superset
+      - name: Tutor start
+        run: tutor dev start -d
+      - name: Tutor init
+        run: tutor dev do init
+      - name: Test alembic
+        run: |
+          tutor dev do alembic -c "downgrade base"
+          tutor dev do alembic -c "upgrade head"
+      - name: Init clickhouse
+        run: tutor dev do init-clickhouse
+      # This should:
+      # 1. Run all models, since alembic test removed our state
+      # 2. Find no models on the first run, state should now be up to date now
+      # 3. Force run all models
+      # 4. Successfully run tests
+      - name: Test dbt
+        run: |
+          tutor dev do dbt -c "run"
+          tutor dev do dbt -c "run"
+          tutor dev do dbt --only_changed False -c "run"
+          tutor dev do dbt --only_changed False -c "test"
+      - name: Load test
+        run: tutor dev do load-xapi-test-data
+      - name: Import demo course
+        run: tutor dev do importdemocourse
+      - name: Test commands
+        run: |
+          tutor dev do dump-data-to-clickhouse --options "--object course_overviews --force"
+          make extract_translations
+          tutor dev do import-assets
+      - name: Performance metrics
+        run: tutor dev do performance-metrics --fail_on_error
+      - name: Tutor stop
+        run: tutor dev stop
+
+  k8s-vector:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
+        with:
+          # this might remove tools that are actually needed,
+          # if set to "true" but frees about 6 GB
+          tool-cache: true
+
+          # all of these default to true, but feel free to set to
+          # "false" if necessary for your workflow
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: false
+          swap-storage: true
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: setup python
+        uses: actions/setup-python@v6
+        with:
+          python-version: 3.12
+      - name: Generate env
+        run: |
+          pip install -r requirements/dev.txt
+          pip install -e .
+          tutor config save --set ASPECTS_XAPI_SOURCE=vector
+          tutor config printvalue ASPECTS_XAPI_DATABASE
+      - name: Run Kubernetes tools
+        uses: stefanprodan/kube-tools@v1
+        with:
+          kubectl: 1.23.0
+          kustomize: 4.4.1
+          helmv3: 3.7.2
+          kubeconform: 0.4.13
+          command: |
+            kustomize build $TUTOR_ROOT/env | kubeconform -strict -ignore-missing-schemas -kubernetes-version 1.22.0
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Tutor build openedx
+        run: tutor images build openedx aspects aspects-superset
+      - name: Create k8s Kind Cluster
+        uses: helm/kind-action@v1.12.0
+      - name: Mount docker image
+        run: |
+          kind get clusters
+          kind load docker-image $(tutor images printtag openedx) --name chart-testing
+          kind load docker-image $(tutor images printtag aspects) --name chart-testing
+          kind load docker-image $(tutor images printtag aspects-superset) --name chart-testing
+      - name: Setup namespace
+        run: |
+          kubectl config set-context --current --namespace=openedx
+          kubectl get pods
+      - name: Init k8s environment
+        run: |
+          tutor k8s start
+          tutor k8s do init
+      - name: Test alembic
+        run: |
+          tutor k8s do alembic -c "downgrade base"
+          tutor k8s do alembic -c "upgrade head"
+      - name: Init clickhouse
+        run: tutor k8s do init-clickhouse
+      # This should:
+      # 1. Run all models, since alembic test removed our state
+      # 2. Find no models on the first run, state should now be up to date now
+      # 3. Force run all models
+      # 4. Successfully run tests
+      - name: Test dbt
+        run: |
+          tutor k8s do dbt -c "run"
+          tutor k8s do dbt -c "run"
+          tutor k8s do dbt --only_changed False -c "run"
+          tutor k8s do dbt --only_changed False -c "test"
+      - name: Load test
+        run: tutor k8s do load-xapi-test-data
+      - name: Import demo course
+        run: tutor k8s do importdemocourse
+      - name: Test commands
+        run: |
+          tutor k8s do dump-data-to-clickhouse --options "--object course_overviews --force"
+          make extract_translations
+          tutor k8s do import-assets
+      - name: Performance metrics
+        run: tutor k8s do performance-metrics --fail_on_error
+      - name: Check failure logs
+        if: failure()
+        run: |
+          # Use an array to store pod names
+          pod_list=($(kubectl get pods -o jsonpath='{.items[*].metadata.name}'))
+
+          failed_jobs=""
+
+          # Loop through each pod and check for failure
+          for pod_name in "${pod_list[@]}"; do
+            # Get the pod phase/status
+            pod_phase=$(kubectl get pod "$pod_name" -o jsonpath='{.status.phase}')
+
+            if [[ "$pod_phase" != "Running" && "$pod_phase" != "Succeeded" ]]; then
+              # Job is not in Running or Succeeded state, consider it as failed
+              failed_jobs="$failed_jobs $pod_name"
+              # Print the logs for the failing pod
+              echo "Failure logs for pod: $pod_name"
+              kubectl logs "$pod_name"
+            fi
+          done
+
+          # Check if any jobs failed
+          if [ -n "$failed_jobs" ]; then
+            echo "The following jobs failed: $failed_jobs"
+          else
+            echo "All jobs succeeded."
+          fi
+      - name: Check service logs
+        if: failure()
+        run: |
+          # Use an array to store service names
+          service_list=($(kubectl get services -o jsonpath='{.items[*].metadata.name}'))
+
+          # Loop through each service and print logs
+          for service_name in "${service_list[@]}"; do
+            echo "Logs for service: $service_name"
+            kubectl logs "svc/$service_name"
+            echo "------------------------"
+          done
+      - name: Check jobs logs
+        if: "!cancelled()"
         run: |
           job_list=($(kubectl get jobs | grep job | awk '{print $1}'))
 
