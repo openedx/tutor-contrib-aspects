@@ -5,23 +5,8 @@ certified_by: null
 dataset_uuid: cf42fc53-39e1-4c3c-a7f6-3d0d17a947dc
 description: null
 params:
-  adhoc_filters:
-  - clause: WHERE
-    comparator: No filter
-    expressionType: SIMPLE
-    operator: TEMPORAL_RANGE
-    subject: avg_score
-  adhoc_filters_b:
-  - clause: WHERE
-    comparator: No filter
-    datasourceWarning: false
-    expressionType: SIMPLE
-    filterOptionName: filter_u4v8n9nlgp_8r04cg2x8kq
-    isExtra: false
-    isNew: false
-    operator: TEMPORAL_RANGE
-    sqlExpression: null
-    subject: avg_score
+  adhoc_filters: []
+  adhoc_filters_b: []
   annotation_layers: []
   area: false
   areaB: false
@@ -40,37 +25,59 @@ params:
   markerSize: 22
   markerSizeB: 7
   metrics:
-  - count
-  metrics_b:
-  - aggregate: AVG
+  - aggregate: SUM
     column:
       advanced_data_type: null
-      changed_on: '2025-02-20T20:49:54'
-      column_name: total_avg
-      created_on: '2025-02-20T20:49:54'
+      changed_on: '2025-10-07T14:36:35'
+      column_name: score_range_count
+      created_on: '2025-10-07T14:36:35'
       description: null
       expression: null
       extra: '{}'
       filterable: true
       groupby: true
-      id: 9669
+      id: 1034
+      is_active: true
+      is_dttm: false
+      python_date_format: null
+      type: UInt8
+      type_generic: 0
+      uuid: 59b6cf1c-08bc-4dd7-af88-fb230e1ef733
+      verbose_name: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: Count of Scores
+    optionName: metric_y09riqdiwo_ovd7fk6yfs
+    sqlExpression: null
+  metrics_b:
+  - aggregate: AVG
+    column:
+      advanced_data_type: null
+      changed_on: '2025-10-07T14:36:35'
+      column_name: total_avg
+      created_on: '2025-10-07T14:36:35'
+      description: null
+      expression: null
+      extra: '{}'
+      filterable: true
+      groupby: true
+      id: 1032
       is_active: true
       is_dttm: false
       python_date_format: null
       type: Float64
       type_generic: 0
-      uuid: 678a0775-487c-4280-9c70-f89b033fb4b6
+      uuid: e6c30fc5-c54c-4e59-ab83-a3b152fa1156
       verbose_name: null
     datasourceWarning: false
     expressionType: SIMPLE
     hasCustomLabel: true
     label: Total Average Score
-    optionName: metric_lu7wv14cpw_2cgjhwtiqwx
+    optionName: metric_oz1q9f99wh_nk2t8o4rdqf
     sqlExpression: null
   minorSplitLine: false
   minorTicks: false
-  only_total: true
-  only_totalB: true
   opacity: 0
   opacityB: 0.6
   order_desc: false
@@ -84,8 +91,6 @@ params:
   show_legend: false
   show_value: false
   show_valueB: false
-  sort_series_type: sum
-  sort_series_typeB: sum
   stack: false
   stackB: false
   time_shift_color: true
@@ -94,7 +99,6 @@ params:
   truncate_metric: false
   truncate_metric_b: true
   viz_type: mixed_timeseries
-  xAxisLabelInterval: auto
   x_axis: score_range
   x_axis_time_format: smart_date
   x_axis_title: Subsection Score
@@ -116,21 +120,19 @@ params:
   zoomable: false
 query_context:
   datasource:
-    id: 56
+    id: 57
     type: table
   force: false
   form_data:
-    adhoc_filters:
-    - clause: WHERE
-      comparator: No filter
-      expressionType: SIMPLE
-      operator: TEMPORAL_RANGE
-      subject: avg_score
+    adhoc_filters: []
     annotation_layers: []
     area: false
     areaB: false
     color_scheme: aspects_default
-    datasource: 56__table
+    comparison_type: values
+    dashboards:
+    - 189
+    datasource: 57__table
     extra_form_data: {}
     force: false
     groupby: []
@@ -143,11 +145,33 @@ query_context:
     markerSize: 22
     markerSizeB: 7
     metrics:
-    - count
+    - aggregate: SUM
+      column:
+        advanced_data_type: null
+        changed_on: '2025-10-07T14:36:35'
+        column_name: score_range_count
+        created_on: '2025-10-07T14:36:35'
+        description: null
+        expression: null
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 1034
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: UInt8
+        type_generic: 0
+        uuid: 59b6cf1c-08bc-4dd7-af88-fb230e1ef733
+        verbose_name: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Count of Scores
+      optionName: metric_y09riqdiwo_ovd7fk6yfs
+      sqlExpression: null
     minorSplitLine: false
     minorTicks: false
-    only_total: true
-    only_totalB: true
     opacity: 0
     opacityB: 0.6
     order_desc: false
@@ -169,7 +193,6 @@ query_context:
     truncateXAxis: false
     truncate_metric: false
     viz_type: mixed_timeseries
-    xAxisLabelInterval: auto
     x_axis: score_range
     x_axis_time_format: smart_date
     x_axis_title: Subsection Score
@@ -202,21 +225,65 @@ query_context:
     extras:
       having: ''
       where: ''
-    filters:
-    - col: avg_score
-      op: TEMPORAL_RANGE
-      val: No filter
-    group_others_when_limit_reached: false
+    filters: []
     metrics:
-    - count
+    - aggregate: SUM
+      column:
+        advanced_data_type: null
+        changed_on: '2025-10-07T14:36:35'
+        column_name: score_range_count
+        created_on: '2025-10-07T14:36:35'
+        description: null
+        expression: null
+        extra: '{}'
+        filterable: true
+        groupby: true
+        id: 1034
+        is_active: true
+        is_dttm: false
+        python_date_format: null
+        type: UInt8
+        type_generic: 0
+        uuid: 59b6cf1c-08bc-4dd7-af88-fb230e1ef733
+        verbose_name: null
+      datasourceWarning: false
+      expressionType: SIMPLE
+      hasCustomLabel: true
+      label: Count of Scores
+      optionName: metric_y09riqdiwo_ovd7fk6yfs
+      sqlExpression: null
     orderby:
-    - - count
+    - - aggregate: SUM
+        column:
+          advanced_data_type: null
+          changed_on: '2025-10-07T14:36:35'
+          column_name: score_range_count
+          created_on: '2025-10-07T14:36:35'
+          description: null
+          expression: null
+          extra: '{}'
+          filterable: true
+          groupby: true
+          id: 1034
+          is_active: true
+          is_dttm: false
+          python_date_format: null
+          type: UInt8
+          type_generic: 0
+          uuid: 59b6cf1c-08bc-4dd7-af88-fb230e1ef733
+          verbose_name: null
+        datasourceWarning: false
+        expressionType: SIMPLE
+        hasCustomLabel: true
+        label: Count of Scores
+        optionName: metric_y09riqdiwo_ovd7fk6yfs
+        sqlExpression: null
       - true
     post_processing:
     - operation: pivot
       options:
         aggregates:
-          count:
+          Count of Scores:
             operator: mean
         columns: []
         drop_missing_columns: true
@@ -240,62 +307,58 @@ query_context:
     extras:
       having: ''
       where: ''
-    filters:
-    - col: avg_score
-      op: TEMPORAL_RANGE
-      val: No filter
-    group_others_when_limit_reached: false
+    filters: []
     metrics:
     - aggregate: AVG
       column:
         advanced_data_type: null
-        changed_on: '2025-02-20T20:49:54'
+        changed_on: '2025-10-07T14:36:35'
         column_name: total_avg
-        created_on: '2025-02-20T20:49:54'
+        created_on: '2025-10-07T14:36:35'
         description: null
         expression: null
         extra: '{}'
         filterable: true
         groupby: true
-        id: 9669
+        id: 1032
         is_active: true
         is_dttm: false
         python_date_format: null
         type: Float64
         type_generic: 0
-        uuid: 678a0775-487c-4280-9c70-f89b033fb4b6
+        uuid: e6c30fc5-c54c-4e59-ab83-a3b152fa1156
         verbose_name: null
       datasourceWarning: false
       expressionType: SIMPLE
       hasCustomLabel: true
       label: Total Average Score
-      optionName: metric_lu7wv14cpw_2cgjhwtiqwx
+      optionName: metric_oz1q9f99wh_nk2t8o4rdqf
       sqlExpression: null
     orderby:
     - - aggregate: AVG
         column:
           advanced_data_type: null
-          changed_on: '2025-02-20T20:49:54'
+          changed_on: '2025-10-07T14:36:35'
           column_name: total_avg
-          created_on: '2025-02-20T20:49:54'
+          created_on: '2025-10-07T14:36:35'
           description: null
           expression: null
           extra: '{}'
           filterable: true
           groupby: true
-          id: 9669
+          id: 1032
           is_active: true
           is_dttm: false
           python_date_format: null
           type: Float64
           type_generic: 0
-          uuid: 678a0775-487c-4280-9c70-f89b033fb4b6
+          uuid: e6c30fc5-c54c-4e59-ab83-a3b152fa1156
           verbose_name: null
         datasourceWarning: false
         expressionType: SIMPLE
         hasCustomLabel: true
         label: Total Average Score
-        optionName: metric_lu7wv14cpw_2cgjhwtiqwx
+        optionName: metric_oz1q9f99wh_nk2t8o4rdqf
         sqlExpression: null
       - true
     post_processing:
