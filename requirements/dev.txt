@@ -32,7 +32,7 @@ certifi==2025.10.5
     #   requests
 cffi==2.0.0
     # via cryptography
-charset-normalizer==3.4.3
+charset-normalizer==3.4.4
     # via
     #   -r requirements/base.txt
     #   requests
@@ -42,7 +42,7 @@ click==8.2.1
     #   black
     #   shandy-sqlfmt
     #   tutor
-cryptography==46.0.2
+cryptography==46.0.3
     # via secretstorage
 dill==0.4.0
     # via pylint
@@ -167,13 +167,13 @@ pyinstaller==6.16.0
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2025.9
     # via pyinstaller
-pylint==4.0.0
+pylint==4.0.1
     # via -r requirements/dev.in
 python-dateutil==2.9.0.post0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-pytokens==0.1.10
+pytokens==0.2.0
     # via
     #   -r requirements/base.txt
     #   black
