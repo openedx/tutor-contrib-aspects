@@ -163,13 +163,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_XAPI_SOURCE", "ralph"),
         (
             "ASPECTS_XAPI_DATABASE",
-            """
-            {%- if ASPECTS_XAPI_SOURCE == 'vector' -%}
-                {{ ASPECTS_VECTOR_DATABASE }}
-            {%- else -%}
-                {{ RALPH_DATABASE }}
-            {%- endif -%}
-            """,
+            "{% if ASPECTS_XAPI_SOURCE == 'vector' %}{{ ASPECTS_VECTOR_DATABASE }}{% else %}{{ RALPH_DATABASE }}{% endif %}",
         ),
         ("ASPECTS_RAW_XAPI_TABLE", "xapi_events_all"),
         # ClickHouse event sink settings
@@ -544,9 +538,7 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
 # run it as part of the `init` job.
 try:
     for service, template_path, priority in MY_INIT_TASKS:
-        hooks.Filters.COMMANDS_INIT.add_item(
-            (service, template_path)
-        )  # pylint: disable=no-member
+        hooks.Filters.COMMANDS_INIT.add_item((service, template_path))  # pylint: disable=no-member
 except AttributeError:
     for service, template_path, priority in MY_INIT_TASKS:
         full_path = os.path.join(
