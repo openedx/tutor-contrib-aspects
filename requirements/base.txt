@@ -10,15 +10,15 @@ bcrypt==5.0.0
     # via -r requirements/base.in
 black==25.9.0
     # via shandy-sqlfmt
-cachetools==6.2.0
+cachetools==6.2.1
     # via google-auth
 certifi==2025.10.5
     # via
     #   kubernetes
     #   requests
-charset-normalizer==3.4.3
+charset-normalizer==3.4.4
     # via requests
-click==8.3.0
+click==8.2.1
     # via
     #   -r requirements/base.in
     #   black
@@ -28,7 +28,7 @@ durationpy==0.10
     # via kubernetes
 google-auth==2.41.1
     # via kubernetes
-idna==3.10
+idna==3.11
     # via requests
 importlib-metadata==8.7.0
     # via tutor
@@ -62,7 +62,7 @@ pathspec==0.12.1
     # via
     #   black
     #   mypy
-platformdirs==4.4.0
+platformdirs==4.5.0
     # via
     #   black
     #   shandy-sqlfmt
@@ -76,7 +76,7 @@ pycryptodome==3.23.0
     # via tutor
 python-dateutil==2.9.0.post0
     # via kubernetes
-pytokens==0.1.10
+pytokens==0.2.0
     # via black
 pyyaml==6.0.3
     # via
@@ -116,7 +116,7 @@ urllib3==2.3.0
     # via
     #   kubernetes
     #   requests
-websocket-client==1.8.0
+websocket-client==1.9.0
     # via kubernetes
 zipp==3.23.0
     # via importlib-metadata

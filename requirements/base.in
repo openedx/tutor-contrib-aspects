@@ -1,4 +1,5 @@
-click
+# TODO: remove 8.3.0 when https://github.com/overhangio/tutor/issues/1276 is resolved completely
+click>=8.0,<8.3.0
 bcrypt
 importlib-resources
 openedx-atlas
