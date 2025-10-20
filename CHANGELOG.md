@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v2.5.0 - 2025-10-20
+
+### [2.5.0](https://github.com/openedx/tutor-contrib-aspects/compare/v2.4.0...v2.5.0) (2025-10-20)
+
+#### Features
+
+* Upgrade ClickHouse to 25.8 LTS ([c3b84cf](https://github.com/openedx/tutor-contrib-aspects/commit/c3b84cf1998dfb66a0ea76cbe269b84fe476fb2f))
+* Use new dbt models, various cleanup ([d9d171f](https://github.com/openedx/tutor-contrib-aspects/commit/d9d171f6f7eb93788901759a5261460280c7b1ee))
+
+#### Bug Fixes
+
+* assign value of ENABLE_PROXY_FIX to value of SUPERSET_ENABLE_PROXY_FIX to support tutor config guidelines ([5d91f55](https://github.com/openedx/tutor-contrib-aspects/commit/5d91f550e33efb802d42b170979cf4d51551e5cb))
+* dbt version bump ([66ff7fd](https://github.com/openedx/tutor-contrib-aspects/commit/66ff7fdbb14bfe14f48fb7f55d5f164f977fce7c))
+* pin stable click version ([58cce22](https://github.com/openedx/tutor-contrib-aspects/commit/58cce22cc77d2599561e608fe61d598c16d28232))
+* put back last_visited ([630896e](https://github.com/openedx/tutor-contrib-aspects/commit/630896ebdb9677c8215ad3c60aea709affc27daa))
+
 ## v2.4.0 - 2025-09-03
 
 ### [2.4.0](https://github.com/openedx/tutor-contrib-aspects/compare/v2.3.1...v2.4.0) (2025-09-03)
