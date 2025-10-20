@@ -1,24 +1,33 @@
 """
 Partition the xapi table by year and month
 """
-from alembic import op
 
+from alembic import op
 
 revision = "0032"
 down_revision = "0031"
 branch_labels = None
 depends_on = None
-on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""
-engine = "ReplicatedReplacingMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "ReplacingMergeTree"
+on_cluster = (
+    " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' "
+    if "{{CLICKHOUSE_CLUSTER_NAME}}"
+    else ""
+)
+engine = (
+    "ReplicatedReplacingMergeTree"
+    if "{{CLICKHOUSE_CLUSTER_NAME}}"
+    else "ReplacingMergeTree"
+)
 
-old_xapi_table = "{{ASPECTS_XAPI_DATABASE}}.old_{{ASPECTS_RAW_XAPI_TABLE}}"
+old_xapi_table = "{{ RALPH_DATABASE }}.old_{{ ASPECTS_RAW_XAPI_TABLE }}"
+
 
 def upgrade():
     # Partition event_sink.user_profile table
     # 1. Rename old table
     op.execute(
         f"""
-        RENAME TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
+        RENAME TABLE {{ RALPH_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
         TO {old_xapi_table}
         {on_cluster}
         """
@@ -26,7 +35,7 @@ def upgrade():
     # 2. Create partitioned table from old data
     op.execute(
         f"""
-        CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
+        CREATE TABLE IF NOT EXISTS {{ RALPH_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
         {on_cluster}
         (
             event_id UUID NOT NULL,
@@ -41,7 +50,7 @@ def upgrade():
     # 3. Insert data from the old table into the new one
     op.execute(
         f"""
-        INSERT INTO {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
+        INSERT INTO {{ RALPH_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
         SELECT event_id, emission_time, event FROM {old_xapi_table}
         """
     )
@@ -59,7 +68,7 @@ def downgrade():
     # 1a. Rename old table
     op.execute(
         f"""
-        RENAME TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
+        RENAME TABLE {{ RALPH_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
         TO {old_xapi_table}
         {on_cluster}
         """
@@ -68,7 +77,7 @@ def downgrade():
     # 2. Create un-partitioned table from old data
     op.execute(
         f"""
-        CREATE OR REPLACE TABLE {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
+        CREATE OR REPLACE TABLE {{ RALPH_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
         {on_cluster}
         (
             event_id UUID NOT NULL,
@@ -82,10 +91,9 @@ def downgrade():
     # 3. Insert into new table from old one
     op.execute(
         f"""
-        INSERT INTO {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
+        INSERT INTO {{ RALPH_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
         SELECT * FROM {old_xapi_table}
         """
-
     )
     # 4. Drop the old table
     op.execute(
