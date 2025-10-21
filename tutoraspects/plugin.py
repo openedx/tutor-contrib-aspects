@@ -163,7 +163,13 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_XAPI_SOURCE", "ralph"),
         (
             "ASPECTS_XAPI_DATABASE",
-            "{% if ASPECTS_XAPI_SOURCE == 'vector' %}{{ ASPECTS_VECTOR_DATABASE }}{% else %}{{ RALPH_DATABASE }}{% endif %}",
+            """
+            {%- if ASPECTS_XAPI_SOURCE == 'vector' -%}
+                {{ ASPECTS_VECTOR_DATABASE }}
+            {%- else -%}
+                {{ RALPH_DATABASE }}
+            {%- endif -%}
+            """,
         ),
         ("ASPECTS_RAW_XAPI_TABLE", "xapi_events_all"),
         # ClickHouse event sink settings
