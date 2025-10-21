@@ -471,7 +471,7 @@ jobs:
           pip install -r requirements/dev.txt
           pip install -e .
           tutor config save --set ASPECTS_XAPI_SOURCE=vector
-          tutor config printvalue ASPECTS_XAPI_DATABASE
+          tutor config printvalue ASPECTS_XAPI_DATABASE | grep openedx
       - name: Run Kubernetes tools
         uses: stefanprodan/kube-tools@v1
         with:
