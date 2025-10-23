@@ -1,6 +1,5 @@
 from alembic import op
 
-
 revision = "0011"
 down_revision = "0010"
 branch_labels = None
@@ -9,9 +8,17 @@ depends_on = None
 DESTINATION_TABLE = "{{ ASPECTS_VECTOR_DATABASE }}.{{ ASPECTS_VECTOR_RAW_XAPI_TABLE }}"
 TMP_TABLE_NEW = f"{DESTINATION_TABLE}_tmp_{revision}"
 TMP_TABLE_ORIG = f"{DESTINATION_TABLE}_tmp_mergetree_{revision}"
-on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""
+on_cluster = (
+    " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' "
+    if "{{CLICKHOUSE_CLUSTER_NAME}}"
+    else ""
+)
 old_engine = "ReplicatedMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "MergeTree"
-engine = "ReplicatedReplacingMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "ReplacingMergeTree"
+engine = (
+    "ReplicatedReplacingMergeTree"
+    if "{{CLICKHOUSE_CLUSTER_NAME}}"
+    else "ReplacingMergeTree"
+)
 
 
 def upgrade():
@@ -37,18 +44,14 @@ def upgrade():
         f"""
         ALTER TABLE {TMP_TABLE_NEW}
         {on_cluster}
-        ATTACH PARTITION tuple() FROM 
+        ATTACH PARTITION tuple() FROM
         {DESTINATION_TABLE};
         """
     )
     # 3. Swap both tables. We can't do this in a single statement because CH Cloud
     #    uses replicated tables and will error.
-    op.execute(
-        f"RENAME TABLE {DESTINATION_TABLE} TO {TMP_TABLE_ORIG} {on_cluster}"
-    )
-    op.execute(
-        f"RENAME TABLE {TMP_TABLE_NEW} TO {DESTINATION_TABLE} {on_cluster}"
-    )
+    op.execute(f"RENAME TABLE {DESTINATION_TABLE} TO {TMP_TABLE_ORIG} {on_cluster}")
+    op.execute(f"RENAME TABLE {TMP_TABLE_NEW} TO {DESTINATION_TABLE} {on_cluster}")
     # 4. Force deduplication of the existing data and may take a very long time
     #    on a larger dataset, but since Aspects isn't in production anywhere yet this
     #    seems like a reasonable thing to do. If you're looking at this as fodder for
@@ -89,7 +92,7 @@ def downgrade():
         f"""
         ALTER TABLE {TMP_TABLE_ORIG}
         {on_cluster}
-        ATTACH PARTITION tuple() FROM 
+        ATTACH PARTITION tuple() FROM
         {DESTINATION_TABLE};
         """
     )
@@ -104,7 +107,7 @@ def downgrade():
     #    a future migration, make sure to understand the potential issues here.
     op.execute(
         f"""
-        OPTIMIZE TABLE {DESTINATION_TABLE} 
+        OPTIMIZE TABLE {DESTINATION_TABLE}
         {on_cluster}
         FINAL DEDUPLICATE;
         """
