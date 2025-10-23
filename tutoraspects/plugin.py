@@ -183,6 +183,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_VECTOR_RAW_TRACKING_LOGS_TABLE", "_tracking"),
         ("ASPECTS_VECTOR_RAW_XAPI_TABLE", "xapi_events_all"),
         ("ASPECTS_DATA_TTL_EXPRESSION", "toDateTime(emission_time) + INTERVAL 1 YEAR"),
+        ("ASPECTS_ALEMBIC_MIGRATIONS_DATABASE", "{{RALPH_DATABASE}}"),
         # Make sure LMS / CMS have event-routing-backends installed
         ######################
         # ClickHouse Settings
@@ -277,7 +278,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "{% else %}"
             "{{CLICKHOUSE_HOST}}"
             "{% endif %}"
-            ":{{CLICKHOUSE_INTERNAL_NATIVE_PORT}}/{{ASPECTS_XAPI_DATABASE}}"
+            ":{{CLICKHOUSE_INTERNAL_NATIVE_PORT}}/{{ASPECTS_ALEMBIC_MIGRATIONS_DATABASE}}"
             "{% if CLICKHOUSE_SECURE_CONNECTION %}?secure=True{% endif %}",
         ),
         ######################
