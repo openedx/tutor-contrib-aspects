@@ -102,7 +102,7 @@ six==1.17.0
     #   python-dateutil
 tqdm==4.67.1
     # via shandy-sqlfmt
-tutor==20.0.1
+git+https://github.com/overhangio/tutor.git@main#egg=tutor
     # via
     #   -r requirements/base.in
     #   tutor-mfe
