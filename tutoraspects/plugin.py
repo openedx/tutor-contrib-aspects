@@ -38,7 +38,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("RUN_RALPH", True),
         ("RUN_SUPERSET", True),
         ("DOCKER_IMAGE_ASPECTS", "edunext/aspects:{{ ASPECTS_VERSION }}"),
-        ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:25.3"),
+        ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:25.8"),
         ("DOCKER_IMAGE_RALPH", "fundocker/ralph:4.1.0"),
         ("DOCKER_IMAGE_SUPERSET", "edunext/aspects-superset:{{ ASPECTS_VERSION }}"),
         ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.30.0-alpine"),
@@ -375,8 +375,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # DBT_PROFILE_* settings get passed into the dbt_profile.yml file.
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
-        ("DBT_REPOSITORY", "https://github.com/saraburns1/aspects-dbt"),
-        ("DBT_BRANCH", "dbt_cleanup"),
+        ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
+        ("DBT_BRANCH", "v6.1.0"),
         ("DBT_SSH_KEY", ""),
         ("DBT_STATE_DIR", "/app/aspects-dbt/state"),
         ("DBT_PROFILES_DIR", "/app/aspects/dbt/"),

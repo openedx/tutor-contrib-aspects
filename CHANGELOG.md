@@ -5,6 +5,61 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v2.5.0 - 2025-10-22
+
+### [2.5.0](https://github.com/openedx/tutor-contrib-aspects/compare/v2.4.0...v2.5.0) (2025-10-22)
+
+#### Features
+
+* bump dbt ([31c0887](https://github.com/openedx/tutor-contrib-aspects/commit/31c08872770ee74f584484eb7c9e7ac29e2a39de))
+* Upgrade ClickHouse to 25.8 LTS ([c3b84cf](https://github.com/openedx/tutor-contrib-aspects/commit/c3b84cf1998dfb66a0ea76cbe269b84fe476fb2f))
+* Use new dbt models, various cleanup ([d9d171f](https://github.com/openedx/tutor-contrib-aspects/commit/d9d171f6f7eb93788901759a5261460280c7b1ee))
+* use new dbt mvs ([840cfe5](https://github.com/openedx/tutor-contrib-aspects/commit/840cfe53a6a04516e6a7a7f5821035f845f372fa))
+
+#### Bug Fixes
+
+* assign value of ENABLE_PROXY_FIX to value of SUPERSET_ENABLE_PROXY_FIX to support tutor config guidelines ([5d91f55](https://github.com/openedx/tutor-contrib-aspects/commit/5d91f550e33efb802d42b170979cf4d51551e5cb))
+* dbt version bump ([66ff7fd](https://github.com/openedx/tutor-contrib-aspects/commit/66ff7fdbb14bfe14f48fb7f55d5f164f977fce7c))
+* pin stable click version ([58cce22](https://github.com/openedx/tutor-contrib-aspects/commit/58cce22cc77d2599561e608fe61d598c16d28232))
+* put back last_visited ([630896e](https://github.com/openedx/tutor-contrib-aspects/commit/630896ebdb9677c8215ad3c60aea709affc27daa))
+
+## v2.4.0 - 2025-09-03
+
+### [2.4.0](https://github.com/openedx/tutor-contrib-aspects/compare/v2.3.1...v2.4.0) (2025-09-03)
+
+#### Features
+
+* Add REDIS_USERNAME environment variable support ([ef678e3](https://github.com/openedx/tutor-contrib-aspects/commit/ef678e35137402fcc1b4b6cd71ef0042924c6ef6))
+* Updates to video queries ([f72196c](https://github.com/openedx/tutor-contrib-aspects/commit/f72196c5a1c7231496406fd94775fbca4f482269))
+
+#### Bug Fixes
+
+* CeleryConfig supports REDIS_USERNAME and REDIS_PASSWORD in broker URLs ([7a29371](https://github.com/openedx/tutor-contrib-aspects/commit/7a29371a604629bb0bdca8fb9819ab44d529d384))
+* Don't try to use PLUGIN_SLOTS on Redwood ([0dca080](https://github.com/openedx/tutor-contrib-aspects/commit/0dca080724092bfb802fc150b3463a122fb90099))
+* Lower the tutor-mfe pin to >= 18 from >=19 ([5f56060](https://github.com/openedx/tutor-contrib-aspects/commit/5f5606087f189061c924f2bc5b914ab3fbfb1adf))
+* open github links in new tab ([edc19da](https://github.com/openedx/tutor-contrib-aspects/commit/edc19daaa9153ec3768e904056cceab0f5cd4000))
+* open github links in new tab ([6608a9c](https://github.com/openedx/tutor-contrib-aspects/commit/6608a9cffa31ed828e38bfcf62e61325ea8d5ee2))
+* Propagate ASPECTS_ENABLE_STUDIO_IN_CONTEXT_METRICS to LMS/CMS ([dc00123](https://github.com/openedx/tutor-contrib-aspects/commit/dc00123a072b9cd6d610d3a9baa2714536e7a709))
+* Removes legacy peer dependency flag to make the install flexible ([a85231e](https://github.com/openedx/tutor-contrib-aspects/commit/a85231eeab8ae4f9baa7b7abbce3cc3d09f7d102))
+* Superset Celery issues with healthcheck and pid ([926e2cd](https://github.com/openedx/tutor-contrib-aspects/commit/926e2cd883890a26b6e1ddc0e254a826f2d9080c))
+* trigger github checks ([8dbe3e8](https://github.com/openedx/tutor-contrib-aspects/commit/8dbe3e89c8447745dd58cbbcd7aac2cb1d340cc3))
+* Update platform-plugin-aspects to 1.1.1 ([e69753c](https://github.com/openedx/tutor-contrib-aspects/commit/e69753c367504c5882aff7c43353f8c298060590))
+* Updates the link in the readme ([e736032](https://github.com/openedx/tutor-contrib-aspects/commit/e7360327489af194c0da330d276ece4b9c6aba4f))
+
+#### Code Refactoring
+
+* Simplify CeleryConfig class definition ([889af28](https://github.com/openedx/tutor-contrib-aspects/commit/889af28236cb4e027125ad2e418cd217ce046ef0))
+
+#### Styles
+
+* Format files ([9f669fa](https://github.com/openedx/tutor-contrib-aspects/commit/9f669fa4f0cf97bd4ef1bd66a263f9c1f2c2261d))
+
+#### Documentation
+
+* in-context metrics in key features ([b415607](https://github.com/openedx/tutor-contrib-aspects/commit/b415607f74d2a7458a4dbb5a393ea0a361ee5c45))
+* in-context metrics installation instructions ([552347d](https://github.com/openedx/tutor-contrib-aspects/commit/552347d8cce17ca894141510ef106ee334f352e0))
+* Update README to clarify compatibility ([777038b](https://github.com/openedx/tutor-contrib-aspects/commit/777038bd0666dd82ae950f5aa1208403d13ff557))
+
 ## v2.3.1 - 2025-05-16
 
 ### [2.3.1](https://github.com/openedx/tutor-contrib-aspects/compare/v2.3.0...v2.3.1) (2025-05-16)
