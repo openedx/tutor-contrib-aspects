@@ -2,7 +2,7 @@ _file_name: Learners_with_Passing_Grade_b40cda.yaml
 cache_timeout: null
 certification_details: null
 certified_by: null
-dataset_uuid: 633a1d4e-cd40-482f-a5dc-d5901c2181c2
+dataset_uuid: da75efef-09ba-4ed0-8b6b-bf11c5c26008
 description: null
 params:
   adhoc_filters:
@@ -18,7 +18,11 @@ params:
     operatorId: IN
     sqlExpression: null
     subject: approving_state
-  annotation_layers: []
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: enrolled_at
   conditional_formatting:
   - colorScheme: '#ACE1C4'
     column: number_of_learners
@@ -26,14 +30,14 @@ params:
     targetValue: 0
   extra_form_data: {}
   header_font_size: 0.5
-  metric: number_of_learners
+  metric: count
   subheader_font_size: 0.3
   time_format: smart_date
   viz_type: big_number_total
   y_axis_format: SMART_NUMBER
 query_context:
   datasource:
-    id: 54
+    id: 25
     type: table
   force: false
   form_data:
@@ -50,20 +54,26 @@ query_context:
       operatorId: IN
       sqlExpression: null
       subject: approving_state
-    annotation_layers: []
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: enrolled_at
     conditional_formatting:
     - colorScheme: '#ACE1C4'
       column: number_of_learners
       operator: "\u2265"
       targetValue: 0
-    datasource: 54__table
+    dashboards:
+    - 915
+    datasource: 25__table
     extra_form_data: {}
     force: false
     header_font_size: 0.5
-    metric: number_of_learners
+    metric: count
     result_format: json
     result_type: full
-    slice_id: 83
+    slice_id: 151
     subheader_font_size: 0.3
     time_format: smart_date
     viz_type: big_number_total
@@ -82,8 +92,11 @@ query_context:
       op: IN
       val:
       - passed
+    - col: enrolled_at
+      op: TEMPORAL_RANGE
+      val: No filter
     metrics:
-    - number_of_learners
+    - count
     order_desc: true
     series_limit: 0
     url_params: {}

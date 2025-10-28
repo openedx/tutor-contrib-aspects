@@ -73,6 +73,10 @@ def load_configs_from_directory(
         del metadata["type"]
     contents[METADATA_FILE_NAME] = yaml.dump(metadata)
 
+    tags = yaml.load(contents.get('tags.yaml', "{}"), Loader=yaml.Loader)
+    print(tags)
+
+
     # Force our use to the admin user to prevent errors on import
     g.user = security_manager.find_user(username="{{SUPERSET_ADMIN_USERNAME}}")
 
@@ -83,5 +87,7 @@ def load_configs_from_directory(
     )
     try:
         command.run()
-    except CommandInvalidError as ex:
-        logger.error("An error occurred: %s", ex.normalized_messages())
+    # except CommandInvalidError as ex:
+    #     logger.error("An error occurred: %s", ex.normalized_messages())
+    except Exception as e:
+        logger.error(e)

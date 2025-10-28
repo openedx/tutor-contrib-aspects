@@ -17,6 +17,32 @@ columns:
   type: STRING
   verbose_name: Actor Id
 - advanced_data_type: null
+  column_name: course_key
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Course Key
+- advanced_data_type: null
+  column_name: enrollment_mode
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: LowCardinality(String)
+  verbose_name: Enrollment Mode
+- advanced_data_type: null
   column_name: actor_id
   description: null
   expression: null
@@ -30,7 +56,7 @@ columns:
   type: String
   verbose_name: Actor Id
 - advanced_data_type: null
-  column_name: course_key
+  column_name: emission_time
   description: null
   expression: null
   extra:
@@ -38,23 +64,10 @@ columns:
   filterable: true
   groupby: true
   is_active: true
-  is_dttm: false
+  is_dttm: true
   python_date_format: null
-  type: String
-  verbose_name: Course Key
-- advanced_data_type: null
-  column_name: enrollment_mode
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Enrollment Mode
+  type: DateTime
+  verbose_name: Emission Time
 - advanced_data_type: null
   column_name: enrollment_status
   description: null
@@ -69,19 +82,6 @@ columns:
   type: String
   verbose_name: Enrollment Status
 - advanced_data_type: null
-  column_name: emission_time
-  description: null
-  expression: null
-  extra:
-    warning_markdown: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: String
-  verbose_name: Emission Time
-- advanced_data_type: null
   column_name: org
   description: null
   expression: null
@@ -92,7 +92,7 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: String
+  type: LowCardinality(String)
   verbose_name: Org
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
