@@ -5,44 +5,70 @@ certified_by: null
 dataset_uuid: 92eadc61-2931-577e-95b7-34adb1a8f515
 description: null
 params:
-  adhoc_filters: []
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: enrolled_at
   all_columns: []
-  annotation_layers: []
+  allow_render_html: true
   color_pn: true
+  comparison_color_scheme: Green
+  comparison_type: values
   extra_form_data: {}
   groupby:
+  - enrolled_at
   - name
   - username
   - email
+  - course_name
+  - course_run
+  - last_visited
+  - grade_bucket
   order_by_cols: []
   order_desc: true
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
-  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
-  temporal_columns_lookup: {}
+  temporal_columns_lookup:
+    enrolled_at: true
+    last_visited: true
   time_grain_sqla: P1D
   viz_type: table
 query_context:
   datasource:
-    id: 94
+    id: 67
     type: table
   force: false
   form_data:
-    adhoc_filters: []
+    adhoc_filters:
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: enrolled_at
     all_columns: []
+    allow_render_html: true
     color_pn: true
+    comparison_color_scheme: Green
+    comparison_type: values
     dashboards:
-    - 30
-    datasource: 94__table
+    - 967
+    datasource: 67__table
     extra_form_data: {}
     force: false
     groupby:
+    - enrolled_at
     - name
     - username
     - email
+    - course_name
+    - course_run
+    - last_visited
+    - grade_bucket
     order_by_cols: []
     order_desc: true
     percent_metrics: []
@@ -50,33 +76,47 @@ query_context:
     result_format: json
     result_type: full
     row_limit: 1000
-    server_page_length: 10
     show_cell_bars: true
-    slice_id: 179
+    slice_id: 67
     table_timestamp_format: smart_date
-    temporal_columns_lookup: {}
+    temporal_columns_lookup:
+      enrolled_at: true
+      last_visited: true
     time_grain_sqla: P1D
     viz_type: table
   queries:
   - annotation_layers: []
     applied_time_extras: {}
     columns:
+    - columnType: BASE_AXIS
+      expressionType: SQL
+      label: enrolled_at
+      sqlExpression: enrolled_at
+      timeGrain: P1D
     - name
     - username
     - email
+    - course_name
+    - course_run
+    - last_visited
+    - grade_bucket
     custom_form_data: {}
     custom_params: {}
     extras:
       having: ''
       time_grain_sqla: P1D
       where: ''
-    filters: []
+    filters:
+    - col: enrolled_at
+      op: TEMPORAL_RANGE
+      val: No filter
     metrics: []
     order_desc: true
     orderby: []
     post_processing: []
     row_limit: 1000
     series_limit: 0
+    time_offsets: []
     url_params: {}
   result_format: json
   result_type: full

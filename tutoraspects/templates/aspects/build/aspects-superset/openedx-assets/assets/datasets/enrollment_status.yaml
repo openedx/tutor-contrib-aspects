@@ -1,6 +1,7 @@
 _file_name: enrollment_status.yaml
 always_filter_main_dttm: false
 cache_timeout: null
+catalog: null
 columns:
 - advanced_data_type: null
   column_name: course_key

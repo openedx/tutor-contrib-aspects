@@ -73,7 +73,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 660
+    id: 17
     type: table
   force: false
   form_data:
@@ -90,13 +90,12 @@ query_context:
       subject: emission_time
     all_columns: []
     allow_render_html: true
+    annotation_layers: []
     color_pn: false
     comparison_color_scheme: Green
     comparison_type: values
     conditional_formatting: []
-    dashboards:
-    - 315
-    datasource: 660__table
+    datasource: 17__table
     extra_form_data: {}
     force: false
     groupby:
@@ -118,7 +117,7 @@ query_context:
     result_type: full
     row_limit: 1000
     show_cell_bars: false
-    slice_id: 592
+    slice_id: 81
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true
@@ -163,7 +162,6 @@ query_context:
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1D
       where: ''
     filters:
     - col: emission_time

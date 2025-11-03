@@ -92,7 +92,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 659
+    id: 9
     type: table
   force: false
   form_data:
@@ -109,6 +109,7 @@ query_context:
       subject: emission_time
     all_columns: []
     allow_render_html: true
+    annotation_layers: []
     color_pn: true
     column_config:
       correct_percent:
@@ -128,9 +129,7 @@ query_context:
       column: incorrect_percent
       operator: "\u2265"
       targetValue: 0
-    dashboards:
-    - 307
-    datasource: 659__table
+    datasource: 9__table
     extra_form_data: {}
     force: false
     groupby:
@@ -156,7 +155,7 @@ query_context:
     server_pagination: false
     show_cell_bars: true
     show_totals: false
-    slice_id: 388
+    slice_id: 45
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       emission_time: true
@@ -201,7 +200,6 @@ query_context:
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1M
       where: ''
     filters:
     - col: emission_time
