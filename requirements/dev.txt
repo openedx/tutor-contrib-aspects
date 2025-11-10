@@ -10,13 +10,13 @@ appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   tutor
-astroid==4.0.1
+astroid==4.0.2
     # via pylint
 backports-tarfile==1.2.0
     # via jaraco-context
 bcrypt==5.0.0
     # via -r requirements/base.txt
-black==25.9.0
+black==25.11.0
     # via
     #   -r requirements/base.txt
     #   -r requirements/dev.in
@@ -46,13 +46,13 @@ cryptography==46.0.3
     # via secretstorage
 dill==0.4.0
     # via pylint
-docutils==0.22.2
+docutils==0.22.3
     # via readme-renderer
 durationpy==0.10
     # via
     #   -r requirements/base.txt
     #   kubernetes
-google-auth==2.41.1
+google-auth==2.43.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -117,7 +117,7 @@ mypy-extensions==1.1.0
     #   -r requirements/base.txt
     #   black
     #   mypy
-nh3==0.3.1
+nh3==0.3.2
     # via readme-renderer
 oauthlib==3.3.1
     # via
@@ -167,13 +167,13 @@ pyinstaller==6.16.0
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2025.9
     # via pyinstaller
-pylint==4.0.1
+pylint==4.0.2
     # via -r requirements/dev.in
 python-dateutil==2.9.0.post0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-pytokens==0.2.0
+pytokens==0.3.0
     # via
     #   -r requirements/base.txt
     #   black
@@ -206,7 +206,7 @@ rsa==4.9.1
     # via
     #   -r requirements/base.txt
     #   google-auth
-ruamel-yaml==0.18.15
+ruamel-yaml==0.18.16
     # via -r requirements/base.txt
 ruamel-yaml-clib==0.2.14
     # via
@@ -227,7 +227,7 @@ tqdm==4.67.1
     # via
     #   -r requirements/base.txt
     #   shandy-sqlfmt
-tutor==20.0.1
+tutor==20.0.2
     # via
     #   -r requirements/base.txt
     #   tutor-contrib-pod-autoscaling
