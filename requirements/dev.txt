@@ -21,11 +21,11 @@ black==25.11.0
     #   -r requirements/base.txt
     #   -r requirements/dev.in
     #   shandy-sqlfmt
-cachetools==6.2.1
+cachetools==6.2.2
     # via
     #   -r requirements/base.txt
     #   google-auth
-certifi==2025.10.5
+certifi==2025.11.12
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -88,7 +88,7 @@ jinja2==3.1.6
     #   -r requirements/base.txt
     #   shandy-sqlfmt
     #   tutor
-keyring==25.6.0
+keyring==25.7.0
     # via twine
 kubernetes==34.1.0
     # via
@@ -167,7 +167,7 @@ pyinstaller==6.16.0
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2025.9
     # via pyinstaller
-pylint==4.0.2
+pylint==4.0.3
     # via -r requirements/dev.in
 python-dateutil==2.9.0.post0
     # via
@@ -208,11 +208,11 @@ rsa==4.9.1
     #   google-auth
 ruamel-yaml==0.18.16
     # via -r requirements/base.txt
-ruamel-yaml-clib==0.2.14
+ruamel-yaml-clib==0.2.15
     # via
     #   -r requirements/base.txt
     #   ruamel-yaml
-secretstorage==3.4.0
+secretstorage==3.4.1
     # via keyring
 shandy-sqlfmt[jinjafmt]==0.26.0
     # via -r requirements/base.txt
