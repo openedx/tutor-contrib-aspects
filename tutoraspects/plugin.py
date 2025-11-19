@@ -347,6 +347,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "SUPERSET_DASHBOARD_LOCALES",
             [
                 "en",
+                "es",
+                "ko"
             ],
         ),
         ("SUPERSET_EXTRA_JINJA_FILTERS", {}),
