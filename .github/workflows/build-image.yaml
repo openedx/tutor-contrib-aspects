@@ -30,7 +30,7 @@ jobs:
           username: ${{ secrets.EDUNEXT_DOCKER_USERNAME }}
           password: ${{ secrets.EDUNEXT_DOCKER_PASSWORD }}
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Set outputs
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
