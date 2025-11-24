@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-altgraph==0.17.4
+altgraph==0.17.5
     # via pyinstaller
 appdirs==1.4.4
     # via
@@ -165,7 +165,7 @@ pygments==2.19.2
     #   rich
 pyinstaller==6.16.0
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2025.9
+pyinstaller-hooks-contrib==2025.10
     # via pyinstaller
 pylint==4.0.3
     # via -r requirements/dev.in
@@ -212,7 +212,7 @@ ruamel-yaml-clib==0.2.15
     # via
     #   -r requirements/base.txt
     #   ruamel-yaml
-secretstorage==3.4.1
+secretstorage==3.5.0
     # via keyring
 shandy-sqlfmt[jinjafmt]==0.26.0
     # via -r requirements/base.txt
