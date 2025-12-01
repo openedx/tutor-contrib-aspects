@@ -42,9 +42,11 @@ jinja2==3.1.6
     #   tutor
 kubernetes==34.1.0
     # via tutor
+librt==0.6.3
+    # via mypy
 markupsafe==3.0.3
     # via jinja2
-mypy==1.18.2
+mypy==1.19.0
     # via tutor
 mypy-extensions==1.1.0
     # via
