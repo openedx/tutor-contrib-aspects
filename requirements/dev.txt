@@ -94,7 +94,7 @@ kubernetes==34.1.0
     # via
     #   -r requirements/base.txt
     #   tutor
-librt==0.6.3
+librt==0.7.3
     # via
     #   -r requirements/base.txt
     #   mypy
@@ -142,7 +142,7 @@ pathspec==0.12.1
     #   -r requirements/base.txt
     #   black
     #   mypy
-platformdirs==4.5.0
+platformdirs==4.5.1
     # via
     #   -r requirements/base.txt
     #   black
@@ -231,7 +231,7 @@ tqdm==4.67.1
     # via
     #   -r requirements/base.txt
     #   shandy-sqlfmt
-tutor==20.0.2
+tutor==20.0.3
     # via
     #   -r requirements/base.txt
     #   tutor-contrib-pod-autoscaling
