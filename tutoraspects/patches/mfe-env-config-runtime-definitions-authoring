@@ -8,7 +8,7 @@
       // So, as a workaround, tutor-contrib-aspects simply defines the components added to the plugin as empty components.
       const CourseOutlineSidebar = () => {};
       const UnitPageSidebar = () => {};
-      const SidebarToggleWrapper = () => {};
+      const SidebarToggleWrapper = ({component}) => component;
       const CourseHeaderButton = () => {};
       const UnitActionsButton = () => {};
       const SubSectionAnalyticsButton = () => {};
