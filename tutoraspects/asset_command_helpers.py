@@ -263,7 +263,7 @@ def validate_asset_file(
 
     # make sure to not change the dashboard filename if we happen
     # to have a chart with the same name
-    if not content.get("dashboard_title"):
+    if not content.get("dashboard_title") and content.get('uuid'):
         out_filename_uuid = re.sub(
             r"(_\d*)\.yaml", f"_{content['uuid'][:6]}.yaml", orig_filename
         )
@@ -347,29 +347,34 @@ def import_superset_assets(
         for asset_path in zip_file.namelist():
             if "metadata.yaml" in asset_path:
                 continue
-            with zip_file.open(asset_path) as asset_file:
-                content = yaml.safe_load(asset_file)
-                out_path, needs_review = validate_asset_file(
-                    asset_path, content, echo, assets_path
-                )
+            if "tags.yaml" in asset_path:
+                print(asset_path)
+            #     print(yaml.safe_load(asset_path))
+                with zip_file.open(asset_path) as asset_file:
+                    content = yaml.safe_load(asset_file)
+                    out_path, needs_review = validate_asset_file(
+                        asset_path, content, echo, assets_path
+                    )
+                    print(out_path)
+                    print(needs_review)
 
-                # This can happen if it's an unknown asset type
-                if not out_path:
-                    continue
+                    # This can happen if it's an unknown asset type
+                    if not out_path:
+                        continue
 
-                if "dataset" in out_path:
-                    dataset_warn = True
+                    if "dataset" in out_path:
+                        dataset_warn = True
 
-                if needs_review:
-                    review_files.add(content[FILE_NAME_ATTRIBUTE])
+                    if needs_review:
+                        review_files.add(content[FILE_NAME_ATTRIBUTE])
 
-                out_path = os.path.join(out_path, content[FILE_NAME_ATTRIBUTE])
-                written_assets.append(out_path)
+                    out_path = os.path.join(out_path, content[FILE_NAME_ATTRIBUTE])
+                    written_assets.append(out_path)
 
-                # Make sure the various asset subdirectories exist before writing
-                os.makedirs(os.path.dirname(out_path), exist_ok=True)
-                with open(out_path, "w", encoding="utf-8") as out_f:
-                    yaml.dump(content, out_f, encoding="utf-8")
+                    # Make sure the various asset subdirectories exist before writing
+                    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+                    with open(out_path, "w", encoding="utf-8") as out_f:
+                        yaml.dump(content, out_f, encoding="utf-8")
 
     if review_files:
         echo()
@@ -623,7 +628,7 @@ def find_unused_queries(echo):
             asset = yaml.safe_load(file_str)
             sql = asset["sql"].strip()
             match = re.search(r"\w+\b.sql", sql)
-            if match:
+            if match and match.group() in dataset_query_list:
                 dataset_query_list.remove(match.group())
 
     # Remove uuids from 'all' list that are in ignored yaml
