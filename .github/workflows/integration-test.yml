@@ -52,6 +52,12 @@ jobs:
           tutor local start -d
           sleep 10
           tutor local logs clickhouse
+          tutor local stop clickhouse
+          tutor local start permissions -d
+          sleep 20
+          tutor local start clickhouse -d
+          sleep 10
+          tutor local logs clickhouse
       - name: Tutor init
         run: tutor local do init
       - name: Test alembic
