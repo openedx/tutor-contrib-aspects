@@ -8,9 +8,9 @@ appdirs==1.4.4
     # via tutor
 bcrypt==5.0.0
     # via -r requirements/base.in
-black==25.11.0
+black==25.12.0
     # via shandy-sqlfmt
-cachetools==6.2.2
+cachetools==6.2.3
     # via google-auth
 certifi==2025.11.12
     # via
