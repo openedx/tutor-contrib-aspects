@@ -1,6 +1,7 @@
 {% if RUN_CLICKHOUSE %}
 clickhouse:
     image: {{DOCKER_IMAGE_CLICKHOUSE}}
+    user: "101:101"
     restart: unless-stopped
     environment:
         CLICKHOUSE_DB: "{{ ASPECTS_XAPI_DATABASE }}"
