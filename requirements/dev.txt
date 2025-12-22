@@ -21,7 +21,7 @@ black==25.12.0
     #   -r requirements/base.txt
     #   -r requirements/dev.in
     #   shandy-sqlfmt
-cachetools==6.2.3
+cachetools==6.2.4
     # via
     #   -r requirements/base.txt
     #   google-auth
@@ -46,13 +46,13 @@ cryptography==46.0.3
     # via secretstorage
 dill==0.4.0
     # via pylint
-docutils==0.22.3
+docutils==0.22.4
     # via readme-renderer
 durationpy==0.10
     # via
     #   -r requirements/base.txt
     #   kubernetes
-google-auth==2.43.0
+google-auth==2.45.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -62,7 +62,7 @@ idna==3.11
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==8.7.0
+importlib-metadata==8.7.1
     # via
     #   -r requirements/base.txt
     #   keyring
@@ -77,7 +77,7 @@ jaraco-classes==3.4.0
     # via keyring
 jaraco-context==6.0.1
     # via keyring
-jaraco-functools==4.3.0
+jaraco-functools==4.4.0
     # via keyring
 jeepney==0.9.0
     # via
@@ -94,7 +94,7 @@ kubernetes==34.1.0
     # via
     #   -r requirements/base.txt
     #   tutor
-librt==0.7.3
+librt==0.7.4
     # via
     #   -r requirements/base.txt
     #   mypy
@@ -112,7 +112,7 @@ more-itertools==10.8.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-mypy==1.19.0
+mypy==1.19.1
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -210,7 +210,7 @@ rsa==4.9.1
     # via
     #   -r requirements/base.txt
     #   google-auth
-ruamel-yaml==0.18.16
+ruamel-yaml==0.18.17
     # via -r requirements/base.txt
 ruamel-yaml-clib==0.2.15
     # via
