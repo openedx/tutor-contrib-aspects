@@ -21,10 +21,6 @@ black==25.12.0
     #   -r requirements/base.txt
     #   -r requirements/dev.in
     #   shandy-sqlfmt
-cachetools==6.2.4
-    # via
-    #   -r requirements/base.txt
-    #   google-auth
 certifi==2026.1.4
     # via
     #   -r requirements/base.txt
@@ -52,7 +48,7 @@ durationpy==0.10
     # via
     #   -r requirements/base.txt
     #   kubernetes
-google-auth==2.45.0
+google-auth==2.47.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -137,7 +133,7 @@ packaging==25.0
     #   pyinstaller-hooks-contrib
     #   tutor
     #   twine
-pathspec==0.12.1
+pathspec==1.0.3
     # via
     #   -r requirements/base.txt
     #   black
@@ -227,7 +223,7 @@ tqdm==4.67.1
     # via
     #   -r requirements/base.txt
     #   shandy-sqlfmt
-tutor==20.0.4
+tutor==20.0.5
     # via
     #   -r requirements/base.txt
     #   tutor-contrib-pod-autoscaling
