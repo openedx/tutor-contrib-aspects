@@ -18,7 +18,13 @@ def upgrade():
     # 1. Create our new table with the desired engine
     op.execute(
         f"""
-        CREATE OR REPLACE TABLE {TMP_TABLE_NEW}
+        DROP TABLE IF EXISTS {TMP_TABLE_NEW}
+        {on_cluster};
+        """
+    )
+    op.execute(
+        f"""
+        CREATE TABLE {TMP_TABLE_NEW}
         {on_cluster}
         (
             event_id      UUID,

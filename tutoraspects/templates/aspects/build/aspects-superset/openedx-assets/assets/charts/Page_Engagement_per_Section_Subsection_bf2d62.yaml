@@ -5,21 +5,21 @@ certified_by: null
 dataset_uuid: 9febd6be-5102-4dbf-86b9-45ebd3cbbc45
 description: null
 params:
-  adhoc_filters:
-  - clause: WHERE
-    comparator: No filter
-    expressionType: SIMPLE
-    operator: TEMPORAL_RANGE
-    subject: visited_on
+  adhoc_filters: []
   annotation_layers: []
   color_scheme: supersetColors
+  comparison_type: values
   extra_form_data: {}
+  forecastInterval: 0.8
+  forecastPeriods: 10
   groupby: []
   legendOrientation: top
   legendType: scroll
   metrics:
   - all_pages_viewed
   - at_leat_one_page_viewed
+  only_total: true
+  order_desc: true
   orientation: vertical
   rich_tooltip: true
   row_limit: 10000
@@ -32,8 +32,14 @@ params:
   truncate_metric: true
   viz_type: echarts_timeseries_bar
   x_axis: section_subsection_name
+  x_axis_sort_asc: true
   x_axis_sort_series: name
   x_axis_sort_series_ascending: true
+  x_axis_time_format: smart_date
+  x_axis_title_margin: 15
+  y_axis_bounds:
+  - null
+  - null
   y_axis_format: SMART_NUMBER
   y_axis_title: Number of Learners
   y_axis_title_margin: 30
@@ -41,27 +47,30 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 424
+    id: 44
     type: table
   force: false
   form_data:
-    adhoc_filters:
-    - clause: WHERE
-      comparator: No filter
-      expressionType: SIMPLE
-      operator: TEMPORAL_RANGE
-      subject: visited_on
+    adhoc_filters: []
     annotation_layers: []
     color_scheme: supersetColors
-    datasource: 424__table
+    comparison_type: values
+    dashboards:
+    - 1139
+    - 1149
+    datasource: 44__table
     extra_form_data: {}
     force: false
+    forecastInterval: 0.8
+    forecastPeriods: 10
     groupby: []
     legendOrientation: top
     legendType: scroll
     metrics:
     - all_pages_viewed
     - at_leat_one_page_viewed
+    only_total: true
+    order_desc: true
     orientation: vertical
     result_format: json
     result_type: full
@@ -70,15 +79,21 @@ query_context:
     show_empty_columns: true
     show_legend: true
     show_value: false
-    slice_id: 1441
+    slice_id: 145
     sort_series_type: sum
     tooltipTimeFormat: smart_date
     truncateXAxis: true
     truncate_metric: true
     viz_type: echarts_timeseries_bar
     x_axis: section_subsection_name
+    x_axis_sort_asc: true
     x_axis_sort_series: name
     x_axis_sort_series_ascending: true
+    x_axis_time_format: smart_date
+    x_axis_title_margin: 15
+    y_axis_bounds:
+    - null
+    - null
     y_axis_format: SMART_NUMBER
     y_axis_title: Number of Learners
     y_axis_title_margin: 30
@@ -97,10 +112,7 @@ query_context:
     extras:
       having: ''
       where: ''
-    filters:
-    - col: visited_on
-      op: TEMPORAL_RANGE
-      val: No filter
+    filters: []
     metrics:
     - all_pages_viewed
     - at_leat_one_page_viewed

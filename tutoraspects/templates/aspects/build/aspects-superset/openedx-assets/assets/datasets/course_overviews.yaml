@@ -1,6 +1,7 @@
 _file_name: course_overviews.yaml
 always_filter_main_dttm: false
 cache_timeout: null
+catalog: null
 columns:
 - advanced_data_type: null
   column_name: course_data_json
@@ -46,10 +47,22 @@ columns:
   filterable: true
   groupby: true
   is_active: true
-  is_dttm: false
+  is_dttm: true
   python_date_format: null
-  type: String
+  type: Date
   verbose_name: Course End
+- advanced_data_type: null
+  column_name: course_start
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: Date
+  verbose_name: Course Start
 - advanced_data_type: null
   column_name: course_key
   description: null
@@ -63,18 +76,6 @@ columns:
   type: String
   verbose_name: Course Key
 - advanced_data_type: null
-  column_name: course_start
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Start
-- advanced_data_type: null
   column_name: dump_id
   description: null
   expression: null
@@ -84,8 +85,32 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: UUID
+  type: String
   verbose_name: Dump ID
+- advanced_data_type: null
+  column_name: enrollment_end
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: Date
+  verbose_name: Enrollment End
+- advanced_data_type: null
+  column_name: enrollment_start
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: Date
+  verbose_name: Enrollment Start
 - advanced_data_type: null
   column_name: display_name
   description: null
@@ -99,30 +124,6 @@ columns:
   type: String
   verbose_name: Display Name
 - advanced_data_type: null
-  column_name: enrollment_end
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Enrollment End
-- advanced_data_type: null
-  column_name: enrollment_start
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Enrollment Start
-- advanced_data_type: null
   column_name: created
   description: null
   expression: null
@@ -130,9 +131,9 @@ columns:
   filterable: true
   groupby: true
   is_active: true
-  is_dttm: false
+  is_dttm: true
   python_date_format: null
-  type: String
+  type: Date
   verbose_name: Created
 - advanced_data_type: null
   column_name: modified
@@ -142,9 +143,9 @@ columns:
   filterable: true
   groupby: true
   is_active: true
-  is_dttm: false
+  is_dttm: true
   python_date_format: null
-  type: String
+  type: Date
   verbose_name: Modified
 - advanced_data_type: null
   column_name: org
@@ -170,7 +171,8 @@ metrics:
   d3format: null
   description: null
   expression: COUNT(*)
-  extra: {}
+  extra:
+    warning_markdown: ''
   metric_name: count
   metric_type: count
   verbose_name: COUNT(*)
@@ -179,7 +181,9 @@ normalize_columns: true
 offset: 0
 params: null
 schema: '{{ ASPECTS_EVENT_SINK_DATABASE }}'
-sql: select * from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_overviews
+sql: 'select * from {{ ASPECTS_EVENT_SINK_DATABASE }}.course_overviews
+
+  '
 table_name: course_overviews
 template_params: null
 uuid: ab5988f5-c05a-5a04-8629-78d58cd9e5f2

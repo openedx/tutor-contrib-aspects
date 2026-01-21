@@ -7,7 +7,8 @@ columns:
   column_name: first_try_correct_count
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -16,22 +17,37 @@ columns:
   type: UInt64
   verbose_name: First Try Correct Count
 - advanced_data_type: null
-  column_name: course_grade
+  column_name: course_key
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: Float64
+  type: LowCardinality(String)
+  verbose_name: Course Key
+- advanced_data_type: null
+  column_name: course_grade
+  description: null
+  expression: null
+  extra:
+    warning_markdown: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Float32
   verbose_name: Course Grade
 - advanced_data_type: null
   column_name: response_count
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -43,7 +59,8 @@ columns:
   column_name: actor_id
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -55,7 +72,8 @@ columns:
   column_name: approving_state
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -64,22 +82,11 @@ columns:
   type: String
   verbose_name: Approving State
 - advanced_data_type: null
-  column_name: course_key
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: String
-  verbose_name: Course Key
-- advanced_data_type: null
   column_name: course_name
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -91,7 +98,8 @@ columns:
   column_name: course_run
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -103,7 +111,8 @@ columns:
   column_name: org
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true

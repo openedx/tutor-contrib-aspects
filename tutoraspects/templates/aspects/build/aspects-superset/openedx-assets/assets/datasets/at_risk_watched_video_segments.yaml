@@ -7,7 +7,8 @@ columns:
   column_name: video_name_location
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -19,7 +20,8 @@ columns:
   column_name: subsection_with_name
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -31,7 +33,8 @@ columns:
   column_name: section_with_name
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -43,7 +46,8 @@ columns:
   column_name: course_key
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -55,7 +59,8 @@ columns:
   column_name: video_duration
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -67,7 +72,8 @@ columns:
   column_name: segment_start
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -79,7 +85,8 @@ columns:
   column_name: actor_id
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -91,7 +98,8 @@ columns:
   column_name: watched_count
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -103,7 +111,8 @@ columns:
   column_name: block_id
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -115,7 +124,8 @@ columns:
   column_name: object_id
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -127,7 +137,8 @@ columns:
   column_name: video_link
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -136,10 +147,11 @@ columns:
   type: String
   verbose_name: Video Link
 - advanced_data_type: null
-  column_name: video_number
+  column_name: video_location
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -151,7 +163,8 @@ columns:
   column_name: time_stamp
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -163,7 +176,8 @@ columns:
   column_name: org
   description: null
   expression: ''
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -172,22 +186,11 @@ columns:
   type: LowCardinality(String)
   verbose_name: Organization
 - advanced_data_type: null
-  column_name: rewatched
-  description: null
-  expression: null
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: UInt8
-  verbose_name: Rewatched
-- advanced_data_type: null
   column_name: email
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -199,7 +202,8 @@ columns:
   column_name: name
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -211,7 +215,8 @@ columns:
   column_name: username
   description: null
   expression: null
-  extra: {}
+  extra:
+    warning_markdown: null
   filterable: true
   groupby: true
   is_active: true
@@ -250,21 +255,22 @@ metrics:
 - currency: null
   d3format: null
   description: null
+  expression: sum(watched_count)
+  extra:
+    warning_markdown: ''
+  metric_name: total_views
+  metric_type: null
+  verbose_name: Total Views
+  warning_text: null
+- currency: null
+  d3format: null
+  description: null
   expression: count(*)
   extra:
     warning_markdown: ''
   metric_name: count
   metric_type: null
   verbose_name: Count
-  warning_text: null
-- currency: null
-  d3format: null
-  description: null
-  expression: sum(watched_count)
-  extra: {}
-  metric_name: total_views
-  metric_type: null
-  verbose_name: Total Views
   warning_text: null
 normalize_columns: true
 offset: 0

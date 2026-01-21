@@ -22,4 +22,11 @@ left join
 join
     {{ ASPECTS_EVENT_SINK_DATABASE }}.dim_course_names names
     on status.course_key = names.course_key
+join
+    (
+        {% include 'openedx-assets/queries/at_risk_learner_filter.sql' %}
+    ) as at_risk_learners
+    on status.org = at_risk_learners.org
+    and status.course_key = at_risk_learners.course_key
+    and status.actor_id = at_risk_learners.actor_id
 where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}

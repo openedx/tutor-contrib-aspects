@@ -8,146 +8,146 @@ dashboard_title: Course Comparison Dashboard
 description: null
 metadata:
   chart_configuration:
-    '101':
+    '11':
       crossFilters:
         chartsInScope:
+        - 7
+        - 17
+        - 21
+        - 51
         - 61
-        - 161
-        - 201
-        - 501
-        - 601
-        - 701
-        - 1221
-        - 1281
-        - 1641
+        - 71
+        - 123
+        - 129
+        - 165
         scope: global
-      id: 101
-    '1221':
+      id: 11
+    '123':
       crossFilters:
         chartsInScope:
+        - 7
+        - 11
+        - 17
+        - 21
+        - 51
         - 61
-        - 101
-        - 161
-        - 201
-        - 501
-        - 601
-        - 701
-        - 1281
-        - 1641
+        - 71
+        - 129
+        - 165
         scope: global
-      id: 1221
-    '1281':
+      id: 123
+    '129':
       crossFilters:
         chartsInScope:
+        - 7
+        - 11
+        - 17
+        - 21
+        - 51
         - 61
-        - 101
-        - 161
-        - 201
-        - 501
-        - 601
-        - 701
-        - 1221
-        - 1641
+        - 71
+        - 123
+        - 165
         scope: global
-      id: 1281
-    '161':
+      id: 129
+    '165':
       crossFilters:
         chartsInScope:
+        - 7
+        - 11
+        - 17
+        - 21
+        - 51
         - 61
-        - 101
-        - 201
-        - 501
-        - 601
-        - 701
-        - 1221
-        - 1281
-        - 1641
+        - 71
+        - 123
+        - 129
         scope: global
-      id: 161
-    '1641':
+      id: 165
+    '17':
       crossFilters:
         chartsInScope:
+        - 7
+        - 11
+        - 21
+        - 51
         - 61
-        - 101
-        - 161
-        - 201
-        - 501
-        - 601
-        - 701
-        - 1221
-        - 1281
+        - 71
+        - 123
+        - 129
+        - 165
         scope: global
-      id: 1641
-    '201':
+      id: 17
+    '21':
       crossFilters:
         chartsInScope:
+        - 7
+        - 11
+        - 17
+        - 51
         - 61
-        - 101
-        - 161
-        - 501
-        - 601
-        - 701
-        - 1221
-        - 1281
-        - 1641
+        - 71
+        - 123
+        - 129
+        - 165
         scope: global
-      id: 201
-    '501':
+      id: 21
+    '51':
       crossFilters:
         chartsInScope:
+        - 7
+        - 11
+        - 17
+        - 21
         - 61
-        - 101
-        - 161
-        - 201
-        - 601
-        - 701
-        - 1221
-        - 1281
-        - 1641
+        - 71
+        - 123
+        - 129
+        - 165
         scope: global
-      id: 501
-    '601':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 101
-        - 161
-        - 201
-        - 501
-        - 701
-        - 1221
-        - 1281
-        - 1641
-        scope: global
-      id: 601
+      id: 51
     '61':
       crossFilters:
         chartsInScope:
-        - 101
-        - 161
-        - 201
-        - 501
-        - 601
-        - 701
-        - 1221
-        - 1281
-        - 1641
+        - 7
+        - 11
+        - 17
+        - 21
+        - 51
+        - 71
+        - 123
+        - 129
+        - 165
         scope: global
       id: 61
-    '701':
+    '7':
       crossFilters:
         chartsInScope:
+        - 11
+        - 17
+        - 21
+        - 51
         - 61
-        - 101
-        - 161
-        - 201
-        - 501
-        - 601
-        - 1221
-        - 1281
-        - 1641
+        - 71
+        - 123
+        - 129
+        - 165
         scope: global
-      id: 701
+      id: 7
+    '71':
+      crossFilters:
+        chartsInScope:
+        - 7
+        - 11
+        - 17
+        - 21
+        - 51
+        - 61
+        - 123
+        - 129
+        - 165
+        scope: global
+      id: 71
   color_scheme: supersetColors
   color_scheme_domain:
   - '#1FA8C9'
@@ -178,16 +178,16 @@ metadata:
     '7': true
   global_chart_configuration:
     chartsInScope:
+    - 7
+    - 11
+    - 17
+    - 21
+    - 51
     - 61
-    - 101
-    - 161
-    - 201
-    - 501
-    - 601
-    - 701
-    - 1221
-    - 1281
-    - 1641
+    - 71
+    - 123
+    - 129
+    - 165
     scope:
       excluded: []
       rootPath:
