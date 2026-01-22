@@ -226,7 +226,10 @@ tqdm==4.67.1
 tutor==20.0.5
     # via
     #   -r base.txt
+    #   tutor-contrib-pod-autoscaling
     #   tutor-mfe
+tutor-contrib-pod-autoscaling==20.0.0
+    # via -r dev.in
 tutor-mfe==20.1.0
     # via -r base.txt
 twine==6.2.0

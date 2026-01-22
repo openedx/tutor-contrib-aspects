@@ -3,7 +3,7 @@ select
     org,
     course_key,
     toFloat32OrNull(response) as response_numeric,
-    toString(response) as response_string,
+    case when response_numeric is null then response else '' end as response_string,
     if(success, 'Correct', 'Incorrect') as success,
     interaction_type,
     problem_number,
