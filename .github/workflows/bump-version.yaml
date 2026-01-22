@@ -17,11 +17,9 @@ jobs:
       - name: Get next version
         id: tag_version
         uses: onesoft-sudo/conventional-release-action@v1.5.1
-        with:
-          create-tag: false
-          create-commit: false
-          git-push: false
-          add-release-notes: false
+        # with:
+          # create-tag: false
+          # create-commit: true
 
           # github_token: ${{ secrets.GITHUB_TOKEN }}
           # default_bump: false
