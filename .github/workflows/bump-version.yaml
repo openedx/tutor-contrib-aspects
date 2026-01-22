@@ -53,7 +53,7 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v8
         with:
-          token: ${{ secrets.machine_user }}
+          token: ${{ secrets.versiontest }}
           push-to-fork: saraburns1/tutor-contrib-aspects
           title: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
           commit-message: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
