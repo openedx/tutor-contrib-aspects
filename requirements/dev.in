@@ -4,4 +4,3 @@ black
 pyinstaller
 pylint
 twine
-tutor-contrib-pod-autoscaling
