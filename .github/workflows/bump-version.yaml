@@ -16,15 +16,12 @@ jobs:
       - uses: actions/checkout@v6
       - name: Get next version
         id: tag_version
-        uses: onesoft-sudo/conventional-release-action@v1.5.1
-        # with:
-          # create-tag: false
-          # create-commit: true
-
-          # github_token: ${{ secrets.GITHUB_TOKEN }}
-          # default_bump: false
-          # default_prerelease_bump: false
-          # dry_run: true
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          default_bump: false
+          default_prerelease_bump: false
+          dry_run: true
           # commit_analyzer_preset: conventionalcommits # uncomment this line when commit_analyzer_preset is an accepted setting
       - name: Set up Python 3.12
         uses: actions/setup-python@v6
