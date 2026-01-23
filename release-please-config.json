@@ -1,5 +1,4 @@
 {
-    "token": "${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}",
     "release-type": "python",
     "skip-labeling": true,
     "extra-files": [
