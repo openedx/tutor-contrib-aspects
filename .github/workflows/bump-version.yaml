@@ -21,9 +21,9 @@ jobs:
           release-type: python
           skip-labeling: true
           extra-files: [
-              "setup.cfg",
-              "tutoraspects/__about__.py",
-              ".ci/config.yml"
+              setup.cfg,
+              tutoraspects/__about__.py,
+              .ci/config.yml
           ]
           release-search-depth: 2
           pull-request-header: "Automated version bump for release ${{ steps.tag_version.outputs.version }}. \n \n This pull request was automatically generated. It includes the following changes:"
