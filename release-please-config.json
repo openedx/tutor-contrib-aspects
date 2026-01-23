@@ -6,7 +6,6 @@
         "tutoraspects/__about__.py",
         ".ci/config.yml"
     ],
-    "release-search-depth": 2,
     "pull-request-header": "Automated version bump for release ${{ steps.tag_version.outputs.version }}. \n \n This pull request was automatically generated. It includes the following changes:",
     "pull-request-footer": "No code changes are included in this pull request. The purpose of this PR is to trigger a version bump for the project. \n \n Once the pull request is merged, a new GitHub release will be created with the updated version."
 }
