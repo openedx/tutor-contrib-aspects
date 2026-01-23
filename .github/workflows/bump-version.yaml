@@ -19,50 +19,74 @@ jobs:
         with:
           token: ${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}
           release-type: python
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.12"
-      - name: Create bumpversion
-        if: steps.tag_version.outputs.version
-        id: bumpversion
-        run: |
-          pip install bump2version
-          bump2version --new-version ${{ steps.tag_version.outputs.version }} setup.cfg tutoraspects/__about__.py .ci/config.yml
-      - name: Update Changelog
-        if: steps.tag_version.outputs.version
-        uses: stefanzweifel/changelog-updater-action@v1.12.0
-        with:
-          latest-version: v${{ steps.tag_version.outputs.version }}
-          release-notes: ${{ steps.tag_version.outputs.changelog }}
-      - name: Push branch
-        if: steps.tag_version.outputs.version
-        run: |
-          branch_name="bot/v${{ steps.tag_version.outputs.version }}"
-          git fetch --prune origin
-          if git show-ref --quiet refs/remotes/origin/$branch_name; then
-            git push --delete origin $branch_name
-          fi
-          git checkout -b $branch_name || git checkout $branch_name
-          git push origin $branch_name
-      - name: Create Pull Request
-        id: cpr
-        uses: peter-evans/create-pull-request@v8
-        with:
-          token: ${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}
-          title: "chore: preparing release ${{ steps.tag_version.outputs.version }}"
-          commit-message: "chore: preparing release ${{ steps.tag_version.outputs.version }}"
-          branch: "bot/v${{ steps.tag_version.outputs.version }}"
-          base: main
-          body: |
+          skip-labeling: true
+          extra-files: [
+            {
+                "type": "generic",
+                "path": "setup.cfg"
+            },
+            {
+                "type": "generic",
+                "path": "tutoraspects/__about__.py"
+            },
+            {
+                "type": "yaml",
+                "path": ".ci/config.yml"
+            }
+          ]
+          release-search-depth: 2
+          pull-request-header: |
             Automated version bump for release ${{ steps.tag_version.outputs.version }}.
 
             This pull request was automatically generated. It includes the following changes:
-
-            - Version: v${{ steps.tag_version.outputs.version }}
-
-            ${{ steps.tag_version.outputs.changelog }}
-
+          pull-request-footer: |
             No code changes are included in this pull request. The purpose of this PR is to trigger a version bump for the project.
 
             Once the pull request is merged, a new GitHub release will be created with the updated version.
+      # - name: Set up Python 3.12
+      #   uses: actions/setup-python@v6
+      #   with:
+      #     python-version: "3.12"
+      # - name: Create bumpversion
+      #   if: steps.tag_version.outputs.version
+      #   id: bumpversion
+      #   run: |
+      #     pip install bump2version
+      #     bump2version --new-version ${{ steps.tag_version.outputs.version }} setup.cfg tutoraspects/__about__.py .ci/config.yml
+      # - name: Update Changelog
+      #   if: steps.tag_version.outputs.version
+      #   uses: stefanzweifel/changelog-updater-action@v1.12.0
+      #   with:
+      #     latest-version: v${{ steps.tag_version.outputs.version }}
+      #     release-notes: ${{ steps.tag_version.outputs.changelog }}
+      # - name: Push branch
+      #   if: steps.tag_version.outputs.version
+      #   run: |
+      #     branch_name="bot/v${{ steps.tag_version.outputs.version }}"
+      #     git fetch --prune origin
+      #     if git show-ref --quiet refs/remotes/origin/$branch_name; then
+      #       git push --delete origin $branch_name
+      #     fi
+      #     git checkout -b $branch_name || git checkout $branch_name
+      #     git push origin $branch_name
+      # - name: Create Pull Request
+      #   id: cpr
+      #   uses: peter-evans/create-pull-request@v8
+      #   with:
+      #     token: ${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}
+      #     title: "chore: preparing release ${{ steps.tag_version.outputs.version }}"
+      #     commit-message: "chore: preparing release ${{ steps.tag_version.outputs.version }}"
+      #     branch: "bot/v${{ steps.tag_version.outputs.version }}"
+      #     base: main
+      #     body: |
+      #       Automated version bump for release ${{ steps.tag_version.outputs.version }}.
+
+      #       This pull request was automatically generated. It includes the following changes:
+
+      #       - Version: v${{ steps.tag_version.outputs.version }}
+
+      #       ${{ steps.tag_version.outputs.changelog }}
+
+      #       No code changes are included in this pull request. The purpose of this PR is to trigger a version bump for the project.
+
+      #       Once the pull request is merged, a new GitHub release will be created with the updated version.
