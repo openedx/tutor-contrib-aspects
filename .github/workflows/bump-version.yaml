@@ -19,8 +19,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: python
-          skip-github-pull-request: true
-
       - name: Set up Python 3.12
         uses: actions/setup-python@v6
         with:
