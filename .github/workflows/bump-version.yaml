@@ -56,11 +56,10 @@ jobs:
             This pull request was automatically generated. It includes the following changes:
 
             - Version: ${{ steps.tag_version.outputs.tag }}
-            - Previous version: ${{ steps.tag_version.outputs.previous_version }}
+            - Previous version: v${{ steps.tag_version.outputs.previous_version }}
 
             ${{ steps.tag_version.outputs.changelog }}
 
             No code changes are included in this pull request. The purpose of this PR is to trigger a version bump for the project.
 
             Once the pull request is merged, a new GitHub release will be created with the updated version.
-
