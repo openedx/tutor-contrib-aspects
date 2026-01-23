@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0](https://github.com/openedx/tutor-contrib-aspects/compare/v2.5.1...v3.0.0) (2026-01-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgrade to paragon23
+
+### Features
+
+* upgrade to paragon23 ([c412426](https://github.com/openedx/tutor-contrib-aspects/commit/c412426b8ccc2f2d1a28b53dd7ef288f3902b7fb))
+
 ## v2.5.1 - 2025-12-09
 
 ### [2.5.1](https://github.com/openedx/tutor-contrib-aspects/compare/v2.5.0...v2.5.1) (2025-12-09)
