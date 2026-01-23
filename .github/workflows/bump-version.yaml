@@ -16,5 +16,5 @@ jobs:
         uses: googleapis/release-please-action@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          config-file: https://github.com/openedx/tutor-contrib-aspects/blob/bumpversiontest/release-please-config.json
-          manifest-file: https://github.com/openedx/tutor-contrib-aspects/blob/bumpversiontest/release-please-manifest.json
+          config-file: https://raw.githubusercontent.com/openedx/tutor-contrib-aspects/bumpversiontest/release-please-config.json
+          manifest-file: https://raw.githubusercontent.com/openedx/tutor-contrib-aspects/bumpversiontest//release-please-manifest.json
