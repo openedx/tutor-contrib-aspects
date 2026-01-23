@@ -7,42 +7,34 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    outputs:
-      version:  ${{ steps.tag_version.outputs.new_version }}
-      previous_tag: ${{ steps.tag_version.outputs.previous_tag }}
-      bump_commit_sha: ${{ steps.bumpversion.outputs.commit_hash }}
-      pr_number: ${{ steps.cpr.outputs.pull-request-number }}
     steps:
       - uses: actions/checkout@v6
       - name: Get next version
         id: tag_version
-        uses: mathieudutour/github-tag-action@v6.2
+        uses: python-semantic-release/python-semantic-release@v10.5.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          default_bump: false
-          default_prerelease_bump: false
-          dry_run: true
-          # commit_analyzer_preset: conventionalcommits # uncomment this line when commit_analyzer_preset is an accepted setting
+          push: false
       - name: Set up Python 3.12
         uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Create bumpversion
-        if: steps.tag_version.outputs.new_version
+        if: steps.tag_version.outputs.version
         id: bumpversion
         run: |
           pip install bump2version
-          bump2version --new-version ${{ steps.tag_version.outputs.new_version }} setup.cfg tutoraspects/__about__.py .ci/config.yml
+          bump2version --new-version ${{ steps.tag_version.outputs.version }} setup.cfg tutoraspects/__about__.py .ci/config.yml
       - name: Update Changelog
-        if: steps.tag_version.outputs.new_version
+        if: steps.tag_version.outputs.version
         uses: stefanzweifel/changelog-updater-action@v1.12.0
         with:
-          latest-version: v${{ steps.tag_version.outputs.new_version }}
-          release-notes: ${{ steps.tag_version.outputs.changelog }}
+          latest-version: ${{ steps.tag_version.outputs.tag }}
+          release-notes: ${{ steps.tag_version.outputs.release_notes }}
       - name: Push branch
-        if: steps.tag_version.outputs.new_version
+        if: steps.tag_version.outputs.version
         run: |
-          branch_name="bot/v${{ steps.tag_version.outputs.new_version }}"
+          branch_name="bot/${{ steps.tag_version.outputs.tag }}"
           git fetch --prune origin
           if git show-ref --quiet refs/remotes/origin/$branch_name; then
             git push --delete origin $branch_name
@@ -54,20 +46,21 @@ jobs:
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}
-          title: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
-          commit-message: "chore: preparing release ${{ steps.tag_version.outputs.new_version }}"
-          branch: "bot/v${{ steps.tag_version.outputs.new_version }}"
+          title: "chore: preparing release ${{ steps.tag_version.outputs.version }}"
+          commit-message: "chore: preparing release ${{ steps.tag_version.outputs.version }}"
+          branch: "bot/${{ steps.tag_version.outputs.tag }}"
           base: main
           body: |
-            Automated version bump for release ${{ steps.tag_version.outputs.new_version }}.
+            Automated version bump for release ${{ steps.tag_version.outputs.version }}.
 
             This pull request was automatically generated. It includes the following changes:
 
-            - Version: v${{ steps.tag_version.outputs.new_version }}
-            - Previous version: ${{ steps.tag_version.outputs.previous_tag }}
+            - Version: ${{ steps.tag_version.outputs.tag }}
+            - Previous version: ${{ steps.tag_version.outputs.previous_version }}
 
             ${{ steps.tag_version.outputs.changelog }}
 
             No code changes are included in this pull request. The purpose of this PR is to trigger a version bump for the project.
 
             Once the pull request is merged, a new GitHub release will be created with the updated version.
+
