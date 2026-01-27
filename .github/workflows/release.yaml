@@ -19,18 +19,16 @@ jobs:
       - uses: actions/checkout@v6
       - name: Create tag
         id: tag_version
-        uses: mathieudutour/github-tag-action@v6.2
+        uses: python-semantic-release/python-semantic-release@v10.5.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          default_bump: false
-          default_prerelease_bump: false
       - name: Create a GitHub release
-        if: steps.tag_version.outputs.new_tag
+        if: steps.tag_version.outputs.tag
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.tag_version.outputs.new_tag }}
-          name: Release ${{ steps.tag_version.outputs.new_tag }}
-          body: ${{ steps.tag_version.outputs.changelog }}
+          tag: ${{ steps.tag_version.outputs.tag }}
+          name: Release ${{ steps.tag_version.outputs.tag }}
+          body: ${{ steps.tag_version.outputs.release_notes }}
       - name: Checkout
         uses: actions/checkout@v6
       - name: setup python
