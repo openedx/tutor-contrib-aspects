@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v2.6.1 - 2026-01-27
+
+### v2.6.1 (2026-01-27)
+
+#### Bug Fixes
+
+- Use semantic release in release action ([`979cc76`](https://github.com/openedx/tutor-contrib-aspects/commit/979cc7625ebf1c2687a115eacac1958c2ad800a9))
+  
+- Use semantic release in release action ([`1ff22df`](https://github.com/openedx/tutor-contrib-aspects/commit/1ff22df7e33734e2d901aedc1f085e166f570641))
+  
+- Use semantic release in release action ([`5bcac82`](https://github.com/openedx/tutor-contrib-aspects/commit/5bcac82cf8e886194963570cd994b4d764d8e5dd))
+  
+
+#### Chores
+
+- Upgrade Python requirements ([`746dd5c`](https://github.com/openedx/tutor-contrib-aspects/commit/746dd5c3a4ddf2b9319fb9f1ac38105dffdccdd4))
+
+
+---
+
+**Detailed Changes**: [v2.6.0...v2.6.1](https://github.com/openedx/tutor-contrib-aspects/compare/v2.6.0...v2.6.1)
+
 ## v3.0.0 - 2026-01-26
 
 ### v3.0.0 (2026-01-26)
