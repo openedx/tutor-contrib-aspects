@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v3.0.2 - 2026-01-27
+
+### v3.0.2 (2026-01-27)
+
+#### Bug Fixes
+
+- Setting push to false for tag action ([#1176](https://github.com/openedx/tutor-contrib-aspects/pull/1176), [`b467294`](https://github.com/openedx/tutor-contrib-aspects/commit/b467294f81c129cabee49aa763b8bd677187a81c))
+
+
+---
+
+**Detailed Changes**: [v3.0.1...v3.0.2](https://github.com/openedx/tutor-contrib-aspects/compare/v3.0.1...v3.0.2)
+
 ## v3.0.1 - 2026-01-27
 
 ### v3.0.1 (2026-01-27)
