@@ -30,7 +30,7 @@ jobs:
         with:
           tag: ${{ steps.tag_version.outputs.tag }}
           name: Release ${{ steps.tag_version.outputs.tag }}
-          body: ${{ steps.tag_version.outputs.changelog }}
+          body: ${{ steps.tag_version.outputs.release_notes }}
       - name: Checkout
         uses: actions/checkout@v6
       - name: setup python
