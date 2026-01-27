@@ -22,6 +22,7 @@ jobs:
         uses: python-semantic-release/python-semantic-release@v10.5.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          push: false
       - name: Create a GitHub release
         if: steps.tag_version.outputs.tag
         uses: ncipollo/release-action@v1
