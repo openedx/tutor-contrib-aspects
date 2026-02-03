@@ -38,7 +38,7 @@ click==8.2.1
     #   black
     #   shandy-sqlfmt
     #   tutor
-cryptography==46.0.3
+cryptography==46.0.4
     # via secretstorage
 dill==0.4.1
     # via pylint
@@ -129,7 +129,7 @@ packaging==26.0
     #   pyinstaller-hooks-contrib
     #   tutor
     #   twine
-pathspec==1.0.3
+pathspec==1.0.4
     # via
     #   -r requirements/base.txt
     #   black
@@ -160,7 +160,7 @@ python-dateutil==2.9.0.post0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-pytokens==0.4.0
+pytokens==0.4.1
     # via
     #   -r requirements/base.txt
     #   black
@@ -187,7 +187,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==14.3.1
+rich==14.3.2
     # via twine
 ruamel-yaml==0.19.1
     # via -r requirements/base.txt
@@ -202,7 +202,7 @@ six==1.17.0
     #   python-dateutil
 tomlkit==0.14.0
     # via pylint
-tqdm==4.67.1
+tqdm==4.67.2
     # via
     #   -r requirements/base.txt
     #   shandy-sqlfmt

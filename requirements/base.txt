@@ -56,7 +56,7 @@ packaging==26.0
     # via
     #   black
     #   tutor
-pathspec==1.0.3
+pathspec==1.0.4
     # via
     #   black
     #   mypy
@@ -68,7 +68,7 @@ pycryptodome==3.23.0
     # via tutor
 python-dateutil==2.9.0.post0
     # via kubernetes
-pytokens==0.4.0
+pytokens==0.4.1
     # via black
 pyyaml==6.0.3
     # via
@@ -88,7 +88,7 @@ six==1.17.0
     # via
     #   kubernetes
     #   python-dateutil
-tqdm==4.67.1
+tqdm==4.67.2
     # via shandy-sqlfmt
 tutor==21.0.0
     # via
