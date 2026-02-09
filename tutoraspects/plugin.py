@@ -393,6 +393,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # The feature also needs the platform-plugin-aspect to have v1.1.0 and
         # above.
         ("ASPECTS_ENABLE_STUDIO_IN_CONTEXT_METRICS", False),
+        ("TEST_STUFF", "TEST"),
     ]
 )
 
@@ -530,9 +531,7 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
 # run it as part of the `init` job.
 try:
     for service, template_path, priority in MY_INIT_TASKS:
-        hooks.Filters.COMMANDS_INIT.add_item(
-            (service, template_path)
-        )  # pylint: disable=no-member
+        hooks.Filters.COMMANDS_INIT.add_item((service, template_path))  # pylint: disable=no-member
 except AttributeError:
     for service, template_path, priority in MY_INIT_TASKS:
         full_path = os.path.join(
