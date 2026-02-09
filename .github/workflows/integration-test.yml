@@ -80,7 +80,7 @@ jobs:
           tutor local do collect-dbt-lineage
           tutor local run lms python manage.py lms transform_tracking_logs --source_provider LOCAL --source_config '{"key": "/openedx/data/", "prefix": "tracking.log", "container": "logs"}' --destination_provider LRS --transformer_type xapi
       - name: Performance metrics
-        run: tutor local do performance-metrics --fail_on_error
+        run: tutor local do performance-metrics --fail_on_error --org OpenedX --course_name course-v1:OpenedX+DemoX+DemoCourse
       - name: Tutor stop
         run: tutor local stop
 
@@ -278,7 +278,7 @@ jobs:
             echo "------------------------"
           done
       - name: Check jobs logs
-        if: '!cancelled()'
+        if: "!cancelled()"
         run: |
           job_list=($(kubectl get jobs | grep job | awk '{print $1}'))
 
