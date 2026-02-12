@@ -38,7 +38,7 @@ jinja2==3.1.6
     #   tutor
 kubernetes==35.0.0
     # via tutor
-librt==0.7.8
+librt==0.8.0
     # via mypy
 markupsafe==3.0.3
     # via jinja2
@@ -60,7 +60,7 @@ pathspec==1.0.4
     # via
     #   black
     #   mypy
-platformdirs==4.5.1
+platformdirs==4.6.0
     # via
     #   black
     #   shandy-sqlfmt
@@ -88,9 +88,9 @@ six==1.17.0
     # via
     #   kubernetes
     #   python-dateutil
-tqdm==4.67.2
+tqdm==4.67.3
     # via shandy-sqlfmt
-tutor==21.0.0
+tutor==21.0.1
     # via
     #   -r requirements/base.in
     #   tutor-mfe
