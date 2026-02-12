@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v3.0.3 - 2026-02-12
+
+### v3.0.3 (2026-02-12)
+
+#### Bug Fixes
+
+- Check org and course name in tests ([#1186](https://github.com/openedx/tutor-contrib-aspects/pull/1186), [`9ec1d21`](https://github.com/openedx/tutor-contrib-aspects/commit/9ec1d217ab4e22f21b103f7f69ba69334d4b8e2c))
+  
+- Remove unused metrics to fix coursename bug ([#1186](https://github.com/openedx/tutor-contrib-aspects/pull/1186), [`9ec1d21`](https://github.com/openedx/tutor-contrib-aspects/commit/9ec1d217ab4e22f21b103f7f69ba69334d4b8e2c))
+  
+
+#### Chores
+
+- Upgrade Python requirements ([#1188](https://github.com/openedx/tutor-contrib-aspects/pull/1188), [`ab1608f`](https://github.com/openedx/tutor-contrib-aspects/commit/ab1608ff40a4fcc4f706b306c878b377b1b82836))
+  
+- Upgrade Python requirements ([`a1f5a47`](https://github.com/openedx/tutor-contrib-aspects/commit/a1f5a47233d06853b2f92d16c6d02c773b29965d))
+  
+- **deps**: Bump docker/login-action from 3.6.0 to 3.7.0 ([`d5d8653`](https://github.com/openedx/tutor-contrib-aspects/commit/d5d86534d3a07ea9182d1922892dbbeaa1ca3d99))
+  
+
+
+---
+
+**Detailed Changes**: [v3.0.2...v3.0.3](https://github.com/openedx/tutor-contrib-aspects/compare/v3.0.2...v3.0.3)
+
 ## v3.0.2 - 2026-01-27
 
 ### v3.0.2 (2026-01-27)
