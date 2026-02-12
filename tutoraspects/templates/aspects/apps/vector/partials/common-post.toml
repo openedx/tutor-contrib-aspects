@@ -76,7 +76,6 @@ parsed, err_regex = parse_regex(.message, r'^.* \[xapi_tracking\] [^{}]* (?P<tra
 if err_regex != null {
   abort
 }
-message, err = strip_whitespace(parsed.tracking_message)
 
 parsed_json, err_json = parse_json(parsed.tracking_message)
 
@@ -127,7 +126,7 @@ inputs = ["xapi"]
 endpoint = "{% if CLICKHOUSE_SECURE_CONNECTION %}https{% else %}http{% endif %}://{{ CLICKHOUSE_HOST }}:{{ CLICKHOUSE_INTERNAL_HTTP_PORT }}"
 database = "{{ ASPECTS_VECTOR_DATABASE }}"
 table = "{{ ASPECTS_VECTOR_RAW_XAPI_TABLE }}"
-healthcheck = true
+healthcheck = false
 
 {% endif %}
 

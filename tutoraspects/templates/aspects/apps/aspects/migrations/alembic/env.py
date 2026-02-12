@@ -32,7 +32,7 @@ def make_replicated_zk_path(cluster, table_name):
     """
     Allows CH cluster functionality in Alembic
     """
-    database = "{{ ASPECTS_XAPI_DATABASE }}"
+    database = "{{ ASPECTS_ALEMBIC_MIGRATIONS_DATABASE }}"
     return f'/clickhouse/tables/{cluster}/{database}/{table_name}'
 
 
