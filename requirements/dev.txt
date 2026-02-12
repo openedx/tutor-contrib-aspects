@@ -10,7 +10,7 @@ appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   tutor
-astroid==4.0.3
+astroid==4.0.4
     # via pylint
 backports-tarfile==1.2.0
     # via jaraco-context
@@ -38,7 +38,7 @@ click==8.2.1
     #   black
     #   shandy-sqlfmt
     #   tutor
-cryptography==46.0.4
+cryptography==46.0.5
     # via secretstorage
 dill==0.4.1
     # via pylint
@@ -48,7 +48,7 @@ durationpy==0.10
     # via
     #   -r requirements/base.txt
     #   kubernetes
-id==1.5.0
+id==1.6.1
     # via twine
 idna==3.11
     # via
@@ -86,7 +86,7 @@ kubernetes==35.0.0
     # via
     #   -r requirements/base.txt
     #   tutor
-librt==0.7.8
+librt==0.8.0
     # via
     #   -r requirements/base.txt
     #   mypy
@@ -134,7 +134,7 @@ pathspec==1.0.4
     #   -r requirements/base.txt
     #   black
     #   mypy
-platformdirs==4.5.1
+platformdirs==4.6.0
     # via
     #   -r requirements/base.txt
     #   black
@@ -174,7 +174,6 @@ readme-renderer==44.0
 requests==2.32.5
     # via
     #   -r requirements/base.txt
-    #   id
     #   kubernetes
     #   requests-oauthlib
     #   requests-toolbelt
@@ -202,11 +201,11 @@ six==1.17.0
     #   python-dateutil
 tomlkit==0.14.0
     # via pylint
-tqdm==4.67.2
+tqdm==4.67.3
     # via
     #   -r requirements/base.txt
     #   shandy-sqlfmt
-tutor==21.0.0
+tutor==21.0.1
     # via
     #   -r requirements/base.txt
     #   tutor-mfe
@@ -222,6 +221,7 @@ typing-extensions==4.15.0
 urllib3==2.6.3
     # via
     #   -r requirements/base.txt
+    #   id
     #   kubernetes
     #   requests
     #   twine
