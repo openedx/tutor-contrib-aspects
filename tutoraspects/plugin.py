@@ -375,8 +375,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # DBT_PROFILE_* settings get passed into the dbt_profile.yml file.
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
-        ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
-        ("DBT_BRANCH", "v6.1.0"),
+        ("DBT_REPOSITORY", "https://github.com/saraburns1/aspects-dbt"),
+        ("DBT_BRANCH", "dbt_standardization"),
         ("DBT_SSH_KEY", ""),
         ("DBT_STATE_DIR", "/app/aspects-dbt/state"),
         ("DBT_PROFILES_DIR", "/app/aspects/dbt/"),

@@ -33,17 +33,19 @@ with
                 or (select count(1) from course_keys) = 1
             )
     ),
-    watches as (
+    final_results as (
         select
-            segments.org,
-            segments.course_key,
-            segments.actor_id,
-            segments.object_id,
-            segments.video_duration,
-            segments.watched_segment,
-            segments.watch_count,
+            watched_segments.org as org,
+            watched_segments.course_key as course_key,
+            watched_segments.actor_id as actor_id,
+            watched_segments.object_id as object_id,
+            splitByChar('@', splitByString('/xblock/', watched_segments.object_id)[-1])[
+                3
+            ] as block_id,
+            watched_segments.watched_segment as segment_start,
+            sum(watched_segments.watch_count) as watched_count,
             formatDateTime(
-                toDate(now()) + toIntervalSecond(segments.watched_segment), '%T'
+                toDate(now()) + toIntervalSecond(watched_segments.watched_segment), '%T'
             ) as time_stamp,
             arrayStringConcat(
                 arrayMap(
@@ -61,52 +63,59 @@ with
             ) as video_name_location,
             concat(
                 '<a href="',
-                segments.object_id,
+                watched_segments.object_id,
                 '" target="_blank">',
                 video_name_location,
                 '</a>'
             ) as video_link,
+            watched_segments.video_duration as video_duration,
             blocks.section_with_name as section_with_name,
-            blocks.subsection_with_name as subsection_with_name
-        from watched_segments as segments
+            blocks.subsection_with_name as subsection_with_name,
+            users.username as username,
+            users.name as name,
+            users.email as email
+        from watched_segments
+        left outer join
+            {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii users
+            on (
+                watched_segments.actor_id like 'mailto:%'
+                and SUBSTRING(watched_segments.actor_id, 8) = users.email
+            )
+            or watched_segments.actor_id = toString(users.external_user_id)
         join
             {{ DBT_PROFILE_TARGET_DATABASE }}.dim_course_blocks blocks
             on (
-                segments.course_key = blocks.course_key
-                and splitByString('/xblock/', segments.object_id)[-1] = blocks.block_id
+                watched_segments.course_key = blocks.course_key
+                and splitByString('/xblock/', watched_segments.object_id)[-1]
+                = blocks.block_id
             )
+        where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
+        group by
+            org,
+            course_key,
+            actor_id,
+            object_id,
+            block_id,
+            watched_segment,
+            time_stamp,
+            video_number,
+            video_name_location,
+            video_link,
+            video_duration,
+            section_with_name,
+            subsection_with_name,
+            username,
+            name,
+            email
     )
 select
     org,
     course_key,
     actor_id,
     object_id,
-    splitByChar('@', splitByString('/xblock/', object_id)[-1])[3] as block_id,
-    watched_segment as segment_start,
-    sum(watch_count) as watched_count,
-    time_stamp,
-    video_number,
-    video_name_location,
-    video_link,
-    video_duration,
-    section_with_name,
-    subsection_with_name,
-    users.username as username,
-    users.name as name,
-    users.email as email
-from watches
-left outer join
-    {{ DBT_PROFILE_TARGET_DATABASE }}.dim_user_pii users
-    on (actor_id like 'mailto:%' and SUBSTRING(actor_id, 8) = users.email)
-    or actor_id = toString(users.external_user_id)
-where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
-group by
-    org,
-    course_key,
-    actor_id,
-    object_id,
     block_id,
-    watched_segment,
+    segment_start,
+    watched_count,
     time_stamp,
     video_number,
     video_name_location,
@@ -117,3 +126,4 @@ group by
     username,
     name,
     email
+from final_results
