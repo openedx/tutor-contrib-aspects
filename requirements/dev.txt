@@ -113,7 +113,7 @@ mypy-extensions==1.1.0
     #   -r requirements/base.txt
     #   black
     #   mypy
-nh3==0.3.2
+nh3==0.3.3
     # via readme-renderer
 oauthlib==3.3.1
     # via
@@ -134,7 +134,7 @@ pathspec==1.0.4
     #   -r requirements/base.txt
     #   black
     #   mypy
-platformdirs==4.6.0
+platformdirs==4.9.1
     # via
     #   -r requirements/base.txt
     #   black
@@ -150,7 +150,7 @@ pygments==2.19.2
     # via
     #   readme-renderer
     #   rich
-pyinstaller==6.18.0
+pyinstaller==6.19.0
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2026.0
     # via pyinstaller
