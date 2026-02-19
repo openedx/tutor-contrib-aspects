@@ -3,9 +3,14 @@
 
 set -eo pipefail
 
+pip install --upgrade pip
 bash /app/aspects/scripts/bootstrap.sh
 
 cd /app/aspects-dbt
+echo "===== Installing dependencies to fix issue in Aspects 1.3.0 ====="
+pip install --upgrade "clickhouse-connect==0.11.0"
+pip install --upgrade "dbt-clickhouse==1.10.0"
+
 echo "Running ${@:2}"
 
 python3 /app/aspects/scripts/insert_data.py load
