@@ -63,7 +63,7 @@ importlib-resources==6.5.2
     # via
     #   -r requirements/base.txt
     #   tutor
-isort==7.0.0
+isort==8.0.0
     # via pylint
 jaraco-classes==3.4.0
     # via keyring
@@ -86,7 +86,7 @@ kubernetes==35.0.0
     # via
     #   -r requirements/base.txt
     #   tutor
-librt==0.8.0
+librt==0.8.1
     # via
     #   -r requirements/base.txt
     #   mypy
@@ -134,7 +134,7 @@ pathspec==1.0.4
     #   -r requirements/base.txt
     #   black
     #   mypy
-platformdirs==4.9.1
+platformdirs==4.9.2
     # via
     #   -r requirements/base.txt
     #   black
@@ -152,9 +152,9 @@ pygments==2.19.2
     #   rich
 pyinstaller==6.19.0
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2026.0
+pyinstaller-hooks-contrib==2026.1
     # via pyinstaller
-pylint==4.0.4
+pylint==4.0.5
     # via -r requirements/dev.in
 python-dateutil==2.9.0.post0
     # via
@@ -186,7 +186,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==14.3.2
+rich==14.3.3
     # via twine
 ruamel-yaml==0.19.1
     # via -r requirements/base.txt
