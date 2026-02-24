@@ -41,7 +41,7 @@ fi
 
 if [[ "${1}" == "worker" ]]; then
   echo "Starting Celery worker..."
-  celery --app=superset.tasks.celery_app:app worker -Ofair -l INFO
+  celery --app=superset.tasks.celery_app:app worker -Ofair -l INFO ${CELERY_WORKER_EXTRA_ARGS:-}
 elif [[ "${1}" == "beat" ]]; then
   echo "Removing any orphan pid..."
   rm -rf /tmp/celerybeat.pid
