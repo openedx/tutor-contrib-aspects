@@ -1,5 +1,4 @@
 with watches as ({% include 'openedx-assets/queries/video_watches.sql' %})
-
 select distinct watches.*
 from watches
 join
