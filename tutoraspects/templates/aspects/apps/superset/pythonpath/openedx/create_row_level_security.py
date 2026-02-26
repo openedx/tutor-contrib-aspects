@@ -45,7 +45,7 @@ SECURITY_FILTERS = [
     },
 ]
 
-{{patch("superset-row-level-security") | indent(4)}}
+{{patch("superset-row-level-security")}}
 
 def create_rls_filters():
     for security_filter in SECURITY_FILTERS:
