@@ -62,6 +62,36 @@ GRANT {{ ON_CLUSTER }} SELECT ON system.metrics TO '{{ ASPECTS_CLICKHOUSE_REPORT
 GRANT {{ ON_CLUSTER }} SELECT ON system.replication_queue TO '{{ ASPECTS_CLICKHOUSE_REPORT_USER }}';
 GRANT {{ ON_CLUSTER }} SELECT ON system.query_log TO '{{ ASPECTS_CLICKHOUSE_REPORT_USER }}';
 
+-- Altinity connector settings
+CREATE DATABASE IF NOT EXISTS altinity_sink_connector {{ ON_CLUSTER }};
+
+GRANT {{ ON_CLUSTER }} CREATE TABLE, DROP TABLE, CREATE VIEW, DROP VIEW, SELECT, INSERT, UPDATE, DELETE, dictGet ON altinity_sink_connector.* TO '{{ ASPECTS_CLICKHOUSE_REPORT_USER }}';
+
+GRANT {{ ON_CLUSTER }} CREATE TABLE, DROP TABLE, CREATE VIEW, DROP VIEW, SELECT, INSERT, UPDATE, DELETE, dictGet ON default.* TO '{{ ASPECTS_CLICKHOUSE_REPORT_USER }}';
+
+CREATE TABLE if not exists altinity_sink_connector.replica_source_info
+(
+    `id` String,
+    `offset_key` String,
+    `offset_val` String,
+    `record_insert_ts` DateTime,
+    `record_insert_seq` UInt64,
+    `_version` UInt64 MATERIALIZED toUnixTimestamp64Nano(now64(9))
+)
+ENGINE = ReplacingMergeTree(_version)
+ORDER BY id
+SETTINGS index_granularity = 8198;
+
+CREATE TABLE if not exists altinity_sink_connector.replicate_schema_history
+(
+    `id` VARCHAR(36) NOT NULL,
+    `history_data` VARCHAR(65000),
+    `history_data_seq` INTEGER,
+    `record_insert_ts` TIMESTAMP NOT NULL,
+    `record_insert_seq` INTEGER NOT NULL
+)
+ENGINE=ReplacingMergeTree(record_insert_seq) order by id;
+
 -- Patch from clickhouse-extra-sql follows...
 {{ patch("clickhouse-extra-sql") }}
 
