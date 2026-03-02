@@ -21,7 +21,7 @@ black==26.1.0
     #   -r requirements/base.txt
     #   -r requirements/dev.in
     #   shandy-sqlfmt
-certifi==2026.1.4
+certifi==2026.2.25
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -63,7 +63,7 @@ importlib-resources==6.5.2
     # via
     #   -r requirements/base.txt
     #   tutor
-isort==8.0.0
+isort==8.0.1
     # via pylint
 jaraco-classes==3.4.0
     # via keyring
