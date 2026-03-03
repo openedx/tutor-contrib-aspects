@@ -14,12 +14,14 @@ then
   ssh-add /root/.ssh/id_rsa
 fi
 
-export branch=$(git -C aspects-dbt/ branch --show-current)
+export branch=$(git -C aspects-dbt/ describe --tags --exact-match 2>/dev/null || \
+                git -C aspects-dbt/ branch --show-current 2>/dev/null || \
+                git -C aspects-dbt/ rev-parse --short HEAD)
 export repo=$(git -C aspects-dbt/ config --get remote.origin.url)
 if [ "$DBT_BRANCH" != "$branch"  ] || [ "$DBT_REPOSITORY" != "$repo" ];
 then
   rm -rf aspects-dbt
-
+  echo "Current branch ${branch} != ${DBT_BRANCH}"
   echo "Installing aspects-dbt"
   echo "git clone -b ${DBT_BRANCH} ${DBT_REPOSITORY}"
   git clone -b ${DBT_BRANCH} ${DBT_REPOSITORY} aspects-dbt
