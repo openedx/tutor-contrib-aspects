@@ -33,9 +33,9 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_VERSION", __version__),
         # For our default deployment we currently use Celery -> Ralph for transport,
         # so Vector is off by default.
-        ("RUN_VECTOR", False),
+        ("RUN_VECTOR", True),
         ("RUN_CLICKHOUSE", True),
-        ("RUN_RALPH", True),
+        ("RUN_RALPH", False),
         ("RUN_SUPERSET", True),
         ("DOCKER_IMAGE_ASPECTS", "edunext/aspects:{{ ASPECTS_VERSION }}"),
         ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:25.8"),
@@ -160,7 +160,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             },
         ),
         # ClickHouse xAPI settings
-        ("ASPECTS_XAPI_SOURCE", "ralph"),
+        ("ASPECTS_XAPI_SOURCE", "vector"),
         (
             "ASPECTS_XAPI_DATABASE",
             """
@@ -181,7 +181,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_VECTOR_STORE_XAPI", True),
         ("ASPECTS_VECTOR_DATABASE", "openedx"),
         ("ASPECTS_VECTOR_RAW_TRACKING_LOGS_TABLE", "_tracking"),
-        ("ASPECTS_VECTOR_RAW_XAPI_TABLE", "xapi_events_all"),
         ("ASPECTS_DATA_TTL_EXPRESSION", "toDateTime(emission_time) + INTERVAL 1 YEAR"),
         ("ASPECTS_ALEMBIC_MIGRATIONS_DATABASE", "{{RALPH_DATABASE}}"),
         # Make sure LMS / CMS have event-routing-backends installed
@@ -263,7 +262,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "CLICKHOUSE_REPORT_URL",
             "{{ASPECTS_CLICKHOUSE_REPORT_USER}}:{{ASPECTS_CLICKHOUSE_REPORT_PASSWORD}}"
-            "@{{CLICKHOUSE_URL}}/{{ASPECTS_XAPI_DATABASE}}",
+            "@{{CLICKHOUSE_URL}}/{{ASPECTS_XAPI_SOURCE}}",
         ),
         (
             "CLICKHOUSE_REPORT_SQLALCHEMY_URI",
@@ -517,6 +516,11 @@ def _mount_superset_compose(
     """
     if name == "superset":
         volumes += [("superset", "/app")]
+    elif name == "aspects-dbt":
+        volumes += [
+            ("aspects-job", "/app/aspects-dbt"),
+            ("aspects-docs", "/app/aspects-dbt"),
+        ]
     return volumes
 
 
