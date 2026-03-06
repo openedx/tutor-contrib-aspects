@@ -107,8 +107,7 @@ def alembic(command: string) -> list[tuple[str, str]]:
     return [
         (
             "aspects",
-            f"bash /app/aspects/scripts/alembic.sh {command} && "
-            "echo 'Done!';",
+            f"bash /app/aspects/scripts/alembic.sh {command} && " "echo 'Done!';",
         ),
     ]
 
