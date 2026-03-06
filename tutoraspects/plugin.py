@@ -289,6 +289,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("SUPERSET_DB_USERNAME", "superset"),
         ("SUPERSET_DB_METADATA_NAME", "superset"),
         ("SUPERSET_EXTRA_REQUIREMENTS", []),
+        # Extra arguments to pass to the Celery worker command
+        ("SUPERSET_CELERY_WORKER_EXTRA_ARGS", ""),
         ("SUPERSET_OAUTH2_ACCESS_TOKEN_PATH", "/oauth2/access_token/"),
         ("SUPERSET_OAUTH2_AUTHORIZE_PATH", "/oauth2/authorize/"),
         (
