@@ -262,7 +262,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "CLICKHOUSE_REPORT_URL",
             "{{ASPECTS_CLICKHOUSE_REPORT_USER}}:{{ASPECTS_CLICKHOUSE_REPORT_PASSWORD}}"
-            "@{{CLICKHOUSE_URL}}/{{ASPECTS_XAPI_SOURCE}}",
+            "@{{CLICKHOUSE_URL}}/{{ASPECTS_XAPI_DATABASE}}",
         ),
         (
             "CLICKHOUSE_REPORT_SQLALCHEMY_URI",
