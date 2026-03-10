@@ -53,6 +53,7 @@ GRANT {{ ON_CLUSTER }} SELECT ON {{ ASPECTS_EVENT_SINK_DATABASE }}.* TO '{{ ASPE
 
 -- Grant permissions to the event sink user
 GRANT {{ ON_CLUSTER }} INSERT, SELECT, DELETE ON {{ ASPECTS_EVENT_SINK_DATABASE }}.* TO '{{ ASPECTS_CLICKHOUSE_CMS_USER }}';
+GRANT {{ ON_CLUSTER }} INSERT, SELECT, DELETE ON {{ ASPECTS_XAPI_DATABASE }}.* TO '{{ ASPECTS_CLICKHOUSE_CMS_USER }}';
 
 -- Grant permissions to the dbt / Superset user
     -- Source databases
