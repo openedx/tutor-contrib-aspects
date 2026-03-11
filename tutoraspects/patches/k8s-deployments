@@ -209,6 +209,8 @@ spec:
               value: "{{ SUPERSET_OAUTH2_ACCESS_TOKEN_PATH }}"
             - name: OAUTH2_AUTHORIZE_PATH
               value: "{{ SUPERSET_OAUTH2_AUTHORIZE_PATH }}"
+            - name: CELERY_WORKER_EXTRA_ARGS
+              value: "{{ SUPERSET_CELERY_WORKER_EXTRA_ARGS }}"
             - name: OPENEDX_COURSES_LIST_PATH
               value: "{{ SUPERSET_OPENEDX_COURSES_LIST_PATH }}"
             - name: OPENEDX_LMS_ROOT_URL
@@ -303,6 +305,8 @@ spec:
               value: "{{ SUPERSET_OAUTH2_ACCESS_TOKEN_PATH }}"
             - name: OAUTH2_AUTHORIZE_PATH
               value: "{{ SUPERSET_OAUTH2_AUTHORIZE_PATH }}"
+            - name: CELERY_WORKER_EXTRA_ARGS
+              value: "{{ SUPERSET_CELERY_WORKER_EXTRA_ARGS }}"
             - name: OPENEDX_COURSES_LIST_PATH
               value: "{{ SUPERSET_OPENEDX_COURSES_LIST_PATH }}"
             - name: OPENEDX_LMS_ROOT_URL

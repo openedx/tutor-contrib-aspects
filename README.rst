@@ -19,7 +19,7 @@ Key Features
 - Streamlined deployment of analytics and reporting tools.
 - Integration with Open edX for real-time and historical data analytics.
 - Extensible architecture supporting customization.
-- Open edX Teak or higher: `In-context metrics in Studio <https://docs.openedx.org/projects/openedx-aspects/en/latest/reference/in_context_dashboards.html>`_.
+- Open edX Teak or higher: `In-context metrics in Studio`.
 
 
 Compatibility
@@ -33,13 +33,13 @@ Installation
 
 Aspects is implemented as a Tutor plugin. For now, the easiest installation method is via Tutor. Follow these steps for a ``tutor local`` installation:
 
-1. **Install Tutor**:
+#. **Install Tutor**:
    Follow the instructions at `Tutor Installation Guide <https://docs.tutor.overhang.io/install.html#install>`_.
 
-2. **Create an Admin User**:
+#. **Create an Admin User**:
    Refer to the `Tutor Setup Guide <https://docs.tutor.overhang.io/whatnext.html#logging-in-as-administrator>`_.
 
-3. **Install and Enable the Plugin**:
+#. **Install and Enable the Plugin**:
 
    .. code-block:: bash
 
@@ -47,7 +47,10 @@ Aspects is implemented as a Tutor plugin. For now, the easiest installation meth
       tutor plugins enable aspects
       tutor config save
 
-4. **Rebuild Docker Images**:
+#. **Turn on In-Context Metrics (Optional)**:
+   If using Open edX Teak or higher, `in-context metrics` can be enabled in Studio. See `frontend-plugin-aspects` for more information.
+
+#. **Rebuild Docker Images**:
 
    .. code-block:: bash
 
@@ -55,7 +58,7 @@ Aspects is implemented as a Tutor plugin. For now, the easiest installation meth
       tutor images build mfe --no-cache  # Only necessary if using in-context metrics
       tutor images build aspects aspects-superset
 
-5. **Initialize the Environment**:
+#. **Initialize the Environment**:
 
    .. code-block:: bash
 
@@ -114,16 +117,16 @@ Contributing Charts and Dashboards
 
 To contribute Superset assets:
 
-1. Fork this repository and set up a local Tutor instance with Aspects installed.
-2. You should work on the non-localized versions of the Superset dashboards. Export the new or updated dashboard(s) using Superset’s “Export” feature. It is best to export the entire dashboard instead of just charts or datasets to ensure that all of the correct changes are captured.
-3. Use the command:
+#. Fork this repository and set up a local Tutor instance with Aspects installed.
+#. You should work on the non-localized versions of the Superset dashboards. Export the new or updated dashboard(s) using Superset’s “Export” feature. It is best to export the entire dashboard instead of just charts or datasets to ensure that all of the correct changes are captured.
+#. Use the command:
 
    .. code-block:: bash
 
       tutor aspects import_superset_zip ~/Downloads/your_file.zip
 
-4. Update database connection strings to use template variables.
-5. Validate and rebuild:
+#. Update database connection strings to use template variables.
+#. Validate and rebuild:
 
    .. code-block:: bash
 
@@ -131,7 +134,7 @@ To contribute Superset assets:
       tutor aspects check_superset_assets
       tutor local do import-assets
 
-6. Submit a pull request with screenshots and details of your contributions.
+#. Submit a pull request with screenshots and details of your contributions.
 
 Release Workflow
 ================
@@ -152,3 +155,8 @@ Additional Resources
 - `DBT Documentation <https://www.getdbt.com/docs/>`_
 - `Event Routing Backends Documentation <https://event-routing-backends.readthedocs.io/en/latest/>`_
 - `Tracking Logs Documentation <https://vector.dev/docs/>`_
+
+
+.. _frontend-plugin-aspects: https://github.com/openedx/frontend-plugin-aspects
+.. _in-context metrics: https://docs.openedx.org/projects/openedx-aspects/en/latest/technical_documentation/how-tos/production_configuration.html#in-context-metrics
+.. _in-context metrics in Studio:  https://docs.openedx.org/projects/openedx-aspects/en/latest/reference/in_context_dashboards.html

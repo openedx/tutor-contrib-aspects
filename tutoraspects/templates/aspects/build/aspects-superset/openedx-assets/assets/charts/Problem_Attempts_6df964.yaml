@@ -8,13 +8,8 @@ params:
   adhoc_filters:
   - clause: WHERE
     comparator: No filter
-    datasourceWarning: false
     expressionType: SIMPLE
-    filterOptionName: filter_yd770pyvxe_mwgme7m4o1
-    isExtra: false
-    isNew: false
     operator: TEMPORAL_RANGE
-    sqlExpression: null
     subject: emission_time
   all_columns: []
   allow_render_html: true
@@ -40,7 +35,7 @@ params:
   extra_form_data: {}
   groupby:
   - problem_link
-  - datasourceWarning: false
+  - datasourceWarning: true
     expressionType: SQL
     label: Graded
     sqlExpression: |-
@@ -60,8 +55,7 @@ params:
   show_cell_bars: true
   show_totals: false
   table_timestamp_format: smart_date
-  temporal_columns_lookup:
-    emission_time: true
+  temporal_columns_lookup: {}
   time_grain_sqla: P1M
   timeseries_limit_metric:
     aggregate: AVG
@@ -91,20 +85,15 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 659
+    id: 81
     type: table
   force: false
   form_data:
     adhoc_filters:
     - clause: WHERE
       comparator: No filter
-      datasourceWarning: false
       expressionType: SIMPLE
-      filterOptionName: filter_yd770pyvxe_mwgme7m4o1
-      isExtra: false
-      isNew: false
       operator: TEMPORAL_RANGE
-      sqlExpression: null
       subject: emission_time
     all_columns: []
     allow_render_html: true
@@ -128,13 +117,13 @@ query_context:
       operator: "\u2265"
       targetValue: 0
     dashboards:
-    - 307
-    datasource: 659__table
+    - 2588
+    datasource: 81__table
     extra_form_data: {}
     force: false
     groupby:
     - problem_link
-    - datasourceWarning: false
+    - datasourceWarning: true
       expressionType: SQL
       label: Graded
       sqlExpression: |-
@@ -155,10 +144,9 @@ query_context:
     server_pagination: false
     show_cell_bars: true
     show_totals: false
-    slice_id: 388
+    slice_id: 441
     table_timestamp_format: smart_date
-    temporal_columns_lookup:
-      emission_time: true
+    temporal_columns_lookup: {}
     time_grain_sqla: P1M
     timeseries_limit_metric:
       aggregate: AVG
@@ -191,7 +179,7 @@ query_context:
     applied_time_extras: {}
     columns:
     - problem_link
-    - datasourceWarning: false
+    - datasourceWarning: true
       expressionType: SQL
       label: Graded
       sqlExpression: |-
@@ -200,7 +188,6 @@ query_context:
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1M
       where: ''
     filters:
     - col: emission_time

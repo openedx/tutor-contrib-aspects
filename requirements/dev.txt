@@ -16,19 +16,19 @@ backports-tarfile==1.2.0
     # via jaraco-context
 bcrypt==5.0.0
     # via -r requirements/base.txt
-black==26.1.0
+black==26.3.0
     # via
     #   -r requirements/base.txt
     #   -r requirements/dev.in
     #   shandy-sqlfmt
-certifi==2026.1.4
+certifi==2026.2.25
     # via
     #   -r requirements/base.txt
     #   kubernetes
     #   requests
 cffi==2.0.0
     # via cryptography
-charset-normalizer==3.4.4
+charset-normalizer==3.4.5
     # via
     #   -r requirements/base.txt
     #   requests
@@ -63,11 +63,11 @@ importlib-resources==6.5.2
     # via
     #   -r requirements/base.txt
     #   tutor
-isort==7.0.0
+isort==8.0.1
     # via pylint
 jaraco-classes==3.4.0
     # via keyring
-jaraco-context==6.1.0
+jaraco-context==6.1.1
     # via keyring
 jaraco-functools==4.4.0
     # via keyring
@@ -86,7 +86,7 @@ kubernetes==35.0.0
     # via
     #   -r requirements/base.txt
     #   tutor
-librt==0.8.0
+librt==0.8.1
     # via
     #   -r requirements/base.txt
     #   mypy
@@ -113,7 +113,7 @@ mypy-extensions==1.1.0
     #   -r requirements/base.txt
     #   black
     #   mypy
-nh3==0.3.2
+nh3==0.3.3
     # via readme-renderer
 oauthlib==3.3.1
     # via
@@ -134,7 +134,7 @@ pathspec==1.0.4
     #   -r requirements/base.txt
     #   black
     #   mypy
-platformdirs==4.6.0
+platformdirs==4.9.4
     # via
     #   -r requirements/base.txt
     #   black
@@ -150,11 +150,11 @@ pygments==2.19.2
     # via
     #   readme-renderer
     #   rich
-pyinstaller==6.18.0
+pyinstaller==6.19.0
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2026.0
+pyinstaller-hooks-contrib==2026.2
     # via pyinstaller
-pylint==4.0.4
+pylint==4.0.5
     # via -r requirements/dev.in
 python-dateutil==2.9.0.post0
     # via
@@ -186,7 +186,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==14.3.2
+rich==14.3.3
     # via twine
 ruamel-yaml==0.19.1
     # via -r requirements/base.txt

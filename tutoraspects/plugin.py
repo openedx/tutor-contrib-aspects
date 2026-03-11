@@ -289,6 +289,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("SUPERSET_DB_USERNAME", "superset"),
         ("SUPERSET_DB_METADATA_NAME", "superset"),
         ("SUPERSET_EXTRA_REQUIREMENTS", []),
+        # Extra arguments to pass to the Celery worker command
+        ("SUPERSET_CELERY_WORKER_EXTRA_ARGS", ""),
         ("SUPERSET_OAUTH2_ACCESS_TOKEN_PATH", "/oauth2/access_token/"),
         ("SUPERSET_OAUTH2_AUTHORIZE_PATH", "/oauth2/authorize/"),
         (
@@ -394,7 +396,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
-        ("DBT_BRANCH", "v6.1.0"),
+        ("DBT_BRANCH", "v6.1.1"),
         ("DBT_SSH_KEY", ""),
         ("DBT_STATE_DIR", "/app/aspects-dbt/state"),
         ("DBT_PROFILES_DIR", "/app/aspects/dbt/"),
