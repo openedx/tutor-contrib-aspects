@@ -31,17 +31,17 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Each new setting is a pair: (setting_name, default_value).
         # Prefix your setting names with 'ASPECTS_'.
         ("ASPECTS_VERSION", __version__),
-        # For out default deployment we currently use Celery -> Ralph for transport,
+        # For our default deployment we currently use Celery -> Ralph for transport,
         # so Vector is off by default.
-        ("RUN_VECTOR", False),
+        ("RUN_VECTOR", True),
         ("RUN_CLICKHOUSE", True),
-        ("RUN_RALPH", True),
+        ("RUN_RALPH", False),
         ("RUN_SUPERSET", True),
         ("DOCKER_IMAGE_ASPECTS", "edunext/aspects:{{ ASPECTS_VERSION }}"),
         ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:25.8"),
         ("DOCKER_IMAGE_RALPH", "fundocker/ralph:4.1.0"),
         ("DOCKER_IMAGE_SUPERSET", "edunext/aspects-superset:{{ ASPECTS_VERSION }}"),
-        ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.30.0-alpine"),
+        ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.50.0-alpine"),
         (
             "EVENT_SINK_MODELS_ENABLED",
             ["course_overviews", "tag", "taxonomy", "object_tag", "course_enrollment"],
@@ -160,7 +160,17 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             },
         ),
         # ClickHouse xAPI settings
-        ("ASPECTS_XAPI_DATABASE", "xapi"),
+        ("ASPECTS_XAPI_SOURCE", "vector"),
+        (
+            "ASPECTS_XAPI_DATABASE",
+            """
+            {%- if ASPECTS_XAPI_SOURCE == 'vector' -%}
+                {{ ASPECTS_VECTOR_DATABASE }}
+            {%- else -%}
+                {{ RALPH_DATABASE }}
+            {%- endif -%}
+            """,
+        ),
         ("ASPECTS_RAW_XAPI_TABLE", "xapi_events_all"),
         # ClickHouse event sink settings
         ("ASPECTS_EVENT_SINK_DATABASE", "event_sink"),
@@ -171,8 +181,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_VECTOR_STORE_XAPI", True),
         ("ASPECTS_VECTOR_DATABASE", "openedx"),
         ("ASPECTS_VECTOR_RAW_TRACKING_LOGS_TABLE", "_tracking"),
-        ("ASPECTS_VECTOR_RAW_XAPI_TABLE", "xapi_events_all"),
         ("ASPECTS_DATA_TTL_EXPRESSION", "toDateTime(emission_time) + INTERVAL 1 YEAR"),
+        ("ASPECTS_ALEMBIC_MIGRATIONS_DATABASE", "{{RALPH_DATABASE}}"),
         # Make sure LMS / CMS have event-routing-backends installed
         ######################
         # ClickHouse Settings
@@ -267,7 +277,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "{% else %}"
             "{{CLICKHOUSE_HOST}}"
             "{% endif %}"
-            ":{{CLICKHOUSE_INTERNAL_NATIVE_PORT}}/{{ASPECTS_XAPI_DATABASE}}"
+            ":{{CLICKHOUSE_INTERNAL_NATIVE_PORT}}/{{ASPECTS_ALEMBIC_MIGRATIONS_DATABASE}}"
             "{% if CLICKHOUSE_SECURE_CONNECTION %}?secure=True{% endif %}",
         ),
         ######################
@@ -275,6 +285,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Change to https:// if the public interface to it is secure
         ("RALPH_HOST", "ralph"),
         ("RALPH_PORT", "8100"),
+        ("RALPH_DATABASE", "xapi"),
         ("RALPH_ENABLE_PUBLIC_URL", False),
         ("RALPH_RUN_HTTPS", False),
         ("RALPH_EXTRA_SETTINGS", {}),
@@ -507,6 +518,11 @@ def _mount_superset_compose(
     """
     if name == "superset":
         volumes += [("superset", "/app")]
+    elif name == "aspects-dbt":
+        volumes += [
+            ("aspects-job", "/app/aspects-dbt"),
+            ("aspects-docs", "/app/aspects-dbt"),
+        ]
     return volumes
 
 
