@@ -28,7 +28,7 @@ jobs:
       - name: Install aspects
         run: pip install -e .
       - name: Tutor config save
-        run: tutor config save
+        run: tutor config save --set ASPECTS_XAPI_SOURCE=ralph
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@4d04d5d9486b7bd6fa91e7baf45bbb4f8b9deedd # v4.0.0
       - name: Free Disk Space (Ubuntu)
@@ -101,7 +101,7 @@ jobs:
       - name: Install aspects
         run: pip install -e .
       - name: Tutor config save
-        run: tutor config save
+        run: tutor config save --set ASPECTS_XAPI_SOURCE=ralph
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@4d04d5d9486b7bd6fa91e7baf45bbb4f8b9deedd # v4.0.0
       - name: Free Disk Space (Ubuntu)
@@ -185,7 +185,7 @@ jobs:
         run: |
           pip install -r requirements/dev.txt
           pip install -e .
-          tutor config save
+          tutor config save --set ASPECTS_XAPI_SOURCE=ralph
       - name: Run Kubernetes tools
         uses: stefanprodan/kube-tools@49504f5a42faa937ed11d7705b995416f8e55271 # v1
         with:
