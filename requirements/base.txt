@@ -7,18 +7,18 @@
 appdirs==1.4.4
     # via tutor
 bcrypt==5.0.0
-    # via -r base.in
+    # via -r requirements/base.in
 black==26.3.1
     # via shandy-sqlfmt
 certifi==2026.2.25
     # via
     #   kubernetes
     #   requests
-charset-normalizer==3.4.5
+charset-normalizer==3.4.6
     # via requests
 click==8.2.1
     # via
-    #   -r base.in
+    #   -r requirements/base.in
     #   black
     #   shandy-sqlfmt
     #   tutor
@@ -30,7 +30,7 @@ importlib-metadata==8.7.1
     # via tutor
 importlib-resources==6.5.2
     # via
-    #   -r base.in
+    #   -r requirements/base.in
     #   tutor
 jinja2==3.1.6
     # via
@@ -51,7 +51,7 @@ mypy-extensions==1.1.0
 oauthlib==3.3.1
     # via requests-oauthlib
 openedx-atlas==0.7.0
-    # via -r base.in
+    # via -r requirements/base.in
 packaging==26.0
     # via
     #   black
@@ -81,21 +81,21 @@ requests==2.32.5
 requests-oauthlib==2.0.0
     # via kubernetes
 ruamel-yaml==0.19.1
-    # via -r base.in
+    # via -r requirements/base.in
 shandy-sqlfmt[jinjafmt]==0.26.0
-    # via -r base.in
+    # via -r requirements/base.in
 six==1.17.0
     # via
     #   kubernetes
     #   python-dateutil
 tqdm==4.67.3
     # via shandy-sqlfmt
-tutor==21.0.1
+tutor==21.0.2
     # via
-    #   -r base.in
+    #   -r requirements/base.in
     #   tutor-mfe
 tutor-mfe==21.0.0
-    # via -r base.in
+    # via -r requirements/base.in
 typing-extensions==4.15.0
     # via
     #   mypy
