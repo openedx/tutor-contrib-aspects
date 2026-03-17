@@ -41,7 +41,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:25.8"),
         ("DOCKER_IMAGE_RALPH", "fundocker/ralph:4.1.0"),
         ("DOCKER_IMAGE_SUPERSET", "edunext/aspects-superset:{{ ASPECTS_VERSION }}"),
-        ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.50.0-alpine"),
+        ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.54.0-alpine"),
         (
             "EVENT_SINK_MODELS_ENABLED",
             ["course_overviews", "tag", "taxonomy", "object_tag", "course_enrollment"],
@@ -544,9 +544,7 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
 # run it as part of the `init` job.
 try:
     for service, template_path, priority in MY_INIT_TASKS:
-        hooks.Filters.COMMANDS_INIT.add_item(
-            (service, template_path)
-        )  # pylint: disable=no-member
+        hooks.Filters.COMMANDS_INIT.add_item((service, template_path))  # pylint: disable=no-member
 except AttributeError:
     for service, template_path, priority in MY_INIT_TASKS:
         full_path = os.path.join(
