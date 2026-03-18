@@ -61,7 +61,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # reasons.
         # Turn on event batching by default, performance is severely impacted by
         # turning this off.
-        ("EVENT_ROUTING_BACKEND_BATCHING_ENABLED", True),
+        ("EVENT_ROUTING_BACKEND_BATCHING_ENABLED", False),
         # Events are sent when they hit either the batch size or the batch interval
         # time limit (defaults here are 100 events or 5 seconds).
         # https://event-routing-backends.readthedocs.io/en/latest/getting_started.html#batching-configuration
