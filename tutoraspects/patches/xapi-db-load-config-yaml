@@ -12,8 +12,8 @@ lrs_password: "{{RALPH_LMS_PASSWORD}}"
 
 # Run options
 log_dir: logs
-num_xapi_batches: 10
-batch_size: 100000
+num_xapi_batches: 3
+batch_size: 100
 num_workers: 4
 
 # Overall start and end date for the entire run
