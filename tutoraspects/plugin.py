@@ -41,7 +41,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:25.8"),
         ("DOCKER_IMAGE_RALPH", "fundocker/ralph:4.1.0"),
         ("DOCKER_IMAGE_SUPERSET", "edunext/aspects-superset:{{ ASPECTS_VERSION }}"),
-        ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.50.0-alpine"),
+        ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.54.0-alpine"),
         (
             "EVENT_SINK_MODELS_ENABLED",
             ["course_overviews", "tag", "taxonomy", "object_tag", "course_enrollment"],
@@ -300,6 +300,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("SUPERSET_DB_USERNAME", "superset"),
         ("SUPERSET_DB_METADATA_NAME", "superset"),
         ("SUPERSET_EXTRA_REQUIREMENTS", []),
+        # Extra arguments to pass to the Celery worker command
+        ("SUPERSET_CELERY_WORKER_EXTRA_ARGS", ""),
         ("SUPERSET_OAUTH2_ACCESS_TOKEN_PATH", "/oauth2/access_token/"),
         ("SUPERSET_OAUTH2_AUTHORIZE_PATH", "/oauth2/authorize/"),
         (

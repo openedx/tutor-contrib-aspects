@@ -25,7 +25,7 @@ jobs:
     steps:
       - name: Log in to Docker Hub
         continue-on-error: true
-        uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9
+        uses: docker/login-action@b45d80f862d83dbcd57f89517bcf500b2ab88fb2
         with:
           username: ${{ secrets.EDUNEXT_DOCKER_USERNAME }}
           password: ${{ secrets.EDUNEXT_DOCKER_PASSWORD }}
@@ -50,7 +50,7 @@ jobs:
       - name: Save config
         run: tutor config save
       - name: Setup Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
       - name: Build Aspects Docker Images
         run: |
           tutor images build ${{ matrix.service.name }}
