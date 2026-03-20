@@ -107,8 +107,89 @@ To visualize data:
 
 - Interact with the course to generate data:
 
-  Complete a few activities within the course (e.g., enroll, take quizzes, watch videos) to generate real data. This will provide a more realistic dataset for analytics.
+   Complete a few activities within the course (e.g., enroll, take quizzes, watch videos) to generate real data. This will provide a more realistic dataset for analytics.
 
+
+
+xAPI S3 Sink Configuration
+-------------------------
+
+The S3 sink serves as a backup and safeguard for xAPI events. If ClickHouse is unavailable or encounters errors during event ingestion, events are stored in S3 as a safeguard. This ensures data durability and allows you to recover missed events later using the ``xapi-backfill`` command.
+
+To enable this backup mechanism, configure the following settings:
+
+.. code-block:: yaml
+
+   ASPECTS_XAPI_S3_ACCESS_KEY=openedx
+   ASPECTS_XAPI_S3_BUCKET=xapi-events
+   ASPECTS_XAPI_S3_ENDPOINT=http://minio:9000
+   ASPECTS_XAPI_S3_REGION=us-east-1
+   ASPECTS_XAPI_S3_SECRET_KEY=...
+
+Vector S3 sink options:
+
+.. code-block:: bash
+
+   ASPECTS_XAPI_S3_SINK_MAX_EVENTS=10000
+   ASPECTS_XAPI_S3_SINK_TIMEOUT_SECS=600
+
+.. note::
+
+   - ``ASPECTS_XAPI_S3_SINK_MAX_EVENTS`` controls how many events are batched before writing to S3
+   - ``ASPECTS_XAPI_S3_SINK_TIMEOUT_SECS`` controls how long to wait before flushing a batch
+   - Setting ``ASPECTS_XAPI_S3_SINK_TIMEOUT_SECS`` too low can create many small files in S3
+
+
+xAPI S3 Backfill
+----------------
+
+If you have xAPI events stored in S3 (configured via ``ASPECTS_XAPI_S3_BUCKET``), you can backfill them into ClickHouse using the ``xapi-backfill`` command. This is useful for:
+
+- Restoring data from a backup
+- Importing data from another environment
+- Re-processing historical events
+
+Basic usage:
+
+.. code-block:: bash
+
+   tutor local do xapi-backfill
+
+By default, this imports all events. You can filter by date using year, month, day, and hour options:
+
+.. code-block:: bash
+
+   tutor local do xapi-backfill --year 2026 --month 3
+   tutor local do xapi-backfill --year 2026 --month 03 --day 19
+   tutor local do xapi-backfill --year 2026 --month 03 --day 19 --hour 14
+
+For flexible path matching, use the ``--path`` option to specify a custom S3 path:
+
+.. code-block:: bash
+
+   tutor local do xapi-backfill --path xapi/2026/03/19/14/*.log.zst
+
+.. note::
+
+   - Date options accept both single and double-digit values (``03`` and ``3`` are equivalent)
+   - Hour should be in 24-hour format
+   - The ``--path`` option is exclusive with date options
+
+After backfilling, you can run deduplication to remove duplicate events:
+
+.. code-block:: bash
+
+   tutor local do xapi-backfill --deduplicate
+
+Or run deduplication separately:
+
+.. code-block:: bash
+
+   tutor local do xapi-deduplicate
+
+.. warning::
+
+   Deduplication uses ``OPTIMIZE TABLE FINAL`` which can be resource-intensive on large tables. Run during low-traffic periods if you have a large dataset.
 
 
 - Sync data from an existing Tutor installation with default settings:

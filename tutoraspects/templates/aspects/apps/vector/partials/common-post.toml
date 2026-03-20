@@ -143,9 +143,10 @@ endpoint = "{{ ASPECTS_XAPI_S3_ENDPOINT }}"
 {% endif %}
 key_prefix = "xapi/%Y/%m/%d/%H/"
 encoding.codec = "json"
-compression = "gzip"
+compression = "zstd"
 batch.max_events = {{ ASPECTS_XAPI_S3_SINK_MAX_EVENTS }}
 batch.timeout_secs = {{ ASPECTS_XAPI_S3_SINK_TIMEOUT_SECS }}
+framing.method = "newline_delimited"
 
 {% endif %}
 
