@@ -23,7 +23,7 @@ Key Features
 
 
 Compatibility
-============
+=============
 
 Current versions of the plugin are compatible with Tutor 19.0.0 and later and support Open edX releases from Sumac onward. Older releases can support Open edX versions as far back as Nutmeg. Details are available in the `Aspects Documentation <https://docs.openedx.org/projects/openedx-aspects/en/latest/technical_documentation/how-tos/upgrade.html>`_.
 
@@ -38,7 +38,6 @@ Key changes:
 - Vector is now the default for xAPI event ingestion
 - The ``ASPECTS_VECTOR_RAW_XAPI_TABLE`` setting has been replaced with ``ASPECTS_RAW_XAPI_TABLE``
 - The default database has changed from ``xapi`` (Ralph) to ``openedx`` (Vector)
-- A new S3 sink is available to backup xAPI events for recovery
 
 To keep using Ralph as your data pipeline:
 
