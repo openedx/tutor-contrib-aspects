@@ -597,6 +597,7 @@ jobs:
               print_pod_logs "$pod_name"
             done
           done
+
   local-vector:
     runs-on: ubuntu-latest
     steps:
