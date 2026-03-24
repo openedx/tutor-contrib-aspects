@@ -74,7 +74,6 @@ def dbt(only_changed: bool, command: string) -> list[tuple[str, str]]:
     return [
         (
             "aspects",
-            "echo 'Making dbt script executable...' && "
             f"echo 'Running dbt, only_changed: {only_changed} command: {command}' && "
             f"bash /app/aspects/scripts/dbt.sh {only_changed} {command} && "
             "echo 'Done!';",
@@ -108,9 +107,7 @@ def alembic(command: string) -> list[tuple[str, str]]:
     return [
         (
             "aspects",
-            "echo 'Making dbt script executable...' && "
-            f"bash /app/aspects/scripts/alembic.sh {command} && "
-            "echo 'Done!';",
+            f"bash /app/aspects/scripts/alembic.sh {command} && " "echo 'Done!';",
         ),
     ]
 
