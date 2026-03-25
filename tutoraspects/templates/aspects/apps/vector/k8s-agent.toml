@@ -1,0 +1,19 @@
+{% include "aspects/apps/vector/partials/common-pre.toml" %}
+
+### Sources
+# Capture logs from kubernetes
+[sources.kubernetes_logs]
+type = "kubernetes_logs"
+extra_namespace_label_selector = "kubernetes.io/metadata.name={{ K8S_NAMESPACE }}"
+glob_minimum_cooldown_ms = 2000
+
+[transforms.openedx_containers]
+type = "filter"
+inputs = ["kubernetes_logs"]
+condition = 'includes(["lms", "cms", "lms-worker", "cms-worker", "lms-job", "cms-job", "aspects-job", "aspects-consumer"], .kubernetes.container_name)'
+
+[sinks.to_aggregator]
+type = "vector"
+inputs = ["openedx_containers"]
+address = "vector-aggregator.{{ K8S_NAMESPACE }}:{{ ASPECTS_VECTOR_AGGREGATOR_PORT }}"
+compression = true

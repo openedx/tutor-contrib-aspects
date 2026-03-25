@@ -103,7 +103,16 @@
 
 {% endif %}
 {% if RUN_VECTOR %}
-- name: vector-config
+- name: vector-agent-config
   files:
-    - plugins/aspects/apps/vector/k8s.toml
+    - plugins/aspects/apps/vector/k8s-agent.toml
+  options:
+    labels:
+        app.kubernetes.io/name: vector-agent
+- name: vector-aggregator-config
+  files:
+    - plugins/aspects/apps/vector/k8s-aggregator.toml
+  options:
+    labels:
+        app.kubernetes.io/name: vector-aggregator
 {% endif %}
