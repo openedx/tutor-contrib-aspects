@@ -31,8 +31,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Each new setting is a pair: (setting_name, default_value).
         # Prefix your setting names with 'ASPECTS_'.
         ("ASPECTS_VERSION", __version__),
-        # For our default deployment we currently use Celery -> Ralph for transport,
-        # so Vector is off by default.
         ("RUN_VECTOR", True),
         ("RUN_CLICKHOUSE", True),
         ("RUN_RALPH", False),
@@ -186,6 +184,10 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_XAPI_S3_SINK_TIMEOUT_SECS", "600"),
         ("ASPECTS_VECTOR_DATABASE", "openedx"),
         ("ASPECTS_VECTOR_RAW_TRACKING_LOGS_TABLE", "_tracking"),
+        ("ASPECTS_VECTOR_AGGREGATOR_PORT", "6000"),
+        ("ASPECTS_VECTOR_AGGREGATOR_REPLICAS", 1),
+        ("ASPECTS_VECTOR_AGGREGATOR_BUFFER_MAX_SIZE", "1073741824"),
+        ("ASPECTS_VECTOR_AGGREGATOR_STORAGE_SIZE", "2Gi"),
         ("ASPECTS_DATA_TTL_EXPRESSION", "toDateTime(emission_time) + INTERVAL 1 YEAR"),
         ("ASPECTS_ALEMBIC_MIGRATIONS_DATABASE", "{{RALPH_DATABASE}}"),
         # Make sure LMS / CMS have event-routing-backends installed
