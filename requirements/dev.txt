@@ -36,7 +36,7 @@ click==8.2.1
     #   black
     #   shandy-sqlfmt
     #   tutor
-cryptography==46.0.5
+cryptography==46.0.6
     # via secretstorage
 dill==0.4.1
     # via pylint
@@ -110,7 +110,7 @@ mypy-extensions==1.1.0
     #   -r requirements/base.txt
     #   black
     #   mypy
-nh3==0.3.3
+nh3==0.3.4
     # via readme-renderer
 oauthlib==3.3.1
     # via
@@ -143,7 +143,7 @@ pycryptodome==3.23.0
     # via
     #   -r requirements/base.txt
     #   tutor
-pygments==2.19.2
+pygments==2.20.0
     # via
     #   readme-renderer
     #   rich
@@ -168,7 +168,7 @@ pyyaml==6.0.3
     #   tutor
 readme-renderer==44.0
     # via twine
-requests==2.32.5
+requests==2.33.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
