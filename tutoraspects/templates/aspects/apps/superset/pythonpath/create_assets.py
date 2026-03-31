@@ -40,6 +40,7 @@ ASSET_FOLDER_MAPPING = {
     "slice_name": "charts",
     "database_name": "databases",
     "table_name": "datasets",
+    "theme_name": "themes",
 }
 
 DASHBOARD_LOCALES = {{SUPERSET_DASHBOARD_LOCALES}}
@@ -289,11 +290,15 @@ def update_dashboard_roles(roles):
         dashboard.roles = role_ids
         if owners:
             dashboard.owners = owners
-        tags = [get_tag(language, db.session, TagType.custom).id]
-        update_tags(ObjectType.dashboard, dashboard.id, dashboard.tags, tags)
+        language_tags = [get_tag(language, db.session, TagType.custom).id]
+        custom_tags = {tag.id for tag in dashboard.tags if tag.type == TagType.custom}
+        custom_tags.update(language_tags)
+        update_tags(ObjectType.dashboard, dashboard.id, dashboard.tags, custom_tags)
 
         for slice in dashboard.slices:
-            update_tags(ObjectType.chart, slice.id, slice.tags, tags)
+            slice_tags = {tag.id for tag in slice.tags if tag.type == TagType.custom}
+            slice_tags.update(language_tags)
+            update_tags(ObjectType.chart, slice.id, slice.tags, slice_tags)
 
         db.session.commit()
 

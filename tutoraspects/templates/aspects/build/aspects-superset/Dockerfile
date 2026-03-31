@@ -4,7 +4,7 @@
 # https://github.com/apache/superset/blob/master/Dockerfile
 # https://superset.apache.org/docs/databases/installing-database-drivers
 
-FROM apache/superset:6.0.0
+FROM apache/superset:4.1.1
 
 USER root
 
@@ -27,8 +27,7 @@ RUN apt-get update -qq \
     && ln -s /opt/firefox/firefox /usr/local/bin/firefox \
     && apt-get autoremove -yqq --purge wget bzip2 && rm -rf /var/[log,tmp]/* /tmp/* /var/lib/apt/lists/*
 
-ENV PATH="/app/.venv/bin:${PATH}"
-RUN uv pip install -r /app/requirements.txt
+RUN --mount=type=cache,target=${SUPERSET_HOME}/.cache/uv pip install -r /app/requirements.txt
 
 COPY ./openedx-assets /app/openedx-assets
 

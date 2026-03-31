@@ -205,6 +205,14 @@ class DashboardAsset(Asset):
     required_vars = ["_roles"]
 
 
+class ThemeAsset(Asset):
+    """
+    Theme assets.
+    """
+
+    path = "themes"
+
+
 class DatasetAsset(Asset):
     """
     Dataset assets.
@@ -247,6 +255,7 @@ ASSET_TYPE_MAP = {
     "dashboard_title": DashboardAsset(),
     "table_name": DatasetAsset(),
     "database_name": DatabaseAsset(),
+    "theme_name": ThemeAsset(),
 }
 
 
@@ -263,7 +272,7 @@ def validate_asset_file(
 
     # make sure to not change the dashboard filename if we happen
     # to have a chart with the same name
-    if not content.get("dashboard_title"):
+    if content.get("slice_name"):
         out_filename_uuid = re.sub(
             r"(_\d*)\.yaml", f"_{content['uuid'][:6]}.yaml", orig_filename
         )
