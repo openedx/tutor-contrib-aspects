@@ -28,7 +28,7 @@ idna==3.11
     # via requests
 importlib-metadata==9.0.0
     # via tutor
-importlib-resources==7.1.0
+importlib-resources==6.5.2
     # via
     #   -r requirements/base.in
     #   tutor
