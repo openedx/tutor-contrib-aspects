@@ -187,11 +187,11 @@ jobs:
           pip install -e .
           tutor config save
       - name: Run Kubernetes tools
-        uses: alexellis/arkade-get@master
+        uses: alexellis/arkade-get@519940f35dea471a2a508b9ddba7be1ddadbb4cc
         with:
           kubectl: 1.23.0
           kustomize: 4.4.1
-          helmv3: 3.7.2
+          helm: 3.7.2
           kubeconform: 0.4.13
           command: |
             kustomize build $TUTOR_ROOT/env | kubeconform -strict -ignore-missing-schemas -kubernetes-version 1.22.0
@@ -479,11 +479,11 @@ jobs:
           tutor config save --set ASPECTS_XAPI_SOURCE=vector
           tutor config printvalue ASPECTS_XAPI_DATABASE | grep openedx
       - name: Run Kubernetes tools
-        uses: alexellis/arkade-get@master
+        uses: alexellis/arkade-get@519940f35dea471a2a508b9ddba7be1ddadbb4cc
         with:
           kubectl: 1.23.0
           kustomize: 4.4.1
-          helmv3: 3.7.2
+          helm: 3.7.2
           kubeconform: 0.4.13
           command: |
             kustomize build $TUTOR_ROOT/env | kubeconform -strict -ignore-missing-schemas -kubernetes-version 1.22.0
