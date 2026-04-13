@@ -193,8 +193,9 @@ jobs:
           kustomize: 4.4.1
           helm: 3.7.2
           kubeconform: 0.4.13
-          command: |
-            kustomize build $TUTOR_ROOT/env | kubeconform -strict -ignore-missing-schemas -kubernetes-version 1.22.0
+      - name: Run Kubernetes tools
+        run: |
+          kustomize build $TUTOR_ROOT/env | kubeconform -strict -ignore-missing-schemas -kubernetes-version 1.22.0
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v4
       - name: Tutor build openedx
@@ -485,8 +486,9 @@ jobs:
           kustomize: 4.4.1
           helm: 3.7.2
           kubeconform: 0.4.13
-          command: |
-            kustomize build $TUTOR_ROOT/env | kubeconform -strict -ignore-missing-schemas -kubernetes-version 1.22.0
+      - name: Run Kubernetes tools
+        run: |
+          kustomize build $TUTOR_ROOT/env | kubeconform -strict -ignore-missing-schemas -kubernetes-version 1.22.0
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v4
       - name: Tutor build openedx
