@@ -187,7 +187,7 @@ jobs:
           pip install -e .
           tutor config save
       - name: Run Kubernetes tools
-        uses: stefanprodan/kube-tools@v1
+        uses: alexellis/arkade-get@master
         with:
           kubectl: 1.23.0
           kustomize: 4.4.1
@@ -479,7 +479,7 @@ jobs:
           tutor config save --set ASPECTS_XAPI_SOURCE=vector
           tutor config printvalue ASPECTS_XAPI_DATABASE | grep openedx
       - name: Run Kubernetes tools
-        uses: stefanprodan/kube-tools@v1
+        uses: alexellis/arkade-get@master
         with:
           kubectl: 1.23.0
           kustomize: 4.4.1
