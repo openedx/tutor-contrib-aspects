@@ -25,7 +25,7 @@ Key Features
 Compatibility
 =============
 
-Current versions of the plugin are compatible with Tutor 19.0.0 and later and support Open edX releases from Sumac onward. Older releases can support Open edX versions as far back as Nutmeg. Details are available in the `Aspects Documentation <https://docs.openedx.org/projects/openedx-aspects/en/latest/technical_documentation/how-tos/upgrade.html>`_.
+Current versions of the plugin are compatible with Tutor 19.0.0 and later and support Open edX releases from Sumac onward. Older releases can support Open edX versions as far back as Nutmeg. Details are available in the `Aspects Documentation <https://docs.openedx.org/projects/openedx-aspects/en/latest/technical_documentation/how-tos/02_upgrade.html>`_.
 
 
 Installation
@@ -158,5 +158,5 @@ Additional Resources
 
 
 .. _frontend-plugin-aspects: https://github.com/openedx/frontend-plugin-aspects
-.. _in-context metrics: https://docs.openedx.org/projects/openedx-aspects/en/latest/technical_documentation/how-tos/production_configuration.html#in-context-metrics
+.. _in-context metrics: https://docs.openedx.org/projects/openedx-aspects/en/latest/technical_documentation/how-tos/aspects_production_configuration.html#in-context-metrics
 .. _in-context metrics in Studio:  https://docs.openedx.org/projects/openedx-aspects/en/latest/reference/in_context_dashboards.html
