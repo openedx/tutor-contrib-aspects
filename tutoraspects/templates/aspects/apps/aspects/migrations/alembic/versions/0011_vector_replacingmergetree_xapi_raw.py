@@ -5,7 +5,7 @@ down_revision = "0010"
 branch_labels = None
 depends_on = None
 
-DESTINATION_TABLE = "{{ ASPECTS_VECTOR_DATABASE }}.{{ ASPECTS_VECTOR_RAW_XAPI_TABLE }}"
+DESTINATION_TABLE = "{{ ASPECTS_VECTOR_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}"
 TMP_TABLE_NEW = f"{DESTINATION_TABLE}_tmp_{revision}"
 TMP_TABLE_ORIG = f"{DESTINATION_TABLE}_tmp_mergetree_{revision}"
 on_cluster = (

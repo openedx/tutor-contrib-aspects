@@ -125,7 +125,7 @@ date_time_best_effort = true
 inputs = ["xapi"]
 endpoint = "{% if CLICKHOUSE_SECURE_CONNECTION %}https{% else %}http{% endif %}://{{ CLICKHOUSE_HOST }}:{{ CLICKHOUSE_INTERNAL_HTTP_PORT }}"
 database = "{{ ASPECTS_VECTOR_DATABASE }}"
-table = "{{ ASPECTS_VECTOR_RAW_XAPI_TABLE }}"
+table = "{{ ASPECTS_RAW_XAPI_TABLE }}"
 healthcheck = false
 
 {% endif %}
