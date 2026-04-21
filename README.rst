@@ -77,7 +77,7 @@ To visualize data:
 
 - Import a demo course and create real data:
 
-  Follow `these steps <https://docs.tutor.overhang.io/whatnext.html#importing-a-demo-course>`_.
+  Follow `these steps <https://docs.tutor.edly.io/gettingstarted/whatsnext.html#importing-a-demo-course>`_.
 
 - Interact with the course to generate data:
 
