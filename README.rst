@@ -25,7 +25,7 @@ Key Features
 Compatibility
 =============
 
-Current versions of the plugin are compatible with Tutor 19.0.0 and later and support Open edX releases from Sumac onward. Older releases can support Open edX versions as far back as Nutmeg. Details are available in the `Aspects Documentation <https://docs.openedx.org/projects/openedx-aspects/en/latest/technical_documentation/how-tos/upgrade.html>`_.
+Current versions of the plugin are compatible with Tutor 19.0.0 and later and support Open edX releases from Sumac onward. Older releases can support Open edX versions as far back as Nutmeg. Details are available in the `Aspects Documentation <https://docs.openedx.org/projects/openedx-aspects/en/latest/technical_documentation/how-tos/02_upgrade.html>`_.
 
 
 Installation
@@ -37,7 +37,7 @@ Aspects is implemented as a Tutor plugin. For now, the easiest installation meth
    Follow the instructions at `Tutor Installation Guide <https://docs.tutor.overhang.io/install.html#install>`_.
 
 #. **Create an Admin User**:
-   Refer to the `Tutor Setup Guide <https://docs.tutor.overhang.io/whatnext.html#logging-in-as-administrator>`_.
+   Refer to the `Tutor Setup Guide <https://docs.tutor.edly.io/gettingstarted/whatsnext.html#logging-in-as-administrator>`_.
 
 #. **Install and Enable the Plugin**:
 
@@ -77,7 +77,7 @@ To visualize data:
 
 - Import a demo course and create real data:
 
-  Follow `these steps <https://docs.tutor.overhang.io/whatnext.html#importing-a-demo-course>`_.
+  Follow `these steps <https://docs.tutor.edly.io/gettingstarted/whatsnext.html#importing-a-demo-course>`_.
 
 - Interact with the course to generate data:
 
@@ -158,5 +158,5 @@ Additional Resources
 
 
 .. _frontend-plugin-aspects: https://github.com/openedx/frontend-plugin-aspects
-.. _in-context metrics: https://docs.openedx.org/projects/openedx-aspects/en/latest/technical_documentation/how-tos/production_configuration.html#in-context-metrics
+.. _in-context metrics: https://docs.openedx.org/projects/openedx-aspects/en/latest/technical_documentation/how-tos/aspects_production_configuration.html#in-context-metrics
 .. _in-context metrics in Studio:  https://docs.openedx.org/projects/openedx-aspects/en/latest/reference/in_context_dashboards.html
