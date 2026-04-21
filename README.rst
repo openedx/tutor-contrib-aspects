@@ -37,7 +37,7 @@ Aspects is implemented as a Tutor plugin. For now, the easiest installation meth
    Follow the instructions at `Tutor Installation Guide <https://docs.tutor.overhang.io/install.html#install>`_.
 
 #. **Create an Admin User**:
-   Refer to the `Tutor Setup Guide <https://docs.tutor.overhang.io/whatnext.html#logging-in-as-administrator>`_.
+   Refer to the `Tutor Setup Guide <https://docs.tutor.edly.io/gettingstarted/whatsnext.html#logging-in-as-administrator>`_.
 
 #. **Install and Enable the Plugin**:
 
