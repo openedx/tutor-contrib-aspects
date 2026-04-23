@@ -1,4 +1,4 @@
-authlib  # OAuth2
+authlib==1.6.9  # OAuth2
 clickhouse-connect>0.8,<1.0
 openedx-atlas
 ruamel-yaml==0.18.10
