@@ -2,7 +2,7 @@ authlib==1.6.9  # OAuth2
 clickhouse-connect>0.8,<1.0
 openedx-atlas
 ruamel-yaml==0.18.10
-sentry-sdk[flask]
+sentry-sdk[flask]==2.58.0
 urllib3>=2,<3
 shandy-sqlfmt[jinjafmt]>=0.24,<0.25
 gevent # Used to improve celery worker performance on I/O tasks
