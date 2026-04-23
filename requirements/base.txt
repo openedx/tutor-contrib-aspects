@@ -10,7 +10,7 @@ bcrypt==5.0.0
     # via -r requirements/base.in
 black==26.3.1
     # via shandy-sqlfmt
-certifi==2026.2.25
+certifi==2026.4.22
     # via
     #   kubernetes
     #   requests
@@ -24,11 +24,11 @@ click==8.2.1
     #   tutor
 durationpy==0.10
     # via kubernetes
-idna==3.11
+idna==3.13
     # via requests
 importlib-metadata==9.0.0
     # via tutor
-importlib-resources==6.5.2
+importlib-resources==7.1.0
     # via
     #   -r requirements/base.in
     #   tutor
@@ -38,11 +38,11 @@ jinja2==3.1.6
     #   tutor
 kubernetes==35.0.0
     # via tutor
-librt==0.8.1
+librt==0.9.0
     # via mypy
 markupsafe==3.0.3
     # via jinja2
-mypy==1.20.0
+mypy==1.20.2
     # via tutor
 mypy-extensions==1.1.0
     # via
@@ -52,15 +52,15 @@ oauthlib==3.3.1
     # via requests-oauthlib
 openedx-atlas==0.7.0
     # via -r requirements/base.in
-packaging==26.0
+packaging==26.1
     # via
     #   black
     #   tutor
-pathspec==1.0.4
+pathspec==1.1.0
     # via
     #   black
     #   mypy
-platformdirs==4.9.4
+platformdirs==4.9.6
     # via
     #   black
     #   shandy-sqlfmt
@@ -90,7 +90,7 @@ six==1.17.0
     #   python-dateutil
 tqdm==4.67.3
     # via shandy-sqlfmt
-tutor==21.0.2
+tutor==21.0.4
     # via
     #   -r requirements/base.in
     #   tutor-mfe
@@ -106,5 +106,5 @@ urllib3==2.6.3
     #   requests
 websocket-client==1.9.0
     # via kubernetes
-zipp==3.23.0
+zipp==3.23.1
     # via importlib-metadata
