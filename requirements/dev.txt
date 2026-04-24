@@ -48,7 +48,7 @@ durationpy==0.10
     #   kubernetes
 id==1.6.1
     # via twine
-idna==3.13
+idna==3.11
     # via
     #   -r requirements/base.txt
     #   requests
