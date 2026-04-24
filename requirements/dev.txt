@@ -52,11 +52,11 @@ idna==3.13
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==6.5.2
+importlib-metadata==9.0.0
     # via
     #   -r requirements/base.txt
     #   tutor
-importlib-resources==7.1.0
+importlib-resources==6.5.2
     # via
     #   -r requirements/base.txt
     #   tutor
