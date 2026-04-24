@@ -24,7 +24,7 @@ click==8.2.1
     #   tutor
 durationpy==0.10
     # via kubernetes
-idna==3.13
+idna==3.11
     # via requests
 importlib-metadata==9.0.0
     # via tutor
