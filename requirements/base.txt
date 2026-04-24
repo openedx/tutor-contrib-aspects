@@ -38,7 +38,7 @@ jinja2==3.1.6
     #   tutor
 kubernetes==35.0.0
     # via tutor
-librt==0.9.0
+librt==0.8.1
     # via mypy
 markupsafe==3.0.3
     # via jinja2
@@ -52,7 +52,7 @@ oauthlib==3.3.1
     # via requests-oauthlib
 openedx-atlas==0.7.0
     # via -r requirements/base.in
-packaging==26.1
+packaging==26.0
     # via
     #   black
     #   tutor
