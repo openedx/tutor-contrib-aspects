@@ -183,7 +183,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==15.0.0
+rich==14.3.3
     # via twine
 ruamel-yaml==0.19.1
     # via -r requirements/base.txt
