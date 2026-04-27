@@ -202,7 +202,7 @@ tqdm==4.67.3
     # via
     #   -r requirements/base.txt
     #   shandy-sqlfmt
-tutor==21.0.4
+tutor==21.0.2
     # via
     #   -r requirements/base.txt
     #   tutor-mfe
