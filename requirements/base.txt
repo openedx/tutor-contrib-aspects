@@ -42,7 +42,7 @@ librt==0.8.1
     # via mypy
 markupsafe==3.0.3
     # via jinja2
-mypy==1.20.2
+mypy==1.20.0
     # via tutor
 mypy-extensions==1.1.0
     # via
@@ -60,7 +60,7 @@ pathspec==1.0.4
     # via
     #   black
     #   mypy
-platformdirs==4.9.6
+platformdirs==4.9.4
     # via
     #   black
     #   shandy-sqlfmt
@@ -90,7 +90,7 @@ six==1.17.0
     #   python-dateutil
 tqdm==4.67.3
     # via shandy-sqlfmt
-tutor==21.0.4
+tutor==21.0.2
     # via
     #   -r requirements/base.in
     #   tutor-mfe
@@ -106,5 +106,5 @@ urllib3==2.6.3
     #   requests
 websocket-client==1.9.0
     # via kubernetes
-zipp==3.23.1
+zipp==3.23.0
     # via importlib-metadata
