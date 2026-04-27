@@ -126,7 +126,7 @@ packaging==26.2
     #   pyinstaller-hooks-contrib
     #   tutor
     #   twine
-pathspec==1.1.0
+pathspec==1.0.4
     # via
     #   -r requirements/base.txt
     #   black
@@ -147,7 +147,7 @@ pygments==2.20.0
     # via
     #   readme-renderer
     #   rich
-pyinstaller==6.20.0
+pyinstaller==6.19.0
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2026.4
     # via pyinstaller
