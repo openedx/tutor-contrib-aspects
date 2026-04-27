@@ -19,7 +19,7 @@ black==26.3.1
     #   -r requirements/base.txt
     #   -r requirements/dev.in
     #   shandy-sqlfmt
-certifi==2026.4.22
+certifi==2026.2.25
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -48,7 +48,7 @@ durationpy==0.10
     #   kubernetes
 id==1.6.1
     # via twine
-idna==3.13
+idna==3.11
     # via
     #   -r requirements/base.txt
     #   requests
@@ -56,7 +56,7 @@ importlib-metadata==9.0.0
     # via
     #   -r requirements/base.txt
     #   tutor
-importlib-resources==7.1.0
+importlib-resources==6.5.2
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -83,7 +83,7 @@ kubernetes==35.0.0
     # via
     #   -r requirements/base.txt
     #   tutor
-librt==0.9.0
+librt==0.8.1
     # via
     #   -r requirements/base.txt
     #   mypy
@@ -118,7 +118,7 @@ oauthlib==3.3.1
     #   requests-oauthlib
 openedx-atlas==0.7.0
     # via -r requirements/base.txt
-packaging==26.2
+packaging==26.0
     # via
     #   -r requirements/base.txt
     #   black
@@ -183,7 +183,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==15.0.0
+rich==14.3.3
     # via twine
 ruamel-yaml==0.19.1
     # via -r requirements/base.txt
