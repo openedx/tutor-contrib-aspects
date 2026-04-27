@@ -97,11 +97,11 @@ mccabe==0.7.0
     # via pylint
 mdurl==0.1.2
     # via markdown-it-py
-more-itertools==11.0.2
+more-itertools==11.0.1
     # via
     #   jaraco-classes
     #   jaraco-functools
-mypy==1.20.2
+mypy==1.20.0
     # via
     #   -r requirements/base.txt
     #   tutor
