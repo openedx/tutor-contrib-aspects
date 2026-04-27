@@ -131,7 +131,7 @@ pathspec==1.0.4
     #   -r requirements/base.txt
     #   black
     #   mypy
-platformdirs==4.9.6
+platformdirs==4.9.4
     # via
     #   -r requirements/base.txt
     #   black
@@ -202,7 +202,7 @@ tqdm==4.67.3
     # via
     #   -r requirements/base.txt
     #   shandy-sqlfmt
-tutor==21.0.4
+tutor==21.0.2
     # via
     #   -r requirements/base.txt
     #   tutor-mfe
@@ -226,7 +226,7 @@ websocket-client==1.9.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-zipp==3.23.1
+zipp==3.23.0
     # via
     #   -r requirements/base.txt
     #   importlib-metadata
