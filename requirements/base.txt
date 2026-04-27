@@ -56,7 +56,7 @@ packaging==26.2
     # via
     #   black
     #   tutor
-pathspec==1.1.0
+pathspec==1.0.4
     # via
     #   black
     #   mypy
