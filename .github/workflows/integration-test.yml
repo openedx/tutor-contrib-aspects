@@ -190,7 +190,7 @@ jobs:
         uses: stefanprodan/kube-tools@v1
         with:
           kubectl: 1.23.0
-          kustomize: 4.4.1
+          kustomize: 5.0.0
           helmv3: 3.7.2
           kubeconform: 0.4.13
           command: |
@@ -482,7 +482,7 @@ jobs:
         uses: stefanprodan/kube-tools@v1
         with:
           kubectl: 1.23.0
-          kustomize: 4.4.1
+          kustomize: 5.0.0
           helmv3: 3.7.2
           kubeconform: 0.4.13
           command: |
