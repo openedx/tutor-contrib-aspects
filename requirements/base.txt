@@ -90,7 +90,7 @@ six==1.17.0
     #   python-dateutil
 tqdm==4.67.3
     # via shandy-sqlfmt
-tutor==21.0.4
+tutor==21.0.2
     # via
     #   -r requirements/base.in
     #   tutor-mfe
