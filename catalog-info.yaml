@@ -22,10 +22,10 @@ spec:
   #
   # If you need a new team created, create an issue with tCRIL engineering:
   # https://github.com/openedx/tcril-engineering/issues/new/choose
-  owner: "bmtcril"
+  owner: group:tutor-contrib-aspects-maintainers
 
   # (Required) Acceptable Type Values: service, website, library
   type: 'library'
 
   # (Required) Acceptable Lifecycle Values: experimental, production, deprecated
-  lifecycle: 'experimental'
+  lifecycle: 'production'
