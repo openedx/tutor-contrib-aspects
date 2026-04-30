@@ -242,8 +242,8 @@ tutor==21.0.8
     # via
     #   -r base.txt
     #   tutor-mfe
-tutor-mfe==21.0.0
-    # via -r base.txt
+tutor-mfe @ git+https://github.com/overhangio/tutor-mfe@verawood
+    # via -r requirements/base.txt
 twine==6.2.0
     # via -r dev.in
 typing-extensions==4.16.0
