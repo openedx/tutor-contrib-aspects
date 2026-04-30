@@ -3,7 +3,7 @@ click>=8.0,<8.3.0
 bcrypt
 importlib-resources
 openedx-atlas
-tutor>=18
+tutor @ git+https://github.com/overhangio/tutor@verawood
 ruamel.yaml
 shandy-sqlfmt[jinjafmt]==0.26.0
 tutor-mfe>=18
