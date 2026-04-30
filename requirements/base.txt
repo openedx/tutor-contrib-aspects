@@ -96,7 +96,7 @@ tutor==21.0.7
     # via
     #   -r requirements/base.in
     #   tutor-mfe
-tutor-mfe==21.0.0
+tutor-mfe @ git+https://github.com/overhangio/tutor-mfe@verawood
     # via -r requirements/base.in
 typing-extensions==4.15.0
     # via
