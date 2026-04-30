@@ -1,5 +1,5 @@
-RUN --mount=type=cache,target=/openedx/.cache/uv \
+RUN --mount=type=cache,target=/openedx/.cache/uv,sharing=shared \
     uv pip install "platform-plugin-aspects==v1.2.0"
 
-RUN --mount=type=cache,target=/openedx/.cache/uv \
+RUN --mount=type=cache,target=/openedx/.cache/uv,sharing=shared \
     uv pip install "edx-event-routing-backends>=10.0.0"
