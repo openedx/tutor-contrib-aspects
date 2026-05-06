@@ -206,7 +206,7 @@ tutor @ git+https://github.com/overhangio/tutor@verawood
     # via
     #   -r requirements/base.txt
     #   tutor-mfe
-tutor-mfe==21.0.0
+tutor-mfe @ git+https://github.com/overhangio/tutor-mfe@verawood
     # via -r requirements/base.txt
 twine==6.2.0
     # via -r requirements/dev.in
