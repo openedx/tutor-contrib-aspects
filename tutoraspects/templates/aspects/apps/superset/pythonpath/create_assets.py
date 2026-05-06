@@ -291,7 +291,7 @@ def update_dashboard_roles(roles):
         if owners:
             dashboard.owners = owners
         language_tags = [get_tag(language, db.session, TagType.custom).id]
-        custom_tags = {tag.id for tag in dashboard.tags if tag.type == TagType.custom}
+        custom_tags = {tag.id for tag in dashboard.tags if tag.type == TagType.custom and tag.name != 'original'}
         custom_tags.update(language_tags)
         update_tags(ObjectType.dashboard, dashboard.id, dashboard.tags, custom_tags)
 

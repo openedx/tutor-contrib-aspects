@@ -1569,6 +1569,14 @@
         "view_menu":{
           "name":"Superset"
         }
+      },
+      {
+        "permission": {
+          "name": "can_read"
+        },
+        "view_menu": {
+          "name": "Theme"
+        }
       }
     ]
   },
@@ -4020,6 +4028,14 @@
         },
         "view_menu": {
           "name": "Superset"
+        }
+      },
+      {
+        "permission": {
+          "name": "can_read"
+        },
+        "view_menu": {
+          "name": "Theme"
         }
       }
     ]
