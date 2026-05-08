@@ -119,7 +119,7 @@ jobs:
           large-packages: false
           swap-storage: true
       - name: Tutor build openedx
-        run: tutor images build openedx-dev aspects aspects-superset
+        run: tutor images build openedx-dev aspects aspects-superset permissions
       - name: Tutor start
         run: tutor dev start -d
       - name: Tutor init
@@ -413,7 +413,7 @@ jobs:
           large-packages: false
           swap-storage: true
       - name: Tutor build openedx
-        run: tutor images build openedx-dev aspects aspects-superset
+        run: tutor images build openedx-dev aspects aspects-superset permissions
       - name: Tutor start
         run: tutor dev start -d
       - name: Tutor init
