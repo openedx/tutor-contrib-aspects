@@ -693,37 +693,9 @@ if PLUGIN_SLOTS:
                 "org.openedx.frontend.authoring.course_outline_sidebar.v1",
                 """
             {
-                op: PLUGIN_OPERATIONS.Insert,
-                widget: {
-                    id: 'outline-sidebar',
-                    priority: 1,
-                    type: DIRECT_PLUGIN,
-                    RenderWidget: CourseOutlineSidebar,
-                },
-            }""",
-            ),
-            (
-                "authoring",
-                "org.openedx.frontend.authoring.course_outline_sidebar.v1",
-                """
-            {
                 op: PLUGIN_OPERATIONS.Wrap,
                 widgetId: 'default_contents',
-                wrapper: SidebarToggleWrapper,
-            }""",
-            ),
-            (
-                "authoring",
-                "org.openedx.frontend.authoring.course_unit_sidebar.v2",
-                """
-            {
-                op: PLUGIN_OPERATIONS.Insert,
-                widget: {
-                    id: 'course-unit-sidebar',
-                    priority: 1,
-                    type: DIRECT_PLUGIN,
-                    RenderWidget: UnitPageSidebar,
-                },
+                wrapper: CourseOutlineSidebarWrapper,
             }""",
             ),
             (
@@ -733,35 +705,7 @@ if PLUGIN_SLOTS:
             {
                 op: PLUGIN_OPERATIONS.Wrap,
                 widgetId: 'default_contents',
-                wrapper: SidebarToggleWrapper,
-            }""",
-            ),
-            (
-                "authoring",
-                "org.openedx.frontend.authoring.course_unit_header_actions.v1",
-                """
-            {
-                op: PLUGIN_OPERATIONS.Insert,
-                widget: {
-                    id: 'unit-header-aspects-button',
-                    priority: 60,
-                    type: DIRECT_PLUGIN,
-                    RenderWidget: CourseHeaderButton,
-                },
-            }""",
-            ),
-            (
-                "authoring",
-                "org.openedx.frontend.authoring.course_outline_header_actions.v1",
-                """
-            {
-                op: PLUGIN_OPERATIONS.Insert,
-                widget: {
-                    id: 'outline-header-aspects-button',
-                    priority: 60,
-                    type: DIRECT_PLUGIN,
-                    RenderWidget: CourseHeaderButton,
-                },
+                wrapper: UnitOutlineSidebarWrapper,
             }""",
             ),
             (
