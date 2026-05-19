@@ -8,15 +8,15 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Get next version
         id: tag_version
-        uses: python-semantic-release/python-semantic-release@v10.5.3
+        uses: python-semantic-release/python-semantic-release@350c48fcb3ffcdfd2e0a235206bc2ecea6b69df0 # v10.5.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           push: false
       - name: Set up Python 3.12
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
           python-version: "3.12"
       - name: Create bumpversion
@@ -27,7 +27,7 @@ jobs:
           bump2version --new-version ${{ steps.tag_version.outputs.version }} setup.cfg tutoraspects/__about__.py .ci/config.yml
       - name: Update Changelog
         if: steps.tag_version.outputs.version
-        uses: stefanzweifel/changelog-updater-action@v1.12.0
+        uses: stefanzweifel/changelog-updater-action@a938690fad7edf25368f37e43a1ed1b34303eb36 # v1.12.0
         with:
           latest-version: ${{ steps.tag_version.outputs.tag }}
           release-notes: ${{ steps.tag_version.outputs.release_notes }}
@@ -43,7 +43,7 @@ jobs:
           git push origin $branch_name
       - name: Create Pull Request
         id: cpr
-        uses: peter-evans/create-pull-request@v8
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
           token: ${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}
           title: "chore: preparing release ${{ steps.tag_version.outputs.version }}"
