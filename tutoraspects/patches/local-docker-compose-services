@@ -87,16 +87,16 @@ superset-worker-beat:
 
 {% if RUN_VECTOR %}
 vector:
-    image: {{ DOCKER_IMAGE_VECTOR }}
-    command: -c /etc/vector/vector.toml
-    volumes:
-        - ../../data/vector:/var/lib/vector
-        - ../plugins/aspects/apps/vector/local.toml:/etc/vector/vector.toml:ro
-        {% if ASPECTS_DOCKER_HOST_SOCK_PATH %}- {{ ASPECTS_DOCKER_HOST_SOCK_PATH }}:/var/run/docker.sock:ro{% endif %}
-    environment:
-        - DOCKER_HOST=unix:///var/run/docker.sock
-        - VECTOR_LOG=warn
-    restart: unless-stopped
+  image: {{ DOCKER_IMAGE_VECTOR }}
+  command: -w -c /etc/vector/vector.toml
+  volumes:
+      - ../../data/vector:/var/lib/vector
+      - ../plugins/aspects/apps/vector/local.toml:/etc/vector/vector.toml
+      {% if ASPECTS_DOCKER_HOST_SOCK_PATH %}- {{ ASPECTS_DOCKER_HOST_SOCK_PATH }}:/var/run/docker.sock:ro{% endif %}
+  environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - VECTOR_LOG=info
+  restart: unless-stopped
 {% endif %}
 
 {% if ASPECTS_ENABLE_EVENT_BUS_CONSUMER %}

@@ -128,6 +128,28 @@ database = "{{ ASPECTS_VECTOR_DATABASE }}"
 table = "{{ ASPECTS_RAW_XAPI_TABLE }}"
 healthcheck = false
 
+{% if ASPECTS_XAPI_S3_BUCKET %}
+[sinks.s3_xapi]
+type = "aws_s3"
+inputs = ["xapi"]
+region = "{{ ASPECTS_XAPI_S3_REGION }}"
+bucket = "{{ ASPECTS_XAPI_S3_BUCKET }}"
+{% if ASPECTS_XAPI_S3_ACCESS_KEY and ASPECTS_XAPI_S3_SECRET_KEY %}
+auth.access_key_id = "{{ ASPECTS_XAPI_S3_ACCESS_KEY }}"
+auth.secret_access_key = "{{ ASPECTS_XAPI_S3_SECRET_KEY }}"
+{% endif %}
+{% if ASPECTS_XAPI_S3_ENDPOINT %}
+endpoint = "{{ ASPECTS_XAPI_S3_ENDPOINT }}"
+{% endif %}
+key_prefix = "xapi/%Y/%m/%d/%H/"
+encoding.codec = "json"
+compression = "zstd"
+batch.max_events = {{ ASPECTS_XAPI_S3_SINK_MAX_EVENTS }}
+batch.timeout_secs = {{ ASPECTS_XAPI_S3_SINK_TIMEOUT_SECS }}
+framing.method = "newline_delimited"
+
+{% endif %}
+
 {% endif %}
 
 {{ patch("vector-common-toml") }}

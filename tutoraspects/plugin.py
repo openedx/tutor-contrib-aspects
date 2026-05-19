@@ -179,6 +179,11 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_DOCKER_HOST_SOCK_PATH", "/var/run/docker.sock"),
         ("ASPECTS_VECTOR_STORE_TRACKING_LOGS", False),
         ("ASPECTS_VECTOR_STORE_XAPI", True),
+        ("ASPECTS_XAPI_S3_BUCKET", ""),
+        ("ASPECTS_XAPI_S3_REGION", "us-east-1"),
+        ("ASPECTS_XAPI_S3_ENDPOINT", ""),
+        ("ASPECTS_XAPI_S3_SINK_MAX_EVENTS", "10000"),
+        ("ASPECTS_XAPI_S3_SINK_TIMEOUT_SECS", "600"),
         ("ASPECTS_VECTOR_DATABASE", "openedx"),
         ("ASPECTS_VECTOR_RAW_TRACKING_LOGS_TABLE", "_tracking"),
         ("ASPECTS_DATA_TTL_EXPRESSION", "toDateTime(emission_time) + INTERVAL 1 YEAR"),
@@ -462,6 +467,8 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         ("SUPERSET_ADMIN_PASSWORD", "{{ 24|random_string }}"),
         ("SUPERSET_LMS_USERNAME", "{{ 12|random_string }}"),
         ("SUPERSET_LMS_PASSWORD", "{{ 24|random_string }}"),
+        ("ASPECTS_XAPI_S3_ACCESS_KEY", ""),
+        ("ASPECTS_XAPI_S3_SECRET_KEY", ""),
     ]
 )
 
@@ -548,9 +555,7 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...], int]] = [
 # run it as part of the `init` job.
 try:
     for service, template_path, priority in MY_INIT_TASKS:
-        hooks.Filters.COMMANDS_INIT.add_item(
-            (service, template_path)
-        )  # pylint: disable=no-member
+        hooks.Filters.COMMANDS_INIT.add_item((service, template_path))  # pylint: disable=no-member
 except AttributeError:
     for service, template_path, priority in MY_INIT_TASKS:
         full_path = os.path.join(
