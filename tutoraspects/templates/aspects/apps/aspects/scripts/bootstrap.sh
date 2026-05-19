@@ -17,14 +17,15 @@ git config --global --add safe.directory '*'
 
 MOUNTED=false
 if [ -d "aspects-dbt/.git" ]; then
-  current_branch=$(git -C aspects-dbt/ describe --tags --exact-match 2>/dev/null || \
-                   git -C aspects-dbt/ branch --show-current 2>/dev/null || \
-                   git -C aspects-dbt/ rev-parse --short HEAD)
-  current_repo=$(git -C aspects-dbt/ config --get remote.origin.url)
   if [ ! -f "aspects-dbt/.git/shallow" ]; then
     MOUNTED=true
   fi
 fi
+
+current_branch=$(git -C aspects-dbt/ describe --tags --exact-match 2>/dev/null || \
+                 git -C aspects-dbt/ branch --show-current 2>/dev/null || \
+                 git -C aspects-dbt/ rev-parse --short HEAD)
+current_repo=$(git -C aspects-dbt/ config --get remote.origin.url)
 
 if [ "$MOUNTED" = true ]; then
   echo "Using mounted repo (branch: ${current_branch})"
