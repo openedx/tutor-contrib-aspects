@@ -1,0 +1,147 @@
+name: Bump Version (Manually)
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_tag:
+        description: 'The previous release tag to base this new version on (e.g., v1.4.2)'
+        required: true
+      force_bump:
+        description: 'Force a specific SemVer increment tier (default: auto-detect from commit messages)'
+        required: false
+        default: 'auto'
+        type: choice
+        options: [auto, patch, minor, major]
+
+jobs:
+  prepare-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout Targeted Branch Code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Force Fetch Tags and Remote History
+        run: |
+          git fetch --tags --force origin
+          git fetch origin ${{ github.ref_name }}
+
+      - name: Calculate Version and Process Changelog
+        id: git_changelog
+        run: |
+          BASE="${{ inputs.base_tag }}"
+          FORCE_BUMP="${{ inputs.force_bump }}"
+          # FIX: Added missing '/' before github.repository
+          REPO_URL="https://github.com/${{ github.repository }}"
+          CURRENT_DATE=$(date +%Y-%m-%d)
+
+          # FIX: Validate base_tag is a well-formed semver tag before proceeding
+          if ! echo "$BASE" | grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "::error::base_tag must be in the format vX.Y.Z (e.g. v1.4.2)" && exit 1
+          fi
+
+          if ! git rev-parse "$BASE" >/dev/null 2>&1; then
+            echo "::error::Base tag $BASE does not exist in local history." && exit 1
+          fi
+
+          FEAT="" FIX="" CHORE="" MISC="" BUMP="patch"
+
+          # FIX: Use --format=%H%n%s to capture full hash and subject line together
+          COMMIT_LOG=$(git log "${BASE}..HEAD" --format="%H%n%s%n---")
+
+          # FIX: Exit early with a clear error if there are no commits to release
+          if [ -z "$COMMIT_LOG" ]; then
+            echo "::error::No commits found between ${BASE} and HEAD. Nothing to release." && exit 1
+          fi
+
+          while IFS= read -r FULL_HASH && IFS= read -r RAW_MSG && IFS= read -r _SEP; do
+            [ -z "$RAW_MSG" ] && continue
+
+            if [ "$FORCE_BUMP" = "auto" ]; then
+              if echo "$RAW_MSG" | grep -q "BREAKING CHANGE" || echo "$RAW_MSG" | grep -Eq '^[a-z]+!(\(.*\))?:'; then BUMP="major"
+              elif echo "$RAW_MSG" | grep -q "^feat" && [ "$BUMP" != "major" ]; then BUMP="minor"; fi
+            fi
+
+            SHORT_HASH="${FULL_HASH:0:7}"
+            COMMIT_LINK=" ([${SHORT_HASH}](${REPO_URL}/commit/${FULL_HASH}))"
+
+            W_MSG=$(echo "$RAW_MSG" | sed -E 's/^Merge pull request #[0-9]+ from [^ ]+ //I')
+            CLEAN_MSG=$(echo "$W_MSG" | sed -E 's/[[:space:]]*\(?#[0-9]+\)?//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+            BULLET="* ${CLEAN_MSG}${COMMIT_LINK}"
+
+            if echo "$CLEAN_MSG" | grep -iq "^feat"; then FEAT="${FEAT}\n${BULLET}"
+            elif echo "$CLEAN_MSG" | grep -Eiq '^fix|^bug'; then FIX="${FIX}\n${BULLET}"
+            elif echo "$CLEAN_MSG" | grep -Eiq '^chore|^docs|^refactor'; then CHORE="${CHORE}\n${BULLET}"
+            else MISC="${MISC}\n${BULLET}"; fi
+          done <<< "$COMMIT_LOG"
+
+          [ "$FORCE_BUMP" != "auto" ] && BUMP="$FORCE_BUMP"
+          IFS='.' read -r ver_major ver_minor ver_patch <<< "${BASE#v}"
+          case "$BUMP" in
+            major) ver_major=$((ver_major+1)); ver_minor=0; ver_patch=0 ;;
+            minor) ver_minor=$((ver_minor+1)); ver_patch=0 ;;
+            patch) ver_patch=$((ver_patch+1)) ;;
+            *)     ver_patch=$((ver_patch+1)) ;;
+          esac
+
+          NEW_TAG="v${ver_major}.${ver_minor}.${ver_patch}"
+          RAW_V="${ver_major}.${ver_minor}.${ver_patch}"
+          if git rev-parse "$NEW_TAG" >/dev/null 2>&1; then echo "::error::Target version '${NEW_TAG}' already exists." && exit 1; fi
+
+          sed -i -E "s/(__version__ *= *['\"])[^'\"]*(['\"])/\1${RAW_V}\2/g" "tutoraspects/__about__.py"
+          sed -i -E "s/(ASPECTS_VERSION\s*:\s*)[0-9]+\.[0-9]+\.[0-9]+/\1${RAW_V}/g" ".ci/config.yml"
+          sed -i -E "s/(current_version\s*=\s*)[0-9]+\.[0-9]+\.[0-9]+/\1${RAW_V}/g" "setup.cfg"
+
+          # Build changelog sections once; reuse for both CHANGELOG.md and PR body
+          ENTRY_MD=""
+          add_section() { ENTRY_MD="${ENTRY_MD}\n\n### $1$2"; }
+          [ -n "$FEAT" ]  && add_section "Features" "$FEAT"
+          [ -n "$FIX" ]   && add_section "Bug Fixes" "$FIX"
+          [ -n "$CHORE" ] && add_section "Maintenance & Refactoring" "$CHORE"
+          [ -n "$MISC" ]  && add_section "Miscellaneous Updates" "$MISC"
+
+          PR_MD="## ${NEW_TAG} - ${CURRENT_DATE}\n\n${ENTRY_MD}"
+
+          C_FILE="CHANGELOG.md"
+          [ ! -f "$C_FILE" ] && touch "$C_FILE"
+
+          # Build entry in existing CHANGELOG format: ## vX.Y.Z - YYYY-MM-DD
+          NEW_ENTRY="## ${NEW_TAG} - ${CURRENT_DATE}\n${ENTRY_MD}\n\n---\n"
+          # Insert after the file header, before the first existing release entry
+          awk -v entry="$(printf '%b' "$NEW_ENTRY")" '
+            /^## v/ && !done { print entry; done=1 }
+            { print }
+          ' "$C_FILE" > temp.md && mv temp.md "$C_FILE"
+
+          echo "new_tag=${NEW_TAG}" >> $GITHUB_OUTPUT
+          echo "raw_version=${RAW_V}" >> $GITHUB_OUTPUT
+
+          EOF_SECTOR="EOF_${RANDOM}${RANDOM}"
+          echo "BODY<<${EOF_SECTOR}" >> $GITHUB_OUTPUT
+          printf '%b' "${PR_MD}" >> $GITHUB_OUTPUT
+          echo "" >> $GITHUB_OUTPUT
+          echo "${EOF_SECTOR}" >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: bump version to ${{ steps.git_changelog.outputs.raw_version }} and update CHANGELOG [skip ci]"
+          base: ${{ github.ref_name }}
+          branch: "bot/v${{ steps.git_changelog.outputs.raw_version }}"
+          title: "Release ${{ steps.git_changelog.outputs.new_tag }}"
+          body: |
+            This PR prepares the release for version **${{ steps.git_changelog.outputs.new_tag }}** branching from base version `${{ inputs.base_tag }}`.
+
+            The SemVer bump type calculation rule applied was: `${{ inputs.force_bump }}`.
+
+            Once merged, the publication pipeline will trigger automatically.
+
+            ### Proposed Release Notes:
+            ${{ steps.git_changelog.outputs.BODY }}
+          labels: release-pr
