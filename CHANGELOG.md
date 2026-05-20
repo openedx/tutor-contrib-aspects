@@ -5,100 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## v3.0.3 - 2026-02-12
+## v3.0.4-2-5fix.0 - 2026-05-20
 
-### v3.0.3 (2026-02-12)
+### [3.0.4-2-5fix.0](https://github.com/openedx/tutor-contrib-aspects/compare/v3.0.3...v3.0.4-2-5fix.0) (2026-05-20)
 
-#### Bug Fixes
+### Bug Fixes
 
-- Check org and course name in tests ([#1186](https://github.com/openedx/tutor-contrib-aspects/pull/1186), [`9ec1d21`](https://github.com/openedx/tutor-contrib-aspects/commit/9ec1d217ab4e22f21b103f7f69ba69334d4b8e2c))
-  
-- Remove unused metrics to fix coursename bug ([#1186](https://github.com/openedx/tutor-contrib-aspects/pull/1186), [`9ec1d21`](https://github.com/openedx/tutor-contrib-aspects/commit/9ec1d217ab4e22f21b103f7f69ba69334d4b8e2c))
-  
-
-#### Chores
-
-- Upgrade Python requirements ([#1188](https://github.com/openedx/tutor-contrib-aspects/pull/1188), [`ab1608f`](https://github.com/openedx/tutor-contrib-aspects/commit/ab1608ff40a4fcc4f706b306c878b377b1b82836))
-  
-- Upgrade Python requirements ([`a1f5a47`](https://github.com/openedx/tutor-contrib-aspects/commit/a1f5a47233d06853b2f92d16c6d02c773b29965d))
-  
-- **deps**: Bump docker/login-action from 3.6.0 to 3.7.0 ([`d5d8653`](https://github.com/openedx/tutor-contrib-aspects/commit/d5d86534d3a07ea9182d1922892dbbeaa1ca3d99))
-  
-
-
----
-
-**Detailed Changes**: [v3.0.2...v3.0.3](https://github.com/openedx/tutor-contrib-aspects/compare/v3.0.2...v3.0.3)
-
-## v3.0.2 - 2026-01-27
-
-### v3.0.2 (2026-01-27)
-
-#### Bug Fixes
-
-- Setting push to false for tag action ([#1176](https://github.com/openedx/tutor-contrib-aspects/pull/1176), [`b467294`](https://github.com/openedx/tutor-contrib-aspects/commit/b467294f81c129cabee49aa763b8bd677187a81c))
-
-
----
-
-**Detailed Changes**: [v3.0.1...v3.0.2](https://github.com/openedx/tutor-contrib-aspects/compare/v3.0.1...v3.0.2)
-
-## v3.0.1 - 2026-01-27
-
-### v3.0.1 (2026-01-27)
-
-#### Bug Fixes
-
-- Redoing req updates + version bump ([#1174](https://github.com/openedx/tutor-contrib-aspects/pull/1174), [`47fde00`](https://github.com/openedx/tutor-contrib-aspects/commit/47fde00497685e51a1b831eb9e52f152f210e4da))
-  
-- Redoing req updates for version bump ([#1174](https://github.com/openedx/tutor-contrib-aspects/pull/1174), [`47fde00`](https://github.com/openedx/tutor-contrib-aspects/commit/47fde00497685e51a1b831eb9e52f152f210e4da))
-  
-
-
----
-
-**Detailed Changes**: [v3.0.0...v3.0.1](https://github.com/openedx/tutor-contrib-aspects/compare/v3.0.0...v3.0.1)
-
-## v3.0.0 - 2026-01-26
-
-### v3.0.0 (2026-01-26)
-
-#### Chores
-
-- Remove unneeded pod-autoscaling ([`e5d5a52`](https://github.com/openedx/tutor-contrib-aspects/commit/e5d5a52fd3f952262f6e18a318618b4381501d3e))
-  
-- Update frontend plugin version ([`db043f3`](https://github.com/openedx/tutor-contrib-aspects/commit/db043f3f9f42d1377e62a07782da48ae60567853))
-  
-- Update plugin version ([`e4f3424`](https://github.com/openedx/tutor-contrib-aspects/commit/e4f34245db24b96b821ce1304bcf55925cdcb359))
-  
-- Upgrade Python requirements ([`330f417`](https://github.com/openedx/tutor-contrib-aspects/commit/330f417c87ede378a4f0500329f6b1c7ad671f66))
-  
-- Upgrade Python requirements ([`9d4d9bf`](https://github.com/openedx/tutor-contrib-aspects/commit/9d4d9bfef3afd2cf1e69c5dc7bfc3e9a4b4e7b71))
-  
-- Upgrade Python requirements ([`dee79a3`](https://github.com/openedx/tutor-contrib-aspects/commit/dee79a3170c0c6fb1ebd2e772cf6af989bbf8c1b))
-  
-- Upgrade Python requirements ([`fad2562`](https://github.com/openedx/tutor-contrib-aspects/commit/fad2562a3ea0a80bd51d3191a88b296a8160d396))
-  
-- **deps**: Bump peter-evans/create-pull-request from 7 to 8 ([`d68a875`](https://github.com/openedx/tutor-contrib-aspects/commit/d68a87559ef2b6e62dcb77862f3f7928a644f4f9))
-  
-- **deps**: Bump pyasn1 from 0.6.1 to 0.6.2 in /requirements ([`844b3c2`](https://github.com/openedx/tutor-contrib-aspects/commit/844b3c27a0a49a1b4fab83a4919f2789ec1c94ea))
-  
-- **deps**: Bump wheel from 0.45.1 to 0.46.2 in /requirements ([`e834a14`](https://github.com/openedx/tutor-contrib-aspects/commit/e834a14349863cdba7435db1b4889d4e994bce1a))
-  
-
-#### Features
-
-- New version bump action ([`ab0db2d`](https://github.com/openedx/tutor-contrib-aspects/commit/ab0db2dbc2120d6875851871980821f02e8331da))
-  
-- New version bump action ([`9a5ffcf`](https://github.com/openedx/tutor-contrib-aspects/commit/9a5ffcf8df4c8210ce01fcc958a9e46616e43453))
-  
-- Upgrade to paragon23 ([`c412426`](https://github.com/openedx/tutor-contrib-aspects/commit/c412426b8ccc2f2d1a28b53dd7ef288f3902b7fb))
-  
-
-
----
-
-**Detailed Changes**: [v2.5.1...v3.0.0](https://github.com/openedx/tutor-contrib-aspects/compare/v2.5.1...v3.0.0)
+* Update dataset UUID in Operator Dashboard ([55c3daa](https://github.com/openedx/tutor-contrib-aspects/commit/55c3daa5a9b6a039ee9e847e95170e3b052babcd))
 
 ## v2.5.1 - 2025-12-09
 
