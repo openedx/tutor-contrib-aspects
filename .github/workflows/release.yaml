@@ -1,46 +1,120 @@
 name: Release
+
 on:
   pull_request:
     types:
       - closed
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Branch, tag, or version to release from (e.g. 2.5.3, v2.5.3, or bot/v2.5.3, default: main)'
+        required: false
+        default: 'main'
+      dry_run:
+        description: 'Skip publishing to PyPI'
+        required: false
+        default: true
+        type: boolean
 
 env:
   TUTOR_ROOT: ./.ci/
 
 jobs:
   release:
-    if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'bot/v')
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.pull_request.merged == true && startsWith(github.head_ref, 'bot/v'))
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - name: Create tag
-        id: tag_version
-        uses: python-semantic-release/python-semantic-release@350c48fcb3ffcdfd2e0a235206bc2ecea6b69df0 # v10.5.3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          push: false
-      - name: Create a GitHub release
-        if: steps.tag_version.outputs.tag
-        uses: ncipollo/release-action@339a81892b84b4eeb0f6e744e4574d79d0d9b8dd # v1.21.0
-        with:
-          tag: ${{ steps.tag_version.outputs.tag }}
-          name: Release ${{ steps.tag_version.outputs.tag }}
-          body: ${{ steps.tag_version.outputs.release_notes }}
+      - name: Resolve ref
+        id: resolve_ref
+        run: |
+          REF="${{ inputs.ref || github.ref }}"
+          # Normalize bare version (2.5.3 or v2.5.3) to bot/vX.Y.Z
+          if echo "$REF" | grep -Eq '^v?[0-9]+\.[0-9]+\.[0-9]+$'; then
+            REF="bot/v${REF#v}"
+          fi
+          echo "ref=${REF}" >> $GITHUB_OUTPUT
+
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - name: setup python
+        with:
+          ref: ${{ steps.resolve_ref.outputs.ref }}
+          fetch-depth: 0
+
+      - name: Read version from package
+        id: read_version
+        run: |
+          RAW_V=$(grep -Eo "[0-9]+\.[0-9]+\.[0-9]+" tutoraspects/__about__.py | head -n 1)
+          echo "raw_version=${RAW_V}" >> $GITHUB_OUTPUT
+          echo "tag=v${RAW_V}" >> $GITHUB_OUTPUT
+
+      - name: Check if version already exists on PyPI
+        if: github.event_name == 'pull_request' || inputs.dry_run == false
+        run: |
+          VERSION="${{ steps.read_version.outputs.raw_version }}"
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://pypi.org/pypi/tutor-contrib-aspects/${VERSION}/json")
+          if [ "$STATUS" = "200" ]; then
+            echo "::error::Version ${VERSION} is already published on PyPI. Aborting."
+            exit 1
+          fi
+          echo "Version ${VERSION} not found on PyPI, proceeding."
+
+      - name: Create GitHub tag
+        if: github.event_name == 'pull_request' || inputs.dry_run == false
+        # Skip if tag already exists (e.g. re-running after a partial failure)
+        run: |
+          TAG="${{ steps.read_version.outputs.tag }}"
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "Tag $TAG already exists, skipping."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git tag "$TAG"
+            git push origin "$TAG"
+          fi
+
+      - name: Extract release notes
+        id: release_notes
+        run: |
+          EOF_SECTOR="EOF_${RANDOM}${RANDOM}"
+          echo "NOTES<<${EOF_SECTOR}" >> $GITHUB_OUTPUT
+          awk '/^## v/{if(found) exit; found=1} found{print}' CHANGELOG.md >> $GITHUB_OUTPUT
+          echo "${EOF_SECTOR}" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub release
+        if: github.event_name == 'pull_request' || inputs.dry_run == false
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.read_version.outputs.tag }}
+          name: Release ${{ steps.read_version.outputs.tag }}
+          body: ${{ steps.release_notes.outputs.NOTES }}
+          skipBodyUpdate: true
+
+      - name: Set up Python
         uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
-          python-version: 3.12
-      - name: Install pip
+          python-version: '3.12'
+
+      - name: Install dependencies
         run: pip install -r requirements/pip.txt
+
       - name: Build package
         run: make build-pythonpackage
+
+      - name: Validate package
+        run: |
+          pip install twine
+          twine check dist/*
+
       - name: Publish to PyPI
+        if: >
+          github.event_name == 'pull_request' ||
+          (github.event_name == 'workflow_dispatch' && inputs.dry_run == false)
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           user: __token__
