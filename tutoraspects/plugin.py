@@ -13,9 +13,10 @@ import importlib_resources
 from tutor import hooks
 
 try:
-    from tutormfe.hooks import PLUGIN_SLOTS
+    from tutormfe.hooks import FRONTEND_APPS, PLUGIN_SLOTS
+    _tutormfe_available = True
 except ImportError:
-    PLUGIN_SLOTS = None
+    _tutormfe_available = False
 
 from .__about__ import __version__
 from .commands_v1 import COMMANDS as TUTOR_V1_COMMANDS
@@ -685,7 +686,7 @@ except ImportError:
 
 # If PLUGIN_SLOTS doesn't exist, we are on Redwood and do not
 # support in-context metrics.
-if PLUGIN_SLOTS:
+if _tutormfe_available:
     PLUGIN_SLOTS.add_items(
         [
             (
@@ -794,3 +795,22 @@ if PLUGIN_SLOTS:
             ),
         ]
     )
+
+    @FRONTEND_APPS.add()
+    def _add_frontend_app_aspects(apps):
+        apps["aspects"] = {
+            "npm_package": "@openedx/frontend-app-aspects",
+            "npm_version": "*",
+            "enabled": True,
+        }
+        return apps
+
+    hooks.Filters.ENV_PATCHES.add_item((
+        "mfe-site-config-imports",
+        "import { aspectsApp } from '@openedx/frontend-app-aspects';",
+    ))
+
+    hooks.Filters.ENV_PATCHES.add_item((
+        "mfe-site-config",
+        "addApp(siteConfig, aspectsApp);",
+    ))
