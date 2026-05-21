@@ -1,5 +1,4 @@
 name: Release
-
 on:
   pull_request:
     types:
@@ -9,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       ref:
-        description: 'Branch, tag, or version to release from (e.g. 2.5.3, v2.5.3, or bot/v2.5.3, default: main)'
+        description: 'Version to release from (e.g. 2.5.3)'
         required: false
         default: 'main'
       dry_run:
@@ -88,7 +87,7 @@ jobs:
 
       - name: Create GitHub release
         if: github.event_name == 'pull_request' || inputs.dry_run == false
-        uses: ncipollo/release-action@v1
+        uses: ncipollo/release-action@339a81892b84b4eeb0f6e744e4574d79d0d9b8dd # v1.21.0
         with:
           tag: ${{ steps.read_version.outputs.tag }}
           name: Release ${{ steps.read_version.outputs.tag }}
