@@ -7,7 +7,7 @@ on:
         description: 'The previous release tag to base this new version on (e.g., v1.4.2)'
         required: true
       force_bump:
-        description: 'Force a specific SemVer increment tier (default: auto-detect from commit messages)'
+        description: 'Force an increment tier (default: auto)'
         required: false
         default: 'auto'
         type: choice
@@ -21,7 +21,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout Targeted Branch Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           ref: ${{ github.ref_name }}
           fetch-depth: 0
@@ -36,11 +36,9 @@ jobs:
         run: |
           BASE="${{ inputs.base_tag }}"
           FORCE_BUMP="${{ inputs.force_bump }}"
-          # FIX: Added missing '/' before github.repository
-          REPO_URL="https://github.com/${{ github.repository }}"
+          REPO_URL="https://github.com/tutor-contrib-aspects"
           CURRENT_DATE=$(date +%Y-%m-%d)
 
-          # FIX: Validate base_tag is a well-formed semver tag before proceeding
           if ! echo "$BASE" | grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+$'; then
             echo "::error::base_tag must be in the format vX.Y.Z (e.g. v1.4.2)" && exit 1
           fi
@@ -51,7 +49,6 @@ jobs:
 
           FEAT="" FIX="" CHORE="" MISC="" BUMP="patch"
 
-          # FIX: Use --format=%H%n%s to capture full hash and subject line together
           COMMIT_LOG=$(git log "${BASE}..HEAD" --format="%H%n%s%n---")
 
           # FIX: Exit early with a clear error if there are no commits to release
@@ -97,7 +94,6 @@ jobs:
           sed -i -E "s/(ASPECTS_VERSION\s*:\s*)[0-9]+\.[0-9]+\.[0-9]+/\1${RAW_V}/g" ".ci/config.yml"
           sed -i -E "s/(current_version\s*=\s*)[0-9]+\.[0-9]+\.[0-9]+/\1${RAW_V}/g" "setup.cfg"
 
-          # Build changelog sections once; reuse for both CHANGELOG.md and PR body
           ENTRY_MD=""
           add_section() { ENTRY_MD="${ENTRY_MD}\n\n### $1$2"; }
           [ -n "$FEAT" ]  && add_section "Features" "$FEAT"
@@ -110,8 +106,6 @@ jobs:
           C_FILE="CHANGELOG.md"
           [ ! -f "$C_FILE" ] && touch "$C_FILE"
 
-          # Build entry in existing CHANGELOG format: ## vX.Y.Z - YYYY-MM-DD
-          NEW_ENTRY="## ${NEW_TAG} - ${CURRENT_DATE}\n${ENTRY_MD}\n\n---\n"
           # Insert after the file header, before the first existing release entry
           awk -v entry="$(printf '%b' "$NEW_ENTRY")" '
             /^## v/ && !done { print entry; done=1 }
@@ -128,7 +122,7 @@ jobs:
           echo "${EOF_SECTOR}" >> $GITHUB_OUTPUT
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "chore: bump version to ${{ steps.git_changelog.outputs.raw_version }} and update CHANGELOG [skip ci]"
