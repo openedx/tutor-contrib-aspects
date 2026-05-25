@@ -4,15 +4,23 @@
 #
 #    make upgrade
 #
+aiohappyeyeballs==2.6.2
+    # via aiohttp
+aiohttp==3.13.5
+    # via kubernetes
+aiosignal==1.4.0
+    # via aiohttp
 appdirs==1.4.4
     # via tutor
 ast-serialize==0.5.0
     # via mypy
+attrs==26.1.0
+    # via aiohttp
 bcrypt==5.0.0
     # via -r requirements/base.in
-black==26.5.0
+black==26.5.1
     # via shandy-sqlfmt
-certifi==2026.4.22
+certifi==2026.5.20
     # via
     #   kubernetes
     #   requests
@@ -26,8 +34,14 @@ click==8.2.1
     #   tutor
 durationpy==0.10
     # via kubernetes
-idna==3.15
-    # via requests
+frozenlist==1.8.0
+    # via
+    #   aiohttp
+    #   aiosignal
+idna==3.16
+    # via
+    #   requests
+    #   yarl
 importlib-metadata==9.0.0
     # via tutor
 importlib-resources==7.1.0
@@ -38,12 +52,16 @@ jinja2==3.1.6
     # via
     #   shandy-sqlfmt
     #   tutor
-kubernetes==35.0.0
+kubernetes==36.0.0
     # via tutor
 librt==0.11.0
     # via mypy
 markupsafe==3.0.3
     # via jinja2
+multidict==6.7.1
+    # via
+    #   aiohttp
+    #   yarl
 mypy==2.1.0
     # via tutor
 mypy-extensions==1.1.0
@@ -66,6 +84,10 @@ platformdirs==4.9.6
     # via
     #   black
     #   shandy-sqlfmt
+propcache==0.5.2
+    # via
+    #   aiohttp
+    #   yarl
 pycryptodome==3.23.0
     # via tutor
 python-dateutil==2.9.0.post0
@@ -100,6 +122,7 @@ tutor-mfe @ git+https://github.com/overhangio/tutor-mfe@verawood
     # via -r requirements/base.in
 typing-extensions==4.15.0
     # via
+    #   aiosignal
     #   mypy
     #   tutor
 urllib3==2.7.0
@@ -108,5 +131,7 @@ urllib3==2.7.0
     #   requests
 websocket-client==1.9.0
     # via kubernetes
-zipp==3.23.1
+yarl==1.24.2
+    # via aiohttp
+zipp==4.1.0
     # via importlib-metadata
