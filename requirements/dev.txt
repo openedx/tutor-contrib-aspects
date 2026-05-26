@@ -4,6 +4,18 @@
 #
 #    make upgrade
 #
+aiohappyeyeballs==2.6.2
+    # via
+    #   -r requirements/base.txt
+    #   aiohttp
+aiohttp==3.13.5
+    # via
+    #   -r requirements/base.txt
+    #   kubernetes
+aiosignal==1.4.0
+    # via
+    #   -r requirements/base.txt
+    #   aiohttp
 altgraph==0.17.5
     # via pyinstaller
 appdirs==1.4.4
@@ -16,14 +28,18 @@ ast-serialize==0.5.0
     #   mypy
 astroid==4.0.4
     # via pylint
+attrs==26.1.0
+    # via
+    #   -r requirements/base.txt
+    #   aiohttp
 bcrypt==5.0.0
     # via -r requirements/base.txt
-black==26.5.0
+black==26.5.1
     # via
     #   -r requirements/base.txt
     #   -r requirements/dev.in
     #   shandy-sqlfmt
-certifi==2026.4.22
+certifi==2026.5.20
     # via
     #   -r requirements/base.txt
     #   kubernetes
@@ -50,12 +66,18 @@ durationpy==0.10
     # via
     #   -r requirements/base.txt
     #   kubernetes
+frozenlist==1.8.0
+    # via
+    #   -r requirements/base.txt
+    #   aiohttp
+    #   aiosignal
 id==1.6.1
     # via twine
-idna==3.15
+idna==3.16
     # via
     #   -r requirements/base.txt
     #   requests
+    #   yarl
 importlib-metadata==9.0.0
     # via
     #   -r requirements/base.txt
@@ -83,7 +105,7 @@ jinja2==3.1.6
     #   tutor
 keyring==25.7.0
     # via twine
-kubernetes==35.0.0
+kubernetes==36.0.0
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -101,10 +123,15 @@ mccabe==0.7.0
     # via pylint
 mdurl==0.1.2
     # via markdown-it-py
-more-itertools==11.0.2
+more-itertools==11.1.0
     # via
     #   jaraco-classes
     #   jaraco-functools
+multidict==6.7.1
+    # via
+    #   -r requirements/base.txt
+    #   aiohttp
+    #   yarl
 mypy==2.1.0
     # via
     #   -r requirements/base.txt
@@ -141,6 +168,11 @@ platformdirs==4.9.6
     #   black
     #   pylint
     #   shandy-sqlfmt
+propcache==0.5.2
+    # via
+    #   -r requirements/base.txt
+    #   aiohttp
+    #   yarl
 pycparser==3.0
     # via cffi
 pycryptodome==3.23.0
@@ -217,6 +249,7 @@ twine==6.2.0
 typing-extensions==4.15.0
     # via
     #   -r requirements/base.txt
+    #   aiosignal
     #   mypy
     #   tutor
 urllib3==2.7.0
@@ -230,7 +263,11 @@ websocket-client==1.9.0
     # via
     #   -r requirements/base.txt
     #   kubernetes
-zipp==3.23.1
+yarl==1.24.2
+    # via
+    #   -r requirements/base.txt
+    #   aiohttp
+zipp==4.1.0
     # via
     #   -r requirements/base.txt
     #   importlib-metadata
