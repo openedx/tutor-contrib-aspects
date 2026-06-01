@@ -12,6 +12,11 @@ on:
         default: 'auto'
         type: choice
         options: [auto, patch, minor, major]
+      make_latest:
+        description: 'Mark this release as latest on GitHub'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   prepare-pr:
@@ -41,6 +46,7 @@ jobs:
         env:
           BASE_TAG: ${{ inputs.base_tag }}
           FORCE_BUMP: ${{ inputs.force_bump }}
+          MAKE_LATEST: ${{ inputs.make_latest }}
           REPO_URL: "https://github.com/tutor-contrib-aspects"
         run: |
           python3 << 'PYEOF'
@@ -48,15 +54,20 @@ jobs:
           from datetime import date
           from pathlib import Path
 
-          base_tag   = os.environ["BASE_TAG"]
-          force_bump = os.environ["FORCE_BUMP"]
-          repo_url   = os.environ["REPO_URL"]
+          base_tag    = os.environ["BASE_TAG"]
+          force_bump  = os.environ["FORCE_BUMP"]
+          make_latest = os.environ["MAKE_LATEST"]
+          repo_url    = os.environ["REPO_URL"]
+
+          def fail(msg: str) -> None:
+              print(f"::error::{msg}", file=sys.stderr)
+              sys.exit(1)
 
           if not re.fullmatch(r"v\d+\.\d+\.\d+", base_tag):
-              sys.exit("::error::base_tag must be in the format vX.Y.Z (e.g. v1.4.2)")
+              fail("base_tag must be in the format vX.Y.Z (e.g. v1.4.2)")
 
           if subprocess.run(["git", "rev-parse", base_tag], capture_output=True).returncode != 0:
-              sys.exit(f"::error::Base tag {base_tag} does not exist in local history.")
+              fail(f"Base tag {base_tag} does not exist in local history.")
 
           log = subprocess.run(
               ["git", "log", f"{base_tag}..HEAD", "--format=%H%n%s%n---"],
@@ -64,7 +75,7 @@ jobs:
           ).stdout.strip()
 
           if not log:
-              sys.exit(f"::error::No commits found between {base_tag} and HEAD. Nothing to release.")
+              fail(f"No commits found between {base_tag} and HEAD. Nothing to release.")
 
           sections: dict[str, list[str]] = {k: [] for k in ("feat", "fix", "chore", "misc")}
           bump = "patch"
@@ -104,7 +115,7 @@ jobs:
           new_tag, raw_v = f"v{major}.{minor}.{patch}", f"{major}.{minor}.{patch}"
 
           if subprocess.run(["git", "rev-parse", new_tag], capture_output=True).returncode == 0:
-              sys.exit(f"::error::Target version '{new_tag}' already exists.")
+              fail(f"Target version '{new_tag}' already exists.")
 
           for path, pattern, repl in [
               ("tutoraspects/__about__.py", r"(__version__\s*=\s*['\"])[^'\"]*", rf"\g<1>{raw_v}"),
@@ -131,7 +142,7 @@ jobs:
 
           eof = f"EOF_{os.urandom(4).hex()}"
           with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
-              fh.write(f"new_tag={new_tag}\nraw_version={raw_v}\nBODY<<{eof}\n{entry}\n{eof}\n")
+              fh.write(f"new_tag={new_tag}\nraw_version={raw_v}\nmake_latest={make_latest}\nBODY<<{eof}\n{entry}\n{eof}\n")
 
           print(f"✅  Prepared release {new_tag} (bump: {bump})")
           PYEOF
@@ -153,4 +164,6 @@ jobs:
 
             ### Proposed Release Notes:
             ${{ steps.git_changelog.outputs.BODY }}
-          labels: release-pr
+          labels: |
+            release-pr
+            ${{ inputs.make_latest && 'make-latest' || '' }}
