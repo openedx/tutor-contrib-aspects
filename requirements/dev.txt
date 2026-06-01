@@ -52,7 +52,11 @@ durationpy==0.10
     #   kubernetes
 id==1.6.1
     # via twine
+<<<<<<< HEAD
 idna==3.14
+=======
+idna==3.17
+>>>>>>> de4f22ba (chore: Upgrade Python requirements (#1257))
     # via
     #   -r requirements/base.txt
     #   requests
@@ -105,7 +109,11 @@ more-itertools==11.1.0
     # via
     #   jaraco-classes
     #   jaraco-functools
+<<<<<<< HEAD
 mypy==2.0.0
+=======
+mypy==2.1.0
+>>>>>>> de4f22ba (chore: Upgrade Python requirements (#1257))
     # via
     #   -r requirements/base.txt
     #   tutor
