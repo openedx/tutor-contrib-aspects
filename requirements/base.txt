@@ -28,6 +28,7 @@ durationpy==0.10
     # via kubernetes
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 idna==3.14
 =======
 idna==3.17
@@ -35,6 +36,9 @@ idna==3.17
 =======
 idna==3.18
 >>>>>>> 3a79cf00 (chore: Upgrade Python requirements)
+=======
+idna==3.14
+>>>>>>> 37b1af17 (feat: add compatibility with frontend-base (#1253))
     # via requests
 importlib-metadata==9.0.0
     # via tutor
@@ -53,10 +57,14 @@ librt==0.11.0
 markupsafe==3.0.3
     # via jinja2
 <<<<<<< HEAD
+<<<<<<< HEAD
 mypy==2.0.0
 =======
 mypy==2.1.0
 >>>>>>> de4f22ba (chore: Upgrade Python requirements (#1257))
+=======
+mypy==2.0.0
+>>>>>>> 37b1af17 (feat: add compatibility with frontend-base (#1253))
     # via tutor
 mypy-extensions==1.1.0
     # via

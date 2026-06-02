@@ -40,7 +40,7 @@ click==8.2.1
     #   black
     #   shandy-sqlfmt
     #   tutor
-cryptography==49.0.0
+cryptography==48.0.0
     # via secretstorage
 dill==0.4.1
     # via pylint
@@ -54,6 +54,7 @@ id==1.6.1
     # via twine
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 idna==3.14
 =======
 idna==3.17
@@ -61,6 +62,9 @@ idna==3.17
 =======
 idna==3.18
 >>>>>>> 3a79cf00 (chore: Upgrade Python requirements)
+=======
+idna==3.14
+>>>>>>> 37b1af17 (feat: add compatibility with frontend-base (#1253))
     # via
     #   -r requirements/base.txt
     #   requests
@@ -114,10 +118,14 @@ more-itertools==11.1.0
     #   jaraco-classes
     #   jaraco-functools
 <<<<<<< HEAD
+<<<<<<< HEAD
 mypy==2.0.0
 =======
 mypy==2.1.0
 >>>>>>> de4f22ba (chore: Upgrade Python requirements (#1257))
+=======
+mypy==2.0.0
+>>>>>>> 37b1af17 (feat: add compatibility with frontend-base (#1253))
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -165,7 +173,7 @@ pygments==2.20.0
     #   rich
 pyinstaller==6.21.0
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2026.6
+pyinstaller-hooks-contrib==2026.5
     # via pyinstaller
 pylint==4.0.6
     # via -r requirements/dev.in
