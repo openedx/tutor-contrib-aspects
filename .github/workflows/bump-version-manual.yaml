@@ -1,0 +1,169 @@
+name: Bump Version (Manually)
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_tag:
+        description: 'The previous release tag to base this new version on (e.g., v1.4.2)'
+        required: true
+      force_bump:
+        description: 'Force an increment tier (default: auto)'
+        required: false
+        default: 'auto'
+        type: choice
+        options: [auto, patch, minor, major]
+      make_latest:
+        description: 'Mark this release as latest on GitHub'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  prepare-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout Targeted Branch Code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Force Fetch Tags and Remote History
+        run: |
+          git fetch --tags --force origin
+          git fetch origin ${{ github.ref_name }}
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version: '3.12'
+
+      - name: Calculate Version and Process Changelog
+        id: git_changelog
+        env:
+          BASE_TAG: ${{ inputs.base_tag }}
+          FORCE_BUMP: ${{ inputs.force_bump }}
+          MAKE_LATEST: ${{ inputs.make_latest }}
+          REPO_URL: "https://github.com/tutor-contrib-aspects"
+        run: |
+          python3 << 'PYEOF'
+          import os, re, subprocess, sys
+          from datetime import date
+          from pathlib import Path
+
+          base_tag    = os.environ["BASE_TAG"]
+          force_bump  = os.environ["FORCE_BUMP"]
+          make_latest = os.environ["MAKE_LATEST"]
+          repo_url    = os.environ["REPO_URL"]
+
+          def fail(msg: str) -> None:
+              print(f"::error::{msg}", file=sys.stderr)
+              sys.exit(1)
+
+          if not re.fullmatch(r"v\d+\.\d+\.\d+", base_tag):
+              fail("base_tag must be in the format vX.Y.Z (e.g. v1.4.2)")
+
+          if subprocess.run(["git", "rev-parse", base_tag], capture_output=True).returncode != 0:
+              fail(f"Base tag {base_tag} does not exist in local history.")
+
+          log = subprocess.run(
+              ["git", "log", f"{base_tag}..HEAD", "--format=%H%n%s%n---"],
+              capture_output=True, text=True
+          ).stdout.strip()
+
+          if not log:
+              fail(f"No commits found between {base_tag} and HEAD. Nothing to release.")
+
+          sections: dict[str, list[str]] = {k: [] for k in ("feat", "fix", "chore", "misc")}
+          bump = "patch"
+
+          for raw in log.split("---"):
+              lines = [l for l in raw.strip().splitlines() if l.strip()]
+              if len(lines) < 2:
+                  continue
+              full_hash, raw_msg = lines[0], lines[1]
+
+              if force_bump == "auto":
+                  if "BREAKING CHANGE" in raw_msg or re.match(r"^[a-z]+!(\(.*\))?:", raw_msg):
+                      bump = "major"
+                  elif raw_msg.startswith("feat") and bump != "major":
+                      bump = "minor"
+
+              short  = full_hash[:7]
+              clean  = re.sub(r"\s*\(?#\d+\)?", "",
+                       re.sub(r"^Merge pull request #\d+ from \S+ ", "", raw_msg, flags=re.I)).strip()
+              bullet = f"* {clean} ([{short}]({repo_url}/commit/{full_hash}))"
+              lower  = clean.lower()
+
+              key = ("feat"  if lower.startswith("feat") else
+                     "fix"   if re.match(r"^(fix|bug)", lower) else
+                     "chore" if re.match(r"^(chore|docs|refactor)", lower) else "misc")
+              sections[key].append(bullet)
+
+          if force_bump != "auto":
+              bump = force_bump
+
+          major, minor, patch = (int(x) for x in base_tag.lstrip("v").split("."))
+          match bump:
+              case "major": major += 1; minor = 0; patch = 0
+              case "minor": minor += 1; patch = 0
+              case _:       patch += 1
+
+          new_tag, raw_v = f"v{major}.{minor}.{patch}", f"{major}.{minor}.{patch}"
+
+          if subprocess.run(["git", "rev-parse", new_tag], capture_output=True).returncode == 0:
+              fail(f"Target version '{new_tag}' already exists.")
+
+          for path, pattern, repl in [
+              ("tutoraspects/__about__.py", r"(__version__\s*=\s*['\"])[^'\"]*", rf"\g<1>{raw_v}"),
+              (".ci/config.yml",            r"(ASPECTS_VERSION\s*:\s*)\d+\.\d+\.\d+", rf"\g<1>{raw_v}"),
+              ("setup.cfg",                 r"(current_version\s*=\s*)\d+\.\d+\.\d+", rf"\g<1>{raw_v}"),
+          ]:
+              p = Path(path)
+              if p.exists():
+                  p.write_text(re.sub(pattern, repl, p.read_text()))
+
+          TITLES = {"feat": "Features", "fix": "Bug Fixes",
+                    "chore": "Maintenance & Refactoring", "misc": "Miscellaneous Updates"}
+          body = "\n\n".join(
+              f"### {TITLES[k]}\n" + "\n".join(v)
+              for k, v in sections.items() if v
+          )
+          entry = f"## {new_tag} - {date.today().isoformat()}\n\n{body}"
+
+          cl = Path("CHANGELOG.md")
+          cl.touch(exist_ok=True)
+          existing = cl.read_text()
+          cl.write_text(re.sub(r"(^## v)", entry + "\n\n" + r"\1", existing, count=1, flags=re.M)
+                        if re.search(r"^## v", existing, re.M) else existing + "\n\n" + entry)
+
+          eof = f"EOF_{os.urandom(4).hex()}"
+          with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
+              fh.write(f"new_tag={new_tag}\nraw_version={raw_v}\nmake_latest={make_latest}\nBODY<<{eof}\n{entry}\n{eof}\n")
+
+          print(f"✅  Prepared release {new_tag} (bump: {bump})")
+          PYEOF
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: bump version to ${{ steps.git_changelog.outputs.raw_version }} and update CHANGELOG [skip ci]"
+          base: ${{ github.ref_name }}
+          branch: "bot/v${{ steps.git_changelog.outputs.raw_version }}"
+          title: "Release ${{ steps.git_changelog.outputs.new_tag }}"
+          body: |
+            This PR prepares the release for version **${{ steps.git_changelog.outputs.new_tag }}** branching from base version `${{ inputs.base_tag }}`.
+
+            The SemVer bump type calculation rule applied was: `${{ inputs.force_bump }}`.
+
+            Once merged, the publication pipeline will trigger automatically.
+
+            ### Proposed Release Notes:
+            ${{ steps.git_changelog.outputs.BODY }}
+          labels: |
+            release-pr
+            ${{ inputs.make_latest && 'make-latest' || '' }}
