@@ -28,12 +28,20 @@ try:
     not OPEN_EDX_FILTERS_CONFIG
 except NameError:  # OPEN_EDX_FILTERS_CONFIG is not defined
     OPEN_EDX_FILTERS_CONFIG = {}
+# When DEPR-38432 is pickedup we may want to cleanup here.
 if not OPEN_EDX_FILTERS_CONFIG.get("org.openedx.learning.instructor.dashboard.render.started.v1"):
     OPEN_EDX_FILTERS_CONFIG["org.openedx.learning.instructor.dashboard.render.started.v1"] = {
         "fail_silently": False,
         "pipeline": [],
     }
+if not OPEN_EDX_FILTERS_CONFIG.get("org.openedx.learning.instructor.dashboard.tabs.requested.v1"):
+    OPEN_EDX_FILTERS_CONFIG["org.openedx.learning.instructor.dashboard.tabs.requested.v1"] = {
+        "fail_silently": False,
+        "pipeline": [],
+    }
+
 OPEN_EDX_FILTERS_CONFIG["org.openedx.learning.instructor.dashboard.render.started.v1"]["pipeline"].append("platform_plugin_aspects.extensions.filters.AddSupersetTab")
+OPEN_EDX_FILTERS_CONFIG["org.openedx.learning.instructor.dashboard.tabs.requested.v1"]["pipeline"].append("platform_plugin_aspects.extensions.filters.AddSupersetTabToInstructorDashboard")
 {% endif %}
 
 {% if ASPECTS_ENABLE_EVENT_BUS_PRODUCER %}
