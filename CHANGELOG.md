@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v2.5.3 - 2026-06-03
+
+### Maintenance & Refactoring
+* chore: add manual version bump code ([741b6de](https://github.com/tutor-contrib-aspects/commit/741b6dee3f04a454f243fdc065c8b5f43a3ee862))
+* chore: pin gevent for older releases ([aa30c96](https://github.com/tutor-contrib-aspects/commit/aa30c966bf3973a93a300b48caab590ac2f900fc))
+
 ## v2.5.1 - 2025-12-09
 
 ### [2.5.1](https://github.com/openedx/tutor-contrib-aspects/compare/v2.5.0...v2.5.1) (2025-12-09)
