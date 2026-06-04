@@ -312,7 +312,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "SUPERSET_METADATA_SQLALCHEMY_URI",
             "mysql://{{SUPERSET_DB_USERNAME}}:{{SUPERSET_DB_PASSWORD}}"
-            "@{{SUPERSET_DB_HOST}}/{{SUPERSET_DB_METADATA_NAME}}",
+            "@{{SUPERSET_DB_HOST}}:{{SUPERSET_DB_PORT}}/{{SUPERSET_DB_METADATA_NAME}}",
         ),
         (
             "SUPERSET_DATABASES",
