@@ -27,10 +27,14 @@ click==8.2.1
 durationpy==0.10
     # via kubernetes
 <<<<<<< HEAD
+<<<<<<< HEAD
 idna==3.14
 =======
 idna==3.17
 >>>>>>> de4f22ba (chore: Upgrade Python requirements (#1257))
+=======
+idna==3.18
+>>>>>>> 3a79cf00 (chore: Upgrade Python requirements)
     # via requests
 importlib-metadata==9.0.0
     # via tutor
@@ -98,7 +102,11 @@ six==1.17.0
     # via
     #   kubernetes
     #   python-dateutil
+<<<<<<< HEAD
 tqdm==4.68.2
+=======
+tqdm==4.68.1
+>>>>>>> 3a79cf00 (chore: Upgrade Python requirements)
     # via shandy-sqlfmt
 tutor @ git+https://github.com/overhangio/tutor@verawood
     # via
