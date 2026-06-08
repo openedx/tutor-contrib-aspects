@@ -26,7 +26,7 @@ click==8.2.1
     #   tutor
 durationpy==0.10
     # via kubernetes
-idna==3.17
+idna==3.18
     # via requests
 importlib-metadata==9.0.0
     # via tutor
@@ -90,7 +90,7 @@ six==1.17.0
     # via
     #   kubernetes
     #   python-dateutil
-tqdm==4.67.3
+tqdm==4.68.1
     # via shandy-sqlfmt
 tutor @ git+https://github.com/overhangio/tutor@verawood
     # via
