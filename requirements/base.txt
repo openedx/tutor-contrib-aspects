@@ -90,7 +90,7 @@ six==1.17.0
     # via
     #   kubernetes
     #   python-dateutil
-tqdm==4.68.1
+tqdm==4.68.2
     # via shandy-sqlfmt
 tutor==21.0.7
     # via
