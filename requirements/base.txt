@@ -103,10 +103,14 @@ six==1.17.0
     #   kubernetes
     #   python-dateutil
 <<<<<<< HEAD
+<<<<<<< HEAD
 tqdm==4.68.2
 =======
 tqdm==4.68.1
 >>>>>>> 3a79cf00 (chore: Upgrade Python requirements)
+=======
+tqdm==4.68.2
+>>>>>>> e8ecf044 (chore: Upgrade Python requirements (#1265))
     # via shandy-sqlfmt
 tutor @ git+https://github.com/overhangio/tutor@verawood
     # via

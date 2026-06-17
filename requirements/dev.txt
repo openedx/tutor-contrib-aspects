@@ -40,7 +40,7 @@ click==8.2.1
     #   black
     #   shandy-sqlfmt
     #   tutor
-cryptography==48.0.0
+cryptography==49.0.0
     # via secretstorage
 dill==0.4.1
     # via pylint
@@ -165,7 +165,7 @@ pygments==2.20.0
     #   rich
 pyinstaller==6.21.0
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2026.5
+pyinstaller-hooks-contrib==2026.6
     # via pyinstaller
 pylint==4.0.6
     # via -r requirements/dev.in
@@ -215,10 +215,14 @@ six==1.17.0
 tomlkit==0.15.0
     # via pylint
 <<<<<<< HEAD
+<<<<<<< HEAD
 tqdm==4.68.2
 =======
 tqdm==4.68.1
 >>>>>>> 3a79cf00 (chore: Upgrade Python requirements)
+=======
+tqdm==4.68.2
+>>>>>>> e8ecf044 (chore: Upgrade Python requirements (#1265))
     # via
     #   -r requirements/base.txt
     #   shandy-sqlfmt
