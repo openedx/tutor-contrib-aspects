@@ -12,7 +12,7 @@ bcrypt==5.0.0
     # via -r requirements/base.in
 black==26.5.1
     # via shandy-sqlfmt
-certifi==2026.5.20
+certifi==2026.6.17
     # via
     #   kubernetes
     #   requests
@@ -90,7 +90,7 @@ six==1.17.0
     # via
     #   kubernetes
     #   python-dateutil
-tqdm==4.68.2
+tqdm==4.68.3
     # via shandy-sqlfmt
 tutor==21.0.7
     # via
