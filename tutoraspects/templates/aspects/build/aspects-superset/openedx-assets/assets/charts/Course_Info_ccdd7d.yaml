@@ -6,11 +6,11 @@ dataset_uuid: 27a4476b-5a9a-4fc4-ac75-da520b522341
 description: null
 params:
   adhoc_filters:
-  - clause: WHERE
-    comparator: No filter
-    expressionType: SIMPLE
-    operator: TEMPORAL_RANGE
-    subject: emission_time
+    - clause: WHERE
+      comparator: No filter
+      expressionType: SIMPLE
+      operator: TEMPORAL_RANGE
+      subject: emission_time
   all_columns: []
   annotation_layers: []
   color_pn: false
@@ -28,17 +28,18 @@ params:
   conditional_formatting: []
   extra_form_data: {}
   groupby:
-  - course_run
-  - course_name
-  - expressionType: SQL
-    label: More details
-    sqlExpression: |-
-      {% raw %}{{ get_filtered_dashboard_link('course-dashboard', 'course_run', 'w863AfFgi') }}
-      {% endraw %}
+    - course_run
+    - course_name
+    - expressionType: SQL
+      label: More details
+      sqlExpression: |-
+        {% raw %}
+        {{ get_multiple_filtered_dashboard_link('course-dashboard', [('course_name', 'IfS-Rd0ZS'), ('org', 'w863AfFgi'), ('course_run', 'w863AfFgi')]) }}
+        {% endraw %}
   metrics:
-  - enrollees
-  - active_count
-  - tag_list
+    - enrollees
+    - active_count
+    - tag_list
   order_by_cols: []
   order_desc: false
   percent_metrics: []
@@ -56,11 +57,11 @@ query_context:
   force: false
   form_data:
     adhoc_filters:
-    - clause: WHERE
-      comparator: No filter
-      expressionType: SIMPLE
-      operator: TEMPORAL_RANGE
-      subject: emission_time
+      - clause: WHERE
+        comparator: No filter
+        expressionType: SIMPLE
+        operator: TEMPORAL_RANGE
+        subject: emission_time
     all_columns: []
     annotation_layers: []
     color_pn: false
@@ -80,17 +81,17 @@ query_context:
     extra_form_data: {}
     force: false
     groupby:
-    - course_run
-    - course_name
-    - expressionType: SQL
-      label: More details
-      sqlExpression: |-
-        {% raw %}{{ get_filtered_dashboard_link('course-dashboard', 'course_run', 'w863AfFgi') }}
-        {% endraw %}
+      - course_run
+      - course_name
+      - expressionType: SQL
+        label: More details
+        sqlExpression: |-
+          {% raw %}{{ get_filtered_dashboard_link('course-dashboard', 'course_run', 'w863AfFgi') }}
+          {% endraw %}
     metrics:
-    - enrollees
-    - active_count
-    - tag_list
+      - enrollees
+      - active_count
+      - tag_list
     order_by_cols: []
     order_desc: false
     percent_metrics: []
@@ -105,38 +106,38 @@ query_context:
     time_grain_sqla: P1M
     viz_type: table
   queries:
-  - annotation_layers: []
-    applied_time_extras: {}
-    columns:
-    - course_run
-    - course_name
-    - expressionType: SQL
-      label: More details
-      sqlExpression: |-
-        {% raw %}{{ get_filtered_dashboard_link('course-dashboard', 'course_run', 'w863AfFgi') }}
-        {% endraw %}
-    custom_form_data: {}
-    custom_params: {}
-    extras:
-      having: ''
-      time_grain_sqla: P1M
-      where: ''
-    filters:
-    - col: emission_time
-      op: TEMPORAL_RANGE
-      val: No filter
-    metrics:
-    - enrollees
-    - active_count
-    - tag_list
-    order_desc: false
-    orderby:
-    - - enrollees
-      - false
-    post_processing: []
-    row_limit: 50000
-    series_limit: 0
-    url_params: {}
+    - annotation_layers: []
+      applied_time_extras: {}
+      columns:
+        - course_run
+        - course_name
+        - expressionType: SQL
+          label: More details
+          sqlExpression: |-
+            {% raw %}{{ get_filtered_dashboard_link('course-dashboard', 'course_run', 'w863AfFgi') }}
+            {% endraw %}
+      custom_form_data: {}
+      custom_params: {}
+      extras:
+        having: ""
+        time_grain_sqla: P1M
+        where: ""
+      filters:
+        - col: emission_time
+          op: TEMPORAL_RANGE
+          val: No filter
+      metrics:
+        - enrollees
+        - active_count
+        - tag_list
+      order_desc: false
+      orderby:
+        - - enrollees
+          - false
+      post_processing: []
+      row_limit: 50000
+      series_limit: 0
+      url_params: {}
   result_format: json
   result_type: full
 slice_name: Course Info

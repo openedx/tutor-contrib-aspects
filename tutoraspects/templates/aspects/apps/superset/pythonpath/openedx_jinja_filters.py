@@ -4,11 +4,12 @@ Custom Jinja template filters that can be used in Superset queries.
 cf https://superset.apache.org/docs/installation/sql-templating/
 """
 
-from superset.extensions import security_manager
-from openedx.localization import get_translation, DATASET_STRINGS
-from superset import security_manager
 import logging
+
 from flask import g
+from openedx.localization import DATASET_STRINGS, get_translation
+from superset import security_manager
+from superset.extensions import security_manager
 
 log = logging.getLogger(__name__)
 ALL_COURSES = "1 = 1"
@@ -104,37 +105,86 @@ def translate_column_bool(column_name):
     false_str = get_translation(strings[1], lang)
 
     return f"""
-        CASE WHEN {column_name} = true 
-        THEN '{true_str}' 
+        CASE WHEN {column_name} = true
+        THEN '{true_str}'
         ELSE '{false_str}'
         END
     """
 
 
-SQL_LINK_FORMAT = """
-concat('<a href="{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ SUPERSET_HOST }}/superset/dashboard/{dashboard_slug}/?native_filters=(NATIVE_FILTER-{filter_id}:(__cache:(label:''', 
-    {column}, 
-    ''',validateStatus:!f,value:!(''', 
-    {column}, 
-    ''')),extraFormData:(filters:!((col:{column},op:IN,val:!(''', 
-    {column}, 
-    ''')))),filterState:(label:''', 
-    {column}, 
-    ''',validateStatus:!f,value:!(''', 
-    {column}, 
-    ''')),id:NATIVE_FILTER-{filter_id},ownState:()))">', 
-    {column}, 
-    '</a>'
+# Opening of the link / URL, up to the opening paren of the
+# Rison-encoded `native_filters` map. Reminder that this first
+# gets rendered by Tutor, so things in Jinja syntax (double curly
+# braces or curly-brace-percent) will be replaced before being
+# sent to Superset.
+SQL_LINK_HEADER = (
+    """concat('<a href="{% if ENABLE_HTTPS %}https{% else %}http{% endif %}"""
+    """://{{ SUPERSET_HOST }}/superset/dashboard/{dashboard_slug}/?native_filters=('"""
 )
-"""
+
+# A single `NATIVE_FILTER-<id>` entry in the `native_filters` map. Multiple of
+# these can be joined with a comma to use more than one filter at once.
+SQL_LINK_FILTER = """'NATIVE_FILTER-{filter_id}:(__cache:(label:''',
+    {column},
+    ''',validateStatus:!f,value:!(''',
+    {column},
+    ''')),extraFormData:(filters:!((col:{column},op:IN,val:!(''',
+    {column},
+    ''')))),filterState:(label:''',
+    {column},
+    ''',validateStatus:!f,value:!(''',
+    {column},
+    ''')),id:NATIVE_FILTER-{filter_id},ownState:())'"""
+
+# Closes the `native_filters` map / href attribute, then renders the link text.
+SQL_LINK_FOOTER = """')">',
+    {label_column},
+    '</a>'
+)"""
+
+SQL_LINK_FILTER_SEPARATOR = ", ',', \n    "
+
+
 def get_filtered_dashboard_link(dashboard_slug, column_name, filter_id):
     """
     Creates a link to a dashboard with filters preloaded given a dashboard-slug, a column_name and a filter_id
     """
+    return get_multiple_filtered_dashboard_link(
+        dashboard_slug, [(column_name, filter_id)]
+    )
+
+
+def get_multiple_filtered_dashboard_link(dashboard_slug, filters, label_column=None):
+    """
+    Creates a link to a dashboard with one or more native filters preloaded.
+
+    Args:
+        dashboard_slug: slug of the destination dashboard (the current user's
+            language suffix is appended automatically).
+        filters: an iterable of (column_name, filter_id) pairs. Each pair adds a
+            native filter to the link, scoped to ``column_name IN (<row value>)``.
+        label_column: the column whose value is shown as the link text. Defaults
+            to the first filter's column.
+    """
+    filters = list(filters)
+    if not filters:
+        raise ValueError(
+            "get_multiple_filtered_dashboard_link requires at least one filter."
+        )
+
+    if label_column is None:
+        label_column = filters[0][0]
+
     lang = security_manager.get_preferences(g.user.username)
 
-    hlink = SQL_LINK_FORMAT.format(dashboard_slug=f"{dashboard_slug}-{lang}", column=column_name, filter_id=filter_id)
+    header = SQL_LINK_HEADER.format(dashboard_slug=f"{dashboard_slug}-{lang}")
+    blocks = SQL_LINK_FILTER_SEPARATOR.join(
+        SQL_LINK_FILTER.format(column=column_name, filter_id=filter_id)
+        for column_name, filter_id in filters
+    )
+    footer = SQL_LINK_FOOTER.format(label_column=label_column)
 
-    return hlink
+    return f"{header}, \n    {blocks}, \n    {footer}"
+
 
 {{patch("superset-jinja-filters")}}
