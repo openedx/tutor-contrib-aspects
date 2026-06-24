@@ -92,7 +92,7 @@ six==1.17.0
     #   python-dateutil
 tqdm==4.68.2
     # via shandy-sqlfmt
-tutor==21.0.7
+tutor @ git+https://github.com/overhangio/tutor@verawood
     # via
     #   -r requirements/base.in
     #   tutor-mfe
