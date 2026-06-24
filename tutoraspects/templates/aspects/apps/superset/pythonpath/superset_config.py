@@ -162,6 +162,9 @@ sentry_sdk.init(
 {% endif %}
 
 {% if ENABLE_HTTPS %}
+# Grant a Superset secure session cookie
+SESSION_COOKIE_SECURE = True
+
 TALISMAN_ENABLED = True
 TALISMAN_CONFIG = {
     "content_security_policy": {
