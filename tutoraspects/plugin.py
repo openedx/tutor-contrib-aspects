@@ -13,9 +13,11 @@ import importlib_resources
 from tutor import hooks
 
 try:
-    from tutormfe.hooks import PLUGIN_SLOTS
+    from tutormfe.hooks import FRONTEND_APPS, PLUGIN_SLOTS
+
+    _TUTORMFE_AVAILABLE = True
 except ImportError:
-    PLUGIN_SLOTS = None
+    _TUTORMFE_AVAILABLE = False
 
 from .__about__ import __version__
 from .commands_v1 import COMMANDS as TUTOR_V1_COMMANDS
@@ -685,7 +687,7 @@ except ImportError:
 
 # If PLUGIN_SLOTS doesn't exist, we are on Redwood and do not
 # support in-context metrics.
-if PLUGIN_SLOTS:
+if _TUTORMFE_AVAILABLE:
     PLUGIN_SLOTS.add_items(
         [
             (
@@ -693,37 +695,9 @@ if PLUGIN_SLOTS:
                 "org.openedx.frontend.authoring.course_outline_sidebar.v1",
                 """
             {
-                op: PLUGIN_OPERATIONS.Insert,
-                widget: {
-                    id: 'outline-sidebar',
-                    priority: 1,
-                    type: DIRECT_PLUGIN,
-                    RenderWidget: CourseOutlineSidebar,
-                },
-            }""",
-            ),
-            (
-                "authoring",
-                "org.openedx.frontend.authoring.course_outline_sidebar.v1",
-                """
-            {
                 op: PLUGIN_OPERATIONS.Wrap,
                 widgetId: 'default_contents',
-                wrapper: SidebarToggleWrapper,
-            }""",
-            ),
-            (
-                "authoring",
-                "org.openedx.frontend.authoring.course_unit_sidebar.v2",
-                """
-            {
-                op: PLUGIN_OPERATIONS.Insert,
-                widget: {
-                    id: 'course-unit-sidebar',
-                    priority: 1,
-                    type: DIRECT_PLUGIN,
-                    RenderWidget: UnitPageSidebar,
-                },
+                wrapper: CourseOutlineSidebarWrapper,
             }""",
             ),
             (
@@ -733,35 +707,7 @@ if PLUGIN_SLOTS:
             {
                 op: PLUGIN_OPERATIONS.Wrap,
                 widgetId: 'default_contents',
-                wrapper: SidebarToggleWrapper,
-            }""",
-            ),
-            (
-                "authoring",
-                "org.openedx.frontend.authoring.course_unit_header_actions.v1",
-                """
-            {
-                op: PLUGIN_OPERATIONS.Insert,
-                widget: {
-                    id: 'unit-header-aspects-button',
-                    priority: 60,
-                    type: DIRECT_PLUGIN,
-                    RenderWidget: CourseHeaderButton,
-                },
-            }""",
-            ),
-            (
-                "authoring",
-                "org.openedx.frontend.authoring.course_outline_header_actions.v1",
-                """
-            {
-                op: PLUGIN_OPERATIONS.Insert,
-                widget: {
-                    id: 'outline-header-aspects-button',
-                    priority: 60,
-                    type: DIRECT_PLUGIN,
-                    RenderWidget: CourseHeaderButton,
-                },
+                wrapper: UnitOutlineSidebarWrapper,
             }""",
             ),
             (
@@ -793,4 +739,27 @@ if PLUGIN_SLOTS:
             }""",
             ),
         ]
+    )
+
+    @FRONTEND_APPS.add()
+    def _add_frontend_app_aspects(apps):
+        apps["aspects"] = {
+            "npm_package": "@openedx/frontend-app-aspects",
+            "npm_version": "*",
+            "enabled": True,
+        }
+        return apps
+
+    hooks.Filters.ENV_PATCHES.add_item(
+        (
+            "mfe-site-config-imports",
+            "import { aspectsApp } from '@openedx/frontend-app-aspects';",
+        )
+    )
+
+    hooks.Filters.ENV_PATCHES.add_item(
+        (
+            "mfe-site-config",
+            "addApp(siteConfig, aspectsApp);",
+        )
     )
