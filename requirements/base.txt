@@ -114,11 +114,11 @@ six==1.17.0
     #   python-dateutil
 tqdm==4.69.1
     # via shandy-sqlfmt
-tutor @ git+https://github.com/overhangio/tutor@verawood
+tutor==22.0.0
     # via
     #   -r requirements/base.in
     #   tutor-mfe
-tutor-mfe @ git+https://github.com/overhangio/tutor-mfe@verawood
+tutor-mfe==21.0.1
     # via -r requirements/base.in
 typing-extensions==4.16.0
     # via

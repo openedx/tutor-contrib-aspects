@@ -238,11 +238,11 @@ tqdm==4.69.1
     # via
     #   -r base.txt
     #   shandy-sqlfmt
-tutor @ git+https://github.com/overhangio/tutor@verawood
+tutor==22.0.0
     # via
     #   -r base.txt
     #   tutor-mfe
-tutor-mfe @ git+https://github.com/overhangio/tutor-mfe@verawood
+tutor-mfe==21.0.1
     # via -r requirements/base.txt
 twine==6.2.0
     # via -r dev.in
