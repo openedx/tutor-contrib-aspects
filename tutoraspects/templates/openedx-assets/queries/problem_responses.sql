@@ -1,5 +1,4 @@
 select
-    responses.emission_time as emission_time,
     responses.org as org,
     responses.course_key as course_key,
     toFloat32OrNull(responses.response) as response_numeric,
