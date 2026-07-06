@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-aiohappyeyeballs==2.6.2
+aiohappyeyeballs==2.7.1
     # via
     #   -r requirements/base.txt
     #   aiohttp
@@ -22,7 +22,7 @@ appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   tutor
-ast-serialize==0.5.0
+ast-serialize==0.6.0
     # via
     #   -r requirements/base.txt
     #   mypy
@@ -109,7 +109,7 @@ kubernetes==36.0.2
     # via
     #   -r requirements/base.txt
     #   tutor
-librt==0.11.0
+librt==0.12.0
     # via
     #   -r requirements/base.txt
     #   mypy
@@ -246,7 +246,7 @@ tutor-mfe==21.0.0
     # via -r requirements/base.txt
 twine==6.2.0
     # via -r requirements/dev.in
-typing-extensions==4.15.0
+typing-extensions==4.16.0
     # via
     #   -r requirements/base.txt
     #   aiohttp
