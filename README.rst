@@ -28,6 +28,32 @@ Compatibility
 Current versions of the plugin are compatible with Tutor 19.0.0 and later and support Open edX releases from Sumac onward. Older releases can support Open edX versions as far back as Nutmeg. Details are available in the `Aspects Documentation <https://docs.openedx.org/projects/openedx-aspects/en/latest/technical_documentation/how-tos/02_upgrade.html>`_.
 
 
+Breaking Changes
+================
+
+As of Aspects V4 the default data pipeline has changed from Ralph to Vector. This change improves performance and simplifies the architecture by eliminating the need to scale multiple Ralph containers and Celery workers for high-throughput scenarios.
+
+Key changes:
+
+- Vector is now the default for xAPI event ingestion
+- The ``ASPECTS_VECTOR_RAW_XAPI_TABLE`` setting has been replaced with ``ASPECTS_RAW_XAPI_TABLE``
+- The default database has changed from ``xapi`` (Ralph) to ``openedx`` (Vector)
+
+To keep using Ralph as your data pipeline:
+
+.. code-block:: bash
+
+   tutor config save --set ASPECTS_XAPI_SOURCE=ralph
+   tutor config save --set RUN_RALPH=True
+   tutor config save --set RUN_VECTOR=False
+
+This will configure Aspects to use Ralph with the ``xapi`` database, preserving your existing data.
+
+If you have customized ``ASPECTS_VECTOR_RAW_XAPI_TABLE`` in your configuration, update it to use ``ASPECTS_RAW_XAPI_TABLE`` instead.
+
+For new installations or users switching to Vector, your data will be stored in the ``openedx`` database. You can migrate existing data from the ``xapi`` database to ``openedx`` if needed.
+
+
 Installation
 ============
 
