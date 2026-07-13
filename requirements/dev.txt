@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-aiohappyeyeballs==2.6.2
+aiohappyeyeballs==2.7.1
     # via
     #   -r requirements/base.txt
     #   aiohttp
@@ -22,7 +22,7 @@ appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   tutor
-ast-serialize==0.5.0
+ast-serialize==0.6.0
     # via
     #   -r requirements/base.txt
     #   mypy
@@ -44,9 +44,9 @@ certifi==2026.6.17
     #   -r requirements/base.txt
     #   kubernetes
     #   requests
-cffi==2.0.0
+cffi==2.1.0
     # via cryptography
-charset-normalizer==3.4.7
+charset-normalizer==3.4.9
     # via
     #   -r requirements/base.txt
     #   requests
@@ -109,7 +109,7 @@ kubernetes==36.0.2
     # via
     #   -r requirements/base.txt
     #   tutor
-librt==0.11.0
+librt==0.13.0
     # via
     #   -r requirements/base.txt
     #   mypy
@@ -132,7 +132,7 @@ multidict==6.7.1
     #   -r requirements/base.txt
     #   aiohttp
     #   yarl
-mypy==2.1.0
+mypy==2.2.0
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -234,7 +234,7 @@ six==1.17.0
     #   python-dateutil
 tomlkit==0.15.0
     # via pylint
-tqdm==4.68.3
+tqdm==4.68.4
     # via
     #   -r requirements/base.txt
     #   shandy-sqlfmt
@@ -246,7 +246,7 @@ tutor-mfe==21.0.0
     # via -r requirements/base.txt
 twine==6.2.0
     # via -r requirements/dev.in
-typing-extensions==4.15.0
+typing-extensions==4.16.0
     # via
     #   -r requirements/base.txt
     #   aiohttp

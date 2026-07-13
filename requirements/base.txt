@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-aiohappyeyeballs==2.6.2
+aiohappyeyeballs==2.7.1
     # via aiohttp
 aiohttp==3.14.1
     # via kubernetes
@@ -12,7 +12,7 @@ aiosignal==1.4.0
     # via aiohttp
 appdirs==1.4.4
     # via tutor
-ast-serialize==0.5.0
+ast-serialize==0.6.0
     # via mypy
 attrs==26.1.0
     # via aiohttp
@@ -24,7 +24,7 @@ certifi==2026.6.17
     # via
     #   kubernetes
     #   requests
-charset-normalizer==3.4.7
+charset-normalizer==3.4.9
     # via requests
 click==8.2.1
     # via
@@ -54,7 +54,7 @@ jinja2==3.1.6
     #   tutor
 kubernetes==36.0.2
     # via tutor
-librt==0.11.0
+librt==0.13.0
     # via mypy
 markupsafe==3.0.3
     # via jinja2
@@ -62,7 +62,7 @@ multidict==6.7.1
     # via
     #   aiohttp
     #   yarl
-mypy==2.1.0
+mypy==2.2.0
     # via tutor
 mypy-extensions==1.1.0
     # via
@@ -112,7 +112,7 @@ six==1.17.0
     # via
     #   kubernetes
     #   python-dateutil
-tqdm==4.68.3
+tqdm==4.68.4
     # via shandy-sqlfmt
 tutor==21.0.8
     # via
@@ -120,7 +120,7 @@ tutor==21.0.8
     #   tutor-mfe
 tutor-mfe==21.0.0
     # via -r requirements/base.in
-typing-extensions==4.15.0
+typing-extensions==4.16.0
     # via
     #   aiohttp
     #   aiosignal
