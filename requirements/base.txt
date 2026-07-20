@@ -52,7 +52,7 @@ jinja2==3.1.6
     # via
     #   shandy-sqlfmt
     #   tutor
-kubernetes==36.0.2
+kubernetes==36.0.3
     # via tutor
 librt==0.13.0
     # via mypy
@@ -62,7 +62,7 @@ multidict==6.7.1
     # via
     #   aiohttp
     #   yarl
-mypy==2.2.0
+mypy==2.3.0
     # via tutor
 mypy-extensions==1.1.0
     # via
@@ -80,7 +80,7 @@ pathspec==1.1.1
     # via
     #   black
     #   mypy
-platformdirs==4.10.0
+platformdirs==4.10.1
     # via
     #   black
     #   shandy-sqlfmt
@@ -112,7 +112,7 @@ six==1.17.0
     # via
     #   kubernetes
     #   python-dateutil
-tqdm==4.68.4
+tqdm==4.69.0
     # via shandy-sqlfmt
 tutor==21.0.8
     # via

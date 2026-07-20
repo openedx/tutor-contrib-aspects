@@ -92,7 +92,7 @@ jaraco-classes==3.4.0
     # via keyring
 jaraco-context==6.1.2
     # via keyring
-jaraco-functools==4.5.0
+jaraco-functools==4.6.0
     # via keyring
 jeepney==0.9.0
     # via
@@ -105,7 +105,7 @@ jinja2==3.1.6
     #   tutor
 keyring==25.7.0
     # via twine
-kubernetes==36.0.2
+kubernetes==36.0.3
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -132,7 +132,7 @@ multidict==6.7.1
     #   -r requirements/base.txt
     #   aiohttp
     #   yarl
-mypy==2.2.0
+mypy==2.3.0
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -162,7 +162,7 @@ pathspec==1.1.1
     #   -r requirements/base.txt
     #   black
     #   mypy
-platformdirs==4.10.0
+platformdirs==4.10.1
     # via
     #   -r requirements/base.txt
     #   black
@@ -232,9 +232,9 @@ six==1.17.0
     #   -r requirements/base.txt
     #   kubernetes
     #   python-dateutil
-tomlkit==0.15.0
+tomlkit==0.15.1
     # via pylint
-tqdm==4.68.4
+tqdm==4.69.0
     # via
     #   -r requirements/base.txt
     #   shandy-sqlfmt
