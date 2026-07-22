@@ -13,9 +13,6 @@ authors = [
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
-    "Framework :: Django",
-    "Framework :: Django :: 4.2",
-    "Framework :: Django :: 5.2",
     "Intended Audience :: Developers",
     "Operating System :: OS Independent",
     "Natural Language :: English",
@@ -80,6 +77,8 @@ ci = [
     "tox-uv",
 ]
 dev = [
+    "build",
+    "pyinstaller",
     "twine",
     {include-group = "quality"},
     {include-group = "doc"},

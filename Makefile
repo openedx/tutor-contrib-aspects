@@ -29,7 +29,7 @@ build-pythonpackage: ## Build Python packages ready to upload to pypi
 test: test-lint test-format test-pythonpackage ## Run all tests by decreasing order of priority
 
 test-format: ## Run code formatting tests
-	black --check --diff $(BLACK_OPTS)
+	uv run black --check --diff $(BLACK_OPTS)
 	uv run sqlfmt src/tutoraspects/templates/openedx-assets/queries --check
 
 test-lint: ## Run code linting tests
@@ -42,7 +42,7 @@ test-pythonpackage: build-pythonpackage ## Test that package can be uploaded to 
 	uv run twine check dist/$(PROJECT)-*.tar.gz
 
 format: ## Format code automatically
-	black $(BLACK_OPTS)
+	uv run black $(BLACK_OPTS)
 	uv run sqlfmt src/tutoraspects/templates/openedx-assets/queries
 
 ###### Additional commands
