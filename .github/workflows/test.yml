@@ -4,31 +4,30 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
+  # Allow this workflow to be called from other workflows
+  workflow_call:
 
 jobs:
-  tests:
+  run_tests:
+    name: ${{ matrix.toxenv }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12"]
+        toxenv: [lint, format]
+
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      - name: Install uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
-          python-version: 3.12
+          enable-cache: true
+          python-version: "${{ matrix.python-version }}"
 
-      - name: Install development dependencies
-        run: make dev-requirements
+      - name: Install CI dependencies
+        run: uv sync --group ci
 
-      - name: Static code analysis
-        run: make test-lint
-
-      - name: Code formatting
-        run: make test-format
-
-      - name: Package tests
-        run: make test-pythonpackage
-
-      # Enable step when test-install.sh is implemented
-      # - name: Plugin installation & rendering checks
-      #   run: make test-install
+      - name: Run tox
+        run: uv run tox -e ${{ matrix.toxenv }}
