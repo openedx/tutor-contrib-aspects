@@ -1,2 +1,134 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm>=8.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tutor-contrib-aspects"
+description = "Aspects plugin for Tutor"
+readme = "README.rst"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+authors = [
+    {name = "The Open edX Community"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
+keywords = [
+    "Python",
+    "edx",
+    "openedx",
+    "tutor",
+    "aspects",
+]
+dynamic = ["version"]
+
+# TODO: remove click<8.3.0 when https://github.com/overhangio/tutor/issues/1276 is resolved completely
+dependencies = [
+    "click>=8.0,<8.3.0",
+    "bcrypt",
+    "importlib-resources",
+    "openedx-atlas",
+    "tutor>=18",
+    "ruamel.yaml",
+    "shandy-sqlfmt[jinjafmt]==0.26.0",
+    "tutor-mfe>=18",
+]
+
+[project.urls]
+Repository = "https://github.com/openedx/tutor-contrib-aspects"
+"Issue Tracker" = "https://github.com/openedx/tutor-contrib-aspects/issues"
+
+[project.entry-points."tutor.plugin.v1"]
+aspects = "tutoraspects.plugin"
+
+[tool.setuptools_scm]
+version_scheme = "only-version"
+local_scheme = "no-local-version"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["tests*", "*.tests", "*.tests.*", "docs*"]
+
+[tool.setuptools.package-data]
+tutoraspects = [
+    "patches/*",
+    "templates/**/*",
+    "templates/*",
+    "translations/**/*",
+    "translations/*",
+]
+
+[dependency-groups]
+quality = [
+    "black",
+    "edx-lint",
+    "pylint",
+]
+doc = []
+ci = [
+    "tox",
+    "tox-uv",
+]
+dev = [
+    "build",
+    "pyinstaller",
+    "twine",
+    {include-group = "quality"},
+    {include-group = "doc"},
+]
+
+# edx-lint uv constraints configuration
+# Add any repo-specific version overrides here; run `edx_lint write_uv_constraints` to apply.
+[tool.edx_lint]
+uv_constraints = []
+
+# uv configuration
+# https://docs.astral.sh/uv/reference/settings/
+#  DO NOT EDIT constraint-dependencies DIRECTLY.
+#  This list is managed by `edx_lint write_uv_constraints`
+#  and will be overwritten the next time `make upgrade` is run.
+#  - GLOBAL constraints: edit edx_lint/files/common_constraints.txt
+#  - REPO-SPECIFIC constraints: edit [tool.edx_lint].uv_constraints in this file
+[tool.uv]
+package = true
+constraint-dependencies = [
+    "Django<6.0",
+    "elasticsearch<7.14.0",
+]
+
+[tool.semantic_release]
+build_command = "pip install build && SETUPTOOLS_SCM_PRETEND_VERSION=$NEW_VERSION python -m build"
+
+# Coverage configuration
+# https://coverage.readthedocs.io/en/latest/config.html
+[tool.coverage.run]
+branch = true
+source_pkgs = ["tutoraspects"]
+omit = [
+    "*/tests/*",
+    "*/__pycache__/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+show_missing = true
+
+[tool.coverage.html]
+directory = "htmlcov"
+
 [tool.sqlfmt]
-dialect="clickhouse"
+dialect = "clickhouse"
