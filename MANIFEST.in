@@ -1,3 +1,2 @@
-recursive-include tutoraspects/patches *
-recursive-include tutoraspects/templates *
-include requirements/constraints.txt
+recursive-include src/tutoraspects/patches *
+recursive-include src/tutoraspects/templates *

@@ -7,8 +7,7 @@ on:
       - .ci/**
       - .gitignore
       - CHANGELOG.md
-      - setup.cfg
-      - tutoraspects/__about__.py
+      - src/tutoraspects/__about__.py
 
 env:
   TUTOR_ROOT: ./.ci/
@@ -19,16 +18,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: setup python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      - name: Install uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
-          python-version: 3.12
+          python-version: "3.12"
       - name: Install python reqs
-        run: pip install -r requirements/dev.txt
-      - name: Install aspects
-        run: pip install -e .
+        run: uv sync --group dev
       - name: Tutor config save
-        run: tutor config save
+        run: uv run tutor config save
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4.2.0
       - name: Free Disk Space (Ubuntu)
@@ -46,17 +43,17 @@ jobs:
           large-packages: false
           swap-storage: true
       - name: Tutor build openedx
-        run: tutor images build openedx aspects aspects-superset
+        run: uv run tutor images build openedx aspects aspects-superset
       - name: Tutor start
-        run: tutor local start -d
+        run: uv run tutor local start -d
       - name: Tutor init
-        run: tutor local do init
+        run: uv run tutor local do init
       - name: Test alembic
         run: |
-          tutor local do alembic -c "downgrade base"
-          tutor local do alembic -c "upgrade head"
+          uv run tutor local do alembic -c "downgrade base"
+          uv run tutor local do alembic -c "upgrade head"
       - name: Init clickhouse
-        run: tutor local do init-clickhouse
+        run: uv run tutor local do init-clickhouse
       # This should:
       # 1. Run all models, since alembic test removed our state
       # 2. Find no models on the first run, state should now be up to date now
@@ -64,44 +61,42 @@ jobs:
       # 4. Successfully run tests
       - name: Test dbt
         run: |
-          tutor local do dbt -c "run"
-          tutor local do dbt -c "run"
-          tutor local do dbt --only_changed False -c "run"
-          tutor local do dbt --only_changed False -c "test"
+          uv run tutor local do dbt -c "run"
+          uv run tutor local do dbt -c "run"
+          uv run tutor local do dbt --only_changed False -c "run"
+          uv run tutor local do dbt --only_changed False -c "test"
       - name: Load test
-        run: tutor local do load-xapi-test-data
+        run: uv run tutor local do load-xapi-test-data
       - name: Import demo course
-        run: tutor local do importdemocourse
+        run: uv run tutor local do importdemocourse
       - name: Test commands
         run: |
-          tutor local do dump-data-to-clickhouse --options "--object course_overviews --force"
+          uv run tutor local do dump-data-to-clickhouse --options "--object course_overviews --force"
           make extract_translations
-          tutor local do import-assets
-          tutor local do collect-dbt-lineage
-          tutor local run lms python manage.py lms transform_tracking_logs --source_provider LOCAL --source_config '{"key": "/openedx/data/", "prefix": "tracking.log", "container": "logs"}' --destination_provider LRS --transformer_type xapi
+          uv run tutor local do import-assets
+          uv run tutor local do collect-dbt-lineage
+          uv run tutor local run lms python manage.py lms transform_tracking_logs --source_provider LOCAL --source_config '{"key": "/openedx/data/", "prefix": "tracking.log", "container": "logs"}' --destination_provider LRS --transformer_type xapi
       - name: Performance metrics
         run: |
-          tutor local do performance-metrics --fail_on_error --org OpenedX --course_name "course-v1:OpenedX+DemoX+DemoCourse"
-          tutor local do performance-metrics --fail_on_error --org OpenedX
-          tutor local do performance-metrics --fail_on_error
+          uv run tutor local do performance-metrics --fail_on_error --org OpenedX --course_name "course-v1:OpenedX+DemoX+DemoCourse"
+          uv run tutor local do performance-metrics --fail_on_error --org OpenedX
+          uv run tutor local do performance-metrics --fail_on_error
       - name: Tutor stop
-        run: tutor local stop
+        run: uv run tutor local stop
 
   dev:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: setup python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      - name: Install uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
-          python-version: 3.12
+          python-version: "3.12"
       - name: Install python reqs
-        run: pip install -r requirements/dev.txt
-      - name: Install aspects
-        run: pip install -e .
+        run: uv sync --group dev
       - name: Tutor config save
-        run: tutor config save
+        run: uv run tutor config save
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4.2.0
       - name: Free Disk Space (Ubuntu)
@@ -119,17 +114,17 @@ jobs:
           large-packages: false
           swap-storage: true
       - name: Tutor build openedx
-        run: tutor images build openedx-dev aspects aspects-superset
+        run: uv run tutor images build openedx-dev aspects aspects-superset
       - name: Tutor start
-        run: tutor dev start -d
+        run: uv run tutor dev start -d
       - name: Tutor init
-        run: tutor dev do init
+        run: uv run tutor dev do init
       - name: Test alembic
         run: |
-          tutor dev do alembic -c "downgrade base"
-          tutor dev do alembic -c "upgrade head"
+          uv run tutor dev do alembic -c "downgrade base"
+          uv run tutor dev do alembic -c "upgrade head"
       - name: Init clickhouse
-        run: tutor dev do init-clickhouse
+        run: uv run tutor dev do init-clickhouse
       # This should:
       # 1. Run all models, since alembic test removed our state
       # 2. Find no models on the first run, state should now be up to date now
@@ -137,26 +132,26 @@ jobs:
       # 4. Successfully run tests
       - name: Test dbt
         run: |
-          tutor dev do dbt -c "run"
-          tutor dev do dbt -c "run"
-          tutor dev do dbt --only_changed False -c "run"
-          tutor dev do dbt --only_changed False -c "test"
+          uv run tutor dev do dbt -c "run"
+          uv run tutor dev do dbt -c "run"
+          uv run tutor dev do dbt --only_changed False -c "run"
+          uv run tutor dev do dbt --only_changed False -c "test"
       - name: Load test
-        run: tutor dev do load-xapi-test-data
+        run: uv run tutor dev do load-xapi-test-data
       - name: Import demo course
-        run: tutor dev do importdemocourse
+        run: uv run tutor dev do importdemocourse
       - name: Test commands
         run: |
-          tutor dev do dump-data-to-clickhouse --options "--object course_overviews --force"
+          uv run tutor dev do dump-data-to-clickhouse --options "--object course_overviews --force"
           make extract_translations
-          tutor dev do import-assets
+          uv run tutor dev do import-assets
       - name: Performance metrics
         run: |
-          tutor dev do performance-metrics --fail_on_error --org OpenedX --course_name "course-v1:OpenedX+DemoX+DemoCourse"
-          tutor dev do performance-metrics --fail_on_error --org OpenedX
-          tutor dev do performance-metrics --fail_on_error
+          uv run tutor dev do performance-metrics --fail_on_error --org OpenedX --course_name "course-v1:OpenedX+DemoX+DemoCourse"
+          uv run tutor dev do performance-metrics --fail_on_error --org OpenedX
+          uv run tutor dev do performance-metrics --fail_on_error
       - name: Tutor stop
-        run: tutor dev stop
+        run: uv run tutor dev stop
 
   k8s:
     runs-on: ubuntu-latest
@@ -177,15 +172,14 @@ jobs:
           swap-storage: true
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: setup python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      - name: Install uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
-          python-version: 3.12
+          python-version: "3.12"
       - name: Generate env
         run: |
-          pip install -r requirements/dev.txt
-          pip install -e .
-          tutor config save
+          uv sync --group dev
+          uv run tutor config save
       - name: Run Kubernetes tools
         uses: stefanprodan/kube-tools@49504f5a42faa937ed11d7705b995416f8e55271 # v1
         with:
@@ -198,29 +192,29 @@ jobs:
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4.2.0
       - name: Tutor build openedx
-        run: tutor images build openedx aspects aspects-superset
+        run: uv run tutor images build openedx aspects aspects-superset
       - name: Create k8s Kind Cluster
         uses: helm/kind-action@ef37e7f390d99f746eb8b610417061a60e82a6cc # v1.14.0
       - name: Mount docker image
         run: |
           kind get clusters
-          kind load docker-image $(tutor images printtag openedx) --name chart-testing
-          kind load docker-image $(tutor images printtag aspects) --name chart-testing
-          kind load docker-image $(tutor images printtag aspects-superset) --name chart-testing
+          kind load docker-image $(uv run tutor images printtag openedx) --name chart-testing
+          kind load docker-image $(uv run tutor images printtag aspects) --name chart-testing
+          kind load docker-image $(uv run tutor images printtag aspects-superset) --name chart-testing
       - name: Setup namespace
         run: |
           kubectl config set-context --current --namespace=openedx
           kubectl get pods
       - name: Init k8s environment
         run: |
-          tutor k8s start
-          tutor k8s do init
+          uv run tutor k8s start
+          uv run tutor k8s do init
       - name: Test alembic
         run: |
-          tutor k8s do alembic -c "downgrade base"
-          tutor k8s do alembic -c "upgrade head"
+          uv run tutor k8s do alembic -c "downgrade base"
+          uv run tutor k8s do alembic -c "upgrade head"
       - name: Init clickhouse
-        run: tutor k8s do init-clickhouse
+        run: uv run tutor k8s do init-clickhouse
       # This should:
       # 1. Run all models, since alembic test removed our state
       # 2. Find no models on the first run, state should now be up to date now
@@ -228,21 +222,21 @@ jobs:
       # 4. Successfully run tests
       - name: Test dbt
         run: |
-          tutor k8s do dbt -c "run"
-          tutor k8s do dbt -c "run"
-          tutor k8s do dbt --only_changed False -c "run"
-          tutor k8s do dbt --only_changed False -c "test"
+          uv run tutor k8s do dbt -c "run"
+          uv run tutor k8s do dbt -c "run"
+          uv run tutor k8s do dbt --only_changed False -c "run"
+          uv run tutor k8s do dbt --only_changed False -c "test"
       - name: Load test
-        run: tutor k8s do load-xapi-test-data
+        run: uv run tutor k8s do load-xapi-test-data
       - name: Import demo course
-        run: tutor k8s do importdemocourse
+        run: uv run tutor k8s do importdemocourse
       - name: Test commands
         run: |
-          tutor k8s do dump-data-to-clickhouse --options "--object course_overviews --force"
+          uv run tutor k8s do dump-data-to-clickhouse --options "--object course_overviews --force"
           make extract_translations
-          tutor k8s do import-assets
+          uv run tutor k8s do import-assets
       - name: Performance metrics
-        run: tutor k8s do performance-metrics --fail_on_error
+        run: uv run tutor k8s do performance-metrics --fail_on_error
       - name: Check failure logs
         if: failure()
         run: |
@@ -310,19 +304,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: setup python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      - name: Install uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
-          python-version: 3.12
+          python-version: "3.12"
       - name: Install python reqs
-        run: pip install -r requirements/dev.txt
-      - name: Install aspects
-        run: pip install -e .
+        run: uv sync --group dev
       - name: Tutor config save
-        run: tutor config save --set ASPECTS_XAPI_SOURCE=vector
+        run: uv run tutor config save --set ASPECTS_XAPI_SOURCE=vector
       - name: Confirm DB
         # This should be "openedx"
-        run: tutor config printvalue ASPECTS_XAPI_DATABASE
+        run: uv run tutor config printvalue ASPECTS_XAPI_DATABASE
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4.2.0
       - name: Free Disk Space (Ubuntu)
@@ -340,17 +332,17 @@ jobs:
           large-packages: false
           swap-storage: true
       - name: Tutor build openedx
-        run: tutor images build openedx aspects aspects-superset
+        run: uv run tutor images build openedx aspects aspects-superset
       - name: Tutor start
-        run: tutor local start -d
+        run: uv run tutor local start -d
       - name: Tutor init
-        run: tutor local do init
+        run: uv run tutor local do init
       - name: Test alembic
         run: |
-          tutor local do alembic -c "downgrade base"
-          tutor local do alembic -c "upgrade head"
+          uv run tutor local do alembic -c "downgrade base"
+          uv run tutor local do alembic -c "upgrade head"
       - name: Init clickhouse
-        run: tutor local do init-clickhouse
+        run: uv run tutor local do init-clickhouse
       # This should:
       # 1. Run all models, since alembic test removed our state
       # 2. Find no models on the first run, state should now be up to date now
@@ -358,44 +350,42 @@ jobs:
       # 4. Successfully run tests
       - name: Test dbt
         run: |
-          tutor local do dbt -c "run"
-          tutor local do dbt -c "run"
-          tutor local do dbt --only_changed False -c "run"
-          tutor local do dbt --only_changed False -c "test"
+          uv run tutor local do dbt -c "run"
+          uv run tutor local do dbt -c "run"
+          uv run tutor local do dbt --only_changed False -c "run"
+          uv run tutor local do dbt --only_changed False -c "test"
       - name: Load test
-        run: tutor local do load-xapi-test-data
+        run: uv run tutor local do load-xapi-test-data
       - name: Import demo course
-        run: tutor local do importdemocourse
+        run: uv run tutor local do importdemocourse
       - name: Test commands
         run: |
-          tutor local do dump-data-to-clickhouse --options "--object course_overviews --force"
+          uv run tutor local do dump-data-to-clickhouse --options "--object course_overviews --force"
           make extract_translations
-          tutor local do import-assets
-          tutor local do collect-dbt-lineage
-          tutor local run lms python manage.py lms transform_tracking_logs --source_provider LOCAL --source_config '{"key": "/openedx/data/", "prefix": "tracking.log", "container": "logs"}' --destination_provider LRS --transformer_type xapi
+          uv run tutor local do import-assets
+          uv run tutor local do collect-dbt-lineage
+          uv run tutor local run lms python manage.py lms transform_tracking_logs --source_provider LOCAL --source_config '{"key": "/openedx/data/", "prefix": "tracking.log", "container": "logs"}' --destination_provider LRS --transformer_type xapi
       - name: Performance metrics
-        run: tutor local do performance-metrics --fail_on_error
+        run: uv run tutor local do performance-metrics --fail_on_error
       - name: Tutor stop
-        run: tutor local stop
+        run: uv run tutor local stop
 
   dev-vector:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: setup python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      - name: Install uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
-          python-version: 3.12
+          python-version: "3.12"
       - name: Install python reqs
-        run: pip install -r requirements/dev.txt
-      - name: Install aspects
-        run: pip install -e .
+        run: uv sync --group dev
       - name: Tutor config save
-        run: tutor config save --set ASPECTS_XAPI_SOURCE=vector
+        run: uv run tutor config save --set ASPECTS_XAPI_SOURCE=vector
       - name: Confirm DB
         # This should be "openedx"
-        run: tutor config printvalue ASPECTS_XAPI_DATABASE
+        run: uv run tutor config printvalue ASPECTS_XAPI_DATABASE
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4.2.0
       - name: Free Disk Space (Ubuntu)
@@ -413,17 +403,17 @@ jobs:
           large-packages: false
           swap-storage: true
       - name: Tutor build openedx
-        run: tutor images build openedx-dev aspects aspects-superset
+        run: uv run tutor images build openedx-dev aspects aspects-superset
       - name: Tutor start
-        run: tutor dev start -d
+        run: uv run tutor dev start -d
       - name: Tutor init
-        run: tutor dev do init
+        run: uv run tutor dev do init
       - name: Test alembic
         run: |
-          tutor dev do alembic -c "downgrade base"
-          tutor dev do alembic -c "upgrade head"
+          uv run tutor dev do alembic -c "downgrade base"
+          uv run tutor dev do alembic -c "upgrade head"
       - name: Init clickhouse
-        run: tutor dev do init-clickhouse
+        run: uv run tutor dev do init-clickhouse
       # This should:
       # 1. Run all models, since alembic test removed our state
       # 2. Find no models on the first run, state should now be up to date now
@@ -431,23 +421,23 @@ jobs:
       # 4. Successfully run tests
       - name: Test dbt
         run: |
-          tutor dev do dbt -c "run"
-          tutor dev do dbt -c "run"
-          tutor dev do dbt --only_changed False -c "run"
-          tutor dev do dbt --only_changed False -c "test"
+          uv run tutor dev do dbt -c "run"
+          uv run tutor dev do dbt -c "run"
+          uv run tutor dev do dbt --only_changed False -c "run"
+          uv run tutor dev do dbt --only_changed False -c "test"
       - name: Load test
-        run: tutor dev do load-xapi-test-data
+        run: uv run tutor dev do load-xapi-test-data
       - name: Import demo course
-        run: tutor dev do importdemocourse
+        run: uv run tutor dev do importdemocourse
       - name: Test commands
         run: |
-          tutor dev do dump-data-to-clickhouse --options "--object course_overviews --force"
+          uv run tutor dev do dump-data-to-clickhouse --options "--object course_overviews --force"
           make extract_translations
-          tutor dev do import-assets
+          uv run tutor dev do import-assets
       - name: Performance metrics
-        run: tutor dev do performance-metrics --fail_on_error
+        run: uv run tutor dev do performance-metrics --fail_on_error
       - name: Tutor stop
-        run: tutor dev stop
+        run: uv run tutor dev stop
 
   k8s-vector:
     runs-on: ubuntu-latest
@@ -468,16 +458,15 @@ jobs:
           swap-storage: true
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: setup python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      - name: Install uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
-          python-version: 3.12
+          python-version: "3.12"
       - name: Generate env
         run: |
-          pip install -r requirements/dev.txt
-          pip install -e .
-          tutor config save --set ASPECTS_XAPI_SOURCE=vector
-          tutor config printvalue ASPECTS_XAPI_DATABASE | grep openedx
+          uv sync --group dev
+          uv run tutor config save --set ASPECTS_XAPI_SOURCE=vector
+          uv run tutor config printvalue ASPECTS_XAPI_DATABASE | grep openedx
       - name: Run Kubernetes tools
         uses: stefanprodan/kube-tools@49504f5a42faa937ed11d7705b995416f8e55271 # v1
         with:
@@ -490,29 +479,29 @@ jobs:
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4.2.0
       - name: Tutor build openedx
-        run: tutor images build openedx aspects aspects-superset
+        run: uv run tutor images build openedx aspects aspects-superset
       - name: Create k8s Kind Cluster
         uses: helm/kind-action@ef37e7f390d99f746eb8b610417061a60e82a6cc # v1.14.0
       - name: Mount docker image
         run: |
           kind get clusters
-          kind load docker-image $(tutor images printtag openedx) --name chart-testing
-          kind load docker-image $(tutor images printtag aspects) --name chart-testing
-          kind load docker-image $(tutor images printtag aspects-superset) --name chart-testing
+          kind load docker-image $(uv run tutor images printtag openedx) --name chart-testing
+          kind load docker-image $(uv run tutor images printtag aspects) --name chart-testing
+          kind load docker-image $(uv run tutor images printtag aspects-superset) --name chart-testing
       - name: Setup namespace
         run: |
           kubectl config set-context --current --namespace=openedx
           kubectl get pods
       - name: Init k8s environment
         run: |
-          tutor k8s start
-          tutor k8s do init
+          uv run tutor k8s start
+          uv run tutor k8s do init
       - name: Test alembic
         run: |
-          tutor k8s do alembic -c "downgrade base"
-          tutor k8s do alembic -c "upgrade head"
+          uv run tutor k8s do alembic -c "downgrade base"
+          uv run tutor k8s do alembic -c "upgrade head"
       - name: Init clickhouse
-        run: tutor k8s do init-clickhouse
+        run: uv run tutor k8s do init-clickhouse
       # This should:
       # 1. Run all models, since alembic test removed our state
       # 2. Find no models on the first run, state should now be up to date now
@@ -520,21 +509,21 @@ jobs:
       # 4. Successfully run tests
       - name: Test dbt
         run: |
-          tutor k8s do dbt -c "run"
-          tutor k8s do dbt -c "run"
-          tutor k8s do dbt --only_changed False -c "run"
-          tutor k8s do dbt --only_changed False -c "test"
+          uv run tutor k8s do dbt -c "run"
+          uv run tutor k8s do dbt -c "run"
+          uv run tutor k8s do dbt --only_changed False -c "run"
+          uv run tutor k8s do dbt --only_changed False -c "test"
       - name: Load test
-        run: tutor k8s do load-xapi-test-data
+        run: uv run tutor k8s do load-xapi-test-data
       - name: Import demo course
-        run: tutor k8s do importdemocourse
+        run: uv run tutor k8s do importdemocourse
       - name: Test commands
         run: |
-          tutor k8s do dump-data-to-clickhouse --options "--object course_overviews --force"
+          uv run tutor k8s do dump-data-to-clickhouse --options "--object course_overviews --force"
           make extract_translations
-          tutor k8s do import-assets
+          uv run tutor k8s do import-assets
       - name: Performance metrics
-        run: tutor k8s do performance-metrics --fail_on_error
+        run: uv run tutor k8s do performance-metrics --fail_on_error
       - name: Check failure logs
         if: failure()
         run: |
