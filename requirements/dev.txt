@@ -242,7 +242,7 @@ tutor==22.0.0
     # via
     #   -r base.txt
     #   tutor-mfe
-tutor-mfe==21.0.1
+tutor-mfe==22.0.0
     # via -r requirements/base.txt
 twine==6.2.0
     # via -r dev.in
