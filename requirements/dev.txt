@@ -6,57 +6,57 @@
 #
 aiohappyeyeballs==2.7.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   aiohttp
 aiohttp==3.14.3
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
 aiosignal==1.4.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   aiohttp
 altgraph==0.17.5
     # via pyinstaller
 appdirs==1.4.4
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   tutor
 ast-serialize==0.6.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   mypy
 astroid==4.0.4
     # via pylint
 attrs==26.1.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   aiohttp
 bcrypt==5.0.0
-    # via -r requirements/base.txt
+    # via -r base.txt
 black==26.5.1
     # via
-    #   -r requirements/base.txt
-    #   -r requirements/dev.in
+    #   -r base.txt
+    #   -r dev.in
     #   shandy-sqlfmt
 certifi==2026.7.22
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
     #   requests
 cffi==2.1.0
     # via cryptography
 charset-normalizer==3.4.9
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   requests
 click==8.2.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   black
     #   shandy-sqlfmt
     #   tutor
-cryptography==49.0.0
+cryptography==50.0.0
     # via secretstorage
 dill==0.4.1
     # via pylint
@@ -64,27 +64,27 @@ docutils==0.23
     # via readme-renderer
 durationpy==0.10
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
 frozenlist==1.8.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   aiohttp
     #   aiosignal
 id==1.6.1
     # via twine
 idna==3.18
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   requests
     #   yarl
 importlib-metadata==9.0.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   tutor
 importlib-resources==7.1.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   tutor
 isort==8.0.1
     # via pylint
@@ -100,24 +100,24 @@ jeepney==0.9.0
     #   secretstorage
 jinja2==3.1.6
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   shandy-sqlfmt
     #   tutor
 keyring==25.7.0
     # via twine
 kubernetes==36.0.3
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   tutor
 librt==0.13.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   mypy
 markdown-it-py==4.2.0
     # via rich
 markupsafe==3.0.3
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   jinja2
 mccabe==0.7.0
     # via pylint
@@ -129,29 +129,29 @@ more-itertools==11.1.0
     #   jaraco-functools
 multidict==6.7.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   aiohttp
     #   yarl
 mypy==2.3.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   tutor
 mypy-extensions==1.1.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   black
     #   mypy
 nh3==0.3.6
     # via readme-renderer
 oauthlib==3.3.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   requests-oauthlib
 openedx-atlas==0.7.0
-    # via -r requirements/base.txt
+    # via -r base.txt
 packaging==26.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   black
     #   pyinstaller
     #   pyinstaller-hooks-contrib
@@ -159,61 +159,61 @@ packaging==26.2
     #   twine
 pathspec==1.1.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   black
     #   mypy
 platformdirs==4.11.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   black
     #   pylint
     #   shandy-sqlfmt
 propcache==0.5.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   aiohttp
     #   yarl
 pycparser==3.0
     # via cffi
 pycryptodome==3.23.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   tutor
 pygments==2.20.0
     # via
     #   readme-renderer
     #   rich
 pyinstaller==6.21.0
-    # via -r requirements/dev.in
+    # via -r dev.in
 pyinstaller-hooks-contrib==2026.6
     # via pyinstaller
 pylint==4.0.6
-    # via -r requirements/dev.in
+    # via -r dev.in
 python-dateutil==2.9.0.post0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
 pytokens==0.4.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   black
 pyyaml==6.0.3
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
     #   tutor
 readme-renderer==45.0
     # via twine
 requests==2.34.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
     #   requests-oauthlib
     #   requests-toolbelt
     #   twine
 requests-oauthlib==2.0.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
 requests-toolbelt==1.0.0
     # via twine
@@ -222,55 +222,55 @@ rfc3986==2.0.0
 rich==15.0.0
     # via twine
 ruamel-yaml==0.19.1
-    # via -r requirements/base.txt
+    # via -r base.txt
 secretstorage==3.5.0
     # via keyring
 shandy-sqlfmt[jinjafmt]==0.26.0
-    # via -r requirements/base.txt
+    # via -r base.txt
 six==1.17.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
     #   python-dateutil
 tomlkit==0.15.1
     # via pylint
 tqdm==4.69.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   shandy-sqlfmt
 tutor==21.0.8
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   tutor-mfe
 tutor-mfe==21.0.0
-    # via -r requirements/base.txt
+    # via -r base.txt
 twine==6.2.0
-    # via -r requirements/dev.in
+    # via -r dev.in
 typing-extensions==4.16.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   aiohttp
     #   aiosignal
     #   mypy
     #   tutor
 urllib3==2.7.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   id
     #   kubernetes
     #   requests
     #   twine
 websocket-client==1.9.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   kubernetes
 yarl==1.24.5
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   aiohttp
 zipp==4.1.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
