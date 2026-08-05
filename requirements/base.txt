@@ -118,7 +118,7 @@ tutor==22.0.0
     # via
     #   -r requirements/base.in
     #   tutor-mfe
-tutor-mfe==21.0.1
+tutor-mfe==22.0.0
     # via -r requirements/base.in
 typing-extensions==4.16.0
     # via
