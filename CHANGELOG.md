@@ -5,6 +5,217 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v4.0.0 - 2026-08-07
+
+### v4.0.0 (2026-08-07)
+
+#### Bug Fixes
+
+- Adds the port to superset's metadata sqlalchemy uri ([`ed7d604`](https://github.com/openedx/tutor-contrib-aspects/commit/ed7d604a5e07bd0ab3f99422c4a0be04913cad9b))
+  
+- Aspects updates jun17 ([#1266](https://github.com/openedx/tutor-contrib-aspects/pull/1266), [`07cb2e0`](https://github.com/openedx/tutor-contrib-aspects/commit/07cb2e05157f35b0605a9d528ce5f047c9248ad0))
+  
+- Build issues ([#1233](https://github.com/openedx/tutor-contrib-aspects/pull/1233), [`f3af241`](https://github.com/openedx/tutor-contrib-aspects/commit/f3af2413a92dcce0a27e2e05409edec8e0aec6fa))
+  
+- Course run tab incorrect dashboard filter link ([#1266](https://github.com/openedx/tutor-contrib-aspects/pull/1266), [`07cb2e0`](https://github.com/openedx/tutor-contrib-aspects/commit/07cb2e05157f35b0605a9d528ce5f047c9248ad0))
+  
+- Detect the current branch, tag or commit to avoid unnecessary cloning ([#1233](https://github.com/openedx/tutor-contrib-aspects/pull/1233), [`f3af241`](https://github.com/openedx/tutor-contrib-aspects/commit/f3af2413a92dcce0a27e2e05409edec8e0aec6fa))
+  
+- Fixes for superset 6 ([#1245](https://github.com/openedx/tutor-contrib-aspects/pull/1245), [`7b83bf0`](https://github.com/openedx/tutor-contrib-aspects/commit/7b83bf091fd9c3ac0b5678156c786b72bd276d28))
+  
+- Remove wrong indent of the superset-row-level-security patch ([#1195](https://github.com/openedx/tutor-contrib-aspects/pull/1195), [`c5c9a51`](https://github.com/openedx/tutor-contrib-aspects/commit/c5c9a513e626143dc6e8667b25459db67c63d37d))
+  
+- Set xapi_database on EVENT_SINK_CLICKHOUSE_BACKEND_CONFIG ([`8ac244d`](https://github.com/openedx/tutor-contrib-aspects/commit/8ac244d33b37a887eded2809828a2eb291540da6))
+  
+- Skip autoscaling config for disabled Ralph and Superset services ([`29155bb`](https://github.com/openedx/tutor-contrib-aspects/commit/29155bb113a8b86af215cdbbd23435b59fc14600))
+  
+- Update documentation links ([#1230](https://github.com/openedx/tutor-contrib-aspects/pull/1230), [`17d866d`](https://github.com/openedx/tutor-contrib-aspects/commit/17d866dfd1ba316db5df73be8a1b56264c1e2198))
+  
+- Update frontend plugin load ([#1266](https://github.com/openedx/tutor-contrib-aspects/pull/1266), [`07cb2e0`](https://github.com/openedx/tutor-contrib-aspects/commit/07cb2e05157f35b0605a9d528ce5f047c9248ad0))
+  
+- Update frontend-plugin ([#1266](https://github.com/openedx/tutor-contrib-aspects/pull/1266), [`07cb2e0`](https://github.com/openedx/tutor-contrib-aspects/commit/07cb2e05157f35b0605a9d528ce5f047c9248ad0))
+  
+- Update PPA for new sink model locations ([#1266](https://github.com/openedx/tutor-contrib-aspects/pull/1266), [`07cb2e0`](https://github.com/openedx/tutor-contrib-aspects/commit/07cb2e05157f35b0605a9d528ce5f047c9248ad0))
+  
+- Use http_user_agent per slice in performance matrics ([#1233](https://github.com/openedx/tutor-contrib-aspects/pull/1233), [`f3af241`](https://github.com/openedx/tutor-contrib-aspects/commit/f3af2413a92dcce0a27e2e05409edec8e0aec6fa))
+  
+- Use problem results dataset instead of performance ([#1266](https://github.com/openedx/tutor-contrib-aspects/pull/1266), [`07cb2e0`](https://github.com/openedx/tutor-contrib-aspects/commit/07cb2e05157f35b0605a9d528ce5f047c9248ad0))
+  
+
+#### Chores
+
+- Add make_latest input to bump version workflow ([#1252](https://github.com/openedx/tutor-contrib-aspects/pull/1252), [`cf9f00d`](https://github.com/openedx/tutor-contrib-aspects/commit/cf9f00ddf28dce96be0719eb1d24ddd2321fef73))
+  
+- Add makeLatest condition for releases on PRs ([#1252](https://github.com/openedx/tutor-contrib-aspects/pull/1252), [`cf9f00d`](https://github.com/openedx/tutor-contrib-aspects/commit/cf9f00ddf28dce96be0719eb1d24ddd2321fef73))
+  
+- Fix linting ([#1266](https://github.com/openedx/tutor-contrib-aspects/pull/1266), [`07cb2e0`](https://github.com/openedx/tutor-contrib-aspects/commit/07cb2e05157f35b0605a9d528ce5f047c9248ad0))
+  
+- Refactor bump-version-manual.yaml to use Python ([#1252](https://github.com/openedx/tutor-contrib-aspects/pull/1252), [`cf9f00d`](https://github.com/openedx/tutor-contrib-aspects/commit/cf9f00ddf28dce96be0719eb1d24ddd2321fef73))
+  
+- Right versions for platform plugin ([#1266](https://github.com/openedx/tutor-contrib-aspects/pull/1266), [`07cb2e0`](https://github.com/openedx/tutor-contrib-aspects/commit/07cb2e05157f35b0605a9d528ce5f047c9248ad0))
+  
+- Standardize queries & readme updates ([#1187](https://github.com/openedx/tutor-contrib-aspects/pull/1187), [`d7dab93`](https://github.com/openedx/tutor-contrib-aspects/commit/d7dab93d114c9ba06e26f87a5868967ec110a5d6))
+  
+- Update bump-version-manual workflow for versioning ([#1252](https://github.com/openedx/tutor-contrib-aspects/pull/1252), [`cf9f00d`](https://github.com/openedx/tutor-contrib-aspects/commit/cf9f00ddf28dce96be0719eb1d24ddd2321fef73))
+  
+- Update DBT repository and branch settings ([#1266](https://github.com/openedx/tutor-contrib-aspects/pull/1266), [`07cb2e0`](https://github.com/openedx/tutor-contrib-aspects/commit/07cb2e05157f35b0605a9d528ce5f047c9248ad0))
+  
+- Update Github action package versions with SHA commit ([`c1e98bc`](https://github.com/openedx/tutor-contrib-aspects/commit/c1e98bc7d404d31fefef26deb46f24a6072d109b))
+  
+- Update owner and lifecycle in catalog-info.yaml ([#1240](https://github.com/openedx/tutor-contrib-aspects/pull/1240), [`187ef62`](https://github.com/openedx/tutor-contrib-aspects/commit/187ef62816a13ad8e026cd3741fd9e3505cf5f10))
+  
+- Update platform-plugin-aspects and edx-event-routing-backends ([#1266](https://github.com/openedx/tutor-contrib-aspects/pull/1266), [`07cb2e0`](https://github.com/openedx/tutor-contrib-aspects/commit/07cb2e05157f35b0605a9d528ce5f047c9248ad0))
+  
+- Update release workflow for GitHub actions ([#1252](https://github.com/openedx/tutor-contrib-aspects/pull/1252), [`cf9f00d`](https://github.com/openedx/tutor-contrib-aspects/commit/cf9f00ddf28dce96be0719eb1d24ddd2321fef73))
+  
+- Update release workflow for versioning and action reference ([#1252](https://github.com/openedx/tutor-contrib-aspects/pull/1252), [`cf9f00d`](https://github.com/openedx/tutor-contrib-aspects/commit/cf9f00ddf28dce96be0719eb1d24ddd2321fef73))
+  
+- Update tutor dependency to use Git URL ([#1266](https://github.com/openedx/tutor-contrib-aspects/pull/1266), [`07cb2e0`](https://github.com/openedx/tutor-contrib-aspects/commit/07cb2e05157f35b0605a9d528ce5f047c9248ad0))
+  
+- Update tutor dependency to use GitHub source ([#1266](https://github.com/openedx/tutor-contrib-aspects/pull/1266), [`07cb2e0`](https://github.com/openedx/tutor-contrib-aspects/commit/07cb2e05157f35b0605a9d528ce5f047c9248ad0))
+  
+- Update tutor-mfe version to 22.0.0 ([#1266](https://github.com/openedx/tutor-contrib-aspects/pull/1266), [`07cb2e0`](https://github.com/openedx/tutor-contrib-aspects/commit/07cb2e05157f35b0605a9d528ce5f047c9248ad0))
+  
+- Upgrade kustomize version to 5.0.0 ([#1239](https://github.com/openedx/tutor-contrib-aspects/pull/1239), [`00c5f52`](https://github.com/openedx/tutor-contrib-aspects/commit/00c5f5243357ecb3183749c67b5c145eccee52f5))
+  
+- Upgrade Python requirements ([#1266](https://github.com/openedx/tutor-contrib-aspects/pull/1266), [`07cb2e0`](https://github.com/openedx/tutor-contrib-aspects/commit/07cb2e05157f35b0605a9d528ce5f047c9248ad0))
+  
+- Upgrade Python requirements ([`57fae54`](https://github.com/openedx/tutor-contrib-aspects/commit/57fae5445a9a370823bea03b23c46fb32c5d0d20))
+  
+- Upgrade Python requirements ([`c51721f`](https://github.com/openedx/tutor-contrib-aspects/commit/c51721f7999654517684d2e6bf35098a86d2396c))
+  
+- Upgrade Python requirements ([`6050ecd`](https://github.com/openedx/tutor-contrib-aspects/commit/6050ecd0ac8ed5654899c145efcaf3e73aa59a3b))
+  
+- Upgrade Python requirements ([#1279](https://github.com/openedx/tutor-contrib-aspects/pull/1279), [`e8fec4b`](https://github.com/openedx/tutor-contrib-aspects/commit/e8fec4bb32edfdd5ebc941873fe192311e17c3f2))
+  
+- Upgrade Python requirements ([`3f7aedc`](https://github.com/openedx/tutor-contrib-aspects/commit/3f7aedc86df55d04baa91e8e2924dfe7e18895a3))
+  
+- Upgrade Python requirements ([#1265](https://github.com/openedx/tutor-contrib-aspects/pull/1265), [`e8ecf04`](https://github.com/openedx/tutor-contrib-aspects/commit/e8ecf0449b790c3f15902241127bd971a8017659))
+  
+- Upgrade Python requirements ([`3a79cf0`](https://github.com/openedx/tutor-contrib-aspects/commit/3a79cf007083e8b43de77e64dda74f39861337e1))
+  
+- Upgrade Python requirements ([#1257](https://github.com/openedx/tutor-contrib-aspects/pull/1257), [`de4f22b`](https://github.com/openedx/tutor-contrib-aspects/commit/de4f22bafa70bbbfa9ebb31cd9965909472f6b70))
+  
+- Upgrade Python requirements ([`04ece48`](https://github.com/openedx/tutor-contrib-aspects/commit/04ece48c418e7a42a5628004d268865281f2392a))
+  
+- Upgrade Python requirements ([`395658e`](https://github.com/openedx/tutor-contrib-aspects/commit/395658ebad3e0e44fecd97a3a937abb99ff857b1))
+  
+- Upgrade Python requirements ([#1246](https://github.com/openedx/tutor-contrib-aspects/pull/1246), [`42e67f8`](https://github.com/openedx/tutor-contrib-aspects/commit/42e67f8de4190283e95dc567564e9e5325b5c7c9))
+  
+- Upgrade Python requirements ([#1244](https://github.com/openedx/tutor-contrib-aspects/pull/1244), [`303e250`](https://github.com/openedx/tutor-contrib-aspects/commit/303e25081b2546ff844dfb1d1f28f1bfefd2dc2c))
+  
+- Upgrade Python requirements ([#1239](https://github.com/openedx/tutor-contrib-aspects/pull/1239), [`00c5f52`](https://github.com/openedx/tutor-contrib-aspects/commit/00c5f5243357ecb3183749c67b5c145eccee52f5))
+  
+- Upgrade Python requirements ([#1220](https://github.com/openedx/tutor-contrib-aspects/pull/1220), [`66e5698`](https://github.com/openedx/tutor-contrib-aspects/commit/66e5698005a98dc6eb87264b274a5b0a507c5ffe))
+  
+- Upgrade Python requirements ([`71bdcc8`](https://github.com/openedx/tutor-contrib-aspects/commit/71bdcc8fc5bbd82e4854e3a47f7b3b794bdcee05))
+  
+- Upgrade Python requirements ([#1209](https://github.com/openedx/tutor-contrib-aspects/pull/1209), [`424dea8`](https://github.com/openedx/tutor-contrib-aspects/commit/424dea859e96477a96539c9cef7e3eaf0b4bbb1f))
+  
+- Upgrade Python requirements ([#1205](https://github.com/openedx/tutor-contrib-aspects/pull/1205), [`1637a9c`](https://github.com/openedx/tutor-contrib-aspects/commit/1637a9c4db9ba35ef6d0fcf4507e703427360676))
+  
+- Upgrade Python requirements ([#1200](https://github.com/openedx/tutor-contrib-aspects/pull/1200), [`9895398`](https://github.com/openedx/tutor-contrib-aspects/commit/9895398dc792fdf1e329bbb5de4d9e855f5434ef))
+  
+- Upgrade Python requirements ([#1197](https://github.com/openedx/tutor-contrib-aspects/pull/1197), [`3f27346`](https://github.com/openedx/tutor-contrib-aspects/commit/3f273463aaada5c6a01331101676b64e736204ca))
+  
+- Upgrade Python requirements ([#1192](https://github.com/openedx/tutor-contrib-aspects/pull/1192), [`54ec12f`](https://github.com/openedx/tutor-contrib-aspects/commit/54ec12f9b567204b6f064866555770021d0227ef))
+  
+- Upgrade Python requirements ([`04e30d2`](https://github.com/openedx/tutor-contrib-aspects/commit/04e30d28d7803a7c5af7e65aad31cb880c48f7ca))
+  
+- Upgrade tutor-mfe from 21.0.1 to 22.0.0 ([#1266](https://github.com/openedx/tutor-contrib-aspects/pull/1266), [`07cb2e0`](https://github.com/openedx/tutor-contrib-aspects/commit/07cb2e05157f35b0605a9d528ce5f047c9248ad0))
+  
+- Upgrade Vector to 0.54.0 ([`e5ee829`](https://github.com/openedx/tutor-contrib-aspects/commit/e5ee829701f8fd5539ecb94a1a975935899a3b54))
+  
+- Use tutor verawood ([#1266](https://github.com/openedx/tutor-contrib-aspects/pull/1266), [`07cb2e0`](https://github.com/openedx/tutor-contrib-aspects/commit/07cb2e05157f35b0605a9d528ce5f047c9248ad0))
+  
+- **deps**: Bump actions/checkout from 5 to 6 ([`edcc2f0`](https://github.com/openedx/tutor-contrib-aspects/commit/edcc2f0da172ec87f657064d292c1400a2b0a962))
+  
+- **deps**: Bump actions/checkout from 6.0.2 to 6.0.3 ([`7920e8a`](https://github.com/openedx/tutor-contrib-aspects/commit/7920e8a5500c9282abf0b77f8bed3cd9702c4a54))
+  
+- **deps**: Bump actions/checkout from 6.0.3 to 7.0.0 ([`fbdbb2d`](https://github.com/openedx/tutor-contrib-aspects/commit/fbdbb2d28139913cc79d8c8392e4266f4e3dbb6a))
+  
+- **deps**: Bump actions/checkout from 7.0.0 to 7.0.1 ([`5f3a13a`](https://github.com/openedx/tutor-contrib-aspects/commit/5f3a13ab7b80e3e7fbaab68134511126404bb4a5))
+  
+- **deps**: Bump actions/setup-python from 6.2.0 to 6.3.0 ([`73136f0`](https://github.com/openedx/tutor-contrib-aspects/commit/73136f04b83684917f0c88df682bf136f0b7bd1c))
+  
+- **deps**: Bump actions/setup-python from 6.3.0 to 7.0.0 ([`c653e67`](https://github.com/openedx/tutor-contrib-aspects/commit/c653e674e68eb226a74de94bbacfef0a597431a4))
+  
+- **deps**: Bump cryptography from 46.0.5 to 46.0.6 in /requirements ([#1217](https://github.com/openedx/tutor-contrib-aspects/pull/1217), [`a0f217a`](https://github.com/openedx/tutor-contrib-aspects/commit/a0f217a2795e2b8a427cf391744cb2089b54b877))
+  
+- **deps**: Bump cryptography from 46.0.6 to 46.0.7 in /requirements ([`d14b4b1`](https://github.com/openedx/tutor-contrib-aspects/commit/d14b4b1c03d70de31f527c55ffde8253a06500db))
+  
+- **deps**: Bump cryptography from 49.0.0 to 50.0.0 in /requirements ([#1299](https://github.com/openedx/tutor-contrib-aspects/pull/1299), [`08fff4a`](https://github.com/openedx/tutor-contrib-aspects/commit/08fff4a2024ba6724a7b7e40487008a78243ca51))
+  
+- **deps**: Bump docker/login-action from 3.7.0 to 4.0.0 ([#1202](https://github.com/openedx/tutor-contrib-aspects/pull/1202), [`f4e10db`](https://github.com/openedx/tutor-contrib-aspects/commit/f4e10db7df90c81200f0fda8777eeb886c2af192))
+  
+- **deps**: Bump docker/login-action from 4.0.0 to 4.1.0 ([`9c20c46`](https://github.com/openedx/tutor-contrib-aspects/commit/9c20c46dee13fa79de214c10dad1b9de50e416d7))
+  
+- **deps**: Bump docker/login-action from 4.1.0 to 4.2.0 ([`ce83e6b`](https://github.com/openedx/tutor-contrib-aspects/commit/ce83e6ba135a569f1b247e8b2548e61241e664d5))
+  
+- **deps**: Bump docker/login-action from 4.2.0 to 4.4.0 ([`cbf1438`](https://github.com/openedx/tutor-contrib-aspects/commit/cbf143866ae9e21e877d84eb1ee7083a72631a5b))
+  
+- **deps**: Bump docker/login-action from 4.4.0 to 4.5.1 ([`5345da9`](https://github.com/openedx/tutor-contrib-aspects/commit/5345da9c5928ed10b470dd8ceeaef2a1ab987d13))
+  
+- **deps**: Bump docker/login-action from 4.5.1 to 4.6.0 ([#1298](https://github.com/openedx/tutor-contrib-aspects/pull/1298), [`2a9592d`](https://github.com/openedx/tutor-contrib-aspects/commit/2a9592db4352a82c82574ad40b4839f393796177))
+  
+- **deps**: Bump docker/setup-buildx-action from 3 to 4 ([`1ef8f83`](https://github.com/openedx/tutor-contrib-aspects/commit/1ef8f83f496a0d22725f2f74f168fe32c8197265))
+  
+- **deps**: Bump docker/setup-buildx-action from 3 to 4 ([#1201](https://github.com/openedx/tutor-contrib-aspects/pull/1201), [`40bbb1a`](https://github.com/openedx/tutor-contrib-aspects/commit/40bbb1a8e8f9e24d4d7b33d3033c89444fd8f82d))
+  
+- **deps**: Bump docker/setup-buildx-action from 4.0.0 to 4.1.0 ([`287498c`](https://github.com/openedx/tutor-contrib-aspects/commit/287498cbbcf52b834d487af68f57b922d83e91f6))
+  
+- **deps**: Bump docker/setup-buildx-action from 4.1.0 to 4.2.0 ([`2e10a37`](https://github.com/openedx/tutor-contrib-aspects/commit/2e10a3782f19232e3613276ae135e11902f18236))
+  
+- **deps**: Bump helm/kind-action from 1.12.0 to 1.14.0 ([`8c9611c`](https://github.com/openedx/tutor-contrib-aspects/commit/8c9611c4f1cd4ce6424f1fed6bc670bd35e83687))
+  
+- **deps**: Bump helm/kind-action from 1.13.0 to 1.14.0 ([#1193](https://github.com/openedx/tutor-contrib-aspects/pull/1193), [`cb41af0`](https://github.com/openedx/tutor-contrib-aspects/commit/cb41af02cdcf8c2aa825820745a741f57e2d6bf5))
+  
+- **deps**: Bump python-semantic-release/python-semantic-release ([`7a7b421`](https://github.com/openedx/tutor-contrib-aspects/commit/7a7b4214e5f8a406deda3c2d22b0064abe39da2c))
+  
+- **deps-dev**: Bump black from 26.3.0 to 26.3.1 in /requirements ([`122bfe5`](https://github.com/openedx/tutor-contrib-aspects/commit/122bfe51ad52ff65a685e4778ff20e8b90c19518))
+  
+
+#### Code Style
+
+- Fix formatting ([`8cf1c1c`](https://github.com/openedx/tutor-contrib-aspects/commit/8cf1c1c7072ff610100cd48c98ddd02a7dded740))
+  
+- Fix line length ([`88b9eee`](https://github.com/openedx/tutor-contrib-aspects/commit/88b9eee71b723b9d59a25db3206d6d52e64cff66))
+  
+- Fix line length error ([`2f0da5c`](https://github.com/openedx/tutor-contrib-aspects/commit/2f0da5c8ab64df8ab48cccaad76a674d905169b0))
+  
+
+#### Features
+
+- Add CELERY_WORKER_EXTRA_ARGS support for Superset deployments ([`92b0b69`](https://github.com/openedx/tutor-contrib-aspects/commit/92b0b6932cb8c8537b8319c3e51da048b92b1546))
+  
+- Add compatibility with frontend-base ([#1266](https://github.com/openedx/tutor-contrib-aspects/pull/1266), [`07cb2e0`](https://github.com/openedx/tutor-contrib-aspects/commit/07cb2e05157f35b0605a9d528ce5f047c9248ad0))
+  
+- Add manual version bump workflow ([#1252](https://github.com/openedx/tutor-contrib-aspects/pull/1252), [`cf9f00d`](https://github.com/openedx/tutor-contrib-aspects/commit/cf9f00ddf28dce96be0719eb1d24ddd2321fef73))
+  
+- Enable secure session cookie for Superset when using HTTPS ([`3ff0d00`](https://github.com/openedx/tutor-contrib-aspects/commit/3ff0d002569b8b8f577231e96f977f0bd1b8444a))
+  
+- Enhance release workflow with manual trigger options ([#1252](https://github.com/openedx/tutor-contrib-aspects/pull/1252), [`cf9f00d`](https://github.com/openedx/tutor-contrib-aspects/commit/cf9f00ddf28dce96be0719eb1d24ddd2321fef73))
+  
+- Include theme and tags in superset import ([#1233](https://github.com/openedx/tutor-contrib-aspects/pull/1233), [`f3af241`](https://github.com/openedx/tutor-contrib-aspects/commit/f3af2413a92dcce0a27e2e05409edec8e0aec6fa))
+  
+- New action for manual version release ([#1252](https://github.com/openedx/tutor-contrib-aspects/pull/1252), [`cf9f00d`](https://github.com/openedx/tutor-contrib-aspects/commit/cf9f00ddf28dce96be0719eb1d24ddd2321fef73))
+  
+- Upgrade to superset 6.0.0 ([#1233](https://github.com/openedx/tutor-contrib-aspects/pull/1233), [`f3af241`](https://github.com/openedx/tutor-contrib-aspects/commit/f3af2413a92dcce0a27e2e05409edec8e0aec6fa))
+  
+- Upgrade to Superset v6 ([#1233](https://github.com/openedx/tutor-contrib-aspects/pull/1233), [`f3af241`](https://github.com/openedx/tutor-contrib-aspects/commit/f3af2413a92dcce0a27e2e05409edec8e0aec6fa))
+  
+- Upgrade Vector to 0.50.0, fix migrations ([`6763f0c`](https://github.com/openedx/tutor-contrib-aspects/commit/6763f0cb510614077f3fc577d5ac631b2d311571))
+  
+
+#### Refactoring
+
+- Add new config for Alembic database, simplify CH grants ([`7a0d3cc`](https://github.com/openedx/tutor-contrib-aspects/commit/7a0d3cc3ad475dfc627aa7bd35196ec44c030da6))
+
+
+---
+
+**Detailed Changes**: [v3.0.3...v4.0.0](https://github.com/openedx/tutor-contrib-aspects/compare/v3.0.3...v4.0.0)
+
 ## v3.0.3 - 2026-02-12
 
 ### v3.0.3 (2026-02-12)
