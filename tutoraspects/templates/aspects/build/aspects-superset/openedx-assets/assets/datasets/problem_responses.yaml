@@ -52,18 +52,6 @@ columns:
   type: LowCardinality(String)
   verbose_name: Interaction Type
 - advanced_data_type: null
-  column_name: emission_time
-  description: null
-  expression: ''
-  extra: {}
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: true
-  python_date_format: null
-  type: DateTime
-  verbose_name: Emission Time
-- advanced_data_type: null
   column_name: response_count
   description: null
   expression: null

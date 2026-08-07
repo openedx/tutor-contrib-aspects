@@ -114,11 +114,11 @@ six==1.17.0
     #   python-dateutil
 tqdm==4.69.1
     # via shandy-sqlfmt
-tutor==21.0.8
+tutor==22.0.0
     # via
     #   -r requirements/base.in
     #   tutor-mfe
-tutor-mfe==21.0.0
+tutor-mfe==22.0.0
     # via -r requirements/base.in
 typing-extensions==4.16.0
     # via

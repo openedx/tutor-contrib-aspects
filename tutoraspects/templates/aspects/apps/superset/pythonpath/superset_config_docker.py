@@ -123,6 +123,7 @@ JINJA_CONTEXT_ADDONS = {
     'translate_column': translate_column,
     'translate_column_bool': translate_column_bool,
     'get_filtered_dashboard_link': get_filtered_dashboard_link,
+    'get_multiple_filtered_dashboard_link': get_multiple_filtered_dashboard_link,
     {% for filter in SUPERSET_EXTRA_JINJA_FILTERS %}'{{ filter }}': {{filter}},{% endfor %}
 }
 
