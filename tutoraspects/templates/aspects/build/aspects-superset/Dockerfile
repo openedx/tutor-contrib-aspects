@@ -40,4 +40,4 @@ RUN python /app/localization/compile_translations.py
 
 USER superset
 
-{{ patch("superset-dockerfile-production-final") }}
+{{ patch("superset-dockerfile") }}
