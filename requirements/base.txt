@@ -12,7 +12,7 @@ aiosignal==1.4.0
     # via aiohttp
 appdirs==1.4.4
     # via tutor
-ast-serialize==0.6.0
+ast-serialize==0.8.0
     # via mypy
 attrs==26.1.0
     # via aiohttp
@@ -24,7 +24,7 @@ certifi==2026.7.22
     # via
     #   kubernetes
     #   requests
-charset-normalizer==3.4.9
+charset-normalizer==3.5.1
     # via requests
 click==8.2.1
     # via
@@ -54,7 +54,7 @@ jinja2==3.1.6
     #   tutor
 kubernetes==36.0.3
     # via tutor
-librt==0.13.0
+librt==0.15.0
     # via mypy
 markupsafe==3.0.3
     # via jinja2
@@ -62,7 +62,7 @@ multidict==6.7.1
     # via
     #   aiohttp
     #   yarl
-mypy==2.3.0
+mypy==2.3.1
     # via tutor
 mypy-extensions==1.1.0
     # via
@@ -72,7 +72,7 @@ oauthlib==3.3.1
     # via requests-oauthlib
 openedx-atlas==0.7.0
     # via -r requirements/base.in
-packaging==26.2
+packaging==26.3
     # via
     #   black
     #   tutor
@@ -80,7 +80,7 @@ pathspec==1.1.1
     # via
     #   black
     #   mypy
-platformdirs==4.11.0
+platformdirs==4.11.3
     # via
     #   black
     #   shandy-sqlfmt
@@ -112,9 +112,9 @@ six==1.17.0
     # via
     #   kubernetes
     #   python-dateutil
-tqdm==4.69.1
+tqdm==4.70.0
     # via shandy-sqlfmt
-tutor==22.0.0
+tutor==22.0.1
     # via
     #   -r requirements/base.in
     #   tutor-mfe
