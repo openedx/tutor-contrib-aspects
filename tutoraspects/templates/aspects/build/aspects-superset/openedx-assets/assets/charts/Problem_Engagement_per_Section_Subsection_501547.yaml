@@ -136,6 +136,7 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
+      isColumnReference: true
       label: section_subsection_name
       sqlExpression: section_subsection_name
       timeGrain: P1D
@@ -146,6 +147,7 @@ query_context:
       time_grain_sqla: P1D
       where: ''
     filters: []
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: null
       column: null

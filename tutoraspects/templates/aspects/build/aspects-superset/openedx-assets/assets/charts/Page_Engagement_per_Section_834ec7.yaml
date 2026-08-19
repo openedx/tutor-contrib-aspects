@@ -18,14 +18,15 @@ params:
     sqlExpression: null
     subject: content_level
   all_columns: []
-  annotation_layers: []
+  allow_render_html: true
   color_pn: true
+  comparison_type: values
   conditional_formatting:
-  - colorScheme: '#ACE1C4'
+  - colorScheme: colorSuccessBg
     column: all_pages_viewed
     operator: '>'
     targetValue: 0
-  - colorScheme: '#FDE380'
+  - colorScheme: colorWarningBg
     column: at_leat_one_page_viewed
     operator: '>'
     targetValue: 0
@@ -38,11 +39,10 @@ params:
   - all_pages_viewed
   - at_leat_one_page_viewed
   order_by_cols: []
-  order_desc: true
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 10000
-  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
   temporal_columns_lookup: {}
@@ -50,7 +50,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 6
+    id: 45
     type: table
   force: false
   form_data:
@@ -67,19 +67,21 @@ query_context:
       sqlExpression: null
       subject: content_level
     all_columns: []
+    allow_render_html: true
     color_pn: true
+    comparison_type: values
     conditional_formatting:
-    - colorScheme: '#ACE1C4'
+    - colorScheme: colorSuccessBg
       column: all_pages_viewed
       operator: '>'
       targetValue: 0
-    - colorScheme: '#FDE380'
+    - colorScheme: colorWarningBg
       column: at_leat_one_page_viewed
       operator: '>'
       targetValue: 0
     dashboards:
-    - 29
-    datasource: 6__table
+    - 113
+    datasource: 45__table
     extra_form_data: {}
     force: false
     groupby:
@@ -90,15 +92,14 @@ query_context:
     - all_pages_viewed
     - at_leat_one_page_viewed
     order_by_cols: []
-    order_desc: true
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
     result_type: full
     row_limit: 10000
-    server_page_length: 10
     show_cell_bars: true
-    slice_id: 182
+    slice_id: 25
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     time_grain_sqla: P1M
@@ -120,6 +121,7 @@ query_context:
     - col: content_level
       op: ==
       val: section
+    group_others_when_limit_reached: false
     metrics:
     - all_pages_viewed
     - at_leat_one_page_viewed
@@ -130,6 +132,7 @@ query_context:
     post_processing: []
     row_limit: 10000
     series_limit: 0
+    time_offsets: []
     url_params: {}
   result_format: json
   result_type: full

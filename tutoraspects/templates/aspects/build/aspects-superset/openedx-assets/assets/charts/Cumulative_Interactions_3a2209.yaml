@@ -73,7 +73,7 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 745
+    id: 78
     type: table
   force: false
   form_data:
@@ -86,9 +86,7 @@ query_context:
     annotation_layers: []
     color_scheme: supersetColors
     comparison_type: values
-    dashboards:
-    - 2695
-    datasource: 745__table
+    datasource: 78__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -132,7 +130,7 @@ query_context:
     seriesType: line
     show_empty_columns: true
     show_legend: true
-    slice_id: 681
+    slice_id: 69
     sort_series_ascending: true
     sort_series_type: sum
     time_grain_sqla: P1M
@@ -156,6 +154,7 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
+      isColumnReference: true
       label: visited_on
       sqlExpression: visited_on
       timeGrain: P1M
@@ -169,6 +168,7 @@ query_context:
     - col: visited_on
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: COUNT_DISTINCT
       column:

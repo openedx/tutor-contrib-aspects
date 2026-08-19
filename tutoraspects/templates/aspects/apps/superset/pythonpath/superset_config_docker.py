@@ -106,6 +106,26 @@ EXTRA_CATEGORICAL_COLOR_SCHEMES = [
 }
 ]
 
+# Custom light and dark themes
+THEME_DARK = {
+  "token": {
+    "colorSuccessBg": "#399D66",
+    "colorWarningBg": "#a97623",
+    "colorErrorBg": "#B65B63",
+    "colorPrimaryBgHover": "#494949",
+    "colorLink": "#84ADFF",
+    "colorLinkHover": "#FFFFFF"
+  },
+  "algorithm": "dark"
+}
+THEME_DEFAULT = {
+  "token": {
+    "colorSuccessBg": "#ACE1C4",
+    "colorWarningBg": "#FDE380",
+    "colorErrorBg": "#EFA1AA"
+  }
+}
+
 # Add this custom template processor which returns the list of courses the current user can access
 from openedx_jinja_filters import *
 

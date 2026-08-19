@@ -12,7 +12,7 @@ params:
     operator: TEMPORAL_RANGE
     subject: visited_on
   all_columns: []
-  annotation_layers: []
+  allow_render_html: true
   color_pn: true
   column_config:
     number_of_learners:
@@ -21,12 +21,14 @@ params:
     views:
       d3NumberFormat: ',d'
       d3SmallNumberFormat: ',d'
+  comparison_color_scheme: Green
+  comparison_type: values
   conditional_formatting:
-  - colorScheme: '#ACE1C4'
+  - colorScheme: colorSuccessBg
     column: number_of_learners
     operator: "\u2265"
     targetValue: 0
-  - colorScheme: '#ACE1C4'
+  - colorScheme: colorSuccessBg
     column: views
     operator: "\u2265"
     targetValue: 0
@@ -39,15 +41,14 @@ params:
   - views
   order_by_cols: []
   order_desc: true
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
-  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
   temporal_columns_lookup:
     visited_on: true
-  time_grain_sqla: P1D
   timeseries_limit_metric:
     aggregate: AVG
     column:
@@ -76,7 +77,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 73
+    id: 1
     type: table
   force: false
   form_data:
@@ -87,6 +88,7 @@ query_context:
       operator: TEMPORAL_RANGE
       subject: visited_on
     all_columns: []
+    allow_render_html: true
     color_pn: true
     column_config:
       number_of_learners:
@@ -95,18 +97,20 @@ query_context:
       views:
         d3NumberFormat: ',d'
         d3SmallNumberFormat: ',d'
+    comparison_color_scheme: Green
+    comparison_type: values
     conditional_formatting:
-    - colorScheme: '#ACE1C4'
+    - colorScheme: colorSuccessBg
       column: number_of_learners
       operator: "\u2265"
       targetValue: 0
-    - colorScheme: '#ACE1C4'
+    - colorScheme: colorSuccessBg
       column: views
       operator: "\u2265"
       targetValue: 0
     dashboards:
-    - 28
-    datasource: 73__table
+    - 123
+    datasource: 1__table
     extra_form_data: {}
     force: false
     groupby:
@@ -117,18 +121,17 @@ query_context:
     - views
     order_by_cols: []
     order_desc: true
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
     result_type: full
     row_limit: 1000
-    server_page_length: 10
     show_cell_bars: true
-    slice_id: 87
+    slice_id: 141
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       visited_on: true
-    time_grain_sqla: P1D
     timeseries_limit_metric:
       aggregate: AVG
       column:
@@ -165,12 +168,12 @@ query_context:
     custom_params: {}
     extras:
       having: ''
-      time_grain_sqla: P1D
       where: ''
     filters:
     - col: visited_on
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - number_of_learners
     - views
@@ -229,6 +232,7 @@ query_context:
       label: AVG(course_order)
       optionName: metric_krzt5zeo4w_kvb4m582d5
       sqlExpression: null
+    time_offsets: []
     url_params: {}
   result_format: json
   result_type: full

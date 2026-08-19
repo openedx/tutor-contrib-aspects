@@ -47,7 +47,7 @@ params:
   zoomable: true
 query_context:
   datasource:
-    id: 384
+    id: 41
     type: table
   force: false
   form_data:
@@ -55,9 +55,7 @@ query_context:
     annotation_layers: []
     color_scheme: supersetColors
     comparison_type: values
-    dashboards:
-    - 2695
-    datasource: 384__table
+    datasource: 41__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -77,7 +75,7 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    slice_id: 621
+    slice_id: 63
     sort_series_type: sum
     tooltipTimeFormat: smart_date
     truncateXAxis: true
@@ -104,6 +102,7 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
+      isColumnReference: true
       label: section_subsection_name
       sqlExpression: section_subsection_name
     custom_form_data: {}
@@ -112,6 +111,7 @@ query_context:
       having: ''
       where: ''
     filters: []
+    group_others_when_limit_reached: false
     metrics:
     - viewed_one
     - viewed_all

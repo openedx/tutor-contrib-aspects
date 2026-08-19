@@ -1,125 +1,13 @@
 _file_name: Course_Comparison_Dashboard.yaml
 _roles:
 - '{{ SUPERSET_ROLES_MAPPING.instructor }}'
-certification_details: ''
-certified_by: ''
+certification_details: null
+certified_by: null
 css: ''
 dashboard_title: Course Comparison Dashboard
 description: null
 metadata:
   chart_configuration:
-    '101':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 161
-        - 201
-        - 501
-        - 601
-        - 701
-        - 1221
-        - 1281
-        - 1641
-        scope: global
-      id: 101
-    '1221':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 101
-        - 161
-        - 201
-        - 501
-        - 601
-        - 701
-        - 1281
-        - 1641
-        scope: global
-      id: 1221
-    '1281':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 101
-        - 161
-        - 201
-        - 501
-        - 601
-        - 701
-        - 1221
-        - 1641
-        scope: global
-      id: 1281
-    '161':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 101
-        - 201
-        - 501
-        - 601
-        - 701
-        - 1221
-        - 1281
-        - 1641
-        scope: global
-      id: 161
-    '1641':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 101
-        - 161
-        - 201
-        - 501
-        - 601
-        - 701
-        - 1221
-        - 1281
-        scope: global
-      id: 1641
-    '201':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 101
-        - 161
-        - 501
-        - 601
-        - 701
-        - 1221
-        - 1281
-        - 1641
-        scope: global
-      id: 201
-    '501':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 101
-        - 161
-        - 201
-        - 601
-        - 701
-        - 1221
-        - 1281
-        - 1641
-        scope: global
-      id: 501
-    '601':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 101
-        - 161
-        - 201
-        - 501
-        - 701
-        - 1221
-        - 1281
-        - 1641
-        scope: global
-      id: 601
     '61':
       crossFilters:
         chartsInScope:
@@ -134,42 +22,8 @@ metadata:
         - 1641
         scope: global
       id: 61
-    '701':
-      crossFilters:
-        chartsInScope:
-        - 61
-        - 101
-        - 161
-        - 201
-        - 501
-        - 601
-        - 1221
-        - 1281
-        - 1641
-        scope: global
-      id: 701
-  color_scheme: supersetColors
-  color_scheme_domain:
-  - '#1FA8C9'
-  - '#454E7C'
-  - '#5AC189'
-  - '#FF7F44'
-  - '#666666'
-  - '#E04355'
-  - '#FCC700'
-  - '#A868B7'
-  - '#3CCCCB'
-  - '#A38F79'
-  - '#8FD3E4'
-  - '#A1A6BD'
-  - '#ACE1C4'
-  - '#FEC0A1'
-  - '#B2B2B2'
-  - '#EFA1AA'
-  - '#FDE380'
-  - '#D3B3DA'
-  - '#9EE5E5'
-  - '#D1C6BC'
+  color_scheme: aspects_default
+  color_scheme_domain: []
   cross_filters_enabled: true
   expanded_slices:
     '11': true
@@ -193,6 +47,7 @@ metadata:
       rootPath:
       - ROOT_ID
   label_colors: {}
+  map_label_colors: {}
   native_filter_configuration:
   - cascadeParentIds: []
     chartsInScope:
@@ -338,11 +193,7 @@ metadata:
       datasetUuid: 38488934-35ee-5404-9acc-7e67626ddfae
     type: NATIVE_FILTER
   refresh_frequency: 0
-  shared_label_colors:
-    active: '#1FA8C9'
-    at_risk: '#5AC189'
-    count: '#FCC700'
-    passed: '#666666'
+  shared_label_colors: []
   timed_refresh_immune_slices: []
 position:
   CHART-explore-1467-1:
@@ -704,5 +555,8 @@ position:
     type: TABS
 published: true
 slug: course-comparison
+tags:
+- original
+theme_uuid: null
 uuid: c6c7062d-dd90-4292-b9cf-84f7b9f38e73
 version: 1.0.0
