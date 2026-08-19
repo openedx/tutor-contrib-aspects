@@ -30,6 +30,7 @@ params:
     subject: content_level
   all_columns: []
   allow_render_html: true
+  annotation_layers: []
   color_pn: true
   comparison_color_scheme: Green
   comparison_type: values
@@ -163,6 +164,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Video Engagement per Subsection
+tags:
+- original
 uuid: cf5b6eb7-d22c-4dda-bd4e-ee2401f337cc
 version: 1.0.0
 viz_type: table

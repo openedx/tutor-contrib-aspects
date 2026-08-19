@@ -46,6 +46,8 @@ params:
   y_axis_format: ',d'
 query_context: null
 slice_name: Courses
+tags:
+- original
 uuid: 63f86926-3325-43cf-b075-ef37f5f60413
 version: 1.0.0
 viz_type: big_number_total

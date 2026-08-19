@@ -233,6 +233,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Subsection Summary
+tags:
+- original
 uuid: 2a8d96be-687d-4918-98fe-ae9fbd599152
 version: 1.0.0
 viz_type: table

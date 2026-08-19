@@ -30,6 +30,8 @@ params:
   y_axis_format: ~g
 query_context: null
 slice_name: Last Received Event
+tags:
+- original
 uuid: ffdaabc5-8d01-47d7-8f29-66efa643befb
 version: 1.0.0
 viz_type: big_number_total

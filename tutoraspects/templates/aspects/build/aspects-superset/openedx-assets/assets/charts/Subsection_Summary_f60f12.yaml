@@ -13,6 +13,7 @@ params:
     subject: visited_on
   all_columns: []
   allow_render_html: true
+  annotation_layers: []
   color_pn: true
   column_config:
     Number of Learners:
@@ -300,6 +301,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Subsection Summary
+tags:
+- original
 uuid: f60f12f3-f4f1-41af-8b10-d2cf3cb94f69
 version: 1.0.0
 viz_type: table

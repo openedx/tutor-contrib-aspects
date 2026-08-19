@@ -166,6 +166,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Learner Performance Breakdown
+tags:
+- original
 uuid: b73b0a5c-4861-402e-a39c-d73333a4d911
 version: 1.0.0
 viz_type: echarts_timeseries_bar

@@ -216,6 +216,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Section Summary
+tags:
+- original
 uuid: 47417136-acd1-44a1-b41e-644eb2c237c3
 version: 1.0.0
 viz_type: table

@@ -160,6 +160,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Problem Engagement per Section
+tags:
+- original
 uuid: 1d00bbc3-f0d5-4c17-b9f3-8cc4d5516950
 version: 1.0.0
 viz_type: table

@@ -13,6 +13,7 @@ params:
     subject: enrolled_at
   all_columns: []
   allow_render_html: true
+  annotation_layers: []
   color_pn: true
   column_config:
     avg_course_grade:
@@ -269,6 +270,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Course Information
+tags:
+- original
 uuid: f909e03a-06a9-4d04-9ea0-243a576093d4
 version: 1.0.0
 viz_type: table

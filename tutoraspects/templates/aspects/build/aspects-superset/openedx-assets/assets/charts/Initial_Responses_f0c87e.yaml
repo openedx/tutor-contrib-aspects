@@ -22,6 +22,7 @@ params:
   - course_key
   - interaction_type
   allow_render_html: true
+  annotation_layers: []
   color_pn: false
   column_config:
     question_number:
@@ -227,6 +228,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Initial Responses
+tags:
+- original
 uuid: f0c87e4b-86b6-4630-b09d-119bc1297c79
 version: 1.0.0
 viz_type: table

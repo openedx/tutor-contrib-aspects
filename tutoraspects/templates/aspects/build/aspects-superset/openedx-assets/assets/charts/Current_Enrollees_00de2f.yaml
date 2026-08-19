@@ -105,6 +105,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Current Enrollees
+tags:
+- original
 uuid: 00de2f72-b3ed-4994-b231-fd3cf29d758d
 version: 1.0.0
 viz_type: big_number_total

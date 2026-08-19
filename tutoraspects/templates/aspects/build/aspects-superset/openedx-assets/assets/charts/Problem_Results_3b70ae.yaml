@@ -464,6 +464,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Problem Results
+tags:
+- original
 uuid: 3b70aeac-54d3-4aad-86ff-296d2947a7bd
 version: 1.0.0
 viz_type: table

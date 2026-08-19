@@ -18,6 +18,7 @@ params:
     subject: emission_time
   all_columns: []
   allow_render_html: true
+  annotation_layers: []
   color_pn: true
   column_config:
     correct_percent:
@@ -316,6 +317,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Problem Attempts and Results
+tags:
+- original
 uuid: ba14d2ea-8c53-4f79-aa1b-434011f3c725
 version: 1.0.0
 viz_type: table

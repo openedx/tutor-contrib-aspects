@@ -13,6 +13,7 @@ params:
     subject: emission_time
   all_columns: []
   allow_render_html: true
+  annotation_layers: []
   color_pn: false
   column_config:
     perc_correct_all:
@@ -115,6 +116,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Problem Results Table
+tags:
+- original
 uuid: 32f16acb-32b6-4690-8107-e4a166ad401c
 version: 1.0.0
 viz_type: table

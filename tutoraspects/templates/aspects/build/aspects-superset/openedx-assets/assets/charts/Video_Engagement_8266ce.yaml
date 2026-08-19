@@ -8,6 +8,7 @@ params:
   adhoc_filters: []
   all_columns: []
   allow_render_html: true
+  annotation_layers: []
   color_pn: true
   comparison_type: values
   conditional_formatting:
@@ -104,6 +105,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Video Engagement
+tags:
+- original
 uuid: 8266ce91-d0b3-4c3b-aa3d-2be4d90e64a8
 version: 1.0.0
 viz_type: table

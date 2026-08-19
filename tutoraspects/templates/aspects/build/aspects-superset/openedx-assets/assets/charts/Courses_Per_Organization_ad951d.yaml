@@ -56,6 +56,8 @@ params:
   viz_type: pie
 query_context: null
 slice_name: Courses Per Organization
+tags:
+- original
 uuid: ad951d3b-e177-4501-bae3-08370ee3ed2d
 version: 1.0.0
 viz_type: pie

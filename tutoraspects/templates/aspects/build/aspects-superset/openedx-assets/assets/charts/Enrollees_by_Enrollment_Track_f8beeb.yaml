@@ -223,6 +223,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Enrollees by Enrollment Track
+tags:
+- original
 uuid: f8beeb8c-b35c-47fc-8370-96b493f9c1b8
 version: 1.0.0
 viz_type: echarts_timeseries_bar

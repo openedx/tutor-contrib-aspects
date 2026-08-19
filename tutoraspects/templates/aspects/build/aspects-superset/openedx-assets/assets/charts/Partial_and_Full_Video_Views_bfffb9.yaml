@@ -138,6 +138,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Partial and Full Video Views
+tags:
+- original
 uuid: bfffb9fe-07bd-4b2f-b437-522d45f6cd2c
 version: 1.0.0
 viz_type: echarts_timeseries_bar

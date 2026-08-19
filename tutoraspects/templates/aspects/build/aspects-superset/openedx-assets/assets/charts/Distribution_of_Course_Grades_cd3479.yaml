@@ -227,6 +227,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Distribution of Course Grades
+tags:
+- original
 uuid: cd3479d8-3574-4b77-9e1e-2ad176989b4d
 version: 1.0.0
 viz_type: echarts_timeseries_bar

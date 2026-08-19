@@ -157,6 +157,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Page Engagement per Subsection
+tags:
+- original
 uuid: 18f85781-d604-4edf-a3e6-429e16c3040a
 version: 1.0.0
 viz_type: table
