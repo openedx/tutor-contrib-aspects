@@ -1,6 +1,7 @@
 _file_name: ab_user.yaml
 always_filter_main_dttm: false
 cache_timeout: null
+catalog: null
 columns:
 - advanced_data_type: null
   column_name: created_on
@@ -176,6 +177,7 @@ description: null
 extra: {}
 fetch_values_predicate: null
 filter_select_enabled: false
+folders: null
 main_dttm_col: last_login
 metrics:
 - currency: null
@@ -192,7 +194,9 @@ normalize_columns: false
 offset: 0
 params: null
 schema: '{{ SUPERSET_DB_NAME }}'
-sql: select * from {{ SUPERSET_DB_NAME }}.ab_user
+sql: 'select * from {{ SUPERSET_DB_NAME }}.ab_user
+
+  '
 table_name: ab_user
 template_params: null
 uuid: 814ebd7a-00e2-52d0-b2ff-5b4c41dc6207

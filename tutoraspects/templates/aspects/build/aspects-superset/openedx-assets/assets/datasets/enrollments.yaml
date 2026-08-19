@@ -1,6 +1,7 @@
 _file_name: enrollments.yaml
 always_filter_main_dttm: false
 cache_timeout: null
+catalog: null
 columns:
 - advanced_data_type: null
   column_name: actor_id
@@ -112,6 +113,7 @@ description: null
 extra: {}
 fetch_values_predicate: null
 filter_select_enabled: false
+folders: null
 main_dttm_col: emission_time
 metrics:
 - currency: null

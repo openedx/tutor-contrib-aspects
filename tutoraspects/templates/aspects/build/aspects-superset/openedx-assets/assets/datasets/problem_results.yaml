@@ -117,6 +117,7 @@ description: null
 extra: null
 fetch_values_predicate: null
 filter_select_enabled: true
+folders: null
 main_dttm_col: emission_time
 metrics:
 - currency: null
