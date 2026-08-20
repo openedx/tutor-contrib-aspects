@@ -257,6 +257,7 @@ description: null
 extra: {}
 fetch_values_predicate: null
 filter_select_enabled: false
+folders: null
 main_dttm_col: started_at
 metrics:
 - currency: null

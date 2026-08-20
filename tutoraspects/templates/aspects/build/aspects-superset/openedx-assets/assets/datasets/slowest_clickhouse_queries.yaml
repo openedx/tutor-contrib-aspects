@@ -1,6 +1,7 @@
 _file_name: slowest_clickhouse_queries.yaml
 always_filter_main_dttm: false
 cache_timeout: null
+catalog: null
 columns:
 - advanced_data_type: null
   column_name: memory_usage_kb
@@ -68,6 +69,7 @@ description: null
 extra: {}
 fetch_values_predicate: null
 filter_select_enabled: true
+folders: null
 main_dttm_col: event_time
 metrics:
 - currency: null

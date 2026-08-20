@@ -141,6 +141,7 @@ description: null
 extra: null
 fetch_values_predicate: null
 filter_select_enabled: false
+folders: null
 main_dttm_col: null
 metrics:
 - currency: null
