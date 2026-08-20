@@ -13,6 +13,7 @@ params:
     subject: emission_time
   all_columns: []
   allow_render_html: true
+  annotation_layers: []
   color_pn: false
   comparison_color_scheme: Green
   comparison_type: values
@@ -221,6 +222,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Problem Attempts
+tags:
+- original
 uuid: d3b9fa1e-f0ab-41e5-9705-27c7c58e620c
 version: 1.0.0
 viz_type: table

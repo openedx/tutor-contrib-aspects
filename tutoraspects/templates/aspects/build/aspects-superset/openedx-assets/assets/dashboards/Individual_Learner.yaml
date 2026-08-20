@@ -1114,5 +1114,8 @@ position:
     type: TABS
 published: true
 slug: individual-learner
+tags:
+- original
+theme_uuid: null
 uuid: abae8a25-1ba4-4653-81bd-d3937a162a11
 version: 1.0.0

@@ -128,6 +128,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Number of Views across Video Duration
+tags:
+- original
 uuid: a7947bdb-65a2-49ed-815e-850423bfeacc
 version: 1.0.0
 viz_type: echarts_timeseries_bar

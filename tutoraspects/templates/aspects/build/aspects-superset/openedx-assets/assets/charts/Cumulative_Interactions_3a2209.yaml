@@ -240,6 +240,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Cumulative Interactions
+tags:
+- original
 uuid: 3a22091f-4686-4a1d-a66d-b36541844b36
 version: 1.0.0
 viz_type: echarts_timeseries_line

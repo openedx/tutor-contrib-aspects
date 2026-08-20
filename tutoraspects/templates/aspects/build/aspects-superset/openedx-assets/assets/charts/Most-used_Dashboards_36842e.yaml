@@ -68,6 +68,8 @@ params:
   viz_type: table
 query_context: null
 slice_name: Most-used Dashboards
+tags:
+- original
 uuid: 36842ef1-d4e9-4cb6-83f7-cb9b34eaab77
 version: 1.0.0
 viz_type: table

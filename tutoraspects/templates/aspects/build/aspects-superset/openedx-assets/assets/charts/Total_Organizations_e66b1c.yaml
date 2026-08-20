@@ -46,6 +46,8 @@ params:
   y_axis_format: ',d'
 query_context: null
 slice_name: Total Organizations
+tags:
+- original
 uuid: e66b1cdb-6974-4fa2-a769-4908665118f6
 version: 1.0.0
 viz_type: big_number_total

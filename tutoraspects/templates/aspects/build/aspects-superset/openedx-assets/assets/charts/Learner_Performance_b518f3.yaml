@@ -12,6 +12,7 @@ params:
   adhoc_filters: []
   all_columns: []
   allow_render_html: true
+  annotation_layers: []
   color_pn: true
   column_config:
     avg_course_grade:
@@ -117,6 +118,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Learner Performance
+tags:
+- original
 uuid: b518f341-9ed4-4c23-bb88-6c1d497aa260
 version: 1.0.0
 viz_type: table

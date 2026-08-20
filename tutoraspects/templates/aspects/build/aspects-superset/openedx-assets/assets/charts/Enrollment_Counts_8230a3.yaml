@@ -12,6 +12,7 @@ params:
     operator: TEMPORAL_RANGE
     subject: emission_time
   aggregateFunction: Sum
+  annotation_layers: []
   colOrder: key_a_to_z
   colSubTotals: false
   conditional_formatting: []
@@ -99,6 +100,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Enrollment Counts
+tags:
+- original
 uuid: 8230a366-957d-4667-a2ff-3cbcb2f25f60
 version: 1.0.0
 viz_type: pivot_table_v2

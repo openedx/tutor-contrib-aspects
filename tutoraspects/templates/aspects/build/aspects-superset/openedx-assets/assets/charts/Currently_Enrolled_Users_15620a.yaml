@@ -181,6 +181,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Currently Enrolled Users
+tags:
+- original
 uuid: 15620ae6-5452-4a11-bc7e-56c7e5987a4d
 version: 1.0.0
 viz_type: big_number_total

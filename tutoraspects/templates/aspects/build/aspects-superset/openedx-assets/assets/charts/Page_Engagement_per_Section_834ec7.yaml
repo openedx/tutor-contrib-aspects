@@ -134,6 +134,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Page Engagement per Section
+tags:
+- original
 uuid: 834ec7c4-ead8-4dea-b227-1c8be5fbb1d3
 version: 1.0.0
 viz_type: table

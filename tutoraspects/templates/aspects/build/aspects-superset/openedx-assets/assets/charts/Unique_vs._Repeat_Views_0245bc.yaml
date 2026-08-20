@@ -192,6 +192,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Unique vs. Repeat Views
+tags:
+- original
 uuid: 0245bcf6-8a13-42ee-9817-2a9922e7347b
 version: 1.0.0
 viz_type: echarts_timeseries_bar

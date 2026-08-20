@@ -151,6 +151,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Cumulative Interactions
+tags:
+- original
 uuid: c44e43b5-ba69-4805-8d01-3b04dcbf2cb6
 version: 1.0.0
 viz_type: echarts_timeseries_line

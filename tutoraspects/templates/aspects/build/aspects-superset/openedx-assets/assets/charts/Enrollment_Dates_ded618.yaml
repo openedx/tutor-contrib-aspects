@@ -241,6 +241,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Enrollment Dates
+tags:
+- original
 uuid: ded61855-48ea-4705-9385-690bf7dba53b
 version: 1.0.0
 viz_type: echarts_timeseries_bar

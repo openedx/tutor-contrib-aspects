@@ -149,6 +149,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Video Engagement
+tags:
+- original
 uuid: c8c363f8-8dbc-4a78-841d-4976f4404884
 version: 1.0.0
 viz_type: table

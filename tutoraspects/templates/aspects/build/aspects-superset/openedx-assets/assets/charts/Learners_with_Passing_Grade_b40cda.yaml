@@ -90,6 +90,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Learners with Passing Grade
+tags:
+- original
 uuid: b40cdabc-b265-48d2-913d-a9dfee0b6ab1
 version: 1.0.0
 viz_type: big_number_total

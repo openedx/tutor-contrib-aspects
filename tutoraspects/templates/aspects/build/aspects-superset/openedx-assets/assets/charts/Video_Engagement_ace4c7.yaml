@@ -312,6 +312,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Video Engagement
+tags:
+- original
 uuid: ace4c769-00f4-4708-887b-14fd9e5f384e
 version: 1.0.0
 viz_type: echarts_timeseries_bar
