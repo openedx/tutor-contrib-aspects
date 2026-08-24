@@ -73,7 +73,7 @@ frozenlist==1.8.0
     #   aiosignal
 id==1.6.1
     # via twine
-idna==3.18
+idna==3.19
     # via
     #   -r requirements/base.txt
     #   requests
@@ -141,7 +141,7 @@ mypy-extensions==1.1.0
     #   -r requirements/base.txt
     #   black
     #   mypy
-nh3==0.3.6
+nh3==0.3.7
     # via readme-renderer
 oauthlib==3.3.1
     # via
@@ -179,11 +179,11 @@ pycryptodome==3.23.0
     # via
     #   -r requirements/base.txt
     #   tutor
-pygments==2.20.0
+pygments==2.21.0
     # via
     #   readme-renderer
     #   rich
-pyinstaller==6.22.1
+pyinstaller==6.22.2
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2026.6
     # via pyinstaller
