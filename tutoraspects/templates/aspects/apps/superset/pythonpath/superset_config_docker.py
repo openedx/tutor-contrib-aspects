@@ -73,6 +73,7 @@ AUTH_ROLES_MAPPING = {
     "public": ["Public"],    # AKA anonymous users
 }
 
+
 for locale in DASHBOARD_LOCALES:
     AUTH_ROLES_MAPPING[f"instructor-{locale}"] = [f"{{SUPERSET_ROLES_MAPPING.instructor}} - {locale}"]
     AUTH_ROLES_MAPPING[f"student-{locale}"] = [f"{{SUPERSET_ROLES_MAPPING.student}} - {locale}"]

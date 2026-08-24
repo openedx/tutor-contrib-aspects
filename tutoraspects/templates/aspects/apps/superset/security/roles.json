@@ -4037,6 +4037,14 @@
         "view_menu": {
           "name": "Theme"
         }
+      },
+      {
+        "permission": {
+          "name": "can_read"
+        },
+        "view_menu": {
+          "name": "CurrentUserRestApi"
+        }
       }
     ]
   },
