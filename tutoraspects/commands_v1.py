@@ -6,6 +6,8 @@ import string
 import sys
 
 import click
+from tutor import env
+
 from tutoraspects.asset_command_helpers import (
     ASSETS_PATH,
     SupersetCommandError,
@@ -14,8 +16,6 @@ from tutoraspects.asset_command_helpers import (
     delete_aspects_unused_assets,
     find_unused_queries,
 )
-
-from tutor import env
 
 
 @click.command()
@@ -418,7 +418,7 @@ def check_superset_assets():
     is_flag=True,
     help="WARNING: Run deduplication after the backfill to remove duplicate events. This could be a resource consuming operation. Be careful with it",
 )
-def xapi_block_storage_backfill(year, month, day, hour, path, deduplicate) -> list[tuple[str, str]]:
+def xapi_block_storage_backfill(year, month, day, hour, path, deduplicate) -> list[tuple[str, str]]:  # pylint: disable=too-many-arguments,too-many-positional-arguments,
     """
     Import xAPI events from S3 into ClickHouse.
 
@@ -427,7 +427,7 @@ def xapi_block_storage_backfill(year, month, day, hour, path, deduplicate) -> li
         tutor local do xapi-backfill --year 2026 --month 3\n
         tutor local do xapi-backfill --year 2026 --month 03 --day 19\n
         tutor local do xapi-backfill --year 2026 --month 03 --day 19 --hour 14\n
-        tutor local do xapi-backfill --path xapi/2026/03/19/14/*.log.zst\”\n
+        tutor local do xapi-backfill --path xapi/2026/03/19/14/*.log.zst\n
         tutor local do xapi-backfill --deduplicate
     """
     if path:
