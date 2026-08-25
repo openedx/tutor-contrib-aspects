@@ -420,9 +420,7 @@ def check_superset_assets():
 )
 def xapi_block_storage_backfill(  # pylint: disable=too-many-arguments,too-many-positional-arguments,
     year, month, day, hour, path, deduplicate
-) -> list[
-    tuple[str, str]
-]:
+) -> list[tuple[str, str]]:
     """
     Import xAPI events from S3 into ClickHouse.
 
