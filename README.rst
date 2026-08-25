@@ -91,7 +91,7 @@ Aspects is implemented as a Tutor plugin. For now, the easiest installation meth
       tutor local do init
 
 Data Population Options
-------------------------
+-----------------------
 
 To visualize data:
 
@@ -112,7 +112,7 @@ To visualize data:
 
 
 xAPI S3 Sink Configuration
--------------------------
+--------------------------
 
 The S3 sink serves as a backup and safeguard for xAPI events. If ClickHouse is unavailable or encounters errors during event ingestion, events are stored in S3 as a safeguard. This ensures data durability and allows you to recover missed events later using the ``xapi-backfill`` command.
 
@@ -200,7 +200,7 @@ Or run deduplication separately:
      tutor local do transform-tracking-logs --source_provider LOCAL --source_config '{"key": "/openedx/data", "container": "logs", "prefix": "tracking.log"}' --transformer_type xapi
 
 Superset and Autoscaling
-=========================
+========================
 
 Superset Assets
 ---------------
@@ -220,7 +220,7 @@ Autoscaling
 Aspects supports Kubernetes autoscaling configurations for Ralph, Superset, and Superset Worker via the `Pod Autoscaling plugin <https://github.com/eduNEXT/tutor-contrib-pod-autoscaling>`_. Modify autoscaling settings as needed.
 
 Contributing Charts and Dashboards
-===================================
+==================================
 
 To contribute Superset assets:
 
@@ -254,7 +254,7 @@ Releases are handled by repository maintainers via GitHub Actions:
 Ensure the updated version appears on `PyPI <https://pypi.org>`_ and DockerHub.
 
 Additional Resources
-=====================
+====================
 
 - `Tutor Documentation <https://docs.tutor.overhang.io>`_
 - `Aspects Beta Progress <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3861512203/Aspects+Beta>`_
