@@ -162,7 +162,7 @@ def init_clickhouse() -> list[tuple[str, str]]:
     "--slice_name",
     default="",
     help="Only run charts for the given slice name, if the name appears in more than "
-         "one dashboard it will be run for each.",
+    "one dashboard it will be run for each.",
 )
 @click.option(
     "--print_sql", is_flag=True, default=False, help="Print the SQL that was run."
@@ -171,7 +171,7 @@ def init_clickhouse() -> list[tuple[str, str]]:
     "--fail_on_error", is_flag=True, default=False, help="Allow errors to fail the run."
 )
 def performance_metrics(  # pylint: disable=too-many-arguments,too-many-positional-arguments
-        org, course_name, dashboard_slug, slice_name, print_sql, fail_on_error
+    org, course_name, dashboard_slug, slice_name, print_sql, fail_on_error
 ) -> (list)[tuple[str, str]]:
     """
     Job to measure performance metrics of charts and its queries in Superset and ClickHouse.
@@ -257,8 +257,8 @@ def dump_data_to_clickhouse(service, options) -> list[tuple[str, str]]:
     "--destination_config",
     type=str,
     help=(
-            "A JSON dictionary of configuration for the destination provider. "
-            "Optional if 'LRS' is used as the destination_provider."
+        "A JSON dictionary of configuration for the destination provider. "
+        "Optional if 'LRS' is used as the destination_provider."
     ),
 )
 @click.option(
@@ -283,16 +283,16 @@ def dump_data_to_clickhouse(service, options) -> list[tuple[str, str]]:
     "--dry_run",
     is_flag=True,
     help=(
-            "A flag to determine if this is a dry run. If present, all lines from all files "
-            "will be attempted to be transformed, but won't be sent to the destination."
+        "A flag to determine if this is a dry run. If present, all lines from all files "
+        "will be attempted to be transformed, but won't be sent to the destination."
     ),
 )
 @click.option(
     "--deduplicate",
     is_flag=True,
     help=(
-            "This should only be added if you believe events will be duplicated such as replaying logs"
-            "that have already been added. De-duplication can take a very long time to process."
+        "This should only be added if you believe events will be duplicated such as replaying logs"
+        "that have already been added. De-duplication can take a very long time to process."
     ),
 )
 def transform_tracking_logs(deduplicate, **kwargs) -> list[tuple[str, str]]:
@@ -418,7 +418,11 @@ def check_superset_assets():
     is_flag=True,
     help="WARNING: Run deduplication after the backfill to remove duplicate events. This could be a resource consuming operation. Be careful with it",
 )
-def xapi_block_storage_backfill(year, month, day, hour, path, deduplicate) -> list[tuple[str, str]]:  # pylint: disable=too-many-arguments,too-many-positional-arguments,
+def xapi_block_storage_backfill(
+    year, month, day, hour, path, deduplicate
+) -> list[
+    tuple[str, str]
+]:  # pylint: disable=too-many-arguments,too-many-positional-arguments,
     """
     Import xAPI events from S3 into ClickHouse.
 
