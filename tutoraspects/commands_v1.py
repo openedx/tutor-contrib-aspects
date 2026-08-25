@@ -418,11 +418,11 @@ def check_superset_assets():
     is_flag=True,
     help="WARNING: Run deduplication after the backfill to remove duplicate events. This could be a resource consuming operation. Be careful with it",
 )
-def xapi_block_storage_backfill(
+def xapi_block_storage_backfill(  # pylint: disable=too-many-arguments,too-many-positional-arguments,
     year, month, day, hour, path, deduplicate
 ) -> list[
     tuple[str, str]
-]:  # pylint: disable=too-many-arguments,too-many-positional-arguments,
+]:
     """
     Import xAPI events from S3 into ClickHouse.
 
