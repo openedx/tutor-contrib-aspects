@@ -24,7 +24,7 @@ def upgrade():
     )
     op.execute(
         f"""
-        CREATE TABLE IF NOT EXISTS {{ ASPECTS_VECTOR_DATABASE }}.{{ ASPECTS_VECTOR_RAW_XAPI_TABLE }}
+        CREATE TABLE IF NOT EXISTS {{ ASPECTS_VECTOR_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
         {on_cluster}
         (
             event_id      UUID,
@@ -40,7 +40,7 @@ def upgrade():
 
 def downgrade():
     op.execute(
-        "DROP TABLE IF EXISTS {{ ASPECTS_VECTOR_DATABASE }}.{{ ASPECTS_VECTOR_RAW_XAPI_TABLE }}"
+        "DROP TABLE IF EXISTS {{ ASPECTS_VECTOR_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}"
         f"{on_cluster}"
     )
     op.execute(

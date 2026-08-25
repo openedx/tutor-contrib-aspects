@@ -8,6 +8,6 @@ extra_namespace_label_selector = "kubernetes.io/metadata.name={{ K8S_NAMESPACE }
 [transforms.openedx_containers]
 type = "filter"
 inputs = ["kubernetes_logs"]
-condition = '.kubernetes.pod_namespace == "{{ K8S_NAMESPACE }}" && includes(["lms", "cms", "lms-job", "cms-job", "lms-worker", "cms-worker"], .kubernetes.container_name)'
+condition = '.kubernetes.pod_namespace == "{{ K8S_NAMESPACE }}" && includes(["lms", "cms", "lms-worker", "cms-worker", "lms-job", "cms-job", "aspects-job", "aspects-consumer"], .kubernetes.container_name)'
 
 {% include "aspects/apps/vector/partials/common-post.toml" %}
