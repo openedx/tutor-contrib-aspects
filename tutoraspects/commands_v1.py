@@ -425,12 +425,12 @@ def xapi_block_storage_backfill(  # pylint: disable=too-many-arguments,too-many-
     Import xAPI events from S3 into ClickHouse.
 
     Examples:\n
-        tutor local do xapi-backfill\n
-        tutor local do xapi-backfill --year 2026 --month 3\n
-        tutor local do xapi-backfill --year 2026 --month 03 --day 19\n
-        tutor local do xapi-backfill --year 2026 --month 03 --day 19 --hour 14\n
-        tutor local do xapi-backfill --path xapi/2026/03/19/14/*.log.zst\n
-        tutor local do xapi-backfill --deduplicate
+        tutor local do xapi_block_storage_backfill\n
+        tutor local do xapi_block_storage_backfill --year 2026 --month 3\n
+        tutor local do xapi_block_storage_backfill --year 2026 --month 03 --day 19\n
+        tutor local do xapi_block_storage_backfill --year 2026 --month 03 --day 19 --hour 14\n
+        tutor local do xapi_block_storage_backfill --path xapi/2026/03/19/14/*.log.zst\n
+        tutor local do xapi_block_storage_backfill --deduplicate
     """
     if path:
         if year != "*" or month != "*" or day != "*" or hour != "*":
@@ -445,7 +445,7 @@ def xapi_block_storage_backfill(  # pylint: disable=too-many-arguments,too-many-
         xapi_s3_path = f"xapi/{year}/{month}/{day}/{hour}/*.log.zst"
 
     script = env.read_template_file(
-        "aspects", "jobs", "init", "clickhouse", "xapi-backfill.sh"
+        "aspects", "jobs", "init", "clickhouse", "xapi-block-storage-backfill.sh"
     )
     script = script.replace("{{XAPI_S3_PATH}}", xapi_s3_path)
 
@@ -474,7 +474,7 @@ def xapi_deduplicate() -> list[tuple[str, str]]:
     """
     Deduplicate xAPI tables using OPTIMIZE TABLE.
 
-    Run after xapi-backfill to remove duplicate events.
+    Run after xapi_block_storage_backfill to remove duplicate events.
     Note: This is an expensive operation on large tables.
 
     Example:

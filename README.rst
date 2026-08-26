@@ -143,7 +143,7 @@ Vector S3 sink options:
 xAPI S3 Backfill
 ----------------
 
-If you have xAPI events stored in S3 (configured via ``ASPECTS_XAPI_S3_BUCKET``), you can backfill them into ClickHouse using the ``xapi-backfill`` command. This is useful for:
+If you have xAPI events stored in S3 (configured via ``ASPECTS_XAPI_S3_BUCKET``), you can backfill them into ClickHouse using the ``xapi_block_storage_backfill`` command. This is useful for:
 
 - Restoring data from a backup
 - Importing data from another environment
@@ -153,21 +153,21 @@ Basic usage:
 
 .. code-block:: bash
 
-   tutor local do xapi-backfill
+   tutor local do xapi_block_storage_backfill
 
 By default, this imports all events. You can filter by date using year, month, day, and hour options:
 
 .. code-block:: bash
 
-   tutor local do xapi-backfill --year 2026 --month 3
-   tutor local do xapi-backfill --year 2026 --month 03 --day 19
-   tutor local do xapi-backfill --year 2026 --month 03 --day 19 --hour 14
+   tutor local do xapi_block_storage_backfill --year 2026 --month 3
+   tutor local do xapi_block_storage_backfill --year 2026 --month 03 --day 19
+   tutor local do xapi_block_storage_backfill --year 2026 --month 03 --day 19 --hour 14
 
 For flexible path matching, use the ``--path`` option to specify a custom S3 path:
 
 .. code-block:: bash
 
-   tutor local do xapi-backfill --path xapi/2026/03/19/14/*.log.zst
+   tutor local do xapi_block_storage_backfill --path xapi/2026/03/19/14/*.log.zst
 
 .. note::
 
@@ -179,7 +179,7 @@ After backfilling, you can run deduplication to remove duplicate events:
 
 .. code-block:: bash
 
-   tutor local do xapi-backfill --deduplicate
+   tutor local do xapi_block_storage_backfill --deduplicate
 
 Or run deduplication separately:
 
