@@ -107,7 +107,7 @@ def alembic(command: string) -> list[tuple[str, str]]:
     return [
         (
             "aspects",
-            f"bash /app/aspects/scripts/alembic.sh {command} && " "echo 'Done!';",
+            f"bash /app/aspects/scripts/alembic.sh {command} && echo 'Done!';",
         ),
     ]
 
@@ -395,6 +395,101 @@ def check_superset_assets():
     )
 
 
+@click.command()
+@click.option("--year", default="*", help="Year (e.g., '2026', default: '*' for all)")
+@click.option(
+    "--month", default="*", help="Month (e.g., '03' or '3', default: '*' for all)"
+)
+@click.option(
+    "--day", default="*", help="Day (e.g., '19' or '9', default: '*' for all)"
+)
+@click.option(
+    "--hour",
+    default="*",
+    help="Hour in 24h format (e.g., '14' or '3', default: '*' for all)",
+)
+@click.option(
+    "--path",
+    default="",
+    help="Relative S3 path (e.g., 'xapi/2026/03/19/14/*.log.zst'). Exclusive with date options.",
+)
+@click.option(
+    "--deduplicate",
+    is_flag=True,
+    help="WARNING: Run deduplication after the backfill to remove duplicate events. This could be a resource consuming operation. Be careful with it",
+)
+def xapi_block_storage_backfill(  # pylint: disable=too-many-arguments,too-many-positional-arguments,
+    year, month, day, hour, path, deduplicate
+) -> list[tuple[str, str]]:
+    """
+    Import xAPI events from S3 into ClickHouse.
+
+    Examples:\n
+        tutor local do xapi_block_storage_backfill\n
+        tutor local do xapi_block_storage_backfill --year 2026 --month 3\n
+        tutor local do xapi_block_storage_backfill --year 2026 --month 03 --day 19\n
+        tutor local do xapi_block_storage_backfill --year 2026 --month 03 --day 19 --hour 14\n
+        tutor local do xapi_block_storage_backfill --path xapi/2026/03/19/14/*.log.zst\n
+        tutor local do xapi_block_storage_backfill --deduplicate
+    """
+    if path:
+        if year != "*" or month != "*" or day != "*" or hour != "*":
+            raise click.ClickException(
+                "Cannot use --path with date options (--year, --month, --day, --hour)"
+            )
+        xapi_s3_path = path
+    else:
+        month = month.zfill(2) if month != "*" else "*"
+        day = day.zfill(2) if day != "*" else "*"
+        hour = hour.zfill(2) if hour != "*" else "*"
+        xapi_s3_path = f"xapi/{year}/{month}/{day}/{hour}/*.log.zst"
+
+    script = env.read_template_file(
+        "aspects", "jobs", "init", "clickhouse", "xapi-block-storage-backfill.sh"
+    )
+    script = script.replace("{{XAPI_S3_PATH}}", xapi_s3_path)
+
+    tasks = [
+        (
+            "clickhouse",
+            script,
+        ),
+    ]
+
+    if deduplicate:
+        tasks.append(
+            (
+                "clickhouse",
+                env.read_template_file(
+                    "aspects", "jobs", "init", "clickhouse", "deduplicate.sh"
+                ),
+            )
+        )
+
+    return tasks
+
+
+@click.command()
+def xapi_deduplicate() -> list[tuple[str, str]]:
+    """
+    Deduplicate xAPI tables using OPTIMIZE TABLE.
+
+    Run after xapi_block_storage_backfill to remove duplicate events.
+    Note: This is an expensive operation on large tables.
+
+    Example:
+        tutor local do xapi-deduplicate
+    """
+    return [
+        (
+            "clickhouse",
+            env.read_template_file(
+                "aspects", "jobs", "init", "clickhouse", "xapi-deduplicate.sh"
+            ),
+        ),
+    ]
+
+
 DO_COMMANDS = (
     load_xapi_test_data,
     dbt,
@@ -405,6 +500,8 @@ DO_COMMANDS = (
     performance_metrics,
     init_clickhouse,
     collect_dbt_lineage,
+    xapi_block_storage_backfill,
+    xapi_deduplicate,
 )
 
 COMMANDS = (aspects,)
