@@ -19,6 +19,7 @@ params:
     subject: subsection_with_name
   all_columns: []
   allow_render_html: true
+  annotation_layers: []
   color_pn: true
   column_config:
     total_plays:

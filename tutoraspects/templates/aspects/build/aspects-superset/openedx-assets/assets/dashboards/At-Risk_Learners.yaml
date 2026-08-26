@@ -653,7 +653,9 @@ metadata:
     - datasetUuid: 92eadc61-2931-577e-95b7-34adb1a8f515
     type: NATIVE_FILTER
   refresh_frequency: 0
-  shared_label_colors: []
+  shared_label_colors:
+  - Number of Learners
+  - Total Learners
   timed_refresh_immune_slices: []
 position:
   CHART-LmLX-39lXb:

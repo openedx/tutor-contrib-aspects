@@ -302,7 +302,6 @@ metadata:
   - '#9F81CF'
   - '#11406A'
   cross_filters_enabled: true
-  default_filters: '{}'
   expanded_slices:
     '45': true
     '55': true

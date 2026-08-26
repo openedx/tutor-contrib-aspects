@@ -13,6 +13,7 @@ params:
     subject: enrolled_at
   all_columns: []
   allow_render_html: true
+  annotation_layers: []
   color_pn: true
   column_config:
     avg_course_grade:
@@ -24,24 +25,24 @@ params:
   - colorScheme: colorErrorBg
     column: avg_course_grade
     operator: <
-    targetValue: 50
+    targetValue: .5
   - colorScheme: colorSuccessBg
     column: avg_course_grade
     operator: "\u2265"
-    targetValue: 70
+    targetValue: .7
   - colorScheme: colorSuccessBg
     column: median_course_grade
     operator: "\u2265"
-    targetValue: 70
+    targetValue: .7
   - colorScheme: colorWarningBg
     column: median_course_grade
     operator: "\u2264 x \u2264"
-    targetValueLeft: '50'
-    targetValueRight: '70'
+    targetValueLeft: '.5'
+    targetValueRight: '.7'
   - colorScheme: colorErrorBg
     column: median_course_grade
     operator: <
-    targetValue: 50
+    targetValue: .5
   - colorScheme: colorSuccessBg
     column: Active Within Last 7 Days
     operator: '>'
@@ -114,24 +115,24 @@ query_context:
     - colorScheme: colorErrorBg
       column: avg_course_grade
       operator: <
-      targetValue: 50
+      targetValue: .5
     - colorScheme: colorSuccessBg
       column: avg_course_grade
       operator: "\u2265"
-      targetValue: 70
+      targetValue: .7
     - colorScheme: colorSuccessBg
       column: median_course_grade
       operator: "\u2265"
-      targetValue: 70
+      targetValue: .7
     - colorScheme: colorWarningBg
       column: median_course_grade
       operator: "\u2264 x \u2264"
-      targetValueLeft: '50'
-      targetValueRight: '70'
+      targetValueLeft: '.5'
+      targetValueRight: '.7'
     - colorScheme: colorErrorBg
       column: median_course_grade
       operator: <
-      targetValue: 50
+      targetValue: .5
     - colorScheme: colorSuccessBg
       column: Active Within Last 7 Days
       operator: '>'

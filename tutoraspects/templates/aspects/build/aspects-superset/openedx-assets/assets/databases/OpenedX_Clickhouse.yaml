@@ -5,6 +5,7 @@ allow_dml: false
 allow_file_upload: false
 allow_run_async: false
 cache_timeout: null
+configuration_method: sqlalchemy_form
 database_name: OpenedX Clickhouse
 expose_in_sqllab: true
 extra:

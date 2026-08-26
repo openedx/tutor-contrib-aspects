@@ -5,6 +5,7 @@ catalog: null
 columns:
 - advanced_data_type: null
   column_name: section_subsection_video_engagement
+  datetime_format: null
   description: null
   expression: ''
   extra:
@@ -18,6 +19,7 @@ columns:
   verbose_name: Section/Subsection Video Engagement
 - advanced_data_type: null
   column_name: course_key
+  datetime_format: null
   description: null
   expression: ''
   extra:
@@ -31,6 +33,7 @@ columns:
   verbose_name: Course Key
 - advanced_data_type: null
   column_name: section_subsection_name
+  datetime_format: null
   description: null
   expression: ''
   extra:
@@ -44,6 +47,7 @@ columns:
   verbose_name: Section/Subsection Name
 - advanced_data_type: null
   column_name: actor_id
+  datetime_format: null
   description: null
   expression: ''
   extra:
@@ -57,6 +61,7 @@ columns:
   verbose_name: Actor ID
 - advanced_data_type: null
   column_name: content_level
+  datetime_format: null
   description: null
   expression: ''
   extra:
@@ -70,6 +75,7 @@ columns:
   verbose_name: Content Level
 - advanced_data_type: null
   column_name: org
+  datetime_format: null
   description: null
   expression: ''
   extra:
@@ -83,6 +89,7 @@ columns:
   verbose_name: Organization
 - advanced_data_type: null
   column_name: email
+  datetime_format: null
   description: null
   expression: ''
   extra:
@@ -96,6 +103,7 @@ columns:
   verbose_name: Email
 - advanced_data_type: null
   column_name: name
+  datetime_format: null
   description: null
   expression: ''
   extra:
@@ -109,6 +117,7 @@ columns:
   verbose_name: Name
 - advanced_data_type: null
   column_name: username
+  datetime_format: null
   description: null
   expression: ''
   extra:
@@ -120,6 +129,7 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Username
+currency_code_column: null
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null

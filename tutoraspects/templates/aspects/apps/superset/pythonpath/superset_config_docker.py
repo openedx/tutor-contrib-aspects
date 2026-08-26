@@ -102,19 +102,16 @@ EXTRA_CATEGORICAL_COLOR_SCHEMES = [
 "id": 'aspects_default',
 "description": 'Aspects color scheme',
 "label": 'Aspects',
-"colors": ['#29A399', '#7B144D', '#F4661F', '#3B3B3B', '#9F81CF', '#11406A']
+"colors": ['#29A399', '#7B144D', '#F4661F', "#C9CB24", '#9F81CF', '#11406A']
 }
 ]
 
 # Custom light and dark themes
 THEME_DARK = {
   "token": {
-    "colorSuccessBg": "#399D66",
-    "colorWarningBg": "#a97623",
-    "colorErrorBg": "#B65B63",
-    "colorPrimaryBgHover": "#494949",
-    "colorLink": "#84ADFF",
-    "colorLinkHover": "#FFFFFF"
+    "colorSuccessBg": "#ACE1C4",
+    "colorWarningBg": "#FDE380",
+    "colorErrorBg": "#EFA1AA"
   },
   "algorithm": "dark"
 }

@@ -5,6 +5,7 @@ catalog: null
 columns:
 - advanced_data_type: null
   column_name: first_try_correct_count
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -17,6 +18,7 @@ columns:
   verbose_name: First Try Correct Count
 - advanced_data_type: null
   column_name: course_grade
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -29,6 +31,7 @@ columns:
   verbose_name: Course Grade
 - advanced_data_type: null
   column_name: response_count
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -41,6 +44,7 @@ columns:
   verbose_name: Response Count
 - advanced_data_type: null
   column_name: actor_id
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -53,6 +57,7 @@ columns:
   verbose_name: Actor Id
 - advanced_data_type: null
   column_name: approving_state
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -65,6 +70,7 @@ columns:
   verbose_name: Approving State
 - advanced_data_type: null
   column_name: course_key
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -77,6 +83,7 @@ columns:
   verbose_name: Course Key
 - advanced_data_type: null
   column_name: course_name
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -89,6 +96,7 @@ columns:
   verbose_name: Course Name
 - advanced_data_type: null
   column_name: course_run
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -101,6 +109,7 @@ columns:
   verbose_name: Course Run
 - advanced_data_type: null
   column_name: org
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -111,6 +120,7 @@ columns:
   python_date_format: null
   type: LowCardinality(String)
   verbose_name: Org
+currency_code_column: null
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null

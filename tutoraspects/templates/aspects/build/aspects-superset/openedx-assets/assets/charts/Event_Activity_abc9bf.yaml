@@ -198,6 +198,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Event Activity
+tags:
+- original
 uuid: abc9bf92-2b32-42a5-8cd0-d383de777619
 version: 1.0.0
 viz_type: echarts_timeseries_line
