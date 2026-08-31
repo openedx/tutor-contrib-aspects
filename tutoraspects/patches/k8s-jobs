@@ -10,7 +10,7 @@ spec:
     spec:
       restartPolicy: Never
       containers:
-      - name: aspects
+      - name: aspects-job
         env:
           - name: VENV_DIR
             value: /opt/venv
