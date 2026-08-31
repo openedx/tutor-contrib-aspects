@@ -753,7 +753,7 @@ if _TUTORMFE_AVAILABLE:
     def _add_frontend_app_aspects(apps):
         apps["aspects"] = {
             "npm_package": "@openedx/frontend-app-aspects",
-            "npm_version": "*",
+            "npm_version": "^2.0.0-alpha || 0.0.0-dev",
             "enabled": True,
         }
         return apps
