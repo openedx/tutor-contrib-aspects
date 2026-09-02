@@ -20,31 +20,30 @@ params:
       d3NumberFormat: ',.1%'
     median_course_grade:
       d3NumberFormat: ',.1%'
-  comparison_color_scheme: Green
   comparison_type: values
   conditional_formatting:
-  - colorScheme: '#EFA1AA'
+  - colorScheme: colorErrorBg
     column: avg_course_grade
     operator: <
-    targetValue: 50
-  - colorScheme: '#ACE1C4'
+    targetValue: .5
+  - colorScheme: colorSuccessBg
     column: avg_course_grade
     operator: "\u2265"
-    targetValue: 70
-  - colorScheme: '#ACE1C4'
+    targetValue: .7
+  - colorScheme: colorSuccessBg
     column: median_course_grade
     operator: "\u2265"
-    targetValue: 70
-  - colorScheme: '#FDE380'
+    targetValue: .7
+  - colorScheme: colorWarningBg
     column: median_course_grade
     operator: "\u2264 x \u2264"
-    targetValueLeft: '50'
-    targetValueRight: '70'
-  - colorScheme: '#EFA1AA'
+    targetValueLeft: '.5'
+    targetValueRight: '.7'
+  - colorScheme: colorErrorBg
     column: median_course_grade
     operator: <
-    targetValue: 50
-  - colorScheme: '#ACE1C4'
+    targetValue: .5
+  - colorScheme: colorSuccessBg
     column: Active Within Last 7 Days
     operator: '>'
     targetValue: 0
@@ -82,11 +81,10 @@ params:
   - avg_course_grade
   - median_course_grade
   order_by_cols: []
-  order_desc: true
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
-  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
   temporal_columns_lookup:
@@ -94,7 +92,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 484
+    id: 51
     type: table
   force: false
   form_data:
@@ -112,37 +110,36 @@ query_context:
         d3NumberFormat: ',.1%'
       median_course_grade:
         d3NumberFormat: ',.1%'
-    comparison_color_scheme: Green
     comparison_type: values
     conditional_formatting:
-    - colorScheme: '#EFA1AA'
+    - colorScheme: colorErrorBg
       column: avg_course_grade
       operator: <
-      targetValue: 50
-    - colorScheme: '#ACE1C4'
+      targetValue: .5
+    - colorScheme: colorSuccessBg
       column: avg_course_grade
       operator: "\u2265"
-      targetValue: 70
-    - colorScheme: '#ACE1C4'
+      targetValue: .7
+    - colorScheme: colorSuccessBg
       column: median_course_grade
       operator: "\u2265"
-      targetValue: 70
-    - colorScheme: '#FDE380'
+      targetValue: .7
+    - colorScheme: colorWarningBg
       column: median_course_grade
       operator: "\u2264 x \u2264"
-      targetValueLeft: '50'
-      targetValueRight: '70'
-    - colorScheme: '#EFA1AA'
+      targetValueLeft: '.5'
+      targetValueRight: '.7'
+    - colorScheme: colorErrorBg
       column: median_course_grade
       operator: <
-      targetValue: 50
-    - colorScheme: '#ACE1C4'
+      targetValue: .5
+    - colorScheme: colorSuccessBg
       column: Active Within Last 7 Days
       operator: '>'
       targetValue: 0
     dashboards:
-    - 2697
-    datasource: 484__table
+    - 123
+    datasource: 51__table
     extra_form_data: {}
     force: false
     groupby:
@@ -178,15 +175,14 @@ query_context:
     - avg_course_grade
     - median_course_grade
     order_by_cols: []
-    order_desc: true
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
     result_type: full
     row_limit: 1000
-    server_page_length: 10
     show_cell_bars: true
-    slice_id: 121
+    slice_id: 13
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       enrolled_at: true
@@ -208,6 +204,7 @@ query_context:
     - col: enrolled_at
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: AVG
       column:

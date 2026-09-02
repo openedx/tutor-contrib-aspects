@@ -99,7 +99,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 745
+    id: 78
     type: table
   force: false
   form_data:
@@ -111,6 +111,7 @@ query_context:
       subject: visited_on
     all_columns: []
     allow_render_html: true
+    annotation_layers: []
     color_pn: true
     column_config:
       Number of Learners:
@@ -130,9 +131,7 @@ query_context:
       column: Views
       operator: "\u2265"
       targetValue: 0
-    dashboards:
-    - 2695
-    datasource: 745__table
+    datasource: 78__table
     extra_form_data: {}
     force: false
     groupby:
@@ -171,7 +170,7 @@ query_context:
     result_type: full
     row_limit: 1000
     show_cell_bars: true
-    slice_id: 1321
+    slice_id: 133
     table_timestamp_format: smart_date
     temporal_columns_lookup:
       visited_on: true
@@ -216,6 +215,7 @@ query_context:
     - col: visited_on
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: COUNT_DISTINCT
       column:

@@ -5,6 +5,7 @@ allow_dml: false
 allow_file_upload: false
 allow_run_async: false
 cache_timeout: 86400
+configuration_method: sqlalchemy_form
 database_name: Superset Metadata
 expose_in_sqllab: true
 extra:

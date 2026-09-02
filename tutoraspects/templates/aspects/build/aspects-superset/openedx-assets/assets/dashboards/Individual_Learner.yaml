@@ -293,28 +293,14 @@ metadata:
         - 149
         scope: global
       id: 97
-  color_scheme: supersetColors
+  color_scheme: aspects_default
   color_scheme_domain:
-  - '#1FA8C9'
-  - '#454E7C'
-  - '#5AC189'
-  - '#FF7F44'
-  - '#666666'
-  - '#E04355'
-  - '#FCC700'
-  - '#A868B7'
-  - '#3CCCCB'
-  - '#A38F79'
-  - '#8FD3E4'
-  - '#A1A6BD'
-  - '#ACE1C4'
-  - '#FEC0A1'
-  - '#B2B2B2'
-  - '#EFA1AA'
-  - '#FDE380'
-  - '#D3B3DA'
-  - '#9EE5E5'
-  - '#D1C6BC'
+  - '#29A399'
+  - '#7B144D'
+  - '#F4661F'
+  - '#3B3B3B'
+  - '#9F81CF'
+  - '#11406A'
   cross_filters_enabled: true
   expanded_slices:
     '45': true
@@ -342,6 +328,9 @@ metadata:
       rootPath:
       - ROOT_ID
   label_colors: {}
+  map_label_colors:
+    all_pages_viewed: '#7B144D'
+    at_leat_one_page_viewed: '#29A399'
   native_filter_configuration:
   - cascadeParentIds:
     - NATIVE_FILTER-Yi2j6NjTP
@@ -617,13 +606,7 @@ metadata:
       datasetUuid: 64427d2b-790e-450f-84f4-5f00ca9bdc6c
     type: NATIVE_FILTER
   refresh_frequency: 0
-  shared_label_colors:
-    all_pages_viewed: '#454E7C'
-    at_leat_one_page_viewed: '#1FA8C9'
-    full_views: '#454E7C'
-    partial_views: '#1FA8C9'
-    repeat_views: '#454E7C'
-    total_views: '#1FA8C9'
+  shared_label_colors: []
   timed_refresh_immune_slices: []
 position:
   CHART-3L0xSxskX4:
@@ -814,7 +797,9 @@ position:
     parents:
     - ROOT_ID
     - GRID_ID
-    - ROW-u6HEhuTRtK
+    - TABS-z_NjtdPFvn
+    - TAB-Fq7aRqpYF
+    - ROW-r_eBkjfvr
     type: CHART
   CHART-hZ8cIzkMoC:
     children: []

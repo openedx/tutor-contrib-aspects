@@ -205,6 +205,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Active Learners
+tags:
+- original
 uuid: b9b602ec-001b-4584-aa24-9201f3b8746f
 version: 1.0.0
 viz_type: echarts_timeseries_line

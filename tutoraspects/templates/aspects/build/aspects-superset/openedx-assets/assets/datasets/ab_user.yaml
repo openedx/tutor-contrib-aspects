@@ -1,10 +1,11 @@
 _file_name: ab_user.yaml
 always_filter_main_dttm: false
-cache_timeout: null
+cache_timeout: 86400
 catalog: null
 columns:
 - advanced_data_type: null
   column_name: created_on
+  datetime_format: null
   description: null
   expression: ''
   extra: {}
@@ -17,6 +18,7 @@ columns:
   verbose_name: Created On
 - advanced_data_type: null
   column_name: changed_on
+  datetime_format: null
   description: null
   expression: ''
   extra: {}
@@ -29,6 +31,7 @@ columns:
   verbose_name: Changed On
 - advanced_data_type: null
   column_name: last_login
+  datetime_format: null
   description: null
   expression: ''
   extra: {}
@@ -41,6 +44,7 @@ columns:
   verbose_name: Last Login
 - advanced_data_type: null
   column_name: created_by_fk
+  datetime_format: null
   description: null
   expression: ''
   extra: {}
@@ -53,6 +57,7 @@ columns:
   verbose_name: Created By Fk
 - advanced_data_type: null
   column_name: changed_by_fk
+  datetime_format: null
   description: null
   expression: ''
   extra: {}
@@ -65,6 +70,7 @@ columns:
   verbose_name: Changed By Fk
 - advanced_data_type: null
   column_name: fail_login_count
+  datetime_format: null
   description: null
   expression: ''
   extra: {}
@@ -77,6 +83,7 @@ columns:
   verbose_name: Fail Login Count
 - advanced_data_type: null
   column_name: first_name
+  datetime_format: null
   description: null
   expression: ''
   extra: {}
@@ -89,6 +96,7 @@ columns:
   verbose_name: First Name
 - advanced_data_type: null
   column_name: last_name
+  datetime_format: null
   description: null
   expression: ''
   extra: {}
@@ -101,6 +109,7 @@ columns:
   verbose_name: Last Name
 - advanced_data_type: null
   column_name: login_count
+  datetime_format: null
   description: null
   expression: ''
   extra: {}
@@ -113,6 +122,7 @@ columns:
   verbose_name: Login Count
 - advanced_data_type: null
   column_name: password
+  datetime_format: null
   description: null
   expression: ''
   extra: {}
@@ -125,6 +135,7 @@ columns:
   verbose_name: Password
 - advanced_data_type: null
   column_name: email
+  datetime_format: null
   description: null
   expression: ''
   extra: {}
@@ -137,6 +148,7 @@ columns:
   verbose_name: Email
 - advanced_data_type: null
   column_name: username
+  datetime_format: null
   description: null
   expression: ''
   extra: {}
@@ -149,6 +161,7 @@ columns:
   verbose_name: Username
 - advanced_data_type: null
   column_name: active
+  datetime_format: null
   description: null
   expression: ''
   extra: {}
@@ -161,6 +174,7 @@ columns:
   verbose_name: Active
 - advanced_data_type: null
   column_name: id
+  datetime_format: null
   description: null
   expression: ''
   extra: {}
@@ -171,6 +185,7 @@ columns:
   python_date_format: null
   type: INTEGER
   verbose_name: Id
+currency_code_column: null
 database_uuid: 06cd566f-e22a-4a79-b0e0-4c947de93ee0
 default_endpoint: null
 description: null

@@ -4,31 +4,8 @@ cache_timeout: null
 catalog: null
 columns:
 - advanced_data_type: null
-  column_name: course_order
-  description: null
-  expression: null
-  extra: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: INT32
-  verbose_name: Course Order
-- advanced_data_type: null
-  column_name: graded
-  description: null
-  expression: null
-  extra: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: BOOL
-  verbose_name: Graded
-- advanced_data_type: null
   column_name: display_name_with_location
+  datetime_format: null
   description: null
   expression: null
   extra: null
@@ -40,31 +17,8 @@ columns:
   type: STRING
   verbose_name: Display Name With Location
 - advanced_data_type: null
-  column_name: subsection_with_name
-  description: null
-  expression: null
-  extra: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: STRING
-  verbose_name: Subsection With Name
-- advanced_data_type: null
-  column_name: section_with_name
-  description: null
-  expression: null
-  extra: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: STRING
-  verbose_name: Section With Name
-- advanced_data_type: null
   column_name: subsection_block_id
+  datetime_format: null
   description: null
   expression: null
   extra: null
@@ -77,6 +31,7 @@ columns:
   verbose_name: Subsection Block Id
 - advanced_data_type: null
   column_name: section_block_id
+  datetime_format: null
   description: null
   expression: null
   extra: null
@@ -88,7 +43,8 @@ columns:
   type: STRING
   verbose_name: Section Block Id
 - advanced_data_type: null
-  column_name: hierarchy_location
+  column_name: subsection_with_name
+  datetime_format: null
   description: null
   expression: null
   extra: null
@@ -98,9 +54,10 @@ columns:
   is_dttm: false
   python_date_format: null
   type: STRING
-  verbose_name: Hierarchy Location
+  verbose_name: Subsection With Name
 - advanced_data_type: null
-  column_name: block_name
+  column_name: section_with_name
+  datetime_format: null
   description: null
   expression: null
   extra: null
@@ -110,9 +67,10 @@ columns:
   is_dttm: false
   python_date_format: null
   type: STRING
-  verbose_name: Block Name
+  verbose_name: Section With Name
 - advanced_data_type: null
-  column_name: course_name
+  column_name: course_order
+  datetime_format: null
   description: null
   expression: null
   extra: null
@@ -121,22 +79,11 @@ columns:
   is_active: true
   is_dttm: false
   python_date_format: null
-  type: STRING
-  verbose_name: Course Name
-- advanced_data_type: null
-  column_name: subsection_number
-  description: null
-  expression: null
-  extra: null
-  filterable: true
-  groupby: true
-  is_active: true
-  is_dttm: false
-  python_date_format: null
-  type: STRING
-  verbose_name: Subsection Number
+  type: INT32
+  verbose_name: Course Order
 - advanced_data_type: null
   column_name: block_id
+  datetime_format: null
   description: null
   expression: null
   extra: null
@@ -148,7 +95,8 @@ columns:
   type: STRING
   verbose_name: Block Id
 - advanced_data_type: null
-  column_name: section_number
+  column_name: block_name
+  datetime_format: null
   description: null
   expression: null
   extra: null
@@ -158,9 +106,10 @@ columns:
   is_dttm: false
   python_date_format: null
   type: STRING
-  verbose_name: Section Number
+  verbose_name: Block Name
 - advanced_data_type: null
   column_name: block_type
+  datetime_format: null
   description: null
   expression: null
   extra: null
@@ -173,6 +122,7 @@ columns:
   verbose_name: Block Type
 - advanced_data_type: null
   column_name: course_key
+  datetime_format: null
   description: null
   expression: null
   extra: null
@@ -184,7 +134,21 @@ columns:
   type: STRING
   verbose_name: Course Key
 - advanced_data_type: null
+  column_name: course_name
+  datetime_format: null
+  description: null
+  expression: null
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: Course Name
+- advanced_data_type: null
   column_name: course_run
+  datetime_format: null
   description: null
   expression: null
   extra: null
@@ -196,7 +160,60 @@ columns:
   type: STRING
   verbose_name: Course Run
 - advanced_data_type: null
+  column_name: hierarchy_location
+  datetime_format: null
+  description: null
+  expression: null
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: Hierarchy Location
+- advanced_data_type: null
+  column_name: subsection_number
+  datetime_format: null
+  description: null
+  expression: null
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: Subsection Number
+- advanced_data_type: null
+  column_name: section_number
+  datetime_format: null
+  description: null
+  expression: null
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: STRING
+  verbose_name: Section Number
+- advanced_data_type: null
+  column_name: graded
+  datetime_format: null
+  description: null
+  expression: null
+  extra: null
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: BOOL
+  verbose_name: Graded
+- advanced_data_type: null
   column_name: org
+  datetime_format: null
   description: null
   expression: null
   extra: null
@@ -207,12 +224,14 @@ columns:
   python_date_format: null
   type: STRING
   verbose_name: Org
+currency_code_column: null
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
 extra: null
 fetch_values_predicate: null
 filter_select_enabled: true
+folders: null
 main_dttm_col: null
 metrics:
 - currency: null

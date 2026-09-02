@@ -67,7 +67,7 @@ params:
   y_axis_title_position: Left
 query_context:
   datasource:
-    id: 33
+    id: 68
     type: table
   force: false
   form_data:
@@ -75,7 +75,7 @@ query_context:
     annotation_layers: []
     color_scheme: supersetColors
     comparison_type: values
-    datasource: 33__table
+    datasource: 68__table
     extra_form_data: {}
     force: false
     forecastInterval: 0.8
@@ -117,7 +117,7 @@ query_context:
     row_limit: 10000
     show_empty_columns: true
     show_legend: true
-    slice_id: 142
+    slice_id: 19
     sort_series_type: sum
     time_grain_sqla: P1D
     tooltipTimeFormat: smart_date
@@ -142,6 +142,7 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
+      isColumnReference: true
       label: enrollment_mode
       sqlExpression: enrollment_mode
       timeGrain: P1D
@@ -152,6 +153,7 @@ query_context:
       time_grain_sqla: P1D
       where: ''
     filters: []
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: COUNT_DISTINCT
       column:

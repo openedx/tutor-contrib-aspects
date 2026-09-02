@@ -5,6 +5,7 @@ catalog: null
 columns:
 - advanced_data_type: null
   column_name: video_event
+  datetime_format: null
   description: Set to true when the event is a video event.
   expression: |-
     verb_id LIKE '%video%'
@@ -18,6 +19,7 @@ columns:
   verbose_name: Video Event
 - advanced_data_type: null
   column_name: verb
+  datetime_format: null
   description: Short name for the verb; the final word in the verb_id path.
   expression: |-
     splitByChar('/', verb_id)[-1]
@@ -31,6 +33,7 @@ columns:
   verbose_name: Verb
 - advanced_data_type: null
   column_name: course_key_short
+  datetime_format: null
   description: 'Course key without the course-v1: prefix'
   expression: |-
     splitByChar(':', splitByChar('/', course_id)[-1])[-1]
@@ -44,6 +47,7 @@ columns:
   verbose_name: Course Key Short
 - advanced_data_type: null
   column_name: object_type
+  datetime_format: null
   description: 'Parsed JSON: last word in the event.object.definition.type field'
   expression: |-
     splitByChar('/', event.object.definition.type)[-1]
@@ -57,6 +61,7 @@ columns:
   verbose_name: Object Type
 - advanced_data_type: null
   column_name: course_key
+  datetime_format: null
   description: Course key part of the course_id URL
   expression: |-
     splitByChar('/', course_id)[-1]
@@ -70,6 +75,7 @@ columns:
   verbose_name: Course Key
 - advanced_data_type: null
   column_name: actor_id
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -82,6 +88,7 @@ columns:
   verbose_name: Actor ID
 - advanced_data_type: null
   column_name: course_id
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -94,6 +101,7 @@ columns:
   verbose_name: Course ID
 - advanced_data_type: null
   column_name: event_id
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -106,6 +114,7 @@ columns:
   verbose_name: Event ID
 - advanced_data_type: null
   column_name: emission_time
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -118,6 +127,7 @@ columns:
   verbose_name: Emission Time
 - advanced_data_type: null
   column_name: object_id
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -130,6 +140,7 @@ columns:
   verbose_name: Object ID
 - advanced_data_type: null
   column_name: verb_id
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -142,6 +153,7 @@ columns:
   verbose_name: Verb ID
 - advanced_data_type: null
   column_name: event_str
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -154,6 +166,7 @@ columns:
   verbose_name: Event String
 - advanced_data_type: null
   column_name: org
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -164,6 +177,7 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Organization
+currency_code_column: null
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null

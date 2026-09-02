@@ -32,14 +32,13 @@ params:
   allow_render_html: true
   annotation_layers: []
   color_pn: true
-  comparison_color_scheme: Green
   comparison_type: values
   conditional_formatting:
-  - colorScheme: '#ACE1C4'
+  - colorScheme: colorSuccessBg
     column: all_videos_viewed
     operator: '>'
     targetValue: 0
-  - colorScheme: '#FDE380'
+  - colorScheme: colorWarningBg
     column: at_least_one_viewed
     operator: '>'
     targetValue: 0
@@ -53,7 +52,7 @@ params:
   - all_videos_viewed
   - at_least_one_viewed
   order_by_cols: []
-  order_desc: true
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 10000
@@ -64,7 +63,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 725
+    id: 76
     type: table
   force: false
   form_data:
@@ -94,20 +93,19 @@ query_context:
     all_columns: []
     allow_render_html: true
     color_pn: true
-    comparison_color_scheme: Green
     comparison_type: values
     conditional_formatting:
-    - colorScheme: '#ACE1C4'
+    - colorScheme: colorSuccessBg
       column: all_videos_viewed
       operator: '>'
       targetValue: 0
-    - colorScheme: '#FDE380'
+    - colorScheme: colorWarningBg
       column: at_least_one_viewed
       operator: '>'
       targetValue: 0
     dashboards:
-    - 1625
-    datasource: 725__table
+    - 113
+    datasource: 76__table
     extra_form_data: {}
     force: false
     groupby:
@@ -119,14 +117,14 @@ query_context:
     - all_videos_viewed
     - at_least_one_viewed
     order_by_cols: []
-    order_desc: true
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
     result_type: full
     row_limit: 10000
     show_cell_bars: true
-    slice_id: 741
+    slice_id: 75
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     time_grain_sqla: P1M
@@ -143,12 +141,14 @@ query_context:
     custom_params: {}
     extras:
       having: ''
+      time_grain_sqla: P1M
       where: |-
         (`section_subsection_name` <> '')
     filters:
     - col: content_level
       op: ==
       val: subsection
+    group_others_when_limit_reached: false
     metrics:
     - all_videos_viewed
     - at_least_one_viewed

@@ -5,6 +5,7 @@ catalog: null
 columns:
 - advanced_data_type: null
   column_name: memory_usage_kb
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -17,6 +18,7 @@ columns:
   verbose_name: Memory Usage (KB)
 - advanced_data_type: null
   column_name: duration_secs
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -29,6 +31,7 @@ columns:
   verbose_name: Duration (Seconds)
 - advanced_data_type: null
   column_name: read_rows
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -41,6 +44,7 @@ columns:
   verbose_name: Read Rows
 - advanced_data_type: null
   column_name: event_time
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -53,6 +57,7 @@ columns:
   verbose_name: Event Time
 - advanced_data_type: null
   column_name: query
+  datetime_format: null
   description: null
   expression: null
   extra: {}
@@ -63,6 +68,7 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Query
+currency_code_column: null
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null

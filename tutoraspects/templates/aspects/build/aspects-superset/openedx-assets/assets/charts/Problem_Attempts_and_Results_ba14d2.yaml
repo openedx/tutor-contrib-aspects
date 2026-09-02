@@ -27,32 +27,31 @@ params:
     incorrect_percent:
       d3NumberFormat: ',.1%'
       d3SmallNumberFormat: ',.1%'
-  comparison_color_scheme: Green
   comparison_type: values
   conditional_formatting:
-  - colorScheme: '#ACE1C4'
+  - colorScheme: colorSuccessBg
     column: avg_attemps
     operator: <
     targetValue: 2
-  - colorScheme: '#FDE380'
+  - colorScheme: colorWarningBg
     column: avg_attemps
     operator: "\u2264 x \u2264"
     targetValueLeft: '2'
     targetValueRight: '4'
-  - colorScheme: '#EFA1AA'
+  - colorScheme: colorErrorBg
     column: avg_attemps
     operator: '>'
     targetValue: 4
-  - colorScheme: '#ACE1C4'
+  - colorScheme: colorSuccessBg
     column: median_attemps
     operator: <
     targetValue: 3
-  - colorScheme: '#FDE380'
+  - colorScheme: colorWarningBg
     column: median_attemps
     operator: "\u2264 x \u2264"
     targetValueLeft: '3'
     targetValueRight: '5'
-  - colorScheme: '#EFA1AA'
+  - colorScheme: colorErrorBg
     column: median_attemps
     operator: '>'
     targetValue: 5
@@ -75,9 +74,11 @@ params:
   - incorrect_percent
   order_by_cols: []
   order_desc: false
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 1000
+  server_page_length: 10
   show_cell_bars: true
   table_timestamp_format: smart_date
   temporal_columns_lookup:
@@ -112,7 +113,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 85
+    id: 86
     type: table
   force: false
   form_data:
@@ -129,6 +130,7 @@ query_context:
       subject: emission_time
     all_columns: []
     allow_render_html: true
+    annotation_layers: []
     color_pn: true
     column_config:
       correct_percent:
@@ -137,38 +139,35 @@ query_context:
       incorrect_percent:
         d3NumberFormat: ',.1%'
         d3SmallNumberFormat: ',.1%'
-    comparison_color_scheme: Green
     comparison_type: values
     conditional_formatting:
-    - colorScheme: '#ACE1C4'
+    - colorScheme: colorSuccessBg
       column: avg_attemps
       operator: <
       targetValue: 2
-    - colorScheme: '#FDE380'
+    - colorScheme: colorWarningBg
       column: avg_attemps
       operator: "\u2264 x \u2264"
       targetValueLeft: '2'
       targetValueRight: '4'
-    - colorScheme: '#EFA1AA'
+    - colorScheme: colorErrorBg
       column: avg_attemps
       operator: '>'
       targetValue: 4
-    - colorScheme: '#ACE1C4'
+    - colorScheme: colorSuccessBg
       column: median_attemps
       operator: <
       targetValue: 3
-    - colorScheme: '#FDE380'
+    - colorScheme: colorWarningBg
       column: median_attemps
       operator: "\u2264 x \u2264"
       targetValueLeft: '3'
       targetValueRight: '5'
-    - colorScheme: '#EFA1AA'
+    - colorScheme: colorErrorBg
       column: median_attemps
       operator: '>'
       targetValue: 5
-    dashboards:
-    - 411
-    datasource: 85__table
+    datasource: 86__table
     extra_form_data: {}
     force: false
     groupby:
@@ -189,11 +188,13 @@ query_context:
     - incorrect_percent
     order_by_cols: []
     order_desc: false
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
     result_type: full
     row_limit: 1000
+    server_page_length: 10
     show_cell_bars: true
     slice_id: 87
     table_timestamp_format: smart_date
@@ -242,11 +243,13 @@ query_context:
     custom_params: {}
     extras:
       having: ''
+      time_grain_sqla: P1M
       where: ''
     filters:
     - col: emission_time
       op: TEMPORAL_RANGE
       val: No filter
+    group_others_when_limit_reached: false
     metrics:
     - number_of_learners
     - median_attemps

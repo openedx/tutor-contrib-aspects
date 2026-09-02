@@ -5,6 +5,7 @@ catalog: null
 columns:
 - advanced_data_type: null
   column_name: correct_attempts_by_learner
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -18,6 +19,7 @@ columns:
   verbose_name: Correct Attempts By Learner
 - advanced_data_type: null
   column_name: incorrect_attempts_by_learner
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -31,6 +33,7 @@ columns:
   verbose_name: Incorrect Attempts By Learner
 - advanced_data_type: null
   column_name: avg_correct_attempts_coursewide
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -44,6 +47,7 @@ columns:
   verbose_name: Avg Correct Attempts Coursewide
 - advanced_data_type: null
   column_name: avg_incorrect_attempts_coursewide
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -57,6 +61,7 @@ columns:
   verbose_name: Avg Incorrect Attempts Coursewide
 - advanced_data_type: null
   column_name: selected_learner_percent_correct
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -70,6 +75,7 @@ columns:
   verbose_name: Selected Learner Percent Correct
 - advanced_data_type: null
   column_name: selected_learner_percent_incorrect
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -83,6 +89,7 @@ columns:
   verbose_name: Selected Learner Percent Incorrect
 - advanced_data_type: null
   column_name: coursewide_percent_correct
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -96,6 +103,7 @@ columns:
   verbose_name: Coursewide Percent Correct
 - advanced_data_type: null
   column_name: course_key
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -109,6 +117,7 @@ columns:
   verbose_name: Course Key
 - advanced_data_type: null
   column_name: course_order
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -122,6 +131,7 @@ columns:
   verbose_name: Course Order
 - advanced_data_type: null
   column_name: actor_id
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -135,6 +145,7 @@ columns:
   verbose_name: Actor Id
 - advanced_data_type: null
   column_name: problem_link
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -148,6 +159,7 @@ columns:
   verbose_name: Problem Link
 - advanced_data_type: null
   column_name: org
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -161,6 +173,7 @@ columns:
   verbose_name: Org
 - advanced_data_type: null
   column_name: graded
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -172,6 +185,7 @@ columns:
   python_date_format: null
   type: Bool
   verbose_name: Graded
+currency_code_column: null
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null

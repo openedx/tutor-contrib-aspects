@@ -5,6 +5,7 @@ catalog: null
 columns:
 - advanced_data_type: null
   column_name: actor_idfr
+  datetime_format: null
   description: null
   expression: nulluy
   extra:
@@ -18,6 +19,7 @@ columns:
   verbose_name: Actor Id
 - advanced_data_type: null
   column_name: actor_id
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -31,6 +33,7 @@ columns:
   verbose_name: Actor Id
 - advanced_data_type: null
   column_name: course_key
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -44,6 +47,7 @@ columns:
   verbose_name: Course Key
 - advanced_data_type: null
   column_name: enrollment_mode
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -57,6 +61,7 @@ columns:
   verbose_name: Enrollment Mode
 - advanced_data_type: null
   column_name: enrollment_status
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -70,6 +75,7 @@ columns:
   verbose_name: Enrollment Status
 - advanced_data_type: null
   column_name: emission_time
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -83,6 +89,7 @@ columns:
   verbose_name: Emission Time
 - advanced_data_type: null
   column_name: org
+  datetime_format: null
   description: null
   expression: null
   extra:
@@ -94,6 +101,7 @@ columns:
   python_date_format: null
   type: String
   verbose_name: Org
+currency_code_column: null
 database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
 default_endpoint: null
 description: null
