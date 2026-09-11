@@ -32,6 +32,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Add your new settings that have default values here.
         # Each new setting is a pair: (setting_name, default_value).
         # Prefix your setting names with 'ASPECTS_'.
+        ("testing ci",''),
         ("ASPECTS_VERSION", __version__),
         ("RUN_VECTOR", True),
         ("RUN_CLICKHOUSE", True),
