@@ -1,11 +1,14 @@
 from alembic import op
-import sqlalchemy as sa
 
 revision = "0002"
 down_revision = "0001"
 branch_labels = None
 depends_on = None
-on_cluster = " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' " if "{{CLICKHOUSE_CLUSTER_NAME}}" else ""
+on_cluster = (
+    " ON CLUSTER '{{CLICKHOUSE_CLUSTER_NAME}}' "
+    if "{{CLICKHOUSE_CLUSTER_NAME}}"
+    else ""
+)
 engine = "ReplicatedMergeTree" if "{{CLICKHOUSE_CLUSTER_NAME}}" else "MergeTree"
 
 
@@ -13,9 +16,9 @@ def upgrade():
     op.execute(
         f"""
         -- Raw table that Ralph writes to
-        CREATE TABLE IF NOT EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
-        {on_cluster} 
-        (      
+        CREATE TABLE IF NOT EXISTS {{ RALPH_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}
+        {on_cluster}
+        (
             event_id UUID NOT NULL,
             emission_time DateTime64(6) NOT NULL,
             event String NOT NULL,
@@ -29,6 +32,6 @@ def upgrade():
 
 def downgrade():
     op.execute(
-        "DROP TABLE IF EXISTS {{ ASPECTS_XAPI_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}"
+        "DROP TABLE IF EXISTS {{ RALPH_DATABASE }}.{{ ASPECTS_RAW_XAPI_TABLE }}"
         f"{on_cluster};"
     )

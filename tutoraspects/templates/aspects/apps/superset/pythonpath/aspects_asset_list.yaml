@@ -1,6 +1,7 @@
 unused_uuids:
   datasets:
   - 4df7005e-3a7e-4979-a4e3-e70f22d36daa # At Risk problem results
+  - 8cb75912-fc9b-5706-bce8-39a64d088936 # dim_course_blocks
   charts:
   - a433e3cc-8ed5-454a-8b17-5dd75cfc84e4 # Course Info
   - e0098cfe-a312-4c49-8efd-7e74256b6ea4 # Course info
@@ -13,6 +14,7 @@ unused_uuids:
   - 9c3f7291-1bd9-4b2f-abc0-472aad3aff06 # Learner performance breakdown
   - 8b0535a8-a43f-49bf-9d50-439a16bd3f74 # Video engagement
   - fa249dda-78da-4ccc-9ef3-39177e6aae0c # Course Information
+  - 832fc2d6-4227-4a64-b64e-82aa254864cc # Initial numeric responses
 
 ignored_uuids:
   datasets:

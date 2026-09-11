@@ -137,6 +137,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Course Info
+tags:
+- original
 uuid: b2fff8a7-3ace-4075-9a3f-5fa5b99f81bb
 version: 1.0.0
 viz_type: table

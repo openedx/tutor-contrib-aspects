@@ -8,15 +8,15 @@ params:
   adhoc_filters: []
   all_columns: []
   allow_render_html: true
+  annotation_layers: []
   color_pn: true
-  comparison_color_scheme: Green
   comparison_type: values
   conditional_formatting:
-  - colorScheme: '#ACE1C4'
+  - colorScheme: colorSuccessBg
     column: full_views
     operator: '>'
     targetValue: 0
-  - colorScheme: '#FDE380'
+  - colorScheme: colorWarningBg
     column: partial_views
     operator: '>'
     targetValue: 0
@@ -27,7 +27,7 @@ params:
   - full_views
   - partial_views
   order_by_cols: []
-  order_desc: true
+  percent_metric_calculation: row_limit
   percent_metrics: []
   query_mode: aggregate
   row_limit: 50000
@@ -37,7 +37,7 @@ params:
   viz_type: table
 query_context:
   datasource:
-    id: 604
+    id: 63
     type: table
   force: false
   form_data:
@@ -45,20 +45,19 @@ query_context:
     all_columns: []
     allow_render_html: true
     color_pn: true
-    comparison_color_scheme: Green
     comparison_type: values
     conditional_formatting:
-    - colorScheme: '#ACE1C4'
+    - colorScheme: colorSuccessBg
       column: full_views
       operator: '>'
       targetValue: 0
-    - colorScheme: '#FDE380'
+    - colorScheme: colorWarningBg
       column: partial_views
       operator: '>'
       targetValue: 0
     dashboards:
-    - 2579
-    datasource: 604__table
+    - 113
+    datasource: 63__table
     extra_form_data: {}
     force: false
     groupby:
@@ -67,14 +66,14 @@ query_context:
     - full_views
     - partial_views
     order_by_cols: []
-    order_desc: true
+    percent_metric_calculation: row_limit
     percent_metrics: []
     query_mode: aggregate
     result_format: json
     result_type: full
     row_limit: 50000
     show_cell_bars: true
-    slice_id: 1081
+    slice_id: 109
     table_timestamp_format: smart_date
     temporal_columns_lookup: {}
     viz_type: table
@@ -89,6 +88,7 @@ query_context:
       having: ''
       where: ''
     filters: []
+    group_others_when_limit_reached: false
     metrics:
     - full_views
     - partial_views
@@ -104,6 +104,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Partial and Full Video Views
+tags:
+- original
 uuid: 54a1551c-7eb3-43fb-abd1-005816da0769
 version: 1.0.0
 viz_type: table

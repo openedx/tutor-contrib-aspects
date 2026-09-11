@@ -133,6 +133,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Distribution of Current Course Grade
+tags:
+- original
 uuid: ea565658-6796-40e8-9d1e-01ffd0778bc9
 version: 1.0.0
 viz_type: echarts_timeseries_bar

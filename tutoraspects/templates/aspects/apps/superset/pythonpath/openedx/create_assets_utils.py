@@ -32,6 +32,7 @@ from superset.commands.exceptions import CommandInvalidError
 from superset.commands.importers.v1.assets import ImportAssetsCommand
 from superset.commands.importers.v1.utils import METADATA_FILE_NAME
 from superset.commands.database.importers.v1.utils import security_manager
+from superset.commands.dashboard.importers.dispatcher import ImportDashboardsCommand
 
 logger = logging.getLogger(__name__)
 
@@ -75,6 +76,16 @@ def load_configs_from_directory(
 
     # Force our use to the admin user to prevent errors on import
     g.user = security_manager.find_user(username="{{SUPERSET_ADMIN_USERNAME}}")
+
+    # dashboards have to be imported separately because themes are not included in the ImportAssetsCommand
+    dashboard_command = ImportDashboardsCommand(
+        contents,
+        overwrite=overwrite,
+    )
+    try:
+        dashboard_command.run()
+    except CommandInvalidError as ex:
+        logger.error("An error occurred: %s", ex.normalized_messages())
 
     command = ImportAssetsCommand(
         contents,

@@ -33,7 +33,8 @@ params:
   - expressionType: SQL
     label: More details
     sqlExpression: |-
-      {% raw %}{{ get_filtered_dashboard_link('course-dashboard', 'course_run', 'w863AfFgi') }}
+      {% raw %}
+      {{ get_multiple_filtered_dashboard_link('course-dashboard', [('course_name', 'IfS-Rd0ZS'), ('org', 'w863AfFgi'), ('course_run', 'w863AfFgi')]) }}
       {% endraw %}
   metrics:
   - enrollees
@@ -140,6 +141,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Course Info
+tags:
+- original
 uuid: ccdd7d98-4722-490b-a0b2-077380a7c7eb
 version: 1.0.0
 viz_type: table

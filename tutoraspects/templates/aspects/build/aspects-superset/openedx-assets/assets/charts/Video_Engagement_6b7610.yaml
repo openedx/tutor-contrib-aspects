@@ -8,6 +8,7 @@ params:
   adhoc_filters: []
   all_columns: []
   allow_render_html: true
+  annotation_layers: []
   color_pn: true
   column_config:
     rewatched_percent:
@@ -202,6 +203,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Video Engagement
+tags:
+- original
 uuid: 6b7610a7-41d0-4d14-be81-62a5a8f22d62
 version: 1.0.0
 viz_type: table

@@ -100,6 +100,8 @@ params:
   viz_type: table
 query_context: null
 slice_name: Current Active Enrollments By Mode
+tags:
+- original
 uuid: 3e80132c-ea4d-4e61-9f3a-6164bacf58a0
 version: 1.0.0
 viz_type: table

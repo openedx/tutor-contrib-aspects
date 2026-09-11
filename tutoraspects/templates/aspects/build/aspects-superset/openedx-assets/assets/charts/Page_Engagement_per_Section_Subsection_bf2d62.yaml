@@ -129,6 +129,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Page Engagement per Section/Subsection
+tags:
+- original
 uuid: bf2d6219-d633-48c1-a9b5-742eac6a4c0a
 version: 1.0.0
 viz_type: echarts_timeseries_bar

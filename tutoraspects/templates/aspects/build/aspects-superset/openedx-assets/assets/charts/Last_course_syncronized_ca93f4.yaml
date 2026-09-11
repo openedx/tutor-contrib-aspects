@@ -41,6 +41,8 @@ params:
   y_axis_format: SMART_NUMBER
 query_context: null
 slice_name: Last course syncronized
+tags:
+- original
 uuid: ca93f427-d021-476e-9a36-6ea0d99d30ea
 version: 1.0.0
 viz_type: big_number_total

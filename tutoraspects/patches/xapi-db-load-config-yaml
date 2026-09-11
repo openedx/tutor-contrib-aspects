@@ -1,6 +1,6 @@
 # Ralph / ClickHouse backend configuration
 # ########################################
-backend: ralph_clickhouse
+backend: vector
 db_host: {{ CLICKHOUSE_HOST }}
 db_port: {{ CLICKHOUSE_INTERNAL_HTTP_PORT }}
 db_name: {{ ASPECTS_XAPI_DATABASE }}
@@ -11,9 +11,10 @@ lrs_username: "{{RALPH_LMS_USERNAME}}"
 lrs_password: "{{RALPH_LMS_PASSWORD}}"
 
 # Run options
-log_dir:
-num_batches: 3
-batch_size: 100
+log_dir: logs
+num_xapi_batches: 10
+batch_size: 100000
+num_workers: 4
 
 # Overall start and end date for the entire run
 start_date: 2014-01-01

@@ -273,6 +273,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Course Enrollments Over Time
+tags:
+- original
 uuid: bf4f4671-c276-4185-9b9a-b10864efea6c
 version: 1.0.0
 viz_type: echarts_timeseries_line

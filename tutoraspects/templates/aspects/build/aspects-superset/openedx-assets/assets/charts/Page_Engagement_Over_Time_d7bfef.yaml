@@ -145,6 +145,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Page Engagement Over Time
+tags:
+- original
 uuid: d7bfef35-d35a-405f-ae59-73472845cd59
 version: 1.0.0
 viz_type: echarts_timeseries_line

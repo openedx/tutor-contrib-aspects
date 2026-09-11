@@ -1,0 +1,8 @@
+{% include "aspects/apps/vector/partials/common-pre.toml" %}
+
+### Sources
+[sources.openedx_containers]
+type = "vector"
+address = "0.0.0.0:{{ ASPECTS_VECTOR_AGGREGATOR_PORT }}"
+
+{% include "aspects/apps/vector/partials/common-post.toml" %}

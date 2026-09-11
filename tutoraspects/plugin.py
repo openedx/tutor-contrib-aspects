@@ -13,9 +13,11 @@ import importlib_resources
 from tutor import hooks
 
 try:
-    from tutormfe.hooks import PLUGIN_SLOTS
+    from tutormfe.hooks import FRONTEND_APPS, PLUGIN_SLOTS
+
+    _TUTORMFE_AVAILABLE = True
 except ImportError:
-    PLUGIN_SLOTS = None
+    _TUTORMFE_AVAILABLE = False
 
 from .__about__ import __version__
 from .commands_v1 import COMMANDS as TUTOR_V1_COMMANDS
@@ -31,17 +33,15 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Each new setting is a pair: (setting_name, default_value).
         # Prefix your setting names with 'ASPECTS_'.
         ("ASPECTS_VERSION", __version__),
-        # For out default deployment we currently use Celery -> Ralph for transport,
-        # so Vector is off by default.
-        ("RUN_VECTOR", False),
+        ("RUN_VECTOR", True),
         ("RUN_CLICKHOUSE", True),
-        ("RUN_RALPH", True),
+        ("RUN_RALPH", False),
         ("RUN_SUPERSET", True),
         ("DOCKER_IMAGE_ASPECTS", "edunext/aspects:{{ ASPECTS_VERSION }}"),
         ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:25.8"),
         ("DOCKER_IMAGE_RALPH", "fundocker/ralph:4.1.0"),
         ("DOCKER_IMAGE_SUPERSET", "edunext/aspects-superset:{{ ASPECTS_VERSION }}"),
-        ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.30.0-alpine"),
+        ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.54.0-alpine"),
         (
             "EVENT_SINK_MODELS_ENABLED",
             ["course_overviews", "tag", "taxonomy", "object_tag", "course_enrollment"],
@@ -61,7 +61,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # reasons.
         # Turn on event batching by default, performance is severely impacted by
         # turning this off.
-        ("EVENT_ROUTING_BACKEND_BATCHING_ENABLED", True),
+        ("EVENT_ROUTING_BACKEND_BATCHING_ENABLED", False),
         # Events are sent when they hit either the batch size or the batch interval
         # time limit (defaults here are 100 events or 5 seconds).
         # https://event-routing-backends.readthedocs.io/en/latest/getting_started.html#batching-configuration
@@ -75,36 +75,31 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "ASPECTS_COURSE_OVERVIEW_HELP_MARKDOWN",
             "## Help<br>"
-            "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
-            "reference/course_overview_dashboard.html)<br>"
+            """* <a href="https://docs.openedx.org/projects/openedx-aspects/page/reference/course_overview_dashboard.html" target="_blank">Aspects Reference</a><br>"""  # pylint: disable=C0301
             """* <a href="https://github.com/apache/superset#resources" target="_blank">Superset Resources</a>""",  # pylint: disable=C0301
         ),
         (
             "ASPECTS_LEARNER_GROUPS_HELP_MARKDOWN",
             "## Help<br>"
-            "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
-            "reference/learner_groups_dashboard.html)<br>"
+            """* <a href="https://docs.openedx.org/projects/openedx-aspects/page/reference/learner_groups_dashboard.html" target="_blank">Aspects Reference</a><br>"""  # pylint: disable=C0301
             """* <a href="https://github.com/apache/superset#resources" target="_blank">Superset Resources</a>""",  # pylint: disable=C0301
         ),
         (
             "ASPECTS_OPERATOR_HELP_MARKDOWN",
             "## Help<br>"
-            "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
-            "reference/operator_reports.html)<br>"
+            """* <a href="https://docs.openedx.org/projects/openedx-aspects/page/reference/operator_reports.html" target="_blank">Aspects Reference</a><br>"""  # pylint: disable=C0301
             """* <a href="https://github.com/apache/superset#resources" target="_blank">Superset Resources</a>""",  # pylint: disable=C0301
         ),
         (
             "ASPECTS_INDIVIDUAL_LEARNER_HELP_MARKDOWN",
             "## Help<br>"
-            "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
-            "reference/individual_learner_dashboard.html)<br>"
+            """* <a href="https://docs.openedx.org/projects/openedx-aspects/page/reference/individual_learner_dashboard.html" target="_blank">Aspects Reference</a><br>"""  # pylint: disable=C0301
             """* <a href="https://github.com/apache/superset#resources" target="_blank">Superset Resources</a>""",  # pylint: disable=C0301
         ),
         (
             "ASPECTS_COURSE_COMPARISON_HELP_MARKDOWN",
             "## Help<br>"
-            "* [Aspects Reference](https://docs.openedx.org/projects/openedx-aspects/page/"
-            "reference/course_comparison_dashboard.html)<br>"
+            """* <a href="https://docs.openedx.org/projects/openedx-aspects/page/reference/course_comparison_dashboard.html" target="_blank">Aspects Reference</a><br>"""  # pylint: disable=C0301
             """* <a href="https://github.com/apache/superset#resources" target="_blank">Superset Resources</a>""",  # pylint: disable=C0301
         ),
         ("ASPECTS_ENABLE_INSTRUCTOR_DASHBOARD_PLUGIN", True),
@@ -160,7 +155,17 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             },
         ),
         # ClickHouse xAPI settings
-        ("ASPECTS_XAPI_DATABASE", "xapi"),
+        ("ASPECTS_XAPI_SOURCE", "vector"),
+        (
+            "ASPECTS_XAPI_DATABASE",
+            """
+            {%- if ASPECTS_XAPI_SOURCE == 'vector' -%}
+                {{ ASPECTS_VECTOR_DATABASE }}
+            {%- else -%}
+                {{ RALPH_DATABASE }}
+            {%- endif -%}
+            """,
+        ),
         ("ASPECTS_RAW_XAPI_TABLE", "xapi_events_all"),
         # ClickHouse event sink settings
         ("ASPECTS_EVENT_SINK_DATABASE", "event_sink"),
@@ -169,10 +174,19 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_DOCKER_HOST_SOCK_PATH", "/var/run/docker.sock"),
         ("ASPECTS_VECTOR_STORE_TRACKING_LOGS", False),
         ("ASPECTS_VECTOR_STORE_XAPI", True),
+        ("ASPECTS_XAPI_S3_BUCKET", ""),
+        ("ASPECTS_XAPI_S3_REGION", "us-east-1"),
+        ("ASPECTS_XAPI_S3_ENDPOINT", ""),
+        ("ASPECTS_XAPI_S3_SINK_MAX_EVENTS", "10000"),
+        ("ASPECTS_XAPI_S3_SINK_TIMEOUT_SECS", "600"),
         ("ASPECTS_VECTOR_DATABASE", "openedx"),
         ("ASPECTS_VECTOR_RAW_TRACKING_LOGS_TABLE", "_tracking"),
-        ("ASPECTS_VECTOR_RAW_XAPI_TABLE", "xapi_events_all"),
+        ("ASPECTS_VECTOR_AGGREGATOR_PORT", "6000"),
+        ("ASPECTS_VECTOR_AGGREGATOR_REPLICAS", 1),
+        ("ASPECTS_VECTOR_AGGREGATOR_BUFFER_MAX_SIZE", "1073741824"),
+        ("ASPECTS_VECTOR_AGGREGATOR_STORAGE_SIZE", "2Gi"),
         ("ASPECTS_DATA_TTL_EXPRESSION", "toDateTime(emission_time) + INTERVAL 1 YEAR"),
+        ("ASPECTS_ALEMBIC_MIGRATIONS_DATABASE", "{{RALPH_DATABASE}}"),
         # Make sure LMS / CMS have event-routing-backends installed
         ######################
         # ClickHouse Settings
@@ -267,7 +281,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "{% else %}"
             "{{CLICKHOUSE_HOST}}"
             "{% endif %}"
-            ":{{CLICKHOUSE_INTERNAL_NATIVE_PORT}}/{{ASPECTS_XAPI_DATABASE}}"
+            ":{{CLICKHOUSE_INTERNAL_NATIVE_PORT}}/{{ASPECTS_ALEMBIC_MIGRATIONS_DATABASE}}"
             "{% if CLICKHOUSE_SECURE_CONNECTION %}?secure=True{% endif %}",
         ),
         ######################
@@ -275,6 +289,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Change to https:// if the public interface to it is secure
         ("RALPH_HOST", "ralph"),
         ("RALPH_PORT", "8100"),
+        ("RALPH_DATABASE", "xapi"),
         ("RALPH_ENABLE_PUBLIC_URL", False),
         ("RALPH_RUN_HTTPS", False),
         ("RALPH_EXTRA_SETTINGS", {}),
@@ -289,6 +304,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("SUPERSET_DB_USERNAME", "superset"),
         ("SUPERSET_DB_METADATA_NAME", "superset"),
         ("SUPERSET_EXTRA_REQUIREMENTS", []),
+        # Extra arguments to pass to the Celery worker command
+        ("SUPERSET_CELERY_WORKER_EXTRA_ARGS", ""),
         ("SUPERSET_OAUTH2_ACCESS_TOKEN_PATH", "/oauth2/access_token/"),
         ("SUPERSET_OAUTH2_AUTHORIZE_PATH", "/oauth2/authorize/"),
         (
@@ -312,7 +329,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "SUPERSET_METADATA_SQLALCHEMY_URI",
             "mysql://{{SUPERSET_DB_USERNAME}}:{{SUPERSET_DB_PASSWORD}}"
-            "@{{SUPERSET_DB_HOST}}/{{SUPERSET_DB_METADATA_NAME}}",
+            "@{{SUPERSET_DB_HOST}}:{{SUPERSET_DB_PORT}}/{{SUPERSET_DB_METADATA_NAME}}",
         ),
         (
             "SUPERSET_DATABASES",
@@ -376,7 +393,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
-        ("DBT_BRANCH", "v6.1.0"),
+        ("DBT_BRANCH", "v8.0.0"),
         ("DBT_SSH_KEY", ""),
         ("DBT_STATE_DIR", "/app/aspects-dbt/state"),
         ("DBT_PROFILES_DIR", "/app/aspects/dbt/"),
@@ -449,6 +466,8 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         ("SUPERSET_ADMIN_PASSWORD", "{{ 24|random_string }}"),
         ("SUPERSET_LMS_USERNAME", "{{ 12|random_string }}"),
         ("SUPERSET_LMS_PASSWORD", "{{ 24|random_string }}"),
+        ("ASPECTS_XAPI_S3_ACCESS_KEY", ""),
+        ("ASPECTS_XAPI_S3_SECRET_KEY", ""),
     ]
 )
 
@@ -505,6 +524,11 @@ def _mount_superset_compose(
     """
     if name == "superset":
         volumes += [("superset", "/app")]
+    elif name == "aspects-dbt":
+        volumes += [
+            ("aspects-job", "/app/aspects-dbt"),
+            ("aspects-docs", "/app/aspects-dbt"),
+        ]
     return volumes
 
 
@@ -671,7 +695,7 @@ except ImportError:
 
 # If PLUGIN_SLOTS doesn't exist, we are on Redwood and do not
 # support in-context metrics.
-if PLUGIN_SLOTS:
+if _TUTORMFE_AVAILABLE:
     PLUGIN_SLOTS.add_items(
         [
             (
@@ -679,37 +703,9 @@ if PLUGIN_SLOTS:
                 "org.openedx.frontend.authoring.course_outline_sidebar.v1",
                 """
             {
-                op: PLUGIN_OPERATIONS.Insert,
-                widget: {
-                    id: 'outline-sidebar',
-                    priority: 1,
-                    type: DIRECT_PLUGIN,
-                    RenderWidget: CourseOutlineSidebar,
-                },
-            }""",
-            ),
-            (
-                "authoring",
-                "org.openedx.frontend.authoring.course_outline_sidebar.v1",
-                """
-            {
                 op: PLUGIN_OPERATIONS.Wrap,
                 widgetId: 'default_contents',
-                wrapper: SidebarToggleWrapper,
-            }""",
-            ),
-            (
-                "authoring",
-                "org.openedx.frontend.authoring.course_unit_sidebar.v2",
-                """
-            {
-                op: PLUGIN_OPERATIONS.Insert,
-                widget: {
-                    id: 'course-unit-sidebar',
-                    priority: 1,
-                    type: DIRECT_PLUGIN,
-                    RenderWidget: UnitPageSidebar,
-                },
+                wrapper: CourseOutlineSidebarWrapper,
             }""",
             ),
             (
@@ -719,35 +715,7 @@ if PLUGIN_SLOTS:
             {
                 op: PLUGIN_OPERATIONS.Wrap,
                 widgetId: 'default_contents',
-                wrapper: SidebarToggleWrapper,
-            }""",
-            ),
-            (
-                "authoring",
-                "org.openedx.frontend.authoring.course_unit_header_actions.v1",
-                """
-            {
-                op: PLUGIN_OPERATIONS.Insert,
-                widget: {
-                    id: 'unit-header-aspects-button',
-                    priority: 60,
-                    type: DIRECT_PLUGIN,
-                    RenderWidget: CourseHeaderButton,
-                },
-            }""",
-            ),
-            (
-                "authoring",
-                "org.openedx.frontend.authoring.course_outline_header_actions.v1",
-                """
-            {
-                op: PLUGIN_OPERATIONS.Insert,
-                widget: {
-                    id: 'outline-header-aspects-button',
-                    priority: 60,
-                    type: DIRECT_PLUGIN,
-                    RenderWidget: CourseHeaderButton,
-                },
+                wrapper: UnitOutlineSidebarWrapper,
             }""",
             ),
             (
@@ -779,4 +747,27 @@ if PLUGIN_SLOTS:
             }""",
             ),
         ]
+    )
+
+    @FRONTEND_APPS.add()
+    def _add_frontend_app_aspects(apps):
+        apps["aspects"] = {
+            "npm_package": "@openedx/frontend-app-aspects",
+            "npm_version": "^2.0.0-alpha || 0.0.0-dev",
+            "enabled": True,
+        }
+        return apps
+
+    hooks.Filters.ENV_PATCHES.add_item(
+        (
+            "mfe-site-config-imports",
+            "import { aspectsApp } from '@openedx/frontend-app-aspects';",
+        )
+    )
+
+    hooks.Filters.ENV_PATCHES.add_item(
+        (
+            "mfe-site-config",
+            "addApp(siteConfig, aspectsApp);",
+        )
     )

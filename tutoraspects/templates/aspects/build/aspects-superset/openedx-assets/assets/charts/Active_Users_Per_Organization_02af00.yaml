@@ -60,6 +60,8 @@ params:
   viz_type: pie
 query_context: null
 slice_name: Active Users Per Organization
+tags:
+- original
 uuid: 02af00f5-6539-428f-b3ab-632997de7528
 version: 1.0.0
 viz_type: pie

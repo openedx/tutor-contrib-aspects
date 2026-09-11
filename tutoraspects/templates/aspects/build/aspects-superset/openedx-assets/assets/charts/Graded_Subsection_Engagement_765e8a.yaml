@@ -175,6 +175,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Graded Subsection Engagement
+tags:
+- original
 uuid: 765e8acf-c304-4ec5-ac5d-b13a7b08c87d
 version: 1.0.0
 viz_type: mixed_timeseries

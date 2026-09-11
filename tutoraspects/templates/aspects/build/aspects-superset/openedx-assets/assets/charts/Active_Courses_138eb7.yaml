@@ -184,6 +184,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Active Courses
+tags:
+- original
 uuid: 138eb72a-f73f-42b5-96d6-3417715c3519
 version: 1.0.0
 viz_type: echarts_timeseries_line

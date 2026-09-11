@@ -216,6 +216,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Last Visit Date
+tags:
+- original
 uuid: 6c2b1008-96c9-426d-b2fe-68aa1de7b10d
 version: 1.0.0
 viz_type: echarts_timeseries_bar

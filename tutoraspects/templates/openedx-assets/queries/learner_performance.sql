@@ -1,19 +1,21 @@
 select
     status.org as org,
     status.course_key as course_key,
-    blocks.course_name as course_name,
-    blocks.course_run as course_run,
+    names.course_name as course_name,
+    names.course_run as course_run,
     status.actor_id as actor_id,
     sum(
-        case when success and attempts = 1 then 1 else 0 end
+        case when last_response.success and last_response.attempts = 1 then 1 else 0 end
     ) as first_try_correct_count,
     count(
-        distinct case when attempts > 1 then last_response.object_id end
+        distinct case when last_response.attempts > 1 then last_response.object_id end
     ) as response_count,
     status.course_grade as course_grade,
     status.approving_state as approving_state
 from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_student_status as status
-join {{ ASPECTS_EVENT_SINK_DATABASE }}.dim_course_names blocks using (course_key)
+join
+    {{ ASPECTS_EVENT_SINK_DATABASE }}.dim_course_names names
+    on status.course_key = names.course_key
 left join
     {{ DBT_PROFILE_TARGET_DATABASE }}.dim_learner_last_response as last_response
     on status.org = last_response.org

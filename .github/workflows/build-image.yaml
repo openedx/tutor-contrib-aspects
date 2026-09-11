@@ -25,12 +25,12 @@ jobs:
     steps:
       - name: Log in to Docker Hub
         continue-on-error: true
-        uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f
         with:
           username: ${{ secrets.EDUNEXT_DOCKER_USERNAME }}
           password: ${{ secrets.EDUNEXT_DOCKER_PASSWORD }}
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Set outputs
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
@@ -40,7 +40,7 @@ jobs:
           ASPECTS_VERSION=pr-${{ github.event.pull_request.number }}-${{ steps.vars.outputs.sha_short }}
           sed -i "s/ASPECTS_VERSION: .*/ASPECTS_VERSION: $ASPECTS_VERSION/" .ci/config.yml
       - name: setup python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: 3.12
       - name: Install aspects
@@ -50,7 +50,7 @@ jobs:
       - name: Save config
         run: tutor config save
       - name: Setup Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@37fe631027851001ddb9b187196cc803df7f5f0e # v4.3.0
       - name: Build Aspects Docker Images
         run: |
           tutor images build ${{ matrix.service.name }}

@@ -236,6 +236,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Final Response Results
+tags:
+- original
 uuid: ab43eb1d-eef8-43a9-b5fd-9899780120f2
 version: 1.0.0
 viz_type: echarts_timeseries_bar

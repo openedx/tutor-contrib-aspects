@@ -1,32 +1,32 @@
-with
-    page_visits as (
-        select org, course_key, actor_id, max(emission_time) as last_visited
-        from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_learner_last_course_visit
-        where
-            1 = 1
-            {% include 'openedx-assets/queries/common_filters.sql' %}
-            and emission_time < subtractDays(now(), 7)
-        group by org, course_key, actor_id
-    )
-
 select
-    learners.org as org,
-    learners.course_key as course_key,
-    learners.course_name as course_name,
-    learners.course_run as course_run,
-    learners.actor_id as actor_id,
-    learners.username as username,
-    learners.name as name,
-    learners.email as email,
-    learners.enrollment_mode as enrollment_mode,
-    learners.course_grade as course_grade,
-    learners.enrolled_at as enrolled_at,
-    learners.grade_bucket as grade_bucket,
-    page_visits.last_visited as last_visited
-from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_student_status learners
-join page_visits using (org, course_key, actor_id)
-where
-    approving_state = 'failed'
-    and enrollment_status = 'registered'
-    and page_visits.last_visited < subtractDays(now(), 7)
-    {% include 'openedx-assets/queries/common_filters.sql' %}
+    status.org as org,
+    status.course_key as course_key,
+    status.actor_id as actor_id,
+    status.approving_state as approving_state,
+    status.enrollment_mode as enrollment_mode,
+    status.enrollment_status as enrollment_status,
+    status.course_grade as course_grade,
+    status.grade_bucket as grade_bucket,
+    users.username as username,
+    users.name as name,
+    users.email as email,
+    status.enrolled_at as enrolled_at,
+    at_risk_learners.last_visited as last_visited,
+    names.course_name as course_name,
+    names.course_run as course_run
+from {{ DBT_PROFILE_TARGET_DATABASE }}.dim_student_status status
+left join
+    {{ ASPECTS_EVENT_SINK_DATABASE }}.user_pii users
+    on (status.actor_id like 'mailto:%' and SUBSTRING(status.actor_id, 8) = users.email)
+    or status.actor_id = toString(users.external_user_id)
+join
+    {{ ASPECTS_EVENT_SINK_DATABASE }}.dim_course_names names
+    on status.course_key = names.course_key
+join
+    (
+        {% include 'openedx-assets/queries/at_risk_learner_filter.sql' %}
+    ) as at_risk_learners
+    on status.org = at_risk_learners.org
+    and status.course_key = at_risk_learners.course_key
+    and status.actor_id = at_risk_learners.actor_id
+where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}

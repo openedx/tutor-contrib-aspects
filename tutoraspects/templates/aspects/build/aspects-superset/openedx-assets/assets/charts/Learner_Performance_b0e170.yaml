@@ -141,6 +141,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Learner Performance
+tags:
+- original
 uuid: b0e170ce-26f1-4452-a3c0-49b41fa6e529
 version: 1.0.0
 viz_type: table

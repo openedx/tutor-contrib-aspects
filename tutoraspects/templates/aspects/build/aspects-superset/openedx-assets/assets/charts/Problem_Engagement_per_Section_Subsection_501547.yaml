@@ -136,6 +136,7 @@ query_context:
     columns:
     - columnType: BASE_AXIS
       expressionType: SQL
+      isColumnReference: true
       label: section_subsection_name
       sqlExpression: section_subsection_name
       timeGrain: P1D
@@ -146,6 +147,7 @@ query_context:
       time_grain_sqla: P1D
       where: ''
     filters: []
+    group_others_when_limit_reached: false
     metrics:
     - aggregate: null
       column: null
@@ -198,6 +200,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Problem Engagement per Section/Subsection
+tags:
+- original
 uuid: 5015477d-d166-4823-868d-c7883d195bab
 version: 1.0.0
 viz_type: echarts_timeseries_bar

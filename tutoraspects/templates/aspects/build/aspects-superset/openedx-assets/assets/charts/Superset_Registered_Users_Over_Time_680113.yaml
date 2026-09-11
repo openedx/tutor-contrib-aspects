@@ -71,6 +71,8 @@ params:
   y_axis_title_position: Left
 query_context: null
 slice_name: Superset Registered Users Over Time
+tags:
+- original
 uuid: 68011361-ea45-4875-9165-c84ddbcd1fc5
 version: 1.0.0
 viz_type: echarts_timeseries_line

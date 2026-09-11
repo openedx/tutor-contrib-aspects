@@ -287,6 +287,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Learner Summary
+tags:
+- original
 uuid: 6da50964-000e-4342-a931-3881feb02c13
 version: 1.0.0
 viz_type: table

@@ -73,6 +73,7 @@ AUTH_ROLES_MAPPING = {
     "public": ["Public"],    # AKA anonymous users
 }
 
+
 for locale in DASHBOARD_LOCALES:
     AUTH_ROLES_MAPPING[f"instructor-{locale}"] = [f"{{SUPERSET_ROLES_MAPPING.instructor}} - {locale}"]
     AUTH_ROLES_MAPPING[f"student-{locale}"] = [f"{{SUPERSET_ROLES_MAPPING.student}} - {locale}"]
@@ -101,9 +102,26 @@ EXTRA_CATEGORICAL_COLOR_SCHEMES = [
 "id": 'aspects_default',
 "description": 'Aspects color scheme',
 "label": 'Aspects',
-"colors": ['#29A399', '#7B144D', '#F4661F', '#3B3B3B', '#9F81CF', '#11406A']
+"colors": ['#29A399', '#7B144D', '#F4661F', "#C9CB24", '#9F81CF', '#11406A']
 }
 ]
+
+# Custom light and dark themes
+THEME_DARK = {
+  "token": {
+    "colorSuccessBg": "#ACE1C4",
+    "colorWarningBg": "#FDE380",
+    "colorErrorBg": "#EFA1AA"
+  },
+  "algorithm": "dark"
+}
+THEME_DEFAULT = {
+  "token": {
+    "colorSuccessBg": "#ACE1C4",
+    "colorWarningBg": "#FDE380",
+    "colorErrorBg": "#EFA1AA"
+  }
+}
 
 # Add this custom template processor which returns the list of courses the current user can access
 from openedx_jinja_filters import *
@@ -123,6 +141,7 @@ JINJA_CONTEXT_ADDONS = {
     'translate_column': translate_column,
     'translate_column_bool': translate_column_bool,
     'get_filtered_dashboard_link': get_filtered_dashboard_link,
+    'get_multiple_filtered_dashboard_link': get_multiple_filtered_dashboard_link,
     {% for filter in SUPERSET_EXTRA_JINJA_FILTERS %}'{{ filter }}': {{filter}},{% endfor %}
 }
 

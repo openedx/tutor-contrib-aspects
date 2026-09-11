@@ -16,6 +16,9 @@ aspects-job:
   volumes:
     - ../../env/plugins/aspects/apps/aspects:/app/aspects
     - ../../env/plugins/aspects/apps/aspects/scripts/:/app/aspects/scripts:ro
+    {%- for mount in iter_mounts(MOUNTS, "aspects-job") %}
+    - {{ mount }}
+    {%- endfor %}
   {% if RUN_CLICKHOUSE %}
   depends_on:
     - clickhouse

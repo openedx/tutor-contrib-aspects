@@ -172,6 +172,8 @@ query_context:
   result_format: json
   result_type: full
 slice_name: Cumulative Enrollments by Track
+tags:
+- original
 uuid: f207c896-030a-462b-b69f-6416230d50b6
 version: 1.0.0
 viz_type: echarts_area
