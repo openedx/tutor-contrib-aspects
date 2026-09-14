@@ -12,3 +12,6 @@ env/
 transifex_input.yaml
 .mypy_cache
 .venv
+
+# MySQL dump used by the CI migration cache (.github/actions/tutor-init-cached)
+.ci/mysql-dump/

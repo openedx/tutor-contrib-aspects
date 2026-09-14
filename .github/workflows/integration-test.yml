@@ -27,6 +27,15 @@ jobs:
         run: pip install -r requirements/dev.txt
       - name: Install aspects
         run: pip install -e .
+      - name: Point Tutor at the ghcr.io image cache
+        run: .ci/tutor-ci-images.sh "ghcr.io/${{ github.repository }}"
+      # GITHUB_TOKEN can read packages published by this repo's workflows, so
+      # this works even while the ghcr.io packages are private. Fork PRs get a
+      # read-only token, which is all that is needed to pull the cache.
+      - name: Log in to GitHub Container Registry
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin || \
+            echo "::warning::ghcr.io login failed; pulling the image cache anonymously."
       - name: Tutor config save
         run: tutor config save --set ASPECTS_XAPI_SOURCE=ralph
       - name: Setup Docker Buildx
@@ -47,10 +56,10 @@ jobs:
           swap-storage: true
       - name: Tutor build openedx
         run: tutor images build openedx aspects aspects-superset permissions
-      - name: Tutor start
-        run: tutor local start -d
-      - name: Tutor init
-        run: tutor local do init
+      - name: Tutor start + init
+        uses: ./.github/actions/tutor-init-cached
+        with:
+          mode: local
       - name: Test alembic
         run: |
           tutor local do alembic -c "downgrade base"
@@ -100,6 +109,15 @@ jobs:
         run: pip install -r requirements/dev.txt
       - name: Install aspects
         run: pip install -e .
+      - name: Point Tutor at the ghcr.io image cache
+        run: .ci/tutor-ci-images.sh "ghcr.io/${{ github.repository }}"
+      # GITHUB_TOKEN can read packages published by this repo's workflows, so
+      # this works even while the ghcr.io packages are private. Fork PRs get a
+      # read-only token, which is all that is needed to pull the cache.
+      - name: Log in to GitHub Container Registry
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin || \
+            echo "::warning::ghcr.io login failed; pulling the image cache anonymously."
       - name: Tutor config save
         run: tutor config save --set ASPECTS_XAPI_SOURCE=ralph
       - name: Setup Docker Buildx
@@ -120,10 +138,10 @@ jobs:
           swap-storage: true
       - name: Tutor build openedx
         run: tutor images build openedx-dev aspects aspects-superset permissions
-      - name: Tutor start
-        run: tutor dev start -d
-      - name: Tutor init
-        run: tutor dev do init
+      - name: Tutor start + init
+        uses: ./.github/actions/tutor-init-cached
+        with:
+          mode: dev
       - name: Test alembic
         run: |
           tutor dev do alembic -c "downgrade base"
@@ -181,6 +199,8 @@ jobs:
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: 3.12
+      - name: Point Tutor at the ghcr.io image cache
+        run: .ci/tutor-ci-images.sh "ghcr.io/${{ github.repository }}"
       - name: Generate env
         run: |
           pip install -r requirements/dev.txt
@@ -197,6 +217,10 @@ jobs:
             kustomize build $TUTOR_ROOT/env | kubeconform -strict -ignore-missing-schemas -kubernetes-version 1.22.0
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@37fe631027851001ddb9b187196cc803df7f5f0e # v4.3.0
+      - name: Log in to GitHub Container Registry
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin || \
+            echo "::warning::ghcr.io login failed; pulling the image cache anonymously."
       - name: Tutor build openedx
         run: tutor images build openedx aspects aspects-superset permissions
       - name: Create k8s Kind Cluster
@@ -318,6 +342,15 @@ jobs:
         run: pip install -r requirements/dev.txt
       - name: Install aspects
         run: pip install -e .
+      - name: Point Tutor at the ghcr.io image cache
+        run: .ci/tutor-ci-images.sh "ghcr.io/${{ github.repository }}"
+      # GITHUB_TOKEN can read packages published by this repo's workflows, so
+      # this works even while the ghcr.io packages are private. Fork PRs get a
+      # read-only token, which is all that is needed to pull the cache.
+      - name: Log in to GitHub Container Registry
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin || \
+            echo "::warning::ghcr.io login failed; pulling the image cache anonymously."
       - name: Tutor config save
         run: tutor config save --set ASPECTS_XAPI_SOURCE=vector
       - name: Confirm DB
@@ -341,10 +374,10 @@ jobs:
           swap-storage: true
       - name: Tutor build openedx
         run: tutor images build openedx aspects aspects-superset permissions
-      - name: Tutor start
-        run: tutor local start -d
-      - name: Tutor init
-        run: tutor local do init
+      - name: Tutor start + init
+        uses: ./.github/actions/tutor-init-cached
+        with:
+          mode: local
       - name: Test alembic
         run: |
           tutor local do alembic -c "downgrade base"
@@ -391,6 +424,15 @@ jobs:
         run: pip install -r requirements/dev.txt
       - name: Install aspects
         run: pip install -e .
+      - name: Point Tutor at the ghcr.io image cache
+        run: .ci/tutor-ci-images.sh "ghcr.io/${{ github.repository }}"
+      # GITHUB_TOKEN can read packages published by this repo's workflows, so
+      # this works even while the ghcr.io packages are private. Fork PRs get a
+      # read-only token, which is all that is needed to pull the cache.
+      - name: Log in to GitHub Container Registry
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin || \
+            echo "::warning::ghcr.io login failed; pulling the image cache anonymously."
       - name: Tutor config save
         run: tutor config save --set ASPECTS_XAPI_SOURCE=vector
       - name: Confirm DB
@@ -414,10 +456,10 @@ jobs:
           swap-storage: true
       - name: Tutor build openedx
         run: tutor images build openedx-dev aspects aspects-superset permissions
-      - name: Tutor start
-        run: tutor dev start -d
-      - name: Tutor init
-        run: tutor dev do init
+      - name: Tutor start + init
+        uses: ./.github/actions/tutor-init-cached
+        with:
+          mode: dev
       - name: Test alembic
         run: |
           tutor dev do alembic -c "downgrade base"
@@ -472,6 +514,8 @@ jobs:
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: 3.12
+      - name: Point Tutor at the ghcr.io image cache
+        run: .ci/tutor-ci-images.sh "ghcr.io/${{ github.repository }}"
       - name: Generate env
         run: |
           pip install -r requirements/dev.txt
@@ -489,6 +533,10 @@ jobs:
             kustomize build $TUTOR_ROOT/env | kubeconform -strict -ignore-missing-schemas -kubernetes-version 1.22.0
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@37fe631027851001ddb9b187196cc803df7f5f0e # v4.3.0
+      - name: Log in to GitHub Container Registry
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin || \
+            echo "::warning::ghcr.io login failed; pulling the image cache anonymously."
       - name: Tutor build openedx
         run: tutor images build openedx aspects aspects-superset permissions
       - name: Create k8s Kind Cluster
