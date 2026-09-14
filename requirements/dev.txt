@@ -22,7 +22,7 @@ appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   tutor
-ast-serialize==0.9.0
+ast-serialize==0.11.2
     # via
     #   -r requirements/base.txt
     #   mypy
@@ -127,7 +127,7 @@ more-itertools==11.1.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-multidict==6.7.1
+multidict==6.8.0
     # via
     #   -r requirements/base.txt
     #   aiohttp
@@ -163,7 +163,7 @@ pathspec==1.1.1
     #   -r requirements/base.txt
     #   black
     #   mypy
-platformdirs==4.11.7
+platformdirs==4.11.8
     # via
     #   -r requirements/base.txt
     #   black
@@ -184,7 +184,7 @@ pygments==2.21.0
     # via
     #   readme-renderer
     #   rich
-pyinstaller==6.22.2
+pyinstaller==6.22.3
     # via -r requirements/dev.in
 pyinstaller-hooks-contrib==2026.7
     # via pyinstaller
@@ -235,7 +235,7 @@ six==1.17.0
     #   python-dateutil
 tomlkit==0.15.1
     # via pylint
-tqdm==4.70.0
+tqdm==4.70.1
     # via
     #   -r requirements/base.txt
     #   shandy-sqlfmt
@@ -243,7 +243,7 @@ tutor==22.0.2
     # via
     #   -r requirements/base.txt
     #   tutor-mfe
-tutor-mfe==22.0.0
+tutor-mfe==22.1.0
     # via -r requirements/base.txt
 twine==7.0.0
     # via -r requirements/dev.in
