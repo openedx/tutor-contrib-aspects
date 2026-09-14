@@ -228,8 +228,10 @@ jobs:
       # 4. Successfully run tests
       - name: Test dbt
         run: |
-          tutor k8s do dbt --only_changed False -c "run --full-refresh"
-          tutor k8s do dbt --only_changed False -c "test"
+          tutor local do dbt -c "run"
+          tutor local do dbt -c "run"
+          tutor local do dbt --only_changed False -c "run"
+          tutor local do dbt --only_changed False -c "test"
       - name: Load test
         run: tutor k8s do load-xapi-test-data
       - name: Import demo course
