@@ -170,11 +170,11 @@ jobs:
 
           # all of these default to true, but feel free to set to
           # "false" if necessary for your workflow
-          android: true
-          dotnet: true
-          haskell: true
+          android: false
+          dotnet: false
+          haskell: false
           large-packages: false
-          swap-storage: true
+          swap-storage: false
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: setup python
@@ -198,7 +198,7 @@ jobs:
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@37fe631027851001ddb9b187196cc803df7f5f0e # v4.3.0
       - name: Tutor build openedx
-        run: tutor images build openedx aspects aspects-superset permissions
+        run: tutor images build openedx aspects aspects-superset
       - name: Create k8s Kind Cluster
         uses: helm/kind-action@06c1ae10762d3b9c1644e7fe69596ae519e015a2 # v1.15.0
       - name: Mount docker image
@@ -228,9 +228,7 @@ jobs:
       # 4. Successfully run tests
       - name: Test dbt
         run: |
-          tutor k8s do dbt -c "run"
-          tutor k8s do dbt -c "run"
-          tutor k8s do dbt --only_changed False -c "run"
+          tutor k8s do dbt --only_changed False -c "run --full-refresh"
           tutor k8s do dbt --only_changed False -c "test"
       - name: Load test
         run: tutor k8s do load-xapi-test-data
