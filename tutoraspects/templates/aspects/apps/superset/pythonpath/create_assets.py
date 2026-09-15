@@ -130,6 +130,22 @@ def write_asset_to_file(
     if folder == "databases":
         # Update the sqlalchery_uri from the asset override pre-generated values
         asset["sqlalchemy_uri"] = DATABASES.get(asset["database_name"])
+
+    # If PII is disabled, hide charts specified in config
+    if folder == "dashboards":
+        if not {{ ASPECTS_ENABLE_PII }} and {{ ASPECTS_PII_CHART_UUIDS }}:
+            for chart in asset.get("position").values():
+                if (
+                    isinstance(chart, dict)
+                    and chart.get("meta", {}).get("uuid") in {{ ASPECTS_PII_CHART_UUIDS }}
+                ):
+                    chart["type"] = ""
+        else:
+            for chart in asset.get("position").values():
+                if isinstance(chart, dict) and chart.get('type') == '':
+                    chart["type"] = 'CHART'
+
+
     if folder in ["charts", "dashboards", "datasets"]:
         for locale in DASHBOARD_LOCALES:
             if folder == "datasets":

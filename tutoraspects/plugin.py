@@ -56,6 +56,13 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # in the ClickHouse database. Make sure that you understand the legal
         # consequences of data storage and privacy before turning this on!
         ("ASPECTS_ENABLE_PII", False),
+        # If PII is turned off (default), these chart UUIDs will be hidden
+        (
+            "ASPECTS_PII_CHART_UUIDS",
+            [
+                "447a194b-dbed-4a82-a899-2df8e01e84b1",  # Learners (At Risk)
+            ],
+        ),
         ("ASPECTS_ENABLE_EVENT_BUS_CONSUMER", False),
         ("ASPECTS_ENABLE_EVENT_BUS_PRODUCER", False),
         ("ASPECTS_EVENT_BUS_CONSUMER_REPLICAS", 1),
