@@ -130,7 +130,7 @@ metrics:
 normalize_columns: false
 offset: 0
 params: null
-schema: reporting
+schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |-
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/graded_subsection_engagement.sql' %}{% endfilter %}
 table_name: graded_subsection_engagement

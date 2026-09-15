@@ -290,7 +290,7 @@ metrics:
 normalize_columns: false
 offset: 0
 params: null
-schema: reporting
+schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: |
   {% filter indent(width=2) %}{% include 'openedx-assets/queries/learner_response_attempts.sql' %}{% endfilter %}
 table_name: learner_response_attempts
