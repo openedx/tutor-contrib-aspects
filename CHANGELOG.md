@@ -5,6 +5,140 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v5.0.0 - 2026-09-15
+
+### v5.0.0 (2026-09-15)
+
+#### Bug Fixes
+
+- Add new permission ([#1305](https://github.com/openedx/tutor-contrib-aspects/pull/1305), [`481e221`](https://github.com/openedx/tutor-contrib-aspects/commit/481e2212f2ca61471bd001d53cdaf409cceb12fd))
+  
+- Bump xapi-do-load for bug fix ([`971bfd0`](https://github.com/openedx/tutor-contrib-aspects/commit/971bfd057bd78adfaf1ac17c6fdff887eafec656))
+  
+- Change command name to xapi_block_storage_backfill consistently ([`f8065ec`](https://github.com/openedx/tutor-contrib-aspects/commit/f8065ece1a6a98e60b010e2315b56be03766eb7d))
+  
+- Change to decimals ([#1309](https://github.com/openedx/tutor-contrib-aspects/pull/1309), [`7e2f1bf`](https://github.com/openedx/tutor-contrib-aspects/commit/7e2f1bfcef05533c37b80623d9c39049f4bdaf0f))
+  
+- Cleanup from rebase ([`2d39163`](https://github.com/openedx/tutor-contrib-aspects/commit/2d39163b7bac589cabe8e2b900395e544997ed7f))
+  
+- Correct Superset dockerfile patch name ([`48d8d1b`](https://github.com/openedx/tutor-contrib-aspects/commit/48d8d1b0fb4b3f423c23aed4544c0bcde2def37b))
+  
+- Custom dark theme for superset 6.1 ([#1309](https://github.com/openedx/tutor-contrib-aspects/pull/1309), [`7e2f1bf`](https://github.com/openedx/tutor-contrib-aspects/commit/7e2f1bfcef05533c37b80623d9c39049f4bdaf0f))
+  
+- Fix clickhouse report url ([`ac94216`](https://github.com/openedx/tutor-contrib-aspects/commit/ac9421659128100d37b155800453258de83635ff))
+  
+- Lint issues caused by style fix ([`34b83b6`](https://github.com/openedx/tutor-contrib-aspects/commit/34b83b6f6e102c5fd4865a3fa070b7e1efde4d27))
+  
+- Set xapi_database on EVENT_SINK_CLICKHOUSE_BACKEND_CONFIG ([`da6445e`](https://github.com/openedx/tutor-contrib-aspects/commit/da6445e02e83f6200e840ea36d77a2edb3b7437c))
+  
+- Update default load test config to support vector ([`09a63ef`](https://github.com/openedx/tutor-contrib-aspects/commit/09a63ef7bd541686ab144edbbd93b0459da2e1d0))
+  
+- Update default load test config to support vector ([`3c03d49`](https://github.com/openedx/tutor-contrib-aspects/commit/3c03d49838d9ad22bd5ac4fea6123c1431428937))
+  
+- Upgrade to newer xapi-db-load ([`f472982`](https://github.com/openedx/tutor-contrib-aspects/commit/f472982a2895f42458d962b927865cd97295a0e4))
+  
+- Use DBT_PROFILE_TARGET_DATABASE schema in 4 hardcoded datasets ([#1316](https://github.com/openedx/tutor-contrib-aspects/pull/1316), [`465ec30`](https://github.com/openedx/tutor-contrib-aspects/commit/465ec30623c6a407fed7d30d56c6c873a45c98ab))
+  
+- V6 fields and fixing uuids ([#1309](https://github.com/openedx/tutor-contrib-aspects/pull/1309), [`7e2f1bf`](https://github.com/openedx/tutor-contrib-aspects/commit/7e2f1bfcef05533c37b80623d9c39049f4bdaf0f))
+  
+
+#### Build System
+
+- Cache images and migrations ([`777d111`](https://github.com/openedx/tutor-contrib-aspects/commit/777d111f82f38aaef586218eb9c1280437dba002))
+  
+- Fix integration tests ([`a7635df`](https://github.com/openedx/tutor-contrib-aspects/commit/a7635df629cf7714ae41cb2c1baf4faaff23155d))
+  
+- Update tests to also test the Vector configurations ([`1ee69ed`](https://github.com/openedx/tutor-contrib-aspects/commit/1ee69ed457d0d2c173cf9457effc026ee0e910fe))
+  
+
+#### Chores
+
+- Add breaking change ([`911fa13`](https://github.com/openedx/tutor-contrib-aspects/commit/911fa13543e868915d587b61a91c517bd9320a23))
+  
+- Disable batching by default ([`886096f`](https://github.com/openedx/tutor-contrib-aspects/commit/886096fb19dc512da313e16538b509758f909031))
+  
+- Format files ([`5f85497`](https://github.com/openedx/tutor-contrib-aspects/commit/5f854979c3ea94f6fb445b548b13dd91b8b4564e))
+  
+- Remove duplicated integration tests ([`ecf20bd`](https://github.com/openedx/tutor-contrib-aspects/commit/ecf20bda0674e9560a8f0ca6e75061498c215177))
+  
+- Restore defaults for load test ([`dd8c736`](https://github.com/openedx/tutor-contrib-aspects/commit/dd8c736ce4df815b9b57a66f10eb2015b63da93e))
+  
+- Update yaml for superset 6 format ([#1304](https://github.com/openedx/tutor-contrib-aspects/pull/1304), [`fd1fc16`](https://github.com/openedx/tutor-contrib-aspects/commit/fd1fc16f5f529be524104dff61f0315256b0e042))
+  
+- Updating yaml files to match superset v6 export ([#1304](https://github.com/openedx/tutor-contrib-aspects/pull/1304), [`fd1fc16`](https://github.com/openedx/tutor-contrib-aspects/commit/fd1fc16f5f529be524104dff61f0315256b0e042))
+  
+- Updating yaml files to match superset v6 export ([#1303](https://github.com/openedx/tutor-contrib-aspects/pull/1303), [`36412bd`](https://github.com/openedx/tutor-contrib-aspects/commit/36412bdccb36be67a99e3c943df5aca51713bfe4))
+  
+- Upgrade dbt to v7.0.0 ([`a26c8fd`](https://github.com/openedx/tutor-contrib-aspects/commit/a26c8fdc9810e89e01ec1d819847f9837b0ebd53))
+  
+- Upgrade Python requirements ([#1314](https://github.com/openedx/tutor-contrib-aspects/pull/1314), [`e91cb05`](https://github.com/openedx/tutor-contrib-aspects/commit/e91cb0510a4366058d36e9b23b970e71ba81a615))
+  
+- Upgrade Python requirements ([#1311](https://github.com/openedx/tutor-contrib-aspects/pull/1311), [`4f73fb6`](https://github.com/openedx/tutor-contrib-aspects/commit/4f73fb6e8c380830a254107239e33facf6a370d3))
+  
+- Upgrade Python requirements ([#1306](https://github.com/openedx/tutor-contrib-aspects/pull/1306), [`e9bfddd`](https://github.com/openedx/tutor-contrib-aspects/commit/e9bfddd670ab07fee557fb231703e14546df0bf8))
+  
+- Upgrade Python requirements ([#1302](https://github.com/openedx/tutor-contrib-aspects/pull/1302), [`94fa8ae`](https://github.com/openedx/tutor-contrib-aspects/commit/94fa8aed584fb2b91a70857d1a13585aa906c00a))
+  
+- Upgrade xapi-db-load to v3.1.0 ([`a229613`](https://github.com/openedx/tutor-contrib-aspects/commit/a229613cfc0d171db0d4d527242f0def016f098d))
+  
+- **deps**: Bump docker/setup-buildx-action from 4.2.0 to 4.3.0 ([#1307](https://github.com/openedx/tutor-contrib-aspects/pull/1307), [`6247c14`](https://github.com/openedx/tutor-contrib-aspects/commit/6247c1455219c655dc04fc7598ffade7fabf894d))
+  
+- **deps**: Bump helm/kind-action from 1.14.0 to 1.15.0 ([#1315](https://github.com/openedx/tutor-contrib-aspects/pull/1315), [`e57f39d`](https://github.com/openedx/tutor-contrib-aspects/commit/e57f39d03f3cde75f73365f6ffe5fc6810dddc04))
+  
+- **deps**: Bump python-semantic-release/python-semantic-release ([`917b1c4`](https://github.com/openedx/tutor-contrib-aspects/commit/917b1c479887823a970044a1ab5135842ee8fed5))
+  
+
+#### Code Style
+
+- Fix formatting ([`094abed`](https://github.com/openedx/tutor-contrib-aspects/commit/094abedaea8f8e411023f47cf4b0957bac30cc3d))
+  
+- Fix line length error ([`f37c421`](https://github.com/openedx/tutor-contrib-aspects/commit/f37c421925851db83a9a6844942d4441e6858886))
+  
+- Fix style issues ([`bef9fe7`](https://github.com/openedx/tutor-contrib-aspects/commit/bef9fe792cfa0d26ee8278b519703aa41aff4f0e))
+  
+- Fix style issues caused by lint issue fix caused by style fix ([`7cfb70a`](https://github.com/openedx/tutor-contrib-aspects/commit/7cfb70a3591ce593e0b3db3c15cf8ea0a6232815))
+  
+
+#### Documentation
+
+- Fix doc formatting ([`d6ff0de`](https://github.com/openedx/tutor-contrib-aspects/commit/d6ff0ded4e154129eb22086d96704ca13c928e58))
+  
+- Update note about images in plugin.py ([`c01cf13`](https://github.com/openedx/tutor-contrib-aspects/commit/c01cf13ed30538d4a7307084114752eaa4c52694))
+  
+
+#### Features
+
+- Add s3 vector sink ([`465b1dd`](https://github.com/openedx/tutor-contrib-aspects/commit/465b1dd0618244809c7c82224eee3a028d8ebbc3))
+  
+- Add s3 xapi backfill ([`2dbdad3`](https://github.com/openedx/tutor-contrib-aspects/commit/2dbdad35254b5668a5966aaef251f811e5df69e6))
+  
+- Add vector aggregator ([`c37c6bb`](https://github.com/openedx/tutor-contrib-aspects/commit/c37c6bb928c1fc785ef251ba97716a944a430a20))
+  
+- Added new patch to customize superset image ([`30e29dd`](https://github.com/openedx/tutor-contrib-aspects/commit/30e29ddb0f133d2a24b8a276baf3374d50d5ecc4))
+  
+- Change default dark theme colors to work with white text ([#1309](https://github.com/openedx/tutor-contrib-aspects/pull/1309), [`7e2f1bf`](https://github.com/openedx/tutor-contrib-aspects/commit/7e2f1bfcef05533c37b80623d9c39049f4bdaf0f))
+  
+- Install frontend-app-aspects from the alpha track ([`592b5d4`](https://github.com/openedx/tutor-contrib-aspects/commit/592b5d4711573c3e94c927b39293d93edae527e4))
+  
+- Set vector as default data pipeline ([`86addda`](https://github.com/openedx/tutor-contrib-aspects/commit/86addda17a38c51d793198d500311d5120564afb))
+  
+- Upgrade Vector to 0.50.0, fix migrations ([`dd93845`](https://github.com/openedx/tutor-contrib-aspects/commit/dd93845af554694b5ccc86c7b513eea76bd51e9c))
+  
+- Upgrading to superset 6.1 ([#1305](https://github.com/openedx/tutor-contrib-aspects/pull/1305), [`481e221`](https://github.com/openedx/tutor-contrib-aspects/commit/481e2212f2ca61471bd001d53cdaf409cceb12fd))
+  
+
+#### Refactoring
+
+- Add new config for Alembic database, simplify CH grants ([`0b29222`](https://github.com/openedx/tutor-contrib-aspects/commit/0b292226addc2c1724cf6455449fed8b1059bc1f))
+  
+- Add new config for Alembic database, simplify CH grants ([`f7b792c`](https://github.com/openedx/tutor-contrib-aspects/commit/f7b792cfcf68a9851fa493b350d688758bc25553))
+  
+
+
+---
+
+**Detailed Changes**: [v4.0.0...v5.0.0](https://github.com/openedx/tutor-contrib-aspects/compare/v4.0.0...v5.0.0)
+
 ## v4.0.0 - 2026-08-07
 
 ### v4.0.0 (2026-08-07)
