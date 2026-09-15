@@ -1,0 +1,149 @@
+name: Build CI cache
+
+# Warm the two caches that integration-test.yml relies on, from main:
+#
+# 1. The BuildKit layer cache for the openedx, openedx-dev, aspects and
+#    aspects-superset images, pushed to this repository's GitHub Container
+#    Registry namespace (ghcr.io/<owner>/<repo>/<image>:ci-cache). Building
+#    these images is the single slowest step of every integration test job
+#    (~15 minutes, nearly all of it the openedx image). With the cache warm a
+#    PR only rebuilds the layers its changes actually invalidate.
+#
+#    Only the cache is pushed, never the images: the integration tests always
+#    build the images from the branch under test, so they exercise the PR's
+#    own assets, patches and requirements.
+#
+# 2. A pre-migrated MySQL dump per xAPI source (vector and ralph), saved to
+#    the GitHub Actions cache by the tutor-init-cached action (which the
+#    integration test jobs also use). Caches created on main are visible to
+#    every pull request; a PR whose changes invalidate the key regenerates its
+#    own dump on its first run.
+#
+# One-time setup on the GitHub side (not doable from this repo):
+#   - After the first push, make the four ghcr.io packages public so that
+#     pull-request runs from forks (read-only GITHUB_TOKEN) can pull the cache.
+#     Until then, the tests still pass, they just build from scratch.
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    # Daily at 03:00 UTC, so the cache follows Tutor/edx-platform base image
+    # changes even when main is quiet.
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+# Never build the same tag twice at once; a newer run supersedes a running one.
+concurrency:
+  group: build-ci-cache
+  cancel-in-progress: true
+
+env:
+  TUTOR_ROOT: ./.ci/
+
+jobs:
+  images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: setup python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: 3.12
+      - name: Install python reqs
+        run: pip install -r requirements/dev.txt
+      - name: Install aspects
+        run: pip install -e .
+      - name: Point Tutor at the ghcr.io image cache
+        run: .ci/tutor-ci-images.sh "ghcr.io/${{ github.repository }}"
+      - name: Tutor config save
+        run: |
+          tutor config save
+          echo "Images to build and cache:"
+          for key in DOCKER_IMAGE_OPENEDX DOCKER_IMAGE_OPENEDX_DEV DOCKER_IMAGE_ASPECTS DOCKER_IMAGE_SUPERSET; do
+            echo "  $key=$(tutor config printvalue "$key")"
+          done
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@37fe631027851001ddb9b187196cc803df7f5f0e # v4.3.0
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
+        with:
+          # this might remove tools that are actually needed,
+          # if set to "true" but frees about 6 GB
+          tool-cache: false
+
+          # all of these default to true, but feel free to set to
+          # "false" if necessary for your workflow
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: false
+          swap-storage: true
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      # --cache-to-registry pushes the BuildKit cache to <image>:ci-cache; the
+      # default --cache-from picks it up on every later build of these names.
+      - name: Tutor build images and push the layer cache
+        run: |
+          # shellcheck disable=SC2086  # ASPECTS_CI_IMAGES is a deliberate word list
+          tutor images build $ASPECTS_CI_IMAGES --cache-to-registry
+
+  mysql:
+    needs: images
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        xapi_source: [vector, ralph]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: setup python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: 3.12
+      - name: Install python reqs
+        run: pip install -r requirements/dev.txt
+      - name: Install aspects
+        run: pip install -e .
+      - name: Point Tutor at the ghcr.io image cache
+        run: .ci/tutor-ci-images.sh "ghcr.io/${{ github.repository }}"
+      - name: Tutor config save
+        run: tutor config save --set ASPECTS_XAPI_SOURCE=${{ matrix.xapi_source }}
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@37fe631027851001ddb9b187196cc803df7f5f0e # v4.3.0
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
+        with:
+          tool-cache: false
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: false
+          swap-storage: true
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      # Fast: every layer comes from the cache the images job just pushed.
+      - name: Tutor build openedx
+        run: tutor images build openedx aspects aspects-superset permissions
+      - name: Tutor start + init
+        uses: ./.github/actions/tutor-init-cached
+        with:
+          mode: local
+      - name: Tutor stop
+        run: tutor local stop

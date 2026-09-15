@@ -246,7 +246,7 @@ metrics:
 normalize_columns: false
 offset: 0
 params: null
-schema: reporting
+schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: ''
 table_name: dim_course_blocks
 template_params: null

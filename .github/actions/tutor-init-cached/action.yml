@@ -1,0 +1,110 @@
+name: Tutor start + init (cached MySQL migrations)
+description: >
+  Start the platform and run `tutor <mode> do init`, restoring a pre-migrated
+  MySQL dump from the GitHub Actions cache when one exists for this set of
+  inputs. Using the cached db saves the ~15-20 minutes that Open edX and
+  Superset migrations take. Caches can be deleted from the GitHub Actions UI
+  if a stale cache is causing problems.
+
+  All Aspects init jobs are idempotent, so `do init` still runs on a cache hit:
+  Django and Superset see every migration as already applied and the rest of
+  init (ClickHouse, dbt, Superset assets, LMS users) completes in a few minutes.
+
+inputs:
+  mode:
+    description: Tutor mode to run ("local" or "dev").
+    required: false
+    default: local
+
+runs:
+  using: composite
+  steps:
+    # Everything that changes what ends up in MySQL after `do init`:
+    # - ASPECTS_XAPI_SOURCE: the ralph init adds an LMS user and a Ralph router
+    #   configuration row that the vector jobs must not inherit
+    # - requirements/dev.txt pins the Tutor (and therefore edx-platform) version
+    # - the openedx Dockerfile patches pin platform-plugin-aspects and
+    #   event-routing-backends, which ship Django migrations
+    # - the Superset image controls the Superset metadata db schema
+    # - .ci/config.yml holds the passwords and users the dump refers to
+    - name: Compute MySQL migration cache key
+      id: key
+      shell: bash
+      run: |
+        set -euo pipefail
+        XAPI_SOURCE=$(tutor config printvalue ASPECTS_XAPI_SOURCE)
+        echo "key=aspects-mysql-${XAPI_SOURCE}-${{ hashFiles('requirements/dev.txt', 'tutoraspects/patches/openedx-dockerfile-post-python-requirements', 'tutoraspects/patches/openedx-dev-dockerfile-post-python-requirements', 'tutoraspects/templates/aspects/build/aspects-superset/Dockerfile', 'tutoraspects/templates/aspects/build/aspects-superset/requirements.txt', '.ci/config.yml') }}" >> "$GITHUB_OUTPUT"
+
+    - name: Restore MySQL migration cache
+      id: mysql_cache
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: .ci/mysql-dump/
+        key: ${{ steps.key.outputs.key }}
+
+    - name: Tutor start + init (cache miss, runs migrations)
+      if: steps.mysql_cache.outputs.cache-hit != 'true'
+      shell: bash
+      run: |
+        set -euo pipefail
+        tutor ${{ inputs.mode }} start -d
+        tutor ${{ inputs.mode }} do init
+
+    - name: Dump MySQL for the migration cache (cache miss only)
+      if: steps.mysql_cache.outputs.cache-hit != 'true'
+      shell: bash
+      run: |
+        set -euo pipefail
+        mkdir -p .ci/mysql-dump
+        MYSQL_ROOT_PASSWORD=$(tutor config printvalue MYSQL_ROOT_PASSWORD)
+        # Use docker exec directly: `tutor local exec` prints the docker compose
+        # invocation to stdout, which would corrupt the dump file.
+        docker ps
+        MYSQL_CONTAINER=$(docker ps -qf "name=tutor*.*mysql*")
+        # Dump only application databases. Excluding mysql/sys avoids ALTER USER
+        # errors on restore caused by MySQL 8 serialising password changes for
+        # users that do not exist yet in the target instance.
+        APP_DATABASES=$(docker exec "$MYSQL_CONTAINER" mysql \
+          -h 127.0.0.1 -u root -p"$MYSQL_ROOT_PASSWORD" -sN -e \
+          "SELECT schema_name FROM information_schema.schemata \
+           WHERE schema_name NOT IN ('information_schema','performance_schema','mysql','sys')")
+        # shellcheck disable=SC2086  # APP_DATABASES is a deliberate word list
+        docker exec "$MYSQL_CONTAINER" mysqldump \
+          -h 127.0.0.1 \
+          -u root -p"$MYSQL_ROOT_PASSWORD" \
+          --databases $APP_DATABASES \
+          --single-transaction \
+          --quick \
+          > .ci/mysql-dump/dump.sql
+        echo "Dump size: $(du -sh .ci/mysql-dump/dump.sql | cut -f1)"
+
+    - name: Save MySQL migration cache (cache miss only)
+      if: steps.mysql_cache.outputs.cache-hit != 'true'
+      uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: .ci/mysql-dump/
+        key: ${{ steps.key.outputs.key }}
+
+    - name: Restore database + Tutor start + init (cache hit, skips migrations)
+      if: steps.mysql_cache.outputs.cache-hit == 'true'
+      shell: bash
+      run: |
+        set -euo pipefail
+        MYSQL_ROOT_PASSWORD=$(tutor config printvalue MYSQL_ROOT_PASSWORD)
+        tutor ${{ inputs.mode }} start permissions mysql -d
+        docker ps
+        MYSQL_CONTAINER=$(docker ps -qf "name=tutor*.*mysql*")
+        for i in $(seq 1 30); do
+          if docker exec "$MYSQL_CONTAINER" mysql -h 127.0.0.1 -u root -p"$MYSQL_ROOT_PASSWORD" -e "SELECT 1" &>/dev/null; then
+            echo "MySQL is ready."
+            break
+          fi
+          echo "Waiting for MySQL ($i/30)..."
+          sleep 3
+        done
+        # Restore the pre-migrated dump via docker exec (bypasses the tutor
+        # wrapper, which pollutes stdout with the docker compose invocation).
+        docker exec -i "$MYSQL_CONTAINER" mysql -h 127.0.0.1 -u root -p"$MYSQL_ROOT_PASSWORD" < .ci/mysql-dump/dump.sql
+        tutor ${{ inputs.mode }} start -d
+        # Init is now fast: Django and Superset see all migrations as applied.
+        tutor ${{ inputs.mode }} do init

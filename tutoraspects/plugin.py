@@ -37,6 +37,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("RUN_CLICKHOUSE", True),
         ("RUN_RALPH", False),
         ("RUN_SUPERSET", True),
+        # Note that the images here aren't used in CI, instead we build
+        # and cache our own image layers in Github for test performance reasons.
         ("DOCKER_IMAGE_ASPECTS", "edunext/aspects:{{ ASPECTS_VERSION }}"),
         ("DOCKER_IMAGE_CLICKHOUSE", "clickhouse/clickhouse-server:25.8"),
         ("DOCKER_IMAGE_RALPH", "fundocker/ralph:4.1.0"),
