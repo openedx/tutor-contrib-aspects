@@ -2,11 +2,14 @@
 
 from __future__ import annotations
 
+import shlex
 import string
 import sys
 
 import click
+from tutor import config as tutor_config
 from tutor import env
+from tutor.commands.context import Context
 
 from tutoraspects.asset_command_helpers import (
     ASSETS_PATH,
@@ -215,6 +218,18 @@ def collect_dbt_lineage() -> (list)[tuple[str, str]]:
     ]
 
 
+def _requested_clickhouse_objects(options: str) -> list[str]:
+    """Return every value passed to `--object` in a dump_data_to_clickhouse options string."""
+    tokens = shlex.split(options)
+    objects = []
+    for i, token in enumerate(tokens):
+        if token == "--object" and i + 1 < len(tokens):
+            objects.append(tokens[i + 1])
+        elif token.startswith("--object="):
+            objects.append(token.split("=", 1)[1])
+    return objects
+
+
 # Ex: "tutor local do dump_data_to_clickhouse "
 @click.command(context_settings={"ignore_unknown_options": True})
 @click.option(
@@ -224,10 +239,31 @@ def collect_dbt_lineage() -> (list)[tuple[str, str]]:
     help="The service to run the command on.",
 )
 @click.option("--options", default="", type=click.UNPROCESSED)
-def dump_data_to_clickhouse(service, options) -> list[tuple[str, str]]:
+@click.pass_obj
+def dump_data_to_clickhouse(
+    context: Context, service, options
+) -> list[tuple[str, str]]:
     """
     Job that proxies the dump_data_to_clickhouse commands.
+
+    Refuses to dump PII objects (the EVENT_SINK_PII_MODELS tutor setting, e.g.
+    external_id and user_profile) unless ASPECTS_ENABLE_PII is enabled, since
+    those tables aren't meant to be populated on instances that opted out of
+    PII collection.
     """
+    config = tutor_config.load(context.root)
+    if not config.get("ASPECTS_ENABLE_PII", False):
+        pii_models = config.get("EVENT_SINK_PII_MODELS", [])
+        blocked = [
+            obj for obj in _requested_clickhouse_objects(options) if obj in pii_models
+        ]
+        if blocked:
+            raise click.UsageError(
+                f"Cannot dump PII object(s) {', '.join(blocked)} to ClickHouse: "
+                "ASPECTS_ENABLE_PII is disabled. Enable it first with "
+                "`tutor config save --set ASPECTS_ENABLE_PII=true` if this instance "
+                "is meant to collect PII."
+            )
     return [(f"{service}", f"./manage.py {service} dump_data_to_clickhouse {options}")]
 
 
