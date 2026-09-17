@@ -131,6 +131,14 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                     "uuid": "8661d20c-cee6-4245-9fcc-610daea5fd24",
                     "allow_translations": True,
                 },
+            ],
+        ),
+        # Dashboards that require learner PII to be usable. They are only
+        # appended to ASPECTS_INSTRUCTOR_DASHBOARDS when ASPECTS_ENABLE_PII is
+        # enabled, since without PII collection they have no data to display.
+        (
+            "ASPECTS_PII_INSTRUCTOR_DASHBOARDS",
+            [
                 {
                     "name": "Individual Learner Dashboard",
                     "slug": "individual-learner",
