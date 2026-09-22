@@ -57,5 +57,5 @@ schema: '{{ ASPECTS_XAPI_DATABASE }}'
 sql: ''
 table_name: fact_instance_actors
 template_params: null
-uuid: 5d7fa3b0-5692-5229-b8fc-4711b88d5401
+uuid: 458b2b37-d403-5063-afd9-7b1c5cac35a5
 version: 1.0.0

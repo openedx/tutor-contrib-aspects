@@ -98,5 +98,5 @@ schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
 sql: ''
 table_name: fact_instance_enrollments
 template_params: {}
-uuid: c592f3b1-6a99-5aea-8342-a446c4e36a67
+uuid: a9fb7758-9da0-5b57-9787-f6c0ac3d6ec6
 version: 1.0.0

@@ -2,6 +2,11 @@ unused_uuids:
   datasets:
   - 4df7005e-3a7e-4979-a4e3-e70f22d36daa # At Risk problem results
   - 8cb75912-fc9b-5706-bce8-39a64d088936 # dim_course_blocks
+  - 5d7fa3b0-5692-5229-b8fc-4711b88d5401 # xapi.fact_instance_actors
+  - f13a4d42-2f44-58a4-99d2-2f480d63fdf1 # xapi.fact_instance_courses
+  - c592f3b1-6a99-5aea-8342-a446c4e36a67 # xapi.fact_instance_enrollments
+  - 6c54112c-1e2f-4c5f-8511-320fd9e180ac # xapi.fact_instance_events
+
   charts:
   - a433e3cc-8ed5-454a-8b17-5dd75cfc84e4 # Course Info
   - e0098cfe-a312-4c49-8efd-7e74256b6ea4 # Course info
