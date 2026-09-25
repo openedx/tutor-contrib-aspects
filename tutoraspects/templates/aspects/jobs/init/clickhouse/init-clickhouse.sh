@@ -73,6 +73,18 @@ GRANT {{ ON_CLUSTER }} SELECT ON system.query_log TO '{{ ASPECTS_CLICKHOUSE_REPO
     -- Target database
 GRANT {{ ON_CLUSTER }} CREATE TABLE, DROP TABLE, CREATE VIEW, DROP VIEW, SELECT, INSERT, UPDATE, DELETE, dictGet ON {{ DBT_PROFILE_TARGET_DATABASE }}.* TO '{{ ASPECTS_CLICKHOUSE_REPORT_USER }}';
 
+{% if not ASPECTS_ENABLE_PII %}
+-- PII collection is turned off, so discard anything gathered while it was on.
+-- Safe to repeat, and IF EXISTS covers EVENT_SINK_PII_MODELS entries that are sinks, not tables.
+SELECT concat('Truncating PII table ', database, '.', name, ' (', toString(total_rows), ' rows)')
+FROM system.tables
+WHERE database = '{{ ASPECTS_EVENT_SINK_DATABASE }}'
+    AND name IN ({% for model in EVENT_SINK_PII_MODELS %}'{{ model }}'{% if not loop.last %}, {% endif %}{% endfor %})
+    AND total_rows > 0;
+{% for model in EVENT_SINK_PII_MODELS %}
+TRUNCATE TABLE IF EXISTS {{ ASPECTS_EVENT_SINK_DATABASE }}.{{ model }} {{ ON_CLUSTER }};
+{% endfor %}
+{% endif %}
 
 -- Patch from clickhouse-extra-sql follows...
 {{ patch("clickhouse-extra-sql") }}

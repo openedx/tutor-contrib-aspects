@@ -55,6 +55,10 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Turning on this flag will store personally identifiable information
         # in the ClickHouse database. Make sure that you understand the legal
         # consequences of data storage and privacy before turning this on!
+        # Turning it on only starts collection from that point forward: run
+        # dump_data_to_clickhouse to load the users that already exist.
+        # Turning it off stops collection and, on the next init, truncates the
+        # PII tables listed in EVENT_SINK_PII_MODELS.
         ("ASPECTS_ENABLE_PII", False),
         # If PII is turned off (default), these chart UUIDs will be hidden
         (
