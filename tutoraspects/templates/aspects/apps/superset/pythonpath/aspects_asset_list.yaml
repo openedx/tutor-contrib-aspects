@@ -21,6 +21,14 @@ unused_uuids:
   - fa249dda-78da-4ccc-9ef3-39177e6aae0c # Course Information
   - 832fc2d6-4227-4a64-b64e-82aa254864cc # Initial numeric responses
 
+# These dashboards are removed from Superset when PII is disabled
+{% if not ASPECTS_ENABLE_PII %}
+  dashboards:
+{% for dashboard in ASPECTS_PII_INSTRUCTOR_DASHBOARDS %}
+  - {{ dashboard.uuid }}
+{% endfor %}
+{% endif %}
+
 ignored_uuids:
   datasets:
   charts:

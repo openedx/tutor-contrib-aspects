@@ -4,21 +4,22 @@ from flask import g
 
 from superset import security_manager
 from superset.extensions import db
-from superset.models.slice import Slice
+import superset.models as models
 from superset.connectors.sqla.models import SqlaTable
 from superset.tags.models import TaggedObject, ObjectType
 from superset.commands.chart.delete import DeleteChartCommand
 from superset.commands.dataset.delete import DeleteDatasetCommand
+from superset.commands.dashboard.delete import DeleteDashboardCommand
 from sqlalchemy.exc import NoResultFound
 from superset.commands.exceptions import CommandInvalidError
 
 logger = logging.getLogger("delete_assets")
 PYTHONPATH = "/app/pythonpath"
 
-ASSET_TABLES = {'charts': Slice, 'datasets': SqlaTable}
-ASSET_NAME_COLUMN = {'charts': 'slice_name', 'datasets': 'table_name'}
-ASSET_COMMANDS = {'charts': DeleteChartCommand, 'datasets': DeleteDatasetCommand}
-OBJECT_TYPES = {'charts': ObjectType.chart, 'datasets': ObjectType.dataset} 
+ASSET_TABLES = {'charts': models.slice.Slice, 'datasets': SqlaTable, 'dashboards': models.dashboard.Dashboard}
+ASSET_NAME_COLUMN = {'charts': 'slice_name', 'datasets': 'table_name', 'dashboards': 'dashboard_title'}
+ASSET_COMMANDS = {'charts': DeleteChartCommand, 'datasets': DeleteDatasetCommand, 'dashboards': DeleteDashboardCommand}
+OBJECT_TYPES = {'charts': ObjectType.chart, 'datasets': ObjectType.dataset, 'dashboards': ObjectType.dashboard} 
 
 def delete_assets(unused_uuids, translated_asset_uuids):
     """Delete unused assets and their translated versions"""
