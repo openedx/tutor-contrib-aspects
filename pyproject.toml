@@ -1,2 +1,113 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm>8.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tutor-contrib-aspects"
+description = "Aspects plugin for Tutor"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE*"]
+authors = [
+    {name = "Open edX Project", email = "oscm@openedx.org"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+keywords = [
+    "Python",
+    "edx",
+    "tutor",
+]
+
+dynamic = ["readme", "version"]
+
+dependencies = [
+    "bcrypt",
+    "click>=8.0,<8.3.0",
+    "importlib-resources",
+    "openedx-atlas",
+    "ruamel.yaml",
+    "shandy-sqlfmt[jinjafmt]==0.26.0",
+    "tutor>=18",
+    "tutor-mfe>=18",
+]
+
+[project.entry-points."tutor.plugin.v1"]
+aspects = "tutoraspects.plugin"
+
+[project.urls]
+Homepage = "https://github.com/openedx/tutor-contrib-aspects"
+Repository = "https://github.com/openedx/tutor-contrib-aspects"
+"Issue Tracker" = "https://github.com/openedx/tutor-contrib-aspects/issues"
+
+[dependency-groups]
+dev = [
+    "black",
+    "build",
+    "pyinstaller",
+    "pylint",
+    "twine",
+]
+
+translations = [
+    "click>=8.0,<8.3.0",
+    "ruamel.yaml",
+]
+
+ci = [
+    "pip",
+    "setuptools",
+    "wheel",
+]
+
+quality = [
+    {include-group = "dev"},
+    {include-group = "ci"},
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+readme = {file = ["README.rst"], content-type = "text/x-rst"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = [
+    "patches/*",
+    "templates/**/*",
+]
+
+[tool.semantic_release]
+build_command = "pip install build && SETUPTOOLS_SCM_PRETEND_VERSION=$NEW_VERSION python -m build"
+changelog = false
+
+[tool.setuptools_scm]
+version_scheme = "only-version"
+local_scheme = "no-local-version"
+fallback_version = "0.0.0.dev0"
+
+[tool.uv]
+package = true
+constraint-dependencies = [
+    "Django<6.0",
+    "elasticsearch<7.14.0",
+    "social-auth-app-django<6.0.0",
+    "social-auth-core<5.0.0",
+    "pip<26.2.1",
+]
+
+[tool.edx_lint]
+uv_constraints = []
+
 [tool.sqlfmt]
-dialect="clickhouse"
+dialect = "clickhouse"
