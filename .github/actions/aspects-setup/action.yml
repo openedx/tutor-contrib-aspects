@@ -1,0 +1,94 @@
+name: Aspects CI setup
+description: >
+  Everything an integration test job needs before it can build images: disk
+  space, Python, the Aspects plugin, the ghcr.io BuildKit layer cache and the
+  xAPI source under test.
+
+  Shared by every mode in integration-test.yml so that tool versions, action
+  pins and the ghcr.io cache wiring cannot drift apart between them.
+
+inputs:
+  xapi_source:
+    description: Value for ASPECTS_XAPI_SOURCE ("ralph" or "vector").
+    required: true
+  github_token:
+    description: >
+      GITHUB_TOKEN, used to pull the ghcr.io BuildKit layer cache. Composite
+      actions cannot read secrets, so the caller has to pass it in.
+    required: true
+  free_preinstalled_runtimes:
+    description: >
+      Whether free-disk-space may delete the preinstalled Node/Go/Python/Ruby
+      runtimes. Frees about 6 GB, which the k8s job needs for the kind cluster
+      and the three images loaded into it, at the cost of setup-python
+      downloading CPython instead of using the preinstalled copy (~20s).
+    required: false
+    default: "false"
+
+runs:
+  using: composite
+  steps:
+    # MUST stay ahead of setup-python. With preinstalled-runtimes enabled this
+    # action runs `rm -rf $AGENT_TOOLSDIRECTORY`, so running it afterwards
+    # would delete the interpreter setup-python had just installed there.
+    - name: Free disk space
+      uses: jlumbroso/free-disk-space@ceedf095f4ec1a097402bc6bd80831f2e1a6fde6 # v2.0.0
+      with:
+        # `preinstalled-runtimes` is the v2.0.0 name for what used to be
+        # `tool-cache`; the old name still works but warns, and goes away in v3.
+        preinstalled-runtimes: ${{ inputs.free_preinstalled_runtimes }}
+        android: true
+        dotnet: true
+        haskell: true
+        # Kept off: the sweep is slow and the images we build need the packages
+        # it would take with it.
+        large-packages: false
+        # Not the action's default. Jobs that need swap can be OOM-killed with
+        # no error pointing back here, but these jobs have always run this way.
+        swap-storage: true
+
+    - name: Set up Python
+      uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      with:
+        python-version: "3.12"
+        # The wheels survive even when the step above deletes the interpreter,
+        # so the reinstall is a local unpack rather than a trip to PyPI.
+        cache: pip
+        cache-dependency-path: requirements/dev.txt
+
+    - name: Install Aspects and its requirements
+      shell: bash
+      run: |
+        set -euo pipefail
+        pip install -r requirements/dev.txt
+        pip install -e .
+
+    # Writes TUTOR_DOCKER_IMAGE_* to $GITHUB_ENV, so it has to precede every
+    # `tutor` call that builds or names an image.
+    - name: Point Tutor at the ghcr.io image cache
+      shell: bash
+      run: .ci/tutor-ci-images.sh "ghcr.io/${{ github.repository }}"
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+
+    # GITHUB_TOKEN can read packages published by this repo's workflows, so
+    # this works even while the ghcr.io packages are private. Fork PRs get a
+    # read-only token, which is all that is needed to pull the cache.
+    - name: Log in to GitHub Container Registry
+      shell: bash
+      run: |
+        echo "${{ inputs.github_token }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin || \
+          echo "::warning::ghcr.io login failed; pulling the image cache anonymously."
+
+    - name: Select the xAPI source under test
+      shell: bash
+      run: tutor config save --set ASPECTS_XAPI_SOURCE=${{ inputs.xapi_source }}
+
+    # The vector runs must land in the openedx database rather than a dedicated
+    # xAPI one. Previously only the k8s vector job asserted this; local and dev
+    # printed the value and moved on.
+    - name: Confirm the vector runs write to the openedx database
+      if: inputs.xapi_source == 'vector'
+      shell: bash
+      run: tutor config printvalue ASPECTS_XAPI_DATABASE | grep openedx
