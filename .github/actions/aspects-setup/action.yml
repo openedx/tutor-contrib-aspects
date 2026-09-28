@@ -28,9 +28,6 @@ inputs:
 runs:
   using: composite
   steps:
-    # MUST stay ahead of setup-python. With preinstalled-runtimes enabled this
-    # action runs `rm -rf $AGENT_TOOLSDIRECTORY`, so running it afterwards
-    # would delete the interpreter setup-python had just installed there.
     - name: Free disk space
       uses: jlumbroso/free-disk-space@ceedf095f4ec1a097402bc6bd80831f2e1a6fde6 # v2.0.0
       with:
@@ -40,19 +37,13 @@ runs:
         android: true
         dotnet: true
         haskell: true
-        # Kept off: the sweep is slow and the images we build need the packages
-        # it would take with it.
         large-packages: false
-        # Not the action's default. Jobs that need swap can be OOM-killed with
-        # no error pointing back here, but these jobs have always run this way.
         swap-storage: true
 
     - name: Set up Python
       uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
       with:
         python-version: "3.12"
-        # The wheels survive even when the step above deletes the interpreter,
-        # so the reinstall is a local unpack rather than a trip to PyPI.
         cache: pip
         cache-dependency-path: requirements/dev.txt
 
@@ -63,8 +54,6 @@ runs:
         pip install -r requirements/dev.txt
         pip install -e .
 
-    # Writes TUTOR_DOCKER_IMAGE_* to $GITHUB_ENV, so it has to precede every
-    # `tutor` call that builds or names an image.
     - name: Point Tutor at the ghcr.io image cache
       shell: bash
       run: .ci/tutor-ci-images.sh "ghcr.io/${{ github.repository }}"
@@ -72,9 +61,6 @@ runs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
 
-    # GITHUB_TOKEN can read packages published by this repo's workflows, so
-    # this works even while the ghcr.io packages are private. Fork PRs get a
-    # read-only token, which is all that is needed to pull the cache.
     - name: Log in to GitHub Container Registry
       shell: bash
       run: |
@@ -85,9 +71,6 @@ runs:
       shell: bash
       run: tutor config save --set ASPECTS_XAPI_SOURCE=${{ inputs.xapi_source }}
 
-    # The vector runs must land in the openedx database rather than a dedicated
-    # xAPI one. Previously only the k8s vector job asserted this; local and dev
-    # printed the value and moved on.
     - name: Confirm the vector runs write to the openedx database
       if: inputs.xapi_source == 'vector'
       shell: bash

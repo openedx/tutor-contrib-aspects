@@ -16,9 +16,7 @@ inputs:
     description: >
       "full" measures every chart once against the full, unfiltered dataset.
       "filtered" measures the same charts three times: scoped to one course,
-      then to one org, then unfiltered. The extra passes push org and
-      course_name into each query's WHERE clause, exercising sort keys the
-      unfiltered sweep never touches.
+      then to one org, then unfiltered. 
     required: false
     default: full
 
@@ -52,7 +50,15 @@ runs:
 
     - name: Load test xAPI data
       shell: bash
-      run: tutor ${{ inputs.mode }} do load-xapi-test-data
+      run: |
+        set -euo pipefail
+        log="$(mktemp)"
+        if ! tutor ${{ inputs.mode }} do load-xapi-test-data >"$log" 2>&1; then
+          echo "::error::load-xapi-test-data failed; last 200 lines follow"
+          tail -n 200 "$log"
+          exit 1
+        fi
+        echo "Loaded test xAPI data ($(wc -l <"$log") suppressed output lines)."
 
     - name: Import demo course
       shell: bash
@@ -66,8 +72,6 @@ runs:
         make extract_translations
         tutor ${{ inputs.mode }} do import-assets
 
-    # dbt lineage and the tracking log transform have only ever been exercised
-    # in local mode; dev and k8s have never run them.
     - name: Test dbt lineage and the tracking log transform
       if: inputs.mode == 'local'
       shell: bash

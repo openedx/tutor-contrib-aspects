@@ -14,36 +14,23 @@ env:
   TUTOR_ROOT: ./.ci/
 
 jobs:
-  # local and dev, against both xAPI sources.
-  #
-  # Everything specific to a run is in the matrix. Everything else lives in
-  # .github/actions/aspects-setup and .github/actions/aspects-test-suite, which
-  # the k8s job below uses too, so the two jobs cannot drift apart.
   compose:
     name: ${{ matrix.mode }} (${{ matrix.xapi }})
     runs-on: ubuntu-latest
     strategy:
-      # A failure in one mode says nothing about the others, and these runs are
-      # long enough that cancelling the rest would cost an hour of feedback.
       fail-fast: false
       matrix:
         mode: [local, dev]
         xapi: [ralph, vector]
-        # Values derived from the combination above: each entry adds its extra
-        # keys to every combination whose matrix keys it matches.
         include:
           - mode: local
             image: openedx
           - mode: dev
             image: openedx-dev
-          # Filter scope follows the xAPI source. The set of charts measured is
-          # identical either way: `filtered` just re-runs them with org and
-          # course_name pushed into each query's WHERE clause, which exercises
-          # the sort keys the unfiltered sweep cannot.
           - xapi: ralph
-            performance_metrics: full
+            performance_metrics: full # runs unfiltered all charts
           - xapi: vector
-            performance_metrics: filtered
+            performance_metrics: filtered # runs charts with specific org & course
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
