@@ -207,17 +207,17 @@ jobs:
           pip install -e .
           tutor config save --set ASPECTS_XAPI_SOURCE=ralph
       - name: Set up Arkade
-        uses: alexellis/setup-arkade@v1
+        uses: alexellis/setup-arkade@607b18a33318c973136b241de1a95c46b84698f4 # v4
       - name: Run Kubernetes tools
         uses: alexellis/arkade-get@5594ddff52ec7b8a71efd73acaa9e52936e35e16 # Aug.22.26
         with:
-          kubectl: v1.23.0
-          kustomize: v5.0.0
-          helm: v3.7.2
-          kubeconform: v0.4.13
+          kubectl: v1.34.12
+          kustomize: v5.8.1
+          helm: v3.22.0
+          kubeconform: v0.8.0
       - name: Kustomize build
         run: |
-            kustomize build $TUTOR_ROOT/env | kubeconform -strict -ignore-missing-schemas -kubernetes-version 1.22.0
+            kustomize build $TUTOR_ROOT/env | kubeconform -strict -ignore-missing-schemas -kubernetes-version 1.34.0
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
       - name: Log in to GitHub Container Registry
