@@ -111,6 +111,21 @@ To visualize data:
 
 
 
+Personally Identifiable Information
+-----------------------------------
+
+Aspects does not collect learner PII by default. ``ASPECTS_ENABLE_PII`` turns collection on or off; run ``tutor config save`` and ``init`` to apply the change.
+
+**Enabling** starts the ``user_profile`` and ``external_id`` sinks and unhides the charts that need learner names, usernames and emails. It only affects data from that point forward, so load the users that already exist with a one-time backfill:
+
+.. code-block:: bash
+
+   tutor local do dump_data_to_clickhouse --options "--object user_profile"
+   tutor local do dump_data_to_clickhouse --options "--object external_id"
+
+**Disabling** stops those sinks, hides the charts again, and truncates the tables listed in ``EVENT_SINK_PII_MODELS`` on the next ``init``, so PII collected while the setting was on does not remain in ClickHouse. The LMS stays the source of truth, so the backfill above repopulates them if it is turned back on.
+
+
 xAPI S3 Sink Configuration
 --------------------------
 
