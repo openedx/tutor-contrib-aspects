@@ -4,6 +4,11 @@ inputs:
   xapi_source:
     description: Value for ASPECTS_XAPI_SOURCE ("ralph" or "vector").
     required: true
+  github_token:
+    description: >
+      GITHUB_TOKEN, used to pull the ghcr.io BuildKit layer cache. Composite
+      actions cannot read secrets, so the caller has to pass it in.
+    required: true
 
 runs:
   using: composite
@@ -43,7 +48,7 @@ runs:
     - name: Log in to GitHub Container Registry
       shell: bash
       run: |
-        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin || \
+        echo "${{ inputs.github_token }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin || \
           echo "::warning::ghcr.io login failed; pulling the image cache anonymously."
 
     - name: Select the xAPI source under test

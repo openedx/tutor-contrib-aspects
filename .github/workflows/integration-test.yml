@@ -38,6 +38,7 @@ jobs:
         uses: ./.github/actions/aspects-setup
         with:
           xapi_source: ${{ matrix.xapi }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Tutor build images
         run: tutor images build ${{ matrix.image }} aspects aspects-superset permissions
       - name: Tutor start + init
@@ -71,6 +72,7 @@ jobs:
         uses: ./.github/actions/aspects-setup
         with:
           xapi_source: ${{ matrix.xapi }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Set up Arkade
         uses: alexellis/setup-arkade@607b18a33318c973136b241de1a95c46b84698f4 # v4
       - name: Run Kubernetes tools
