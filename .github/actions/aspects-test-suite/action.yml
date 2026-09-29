@@ -1,12 +1,4 @@
 name: Aspects test suite
-description: >
-  The checks every integration test mode runs once the platform is up:
-  alembic, ClickHouse, dbt, the xAPI test data, the demo course, the
-  management commands and the performance metrics.
-
-  Shared by local, dev and k8s so a check added for one mode is added for all
-  of them, and so the sequence cannot drift between modes the way the
-  duplicated copies of it used to.
 
 inputs:
   mode:
@@ -14,9 +6,7 @@ inputs:
     required: true
   performance_metrics:
     description: >
-      "full" measures every chart once against the full, unfiltered dataset.
-      "filtered" measures the same charts three times: scoped to one course,
-      then to one org, then unfiltered. 
+      full (all charts unfiltered) or filtered (all charts with specific org & course)
     required: false
     default: full
 

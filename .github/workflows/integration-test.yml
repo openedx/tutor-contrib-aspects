@@ -27,9 +27,9 @@ jobs:
             image: openedx
           - mode: dev
             image: openedx-dev
-          - xapi: ralph
-            performance_metrics: full # runs unfiltered all charts
-          - xapi: vector
+          - performance_metrics: full # runs unfiltered all charts
+          - mode: local
+            xapi: vector
             performance_metrics: filtered # runs charts with specific org & course
     steps:
       - name: Checkout
@@ -38,7 +38,6 @@ jobs:
         uses: ./.github/actions/aspects-setup
         with:
           xapi_source: ${{ matrix.xapi }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Tutor build images
         run: tutor images build ${{ matrix.image }} aspects aspects-superset permissions
       - name: Tutor start + init
@@ -53,10 +52,6 @@ jobs:
       - name: Tutor stop
         run: tutor ${{ matrix.mode }} stop
 
-  # The same test suite on a kind cluster. This job is a different shape from
-  # the compose one -- it builds a cluster, loads the images into it and can't
-  # use the cached MySQL dump -- so it stays a separate job rather than a third
-  # value of `mode` with a conditional on half its steps.
   k8s:
     name: k8s (${{ matrix.xapi }})
     runs-on: ubuntu-latest
@@ -64,12 +59,11 @@ jobs:
       fail-fast: false
       matrix:
         xapi: [ralph, vector]
-        # Same rule as the compose job above: filter scope follows the source.
         include:
           - xapi: ralph
             performance_metrics: full
           - xapi: vector
-            performance_metrics: filtered
+            performance_metrics: full
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -77,9 +71,6 @@ jobs:
         uses: ./.github/actions/aspects-setup
         with:
           xapi_source: ${{ matrix.xapi }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          # The cluster plus the three images loaded into it need every byte.
-          free_preinstalled_runtimes: "true"
       - name: Set up Arkade
         uses: alexellis/setup-arkade@607b18a33318c973136b241de1a95c46b84698f4 # v4
       - name: Run Kubernetes tools
@@ -88,13 +79,11 @@ jobs:
           kustomize: v5.8.1
           helm: v3.22.0
           kubeconform: v0.8.0
-      # 1.35.0 is the Kubernetes version of kind-action's default node image;
-      # keep the two in step when either is bumped.
       - name: Kustomize build
         run: |
             kustomize build $TUTOR_ROOT/env | kubeconform -strict -ignore-missing-schemas -kubernetes-version 1.35.0
       - name: Tutor build images
-        run: tutor images build openedx aspects aspects-superset permissions
+        run: tutor images build openedx aspects aspects-superset
       - name: Create k8s Kind Cluster
         uses: helm/kind-action@ef37e7f390d99f746eb8b610417061a60e82a6cc # v1.14.0
       - name: Mount docker image
@@ -107,9 +96,6 @@ jobs:
         run: |
           kubectl config set-context --current --namespace=openedx
           kubectl get pods
-      # No tutor-init-cached here: that action restores a mysqldump through
-      # `docker exec` into the compose MySQL container, which has no equivalent
-      # in the cluster, so k8s pays the full migration cost.
       - name: Init k8s environment
         run: |
           tutor k8s start

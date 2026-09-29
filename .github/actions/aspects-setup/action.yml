@@ -1,29 +1,9 @@
 name: Aspects CI setup
-description: >
-  Everything an integration test job needs before it can build images: disk
-  space, Python, the Aspects plugin, the ghcr.io BuildKit layer cache and the
-  xAPI source under test.
-
-  Shared by every mode in integration-test.yml so that tool versions, action
-  pins and the ghcr.io cache wiring cannot drift apart between them.
 
 inputs:
   xapi_source:
     description: Value for ASPECTS_XAPI_SOURCE ("ralph" or "vector").
     required: true
-  github_token:
-    description: >
-      GITHUB_TOKEN, used to pull the ghcr.io BuildKit layer cache. Composite
-      actions cannot read secrets, so the caller has to pass it in.
-    required: true
-  free_preinstalled_runtimes:
-    description: >
-      Whether free-disk-space may delete the preinstalled Node/Go/Python/Ruby
-      runtimes. Frees about 6 GB, which the k8s job needs for the kind cluster
-      and the three images loaded into it, at the cost of setup-python
-      downloading CPython instead of using the preinstalled copy (~20s).
-    required: false
-    default: "false"
 
 runs:
   using: composite
@@ -31,9 +11,8 @@ runs:
     - name: Free disk space
       uses: jlumbroso/free-disk-space@ceedf095f4ec1a097402bc6bd80831f2e1a6fde6 # v2.0.0
       with:
-        # `preinstalled-runtimes` is the v2.0.0 name for what used to be
-        # `tool-cache`; the old name still works but warns, and goes away in v3.
-        preinstalled-runtimes: ${{ inputs.free_preinstalled_runtimes }}
+        # `preinstalled-runtimes` is the v2.0.0 name for what used to be `tool-cache`
+        preinstalled-runtimes: true
         android: true
         dotnet: true
         haskell: true
@@ -64,7 +43,7 @@ runs:
     - name: Log in to GitHub Container Registry
       shell: bash
       run: |
-        echo "${{ inputs.github_token }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin || \
+        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin || \
           echo "::warning::ghcr.io login failed; pulling the image cache anonymously."
 
     - name: Select the xAPI source under test
