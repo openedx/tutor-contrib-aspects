@@ -40,7 +40,7 @@ jobs:
           ASPECTS_VERSION=pr-${{ github.event.pull_request.number }}-${{ steps.vars.outputs.sha_short }}
           sed -i "s/ASPECTS_VERSION: .*/ASPECTS_VERSION: $ASPECTS_VERSION/" .ci/config.yml
       - name: Install uv
-        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
         with:
           python-version: "3.12"
       - name: Install aspects
