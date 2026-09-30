@@ -89,7 +89,6 @@ where = ["src"]
 
 [tool.semantic_release]
 build_command = "pip install build && SETUPTOOLS_SCM_PRETEND_VERSION=$NEW_VERSION python -m build"
-changelog = false
 
 [tool.setuptools_scm]
 version_scheme = "only-version"
