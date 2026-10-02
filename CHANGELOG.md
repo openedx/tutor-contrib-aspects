@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v5.0.1 - 2026-10-02
+
+### Bug Fixes
+* fix: reset frontend-app-aspects to v1 ([6c8f8f4](https://github.com/tutor-contrib-aspects/commit/6c8f8f4d49a440a1168b8397223b5a1def1408b3))
+
 ## v5.0.0 - 2026-09-15
 
 ### v5.0.0 (2026-09-15)
