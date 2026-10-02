@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v5.1.0 - 2026-10-02
+
+### Features
+* feat: purging PII data when ASPECTS_ENABLE_PII is false. ([09a9308](https://github.com/tutor-contrib-aspects/commit/09a9308a15109276f1c30e089447fb62e9884b6a))
+* feat: Hide specified charts when PII is disabled ([c467fbd](https://github.com/tutor-contrib-aspects/commit/c467fbd57325360f6776c821a33ac433e96eabb6))
+
+### Bug Fixes
+* fix: reset to v1 frontend-app-aspects (before frontend-base 2.0) ([e4f55b3](https://github.com/tutor-contrib-aspects/commit/e4f55b34bb1229f817c6b8adafe3140ea614e67c))
+* fix: Tutor local on non-https fails to load instructor dash by default ([c32d84d](https://github.com/tutor-contrib-aspects/commit/c32d84dce2341ed1c2edb5204fac443cb3fbd776))
+* fix: delete individual learner from superset when pii is disabled ([b54a9dc](https://github.com/tutor-contrib-aspects/commit/b54a9dc70be80175f5813fece06d4292af3a5f3e))
+* fix: new uuids for vector xapi schema change ([3309dc3](https://github.com/tutor-contrib-aspects/commit/3309dc38afbeaa865ed11cf31a8d8ff0b0e0b7b4))
+* fix: gate Individual Learner Dashboard behind ASPECTS_ENABLE_PII ([f3fa106](https://github.com/tutor-contrib-aspects/commit/f3fa106dd22d7f381534143f9f857cf9ea56de16))
+
+### Maintenance & Refactoring
+* chore: Upgrade Python requirements ([1d08ba5](https://github.com/tutor-contrib-aspects/commit/1d08ba5a4c5e88ae2b16ee097c33c7896ef104fd))
+* chore(deps): bump jlumbroso/free-disk-space from 1.3.1 to 2.0.0 ([99a2019](https://github.com/tutor-contrib-aspects/commit/99a201998743d6b054ebf97ca3221542e89f9b72))
+* chore: Upgrade Python requirements ([e3de9c4](https://github.com/tutor-contrib-aspects/commit/e3de9c42946d26fa16305a67c5a944c38d089a2b))
+* chore(deps): bump docker/setup-buildx-action from 4.3.0 to 4.4.1 ([f5fb4d9](https://github.com/tutor-contrib-aspects/commit/f5fb4d9da407e15d4df373e36861f64280d00afb))
+
+### Miscellaneous Updates
+* Merge pull request from openedx/bmtcril/fix_local_superset_host ([9303b87](https://github.com/tutor-contrib-aspects/commit/9303b873b45539563bcb5e49e3bb6903a153e8d5))
+* Merge pull request from openedx/bmtcril/update_ralph ([f3d6e9c](https://github.com/tutor-contrib-aspects/commit/f3d6e9c0c61cdbb93b909d2e8d10eb34d809aecf))
+* style: Fix formatting ([fe66f3a](https://github.com/tutor-contrib-aspects/commit/fe66f3a364a45542c3ea9f7c5e45eff30fb67029))
+* Merge pull request from openedx/dependabot/github_actions/docker/setup-buildx-action-4.4.1 ([25969e6](https://github.com/tutor-contrib-aspects/commit/25969e6213c0e9ee90938f7c4f3f935c185c209c))
+
 ## v5.0.0 - 2026-09-15
 
 ### v5.0.0 (2026-09-15)
