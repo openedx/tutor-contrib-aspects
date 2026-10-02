@@ -55,7 +55,9 @@ jobs:
       - name: setup python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
-          python-version: 3.12
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements/dev.txt
       - name: Install python reqs
         run: pip install -r requirements/dev.txt
       - name: Install aspects
@@ -74,9 +76,10 @@ jobs:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@ceedf095f4ec1a097402bc6bd80831f2e1a6fde6
         with:
-          # this might remove tools that are actually needed,
-          # if set to "true" but frees about 6 GB
-          tool-cache: false
+          # Renamed from `tool-cache` in v2.0.0; the old name warns and is
+          # removed in v3.0.0. Left off: enabling it would delete the Python
+          # that setup-python installed in the step above.
+          preinstalled-runtimes: false
 
           # all of these default to true, but feel free to set to
           # "false" if necessary for your workflow
@@ -112,7 +115,9 @@ jobs:
       - name: setup python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
-          python-version: 3.12
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements/dev.txt
       - name: Install python reqs
         run: pip install -r requirements/dev.txt
       - name: Install aspects
@@ -126,7 +131,7 @@ jobs:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@ceedf095f4ec1a097402bc6bd80831f2e1a6fde6
         with:
-          tool-cache: false
+          preinstalled-runtimes: false
           android: true
           dotnet: true
           haskell: true
