@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v6.0.0 - 2026-10-05
+
+### v6.0.0 (2026-10-05)
+
+#### Chores
+
+- **deps**: Bump python-semantic-release/python-semantic-release ([#1341](https://github.com/openedx/tutor-contrib-aspects/pull/1341), [`70ca38d`](https://github.com/openedx/tutor-contrib-aspects/commit/70ca38dfc0bae927199dab6961f71c07ad468c56))
+
+#### Features
+
+- Update npm_version for frontend app aspects ([#1353](https://github.com/openedx/tutor-contrib-aspects/pull/1353), [`556a2a0`](https://github.com/openedx/tutor-contrib-aspects/commit/556a2a0bf108b2ecd3a709854c8220449e578029))
+
+
+---
+
+**Detailed Changes**: [v5.1.0...v6.0.0](https://github.com/openedx/tutor-contrib-aspects/compare/v5.1.0...v6.0.0)
+
 ## v5.1.0 - 2026-10-05
 
 ### v5.1.0 (2026-10-05)
