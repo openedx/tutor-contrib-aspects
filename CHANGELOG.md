@@ -5,6 +5,56 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v5.1.0 - 2026-10-05
+
+### v5.1.0 (2026-10-05)
+
+#### Bug Fixes
+
+- Delete individual learner from superset when pii is disabled ([#1336](https://github.com/openedx/tutor-contrib-aspects/pull/1336), [`b54a9dc`](https://github.com/openedx/tutor-contrib-aspects/commit/b54a9dc70be80175f5813fece06d4292af3a5f3e))
+  
+- Gate Individual Learner Dashboard behind ASPECTS_ENABLE_PII ([#1327](https://github.com/openedx/tutor-contrib-aspects/pull/1327), [`f3fa106`](https://github.com/openedx/tutor-contrib-aspects/commit/f3fa106dd22d7f381534143f9f857cf9ea56de16))
+  
+- New uuids for vector xapi schema change ([#1334](https://github.com/openedx/tutor-contrib-aspects/pull/1334), [`3309dc3`](https://github.com/openedx/tutor-contrib-aspects/commit/3309dc38afbeaa865ed11cf31a8d8ff0b0e0b7b4))
+  
+- Reset frontend-app-aspects to v1 ([#1346](https://github.com/openedx/tutor-contrib-aspects/pull/1346), [`cb27938`](https://github.com/openedx/tutor-contrib-aspects/commit/cb27938c6ec4653a7789e36eae8d578d516cc1ae))
+  
+- Tutor local on non-https fails to load instructor dash by default ([`c32d84d`](https://github.com/openedx/tutor-contrib-aspects/commit/c32d84dce2341ed1c2edb5204fac443cb3fbd776))
+  
+- Upgrade for PPA 2.0.1 for security fix ([#1343](https://github.com/openedx/tutor-contrib-aspects/pull/1343), [`3111170`](https://github.com/openedx/tutor-contrib-aspects/commit/3111170dcebc6b0d0133643039ef0bed0483a6f4))
+  
+
+#### Chores
+
+- Change comment ([#1317](https://github.com/openedx/tutor-contrib-aspects/pull/1317), [`c467fbd`](https://github.com/openedx/tutor-contrib-aspects/commit/c467fbd57325360f6776c821a33ac433e96eabb6))
+  
+- Upgrade Python requirements ([#1348](https://github.com/openedx/tutor-contrib-aspects/pull/1348), [`f06eefe`](https://github.com/openedx/tutor-contrib-aspects/commit/f06eefe47894d7b0b1de5c206eae8cf69c949aa2))
+  
+- Upgrade Python requirements ([#1339](https://github.com/openedx/tutor-contrib-aspects/pull/1339), [`1d08ba5`](https://github.com/openedx/tutor-contrib-aspects/commit/1d08ba5a4c5e88ae2b16ee097c33c7896ef104fd))
+  
+- Upgrade Python requirements ([#1329](https://github.com/openedx/tutor-contrib-aspects/pull/1329), [`e3de9c4`](https://github.com/openedx/tutor-contrib-aspects/commit/e3de9c42946d26fa16305a67c5a944c38d089a2b))
+  
+- **deps**: Bump docker/setup-buildx-action from 4.3.0 to 4.4.1 ([`f5fb4d9`](https://github.com/openedx/tutor-contrib-aspects/commit/f5fb4d9da407e15d4df373e36861f64280d00afb))
+  
+- **deps**: Bump jlumbroso/free-disk-space from 1.3.1 to 2.0.0 ([#1333](https://github.com/openedx/tutor-contrib-aspects/pull/1333), [`99a2019`](https://github.com/openedx/tutor-contrib-aspects/commit/99a201998743d6b054ebf97ca3221542e89f9b72))
+  
+
+#### Code Style
+
+- Fix formatting ([`fe66f3a`](https://github.com/openedx/tutor-contrib-aspects/commit/fe66f3a364a45542c3ea9f7c5e45eff30fb67029))
+
+#### Features
+
+- Hide specified charts when PII is disabled ([#1317](https://github.com/openedx/tutor-contrib-aspects/pull/1317), [`c467fbd`](https://github.com/openedx/tutor-contrib-aspects/commit/c467fbd57325360f6776c821a33ac433e96eabb6))
+  
+- Purging PII data when ASPECTS_ENABLE_PII is false. ([#1337](https://github.com/openedx/tutor-contrib-aspects/pull/1337), [`09a9308`](https://github.com/openedx/tutor-contrib-aspects/commit/09a9308a15109276f1c30e089447fb62e9884b6a))
+  
+
+
+---
+
+**Detailed Changes**: [v5.0.0...v5.1.0](https://github.com/openedx/tutor-contrib-aspects/compare/v5.0.0...v5.1.0)
+
 ## v5.0.0 - 2026-09-15
 
 ### v5.0.0 (2026-09-15)
