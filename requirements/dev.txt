@@ -22,11 +22,11 @@ appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   tutor
-ast-serialize==0.11.2
+ast-serialize==0.12.1
     # via
     #   -r requirements/base.txt
     #   mypy
-astroid==4.0.4
+astroid==4.3.3
     # via pylint
 attrs==26.1.0
     # via
@@ -34,7 +34,7 @@ attrs==26.1.0
     #   aiohttp
 bcrypt==5.0.0
     # via -r requirements/base.txt
-black==26.5.1
+black==26.10.0
     # via
     #   -r requirements/base.txt
     #   -r requirements/dev.in
@@ -46,7 +46,7 @@ certifi==2026.7.22
     #   requests
 cffi==2.1.1
     # via cryptography
-charset-normalizer==3.5.1
+charset-normalizer==3.5.2
     # via
     #   -r requirements/base.txt
     #   requests
@@ -56,7 +56,7 @@ click==8.2.1
     #   black
     #   shandy-sqlfmt
     #   tutor
-cryptography==50.0.1
+cryptography==50.0.2
     # via secretstorage
 dill==0.4.1
     # via pylint
@@ -86,7 +86,7 @@ importlib-resources==7.1.0
     # via
     #   -r requirements/base.txt
     #   tutor
-isort==9.0.1
+isort==9.0.2
     # via pylint
 jaraco-classes==3.4.0
     # via keyring
@@ -109,13 +109,13 @@ kubernetes==36.0.3
     # via
     #   -r requirements/base.txt
     #   tutor
-librt==0.15.0
+librt==0.16.0
     # via
     #   -r requirements/base.txt
     #   mypy
 markdown-it-py==4.2.0
     # via rich
-markupsafe==3.0.3
+markupsafe==3.0.4
     # via
     #   -r requirements/base.txt
     #   jinja2
@@ -132,7 +132,7 @@ multidict==6.9.1
     #   -r requirements/base.txt
     #   aiohttp
     #   yarl
-mypy==2.3.1
+mypy==2.4.0
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -144,11 +144,11 @@ mypy-extensions==1.1.0
     #   mypy
 nh3==0.3.7
     # via readme-renderer
-oauthlib==3.3.1
+oauthlib==4.0.0
     # via
     #   -r requirements/base.txt
     #   requests-oauthlib
-openedx-atlas==0.7.1
+openedx-atlas==0.7.2
     # via -r requirements/base.txt
 packaging==26.3
     # via
@@ -163,7 +163,7 @@ pathspec==1.1.1
     #   -r requirements/base.txt
     #   black
     #   mypy
-platformdirs==4.12.0
+platformdirs==4.12.3
     # via
     #   -r requirements/base.txt
     #   black
@@ -176,7 +176,7 @@ propcache==0.5.4
     #   yarl
 pycparser==3.0
     # via cffi
-pycryptodome==3.23.0
+pycryptodome==3.24.0
     # via
     #   -r requirements/base.txt
     #   tutor
@@ -186,9 +186,9 @@ pygments==2.21.0
     #   rich
 pyinstaller==6.22.3
     # via -r requirements/dev.in
-pyinstaller-hooks-contrib==2026.7
+pyinstaller-hooks-contrib==2026.8
     # via pyinstaller
-pylint==4.0.9
+pylint==4.1.2
     # via -r requirements/dev.in
 python-dateutil==2.9.0.post0
     # via
@@ -269,7 +269,7 @@ yarl==1.25.1
     # via
     #   -r requirements/base.txt
     #   aiohttp
-zipp==4.1.0
+zipp==4.1.1
     # via
     #   -r requirements/base.txt
     #   importlib-metadata
