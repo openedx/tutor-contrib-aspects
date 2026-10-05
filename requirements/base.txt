@@ -12,19 +12,19 @@ aiosignal==1.4.0
     # via aiohttp
 appdirs==1.4.4
     # via tutor
-ast-serialize==0.11.2
+ast-serialize==0.12.1
     # via mypy
 attrs==26.1.0
     # via aiohttp
 bcrypt==5.0.0
     # via -r requirements/base.in
-black==26.5.1
+black==26.10.0
     # via shandy-sqlfmt
 certifi==2026.7.22
     # via
     #   kubernetes
     #   requests
-charset-normalizer==3.5.1
+charset-normalizer==3.5.2
     # via requests
 click==8.2.1
     # via
@@ -54,23 +54,23 @@ jinja2==3.1.6
     #   tutor
 kubernetes==36.0.3
     # via tutor
-librt==0.15.0
+librt==0.16.0
     # via mypy
-markupsafe==3.0.3
+markupsafe==3.0.4
     # via jinja2
 multidict==6.9.1
     # via
     #   aiohttp
     #   yarl
-mypy==2.3.1
+mypy==2.4.0
     # via tutor
 mypy-extensions==1.1.0
     # via
     #   black
     #   mypy
-oauthlib==3.3.1
+oauthlib==4.0.0
     # via requests-oauthlib
-openedx-atlas==0.7.1
+openedx-atlas==0.7.2
     # via -r requirements/base.in
 packaging==26.3
     # via
@@ -80,7 +80,7 @@ pathspec==1.1.1
     # via
     #   black
     #   mypy
-platformdirs==4.12.0
+platformdirs==4.12.3
     # via
     #   black
     #   shandy-sqlfmt
@@ -88,7 +88,7 @@ propcache==0.5.4
     # via
     #   aiohttp
     #   yarl
-pycryptodome==3.23.0
+pycryptodome==3.24.0
     # via tutor
 python-dateutil==2.9.0.post0
     # via kubernetes
@@ -134,5 +134,5 @@ websocket-client==1.9.2
     # via kubernetes
 yarl==1.25.1
     # via aiohttp
-zipp==4.1.0
+zipp==4.1.1
     # via importlib-metadata
