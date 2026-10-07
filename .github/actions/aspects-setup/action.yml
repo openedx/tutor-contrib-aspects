@@ -1,0 +1,61 @@
+name: Aspects CI setup
+
+inputs:
+  xapi_source:
+    description: Value for ASPECTS_XAPI_SOURCE ("ralph" or "vector").
+    required: true
+  github_token:
+    description: >
+      GITHUB_TOKEN, used to pull the ghcr.io BuildKit layer cache. Composite
+      actions cannot read secrets, so the caller has to pass it in.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Free disk space
+      uses: jlumbroso/free-disk-space@ceedf095f4ec1a097402bc6bd80831f2e1a6fde6 # v2.0.0
+      with:
+        # `preinstalled-runtimes` is the v2.0.0 name for what used to be `tool-cache`
+        preinstalled-runtimes: true
+        android: true
+        dotnet: true
+        haskell: true
+        large-packages: false
+        swap-storage: true
+
+    - name: Set up Python
+      uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      with:
+        python-version: "3.12"
+        cache: pip
+        cache-dependency-path: requirements/dev.txt
+
+    - name: Install Aspects and its requirements
+      shell: bash
+      run: |
+        set -euo pipefail
+        pip install -r requirements/dev.txt
+        pip install -e .
+
+    - name: Point Tutor at the ghcr.io image cache
+      shell: bash
+      run: .ci/tutor-ci-images.sh "ghcr.io/${{ github.repository }}"
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+
+    - name: Log in to GitHub Container Registry
+      shell: bash
+      run: |
+        echo "${{ inputs.github_token }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin || \
+          echo "::warning::ghcr.io login failed; pulling the image cache anonymously."
+
+    - name: Select the xAPI source under test
+      shell: bash
+      run: tutor config save --set ASPECTS_XAPI_SOURCE=${{ inputs.xapi_source }}
+
+    - name: Confirm the vector runs write to the openedx database
+      if: inputs.xapi_source == 'vector'
+      shell: bash
+      run: tutor config printvalue ASPECTS_XAPI_DATABASE | grep openedx

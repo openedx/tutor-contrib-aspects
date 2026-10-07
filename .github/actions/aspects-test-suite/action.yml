@@ -1,0 +1,83 @@
+name: Aspects test suite
+
+inputs:
+  mode:
+    description: Tutor mode ("local", "dev" or "k8s").
+    required: true
+  performance_metrics:
+    description: >
+      full (all charts unfiltered) or filtered (all charts with specific org & course)
+    required: false
+    default: full
+
+runs:
+  using: composite
+  steps:
+    - name: Test alembic
+      shell: bash
+      run: |
+        set -euo pipefail
+        tutor ${{ inputs.mode }} do alembic -c "downgrade base"
+        tutor ${{ inputs.mode }} do alembic -c "upgrade head"
+
+    - name: Init ClickHouse
+      shell: bash
+      run: tutor ${{ inputs.mode }} do init-clickhouse
+
+    # This should:
+    # 1. Run all models, since the alembic test removed our state
+    # 2. Find no models on the second run, state should be up to date now
+    # 3. Force run all models
+    # 4. Successfully run tests
+    - name: Test dbt
+      shell: bash
+      run: |
+        set -euo pipefail
+        tutor ${{ inputs.mode }} do dbt -c "run"
+        tutor ${{ inputs.mode }} do dbt -c "run"
+        tutor ${{ inputs.mode }} do dbt --only_changed False -c "run"
+        tutor ${{ inputs.mode }} do dbt --only_changed False -c "test"
+
+    - name: Load test xAPI data
+      shell: bash
+      run: |
+        set -euo pipefail
+        log="$(mktemp)"
+        if ! tutor ${{ inputs.mode }} do load-xapi-test-data >"$log" 2>&1; then
+          echo "::error::load-xapi-test-data failed; last 200 lines follow"
+          tail -n 200 "$log"
+          exit 1
+        fi
+        echo "Loaded test xAPI data ($(wc -l <"$log") suppressed output lines)."
+
+    - name: Import demo course
+      shell: bash
+      run: tutor ${{ inputs.mode }} do importdemocourse
+
+    - name: Test commands
+      shell: bash
+      run: |
+        set -euo pipefail
+        tutor ${{ inputs.mode }} do dump-data-to-clickhouse --options "--object course_overviews --force"
+        make extract_translations
+        tutor ${{ inputs.mode }} do import-assets
+
+    - name: Test dbt lineage and the tracking log transform
+      if: inputs.mode == 'local'
+      shell: bash
+      run: |
+        set -euo pipefail
+        tutor local do collect-dbt-lineage
+        tutor local run lms python manage.py lms transform_tracking_logs --source_provider LOCAL --source_config '{"key": "/openedx/data/", "prefix": "tracking.log", "container": "logs"}' --destination_provider LRS --transformer_type xapi
+
+    - name: Performance metrics (single course, then single org)
+      if: inputs.performance_metrics == 'filtered'
+      shell: bash
+      run: |
+        set -euo pipefail
+        tutor ${{ inputs.mode }} do performance-metrics --fail_on_error --org OpenedX --course_name "course-v1:OpenedX+DemoX+DemoCourse"
+        tutor ${{ inputs.mode }} do performance-metrics --fail_on_error --org OpenedX
+
+    - name: Performance metrics (full, unfiltered dataset)
+      shell: bash
+      run: tutor ${{ inputs.mode }} do performance-metrics --fail_on_error
