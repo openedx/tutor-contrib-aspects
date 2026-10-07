@@ -261,12 +261,13 @@ To contribute Superset assets:
 Release Workflow
 ================
 
-Releases are handled by repository maintainers via GitHub Actions:
+Releases are handled automatically via GitHub Actions using `Python Semantic Release`_.
+Any merge to ``main`` with a ``feat``, ``fix`` or ``perf`` commit triggers a version bump,
+publishes to `PyPI <https://pypi.org>`_, creates a GitHub Release, and pushes updated
+Docker images to DockerHub.
 
-- Trigger the **Bump version and changelog** action to update the version and changelog.
-- Merge the PR to initiate the **release** and **build-image** workflows.
-
-Ensure the updated version appears on `PyPI <https://pypi.org>`_ and DockerHub.
+.. _Python Semantic Release: https://python-semantic-release.readthedocs.io/
+.. _Conventional Commit: https://www.conventionalcommits.org/
 
 Additional Resources
 ====================

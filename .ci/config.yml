@@ -92,7 +92,9 @@ SUPERSET_OAUTH2_CLIENT_SECRET: StkPwE5GzPuyH4Rp
 SUPERSET_ROW_LEVEL_SECURITY_XAPI_GROUP_KEY: xapi_course_id
 SUPERSET_SECRET_KEY: WlgA6QSQKCUNGD9PAaji0JHY
 SUPERSET_XAPI_DASHBOARD_SLUG: openedx-xapi
-ASPECTS_VERSION: 6.0.0
+# Placeholder: build-image.yaml overwrites this with the release version or
+# pr-<N>-<sha> at runtime. Must stay defined: DOCKER_IMAGE_OPENEDX(_DEV) below use it.
+ASPECTS_VERSION: set-at-runtime
 DOCKER_IMAGE_OPENEDX: edunext/openedx-aspects:{{ASPECTS_VERSION}}
 DOCKER_IMAGE_OPENEDX_DEV: edunext/openedx-aspects-dev:{{ASPECTS_VERSION}}
 ASPECTS_ENABLE_EVENT_BUS_CONSUMER: true
