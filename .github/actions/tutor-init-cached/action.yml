@@ -22,7 +22,7 @@ runs:
     # Everything that changes what ends up in MySQL after `do init`:
     # - ASPECTS_XAPI_SOURCE: the ralph init adds an LMS user and a Ralph router
     #   configuration row that the vector jobs must not inherit
-    # - requirements/dev.txt pins the Tutor (and therefore edx-platform) version
+    # - uv.lock pins the Tutor (and therefore edx-platform) version
     # - the openedx Dockerfile patches pin platform-plugin-aspects and
     #   event-routing-backends, which ship Django migrations
     # - the Superset image controls the Superset metadata db schema
@@ -32,8 +32,8 @@ runs:
       shell: bash
       run: |
         set -euo pipefail
-        XAPI_SOURCE=$(tutor config printvalue ASPECTS_XAPI_SOURCE)
-        echo "key=aspects-mysql-${XAPI_SOURCE}-${{ hashFiles('requirements/dev.txt', 'tutoraspects/patches/openedx-dockerfile-post-python-requirements', 'tutoraspects/patches/openedx-dev-dockerfile-post-python-requirements', 'tutoraspects/templates/aspects/build/aspects-superset/Dockerfile', 'tutoraspects/templates/aspects/build/aspects-superset/requirements.txt', '.ci/config.yml') }}" >> "$GITHUB_OUTPUT"
+        XAPI_SOURCE=$(uv run tutor config printvalue ASPECTS_XAPI_SOURCE)
+        echo "key=aspects-mysql-${XAPI_SOURCE}-${{ hashFiles('uv.lock', 'src/tutoraspects/patches/openedx-dockerfile-post-python-requirements', 'src/tutoraspects/patches/openedx-dev-dockerfile-post-python-requirements', 'src/tutoraspects/templates/aspects/build/aspects-superset/Dockerfile', 'src/tutoraspects/templates/aspects/build/aspects-superset/requirements.txt', '.ci/config.yml') }}" >> "$GITHUB_OUTPUT"
 
     - name: Restore MySQL migration cache
       id: mysql_cache
@@ -47,8 +47,8 @@ runs:
       shell: bash
       run: |
         set -euo pipefail
-        tutor ${{ inputs.mode }} start -d
-        tutor ${{ inputs.mode }} do init
+        uv run tutor ${{ inputs.mode }} start -d
+        uv run tutor ${{ inputs.mode }} do init
 
     - name: Dump MySQL for the migration cache (cache miss only)
       if: steps.mysql_cache.outputs.cache-hit != 'true'
@@ -56,7 +56,7 @@ runs:
       run: |
         set -euo pipefail
         mkdir -p .ci/mysql-dump
-        MYSQL_ROOT_PASSWORD=$(tutor config printvalue MYSQL_ROOT_PASSWORD)
+        MYSQL_ROOT_PASSWORD=$(uv run tutor config printvalue MYSQL_ROOT_PASSWORD)
         # Use docker exec directly: `tutor local exec` prints the docker compose
         # invocation to stdout, which would corrupt the dump file.
         docker ps
@@ -90,8 +90,8 @@ runs:
       shell: bash
       run: |
         set -euo pipefail
-        MYSQL_ROOT_PASSWORD=$(tutor config printvalue MYSQL_ROOT_PASSWORD)
-        tutor ${{ inputs.mode }} start permissions mysql -d
+        MYSQL_ROOT_PASSWORD=$(uv run tutor config printvalue MYSQL_ROOT_PASSWORD)
+        uv run tutor ${{ inputs.mode }} start permissions mysql -d
         docker ps
         MYSQL_CONTAINER=$(docker ps -qf "name=tutor*.*mysql*")
         for i in $(seq 1 30); do
@@ -105,6 +105,6 @@ runs:
         # Restore the pre-migrated dump via docker exec (bypasses the tutor
         # wrapper, which pollutes stdout with the docker compose invocation).
         docker exec -i "$MYSQL_CONTAINER" mysql -h 127.0.0.1 -u root -p"$MYSQL_ROOT_PASSWORD" < .ci/mysql-dump/dump.sql
-        tutor ${{ inputs.mode }} start -d
+        uv run tutor ${{ inputs.mode }} start -d
         # Init is now fast: Django and Superset see all migrations as applied.
-        tutor ${{ inputs.mode }} do init
+        uv run tutor ${{ inputs.mode }} do init

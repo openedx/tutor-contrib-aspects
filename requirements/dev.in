@@ -1,6 +1,0 @@
--r base.txt
-
-black
-pyinstaller
-pylint
-twine
