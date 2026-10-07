@@ -22,7 +22,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install python reqs
-        run: uv sync --locked --group dev
+        run: uv sync --locked --group dev --group ci
       - name: Point Tutor at the ghcr.io image cache
         run: .ci/tutor-ci-images.sh "ghcr.io/${{ github.repository }}"
       # GITHUB_TOKEN can read packages published by this repo's workflows, so
@@ -102,7 +102,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install python reqs
-        run: uv sync --locked --group dev
+        run: uv sync --locked --group dev --group ci
       - name: Point Tutor at the ghcr.io image cache
         run: .ci/tutor-ci-images.sh "ghcr.io/${{ github.repository }}"
       # GITHUB_TOKEN can read packages published by this repo's workflows, so
@@ -197,7 +197,7 @@ jobs:
         run: .ci/tutor-ci-images.sh "ghcr.io/${{ github.repository }}"
       - name: Generate env
         run: |
-          uv sync --locked --group dev
+          uv sync --locked --group dev --group ci
           uv run tutor config save --set ASPECTS_XAPI_SOURCE=ralph
       - name: Run Kubernetes tools
         uses: stefanprodan/kube-tools@49504f5a42faa937ed11d7705b995416f8e55271 # v1
@@ -332,7 +332,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install python reqs
-        run: uv sync --locked --group dev
+        run: uv sync --locked --group dev --group ci
       - name: Point Tutor at the ghcr.io image cache
         run: .ci/tutor-ci-images.sh "ghcr.io/${{ github.repository }}"
       # GITHUB_TOKEN can read packages published by this repo's workflows, so
@@ -412,7 +412,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install python reqs
-        run: uv sync --locked --group dev
+        run: uv sync --locked --group dev --group ci
       - name: Point Tutor at the ghcr.io image cache
         run: .ci/tutor-ci-images.sh "ghcr.io/${{ github.repository }}"
       # GITHUB_TOKEN can read packages published by this repo's workflows, so
@@ -507,7 +507,7 @@ jobs:
         run: .ci/tutor-ci-images.sh "ghcr.io/${{ github.repository }}"
       - name: Generate env
         run: |
-          uv sync --locked --group dev
+          uv sync --locked --group dev --group ci
           uv run tutor config save --set ASPECTS_XAPI_SOURCE=vector
           uv run tutor config printvalue ASPECTS_XAPI_DATABASE | grep openedx
       - name: Run Kubernetes tools
