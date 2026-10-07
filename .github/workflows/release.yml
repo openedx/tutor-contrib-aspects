@@ -1,0 +1,131 @@
+name: Semantic Release
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  # The same checks a pull request has to pass, so the release runs exactly
+  # the checks that were required to merge.
+  test:
+    uses: ./.github/workflows/test.yml
+
+  release:
+    # The package has to build before we tag anything. The GitHub release and
+    # the PyPI upload cannot be taken back, so a package that only fails to
+    # build in its publish job would leave the release half-finished.
+    runs-on: ubuntu-latest
+    needs: test
+    if: github.ref_name == 'main'
+    concurrency:
+      group: ${{ github.workflow }}-release-${{ github.ref_name }}
+      cancel-in-progress: false
+
+    permissions:
+      contents: write
+
+    steps:
+      # Note: We checkout the repository at the branch that triggered the workflow.
+      # Python Semantic Release will automatically convert shallow clones to full clones
+      # if needed to ensure proper history evaluation. However, we forcefully reset the
+      # branch to the workflow sha because it is possible that the branch was updated
+      # while the workflow was running, which prevents accidentally releasing un-evaluated
+      # changes.
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Force branch to workflow sha
+        run: git reset --hard ${{ github.sha }}
+
+      - name: Run Semantic Release
+        id: release
+        uses: python-semantic-release/python-semantic-release@b700dbeb1f431a0fcc30a79f3f0869407fe07278 # v10.7.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          git_committer_name: "github-actions"
+          git_committer_email: "actions@users.noreply.github.com"
+          changelog: "false"
+          # Commit, tag, push and build, but don't create the GitHub release.
+          # We create it ourselves in the next step so that the distributions
+          # are attached before the release is published. See that step for why.
+          vcs_release: "false"
+
+      # The openedx org has immutable releases enabled, which freezes a release's
+      # assets the moment it is published, so assets cannot be attached
+      # afterwards. `gh release create` handles this by creating the release as a
+      # draft, uploading the assets, and only then publishing it:
+      # https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases
+      - name: Create GitHub Release with Assets
+        if: steps.release.outputs.released == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Reuse the release notes python-semantic-release generated for us.
+          RELEASE_NOTES: ${{ steps.release.outputs.release_notes }}
+          TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          # Output the release notes to a file
+          printf '%s' "$RELEASE_NOTES" > "$RUNNER_TEMP/release_notes.md"
+          # Creates the release as a draft, uploads the assets, and then
+          # publishes it -- all within this one command.
+          gh release create "$TAG" \
+            --verify-tag \
+            --title "$TAG" \
+            --notes-file "$RUNNER_TEMP/release_notes.md" \
+            dist/*
+
+      - name: Upload distribution artifacts
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: steps.release.outputs.released == 'true'
+        with:
+          name: distribution-artifacts
+          path: dist
+          if-no-files-found: error
+
+    outputs:
+      released: ${{ steps.release.outputs.released || 'false' }}
+      version: ${{ steps.release.outputs.version }}
+
+  publish_to_pypi:
+    # 1. Separate out the publish step from the github release step to run each step at
+    #    the least amount of token privilege
+    # 2. Also, publishing can fail, and its better to have a separate job if you need to retry
+    #    and it won't require reversing the release.
+    runs-on: ubuntu-latest
+    needs: release
+    if: github.ref_name == 'main' && needs.release.outputs.released == 'true'
+
+    permissions:
+      contents: read
+      id-token: write   # Required for OIDC trusted publishing
+
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: distribution-artifacts
+          path: dist
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # v1.14.2
+
+  # Push the Docker images only once the package is on PyPI, building them from
+  # the release tag so they contain exactly the released code.
+  trigger_image_push:
+    runs-on: ubuntu-latest
+    needs: [release, publish_to_pypi]
+    if: github.ref_name == 'main' && needs.publish_to_pypi.result == 'success'
+
+    permissions:
+      actions: write
+
+    steps:
+      - name: Trigger release image push
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh workflow run build-image.yaml \
+            --repo ${{ github.repository }} \
+            --ref "v${{ needs.release.outputs.version }}" \
+            --field version=${{ needs.release.outputs.version }}
