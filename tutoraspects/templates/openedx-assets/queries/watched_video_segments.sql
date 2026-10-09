@@ -20,8 +20,17 @@ with
                 )
             {% endif %} {% endraw -%}
     ),
+    -- One row per learner, video and second before joining names: grouping per-second rows by
+    -- the name columns is what made this dataset slow.
     watched_segments as (
-        select *
+        select
+            org,
+            course_key,
+            actor_id,
+            object_id,
+            any(video_duration) as video_duration,
+            watched_segment,
+            sum(watch_count) as watch_count
         from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_video_segments
         where
             {% raw -%}
@@ -32,6 +41,7 @@ with
                 course_key in (select course_key from course_keys)
                 or (select count(1) from course_keys) = 1
             )
+        group by org, course_key, actor_id, object_id, watched_segment
     ),
     final_results as (
         select
@@ -43,7 +53,7 @@ with
                 3
             ] as block_id,
             watched_segments.watched_segment as segment_start,
-            sum(watched_segments.watch_count) as watched_count,
+            watched_segments.watch_count as watched_count,
             formatDateTime(
                 toDate(now()) + toIntervalSecond(watched_segments.watched_segment), '%T'
             ) as time_stamp,
@@ -90,23 +100,6 @@ with
                 = blocks.block_id
             )
         where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
-        group by
-            org,
-            course_key,
-            actor_id,
-            object_id,
-            block_id,
-            watched_segment,
-            time_stamp,
-            video_number,
-            video_name_location,
-            video_link,
-            video_duration,
-            section_with_name,
-            subsection_with_name,
-            username,
-            name,
-            email
     )
 select
     org,
