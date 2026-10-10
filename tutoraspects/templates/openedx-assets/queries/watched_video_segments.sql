@@ -20,8 +20,8 @@ with
                 )
             {% endif %} {% endraw -%}
     ),
-    -- One row per learner, video and second before joining names: grouping per-second rows by
-    -- the name columns is what made this dataset slow.
+    -- One row per learner, video and second before joining names: grouping per-second
+    -- rows by the name columns is what made this dataset slow.
     watched_segments as (
         select
             org,

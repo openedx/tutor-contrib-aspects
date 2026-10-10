@@ -1,6 +1,13 @@
 with
     watches as (
-        select org, course_key, actor_id, object_id, video_duration, watched_seconds, max_views
+        select
+            org,
+            course_key,
+            actor_id,
+            object_id,
+            video_duration,
+            watched_seconds,
+            max_views
         from {{ DBT_PROFILE_TARGET_DATABASE }}.fact_video_watches final
         where 1 = 1 {% include 'openedx-assets/queries/common_filters.sql' %}
     ),
@@ -35,7 +42,8 @@ with
             users.name as name,
             watches.max_views as video_watched_count,
             if(watches.max_views > 1, watches.max_views, 0) as video_rewatched_count,
-            watches.watched_seconds / watches.video_duration >= .95 as watched_entire_video,
+            watches.watched_seconds / watches.video_duration
+            >= .95 as watched_entire_video,
             blocks.section_with_name as section_with_name,
             blocks.subsection_with_name as subsection_with_name
         from watches
