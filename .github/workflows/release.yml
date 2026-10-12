@@ -3,6 +3,14 @@ name: Semantic Release
 on:
   push:
     branches: [main]
+  # Run manually on an older branch to cut a patch release for that line.
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force a version bump (auto = derive from commits)'
+        type: choice
+        options: [auto, patch, minor, major]
+        default: auto
 
 jobs:
   # The same checks a pull request has to pass, so the release runs exactly
@@ -16,7 +24,6 @@ jobs:
     # build in its publish job would leave the release half-finished.
     runs-on: ubuntu-latest
     needs: test
-    if: github.ref_name == 'main'
     concurrency:
       group: ${{ github.workflow }}-release-${{ github.ref_name }}
       cancel-in-progress: false
@@ -51,6 +58,7 @@ jobs:
           # We create it ourselves in the next step so that the distributions
           # are attached before the release is published. See that step for why.
           vcs_release: "false"
+          force: ${{ inputs.force != 'auto' && inputs.force || '' }}
 
       # The openedx org has immutable releases enabled, which freezes a release's
       # assets the moment it is published, so assets cannot be attached
@@ -71,6 +79,7 @@ jobs:
           # publishes it -- all within this one command.
           gh release create "$TAG" \
             --verify-tag \
+            --latest=${{ github.ref_name == 'main' }} \
             --title "$TAG" \
             --notes-file "$RUNNER_TEMP/release_notes.md" \
             dist/*
@@ -94,7 +103,7 @@ jobs:
     #    and it won't require reversing the release.
     runs-on: ubuntu-latest
     needs: release
-    if: github.ref_name == 'main' && needs.release.outputs.released == 'true'
+    if: needs.release.outputs.released == 'true'
 
     permissions:
       contents: read
@@ -115,7 +124,7 @@ jobs:
   trigger_image_push:
     runs-on: ubuntu-latest
     needs: [release, publish_to_pypi]
-    if: github.ref_name == 'main' && needs.publish_to_pypi.result == 'success'
+    if: needs.publish_to_pypi.result == 'success'
 
     permissions:
       actions: write
@@ -128,4 +137,5 @@ jobs:
           gh workflow run build-image.yaml \
             --repo ${{ github.repository }} \
             --ref "v${{ needs.release.outputs.version }}" \
-            --field version=${{ needs.release.outputs.version }}
+            --field version=${{ needs.release.outputs.version }} \
+            --field latest=${{ github.ref_name == 'main' }}

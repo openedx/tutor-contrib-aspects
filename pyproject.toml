@@ -90,6 +90,14 @@ where = ["src"]
 [tool.semantic_release]
 build_command = "pip install build && SETUPTOOLS_SCM_PRETEND_VERSION=$NEW_VERSION python -m build"
 
+[tool.semantic_release.branches.main]
+match = "main"
+
+# Any other branch can be released by running release.yml manually, e.g. to
+# patch an older release line. The version comes from that branch's tags.
+[tool.semantic_release.branches.maintenance]
+match = ".*"
+
 [tool.setuptools_scm]
 version_scheme = "only-version"
 local_scheme = "no-local-version"

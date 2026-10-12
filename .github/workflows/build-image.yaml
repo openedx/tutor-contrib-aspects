@@ -10,6 +10,10 @@ on:
       version:
         description: 'Release version to tag images with (e.g. 5.1.0)'
         required: true
+      latest:
+        description: 'Also tag the images as latest (false for older release lines)'
+        type: boolean
+        default: true
 
 env:
   TUTOR_ROOT: ./.ci/
@@ -63,12 +67,12 @@ jobs:
           uv run tutor images build ${{ matrix.service.name }}
       - name: Push docker image
         continue-on-error: true
-        if: github.event.action == 'opened' || github.event.action == 'synchronize'
+        if: github.event.action == 'opened' || github.event.action == 'synchronize' || (github.event_name == 'workflow_dispatch' && !inputs.latest)
         run: |
           uv run tutor images push ${{ matrix.service.name }}
       - name: Push latest docker image
         continue-on-error: true
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' && inputs.latest
         run: |
           uv run tutor images build ${{ matrix.service.name }} --cache-to-registry -d '--tag=${{ matrix.service.repository }}:latest'
           uv run tutor images push ${{ matrix.service.name }}
