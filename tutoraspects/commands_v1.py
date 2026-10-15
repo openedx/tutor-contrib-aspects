@@ -195,6 +195,23 @@ def performance_metrics(  # pylint: disable=too-many-arguments,too-many-position
     ]
 
 
+# Ex: "tutor local do check-known-answers"
+@click.command(context_settings={"ignore_unknown_options": True})
+def check_known_answers() -> list[tuple[str, str]]:
+    """
+    Job to check chart numbers against the learner journeys loaded by load-xapi-test-data.
+    """
+    return [
+        (
+            "superset",
+            "set -e && "
+            "echo 'Checking charts against the known answers...' && "
+            "python /app/pythonpath/known_answers.py && "
+            "echo 'Done!';",
+        ),
+    ]
+
+
 # Ex: "tutor local do collect-dbt-lineage"
 @click.command(context_settings={"ignore_unknown_options": True})
 def collect_dbt_lineage() -> (list)[tuple[str, str]]:
@@ -498,6 +515,7 @@ DO_COMMANDS = (
     transform_tracking_logs,
     import_assets,
     performance_metrics,
+    check_known_answers,
     init_clickhouse,
     collect_dbt_lineage,
     xapi_block_storage_backfill,

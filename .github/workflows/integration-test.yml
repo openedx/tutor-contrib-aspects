@@ -79,6 +79,8 @@ jobs:
           tutor local do dbt --only_changed False -c "test"
       - name: Load test
         run: tutor local do load-xapi-test-data
+      - name: Check known answers
+        run: tutor local do check-known-answers
       - name: Import demo course
         run: tutor local do importdemocourse
       - name: Test commands
@@ -161,6 +163,8 @@ jobs:
           tutor dev do dbt --only_changed False -c "test"
       - name: Load test
         run: tutor dev do load-xapi-test-data
+      - name: Check known answers
+        run: tutor dev do check-known-answers
       - name: Import demo course
         run: tutor dev do importdemocourse
       - name: Test commands
@@ -258,6 +262,8 @@ jobs:
           tutor k8s do dbt --only_changed False -c "test"
       - name: Load test
         run: tutor k8s do load-xapi-test-data
+      - name: Check known answers
+        run: tutor k8s do check-known-answers
       - name: Import demo course
         run: tutor k8s do importdemocourse
       - name: Test commands
@@ -397,6 +403,8 @@ jobs:
           tutor local do dbt --only_changed False -c "test"
       - name: Load test
         run: tutor local do load-xapi-test-data
+      - name: Check known answers
+        run: tutor local do check-known-answers
       - name: Import demo course
         run: tutor local do importdemocourse
       - name: Test commands
@@ -479,6 +487,8 @@ jobs:
           tutor dev do dbt --only_changed False -c "test"
       - name: Load test
         run: tutor dev do load-xapi-test-data
+      - name: Check known answers
+        run: tutor dev do check-known-answers
       - name: Import demo course
         run: tutor dev do importdemocourse
       - name: Test commands
@@ -574,6 +584,8 @@ jobs:
           tutor k8s do dbt --only_changed False -c "test"
       - name: Load test
         run: tutor k8s do load-xapi-test-data
+      - name: Check known answers
+        run: tutor k8s do check-known-answers
       - name: Import demo course
         run: tutor k8s do importdemocourse
       - name: Test commands
