@@ -14,6 +14,7 @@ xapi-db-load load-journeys --config_file $JOURNEYS_CONFIG
 # The course structure and video models refresh on a timer and only look back a day for new
 # video events, so bring them up to date with the history just loaded.
 echo "Refreshing the course structure and video models..."
-bash /app/aspects/scripts/dbt.sh False run -s dim_course_blocks+ fact_video_watch_intervals+
+# dbt.sh clones aspects-dbt into the working directory, so run it from /app like the dbt command.
+(cd /app && bash /app/aspects/scripts/dbt.sh False run -s dim_course_blocks+ fact_video_watch_intervals+)
 
 echo "Done."
