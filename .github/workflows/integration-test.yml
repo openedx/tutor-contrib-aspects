@@ -199,7 +199,9 @@ jobs:
           dotnet: true
           haskell: true
           large-packages: false
-          swap-storage: true
+          # Keep the runner's swap: the whole platform shares this runner's memory with
+          # the Kubernetes control plane, and without swap the OOM killer restarts pods.
+          swap-storage: false
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: setup python
@@ -299,6 +301,16 @@ jobs:
           docker stats --no-stream
           docker exec chart-testing-control-plane crictl ps -a
           docker exec chart-testing-control-plane crictl stats -a
+          # Why containers restarted, and what is using memory inside the LMS.
+          for id in $(docker exec chart-testing-control-plane crictl ps -a -q); do
+            docker exec chart-testing-control-plane crictl inspect "$id" \
+              | jq -r '[.status.labels["io.kubernetes.pod.name"], .status.metadata.name, "restart \(.status.metadata.attempt)", .status.state, .status.reason, .status.exitCode] | @tsv' 2>/dev/null
+          done | grep -v -- '-job-' | sort
+          for id in $(docker exec chart-testing-control-plane crictl ps --name '^lms$' -q); do
+            # Resident memory (kB) and command of each process; the image may not have ps.
+            docker exec chart-testing-control-plane crictl exec "$id" sh -c \
+              'for d in /proc/[0-9]*; do echo "$(awk "/VmRSS/ {print \$2}" $d/status 2>/dev/null) $(tr "\0" " " < $d/cmdline 2>/dev/null | cut -c1-150)"; done | sort -rn | head -15'
+          done
       - name: Container logs from the kind node
         if: failure()
         run: |
@@ -564,7 +576,9 @@ jobs:
           dotnet: true
           haskell: true
           large-packages: false
-          swap-storage: true
+          # Keep the runner's swap: the whole platform shares this runner's memory with
+          # the Kubernetes control plane, and without swap the OOM killer restarts pods.
+          swap-storage: false
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: setup python
@@ -665,6 +679,16 @@ jobs:
           docker stats --no-stream
           docker exec chart-testing-control-plane crictl ps -a
           docker exec chart-testing-control-plane crictl stats -a
+          # Why containers restarted, and what is using memory inside the LMS.
+          for id in $(docker exec chart-testing-control-plane crictl ps -a -q); do
+            docker exec chart-testing-control-plane crictl inspect "$id" \
+              | jq -r '[.status.labels["io.kubernetes.pod.name"], .status.metadata.name, "restart \(.status.metadata.attempt)", .status.state, .status.reason, .status.exitCode] | @tsv' 2>/dev/null
+          done | grep -v -- '-job-' | sort
+          for id in $(docker exec chart-testing-control-plane crictl ps --name '^lms$' -q); do
+            # Resident memory (kB) and command of each process; the image may not have ps.
+            docker exec chart-testing-control-plane crictl exec "$id" sh -c \
+              'for d in /proc/[0-9]*; do echo "$(awk "/VmRSS/ {print \$2}" $d/status 2>/dev/null) $(tr "\0" " " < $d/cmdline 2>/dev/null | cut -c1-150)"; done | sort -rn | head -15'
+          done
       - name: Container logs from the kind node
         if: failure()
         run: |
