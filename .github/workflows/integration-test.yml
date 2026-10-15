@@ -454,6 +454,9 @@ jobs:
           tutor local run lms python manage.py lms transform_tracking_logs --source_provider LOCAL --source_config '{"key": "/openedx/data/", "prefix": "tracking.log", "container": "logs"}' --destination_provider LRS --transformer_type xapi
       - name: Performance metrics
         run: tutor local do performance-metrics --fail_on_error
+      - name: Vector logs
+        if: failure()
+        run: tutor local logs --tail 300 vector
       - name: Tutor stop
         run: tutor local stop
 
@@ -536,6 +539,9 @@ jobs:
           tutor dev do import-assets
       - name: Performance metrics
         run: tutor dev do performance-metrics --fail_on_error
+      - name: Vector logs
+        if: failure()
+        run: tutor dev logs --tail 300 vector
       - name: Tutor stop
         run: tutor dev stop
 
