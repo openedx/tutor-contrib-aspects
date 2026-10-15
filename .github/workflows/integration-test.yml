@@ -199,9 +199,7 @@ jobs:
           dotnet: true
           haskell: true
           large-packages: false
-          # Keep the runner's swap: the whole platform shares this runner's memory with
-          # the Kubernetes control plane, and without swap the OOM killer restarts pods.
-          swap-storage: false
+          swap-storage: true
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: setup python
@@ -262,6 +260,9 @@ jobs:
           tutor k8s start
           # Only schedules Superset background tasks, which the tests don't use.
           kubectl scale deployment superset-worker-beat --replicas=0
+          # The LMS has grown to ~9 GB here and taken the runner down with it. Cap it and the
+          # CMS so a leak restarts that container (and shows as OOMKilled) instead.
+          kubectl set resources deployment lms cms --limits=memory=3Gi
           tutor k8s do init
       - name: Test alembic
         run: |
@@ -576,9 +577,7 @@ jobs:
           dotnet: true
           haskell: true
           large-packages: false
-          # Keep the runner's swap: the whole platform shares this runner's memory with
-          # the Kubernetes control plane, and without swap the OOM killer restarts pods.
-          swap-storage: false
+          swap-storage: true
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: setup python
@@ -640,6 +639,9 @@ jobs:
           tutor k8s start
           # Only schedules Superset background tasks, which the tests don't use.
           kubectl scale deployment superset-worker-beat --replicas=0
+          # The LMS has grown to ~9 GB here and taken the runner down with it. Cap it and the
+          # CMS so a leak restarts that container (and shows as OOMKilled) instead.
+          kubectl set resources deployment lms cms --limits=memory=3Gi
           tutor k8s do init
       - name: Test alembic
         run: |
