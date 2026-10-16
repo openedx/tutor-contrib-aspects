@@ -307,6 +307,14 @@ jobs:
             docker exec chart-testing-control-plane crictl inspect "$id" \
               | jq -r '[.status.labels["io.kubernetes.pod.name"], .status.metadata.name, "restart \(.status.metadata.attempt)", .status.state, .status.reason, .status.exitCode] | @tsv' 2>/dev/null
           done | grep -v -- '-job-' | sort
+          # The open-files limit containers get, which sizes uWSGI's tables.
+          for id in $(docker exec chart-testing-control-plane crictl ps --name '^lms-worker$' -q); do
+            docker exec chart-testing-control-plane crictl exec "$id" grep "open files" /proc/1/limits
+          done
+          # Why Superset restarts: the end of its last exited container's log.
+          for id in $(docker exec chart-testing-control-plane crictl ps -a --state exited --name '^superset$' -q | head -1); do
+            docker exec chart-testing-control-plane crictl logs --tail 30 "$id" 2>&1
+          done
           for id in $(docker exec chart-testing-control-plane crictl ps --name '^lms$' -q); do
             # Resident memory (kB) and command of each process; the image may not have ps.
             docker exec chart-testing-control-plane crictl exec "$id" sh -c \
@@ -469,7 +477,11 @@ jobs:
         run: tutor local do performance-metrics --fail_on_error
       - name: Vector logs
         if: failure()
-        run: tutor local logs --tail 300 vector
+        run: |
+          tutor local logs --tail 300 vector
+          # Docker's log settings: non-blocking mode drops lines when its buffer is full.
+          docker info --format 'logging driver: {{.LoggingDriver}}'
+          cat /etc/docker/daemon.json || true
       - name: Tutor stop
         run: tutor local stop
 
@@ -554,7 +566,11 @@ jobs:
         run: tutor dev do performance-metrics --fail_on_error
       - name: Vector logs
         if: failure()
-        run: tutor dev logs --tail 300 vector
+        run: |
+          tutor dev logs --tail 300 vector
+          # Docker's log settings: non-blocking mode drops lines when its buffer is full.
+          docker info --format 'logging driver: {{.LoggingDriver}}'
+          cat /etc/docker/daemon.json || true
       - name: Tutor stop
         run: tutor dev stop
 
@@ -686,6 +702,14 @@ jobs:
             docker exec chart-testing-control-plane crictl inspect "$id" \
               | jq -r '[.status.labels["io.kubernetes.pod.name"], .status.metadata.name, "restart \(.status.metadata.attempt)", .status.state, .status.reason, .status.exitCode] | @tsv' 2>/dev/null
           done | grep -v -- '-job-' | sort
+          # The open-files limit containers get, which sizes uWSGI's tables.
+          for id in $(docker exec chart-testing-control-plane crictl ps --name '^lms-worker$' -q); do
+            docker exec chart-testing-control-plane crictl exec "$id" grep "open files" /proc/1/limits
+          done
+          # Why Superset restarts: the end of its last exited container's log.
+          for id in $(docker exec chart-testing-control-plane crictl ps -a --state exited --name '^superset$' -q | head -1); do
+            docker exec chart-testing-control-plane crictl logs --tail 30 "$id" 2>&1
+          done
           for id in $(docker exec chart-testing-control-plane crictl ps --name '^lms$' -q); do
             # Resident memory (kB) and command of each process; the image may not have ps.
             docker exec chart-testing-control-plane crictl exec "$id" sh -c \
