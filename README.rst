@@ -101,6 +101,13 @@ To visualize data:
 
      tutor local do load-xapi-test-data
 
+  This loads random data for every chart, plus a small set of learner journeys whose expected
+  results are known. To check the engagement and video charts against those results:
+
+  .. code-block:: bash
+
+     tutor local do check-known-answers
+
 - Import a demo course and create real data:
 
   Follow `these steps <https://docs.tutor.edly.io/gettingstarted/whatsnext.html#importing-a-demo-course>`_.

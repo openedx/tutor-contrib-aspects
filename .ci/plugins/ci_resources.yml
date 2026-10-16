@@ -1,0 +1,24 @@
+# Enabled in the k8s CI jobs, where the whole platform shares one small runner with the
+# Kubernetes control plane. Keeps ClickHouse from claiming memory and writing system logs every
+# second, which the tests don't need. query_log stays: performance-metrics reads it.
+# Also caps uWSGI's file-descriptor tables.
+name: ci_resources
+version: 0.1.0
+patches:
+  # uWSGI sizes its file-descriptor tables from the open-files limit, which can be very large
+  # under containerd. In kind, lms and cms were using over 3 GiB at idle.
+  uwsgi-config: |
+    max-fd = 1048576
+  clickhouse-server-config: |
+    <max_server_memory_usage>4294967296</max_server_memory_usage>
+    <mark_cache_size>268435456</mark_cache_size>
+    <uncompressed_cache_size>134217728</uncompressed_cache_size>
+    <metric_log remove="1"/>
+    <asynchronous_metric_log remove="1"/>
+    <trace_log remove="1"/>
+    <text_log remove="1"/>
+    <processors_profile_log remove="1"/>
+    <query_metric_log remove="1"/>
+    <latency_log remove="1"/>
+    <error_log remove="1"/>
+    <part_log remove="1"/>

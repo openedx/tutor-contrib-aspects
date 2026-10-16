@@ -1,0 +1,60 @@
+# Learner journeys with known results, loaded by the load-xapi-test-data command after the
+# random load-db data, and checked by the check-known-answers command.
+# xAPI events go through the same path as the LMS's: Vector, Ralph or straight to ClickHouse.
+backend: {% if ASPECTS_XAPI_SOURCE == 'vector' %}vector{% elif RUN_RALPH %}ralph{% else %}clickhouse{% endif %}
+db_host: {{ CLICKHOUSE_HOST }}
+db_port: {{ CLICKHOUSE_INTERNAL_HTTP_PORT }}
+db_name: {{ ASPECTS_XAPI_DATABASE }}
+event_sink_db_name: {{ ASPECTS_EVENT_SINK_DATABASE }}
+expected_db_name: journeys
+db_username: {{ CLICKHOUSE_ADMIN_USER }}
+db_password: {{ CLICKHOUSE_ADMIN_PASSWORD }}
+lrs_url: "{% if RUN_RALPH %}http://ralph:{{ RALPH_PORT }}{% else %}{% if RALPH_RUN_HTTPS %}https://{% else %}http://{% endif %}{{ RALPH_HOST }}{% endif %}/xAPI/statements/"
+lrs_username: "{{RALPH_LMS_USERNAME}}"
+lrs_password: "{{RALPH_LMS_PASSWORD}}"
+
+journeys:
+  # A small dataset with every edge case turned on (mailto: actors, deleted units, duplicate
+  # events, pause and resume at the same instant), dated relative to when it is generated.
+  seed: 1335
+  output_dir: /tmp/journeys
+  # Keep these organizations and users apart from the load-db data, which uses Org0, Org1...
+  # and user ids from 0.
+  org_prefix: Journey
+  first_user_id: 100001
+  window_days: 200
+  running_course_fraction: 0.6
+  course_length_days: 90
+  num_organizations: 2
+  num_actors: 60
+  mbox_actor_fraction: 0.15
+  num_actor_profile_changes: 3
+  course_publishes: 3
+  deleted_unit_course_fraction: 0.5
+  sort_events: true
+  courses:
+    - {template: small, count: 2, runs: [1, 2], learners: [15, 30]}
+    - {template: medium, count: 2, runs: [1, 1], learners: [20, 40]}
+  course_templates:
+    small:
+      chapters: [2, 3]
+      sequentials_per_chapter: [1, 3]
+      verticals_per_sequential: [1, 4]
+      problems_per_vertical_weights: [0.5, 0.3, 0.2]
+      videos_per_vertical_weights: [0.5, 0.4, 0.1]
+      graded_sequential_fraction: 0.3
+      video_length: [30, 240]
+    medium:
+      chapters: [3, 5]
+      sequentials_per_chapter: [2, 4]
+      verticals_per_sequential: [2, 5]
+      problems_per_vertical_weights: [0.4, 0.4, 0.2]
+      videos_per_vertical_weights: [0.5, 0.4, 0.1]
+      graded_sequential_fraction: 0.3
+      video_length: [30, 300]
+  behavior:
+    completer_fraction: 0.25
+    continue_prob: 0.85
+    same_time_resume_prob: 0.2
+    duplicate_event_prob: 0.02
+    recent_activity_fraction: 0.15
