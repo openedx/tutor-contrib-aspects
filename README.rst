@@ -261,12 +261,27 @@ To contribute Superset assets:
 Release Workflow
 ================
 
-Releases are handled by repository maintainers via GitHub Actions:
+Releases are handled automatically via GitHub Actions using `Python Semantic Release`_.
+Any merge to ``main`` with a ``feat``, ``fix`` or ``perf`` commit triggers a version bump,
+publishes to `PyPI <https://pypi.org>`_, creates a GitHub Release, and pushes updated
+Docker images to DockerHub.
 
-- Trigger the **Bump version and changelog** action to update the version and changelog.
-- Merge the PR to initiate the **release** and **build-image** workflows.
+Releasing from an older release branch
+--------------------------------------
 
-Ensure the updated version appears on `PyPI <https://pypi.org>`_ and DockerHub.
+#. Create a branch from the release tag, e.g. ``git switch -c 6.x v6.0.0``, and merge the fix into it.
+#. Go to **Actions → Semantic Release → Run workflow** and select that branch.
+#. Optionally set ``force`` to ``patch``, ``minor`` or ``major``. The default ``auto`` derives the bump from the commits.
+
+The version comes from the tags on that branch only, so a ``fix`` on ``6.x`` releases ``6.0.1`` even if ``main`` is on ``7.x``.
+The GitHub Release is not marked as latest, and the Docker images are pushed without updating ``:latest``.
+
+This works only for branches cut from a release that includes this workflow. Older release branches have to be released manually.
+
+See `Multibranch Releases <https://python-semantic-release.readthedocs.io/en/latest/concepts/multibranch_releases.html>`_ for more details.
+
+.. _Python Semantic Release: https://python-semantic-release.readthedocs.io/
+.. _Conventional Commit: https://www.conventionalcommits.org/
 
 Additional Resources
 ====================

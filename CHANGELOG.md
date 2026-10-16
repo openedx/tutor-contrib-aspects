@@ -1,3 +1,6 @@
+> **DEPRECATED:** This changelog is no longer maintained. Release notes are
+> now published automatically on the [GitHub Releases](https://github.com/openedx/tutor-contrib-aspects/releases) page.
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
