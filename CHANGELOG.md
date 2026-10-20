@@ -5,6 +5,56 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v6.0.1 - 2026-10-20
+
+### v6.0.1 (2026-10-20)
+
+#### Bug Fixes
+
+- Run the model refresh after the test data load from /app ([`72aaa29`](https://github.com/openedx/tutor-contrib-aspects/commit/72aaa29d47cbcb31ecb2182453ec88a38aadf5d3))
+
+#### Build System
+
+- Cap the k8s LMS and CMS memory instead of keeping swap ([`252cedc`](https://github.com/openedx/tutor-contrib-aspects/commit/252cedc0f592967dc4253d804ded4f7f26f7cc51))
+  
+- Cap uWSGI's file descriptors in the k8s jobs ([`6a856ed`](https://github.com/openedx/tutor-contrib-aspects/commit/6a856ed93d41064bf2a8e91c2c2a867635b7e875))
+  
+- Free resources in the k8s jobs and keep diagnostics when the API is down ([`3603597`](https://github.com/openedx/tutor-contrib-aspects/commit/36035970c8270102696cab43ecb2f84918314a34))
+  
+- Keep swap in the k8s jobs and show what restarts and what the LMS holds ([`4db12fb`](https://github.com/openedx/tutor-contrib-aspects/commit/4db12fb6b3ba3f4b111e1bbe94fd0e6f79ffe8ed))
+  
+- Print Vector's logs when a Vector job fails ([`cb324f0`](https://github.com/openedx/tutor-contrib-aspects/commit/cb324f0069f90eda2fef87a77c38c8c98b68d4ba))
+  
+
+#### Chores
+
+- Update tutoraspects/plugin.py ([`175bf04`](https://github.com/openedx/tutor-contrib-aspects/commit/175bf04879f52e82d0519fa3197deaf11d17ee8e))
+  
+- Update xapi-db-load and aspects-dbt versions ([`1d12fd5`](https://github.com/openedx/tutor-contrib-aspects/commit/1d12fd52fa81575b4f195e200c71977f5fe84231))
+  
+- **deps**: Bump helm/kind-action from 1.14.0 to 1.15.1 ([`29e6099`](https://github.com/openedx/tutor-contrib-aspects/commit/29e6099a90df5653a47b3168378862897c3c3477))
+  
+
+#### Code Style
+
+- Format SQL with sqlfmt ([`0a1de56`](https://github.com/openedx/tutor-contrib-aspects/commit/0a1de5605e7a9ee48fef8cbb4704193360e46f00))
+
+#### Performance Improvements
+
+- Aggregate watched seconds before joining names in watched_video_segments ([`b06507b`](https://github.com/openedx/tutor-contrib-aspects/commit/b06507b274d70006d6c2adf596a48a5f499539d6))
+  
+- Read video watch counts from fact_video_watches ([`acdba6d`](https://github.com/openedx/tutor-contrib-aspects/commit/acdba6d7da6287ff369774ec0695ab7b03745b2a))
+  
+
+#### Testing
+
+- Check chart numbers against learner journeys with known answers ([`95e7621`](https://github.com/openedx/tutor-contrib-aspects/commit/95e76210ca0e9bcd386eab148565a13493523d2f))
+
+
+---
+
+**Detailed Changes**: [v6.0.0...v6.0.1](https://github.com/openedx/tutor-contrib-aspects/compare/v6.0.0...v6.0.1)
+
 ## v6.0.0 - 2026-10-05
 
 ### v6.0.0 (2026-10-05)
