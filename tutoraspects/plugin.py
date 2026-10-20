@@ -207,6 +207,14 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_VECTOR_AGGREGATOR_BUFFER_MAX_SIZE", "1073741824"),
         ("ASPECTS_VECTOR_AGGREGATOR_STORAGE_SIZE", "2Gi"),
         ("ASPECTS_DATA_TTL_EXPRESSION", "toDateTime(emission_time) + INTERVAL 1 YEAR"),
+        # How often ClickHouse rebuilds the course structure tables
+        # (dim_course_blocks, dim_course_subsection_items) and the video watch
+        # summaries, and the random delay added to each refresh. Charts show a
+        # course publish or a video watch only after the next refresh.
+        ("ASPECTS_COURSE_STRUCTURE_REFRESH", "EVERY 5 MINUTE"),
+        ("ASPECTS_COURSE_STRUCTURE_REFRESH_RANDOMIZE", "1 MINUTE"),
+        ("ASPECTS_VIDEO_WATCH_INTERVALS_REFRESH", "EVERY 5 MINUTE"),
+        ("ASPECTS_VIDEO_WATCH_INTERVALS_REFRESH_RANDOMIZE", "1 MINUTE"),
         ("ASPECTS_ALEMBIC_MIGRATIONS_DATABASE", "{{RALPH_DATABASE}}"),
         # Make sure LMS / CMS have event-routing-backends installed
         ######################
