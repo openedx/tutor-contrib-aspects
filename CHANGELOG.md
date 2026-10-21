@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v6.1.0 - 2026-10-21
+
+### v6.1.0 (2026-10-21)
+
+#### Build System
+
+- Upgrade certifi to 2026.10.19 ([`2612673`](https://github.com/openedx/tutor-contrib-aspects/commit/2612673e24339317623a5f643bfcd33d7f4a8c9f))
+
+#### Chores
+
+- Upgrade Python requirements ([`330a6a6`](https://github.com/openedx/tutor-contrib-aspects/commit/330a6a6dac4748c2d930d7f866ae3da21e50358a))
+
+#### Features
+
+- Make refresh intervals configurable ([`aba6b68`](https://github.com/openedx/tutor-contrib-aspects/commit/aba6b682d2807f728c83e34abd0e877a4c6c1852))
+
+
+---
+
+**Detailed Changes**: [v6.0.1...v6.1.0](https://github.com/openedx/tutor-contrib-aspects/compare/v6.0.1...v6.1.0)
+
 ## v6.0.1 - 2026-10-20
 
 ### v6.0.1 (2026-10-20)
