@@ -39,7 +39,7 @@ black==26.10.0
     #   -r requirements/base.txt
     #   -r requirements/dev.in
     #   shandy-sqlfmt
-certifi==2026.7.22
+certifi==2026.10.19
     # via
     #   -r requirements/base.txt
     #   kubernetes
