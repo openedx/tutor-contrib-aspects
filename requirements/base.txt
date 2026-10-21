@@ -20,7 +20,7 @@ bcrypt==5.0.0
     # via -r requirements/base.in
 black==26.10.0
     # via shandy-sqlfmt
-certifi==2026.7.22
+certifi==2026.10.19
     # via
     #   kubernetes
     #   requests
