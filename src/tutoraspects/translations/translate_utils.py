@@ -114,7 +114,7 @@ ASSET_FOLDER_MAPPING = {
     "table_name": ("datasets", DatasetAsset),
 }
 
-BASE_PATH = "tutoraspects/templates/aspects/build/aspects-superset/"
+BASE_PATH = "src/tutoraspects/templates/aspects/build/aspects-superset/"
 
 
 def get_text_for_translations(root_path):
