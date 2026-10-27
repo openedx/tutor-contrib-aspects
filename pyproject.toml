@@ -1,2 +1,18 @@
 [tool.sqlfmt]
 dialect="clickhouse"
+
+[tool.semantic_release]
+build_command = "pip install build && python -m build"
+version_variables = [
+    "tutoraspects/__about__.py:__version__",
+    "setup.cfg:current_version",
+    ".ci/config.yml:ASPECTS_VERSION",
+]
+
+[tool.semantic_release.branches.main]
+match = "main"
+
+# This is a maintenance branch for the v3 line. Patch releases are cut by
+# running release.yml manually on it. The version comes from this branch's tags.
+[tool.semantic_release.branches.maintenance]
+match = "^release/v[0-9]+$"
