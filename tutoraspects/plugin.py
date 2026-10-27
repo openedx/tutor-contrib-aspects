@@ -173,6 +173,14 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ASPECTS_VECTOR_RAW_TRACKING_LOGS_TABLE", "_tracking"),
         ("ASPECTS_VECTOR_RAW_XAPI_TABLE", "xapi_events_all"),
         ("ASPECTS_DATA_TTL_EXPRESSION", "toDateTime(emission_time) + INTERVAL 1 YEAR"),
+        # How often ClickHouse rebuilds the course structure tables
+        # (dim_course_blocks, dim_course_subsection_items) and the video watch
+        # summaries, and the random delay added to each refresh. Charts show a
+        # course publish or a video watch only after the next refresh.
+        ("ASPECTS_COURSE_STRUCTURE_REFRESH", "EVERY 5 MINUTE"),
+        ("ASPECTS_COURSE_STRUCTURE_REFRESH_RANDOMIZE", "1 MINUTE"),
+        ("ASPECTS_VIDEO_WATCH_INTERVALS_REFRESH", "EVERY 5 MINUTE"),
+        ("ASPECTS_VIDEO_WATCH_INTERVALS_REFRESH_RANDOMIZE", "1 MINUTE"),
         # Make sure LMS / CMS have event-routing-backends installed
         ######################
         # ClickHouse Settings
@@ -376,7 +384,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
-        ("DBT_BRANCH", "v6.1.0"),
+        ("DBT_BRANCH", "backport/ulmo-engagement-perf"),
         ("DBT_SSH_KEY", ""),
         ("DBT_STATE_DIR", "/app/aspects-dbt/state"),
         ("DBT_PROFILES_DIR", "/app/aspects/dbt/"),
