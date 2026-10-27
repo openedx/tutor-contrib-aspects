@@ -30,7 +30,7 @@ dynamic = ["readme", "version"]
 
 dependencies = [
     "bcrypt",
-    "click>=8.0,<8.3.0",
+    "click>=8.0",
     "importlib-resources",
     "openedx-atlas",
     "ruamel.yaml",
@@ -57,7 +57,7 @@ dev = [
 ]
 
 translations = [
-    "click>=8.0,<8.3.0",
+    "click>=8.0",
     "ruamel.yaml",
 ]
 
