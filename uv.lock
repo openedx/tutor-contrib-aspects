@@ -15,6 +15,7 @@ constraints = [
     { name = "social-auth-app-django", specifier = "<6.0.0" },
     { name = "social-auth-core", specifier = "<5.0.0" },
 ]
+overrides = [{ name = "tutor", specifier = ">=18" }]
 
 [[package]]
 name = "aiohappyeyeballs"
@@ -2385,7 +2386,7 @@ requires-dist = [
     { name = "openedx-atlas" },
     { name = "ruamel-yaml" },
     { name = "shandy-sqlfmt", extras = ["jinjafmt"], specifier = "==0.26.0" },
-    { name = "tutor", specifier = ">=18" },
+    { name = "tutor", specifier = ">=23" },
     { name = "tutor-mfe", specifier = ">=18" },
 ]
 
