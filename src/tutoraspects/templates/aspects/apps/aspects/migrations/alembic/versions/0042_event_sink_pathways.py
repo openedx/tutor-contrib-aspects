@@ -28,10 +28,10 @@ def upgrade():
             created String NOT NULL,
             modified String NOT NULL,
             dump_id UUID NOT NULL,
-            time_last_dumped String NOT NULL
-        ) ENGINE {engine}
-        ORDER BY (id, time_last_dumped)
-        PRIMARY KEY (id, time_last_dumped);
+            time_last_dumped DateTime64(6, 'UTC') NOT NULL,
+            is_deleted UInt8 NOT NULL DEFAULT 0
+        ) ENGINE {engine}(time_last_dumped, is_deleted)
+        ORDER BY id;
         """
     )
 
