@@ -1,5 +1,9 @@
 RUN --mount=type=cache,target=/openedx/.cache/pip,sharing=shared \
     pip install "platform-plugin-aspects @ git+https://github.com/eduNEXT/platform-plugin-aspects@450277b8fb475d9421e4090fa775ce7b627f6dc6"
 
+# TEMPORARY, do not merge: newer openedx-core for the Catalog Pathway models.
+RUN --mount=type=cache,target=/openedx/.cache/pip,sharing=shared \
+    pip install "openedx-core @ git+https://github.com/eduNEXT/openedx-core@813480f065fa88e8096c1a6376abd335af3d7327"
+
 RUN --mount=type=cache,target=/openedx/.cache/pip,sharing=shared \
     pip install "edx-event-routing-backends>=10.0.0"
