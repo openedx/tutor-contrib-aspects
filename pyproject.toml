@@ -35,7 +35,7 @@ dependencies = [
     "openedx-atlas",
     "ruamel.yaml",
     "shandy-sqlfmt[jinjafmt]==0.26.0",
-    "tutor>=18",
+    "tutor>=23",
     "tutor-mfe>=18",
 ]
 
@@ -105,6 +105,10 @@ fallback_version = "0.0.0.dev0"
 
 [tool.uv]
 package = true
+# Aspects 6.x needs Tutor 23 (Willow), which only exists as dev releases.
+# Keep the lockfile on the latest stable Tutor until Willow is released;
+# this does not affect the published package metadata.
+override-dependencies = ["tutor>=18"]
 constraint-dependencies = [
     "Django<6.0",
     "elasticsearch<7.14.0",
