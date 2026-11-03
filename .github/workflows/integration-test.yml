@@ -82,6 +82,8 @@ jobs:
       - name: Test commands
         run: |
           uv run tutor local do dump-data-to-clickhouse --options "--object course_overviews --force"
+          uv run tutor local do dump-data-to-clickhouse --options "--object catalog_pathway --force"
+          uv run tutor local do dump-data-to-clickhouse --options "--object pathway_enrollment --force"
           uv run make extract_translations
           uv run tutor local do import-assets
           uv run tutor local do collect-dbt-lineage
@@ -164,6 +166,8 @@ jobs:
       - name: Test commands
         run: |
           uv run tutor dev do dump-data-to-clickhouse --options "--object course_overviews --force"
+          uv run tutor dev do dump-data-to-clickhouse --options "--object catalog_pathway --force"
+          uv run tutor dev do dump-data-to-clickhouse --options "--object pathway_enrollment --force"
           uv run make extract_translations
           uv run tutor dev do import-assets
       - name: Performance metrics
@@ -283,6 +287,8 @@ jobs:
       - name: Test commands
         run: |
           uv run tutor k8s do dump-data-to-clickhouse --options "--object course_overviews --force"
+          uv run tutor k8s do dump-data-to-clickhouse --options "--object catalog_pathway --force"
+          uv run tutor k8s do dump-data-to-clickhouse --options "--object pathway_enrollment --force"
           uv run make extract_translations
           uv run tutor k8s do import-assets
       - name: Performance metrics
@@ -460,6 +466,8 @@ jobs:
       - name: Test commands
         run: |
           uv run tutor local do dump-data-to-clickhouse --options "--object course_overviews --force"
+          uv run tutor local do dump-data-to-clickhouse --options "--object catalog_pathway --force"
+          uv run tutor local do dump-data-to-clickhouse --options "--object pathway_enrollment --force"
           uv run make extract_translations
           uv run tutor local do import-assets
           uv run tutor local do collect-dbt-lineage
@@ -549,6 +557,8 @@ jobs:
       - name: Test commands
         run: |
           uv run tutor dev do dump-data-to-clickhouse --options "--object course_overviews --force"
+          uv run tutor dev do dump-data-to-clickhouse --options "--object catalog_pathway --force"
+          uv run tutor dev do dump-data-to-clickhouse --options "--object pathway_enrollment --force"
           uv run make extract_translations
           uv run tutor dev do import-assets
       - name: Performance metrics
@@ -673,6 +683,8 @@ jobs:
       - name: Test commands
         run: |
           uv run tutor k8s do dump-data-to-clickhouse --options "--object course_overviews --force"
+          uv run tutor k8s do dump-data-to-clickhouse --options "--object catalog_pathway --force"
+          uv run tutor k8s do dump-data-to-clickhouse --options "--object pathway_enrollment --force"
           uv run make extract_translations
           uv run tutor k8s do import-assets
       - name: Performance metrics
