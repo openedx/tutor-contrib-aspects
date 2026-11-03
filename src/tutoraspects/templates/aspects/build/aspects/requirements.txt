@@ -1,5 +1,6 @@
 # alembic packages
 alembic==1.14.1
 clickhouse-sqlalchemy==0.3.2
-git+https://github.com/openedx/xapi-db-load@v3.3.1
+# TEMPORARY, do not merge: xapi-db-load PR 286 (fake Catalog Pathways).
+git+https://github.com/eduNEXT/xapi-db-load@1c7c7d4c45fc885815d7408c863361b5f5ef82ab
 pyyaml
