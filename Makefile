@@ -41,7 +41,7 @@ test-install: ## Run installation test script
 	tests/test-install.sh
 
 test-pythonpackage: build-pythonpackage ## Test that package can be uploaded to pypi
-	twine check dist/$(PROJECT)-$(shell make version).tar.gz
+	twine check dist/$(PROJECT)-$(shell $(MAKE) --no-print-directory version).tar.gz
 
 format: ## Format code automatically
 	black $(BLACK_OPTS)
