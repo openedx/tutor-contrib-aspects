@@ -233,7 +233,7 @@ jobs:
           docker buildx prune --all --force
           docker buildx stop
       - name: Create k8s Kind Cluster
-        uses: helm/kind-action@1544676c07bb3570fcb70166beaa07c4528fd4aa # v1.15.1
+        uses: helm/kind-action@ea822c7bf1874f08e5a491df991c228edffc3376 # v1.15.2
       - name: Mount docker image
         run: |
           kind get clusters
@@ -623,7 +623,7 @@ jobs:
           docker buildx prune --all --force
           docker buildx stop
       - name: Create k8s Kind Cluster
-        uses: helm/kind-action@1544676c07bb3570fcb70166beaa07c4528fd4aa # v1.15.1
+        uses: helm/kind-action@ea822c7bf1874f08e5a491df991c228edffc3376 # v1.15.2
       - name: Mount docker image
         run: |
           kind get clusters
