@@ -1,0 +1,37 @@
+_file_name: TTM_G_box_plot_log_scale_log10_of_hours_43330a.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 0f6dbf75-0b29-5a04-a230-f2b219f95cd4
+description: 'log10(hours): 0 = 1 hour, 1.4 = 1 day, 2.2 = 1 week, 2.9 = 1 month'
+params:
+  adhoc_filters:
+  - clause: WHERE
+    expressionType: SQL
+    sqlExpression: time_unit = 'Hours'
+  annotation_layers: []
+  color_scheme: aspects_default
+  columns:
+  - actor_id
+  date_format: smart_date
+  extra_form_data: {}
+  groupby:
+  - competency
+  metrics:
+  - expressionType: SQL
+    hasCustomLabel: true
+    label: log10(hours)
+    sqlExpression: log10(greatest(max(time_to_mastery), 0.01))
+  number_format: ',.1f'
+  row_limit: 10000
+  viz_type: box_plot
+  whiskerOptions: Tukey
+  x_ticks_layout: 45°
+  y_axis_title: log10(hours to mastery)
+query_context: null
+slice_name: 'TTM G: box plot, log scale (log10 of hours)'
+tags:
+- original
+uuid: 43330a6c-9758-5a37-bea3-f08acc9e06ca
+version: 1.0.0
+viz_type: box_plot

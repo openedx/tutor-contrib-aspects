@@ -1,0 +1,43 @@
+_file_name: Mastery_Status_Count_922596.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 6012b2ac-11d5-50b0-be49-2f73f91fcfa3
+description: Learners by mastery status
+params:
+  adhoc_filters: []
+  annotation_layers: []
+  color_scheme: aspects_default
+  extra_form_data: {}
+  groupby:
+  - status
+  legendOrientation: top
+  legendType: scroll
+  metrics:
+  - learners
+  orientation: vertical
+  rich_tooltip: true
+  row_limit: 10000
+  show_empty_columns: true
+  show_legend: true
+  sort_series_type: name
+  stack: Stack
+  truncateXAxis: false
+  truncateYAxis: false
+  truncate_metric: true
+  viz_type: echarts_timeseries_bar
+  xAxisLabelRotation: 45
+  x_axis: competency
+  x_axis_sort_series: name
+  x_axis_sort_series_ascending: true
+  y_axis_format: SMART_NUMBER
+  y_axis_title: Learners
+  y_axis_title_margin: 40
+  y_axis_title_position: Left
+query_context: null
+slice_name: Mastery Status Count
+tags:
+- original
+uuid: 922596da-00fc-5c41-8798-1dc7cd90b283
+version: 1.0.0
+viz_type: echarts_timeseries_bar

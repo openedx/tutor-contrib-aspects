@@ -1,0 +1,43 @@
+_file_name: Mastery_Status_Pct_Breakdown_262d1e.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 6012b2ac-11d5-50b0-be49-2f73f91fcfa3
+description: Share of enrolled learners in each status
+params:
+  adhoc_filters: []
+  annotation_layers: []
+  color_scheme: aspects_default
+  contributionMode: row
+  extra_form_data: {}
+  groupby:
+  - status
+  legendOrientation: top
+  legendType: scroll
+  metrics:
+  - learners
+  orientation: vertical
+  rich_tooltip: true
+  row_limit: 10000
+  show_empty_columns: true
+  show_legend: true
+  sort_series_type: name
+  truncateXAxis: false
+  truncateYAxis: false
+  truncate_metric: true
+  viz_type: echarts_timeseries_bar
+  xAxisLabelRotation: 45
+  x_axis: competency
+  x_axis_sort_series: name
+  x_axis_sort_series_ascending: true
+  y_axis_format: .0%
+  y_axis_title: '% of learners'
+  y_axis_title_margin: 40
+  y_axis_title_position: Left
+query_context: null
+slice_name: Mastery Status % Breakdown
+tags:
+- original
+uuid: 262d1ecb-8bab-5d62-addb-0a728fc0b250
+version: 1.0.0
+viz_type: echarts_timeseries_bar

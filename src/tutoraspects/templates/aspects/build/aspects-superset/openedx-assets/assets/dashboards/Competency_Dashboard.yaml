@@ -13,293 +13,478 @@ metadata:
   cross_filters_enabled: true
   expanded_slices: {}
   global_chart_configuration:
-    chartsInScope: []
+    chartsInScope:
+    - 9001
+    - 9002
+    - 9003
+    - 9004
+    - 9005
+    - 9006
+    - 9007
+    - 9008
+    - 9009
+    - 9010
+    - 9011
     scope:
       excluded: []
       rootPath:
       - ROOT_ID
-  label_colors: {}
-  native_filter_configuration: []
+  label_colors:
+    Available: '#CBD5E1'
+    Demonstrated: '#3FA36F'
+    Not Demonstrated: '#741420'
+    Partially Attempted: '#0A67A3'
+  native_filter_configuration:
+  - cascadeParentIds: []
+    chartsInScope:
+    - 9001
+    - 9002
+    - 9003
+    - 9004
+    - 9005
+    - 9006
+    - 9007
+    - 9008
+    - 9009
+    - 9010
+    - 9011
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-competency-org
+    name: Organization
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope: []
+    targets:
+    - column:
+        name: org
+      datasetUuid: 6012b2ac-11d5-50b0-be49-2f73f91fcfa3
+    type: NATIVE_FILTER
+  - cascadeParentIds: []
+    chartsInScope:
+    - 9001
+    - 9002
+    - 9003
+    - 9004
+    - 9005
+    - 9006
+    - 9007
+    - 9008
+    - 9009
+    - 9010
+    - 9011
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-competency-competency
+    name: Competency
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope: []
+    targets:
+    - column:
+        name: competency
+      datasetUuid: 6012b2ac-11d5-50b0-be49-2f73f91fcfa3
+    type: NATIVE_FILTER
+  - cascadeParentIds: []
+    chartsInScope:
+    - 9001
+    - 9002
+    - 9003
+    - 9004
+    - 9005
+    - 9006
+    - 9007
+    - 9008
+    - 9009
+    - 9010
+    - 9011
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-competency-course
+    name: Course
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope: []
+    targets:
+    - column:
+        name: course_name
+      datasetUuid: 6012b2ac-11d5-50b0-be49-2f73f91fcfa3
+    type: NATIVE_FILTER
+  - cascadeParentIds: []
+    chartsInScope:
+    - 9001
+    - 9002
+    - 9003
+    - 9004
+    - 9005
+    - 9006
+    - 9007
+    - 9008
+    - 9009
+    - 9010
+    - 9011
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-competency-status
+    name: Status
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope: []
+    targets:
+    - column:
+        name: status
+      datasetUuid: 6012b2ac-11d5-50b0-be49-2f73f91fcfa3
+    type: NATIVE_FILTER
   refresh_frequency: 0
   shared_label_colors: {}
   timed_refresh_immune_slices: []
 position:
+  CHART-competency-count:
+    children: []
+    id: CHART-competency-count
+    meta:
+      chartId: 9001
+      height: 60
+      sliceName: Mastery Status Count
+      uuid: 922596da-00fc-5c41-8798-1dc7cd90b283
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-2
+    type: CHART
+  CHART-competency-log:
+    children: []
+    id: CHART-competency-log
+    meta:
+      chartId: 9011
+      height: 60
+      sliceName: Learner Competency Mastery
+      uuid: a0e65b39-e03f-5b8c-af91-c08f3c456f96
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-6
+    type: CHART
+  CHART-competency-over_time:
+    children: []
+    id: CHART-competency-over_time
+    meta:
+      chartId: 9003
+      height: 60
+      sliceName: Competencies Mastered Over Time (Day)
+      sliceNameOverride: Competencies Mastered Over Time
+      uuid: eb0f8ab3-bc9e-5a24-8e7a-7c8c737fc874
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-over_time
+    - TABS-competency-over_time
+    - TAB-competency-over_time
+    - ROW-competency-over_time
+    type: CHART
+  CHART-competency-over_time_hour:
+    children: []
+    id: CHART-competency-over_time_hour
+    meta:
+      chartId: 9006
+      height: 60
+      sliceName: Competencies Mastered Over Time (Hour)
+      sliceNameOverride: Competencies Mastered Over Time
+      uuid: b7df34f1-b0ed-5de8-b855-3a153ad9a459
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-over_time
+    - TABS-competency-over_time
+    - TAB-competency-over_time_hour
+    - ROW-competency-over_time_hour
+    type: CHART
+  CHART-competency-over_time_month:
+    children: []
+    id: CHART-competency-over_time_month
+    meta:
+      chartId: 9005
+      height: 60
+      sliceName: Competencies Mastered Over Time (Month)
+      sliceNameOverride: Competencies Mastered Over Time
+      uuid: a992a6cf-38e6-55c8-9573-8d028e2ebabd
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-over_time
+    - TABS-competency-over_time
+    - TAB-competency-over_time_month
+    - ROW-competency-over_time_month
+    type: CHART
+  CHART-competency-over_time_week:
+    children: []
+    id: CHART-competency-over_time_week
+    meta:
+      chartId: 9004
+      height: 60
+      sliceName: Competencies Mastered Over Time (Week)
+      sliceNameOverride: Competencies Mastered Over Time
+      uuid: 36965da6-011a-5567-a1e8-a81a31d38c1e
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-over_time
+    - TABS-competency-over_time
+    - TAB-competency-over_time_week
+    - ROW-competency-over_time_week
+    type: CHART
+  CHART-competency-pct:
+    children: []
+    id: CHART-competency-pct
+    meta:
+      chartId: 9002
+      height: 60
+      sliceName: Mastery Status % Breakdown
+      uuid: 262d1ecb-8bab-5d62-addb-0a728fc0b250
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-2
+    type: CHART
+  CHART-competency-time_to:
+    children: []
+    id: CHART-competency-time_to
+    meta:
+      chartId: 9007
+      height: 60
+      sliceName: Time to Mastery (Days)
+      sliceNameOverride: Time to Mastery
+      uuid: c98b9889-a5bd-5b9f-9fc9-84a1569fa132
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-time_to
+    - TABS-competency-time_to
+    - TAB-competency-time_to
+    - ROW-competency-time_to
+    type: CHART
+  CHART-competency-time_to_hours:
+    children: []
+    id: CHART-competency-time_to_hours
+    meta:
+      chartId: 9010
+      height: 60
+      sliceName: Time to Mastery (Hours)
+      sliceNameOverride: Time to Mastery
+      uuid: 405e5162-6c22-5b82-9ed0-ad094f8004f2
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-time_to
+    - TABS-competency-time_to
+    - TAB-competency-time_to_hours
+    - ROW-competency-time_to_hours
+    type: CHART
+  CHART-competency-time_to_months:
+    children: []
+    id: CHART-competency-time_to_months
+    meta:
+      chartId: 9009
+      height: 60
+      sliceName: Time to Mastery (Months)
+      sliceNameOverride: Time to Mastery
+      uuid: a21d169d-e560-597a-a1d2-84db8e79ef3f
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-time_to
+    - TABS-competency-time_to
+    - TAB-competency-time_to_months
+    - ROW-competency-time_to_months
+    type: CHART
+  CHART-competency-time_to_weeks:
+    children: []
+    id: CHART-competency-time_to_weeks
+    meta:
+      chartId: 9008
+      height: 60
+      sliceName: Time to Mastery (Weeks)
+      sliceNameOverride: Time to Mastery
+      uuid: e0685f60-c46d-5b70-9693-37314d80c177
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-time_to
+    - TABS-competency-time_to
+    - TAB-competency-time_to_weeks
+    - ROW-competency-time_to_weeks
+    type: CHART
+  COLUMN-competency-over_time:
+    children:
+    - TABS-competency-over_time
+    id: COLUMN-competency-over_time
+    meta:
+      background: BACKGROUND_TRANSPARENT
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    type: COLUMN
+  COLUMN-competency-time_to:
+    children:
+    - TABS-competency-time_to
+    id: COLUMN-competency-time_to
+    meta:
+      background: BACKGROUND_TRANSPARENT
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    type: COLUMN
   DASHBOARD_VERSION_KEY: v2
   GRID_ID:
     children:
-    - ROW-competency-1
+    - HEADER-competency-status
     - ROW-competency-2
-    - ROW-competency-3
+    - HEADER-competency-details
     - ROW-competency-4
-    - ROW-competency-5
+    - HEADER-competency-log
     - ROW-competency-6
     - ROW-competency-7
     id: GRID_ID
     parents:
     - ROOT_ID
     type: GRID
+  HEADER-competency-details:
+    children: []
+    id: HEADER-competency-details
+    meta:
+      background: BACKGROUND_TRANSPARENT
+      headerSize: MEDIUM_HEADER
+      text: Mastery Details
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: HEADER
+  HEADER-competency-log:
+    children: []
+    id: HEADER-competency-log
+    meta:
+      background: BACKGROUND_TRANSPARENT
+      headerSize: MEDIUM_HEADER
+      text: Learner Mastery and Assessment Log
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: HEADER
+  HEADER-competency-status:
+    children: []
+    id: HEADER-competency-status
+    meta:
+      background: BACKGROUND_TRANSPARENT
+      headerSize: MEDIUM_HEADER
+      text: Mastery Status
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: HEADER
   HEADER_ID:
     id: HEADER_ID
     meta:
       text: Competency Dashboard
     type: HEADER
-  MARKDOWN-competency-count:
+  MARKDOWN-competency-notes:
     children: []
-    id: MARKDOWN-competency-count
+    id: MARKDOWN-competency-notes
     meta:
-      code: '### Mastery Status Count (#407)
+      code: |
+        **About this dashboard**
 
-
-        *Learners by mastery status*
-
-
-        **Chart:** stacked bar
-
-
-        - **X:** competency
-
-        - **Y:** learners, `count(distinct actor_id)`
-
-        - **Stack:** Available, Partially Attempted, Not Demonstrated, Demonstrated
-
-        - **Control:** status multi-select
-
-
-        **Colours:** Available `#CBD5E1`, Partially Attempted `#0A67A3`, Not Demonstrated `#741420`, Demonstrated `#3FA36F`
-
-
-        **Data:** `student_competency_status` sink; Available = enrolled in a course assessing the competency, with no status
-
-        '
-      height: 60
-      width: 6
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - ROW-competency-3
-    type: MARKDOWN
-  MARKDOWN-competency-filters:
-    children: []
-    id: MARKDOWN-competency-filters
-    meta:
-      code: '### Filters (#406)
-
-
-        Native filters go here once datasets exist. Every box below responds to all four.
-
-
-        - **Organization**: the course''s org
-
-        - **Competency**: competency tags only; selecting one also selects its parents and children (#435)
-
-        - **Course**: courses that assess the competency
-
-        - **Pathway**: courses in the pathway (gated on Epic 1 phase 2)
-
-        '
-      height: 34
-      width: 12
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - ROW-competency-1
-    type: MARKDOWN
-  MARKDOWN-competency-log:
-    children: []
-    id: MARKDOWN-competency-log
-    meta:
-      code: '### Learner Competency Mastery (#409)
-
-
-        **Chart:** table, PII; sortable columns; default sort Competency, then Name
-
-
-        **Controls:** Status filter, learner search, pagination
-
-
-        | Name | Username | Email address | Competency | Competency Status | First Attempt | Mastery Date |
-
-        |---|---|---|---|---|---|---|
-
-        | *dim_user_pii* | *dim_user_pii* | *dim_user_pii* | *competency tag* | *status* | *first activity* | *Demonstrated date, empty otherwise* |
-
-
-        **Grain:** one row per learner x competency, Available included
-
-
-        **Data:** `student_competency_status` sink + `dim_user_pii`
-
-        '
-      height: 50
+        - **Not Demonstrated** never shows yet: core stores it per course, not per learner (spec D1)
+        - **Pathway filter**: gated on Epic 1 phase 2
+        - **Competency filter** doesn't select parents and children yet (#435)
+        - **Status order** in the bars follows Superset's series sorting, not the mastery ladder
+      height: 22
       width: 12
     parents:
     - ROOT_ID
     - GRID_ID
     - ROW-competency-7
     type: MARKDOWN
-  MARKDOWN-competency-overtime:
-    children: []
-    id: MARKDOWN-competency-overtime
-    meta:
-      code: '### Competencies Mastered Over Time (#410)
-
-
-        *Cumulative count of competencies demonstrated*
-
-
-        **Chart:** area, cumulative
-
-
-        - **X:** time; grain hours, days, weeks or months; range selectable
-
-        - **Y:** cumulative learner-competency pairs that reached Demonstrated
-
-
-        **Data:** `modified` of `student_competency_status` rows at Demonstrated (statuses only rise, so it never moves again)
-
-        '
-      height: 60
-      width: 6
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - ROW-competency-5
-    type: MARKDOWN
-  MARKDOWN-competency-pct:
-    children: []
-    id: MARKDOWN-competency-pct
-    meta:
-      code: '### Mastery Status % Breakdown (#408)
-
-
-        *Share of enrolled learners in each status*
-
-
-        **Chart:** grouped bar
-
-
-        - **X:** competency
-
-        - **Y:** % of learners
-
-        - **Group:** status (same four as the count chart)
-
-
-        **Denominator:** learners enrolled in some course that assesses the competency. Percentages sum to 100% per competency.
-
-
-        **Data:** same model as Mastery Status Count
-
-        '
-      height: 60
-      width: 6
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - ROW-competency-3
-    type: MARKDOWN
-  MARKDOWN-competency-sec-details:
-    children: []
-    id: MARKDOWN-competency-sec-details
-    meta:
-      code: '## Mastery Details'
-      height: 8
-      width: 12
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - ROW-competency-4
-    type: MARKDOWN
-  MARKDOWN-competency-sec-log:
-    children: []
-    id: MARKDOWN-competency-sec-log
-    meta:
-      code: '## Learner Mastery and Assessment Log
-
-
-        *Entire section hidden when PII is off.*'
-      height: 12
-      width: 12
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - ROW-competency-6
-    type: MARKDOWN
-  MARKDOWN-competency-sec-status:
-    children: []
-    id: MARKDOWN-competency-sec-status
-    meta:
-      code: '## Mastery Status'
-      height: 8
-      width: 12
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - ROW-competency-2
-    type: MARKDOWN
-  MARKDOWN-competency-timeto:
-    children: []
-    id: MARKDOWN-competency-timeto
-    meta:
-      code: '### Time to Mastery (#411)
-
-
-        *Time from first activity to demonstration*
-
-
-        **Chart:** box plot
-
-
-        - **X:** competency
-
-        - **Y:** time to mastery; grain hours, days, weeks or months
-
-        - **Legend:** interquartile range, median, min / max
-
-
-        **Start:** first recorded activity on content tagged with the competency (xAPI)
-
-
-        **End:** mastery date, as in Competencies Mastered Over Time
-
-        '
-      height: 60
-      width: 6
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    - ROW-competency-5
-    type: MARKDOWN
   ROOT_ID:
     children:
     - GRID_ID
     id: ROOT_ID
     type: ROOT
-  ROW-competency-1:
-    children:
-    - MARKDOWN-competency-filters
-    id: ROW-competency-1
-    meta:
-      background: BACKGROUND_TRANSPARENT
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    type: ROW
   ROW-competency-2:
     children:
-    - MARKDOWN-competency-sec-status
+    - CHART-competency-count
+    - CHART-competency-pct
     id: ROW-competency-2
-    meta:
-      background: BACKGROUND_TRANSPARENT
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    type: ROW
-  ROW-competency-3:
-    children:
-    - MARKDOWN-competency-count
-    - MARKDOWN-competency-pct
-    id: ROW-competency-3
     meta:
       background: BACKGROUND_TRANSPARENT
     parents:
@@ -308,19 +493,9 @@ position:
     type: ROW
   ROW-competency-4:
     children:
-    - MARKDOWN-competency-sec-details
+    - COLUMN-competency-over_time
+    - COLUMN-competency-time_to
     id: ROW-competency-4
-    meta:
-      background: BACKGROUND_TRANSPARENT
-    parents:
-    - ROOT_ID
-    - GRID_ID
-    type: ROW
-  ROW-competency-5:
-    children:
-    - MARKDOWN-competency-overtime
-    - MARKDOWN-competency-timeto
-    id: ROW-competency-5
     meta:
       background: BACKGROUND_TRANSPARENT
     parents:
@@ -329,7 +504,7 @@ position:
     type: ROW
   ROW-competency-6:
     children:
-    - MARKDOWN-competency-sec-log
+    - CHART-competency-log
     id: ROW-competency-6
     meta:
       background: BACKGROUND_TRANSPARENT
@@ -339,7 +514,7 @@ position:
     type: ROW
   ROW-competency-7:
     children:
-    - MARKDOWN-competency-log
+    - MARKDOWN-competency-notes
     id: ROW-competency-7
     meta:
       background: BACKGROUND_TRANSPARENT
@@ -347,6 +522,266 @@ position:
     - ROOT_ID
     - GRID_ID
     type: ROW
+  ROW-competency-over_time:
+    children:
+    - CHART-competency-over_time
+    id: ROW-competency-over_time
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-over_time
+    - TABS-competency-over_time
+    - TAB-competency-over_time
+    type: ROW
+  ROW-competency-over_time_hour:
+    children:
+    - CHART-competency-over_time_hour
+    id: ROW-competency-over_time_hour
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-over_time
+    - TABS-competency-over_time
+    - TAB-competency-over_time_hour
+    type: ROW
+  ROW-competency-over_time_month:
+    children:
+    - CHART-competency-over_time_month
+    id: ROW-competency-over_time_month
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-over_time
+    - TABS-competency-over_time
+    - TAB-competency-over_time_month
+    type: ROW
+  ROW-competency-over_time_week:
+    children:
+    - CHART-competency-over_time_week
+    id: ROW-competency-over_time_week
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-over_time
+    - TABS-competency-over_time
+    - TAB-competency-over_time_week
+    type: ROW
+  ROW-competency-time_to:
+    children:
+    - CHART-competency-time_to
+    id: ROW-competency-time_to
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-time_to
+    - TABS-competency-time_to
+    - TAB-competency-time_to
+    type: ROW
+  ROW-competency-time_to_hours:
+    children:
+    - CHART-competency-time_to_hours
+    id: ROW-competency-time_to_hours
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-time_to
+    - TABS-competency-time_to
+    - TAB-competency-time_to_hours
+    type: ROW
+  ROW-competency-time_to_months:
+    children:
+    - CHART-competency-time_to_months
+    id: ROW-competency-time_to_months
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-time_to
+    - TABS-competency-time_to
+    - TAB-competency-time_to_months
+    type: ROW
+  ROW-competency-time_to_weeks:
+    children:
+    - CHART-competency-time_to_weeks
+    id: ROW-competency-time_to_weeks
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-time_to
+    - TABS-competency-time_to
+    - TAB-competency-time_to_weeks
+    type: ROW
+  TAB-competency-over_time:
+    children:
+    - ROW-competency-over_time
+    id: TAB-competency-over_time
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Day
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-over_time
+    - TABS-competency-over_time
+    type: TAB
+  TAB-competency-over_time_hour:
+    children:
+    - ROW-competency-over_time_hour
+    id: TAB-competency-over_time_hour
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Hour
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-over_time
+    - TABS-competency-over_time
+    type: TAB
+  TAB-competency-over_time_month:
+    children:
+    - ROW-competency-over_time_month
+    id: TAB-competency-over_time_month
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Month
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-over_time
+    - TABS-competency-over_time
+    type: TAB
+  TAB-competency-over_time_week:
+    children:
+    - ROW-competency-over_time_week
+    id: TAB-competency-over_time_week
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Week
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-over_time
+    - TABS-competency-over_time
+    type: TAB
+  TAB-competency-time_to:
+    children:
+    - ROW-competency-time_to
+    id: TAB-competency-time_to
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Days
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-time_to
+    - TABS-competency-time_to
+    type: TAB
+  TAB-competency-time_to_hours:
+    children:
+    - ROW-competency-time_to_hours
+    id: TAB-competency-time_to_hours
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Hours
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-time_to
+    - TABS-competency-time_to
+    type: TAB
+  TAB-competency-time_to_months:
+    children:
+    - ROW-competency-time_to_months
+    id: TAB-competency-time_to_months
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Months
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-time_to
+    - TABS-competency-time_to
+    type: TAB
+  TAB-competency-time_to_weeks:
+    children:
+    - ROW-competency-time_to_weeks
+    id: TAB-competency-time_to_weeks
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Weeks
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-time_to
+    - TABS-competency-time_to
+    type: TAB
+  TABS-competency-over_time:
+    children:
+    - TAB-competency-over_time
+    - TAB-competency-over_time_week
+    - TAB-competency-over_time_month
+    - TAB-competency-over_time_hour
+    id: TABS-competency-over_time
+    meta: {}
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-over_time
+    type: TABS
+  TABS-competency-time_to:
+    children:
+    - TAB-competency-time_to
+    - TAB-competency-time_to_weeks
+    - TAB-competency-time_to_months
+    - TAB-competency-time_to_hours
+    id: TABS-competency-time_to
+    meta: {}
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-4
+    - COLUMN-competency-time_to
+    type: TABS
 published: true
 slug: competency-dashboard
 tags:

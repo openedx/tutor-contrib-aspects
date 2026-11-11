@@ -1,0 +1,203 @@
+_file_name: competency_time_to_mastery.yaml
+always_filter_main_dttm: false
+cache_timeout: null
+catalog: null
+columns:
+- advanced_data_type: null
+  column_name: org
+  datetime_format: null
+  description: null
+  expression: ''
+  extra: &id001 {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Organization
+- advanced_data_type: null
+  column_name: course_key
+  datetime_format: null
+  description: null
+  expression: ''
+  extra: *id001
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Key
+- advanced_data_type: null
+  column_name: course_name
+  datetime_format: null
+  description: null
+  expression: ''
+  extra: *id001
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Course Name
+- advanced_data_type: null
+  column_name: actor_id
+  datetime_format: null
+  description: null
+  expression: ''
+  extra: *id001
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Actor ID
+- advanced_data_type: null
+  column_name: tag_id
+  datetime_format: null
+  description: null
+  expression: ''
+  extra: *id001
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Int64
+  verbose_name: Competency ID
+- advanced_data_type: null
+  column_name: competency
+  datetime_format: null
+  description: null
+  expression: ''
+  extra: *id001
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Competency
+- advanced_data_type: null
+  column_name: competency_path
+  datetime_format: null
+  description: null
+  expression: ''
+  extra: *id001
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Competency Path
+- advanced_data_type: null
+  column_name: competency_level
+  datetime_format: null
+  description: null
+  expression: ''
+  extra: *id001
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Competency Level
+- advanced_data_type: null
+  column_name: status
+  datetime_format: null
+  description: null
+  expression: ''
+  extra: *id001
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Competency Status
+- advanced_data_type: null
+  column_name: time_unit
+  datetime_format: null
+  description: null
+  expression: ''
+  extra: *id001
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Time Unit
+- advanced_data_type: null
+  column_name: time_to_mastery
+  datetime_format: null
+  description: null
+  expression: ''
+  extra: *id001
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Nullable(Float64)
+  verbose_name: Time to Mastery
+- advanced_data_type: null
+  column_name: time_to_mastery_seconds
+  datetime_format: null
+  description: null
+  expression: ''
+  extra: *id001
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: Nullable(Int64)
+  verbose_name: Time to Mastery (seconds)
+- advanced_data_type: null
+  column_name: time_to_mastery_bucket
+  datetime_format: null
+  description: null
+  expression: ''
+  extra: *id001
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: String
+  verbose_name: Time to Mastery Bucket
+currency_code_column: null
+database_uuid: 21174b6c-4d40-4958-8161-d6c3cf5e77b6
+default_endpoint: null
+description: Time to mastery of each demonstrated learner x competency, once per time unit
+extra: {}
+fetch_values_predicate: null
+filter_select_enabled: true
+folders: null
+main_dttm_col: null
+metrics:
+- currency: null
+  d3format: null
+  description: null
+  expression: max(time_to_mastery)
+  extra: {}
+  metric_name: time_to_mastery
+  metric_type: null
+  verbose_name: Time to Mastery
+  warning_text: null
+normalize_columns: true
+offset: 0
+params: null
+schema: '{{ DBT_PROFILE_TARGET_DATABASE }}'
+sql: |
+  {% filter indent(width=2) %}{% include 'openedx-assets/queries/competency_time_to_mastery.sql' %}{% endfilter %}
+table_name: competency_time_to_mastery
+template_params: {}
+uuid: 0f6dbf75-0b29-5a04-a230-f2b219f95cd4
+version: 1.0.0

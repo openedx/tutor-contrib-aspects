@@ -1,0 +1,32 @@
+_file_name: TTM_K_distribution_of_time_to_mastery_histogram_f38919.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 0f6dbf75-0b29-5a04-a230-f2b219f95cd4
+description: All competencies together, split into leaves and parents
+params:
+  adhoc_filters:
+  - clause: WHERE
+    expressionType: SQL
+    sqlExpression: time_unit = 'Days'
+  annotation_layers: []
+  bins: 40
+  color_scheme: aspects_default
+  column: time_to_mastery
+  cumulative: false
+  extra_form_data: {}
+  groupby:
+  - competency_level
+  normalize: false
+  row_limit: 100000
+  show_legend: true
+  viz_type: histogram_v2
+  x_axis_title: Days
+  y_axis_title: Learner-competency pairs
+query_context: null
+slice_name: 'TTM K: distribution of time to mastery (histogram)'
+tags:
+- original
+uuid: f3891959-d7d8-508e-931c-e247bc31b3da
+version: 1.0.0
+viz_type: histogram_v2

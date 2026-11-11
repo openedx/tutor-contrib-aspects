@@ -1,0 +1,510 @@
+_file_name: Competency_Explore.yaml
+_roles:
+- '{{ SUPERSET_ROLES_MAPPING.instructor }}'
+certification_details: null
+certified_by: null
+css: ''
+dashboard_title: Competency Explore
+description: null
+metadata:
+  chart_configuration: {}
+  color_scheme: aspects_default
+  color_scheme_domain: []
+  cross_filters_enabled: true
+  expanded_slices: {}
+  global_chart_configuration:
+    chartsInScope: &id001
+    - 9501
+    - 9502
+    - 9503
+    - 9504
+    - 9505
+    - 9506
+    - 9507
+    - 9508
+    - 9509
+    - 9510
+    - 9511
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+  label_colors:
+    Available: '#CBD5E1'
+    Demonstrated: '#3FA36F'
+    Not Demonstrated: '#741420'
+    Partially Attempted: '#0A67A3'
+  native_filter_configuration:
+  - cascadeParentIds: []
+    chartsInScope: *id001
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-competency-explore-org
+    name: Organization
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope: []
+    targets:
+    - column:
+        name: org
+      datasetUuid: 0f6dbf75-0b29-5a04-a230-f2b219f95cd4
+    type: NATIVE_FILTER
+  - cascadeParentIds: []
+    chartsInScope: *id001
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-competency-explore-competency
+    name: Competency
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope: []
+    targets:
+    - column:
+        name: competency
+      datasetUuid: 0f6dbf75-0b29-5a04-a230-f2b219f95cd4
+    type: NATIVE_FILTER
+  - cascadeParentIds: []
+    chartsInScope: *id001
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-competency-explore-course
+    name: Course
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope: []
+    targets:
+    - column:
+        name: course_name
+      datasetUuid: 0f6dbf75-0b29-5a04-a230-f2b219f95cd4
+    type: NATIVE_FILTER
+  - cascadeParentIds: []
+    chartsInScope: *id001
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: false
+      inverseSelection: false
+      multiSelect: true
+      searchAllOptions: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-competency-explore-level
+    name: Competency level
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+    tabsInScope: []
+    targets:
+    - column:
+        name: competency_level
+      datasetUuid: 0f6dbf75-0b29-5a04-a230-f2b219f95cd4
+    type: NATIVE_FILTER
+  - cascadeParentIds: []
+    chartsInScope:
+    - 9506
+    controlValues:
+      enableEmptyFilter: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: Only changes chart F
+    filterType: filter_range
+    id: NATIVE_FILTER-competency-explore-range
+    name: Time to mastery range (days)
+    scope:
+      excluded:
+      - 9501
+      - 9502
+      - 9503
+      - 9504
+      - 9505
+      - 9507
+      - 9508
+      - 9509
+      - 9510
+      - 9511
+      rootPath:
+      - ROOT_ID
+    tabsInScope: []
+    targets:
+    - column:
+        name: time_to_mastery
+      datasetUuid: 0f6dbf75-0b29-5a04-a230-f2b219f95cd4
+    type: NATIVE_FILTER
+  refresh_frequency: 0
+  shared_label_colors: {}
+  timed_refresh_immune_slices: []
+position:
+  CHART-competency-x_heatmap:
+    children: []
+    id: CHART-competency-x_heatmap
+    meta:
+      chartId: 9510
+      height: 60
+      sliceName: 'TTM J: learners per time bucket (heatmap)'
+      uuid: 1ec91de9-7769-575b-9263-4723b92778ed
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-explore-10
+    type: CHART
+  CHART-competency-x_histogram:
+    children: []
+    id: CHART-competency-x_histogram
+    meta:
+      chartId: 9511
+      height: 60
+      sliceName: 'TTM K: distribution of time to mastery (histogram)'
+      uuid: f3891959-d7d8-508e-931c-e247bc31b3da
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-explore-10
+    type: CHART
+  CHART-competency-x_leaf:
+    children: []
+    id: CHART-competency-x_leaf
+    meta:
+      chartId: 9505
+      height: 60
+      sliceName: 'TTM E: box plot, Tukey, leaf competencies only'
+      uuid: 9a96f039-bdcf-5800-a814-f6afb779dbb5
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-explore-6
+    type: CHART
+  CHART-competency-x_log:
+    children: []
+    id: CHART-competency-x_log
+    meta:
+      chartId: 9507
+      height: 60
+      sliceName: 'TTM G: box plot, log scale (log10 of hours)'
+      uuid: 43330a6c-9758-5a37-bea3-f08acc9e06ca
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-explore-7
+    type: CHART
+  CHART-competency-x_minmax:
+    children: []
+    id: CHART-competency-x_minmax
+    meta:
+      chartId: 9501
+      height: 60
+      sliceName: 'TTM A: box plot, min/max whiskers'
+      uuid: 4a879995-144f-5705-ba66-7a044fb9d5b0
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-explore-3
+    type: CHART
+  CHART-competency-x_p2:
+    children: []
+    id: CHART-competency-x_p2
+    meta:
+      chartId: 9504
+      height: 60
+      sliceName: 'TTM D: box plot, 2/98 percentile whiskers'
+      uuid: c2a72087-9d70-5040-9566-2d25b6014bb5
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-explore-4
+    type: CHART
+  CHART-competency-x_p9:
+    children: []
+    id: CHART-competency-x_p9
+    meta:
+      chartId: 9503
+      height: 60
+      sliceName: 'TTM C: box plot, 9/91 percentile whiskers'
+      uuid: 716c83d3-59ed-5f23-adda-52ee309eaa04
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-explore-4
+    type: CHART
+  CHART-competency-x_quartiles:
+    children: []
+    id: CHART-competency-x_quartiles
+    meta:
+      chartId: 9508
+      height: 60
+      sliceName: 'TTM H: quartiles per competency (bars)'
+      uuid: c1f92eaf-3625-5123-8fb0-254afde546ea
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-explore-9
+    type: CHART
+  CHART-competency-x_range:
+    children: []
+    id: CHART-competency-x_range
+    meta:
+      chartId: 9506
+      height: 60
+      sliceName: 'TTM F: box plot, Tukey, with a range filter'
+      uuid: aab28c12-bfbd-5aa4-a923-d371a62e7b0f
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-explore-6
+    type: CHART
+  CHART-competency-x_ranked:
+    children: []
+    id: CHART-competency-x_ranked
+    meta:
+      chartId: 9509
+      height: 60
+      sliceName: 'TTM I: median days, ranked'
+      uuid: 61342b94-8013-5f0e-8c5f-7a29126bf1e3
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-explore-9
+    type: CHART
+  CHART-competency-x_tukey:
+    children: []
+    id: CHART-competency-x_tukey
+    meta:
+      chartId: 9502
+      height: 60
+      sliceName: 'TTM B: box plot, Tukey whiskers'
+      uuid: 794d7270-e956-5f4b-b65b-766b75463dcc
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-explore-3
+    type: CHART
+  DASHBOARD_VERSION_KEY: v2
+  GRID_ID:
+    children:
+    - ROW-competency-explore-1
+    - HEADER-competency-x-box
+    - ROW-competency-explore-3
+    - ROW-competency-explore-4
+    - HEADER-competency-x-scope
+    - ROW-competency-explore-6
+    - ROW-competency-explore-7
+    - HEADER-competency-x-alt
+    - ROW-competency-explore-9
+    - ROW-competency-explore-10
+    id: GRID_ID
+    parents:
+    - ROOT_ID
+    type: GRID
+  HEADER-competency-x-alt:
+    children: []
+    id: HEADER-competency-x-alt
+    meta:
+      background: BACKGROUND_TRANSPARENT
+      headerSize: MEDIUM_HEADER
+      text: Other chart types
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: HEADER
+  HEADER-competency-x-box:
+    children: []
+    id: HEADER-competency-x-box
+    meta:
+      background: BACKGROUND_TRANSPARENT
+      headerSize: MEDIUM_HEADER
+      text: 'Box plots: whisker options'
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: HEADER
+  HEADER-competency-x-scope:
+    children: []
+    id: HEADER-competency-x-scope
+    meta:
+      background: BACKGROUND_TRANSPARENT
+      headerSize: MEDIUM_HEADER
+      text: 'Box plots: scoping and scale'
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: HEADER
+  HEADER_ID:
+    id: HEADER_ID
+    meta:
+      text: Competency Explore
+    type: HEADER
+  MARKDOWN-competency-x-intro:
+    children: []
+    id: MARKDOWN-competency-x-intro
+    meta:
+      code: |-
+        **Competency Explore**: the same data as the Competency Dashboard, with every Time to Mastery
+        option side by side. All charts read days unless they say otherwise. The fake data is in
+        the Competency0 and Competency1 orgs.
+      height: 14
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-explore-1
+    type: MARKDOWN
+  MARKDOWN-competency-x-log-note:
+    children: []
+    id: MARKDOWN-competency-x-log-note
+    meta:
+      code: |
+        **Reading the log scale**
+
+        | log10(hours) | time |
+        |---|---|
+        | 0 | 1 hour |
+        | 1.38 | 1 day |
+        | 2.23 | 1 week |
+        | 2.86 | 1 month |
+      height: 60
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-competency-explore-7
+    type: MARKDOWN
+  ROOT_ID:
+    children:
+    - GRID_ID
+    id: ROOT_ID
+    type: ROOT
+  ROW-competency-explore-1:
+    children:
+    - MARKDOWN-competency-x-intro
+    id: ROW-competency-explore-1
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+  ROW-competency-explore-10:
+    children:
+    - CHART-competency-x_heatmap
+    - CHART-competency-x_histogram
+    id: ROW-competency-explore-10
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+  ROW-competency-explore-3:
+    children:
+    - CHART-competency-x_minmax
+    - CHART-competency-x_tukey
+    id: ROW-competency-explore-3
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+  ROW-competency-explore-4:
+    children:
+    - CHART-competency-x_p9
+    - CHART-competency-x_p2
+    id: ROW-competency-explore-4
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+  ROW-competency-explore-6:
+    children:
+    - CHART-competency-x_leaf
+    - CHART-competency-x_range
+    id: ROW-competency-explore-6
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+  ROW-competency-explore-7:
+    children:
+    - CHART-competency-x_log
+    - MARKDOWN-competency-x-log-note
+    id: ROW-competency-explore-7
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+  ROW-competency-explore-9:
+    children:
+    - CHART-competency-x_quartiles
+    - CHART-competency-x_ranked
+    id: ROW-competency-explore-9
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+published: true
+slug: competency-explore
+tags:
+- original
+theme_uuid: null
+uuid: 0c70d6e3-1d3b-5267-817d-af089d4c2db7
+version: 1.0.0
