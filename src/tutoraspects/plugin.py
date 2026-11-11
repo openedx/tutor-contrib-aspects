@@ -46,7 +46,15 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("DOCKER_IMAGE_VECTOR", "timberio/vector:0.54.0-alpine"),
         (
             "EVENT_SINK_MODELS_ENABLED",
-            ["course_overviews", "tag", "taxonomy", "object_tag", "course_enrollment"],
+            [
+                "course_overviews",
+                "tag",
+                "taxonomy",
+                "object_tag",
+                "course_enrollment",
+                "student_competency_status",
+                "student_competency_criteria_group_status",
+            ],
         ),
         (
             "EVENT_SINK_PII_MODELS",
@@ -65,6 +73,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
             "ASPECTS_PII_CHART_UUIDS",
             [
                 "447a194b-dbed-4a82-a899-2df8e01e84b1",  # Learners (At Risk)
+                "a0e65b39-e03f-5b8c-af91-c08f3c456f96",  # Learner Competency Mastery
             ],
         ),
         ("ASPECTS_ENABLE_EVENT_BUS_CONSUMER", False),

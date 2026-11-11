@@ -1,0 +1,45 @@
+_file_name: Competencies_Mastered_Over_Time_Month_a992a6.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 6012b2ac-11d5-50b0-be49-2f73f91fcfa3
+description: Cumulative count of competencies demonstrated
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: mastered_at
+  - clause: WHERE
+    expressionType: SQL
+    sqlExpression: mastered_at is not null
+  annotation_layers: []
+  color_scheme: aspects_default
+  extra_form_data: {}
+  groupby: []
+  markerEnabled: false
+  metrics:
+  - competencies_mastered
+  opacity: 0.2
+  rich_tooltip: true
+  rolling_type: cumsum
+  row_limit: 10000
+  seriesType: line
+  show_legend: false
+  time_grain_sqla: P1M
+  viz_type: echarts_area
+  x_axis: mastered_at
+  x_axis_time_format: smart_date
+  y_axis_format: SMART_NUMBER
+  y_axis_title: Competencies mastered
+  y_axis_title_margin: 40
+  y_axis_title_position: Left
+  zoomable: true
+query_context: null
+slice_name: Competencies Mastered Over Time (Month)
+tags:
+- original
+uuid: a992a6cf-38e6-55c8-9573-8d028e2ebabd
+version: 1.0.0
+viz_type: echarts_area

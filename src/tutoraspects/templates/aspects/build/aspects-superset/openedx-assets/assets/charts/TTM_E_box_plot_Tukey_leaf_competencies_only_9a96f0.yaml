@@ -1,0 +1,37 @@
+_file_name: TTM_E_box_plot_Tukey_leaf_competencies_only_9a96f0.yaml
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: 0f6dbf75-0b29-5a04-a230-f2b219f95cd4
+description: Parents roll up from their children, so they repeat them; this leaves them out
+params:
+  adhoc_filters:
+  - clause: WHERE
+    expressionType: SQL
+    sqlExpression: time_unit = 'Days'
+  - clause: WHERE
+    expressionType: SQL
+    sqlExpression: competency_level = 'Leaf'
+  annotation_layers: []
+  color_scheme: aspects_default
+  columns:
+  - actor_id
+  date_format: smart_date
+  extra_form_data: {}
+  groupby:
+  - competency
+  metrics:
+  - time_to_mastery
+  number_format: ',.1f'
+  row_limit: 10000
+  viz_type: box_plot
+  whiskerOptions: Tukey
+  x_ticks_layout: 45°
+  y_axis_title: Time to mastery (days)
+query_context: null
+slice_name: 'TTM E: box plot, Tukey, leaf competencies only'
+tags:
+- original
+uuid: 9a96f039-bdcf-5800-a814-f6afb779dbb5
+version: 1.0.0
+viz_type: box_plot
