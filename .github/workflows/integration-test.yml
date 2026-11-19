@@ -84,6 +84,8 @@ jobs:
           uv run tutor local do dump-data-to-clickhouse --options "--object course_overviews --force"
           uv run tutor local do dump-data-to-clickhouse --options "--object catalog_pathway --force"
           uv run tutor local do dump-data-to-clickhouse --options "--object pathway_enrollment --force"
+          uv run tutor local do dump-data-to-clickhouse --options "--object student_competency_status --force"
+          uv run tutor local do dump-data-to-clickhouse --options "--object student_competency_course_status --force"
           uv run make extract_translations
           uv run tutor local do import-assets
           uv run tutor local do collect-dbt-lineage
@@ -168,6 +170,8 @@ jobs:
           uv run tutor dev do dump-data-to-clickhouse --options "--object course_overviews --force"
           uv run tutor dev do dump-data-to-clickhouse --options "--object catalog_pathway --force"
           uv run tutor dev do dump-data-to-clickhouse --options "--object pathway_enrollment --force"
+          uv run tutor dev do dump-data-to-clickhouse --options "--object student_competency_status --force"
+          uv run tutor dev do dump-data-to-clickhouse --options "--object student_competency_course_status --force"
           uv run make extract_translations
           uv run tutor dev do import-assets
       - name: Performance metrics
@@ -289,6 +293,8 @@ jobs:
           uv run tutor k8s do dump-data-to-clickhouse --options "--object course_overviews --force"
           uv run tutor k8s do dump-data-to-clickhouse --options "--object catalog_pathway --force"
           uv run tutor k8s do dump-data-to-clickhouse --options "--object pathway_enrollment --force"
+          uv run tutor k8s do dump-data-to-clickhouse --options "--object student_competency_status --force"
+          uv run tutor k8s do dump-data-to-clickhouse --options "--object student_competency_course_status --force"
           uv run make extract_translations
           uv run tutor k8s do import-assets
       - name: Performance metrics
@@ -468,6 +474,8 @@ jobs:
           uv run tutor local do dump-data-to-clickhouse --options "--object course_overviews --force"
           uv run tutor local do dump-data-to-clickhouse --options "--object catalog_pathway --force"
           uv run tutor local do dump-data-to-clickhouse --options "--object pathway_enrollment --force"
+          uv run tutor local do dump-data-to-clickhouse --options "--object student_competency_status --force"
+          uv run tutor local do dump-data-to-clickhouse --options "--object student_competency_course_status --force"
           uv run make extract_translations
           uv run tutor local do import-assets
           uv run tutor local do collect-dbt-lineage
@@ -559,6 +567,8 @@ jobs:
           uv run tutor dev do dump-data-to-clickhouse --options "--object course_overviews --force"
           uv run tutor dev do dump-data-to-clickhouse --options "--object catalog_pathway --force"
           uv run tutor dev do dump-data-to-clickhouse --options "--object pathway_enrollment --force"
+          uv run tutor dev do dump-data-to-clickhouse --options "--object student_competency_status --force"
+          uv run tutor dev do dump-data-to-clickhouse --options "--object student_competency_course_status --force"
           uv run make extract_translations
           uv run tutor dev do import-assets
       - name: Performance metrics
@@ -685,6 +695,8 @@ jobs:
           uv run tutor k8s do dump-data-to-clickhouse --options "--object course_overviews --force"
           uv run tutor k8s do dump-data-to-clickhouse --options "--object catalog_pathway --force"
           uv run tutor k8s do dump-data-to-clickhouse --options "--object pathway_enrollment --force"
+          uv run tutor k8s do dump-data-to-clickhouse --options "--object student_competency_status --force"
+          uv run tutor k8s do dump-data-to-clickhouse --options "--object student_competency_course_status --force"
           uv run make extract_translations
           uv run tutor k8s do import-assets
       - name: Performance metrics
