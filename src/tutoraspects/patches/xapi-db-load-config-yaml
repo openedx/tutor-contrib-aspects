@@ -34,6 +34,12 @@ num_actors: 10
 # more rows
 num_actor_profile_changes: 5
 
+# Make the fake taxonomy a competency taxonomy, so the load also writes learner
+# competency statuses (event_sink.student_competency_status and
+# student_competency_course_status), so CI exercises the competency sinks and the
+# aspects-dbt competency models end to end.
+taxonomy_type: competency
+
 # How many of each size course to create. The sum of these is the total number
 # of courses created for the test.
 num_course_sizes:
