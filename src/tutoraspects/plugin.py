@@ -54,6 +54,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
                 "course_enrollment",
                 "catalog_pathway",
                 "pathway_enrollment",
+                "student_competency_status",
+                "student_competency_course_status",
             ],
         ),
         (
@@ -430,7 +432,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # For now we are pulling this from github, which should allow maximum
         # flexibility for forking, running branches, specific versions, etc.
         ("DBT_REPOSITORY", "https://github.com/openedx/aspects-dbt"),
-        ("DBT_BRANCH", "v8.1.0"),
+        ("DBT_BRANCH", "v9.0.0"),
         ("DBT_SSH_KEY", ""),
         ("DBT_STATE_DIR", "/app/aspects-dbt/state"),
         ("DBT_PROFILES_DIR", "/app/aspects/dbt/"),
